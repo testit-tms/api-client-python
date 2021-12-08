@@ -1,4 +1,4 @@
-# Test IT TMS API client for JavaScript
+# Test IT TMS API client for Python
 ![Test IT](https://raw.githubusercontent.com/testit-tms/api-client-python/master/images/banner.png)
 
 # Getting Started
@@ -12,14 +12,14 @@ pip install testit-api-client
 
 ## Configuration
 
-To use client you need to provide configuration to `Client`:
+To use client you need to provide configuration to `Api`:
 ```py
 from testit_api_client.api import Api
 
 requests = Api(url, private_token, proxy=proxy)
 ```
 
-After configuration is done you can access different clients from `Client` object and then use methods to control Test IT.
+After configuration is done you can access different clients from `Api` object and then use methods to control Test IT.
 
 ## Examples
 
