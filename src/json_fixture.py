@@ -81,7 +81,7 @@ class JSONFixture:
         parameters=None,
         links=None,
         duration=None,
-        failure_reason_name=None,
+        failure_reason_names=None,
         message=None
     ):
         return {
@@ -96,6 +96,6 @@ class JSONFixture:
             'parameters': parameters,
             'links': links,
             'duration': duration,
-            'failureReasonName': failure_reason_name,
+            'failureReasonNames': failure_reason_names,
             'message': message
         }
