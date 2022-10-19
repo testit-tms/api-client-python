@@ -38,9 +38,10 @@ configuration = testit_api_client.Configuration(
     host = "Your TMS address"
 )
 
-configuration.api_key['PrivateToken'] = 'Your private token'
-
-with testit_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(
+        configuration,
+        header_name='Authorization',
+        header_value='PrivateToken ' + 'Your private token') as api_client:
     api_instance = attachments_api.AttachmentsApi(api_client)
     id = "Attachment's guid in the TMS"
 
