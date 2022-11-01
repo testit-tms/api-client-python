@@ -11,7 +11,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "testit-api-client"
-VERSION = "2.0.0"
+VERSION = "2.0.1"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
