@@ -11,7 +11,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "testit-api-client"
-VERSION = "2.0.2"
+VERSION = "2.0.4"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
@@ -23,8 +23,8 @@ setup(
     description='API-client for Test IT',
     long_description=open('README.md', "r").read(),
     long_description_content_type="text/markdown",
-    author='Pavel Butuzov',
-    author_email='pavel.butuzov@testit.software',
+    author='Integration team',
+    author_email='integrations@testit.software',
     url='https://pypi.org/project/testit-api-client/',
     py_modules=['testit_api_client'],
     packages=find_packages(where='src'),
