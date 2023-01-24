@@ -99,7 +99,9 @@ class TestPlansApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [
                     'application/json'
                 ]
@@ -621,7 +623,6 @@ class TestPlansApi(object):
             params_map={
                 'all': [
                     'id',
-                    'must_add_grouping_elements',
                     'tester_id',
                     'skip',
                     'take',
@@ -647,8 +648,6 @@ class TestPlansApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'must_add_grouping_elements':
-                        (bool,),
                     'tester_id':
                         (str,),
                     'skip':
@@ -664,7 +663,6 @@ class TestPlansApi(object):
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'must_add_grouping_elements': 'mustAddGroupingElements',
                     'tester_id': 'testerId',
                     'skip': 'Skip',
                     'take': 'Take',
@@ -674,7 +672,6 @@ class TestPlansApi(object):
                 },
                 'location_map': {
                     'id': 'path',
-                    'must_add_grouping_elements': 'query',
                     'tester_id': 'query',
                     'skip': 'query',
                     'take': 'query',
@@ -717,10 +714,14 @@ class TestPlansApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'request_body',
                 ]
             },
             root_map={
                 'validations': {
+                    ('request_body',): {
+
+                    },
                 },
                 'allowed_values': {
                 },
@@ -1603,7 +1604,7 @@ class TestPlansApi(object):
         id,
         **kwargs
     ):
-        """Add test-points to test suite with sections  # noqa: E501
+        """Add test-points to TestPlan with sections  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1612,7 +1613,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test suite internal identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             work_item_select_model (WorkItemSelectModel): Filter object to retrieve work items for test-suite's project. [optional]
@@ -1853,9 +1854,8 @@ class TestPlansApi(object):
         id,
         **kwargs
     ):
-        """Auto-balance for TestPlan with testers  # noqa: E501
+        """Distribute test points between the users  # noqa: E501
 
-        <br>Use case  <br>User sets TestPlan identifier  <br>User sets testers identifiers (listed in request example)  <br>User runs method execution  <br>System auto-balances TestPlan  <br>System returns test plan model (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1863,10 +1863,10 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int  format) identifier
+            id (str): Test plan unique or global ID
 
         Keyword Args:
-            testers ([str]): List of testers internal identifiers. [optional]
+            testers ([str]): Specifies a project user IDs to distribute. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2379,7 +2379,6 @@ class TestPlansApi(object):
             id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
-            must_add_grouping_elements (bool): [optional]
             tester_id (str): [optional]
             skip (int): Amount of items to be skipped (offset). [optional]
             take (int): Amount of items to be taken (limit). [optional]
@@ -2721,9 +2720,8 @@ class TestPlansApi(object):
         id,
         **kwargs
     ):
-        """Get max modified date in TestRun for TestPlan  # noqa: E501
+        """Get last modification date of test plan's test results  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System returns max modified date in TestRun for TestPlan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2731,7 +2729,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int  format) identifier
+            id (str): Test plan unique or global ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

@@ -76,7 +76,7 @@ class ParameterGroupModel(ModelNormal):
         """
         return {
             'name': (str, none_type,),  # noqa: E501
-            'values': ({str: (str,)}, none_type,),  # noqa: E501
+            'values': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'parameter_key_id': (str,),  # noqa: E501
         }
 
@@ -133,7 +133,7 @@ class ParameterGroupModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
-            values ({str: (str,)}, none_type): [optional]  # noqa: E501
+            values ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             parameter_key_id (str): [optional]  # noqa: E501
         """
 
@@ -221,7 +221,7 @@ class ParameterGroupModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
-            values ({str: (str,)}, none_type): [optional]  # noqa: E501
+            values ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             parameter_key_id (str): [optional]  # noqa: E501
         """
 

@@ -84,7 +84,7 @@ class FailureClassModel(ModelNormal):
         return {
             'name': (str, none_type,),  # noqa: E501
             'failure_category': (FailureCategoryModel,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -153,13 +153,13 @@ class FailureClassModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             failure_category (FailureCategoryModel): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             failure_class_regexes ([FailureClassRegexModel], none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,13 +247,13 @@ class FailureClassModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             failure_category (FailureCategoryModel): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             failure_class_regexes ([FailureClassRegexModel], none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

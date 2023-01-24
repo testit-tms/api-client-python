@@ -58,6 +58,9 @@ class LabelShortModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -76,7 +79,7 @@ class LabelShortModel(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
-            'global_id': (int, none_type,),  # noqa: E501
+            'global_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -133,7 +136,7 @@ class LabelShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +226,7 @@ class LabelShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**id** | **str** |  | [optional] 
-**description** | **str, none_type** |  | [optional] 
+**id** | **str** | Unique ID of the project | 
+**name** | **str** | Name of the project | 
+**description** | **str, none_type** | Description of the project | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

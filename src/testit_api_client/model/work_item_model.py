@@ -78,6 +78,9 @@ class WorkItemModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'min_length': 1,
+        },
         ('duration',): {
             'inclusive_maximum': 86400,
             'inclusive_minimum': 0,
@@ -121,7 +124,7 @@ class WorkItemModel(ModelNormal):
             'section_postcondition_steps': ([StepModel], none_type,),  # noqa: E501
             'version_number': (int,),  # noqa: E501
             'iterations': ([IterationModel], none_type,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -234,7 +237,7 @@ class WorkItemModel(ModelNormal):
             section_postcondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             version_number (int): used for define chronology of workitem state in each version. [optional]  # noqa: E501
             iterations ([IterationModel], none_type): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
@@ -361,7 +364,7 @@ class WorkItemModel(ModelNormal):
             section_postcondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             version_number (int): used for define chronology of workitem state in each version. [optional]  # noqa: E501
             iterations ([IterationModel], none_type): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501

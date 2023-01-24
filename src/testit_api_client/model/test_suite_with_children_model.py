@@ -145,8 +145,8 @@ class TestSuiteWithChildrenModel(ModelNormal):
             parent_id (str, none_type): [optional]  # noqa: E501
             test_plan_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,8 +237,8 @@ class TestSuiteWithChildrenModel(ModelNormal):
             parent_id (str, none_type): [optional]  # noqa: E501
             test_plan_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

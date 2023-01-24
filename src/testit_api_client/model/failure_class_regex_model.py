@@ -136,8 +136,8 @@ class FailureClassRegexModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             regex_text (str, none_type): [optional]  # noqa: E501
             failure_class_id (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,8 +225,8 @@ class FailureClassRegexModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             regex_text (str, none_type): [optional]  # noqa: E501
             failure_class_id (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

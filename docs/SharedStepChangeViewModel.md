@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**global_id** | **int, none_type** |  | [optional] 
+**global_id** | **int** |  | [optional] 
 **name** | **str, none_type** |  | [optional] 
 **steps** | [**[WorkItemStepChangeViewModel], none_type**](WorkItemStepChangeViewModel.md) |  | [optional] 
 

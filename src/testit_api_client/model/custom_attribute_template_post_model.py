@@ -58,6 +58,10 @@ class CustomAttributeTemplatePostModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
         ('custom_attribute_ids',): {
         },
     }
@@ -77,8 +81,8 @@ class CustomAttributeTemplatePostModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'name': (str,),  # noqa: E501
             'custom_attribute_ids': ([str], none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -87,8 +91,8 @@ class CustomAttributeTemplatePostModel(ModelNormal):
 
 
     attribute_map = {
-        'custom_attribute_ids': 'customAttributeIds',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'custom_attribute_ids': 'customAttributeIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,8 +102,11 @@ class CustomAttributeTemplatePostModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
         """CustomAttributeTemplatePostModel - a model defined in OpenAPI
+
+        Args:
+            name (str): Custom attributes template name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -132,8 +139,7 @@ class CustomAttributeTemplatePostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_attribute_ids ([str], none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            custom_attribute_ids ([str], none_type): Collection of attribute IDs. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -165,6 +171,7 @@ class CustomAttributeTemplatePostModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -185,8 +192,11 @@ class CustomAttributeTemplatePostModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, *args, **kwargs):  # noqa: E501
         """CustomAttributeTemplatePostModel - a model defined in OpenAPI
+
+        Args:
+            name (str): Custom attributes template name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -219,8 +229,7 @@ class CustomAttributeTemplatePostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_attribute_ids ([str], none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            custom_attribute_ids ([str], none_type): Collection of attribute IDs. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -250,6 +259,7 @@ class CustomAttributeTemplatePostModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

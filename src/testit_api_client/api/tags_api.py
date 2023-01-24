@@ -39,7 +39,7 @@ class TagsApi(object):
         self.api_client = api_client
         self.api_v2_tags_get_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': ([TagShortModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -198,7 +198,7 @@ class TagsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            [TagShortModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """

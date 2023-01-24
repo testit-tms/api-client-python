@@ -88,17 +88,17 @@ class WebHookModel(ModelNormal):
             'url': (str, none_type,),  # noqa: E501
             'request_type': (RequestTypeModel,),  # noqa: E501
             'should_send_body': (bool,),  # noqa: E501
-            'headers': ({str: (str,)}, none_type,),  # noqa: E501
-            'query_parameters': ({str: (str,)}, none_type,),  # noqa: E501
+            'headers': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'query_parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'should_send_custom_body': (bool,),  # noqa: E501
             'custom_body': (str, none_type,),  # noqa: E501
             'custom_body_media_type': (str, none_type,),  # noqa: E501
             'should_replace_parameters': (bool,),  # noqa: E501
             'should_escape_parameters': (bool,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
@@ -126,8 +126,8 @@ class WebHookModel(ModelNormal):
         'should_replace_parameters': 'shouldReplaceParameters',  # noqa: E501
         'should_escape_parameters': 'shouldEscapeParameters',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'id': 'id',  # noqa: E501
@@ -175,27 +175,27 @@ class WebHookModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
+            name (str, none_type): Name of the webhook. [optional]  # noqa: E501
             event_type (WebHookEventTypeModel): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
+            description (str, none_type): Description of the webhook. [optional]  # noqa: E501
+            url (str, none_type): Url to which the webhook sends request. [optional]  # noqa: E501
             request_type (RequestTypeModel): [optional]  # noqa: E501
-            should_send_body (bool): [optional]  # noqa: E501
-            headers ({str: (str,)}, none_type): [optional]  # noqa: E501
-            query_parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            is_enabled (bool): [optional]  # noqa: E501
-            should_send_custom_body (bool): [optional]  # noqa: E501
-            custom_body (str, none_type): [optional]  # noqa: E501
-            custom_body_media_type (str, none_type): [optional]  # noqa: E501
-            should_replace_parameters (bool): [optional]  # noqa: E501
-            should_escape_parameters (bool): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            should_send_body (bool): Indicates if the webhook sends body. [optional]  # noqa: E501
+            headers ({str: (str, none_type)}, none_type): Collection of headers which the webhook sends. [optional]  # noqa: E501
+            query_parameters ({str: (str, none_type)}, none_type): Collection of query parameters which the webhook sends. [optional]  # noqa: E501
+            is_enabled (bool): Indicates if the webhook is active. [optional]  # noqa: E501
+            should_send_custom_body (bool): Indicates if the webhook sends custom body. [optional]  # noqa: E501
+            custom_body (str, none_type): Custom body of the webhook. [optional]  # noqa: E501
+            custom_body_media_type (str, none_type): MIME type of body of the webhook. [optional]  # noqa: E501
+            should_replace_parameters (bool): Indicates if the webhook injects parameters. [optional]  # noqa: E501
+            should_escape_parameters (bool): Indicates if the webhook escapes invalid characters in parameters. [optional]  # noqa: E501
+            created_date (datetime): Creation date of the webhook. [optional]  # noqa: E501
+            created_by_id (str): Unique ID of user who created the webhook. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the webhook. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of user who modified the webhook last time. [optional]  # noqa: E501
+            project_id (str): Unique ID of project where the webhook is located. [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,27 +281,27 @@ class WebHookModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
+            name (str, none_type): Name of the webhook. [optional]  # noqa: E501
             event_type (WebHookEventTypeModel): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
+            description (str, none_type): Description of the webhook. [optional]  # noqa: E501
+            url (str, none_type): Url to which the webhook sends request. [optional]  # noqa: E501
             request_type (RequestTypeModel): [optional]  # noqa: E501
-            should_send_body (bool): [optional]  # noqa: E501
-            headers ({str: (str,)}, none_type): [optional]  # noqa: E501
-            query_parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            is_enabled (bool): [optional]  # noqa: E501
-            should_send_custom_body (bool): [optional]  # noqa: E501
-            custom_body (str, none_type): [optional]  # noqa: E501
-            custom_body_media_type (str, none_type): [optional]  # noqa: E501
-            should_replace_parameters (bool): [optional]  # noqa: E501
-            should_escape_parameters (bool): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            should_send_body (bool): Indicates if the webhook sends body. [optional]  # noqa: E501
+            headers ({str: (str, none_type)}, none_type): Collection of headers which the webhook sends. [optional]  # noqa: E501
+            query_parameters ({str: (str, none_type)}, none_type): Collection of query parameters which the webhook sends. [optional]  # noqa: E501
+            is_enabled (bool): Indicates if the webhook is active. [optional]  # noqa: E501
+            should_send_custom_body (bool): Indicates if the webhook sends custom body. [optional]  # noqa: E501
+            custom_body (str, none_type): Custom body of the webhook. [optional]  # noqa: E501
+            custom_body_media_type (str, none_type): MIME type of body of the webhook. [optional]  # noqa: E501
+            should_replace_parameters (bool): Indicates if the webhook injects parameters. [optional]  # noqa: E501
+            should_escape_parameters (bool): Indicates if the webhook escapes invalid characters in parameters. [optional]  # noqa: E501
+            created_date (datetime): Creation date of the webhook. [optional]  # noqa: E501
+            created_by_id (str): Unique ID of user who created the webhook. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the webhook. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of user who modified the webhook last time. [optional]  # noqa: E501
+            project_id (str): Unique ID of project where the webhook is located. [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
+**201** | Created |  -  |
 **400** | &lt;br&gt;- Parameter model is not valid |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -149,7 +149,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = [
         ParameterPutModel(
-            id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+            id="573f916c-d8ad-4f87-846f-4dba1839ae56",
             value="value_example",
             name="name_example",
         ),
@@ -189,10 +189,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Success |  -  |
-**422** | Client Error |  -  |
-**400** | &lt;br&gt;- Parameter model is not valid |  -  |
 **403** | Invalid user permissions |  -  |
+**400** | &lt;br&gt;- Parameter model is not valid |  -  |
+**204** | No Content |  -  |
+**422** | Client Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **400** | Bad Request |  -  |
-**201** | Success |  -  |
+**201** | Created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -680,8 +680,8 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **422** | Parameter is in use in iterations |  -  |
-**204** | Success |  -  |
 **400** | Provided name either is empty or contains only white spaces |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -758,9 +758,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Success |  -  |
-**403** | Invalid user permissions |  -  |
+**204** | No Content |  -  |
 **422** | Parameter is in use in iterations |  -  |
+**403** | Invalid user permissions |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -931,7 +931,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Invalid user permissions |  -  |
-**201** | Success |  -  |
+**201** | Created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1130,7 +1130,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = ParameterPutModel(
-        id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        id="573f916c-d8ad-4f87-846f-4dba1839ae56",
         value="value_example",
         name="name_example",
     ) # ParameterPutModel |  (optional)
@@ -1169,8 +1169,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | No Content |  -  |
 **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
-**204** | Success |  -  |
 **404** | Parameter with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

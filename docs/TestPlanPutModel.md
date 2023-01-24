@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | 
 **name** | **str** |  | 
 **project_id** | **str** |  | 
-**id** | **str** |  | [optional] 
 **locked_by_id** | **str, none_type** |  | [optional] 
 **tags** | [**[TagShortModel], none_type**](TagShortModel.md) |  | [optional] 
 **start_date** | **datetime, none_type** | Used for analytics | [optional] 

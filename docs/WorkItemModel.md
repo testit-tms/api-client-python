@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **section_postcondition_steps** | [**[StepModel], none_type**](StepModel.md) |  | [optional] 
 **version_number** | **int** | used for define chronology of workitem state in each version | [optional] 
 **iterations** | [**[IterationModel], none_type**](IterationModel.md) |  | [optional] 
-**created_date** | **datetime, none_type** |  | [optional] 
+**created_date** | **datetime** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **created_by_id** | **str** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 

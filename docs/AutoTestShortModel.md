@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**global_id** | **int, none_type** |  | [optional] 
+**global_id** | **int** |  | [optional] 
 **external_id** | **str, none_type** |  | [optional] 
 **project_id** | **str** |  | [optional] 
 **name** | **str, none_type** |  | [optional] 

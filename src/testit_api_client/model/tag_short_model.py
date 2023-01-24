@@ -58,6 +58,10 @@ class TagShortModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'max_length': 30,
+            'min_length': 0,
+        },
     }
 
     additional_properties_type = None

@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_run_state_type_model import TestRunStateTypeModel
-    globals()['TestRunStateTypeModel'] = TestRunStateTypeModel
+    from testit_api_client.model.test_run_state import TestRunState
+    globals()['TestRunState'] = TestRunState
 
 
 class TestRunShortModel(ModelNormal):
@@ -80,7 +80,7 @@ class TestRunShortModel(ModelNormal):
         """
         lazy_import()
         return {
-            'state_name': (TestRunStateTypeModel,),  # noqa: E501
+            'state_name': (TestRunState,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
@@ -145,13 +145,13 @@ class TestRunShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            state_name (TestRunStateTypeModel): [optional]  # noqa: E501
+            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,13 +237,13 @@ class TestRunShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            state_name (TestRunStateTypeModel): [optional]  # noqa: E501
+            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

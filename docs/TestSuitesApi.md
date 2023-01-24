@@ -32,6 +32,8 @@ import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.work_item_select_model import WorkItemSelectModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +67,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
                 "exclude_ids_example",
             ],
             name="name_example",
+            ids=[
+                "ids_example",
+            ],
             global_ids=[
                 1,
             ],
@@ -92,45 +97,54 @@ with testit_api_client.ApiClient(configuration) as api_client:
             priorities=[
                 WorkItemPriorityModel("Lowest"),
             ],
-            entity_types=[
-                "entity_types_example",
+            types=[
+                WorkItemEntityTypes("TestCases"),
             ],
-            created_date_minimal=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            created_date_maximal=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            modified_date_minimal=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            modified_date_maximal=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            duration_minimal=1,
-            duration_maximal=1,
+            created_date=DateTimeRangeSelectorModel(
+                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            ),
+            modified_date=DateTimeRangeSelectorModel(
+                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            ),
+            duration=Int32RangeSelectorModel(
+                _from=1,
+                to=1,
+            ),
             is_automated=True,
-            tag_names=[
-                "tag_names_example",
+            tags=[
+                "tags_example",
             ],
             auto_test_ids=[
                 "auto_test_ids_example",
             ],
-            except_work_item_ids=[
-                "except_work_item_ids_example",
-            ],
         ),
-        extraction_model=WorkItemExtractionModel(
-            include_work_items=[
-                "include_work_items_example",
-            ],
-            include_sections=[
-                "include_sections_example",
-            ],
-            include_projects=[
-                "include_projects_example",
-            ],
-            exclude_work_items=[
-                "exclude_work_items_example",
-            ],
-            exclude_sections=[
-                "exclude_sections_example",
-            ],
-            exclude_projects=[
-                "exclude_projects_example",
-            ],
+        extraction_model=WorkItemsExtractionModel(
+            ids=GuidExtractionModel(
+                include=[
+                    "include_example",
+                ],
+                exclude=[
+                    "exclude_example",
+                ],
+            ),
+            section_ids=GuidExtractionModel(
+                include=[
+                    "include_example",
+                ],
+                exclude=[
+                    "exclude_example",
+                ],
+            ),
+            project_ids=GuidExtractionModel(
+                include=[
+                    "include_example",
+                ],
+                exclude=[
+                    "exclude_example",
+                ],
+            ),
         ),
     ) # WorkItemSelectModel | Filter object to retrieve work items for test-suite's project (optional)
 
@@ -176,12 +190,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
-**422** | Shared steps cannot be added to test suite |  -  |
+**404** | Test suite with provided ID was not found |  -  |
 **204** | Successful operation |  -  |
+**422** | Shared steps cannot be added to test suite |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
-**404** | Test suite with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -200,8 +214,10 @@ Create TestSuite
 import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
 from testit_api_client.model.test_suite_v2_post_model import TestSuiteV2PostModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -225,8 +241,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     test_suite_v2_post_model = TestSuiteV2PostModel(
-        parent_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
-        test_plan_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        parent_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+        test_plan_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
         name="base test suite",
     ) # TestSuiteV2PostModel |  (optional)
 
@@ -266,15 +282,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **400** | &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! |  -  |
-**401** | Unauthorized |  -  |
-**403** | Update permission for test plan required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 **201** | Successful operation |  -  |
+**403** | Update permission for test plan required |  -  |
+**401** | Unauthorized |  -  |
+**404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_test_suite**
-> str delete_test_suite(id)
+> delete_test_suite(id)
 
 Delete TestSuite
 
@@ -288,6 +304,7 @@ Delete TestSuite
 import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -315,8 +332,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Delete TestSuite
-        api_response = api_instance.delete_test_suite(id)
-        pprint(api_response)
+        api_instance.delete_test_suite(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->delete_test_suite: %s\n" % e)
 ```
@@ -330,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+void (empty response body)
 
 ### Authorization
 
@@ -346,8 +362,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
+**204** | Successful operation |  -  |
 **403** | Delete permission for test plan required |  -  |
 **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 
@@ -368,6 +384,7 @@ Get Configurations By Id
 import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.configuration_model import ConfigurationModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -427,10 +444,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
-**401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **200** | Successful operation |  -  |
+**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -449,6 +466,7 @@ Get TestPoints By Id
 import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_point_by_test_suite_model import TestPointByTestSuiteModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -508,10 +526,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**401** | Unauthorized |  -  |
-**403** | Read permission for test plan required |  -  |
 **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+**200** | Successful operation |  -  |
+**403** | Read permission for test plan required |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -530,6 +548,7 @@ Get TestResults By Id
 import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_result_v2_short_model import TestResultV2ShortModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -589,10 +608,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
-**200** | Successful operation |  -  |
-**401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
+**401** | Unauthorized |  -  |
+**200** | Successful operation |  -  |
+**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -611,6 +630,7 @@ Get TestSuite by Id
 import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -671,9 +691,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
-**200** | Successful operation |  -  |
-**401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
+**401** | Unauthorized |  -  |
+**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -690,6 +710,7 @@ Name | Type | Description  | Notes
 import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -772,10 +793,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Forbidden |  -  |
 **401** | Unauthorized |  -  |
-**404** | Not Found |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -841,15 +862,15 @@ with testit_api_client.ApiClient(configuration) as api_client:
         states=[
             WorkItemStates("NeedsWork"),
         ],
-        duration=DurationRangeModel(
-            minimal=1,
-            maximal=1,
+        duration=Int32RangeSelectorModel(
+            _from=1,
+            to=1,
         ),
-        created_date=DateRangeModel(
+        created_date=DateTimeRangeSelectorModel(
             _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
             to=dateutil_parser('1970-01-01T00:00:00.00Z'),
         ),
-        modified_date=DateRangeModel(
+        modified_date=DateTimeRangeSelectorModel(
             _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
             to=dateutil_parser('1970-01-01T00:00:00.00Z'),
         ),
@@ -923,15 +944,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_configurations_by_test_suite_id**
-> [ConfigurationModel] set_configurations_by_test_suite_id(id)
+> set_configurations_by_test_suite_id(id)
 
 Set Configurations By TestSuite Id
 
@@ -945,7 +966,8 @@ Set Configurations By TestSuite Id
 import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
-from testit_api_client.model.configuration_model import ConfigurationModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -976,8 +998,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Set Configurations By TestSuite Id
-        api_response = api_instance.set_configurations_by_test_suite_id(id)
-        pprint(api_response)
+        api_instance.set_configurations_by_test_suite_id(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->set_configurations_by_test_suite_id: %s\n" % e)
 
@@ -985,8 +1006,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Set Configurations By TestSuite Id
-        api_response = api_instance.set_configurations_by_test_suite_id(id, request_body=request_body)
-        pprint(api_response)
+        api_instance.set_configurations_by_test_suite_id(id, request_body=request_body)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->set_configurations_by_test_suite_id: %s\n" % e)
 ```
@@ -1001,7 +1021,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ConfigurationModel]**](ConfigurationModel.md)
+void (empty response body)
 
 ### Authorization
 
@@ -1017,16 +1037,16 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;Some of Configurations do not exist in the project, or they are not active |  -  |
-**401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
+**404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
+**401** | Unauthorized |  -  |
+**400** | &lt;br&gt;Some of Configurations do not exist in the project, or they are not active |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_work_items_by_test_suite_id**
-> [WorkItemShortModel] set_work_items_by_test_suite_id(id)
+> set_work_items_by_test_suite_id(id)
 
 Set WorkItems By TestSuite Id
 
@@ -1040,7 +1060,8 @@ Set WorkItems By TestSuite Id
 import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1071,8 +1092,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Set WorkItems By TestSuite Id
-        api_response = api_instance.set_work_items_by_test_suite_id(id)
-        pprint(api_response)
+        api_instance.set_work_items_by_test_suite_id(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->set_work_items_by_test_suite_id: %s\n" % e)
 
@@ -1080,8 +1100,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Set WorkItems By TestSuite Id
-        api_response = api_instance.set_work_items_by_test_suite_id(id, request_body=request_body)
-        pprint(api_response)
+        api_instance.set_work_items_by_test_suite_id(id, request_body=request_body)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->set_work_items_by_test_suite_id: %s\n" % e)
 ```
@@ -1096,7 +1115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[WorkItemShortModel]**](WorkItemShortModel.md)
+void (empty response body)
 
 ### Authorization
 
@@ -1112,17 +1131,17 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**403** | Update permission for test plan required |  -  |
 **204** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | Update permission for test plan required |  -  |
 **404** | &lt;br&gt;Can&#39;t find a TestSuite with id  &lt;br&gt;Some of WorkItems does not exist or deleted |  -  |
 **422** | &lt;br&gt;can&#39;t put a SharedStep in the TestSuite  &lt;br&gt;ProjectId must be the same for TestSuites |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_test_suite**
-> TestSuiteV2GetModel update_test_suite()
+> update_test_suite()
 
 Update TestSuite
 
@@ -1137,7 +1156,8 @@ import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.test_suite_v2_put_model import TestSuiteV2PutModel
-from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1170,8 +1190,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update TestSuite
-        api_response = api_instance.update_test_suite(test_suite_v2_put_model=test_suite_v2_put_model)
-        pprint(api_response)
+        api_instance.update_test_suite(test_suite_v2_put_model=test_suite_v2_put_model)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->update_test_suite: %s\n" % e)
 ```
@@ -1185,7 +1204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestSuiteV2GetModel**](TestSuiteV2GetModel.md)
+void (empty response body)
 
 ### Authorization
 
@@ -1201,10 +1220,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
+**204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
-**204** | Successful operation |  -  |
+**404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 **400** | &lt;br&gt;Field is required  &lt;br&gt;Suite with Id creates loop! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

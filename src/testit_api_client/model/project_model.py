@@ -62,6 +62,9 @@ class ProjectModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -80,6 +83,7 @@ class ProjectModel(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'attributes_scheme': ([CustomAttributeModel], none_type,),  # noqa: E501
             'test_plans_attributes_scheme': ([CustomAttributeModel], none_type,),  # noqa: E501
@@ -89,12 +93,11 @@ class ProjectModel(ModelNormal):
             'auto_tests_count': (int, none_type,),  # noqa: E501
             'is_favorite': (bool,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
-            'id': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
         }
 
@@ -104,6 +107,7 @@ class ProjectModel(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'attributes_scheme': 'attributesScheme',  # noqa: E501
         'test_plans_attributes_scheme': 'testPlansAttributesScheme',  # noqa: E501
@@ -118,7 +122,6 @@ class ProjectModel(ModelNormal):
         'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
-        'id': 'id',  # noqa: E501
         'description': 'description',  # noqa: E501
     }
 
@@ -129,11 +132,12 @@ class ProjectModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, *args, **kwargs):  # noqa: E501
         """ProjectModel - a model defined in OpenAPI
 
         Args:
-            name (str):
+            id (str): Unique ID of the project
+            name (str): Name of the project
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -166,21 +170,20 @@ class ProjectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            attributes_scheme ([CustomAttributeModel], none_type): [optional]  # noqa: E501
-            test_plans_attributes_scheme ([CustomAttributeModel], none_type): [optional]  # noqa: E501
-            test_cases_count (int, none_type): [optional]  # noqa: E501
-            shared_steps_count (int, none_type): [optional]  # noqa: E501
-            check_lists_count (int, none_type): [optional]  # noqa: E501
-            auto_tests_count (int, none_type): [optional]  # noqa: E501
-            is_favorite (bool): Property is used to filter favourite projects. [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
+            attributes_scheme ([CustomAttributeModel], none_type): Collection of the project attributes. [optional]  # noqa: E501
+            test_plans_attributes_scheme ([CustomAttributeModel], none_type): Collection of the project test plans attributes. [optional]  # noqa: E501
+            test_cases_count (int, none_type): Number of test cases in the project. [optional]  # noqa: E501
+            shared_steps_count (int, none_type): Number of shared steps in the project. [optional]  # noqa: E501
+            check_lists_count (int, none_type): Number of checklists in the project. [optional]  # noqa: E501
+            auto_tests_count (int, none_type): Number of autotests in the project. [optional]  # noqa: E501
+            is_favorite (bool): Indicates if the project is marked as favorite. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the project is deleted. [optional]  # noqa: E501
+            created_date (datetime): Creation date of the project. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
+            created_by_id (str): Unique ID of the project creator. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
+            global_id (int): Global ID of the project. [optional]  # noqa: E501
+            description (str, none_type): Description of the project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -212,6 +215,7 @@ class ProjectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -233,11 +237,12 @@ class ProjectModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, *args, **kwargs):  # noqa: E501
         """ProjectModel - a model defined in OpenAPI
 
         Args:
-            name (str):
+            id (str): Unique ID of the project
+            name (str): Name of the project
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -270,21 +275,20 @@ class ProjectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            attributes_scheme ([CustomAttributeModel], none_type): [optional]  # noqa: E501
-            test_plans_attributes_scheme ([CustomAttributeModel], none_type): [optional]  # noqa: E501
-            test_cases_count (int, none_type): [optional]  # noqa: E501
-            shared_steps_count (int, none_type): [optional]  # noqa: E501
-            check_lists_count (int, none_type): [optional]  # noqa: E501
-            auto_tests_count (int, none_type): [optional]  # noqa: E501
-            is_favorite (bool): Property is used to filter favourite projects. [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
+            attributes_scheme ([CustomAttributeModel], none_type): Collection of the project attributes. [optional]  # noqa: E501
+            test_plans_attributes_scheme ([CustomAttributeModel], none_type): Collection of the project test plans attributes. [optional]  # noqa: E501
+            test_cases_count (int, none_type): Number of test cases in the project. [optional]  # noqa: E501
+            shared_steps_count (int, none_type): Number of shared steps in the project. [optional]  # noqa: E501
+            check_lists_count (int, none_type): Number of checklists in the project. [optional]  # noqa: E501
+            auto_tests_count (int, none_type): Number of autotests in the project. [optional]  # noqa: E501
+            is_favorite (bool): Indicates if the project is marked as favorite. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the project is deleted. [optional]  # noqa: E501
+            created_date (datetime): Creation date of the project. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
+            created_by_id (str): Unique ID of the project creator. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
+            global_id (int): Global ID of the project. [optional]  # noqa: E501
+            description (str, none_type): Description of the project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -314,6 +318,7 @@ class ProjectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

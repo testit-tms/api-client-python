@@ -151,8 +151,8 @@ class TestPointPutModel(ModelNormal):
             test_suite_id (str): [optional]  # noqa: E501
             status (str, none_type): [optional]  # noqa: E501
             last_test_result_id (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,8 +245,8 @@ class TestPointPutModel(ModelNormal):
             test_suite_id (str): [optional]  # noqa: E501
             status (str, none_type): [optional]  # noqa: E501
             last_test_result_id (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

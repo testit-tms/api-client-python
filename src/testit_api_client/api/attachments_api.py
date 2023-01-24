@@ -139,6 +139,9 @@ class AttachmentsApi(object):
                     ('background_color',): {
                         'max_length': 7,
                         'min_length': 7,
+                        'regex': {
+                            'pattern': r'#[0-9A-Fa-f]{6}',  # noqa: E501
+                        },
                     },
                 },
                 'allowed_values': {
@@ -186,7 +189,7 @@ class AttachmentsApi(object):
         )
         self.api_v2_attachments_occupied_file_storage_size_get_endpoint = _Endpoint(
             settings={
-                'response_type': (float,),
+                'response_type': (int,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -453,7 +456,7 @@ class AttachmentsApi(object):
         self,
         **kwargs
     ):
-        """api_v2_attachments_occupied_file_storage_size_get  # noqa: E501
+        """Get size of attachments storage in bytes  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -495,7 +498,7 @@ class AttachmentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            float
+            int
                 If the method is called asynchronously, returns the request
                 thread.
         """

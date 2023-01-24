@@ -62,6 +62,10 @@ class CustomAttributeSearchQueryModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
         ('project_ids',): {
         },
         ('custom_attribute_ids',): {
@@ -149,12 +153,12 @@ class CustomAttributeSearchQueryModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            project_ids ([str], none_type): [optional]  # noqa: E501
-            custom_attribute_ids ([str], none_type): [optional]  # noqa: E501
-            custom_attribute_types ([CustomAttributeTypesEnum], none_type): [optional]  # noqa: E501
-            is_global (bool, none_type): [optional]  # noqa: E501
-            is_deleted (bool, none_type): [optional]  # noqa: E501
+            name (str, none_type): Name of attribute. [optional]  # noqa: E501
+            project_ids ([str], none_type): Unique IDs of projects where attribute is in use. [optional]  # noqa: E501
+            custom_attribute_ids ([str], none_type): Unique IDs of attributes for search restriction. [optional]  # noqa: E501
+            custom_attribute_types ([CustomAttributeTypesEnum], none_type): Collection of attribute types. [optional]  # noqa: E501
+            is_global (bool, none_type): Indicates whether the attribute is available across all projects. [optional]  # noqa: E501
+            is_deleted (bool, none_type): Indicates whether the attribute is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -240,12 +244,12 @@ class CustomAttributeSearchQueryModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            project_ids ([str], none_type): [optional]  # noqa: E501
-            custom_attribute_ids ([str], none_type): [optional]  # noqa: E501
-            custom_attribute_types ([CustomAttributeTypesEnum], none_type): [optional]  # noqa: E501
-            is_global (bool, none_type): [optional]  # noqa: E501
-            is_deleted (bool, none_type): [optional]  # noqa: E501
+            name (str, none_type): Name of attribute. [optional]  # noqa: E501
+            project_ids ([str], none_type): Unique IDs of projects where attribute is in use. [optional]  # noqa: E501
+            custom_attribute_ids ([str], none_type): Unique IDs of attributes for search restriction. [optional]  # noqa: E501
+            custom_attribute_types ([CustomAttributeTypesEnum], none_type): Collection of attribute types. [optional]  # noqa: E501
+            is_global (bool, none_type): Indicates whether the attribute is available across all projects. [optional]  # noqa: E501
+            is_deleted (bool, none_type): Indicates whether the attribute is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

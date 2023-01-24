@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | 
 **name** | **str** |  | 
 **project_id** | **str** |  | 
 **test_suites** | [**[TestSuiteWithChildrenModel], none_type**](TestSuiteWithChildrenModel.md) |  | [optional] 
@@ -17,7 +18,6 @@ Name | Type | Description | Notes
 **global_id** | **int** | Used for search Test plan | [optional] 
 **is_deleted** | **bool** |  | [optional] 
 **locked_date** | **datetime, none_type** |  | [optional] 
-**id** | **str** |  | [optional] 
 **locked_by_id** | **str, none_type** |  | [optional] 
 **tags** | [**[TagShortModel], none_type**](TagShortModel.md) |  | [optional] 
 **start_date** | **datetime, none_type** | Used for analytics | [optional] 

@@ -58,6 +58,9 @@ class AutoTestStepModel(ModelNormal):
     }
 
     validations = {
+        ('title',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None

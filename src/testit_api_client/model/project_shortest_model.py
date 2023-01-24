@@ -77,7 +77,7 @@ class ProjectShortestModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'global_id': (int, none_type,),  # noqa: E501
+            'global_id': (int,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
         }
 
@@ -134,10 +134,10 @@ class ProjectShortestModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            id (str): Unique ID of project. [optional]  # noqa: E501
+            is_deleted (bool): Indicates whether the project is deleted. [optional]  # noqa: E501
+            global_id (int): Global ID of project. [optional]  # noqa: E501
+            name (str, none_type): Name of project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,10 +223,10 @@ class ProjectShortestModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            id (str): Unique ID of project. [optional]  # noqa: E501
+            is_deleted (bool): Indicates whether the project is deleted. [optional]  # noqa: E501
+            global_id (int): Global ID of project. [optional]  # noqa: E501
+            name (str, none_type): Name of project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

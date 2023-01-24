@@ -76,8 +76,8 @@ class CustomAttributeTestPlanProjectRelationPutModel(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
-            'enabled': (bool,),  # noqa: E501
-            'required': (bool,),  # noqa: E501
+            'is_enabled': (bool,),  # noqa: E501
+            'is_required': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -87,8 +87,8 @@ class CustomAttributeTestPlanProjectRelationPutModel(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'enabled': 'enabled',  # noqa: E501
-        'required': 'required',  # noqa: E501
+        'is_enabled': 'isEnabled',  # noqa: E501
+        'is_required': 'isRequired',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,13 +98,13 @@ class CustomAttributeTestPlanProjectRelationPutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, enabled, required, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_enabled, is_required, *args, **kwargs):  # noqa: E501
         """CustomAttributeTestPlanProjectRelationPutModel - a model defined in OpenAPI
 
         Args:
-            id (str):
-            enabled (bool):
-            required (bool):
+            id (str): Custom attribute internal unique identifier
+            is_enabled (bool): Flag that defines if custom attribute is enabled
+            is_required (bool): Flag that defines if custom attribute is required
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -169,8 +169,8 @@ class CustomAttributeTestPlanProjectRelationPutModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
-        self.enabled = enabled
-        self.required = required
+        self.is_enabled = is_enabled
+        self.is_required = is_required
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -191,13 +191,13 @@ class CustomAttributeTestPlanProjectRelationPutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, enabled, required, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_enabled, is_required, *args, **kwargs):  # noqa: E501
         """CustomAttributeTestPlanProjectRelationPutModel - a model defined in OpenAPI
 
         Args:
-            id (str):
-            enabled (bool):
-            required (bool):
+            id (str): Custom attribute internal unique identifier
+            is_enabled (bool): Flag that defines if custom attribute is enabled
+            is_required (bool): Flag that defines if custom attribute is required
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,8 +260,8 @@ class CustomAttributeTestPlanProjectRelationPutModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
-        self.enabled = enabled
-        self.required = required
+        self.is_enabled = is_enabled
+        self.is_required = is_required
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

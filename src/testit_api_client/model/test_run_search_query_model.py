@@ -31,9 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
-    from testit_api_client.model.test_run_state_type_model import TestRunStateTypeModel
+    from testit_api_client.model.test_run_state import TestRunState
     globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
-    globals()['TestRunStateTypeModel'] = TestRunStateTypeModel
+    globals()['TestRunState'] = TestRunState
 
 
 class TestRunSearchQueryModel(ModelNormal):
@@ -68,9 +68,11 @@ class TestRunSearchQueryModel(ModelNormal):
             'max_length': 255,
             'min_length': 0,
         },
-        ('state',): {
+        ('states',): {
         },
         ('created_by_ids',): {
+        },
+        ('modified_by_ids',): {
         },
     }
 
@@ -91,10 +93,11 @@ class TestRunSearchQueryModel(ModelNormal):
         lazy_import()
         return {
             'name': (str, none_type,),  # noqa: E501
-            'state': ([TestRunStateTypeModel], none_type,),  # noqa: E501
-            'start_date': (DateTimeRangeSelectorModel,),  # noqa: E501
-            'end_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'states': ([TestRunState], none_type,),  # noqa: E501
+            'started_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'completed_date': (DateTimeRangeSelectorModel,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
+            'modified_by_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -104,10 +107,11 @@ class TestRunSearchQueryModel(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'state': 'state',  # noqa: E501
-        'start_date': 'startDate',  # noqa: E501
-        'end_date': 'endDate',  # noqa: E501
+        'states': 'states',  # noqa: E501
+        'started_date': 'startedDate',  # noqa: E501
+        'completed_date': 'completedDate',  # noqa: E501
         'created_by_ids': 'createdByIds',  # noqa: E501
+        'modified_by_ids': 'modifiedByIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -152,10 +156,11 @@ class TestRunSearchQueryModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
-            state ([TestRunStateTypeModel], none_type): [optional]  # noqa: E501
-            start_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            end_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            states ([TestRunState], none_type): [optional]  # noqa: E501
+            started_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            completed_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
+            modified_by_ids ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -242,10 +247,11 @@ class TestRunSearchQueryModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
-            state ([TestRunStateTypeModel], none_type): [optional]  # noqa: E501
-            start_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            end_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            states ([TestRunState], none_type): [optional]  # noqa: E501
+            started_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            completed_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
+            modified_by_ids ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

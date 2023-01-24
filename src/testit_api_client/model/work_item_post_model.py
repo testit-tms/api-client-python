@@ -82,6 +82,9 @@ class WorkItemPostModel(ModelNormal):
             'inclusive_maximum': 86400,
             'inclusive_minimum': 0,
         },
+        ('name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None

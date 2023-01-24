@@ -58,6 +58,9 @@ class ProjectPostModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -100,7 +103,7 @@ class ProjectPostModel(ModelNormal):
         """ProjectPostModel - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): Name of the project
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -133,7 +136,7 @@ class ProjectPostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): [optional]  # noqa: E501
+            description (str, none_type): Description of the project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -190,7 +193,7 @@ class ProjectPostModel(ModelNormal):
         """ProjectPostModel - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): Name of the project
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,7 +226,7 @@ class ProjectPostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): [optional]  # noqa: E501
+            description (str, none_type): Description of the project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

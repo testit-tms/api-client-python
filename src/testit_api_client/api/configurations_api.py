@@ -43,7 +43,7 @@ class ConfigurationsApi(object):
         self.api_client = api_client
         self.api_v2_configurations_create_by_parameters_post_endpoint = _Endpoint(
             settings={
-                'response_type': ([str],),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -366,7 +366,7 @@ class ConfigurationsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [str]
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_tags_get**
-> api_v2_tags_get()
+> [TagShortModel] api_v2_tags_get()
 
 Get all Tags
 
@@ -23,6 +23,7 @@ Get all Tags
 import time
 import testit_api_client
 from testit_api_client.api import tags_api
+from testit_api_client.model.tag_short_model import TagShortModel
 from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -50,7 +51,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # Get all Tags
-        api_instance.api_v2_tags_get()
+        api_response = api_instance.api_v2_tags_get()
+        pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TagsApi->api_v2_tags_get: %s\n" % e)
 ```
@@ -61,7 +63,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**[TagShortModel]**](TagShortModel.md)
 
 ### Authorization
 
@@ -77,8 +79,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **200** | Successful operation |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -168,8 +170,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** | Unauthorized |  -  |
-**400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

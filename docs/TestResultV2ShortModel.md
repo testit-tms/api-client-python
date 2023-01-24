@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **comment** | **str, none_type** |  | [optional] 
 **links** | [**[LinkModel], none_type**](LinkModel.md) |  | [optional] 
 **attachments** | [**[AttachmentModel], none_type**](AttachmentModel.md) |  | [optional] 
-**parameters** | **{str: (str,)}, none_type** |  | [optional] 
-**properties** | **{str: (str,)}, none_type** |  | [optional] 
+**parameters** | **{str: (str, none_type)}, none_type** |  | [optional] 
+**properties** | **{str: (str, none_type)}, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

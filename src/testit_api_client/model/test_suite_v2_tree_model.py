@@ -58,6 +58,10 @@ class TestSuiteV2TreeModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
     }
 
     additional_properties_type = None
@@ -75,11 +79,11 @@ class TestSuiteV2TreeModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'test_plan_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'children': ([TestSuiteV2TreeModel], none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
-            'test_plan_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -88,11 +92,11 @@ class TestSuiteV2TreeModel(ModelNormal):
 
 
     attribute_map = {
+        'test_plan_id': 'testPlanId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'children': 'children',  # noqa: E501
         'id': 'id',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
-        'test_plan_id': 'testPlanId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -102,10 +106,11 @@ class TestSuiteV2TreeModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, test_plan_id, name, *args, **kwargs):  # noqa: E501
         """TestSuiteV2TreeModel - a model defined in OpenAPI
 
         Args:
+            test_plan_id (str):
             name (str):
 
         Keyword Args:
@@ -142,7 +147,6 @@ class TestSuiteV2TreeModel(ModelNormal):
             children ([TestSuiteV2TreeModel], none_type): nested enumeration of children is allowed. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
-            test_plan_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -174,6 +178,7 @@ class TestSuiteV2TreeModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_plan_id = test_plan_id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -195,10 +200,11 @@ class TestSuiteV2TreeModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, test_plan_id, name, *args, **kwargs):  # noqa: E501
         """TestSuiteV2TreeModel - a model defined in OpenAPI
 
         Args:
+            test_plan_id (str):
             name (str):
 
         Keyword Args:
@@ -235,7 +241,6 @@ class TestSuiteV2TreeModel(ModelNormal):
             children ([TestSuiteV2TreeModel], none_type): nested enumeration of children is allowed. [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
-            test_plan_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,6 +270,7 @@ class TestSuiteV2TreeModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_plan_id = test_plan_id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

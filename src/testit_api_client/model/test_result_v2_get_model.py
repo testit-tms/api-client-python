@@ -107,8 +107,8 @@ class TestResultV2GetModel(ModelNormal):
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
-            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
-            'properties': ({str: (str,)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'properties': ({str: (str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -200,8 +200,8 @@ class TestResultV2GetModel(ModelNormal):
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,8 +237,7 @@ class TestResultV2GetModel(ModelNormal):
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None or \
-                        var_value is None:
+                        self.additional_properties_type is None:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
@@ -307,8 +306,8 @@ class TestResultV2GetModel(ModelNormal):
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

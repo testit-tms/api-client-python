@@ -78,7 +78,7 @@ class AutoTestChangeViewModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'external_id': (str, none_type,),  # noqa: E501
-            'global_id': (int, none_type,),  # noqa: E501
+            'global_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -137,7 +137,7 @@ class AutoTestChangeViewModel(ModelNormal):
             id (str): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             external_id (str, none_type): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,7 +226,7 @@ class AutoTestChangeViewModel(ModelNormal):
             id (str): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             external_id (str, none_type): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

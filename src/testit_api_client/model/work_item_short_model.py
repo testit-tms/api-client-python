@@ -32,8 +32,10 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.iteration_model import IterationModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testit_api_client.model.work_item_states import WorkItemStates
     globals()['IterationModel'] = IterationModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
+    globals()['WorkItemStates'] = WorkItemStates
 
 
 class WorkItemShortModel(ModelNormal):
@@ -64,6 +66,12 @@ class WorkItemShortModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'min_length': 1,
+        },
+        ('entity_type_name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -86,7 +94,7 @@ class WorkItemShortModel(ModelNormal):
             'entity_type_name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
-            'state': (str,),  # noqa: E501
+            'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'version_id': (str,),  # noqa: E501
@@ -145,7 +153,7 @@ class WorkItemShortModel(ModelNormal):
             entity_type_name (str): Property can have one of these values: CheckLists, SharedSteps, TestCases
             project_id (str): This property is used to link autotest with project
             section_id (str): This property links workitem with section
-            state (str): Property can have one of these values: NeedsWork, NotReady, Ready
+            state (WorkItemStates):
             priority (WorkItemPriorityModel):
 
         Keyword Args:
@@ -257,7 +265,7 @@ class WorkItemShortModel(ModelNormal):
             entity_type_name (str): Property can have one of these values: CheckLists, SharedSteps, TestCases
             project_id (str): This property is used to link autotest with project
             section_id (str): This property links workitem with section
-            state (str): Property can have one of these values: NeedsWork, NotReady, Ready
+            state (WorkItemStates):
             priority (WorkItemPriorityModel):
 
         Keyword Args:

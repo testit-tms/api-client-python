@@ -34,12 +34,12 @@ def lazy_import():
     from testit_api_client.model.test_plan_model import TestPlanModel
     from testit_api_client.model.test_result_model import TestResultModel
     from testit_api_client.model.test_run_analytic_result_model import TestRunAnalyticResultModel
-    from testit_api_client.model.test_run_state_type_model import TestRunStateTypeModel
+    from testit_api_client.model.test_run_state import TestRunState
     globals()['AutoTestModel'] = AutoTestModel
     globals()['TestPlanModel'] = TestPlanModel
     globals()['TestResultModel'] = TestResultModel
     globals()['TestRunAnalyticResultModel'] = TestRunAnalyticResultModel
-    globals()['TestRunStateTypeModel'] = TestRunStateTypeModel
+    globals()['TestRunState'] = TestRunState
 
 
 class TestRunModel(ModelNormal):
@@ -99,7 +99,7 @@ class TestRunModel(ModelNormal):
             'analytic': (TestRunAnalyticResultModel,),  # noqa: E501
             'test_results': ([TestResultModel], none_type,),  # noqa: E501
             'test_plan': (TestPlanModel,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -108,7 +108,7 @@ class TestRunModel(ModelNormal):
             'completed_date': (datetime, none_type,),  # noqa: E501
             'build': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'state_name': (TestRunStateTypeModel,),  # noqa: E501
+            'state_name': (TestRunState,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'run_by_user_id': (str, none_type,),  # noqa: E501
@@ -200,7 +200,7 @@ class TestRunModel(ModelNormal):
             analytic (TestRunAnalyticResultModel): [optional]  # noqa: E501
             test_results ([TestResultModel], none_type): [optional]  # noqa: E501
             test_plan (TestPlanModel): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
@@ -209,15 +209,15 @@ class TestRunModel(ModelNormal):
             completed_date (datetime, none_type): [optional]  # noqa: E501
             build (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            state_name (TestRunStateTypeModel): [optional]  # noqa: E501
+            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -310,7 +310,7 @@ class TestRunModel(ModelNormal):
             analytic (TestRunAnalyticResultModel): [optional]  # noqa: E501
             test_results ([TestResultModel], none_type): [optional]  # noqa: E501
             test_plan (TestPlanModel): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
@@ -319,15 +319,15 @@ class TestRunModel(ModelNormal):
             completed_date (datetime, none_type): [optional]  # noqa: E501
             build (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            state_name (TestRunStateTypeModel): [optional]  # noqa: E501
+            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

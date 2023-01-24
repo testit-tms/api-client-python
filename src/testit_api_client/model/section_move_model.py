@@ -104,9 +104,9 @@ class SectionMoveModel(ModelNormal):
         """SectionMoveModel - a model defined in OpenAPI
 
         Args:
-            id (str):
-            old_parent_id (str):
-            parent_id (str):
+            id (str): Unique ID of the section
+            old_parent_id (str): Unique ID of the section's current parent section
+            parent_id (str): Unique ID of the section's target parent section
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -139,7 +139,7 @@ class SectionMoveModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            next_section_id (str, none_type): Used for section rank set. [optional]  # noqa: E501
+            next_section_id (str, none_type): Unique ID of the section's following section. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -198,9 +198,9 @@ class SectionMoveModel(ModelNormal):
         """SectionMoveModel - a model defined in OpenAPI
 
         Args:
-            id (str):
-            old_parent_id (str):
-            parent_id (str):
+            id (str): Unique ID of the section
+            old_parent_id (str): Unique ID of the section's current parent section
+            parent_id (str): Unique ID of the section's target parent section
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,7 +233,7 @@ class SectionMoveModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            next_section_id (str, none_type): Used for section rank set. [optional]  # noqa: E501
+            next_section_id (str, none_type): Unique ID of the section's following section. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

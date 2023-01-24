@@ -30,8 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.last_test_result_model import LastTestResultModel
     from testit_api_client.model.test_point_status import TestPointStatus
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    globals()['LastTestResultModel'] = LastTestResultModel
     globals()['TestPointStatus'] = TestPointStatus
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
 
@@ -82,8 +84,19 @@ class TestPointShortGetModel(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
+            'tester_id': (str, none_type,),  # noqa: E501
+            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'tags': ([str], none_type,),  # noqa: E501
+            'links': ([str], none_type,),  # noqa: E501
             'test_suite_id': (str,),  # noqa: E501
             'work_item_global_id': (int,),  # noqa: E501
+            'work_item_version_id': (str,),  # noqa: E501
             'status': (TestPointStatus,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
@@ -91,15 +104,9 @@ class TestPointShortGetModel(ModelNormal):
             'configuration_id': (str,),  # noqa: E501
             'duration': (int,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
-            'created_date': (datetime,),  # noqa: E501
-            'created_by_id': (str,),  # noqa: E501
-            'tester_id': (str, none_type,),  # noqa: E501
-            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
-            'tags': ([str], none_type,),  # noqa: E501
-            'links': ([str], none_type,),  # noqa: E501
+            'project_id': (str,),  # noqa: E501
+            'last_test_result': (LastTestResultModel,),  # noqa: E501
+            'iteration_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -108,8 +115,19 @@ class TestPointShortGetModel(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
+        'tester_id': 'testerId',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
+        'attributes': 'attributes',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
+        'links': 'links',  # noqa: E501
         'test_suite_id': 'testSuiteId',  # noqa: E501
         'work_item_global_id': 'workItemGlobalId',  # noqa: E501
+        'work_item_version_id': 'workItemVersionId',  # noqa: E501
         'status': 'status',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
@@ -117,15 +135,9 @@ class TestPointShortGetModel(ModelNormal):
         'configuration_id': 'configurationId',  # noqa: E501
         'duration': 'duration',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
-        'tester_id': 'testerId',  # noqa: E501
-        'parameters': 'parameters',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
-        'modified_by_id': 'modifiedById',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
-        'tags': 'tags',  # noqa: E501
-        'links': 'links',  # noqa: E501
+        'project_id': 'projectId',  # noqa: E501
+        'last_test_result': 'lastTestResult',  # noqa: E501
+        'iteration_id': 'iterationId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -169,24 +181,29 @@ class TestPointShortGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suite_id (str): [optional]  # noqa: E501
-            work_item_global_id (int): [optional]  # noqa: E501
+            id (str): Unique ID of the test point. [optional]  # noqa: E501
+            created_date (datetime): Creation date of the test point. [optional]  # noqa: E501
+            created_by_id (str): Unique ID of the test point creator. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the test point. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of the test point last editor. [optional]  # noqa: E501
+            tester_id (str, none_type): Unique ID of the test point assigned user. [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): Collection of the test point parameters. [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Collection of attributes of work item the test point represents. [optional]  # noqa: E501
+            tags ([str], none_type): Collection of the test point tags. [optional]  # noqa: E501
+            links ([str], none_type): Collection of the test point links. [optional]  # noqa: E501
+            test_suite_id (str): Unique ID of test suite the test point assigned to. [optional]  # noqa: E501
+            work_item_global_id (int): Global ID of work item the test point represents. [optional]  # noqa: E501
+            work_item_version_id (str): Unique ID of work item version the test point represents. [optional]  # noqa: E501
             status (TestPointStatus): [optional]  # noqa: E501
             priority (WorkItemPriorityModel): [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            tester_id (str, none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
-            tags ([str], none_type): [optional]  # noqa: E501
-            links ([str], none_type): [optional]  # noqa: E501
+            is_automated (bool): Indicates if the test point represents an autotest. [optional]  # noqa: E501
+            name (str, none_type): Name of the test point. [optional]  # noqa: E501
+            configuration_id (str): Unique ID of the test point configuration. [optional]  # noqa: E501
+            duration (int): Duration of the test point. [optional]  # noqa: E501
+            section_id (str): Unique ID of section where work item the test point represents is located. [optional]  # noqa: E501
+            project_id (str): Unique ID of the test point project. [optional]  # noqa: E501
+            last_test_result (LastTestResultModel): [optional]  # noqa: E501
+            iteration_id (str): Unique ID of work item iteration the test point represents. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -272,24 +289,29 @@ class TestPointShortGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suite_id (str): [optional]  # noqa: E501
-            work_item_global_id (int): [optional]  # noqa: E501
+            id (str): Unique ID of the test point. [optional]  # noqa: E501
+            created_date (datetime): Creation date of the test point. [optional]  # noqa: E501
+            created_by_id (str): Unique ID of the test point creator. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the test point. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of the test point last editor. [optional]  # noqa: E501
+            tester_id (str, none_type): Unique ID of the test point assigned user. [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): Collection of the test point parameters. [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Collection of attributes of work item the test point represents. [optional]  # noqa: E501
+            tags ([str], none_type): Collection of the test point tags. [optional]  # noqa: E501
+            links ([str], none_type): Collection of the test point links. [optional]  # noqa: E501
+            test_suite_id (str): Unique ID of test suite the test point assigned to. [optional]  # noqa: E501
+            work_item_global_id (int): Global ID of work item the test point represents. [optional]  # noqa: E501
+            work_item_version_id (str): Unique ID of work item version the test point represents. [optional]  # noqa: E501
             status (TestPointStatus): [optional]  # noqa: E501
             priority (WorkItemPriorityModel): [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            tester_id (str, none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
-            tags ([str], none_type): [optional]  # noqa: E501
-            links ([str], none_type): [optional]  # noqa: E501
+            is_automated (bool): Indicates if the test point represents an autotest. [optional]  # noqa: E501
+            name (str, none_type): Name of the test point. [optional]  # noqa: E501
+            configuration_id (str): Unique ID of the test point configuration. [optional]  # noqa: E501
+            duration (int): Duration of the test point. [optional]  # noqa: E501
+            section_id (str): Unique ID of section where work item the test point represents is located. [optional]  # noqa: E501
+            project_id (str): Unique ID of the test point project. [optional]  # noqa: E501
+            last_test_result (LastTestResultModel): [optional]  # noqa: E501
+            iteration_id (str): Unique ID of work item iteration the test point represents. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

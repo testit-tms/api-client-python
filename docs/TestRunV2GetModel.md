@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **started_on** | **datetime, none_type** |  | [optional] 
 **completed_on** | **datetime, none_type** |  | [optional] 
-**state_name** | [**TestRunStateTypeModel**](TestRunStateTypeModel.md) |  | [optional] 
+**state_name** | [**TestRunState**](TestRunState.md) |  | [optional] 
 **project_id** | **str** | This property is used to link test run with project | [optional] 
 **test_plan_id** | **str, none_type** | This property is used to link test run with test plan | [optional] 
 **test_results** | [**[TestResultV2GetModel], none_type**](TestResultV2GetModel.md) |  | [optional] 
-**created_date** | **datetime, none_type** |  | [optional] 
+**created_date** | **datetime** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **created_by_id** | **str** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 

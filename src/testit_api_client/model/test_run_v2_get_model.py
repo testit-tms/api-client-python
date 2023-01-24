@@ -31,9 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.test_result_v2_get_model import TestResultV2GetModel
-    from testit_api_client.model.test_run_state_type_model import TestRunStateTypeModel
+    from testit_api_client.model.test_run_state import TestRunState
     globals()['TestResultV2GetModel'] = TestResultV2GetModel
-    globals()['TestRunStateTypeModel'] = TestRunStateTypeModel
+    globals()['TestRunState'] = TestRunState
 
 
 class TestRunV2GetModel(ModelNormal):
@@ -64,6 +64,9 @@ class TestRunV2GetModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -86,11 +89,11 @@ class TestRunV2GetModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
-            'state_name': (TestRunStateTypeModel,),  # noqa: E501
+            'state_name': (TestRunState,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'test_results': ([TestResultV2GetModel], none_type,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -169,11 +172,11 @@ class TestRunV2GetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             started_on (datetime, none_type): [optional]  # noqa: E501
             completed_on (datetime, none_type): [optional]  # noqa: E501
-            state_name (TestRunStateTypeModel): [optional]  # noqa: E501
+            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): This property is used to link test run with project. [optional]  # noqa: E501
             test_plan_id (str, none_type): This property is used to link test run with test plan. [optional]  # noqa: E501
             test_results ([TestResultV2GetModel], none_type): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
@@ -273,11 +276,11 @@ class TestRunV2GetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             started_on (datetime, none_type): [optional]  # noqa: E501
             completed_on (datetime, none_type): [optional]  # noqa: E501
-            state_name (TestRunStateTypeModel): [optional]  # noqa: E501
+            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): This property is used to link test run with project. [optional]  # noqa: E501
             test_plan_id (str, none_type): This property is used to link test run with test plan. [optional]  # noqa: E501
             test_results ([TestResultV2GetModel], none_type): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501

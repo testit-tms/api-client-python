@@ -408,9 +408,8 @@ class WorkItemsCommentsApi(object):
         self,
         **kwargs
     ):
-        """Update WorkItem comment  # noqa: E501
+        """Update work item comment  # noqa: E501
 
-        <br>Use case  <br>User sets comment properties (listed in request parameters)  <br>User runs method execution  <br>System updates comment   <br>System returns success status code  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -488,9 +487,8 @@ class WorkItemsCommentsApi(object):
         id,
         **kwargs
     ):
-        """Get WorkItem comments by Id or GlobalId  # noqa: E501
+        """Get work item comments  # noqa: E501
 
-        <br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System search comments by workitem identifier  <br>System returns comments   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -498,7 +496,7 @@ class WorkItemsCommentsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): WorkItem internal (guid format) or  global(integer format) identifier\"
+            id (str): Unique or global ID of the work item
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
