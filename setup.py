@@ -11,6 +11,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "testit-api-client"
+
 VERSION = "3.0.1"
 
 REQUIRES = [
@@ -21,6 +22,7 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
+
     description='API-client for Test IT',
     long_description=open('README.md', "r").read(),
     long_description_content_type="text/markdown",
