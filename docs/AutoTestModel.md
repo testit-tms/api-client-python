@@ -4,32 +4,32 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**external_id** | **str** | Specifies the ID of your autotest in the external system.&lt;br /&gt;  To test the method, you can use any ID. | 
-**project_id** | **str** | Specifies the project GUID.&lt;br /&gt;  You can get it using the &#x60;GET /api/v2/projects&#x60; method. | 
-**name** | **str** | Specifies autotest name in the test management system. | 
-**global_id** | **int** |  | [optional] 
-**is_deleted** | **bool** |  | [optional] 
-**must_be_approved** | **bool, none_type** |  | [optional] 
-**id** | **str** |  | [optional] 
-**created_date** | **datetime, none_type** |  | [optional] 
-**modified_date** | **datetime, none_type** |  | [optional] 
-**created_by_id** | **str** |  | [optional] 
-**modified_by_id** | **str, none_type** |  | [optional] 
-**last_test_run_id** | **str, none_type** |  | [optional] 
-**last_test_run_name** | **str, none_type** |  | [optional] 
-**last_test_result_id** | **str, none_type** |  | [optional] 
-**last_test_result_outcome** | **str, none_type** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | [optional] 
-**stability_percentage** | **int, none_type** |  | [optional] 
-**links** | [**[LinkPutModel], none_type**](LinkPutModel.md) | Specifies the links in the autotest. | [optional] 
-**namespace** | **str, none_type** | Specifies the name of the namespace in the test management system. | [optional] 
-**classname** | **str, none_type** | Specifies the class name in the test management system. | [optional] 
-**steps** | [**[AutoTestStepModel], none_type**](AutoTestStepModel.md) | Specifies the steps in the autotest. | [optional] 
-**setup** | [**[AutoTestStepModel], none_type**](AutoTestStepModel.md) | Specifies the setup steps and relates them to the autotest. Supported values are the same as in the &#x60;steps&#x60; parameter. | [optional] 
-**teardown** | [**[AutoTestStepModel], none_type**](AutoTestStepModel.md) | Specifies the teardown steps and relates them to the autotest. Supported values are the same as in the &#x60;steps&#x60; parameter. | [optional] 
-**title** | **str, none_type** | Specifies the name of the autotest in the autotest card.   The &#x60;Name&#x60; parameter is responsible for the name in the table. | [optional] 
-**description** | **str, none_type** | Specifies the autotest description in the test management system. | [optional] 
-**labels** | [**[LabelShortModel], none_type**](LabelShortModel.md) | Specifies autotest labels. | [optional] 
-**is_flaky** | **bool** | Marks the autotest as flaky. | [optional] 
+**external_id** | **str** | External ID of the autotest | 
+**project_id** | **str** | Unique ID of the autotest project | 
+**name** | **str** | Name of the autotest | 
+**global_id** | **int** | Global ID of the autotest | [optional] 
+**is_deleted** | **bool** | Indicates if the autotest is deleted | [optional] 
+**must_be_approved** | **bool** | Indicates if the autotest has unapproved changes from linked work items | [optional] 
+**id** | **str** | Unique ID of the autotest | [optional] 
+**created_date** | **datetime** | Creation date of the autotest | [optional] 
+**modified_date** | **datetime, none_type** | Last modification date of the project | [optional] 
+**created_by_id** | **str** | Unique ID of the project creator | [optional] 
+**modified_by_id** | **str, none_type** | Unique ID of the project last editor | [optional] 
+**last_test_run_id** | **str, none_type** | Unique ID of the autotest last test run | [optional] 
+**last_test_run_name** | **str, none_type** | Name of the autotest last test run | [optional] 
+**last_test_result_id** | **str, none_type** | Unique ID of the autotest last test result | [optional] 
+**last_test_result_outcome** | **str, none_type** | Outcome of the autotest last test result | [optional] 
+**stability_percentage** | **int, none_type** | Stability percentage of the autotest | [optional] 
+**links** | [**[LinkPutModel], none_type**](LinkPutModel.md) | Collection of the autotest links | [optional] 
+**namespace** | **str, none_type** | Name of the autotest namespace | [optional] 
+**classname** | **str, none_type** | Name of the autotest class | [optional] 
+**steps** | [**[AutoTestStepModel], none_type**](AutoTestStepModel.md) | Collection of the autotest steps | [optional] 
+**setup** | [**[AutoTestStepModel], none_type**](AutoTestStepModel.md) | Collection of the autotest setup steps | [optional] 
+**teardown** | [**[AutoTestStepModel], none_type**](AutoTestStepModel.md) | Collection of the autotest teardown steps | [optional] 
+**title** | **str, none_type** | Name of the autotest in autotest&#39;s card | [optional] 
+**description** | **str, none_type** | Description of the autotest in autotest&#39;s card | [optional] 
+**labels** | [**[LabelShortModel], none_type**](LabelShortModel.md) | Collection of the autotest labels | [optional] 
+**is_flaky** | **bool, none_type** | Indicates if the autotest is marked as flaky | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -58,6 +58,9 @@ class SectionModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -80,7 +83,7 @@ class SectionModel(ModelNormal):
             'parent_id': (str, none_type,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -151,7 +154,7 @@ class SectionModel(ModelNormal):
             parent_id (str, none_type): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
@@ -248,7 +251,7 @@ class SectionModel(ModelNormal):
             parent_id (str, none_type): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501

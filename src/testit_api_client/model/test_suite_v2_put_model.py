@@ -58,6 +58,10 @@ class TestSuiteV2PutModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
     }
 
     additional_properties_type = None
@@ -75,8 +79,8 @@ class TestSuiteV2PutModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
         }
 
@@ -86,8 +90,8 @@ class TestSuiteV2PutModel(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
     }
 
@@ -98,10 +102,11 @@ class TestSuiteV2PutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, *args, **kwargs):  # noqa: E501
         """TestSuiteV2PutModel - a model defined in OpenAPI
 
         Args:
+            id (str):
             name (str):
 
         Keyword Args:
@@ -135,7 +140,6 @@ class TestSuiteV2PutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
         """
 
@@ -168,6 +172,7 @@ class TestSuiteV2PutModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -189,10 +194,11 @@ class TestSuiteV2PutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, *args, **kwargs):  # noqa: E501
         """TestSuiteV2PutModel - a model defined in OpenAPI
 
         Args:
+            id (str):
             name (str):
 
         Keyword Args:
@@ -226,7 +232,6 @@ class TestSuiteV2PutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
         """
 
@@ -257,6 +262,7 @@ class TestSuiteV2PutModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

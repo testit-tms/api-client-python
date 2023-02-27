@@ -66,6 +66,12 @@ class AutoTestPostModel(ModelNormal):
     }
 
     validations = {
+        ('external_id',): {
+            'min_length': 1,
+        },
+        ('name',): {
+            'min_length': 1,
+        },
         ('work_item_ids_for_link_with_auto_test',): {
         },
     }
@@ -90,7 +96,7 @@ class AutoTestPostModel(ModelNormal):
             'project_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'work_item_ids_for_link_with_auto_test': ([str], none_type,),  # noqa: E501
-            'should_create_work_item': (bool,),  # noqa: E501
+            'should_create_work_item': (bool, none_type,),  # noqa: E501
             'links': ([LinkPostModel], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'classname': (str, none_type,),  # noqa: E501
@@ -100,7 +106,7 @@ class AutoTestPostModel(ModelNormal):
             'title': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'labels': ([LabelPostModel], none_type,),  # noqa: E501
-            'is_flaky': (bool,),  # noqa: E501
+            'is_flaky': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -137,9 +143,9 @@ class AutoTestPostModel(ModelNormal):
         """AutoTestPostModel - a model defined in OpenAPI
 
         Args:
-            external_id (str): Specifies the ID of your autotest in the external system.<br />  To test the method, you can use any ID.
-            project_id (str): Specifies the project GUID.<br />  You can get it using the `GET /api/v2/projects` method.
-            name (str): Specifies autotest name in the test management system.
+            external_id (str): External ID of the autotest
+            project_id (str): Unique ID of the autotest project
+            name (str): Name of the autotest
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -173,17 +179,17 @@ class AutoTestPostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             work_item_ids_for_link_with_auto_test ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
-            should_create_work_item (bool): Creates a test case linked to the autotest.. [optional]  # noqa: E501
-            links ([LinkPostModel], none_type): Specifies the links in the autotest.. [optional]  # noqa: E501
-            namespace (str, none_type): Specifies the name of the namespace in the test management system.. [optional]  # noqa: E501
-            classname (str, none_type): Specifies the class name in the test management system.. [optional]  # noqa: E501
-            steps ([AutoTestStepModel], none_type): Specifies the steps in the autotest.. [optional]  # noqa: E501
-            setup ([AutoTestStepModel], none_type): Specifies the setup steps and relates them to the autotest. Supported values are the same as in the `steps` parameter.. [optional]  # noqa: E501
-            teardown ([AutoTestStepModel], none_type): Specifies the teardown steps and relates them to the autotest. Supported values are the same as in the `steps` parameter.. [optional]  # noqa: E501
-            title (str, none_type): Specifies the name of the autotest in the autotest card.   The `Name` parameter is responsible for the name in the table.. [optional]  # noqa: E501
-            description (str, none_type): Specifies the autotest description in the test management system.. [optional]  # noqa: E501
-            labels ([LabelPostModel], none_type): Specifies autotest labels.. [optional]  # noqa: E501
-            is_flaky (bool): Marks the autotest as flaky.. [optional]  # noqa: E501
+            should_create_work_item (bool, none_type): Creates a test case linked to the autotest.. [optional]  # noqa: E501
+            links ([LinkPostModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
+            namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
+            classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501
+            steps ([AutoTestStepModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
+            setup ([AutoTestStepModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
+            teardown ([AutoTestStepModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
+            title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
+            description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
+            labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
+            is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -242,9 +248,9 @@ class AutoTestPostModel(ModelNormal):
         """AutoTestPostModel - a model defined in OpenAPI
 
         Args:
-            external_id (str): Specifies the ID of your autotest in the external system.<br />  To test the method, you can use any ID.
-            project_id (str): Specifies the project GUID.<br />  You can get it using the `GET /api/v2/projects` method.
-            name (str): Specifies autotest name in the test management system.
+            external_id (str): External ID of the autotest
+            project_id (str): Unique ID of the autotest project
+            name (str): Name of the autotest
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -278,17 +284,17 @@ class AutoTestPostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             work_item_ids_for_link_with_auto_test ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
-            should_create_work_item (bool): Creates a test case linked to the autotest.. [optional]  # noqa: E501
-            links ([LinkPostModel], none_type): Specifies the links in the autotest.. [optional]  # noqa: E501
-            namespace (str, none_type): Specifies the name of the namespace in the test management system.. [optional]  # noqa: E501
-            classname (str, none_type): Specifies the class name in the test management system.. [optional]  # noqa: E501
-            steps ([AutoTestStepModel], none_type): Specifies the steps in the autotest.. [optional]  # noqa: E501
-            setup ([AutoTestStepModel], none_type): Specifies the setup steps and relates them to the autotest. Supported values are the same as in the `steps` parameter.. [optional]  # noqa: E501
-            teardown ([AutoTestStepModel], none_type): Specifies the teardown steps and relates them to the autotest. Supported values are the same as in the `steps` parameter.. [optional]  # noqa: E501
-            title (str, none_type): Specifies the name of the autotest in the autotest card.   The `Name` parameter is responsible for the name in the table.. [optional]  # noqa: E501
-            description (str, none_type): Specifies the autotest description in the test management system.. [optional]  # noqa: E501
-            labels ([LabelPostModel], none_type): Specifies autotest labels.. [optional]  # noqa: E501
-            is_flaky (bool): Marks the autotest as flaky.. [optional]  # noqa: E501
+            should_create_work_item (bool, none_type): Creates a test case linked to the autotest.. [optional]  # noqa: E501
+            links ([LinkPostModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
+            namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
+            classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501
+            steps ([AutoTestStepModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
+            setup ([AutoTestStepModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
+            teardown ([AutoTestStepModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
+            title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
+            description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
+            labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
+            is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

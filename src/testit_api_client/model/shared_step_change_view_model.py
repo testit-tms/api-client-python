@@ -81,7 +81,7 @@ class SharedStepChangeViewModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'global_id': (int, none_type,),  # noqa: E501
+            'global_id': (int,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'steps': ([WorkItemStepChangeViewModel], none_type,),  # noqa: E501
         }
@@ -140,7 +140,7 @@ class SharedStepChangeViewModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             steps ([WorkItemStepChangeViewModel], none_type): [optional]  # noqa: E501
         """
@@ -229,7 +229,7 @@ class SharedStepChangeViewModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             steps ([WorkItemStepChangeViewModel], none_type): [optional]  # noqa: E501
         """

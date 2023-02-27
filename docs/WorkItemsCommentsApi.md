@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**api_v2_work_items_comments_comment_id_delete**](WorkItemsCommentsApi.md#api_v2_work_items_comments_comment_id_delete) | **DELETE** /api/v2/workItems/comments/{commentId} | Delete WorkItem comment
 [**api_v2_work_items_comments_post**](WorkItemsCommentsApi.md#api_v2_work_items_comments_post) | **POST** /api/v2/workItems/comments | Create WorkItem comment
-[**api_v2_work_items_comments_put**](WorkItemsCommentsApi.md#api_v2_work_items_comments_put) | **PUT** /api/v2/workItems/comments | Update WorkItem comment
-[**api_v2_work_items_id_comments_get**](WorkItemsCommentsApi.md#api_v2_work_items_id_comments_get) | **GET** /api/v2/workItems/{id}/comments | Get WorkItem comments by Id or GlobalId
+[**api_v2_work_items_comments_put**](WorkItemsCommentsApi.md#api_v2_work_items_comments_put) | **PUT** /api/v2/workItems/comments | Update work item comment
+[**api_v2_work_items_id_comments_get**](WorkItemsCommentsApi.md#api_v2_work_items_id_comments_get) | **GET** /api/v2/workItems/{id}/comments | Get work item comments
 
 
 # **api_v2_work_items_comments_comment_id_delete**
@@ -84,10 +84,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
-**401** | Unauthorized |  -  |
-**403** | System admin permission required |  -  |
 **400** | Bad Request |  -  |
+**204** | Successful operation |  -  |
+**403** | System admin permission required |  -  |
+**401** | Unauthorized |  -  |
 **404** | WorkItem is not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -173,10 +173,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**403** | Read permission for test library required |  -  |
 **201** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Read permission for test library required |  -  |
 **404** | WorkItem is not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -184,9 +184,7 @@ Name | Type | Description  | Notes
 # **api_v2_work_items_comments_put**
 > api_v2_work_items_comments_put()
 
-Update WorkItem comment
-
-<br>Use case  <br>User sets comment properties (listed in request parameters)  <br>User runs method execution  <br>System updates comment   <br>System returns success status code
+Update work item comment
 
 ### Example
 
@@ -198,7 +196,6 @@ import testit_api_client
 from testit_api_client.api import work_items_comments_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_comment_put_model import WorkItemCommentPutModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -223,13 +220,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
     work_item_comment_put_model = WorkItemCommentPutModel(
         text="text_example",
-        id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        id="id_example",
     ) # WorkItemCommentPutModel |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Update WorkItem comment
+        # Update work item comment
         api_instance.api_v2_work_items_comments_put(work_item_comment_put_model=work_item_comment_put_model)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_put: %s\n" % e)
@@ -260,20 +257,15 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | WorkItem is not found |  -  |
-**401** | Unauthorized |  -  |
-**403** | System admin permission required |  -  |
-**204** | Successful operation |  -  |
-**400** | Bad Request |  -  |
+**204** | No Content |  -  |
+**403** | System administrator role is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_id_comments_get**
 > [WorkItemCommentModel] api_v2_work_items_id_comments_get(id)
 
-Get WorkItem comments by Id or GlobalId
-
-<br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System search comments by workitem identifier  <br>System returns comments 
+Get work item comments
 
 ### Example
 
@@ -307,11 +299,11 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | WorkItem internal (guid format) or  global(integer format) identifier\"
+    id = "id_example" # str | Unique or global ID of the work item
 
     # example passing only required values which don't have defaults set
     try:
-        # Get WorkItem comments by Id or GlobalId
+        # Get work item comments
         api_response = api_instance.api_v2_work_items_id_comments_get(id)
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -323,7 +315,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; |
+ **id** | **str**| Unique or global ID of the work item |
 
 ### Return type
 
@@ -343,9 +335,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**401** | Unauthorized |  -  |
-**403** | Read permission for test library required |  -  |
+**200** | Success |  -  |
+**403** | Read permission for test library is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

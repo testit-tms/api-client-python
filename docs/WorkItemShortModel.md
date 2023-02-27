@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **entity_type_name** | **str** | Property can have one of these values: CheckLists, SharedSteps, TestCases | 
 **project_id** | **str** | This property is used to link autotest with project | 
 **section_id** | **str** | This property links workitem with section | 
-**state** | **str** | Property can have one of these values: NeedsWork, NotReady, Ready | 
+**state** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **id** | **str** |  | [optional] 
 **version_id** | **str** | used for versioning changes in workitem | [optional] 

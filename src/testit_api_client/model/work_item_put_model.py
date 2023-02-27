@@ -76,6 +76,9 @@ class WorkItemPutModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'min_length': 1,
+        },
         ('duration',): {
             'inclusive_maximum': 86400,
             'inclusive_minimum': 0,

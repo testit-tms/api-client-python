@@ -6,7 +6,7 @@ Model containing options to filter work items
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**WorkItemFilterModel**](WorkItemFilterModel.md) |  | [optional] 
-**extraction_model** | [**WorkItemExtractionModel**](WorkItemExtractionModel.md) |  | [optional] 
+**extraction_model** | [**WorkItemsExtractionModel**](WorkItemsExtractionModel.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -58,6 +58,9 @@ class LabelPostModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None

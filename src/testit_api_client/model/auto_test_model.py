@@ -66,6 +66,12 @@ class AutoTestModel(ModelNormal):
     }
 
     validations = {
+        ('external_id',): {
+            'min_length': 1,
+        },
+        ('name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -89,9 +95,9 @@ class AutoTestModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'must_be_approved': (bool, none_type,),  # noqa: E501
+            'must_be_approved': (bool,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -109,7 +115,7 @@ class AutoTestModel(ModelNormal):
             'title': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'labels': ([LabelShortModel], none_type,),  # noqa: E501
-            'is_flaky': (bool,),  # noqa: E501
+            'is_flaky': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -157,9 +163,9 @@ class AutoTestModel(ModelNormal):
         """AutoTestModel - a model defined in OpenAPI
 
         Args:
-            external_id (str): Specifies the ID of your autotest in the external system.<br />  To test the method, you can use any ID.
-            project_id (str): Specifies the project GUID.<br />  You can get it using the `GET /api/v2/projects` method.
-            name (str): Specifies autotest name in the test management system.
+            external_id (str): External ID of the autotest
+            project_id (str): Unique ID of the autotest project
+            name (str): Name of the autotest
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -192,29 +198,29 @@ class AutoTestModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            global_id (int): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            must_be_approved (bool, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            last_test_run_id (str, none_type): [optional]  # noqa: E501
-            last_test_run_name (str, none_type): [optional]  # noqa: E501
-            last_test_result_id (str, none_type): [optional]  # noqa: E501
-            last_test_result_outcome (str, none_type): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
-            stability_percentage (int, none_type): [optional]  # noqa: E501
-            links ([LinkPutModel], none_type): Specifies the links in the autotest.. [optional]  # noqa: E501
-            namespace (str, none_type): Specifies the name of the namespace in the test management system.. [optional]  # noqa: E501
-            classname (str, none_type): Specifies the class name in the test management system.. [optional]  # noqa: E501
-            steps ([AutoTestStepModel], none_type): Specifies the steps in the autotest.. [optional]  # noqa: E501
-            setup ([AutoTestStepModel], none_type): Specifies the setup steps and relates them to the autotest. Supported values are the same as in the `steps` parameter.. [optional]  # noqa: E501
-            teardown ([AutoTestStepModel], none_type): Specifies the teardown steps and relates them to the autotest. Supported values are the same as in the `steps` parameter.. [optional]  # noqa: E501
-            title (str, none_type): Specifies the name of the autotest in the autotest card.   The `Name` parameter is responsible for the name in the table.. [optional]  # noqa: E501
-            description (str, none_type): Specifies the autotest description in the test management system.. [optional]  # noqa: E501
-            labels ([LabelShortModel], none_type): Specifies autotest labels.. [optional]  # noqa: E501
-            is_flaky (bool): Marks the autotest as flaky.. [optional]  # noqa: E501
+            global_id (int): Global ID of the autotest. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the autotest is deleted. [optional]  # noqa: E501
+            must_be_approved (bool): Indicates if the autotest has unapproved changes from linked work items. [optional]  # noqa: E501
+            id (str): Unique ID of the autotest. [optional]  # noqa: E501
+            created_date (datetime): Creation date of the autotest. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
+            created_by_id (str): Unique ID of the project creator. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
+            last_test_run_id (str, none_type): Unique ID of the autotest last test run. [optional]  # noqa: E501
+            last_test_run_name (str, none_type): Name of the autotest last test run. [optional]  # noqa: E501
+            last_test_result_id (str, none_type): Unique ID of the autotest last test result. [optional]  # noqa: E501
+            last_test_result_outcome (str, none_type): Outcome of the autotest last test result. [optional]  # noqa: E501
+            stability_percentage (int, none_type): Stability percentage of the autotest. [optional]  # noqa: E501
+            links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
+            namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
+            classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501
+            steps ([AutoTestStepModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
+            setup ([AutoTestStepModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
+            teardown ([AutoTestStepModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
+            title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
+            description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
+            labels ([LabelShortModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
+            is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,9 +279,9 @@ class AutoTestModel(ModelNormal):
         """AutoTestModel - a model defined in OpenAPI
 
         Args:
-            external_id (str): Specifies the ID of your autotest in the external system.<br />  To test the method, you can use any ID.
-            project_id (str): Specifies the project GUID.<br />  You can get it using the `GET /api/v2/projects` method.
-            name (str): Specifies autotest name in the test management system.
+            external_id (str): External ID of the autotest
+            project_id (str): Unique ID of the autotest project
+            name (str): Name of the autotest
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -308,29 +314,29 @@ class AutoTestModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            global_id (int): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            must_be_approved (bool, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            last_test_run_id (str, none_type): [optional]  # noqa: E501
-            last_test_run_name (str, none_type): [optional]  # noqa: E501
-            last_test_result_id (str, none_type): [optional]  # noqa: E501
-            last_test_result_outcome (str, none_type): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
-            stability_percentage (int, none_type): [optional]  # noqa: E501
-            links ([LinkPutModel], none_type): Specifies the links in the autotest.. [optional]  # noqa: E501
-            namespace (str, none_type): Specifies the name of the namespace in the test management system.. [optional]  # noqa: E501
-            classname (str, none_type): Specifies the class name in the test management system.. [optional]  # noqa: E501
-            steps ([AutoTestStepModel], none_type): Specifies the steps in the autotest.. [optional]  # noqa: E501
-            setup ([AutoTestStepModel], none_type): Specifies the setup steps and relates them to the autotest. Supported values are the same as in the `steps` parameter.. [optional]  # noqa: E501
-            teardown ([AutoTestStepModel], none_type): Specifies the teardown steps and relates them to the autotest. Supported values are the same as in the `steps` parameter.. [optional]  # noqa: E501
-            title (str, none_type): Specifies the name of the autotest in the autotest card.   The `Name` parameter is responsible for the name in the table.. [optional]  # noqa: E501
-            description (str, none_type): Specifies the autotest description in the test management system.. [optional]  # noqa: E501
-            labels ([LabelShortModel], none_type): Specifies autotest labels.. [optional]  # noqa: E501
-            is_flaky (bool): Marks the autotest as flaky.. [optional]  # noqa: E501
+            global_id (int): Global ID of the autotest. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the autotest is deleted. [optional]  # noqa: E501
+            must_be_approved (bool): Indicates if the autotest has unapproved changes from linked work items. [optional]  # noqa: E501
+            id (str): Unique ID of the autotest. [optional]  # noqa: E501
+            created_date (datetime): Creation date of the autotest. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
+            created_by_id (str): Unique ID of the project creator. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
+            last_test_run_id (str, none_type): Unique ID of the autotest last test run. [optional]  # noqa: E501
+            last_test_run_name (str, none_type): Name of the autotest last test run. [optional]  # noqa: E501
+            last_test_result_id (str, none_type): Unique ID of the autotest last test result. [optional]  # noqa: E501
+            last_test_result_outcome (str, none_type): Outcome of the autotest last test result. [optional]  # noqa: E501
+            stability_percentage (int, none_type): Stability percentage of the autotest. [optional]  # noqa: E501
+            links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
+            namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
+            classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501
+            steps ([AutoTestStepModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
+            setup ([AutoTestStepModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
+            teardown ([AutoTestStepModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
+            title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
+            description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
+            labels ([LabelShortModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
+            is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

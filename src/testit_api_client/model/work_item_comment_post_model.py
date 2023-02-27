@@ -100,11 +100,12 @@ class WorkItemCommentPostModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, text, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, text, work_item_id, *args, **kwargs):  # noqa: E501
         """WorkItemCommentPostModel - a model defined in OpenAPI
 
         Args:
             text (str):
+            work_item_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -137,7 +138,6 @@ class WorkItemCommentPostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            work_item_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +170,7 @@ class WorkItemCommentPostModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.text = text
+        self.work_item_id = work_item_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,11 +191,12 @@ class WorkItemCommentPostModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, text, *args, **kwargs):  # noqa: E501
+    def __init__(self, text, work_item_id, *args, **kwargs):  # noqa: E501
         """WorkItemCommentPostModel - a model defined in OpenAPI
 
         Args:
             text (str):
+            work_item_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -227,7 +229,6 @@ class WorkItemCommentPostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            work_item_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -258,6 +259,7 @@ class WorkItemCommentPostModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.text = text
+        self.work_item_id = work_item_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

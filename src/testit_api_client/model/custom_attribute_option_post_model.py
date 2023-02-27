@@ -58,6 +58,10 @@ class CustomAttributeOptionPostModel(ModelNormal):
     }
 
     validations = {
+        ('value',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
     }
 
     additional_properties_type = None
@@ -130,8 +134,8 @@ class CustomAttributeOptionPostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
+            value (str, none_type): Value of the attribute option. [optional]  # noqa: E501
+            is_default (bool): Indicates if the attribute option is used by default. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,8 +221,8 @@ class CustomAttributeOptionPostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
+            value (str, none_type): Value of the attribute option. [optional]  # noqa: E501
+            is_default (bool): Indicates if the attribute option is used by default. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

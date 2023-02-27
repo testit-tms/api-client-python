@@ -23,6 +23,7 @@ from testit_api_client.model_utils import (  # noqa: F401
 )
 from testit_api_client.model.auto_test_namespace_model import AutoTestNamespaceModel
 from testit_api_client.model.configuration_model import ConfigurationModel
+from testit_api_client.model.custom_attribute_get_model import CustomAttributeGetModel
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
 from testit_api_client.model.custom_attribute_post_model import CustomAttributePostModel
 from testit_api_client.model.custom_attribute_put_model import CustomAttributePutModel
@@ -30,12 +31,15 @@ from testit_api_client.model.custom_attribute_test_plan_project_relation_put_mod
 from testit_api_client.model.failure_class_model import FailureClassModel
 from testit_api_client.model.filter_model import FilterModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_attributes_filter_model import ProjectAttributesFilterModel
+from testit_api_client.model.project_custom_attribute_template_get_model import ProjectCustomAttributeTemplateGetModel
+from testit_api_client.model.project_custom_attributes_templates_filter_model import ProjectCustomAttributesTemplatesFilterModel
 from testit_api_client.model.project_export_query_model import ProjectExportQueryModel
 from testit_api_client.model.project_export_with_test_plans_post_model import ProjectExportWithTestPlansPostModel
 from testit_api_client.model.project_model import ProjectModel
 from testit_api_client.model.project_post_model import ProjectPostModel
 from testit_api_client.model.project_put_model import ProjectPutModel
-from testit_api_client.model.project_select_model import ProjectSelectModel
+from testit_api_client.model.projects_filter_model import ProjectsFilterModel
 from testit_api_client.model.public_test_run_model import PublicTestRunModel
 from testit_api_client.model.section_model import SectionModel
 from testit_api_client.model.tag_short_model import TagShortModel
@@ -45,6 +49,7 @@ from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAn
 from testit_api_client.model.test_run_model import TestRunModel
 from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 
 
@@ -59,14 +64,157 @@ class ProjectsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.api_v2_projects_id_custom_attribute_templates_template_id_delete_endpoint = _Endpoint(
+        self.add_globa_attributes_to_project_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
-                'endpoint_path': '/api/v2/projects/{id}/customAttributeTemplates/{templateId}',
-                'operation_id': 'api_v2_projects_id_custom_attribute_templates_template_id_delete',
+                'endpoint_path': '/api/v2/projects/{id}/globalAttributes',
+                'operation_id': 'add_globa_attributes_to_project',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'request_body',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'request_body',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('request_body',): {
+
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'request_body':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'request_body': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.api_v2_projects_id_attributes_templates_search_post_endpoint = _Endpoint(
+            settings={
+                'response_type': ([ProjectCustomAttributeTemplateGetModel],),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{id}/attributes/templates/search',
+                'operation_id': 'api_v2_projects_id_attributes_templates_search_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'skip',
+                    'take',
+                    'order_by',
+                    'search_field',
+                    'search_value',
+                    'project_custom_attributes_templates_filter_model',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'order_by':
+                        (str,),
+                    'search_field':
+                        (str,),
+                    'search_value':
+                        (str,),
+                    'project_custom_attributes_templates_filter_model':
+                        (ProjectCustomAttributesTemplatesFilterModel,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'order_by': 'OrderBy',
+                    'search_field': 'SearchField',
+                    'search_value': 'SearchValue',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'skip': 'query',
+                    'take': 'query',
+                    'order_by': 'query',
+                    'search_field': 'query',
+                    'search_value': 'query',
+                    'project_custom_attributes_templates_filter_model': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.api_v2_projects_id_attributes_templates_template_id_delete_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{id}/attributes/templates/{templateId}',
+                'operation_id': 'api_v2_projects_id_attributes_templates_template_id_delete',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -116,14 +264,14 @@ class ProjectsApi(object):
             },
             api_client=api_client
         )
-        self.api_v2_projects_id_custom_attribute_templates_template_id_post_endpoint = _Endpoint(
+        self.api_v2_projects_id_attributes_templates_template_id_post_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
-                'endpoint_path': '/api/v2/projects/{id}/customAttributeTemplates/{templateId}',
-                'operation_id': 'api_v2_projects_id_custom_attribute_templates_template_id_post',
+                'endpoint_path': '/api/v2/projects/{id}/attributes/templates/{templateId}',
+                'operation_id': 'api_v2_projects_id_attributes_templates_template_id_post',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -417,6 +565,63 @@ class ProjectsApi(object):
             },
             api_client=api_client
         )
+        self.api_v2_projects_id_test_plans_name_exists_get_endpoint = _Endpoint(
+            settings={
+                'response_type': (bool,),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{id}/testPlans/{name}/exists',
+                'operation_id': 'api_v2_projects_id_test_plans_name_exists_get',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'name',
+                ],
+                'required': [
+                    'id',
+                    'name',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'name':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'name': 'name',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'name': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.api_v2_projects_id_test_plans_search_post_endpoint = _Endpoint(
             settings={
                 'response_type': ([TestPlanWithAnalyticModel],),
@@ -676,6 +881,170 @@ class ProjectsApi(object):
             },
             api_client=api_client
         )
+        self.api_v2_projects_id_work_items_search_id_post_endpoint = _Endpoint(
+            settings={
+                'response_type': ([str],),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{id}/workItems/search/id',
+                'operation_id': 'api_v2_projects_id_work_items_search_id_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'skip',
+                    'take',
+                    'order_by',
+                    'search_field',
+                    'search_value',
+                    'work_item_select_model',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'order_by':
+                        (str,),
+                    'search_field':
+                        (str,),
+                    'search_value':
+                        (str,),
+                    'work_item_select_model':
+                        (WorkItemSelectModel,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'order_by': 'OrderBy',
+                    'search_field': 'SearchField',
+                    'search_value': 'SearchValue',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'skip': 'query',
+                    'take': 'query',
+                    'order_by': 'query',
+                    'search_field': 'query',
+                    'search_value': 'query',
+                    'work_item_select_model': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.api_v2_projects_id_work_items_search_post_endpoint = _Endpoint(
+            settings={
+                'response_type': ([WorkItemShortModel],),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{id}/workItems/search',
+                'operation_id': 'api_v2_projects_id_work_items_search_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'skip',
+                    'take',
+                    'order_by',
+                    'search_field',
+                    'search_value',
+                    'work_item_select_model',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'order_by':
+                        (str,),
+                    'search_field':
+                        (str,),
+                    'search_value':
+                        (str,),
+                    'work_item_select_model':
+                        (WorkItemSelectModel,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'order_by': 'OrderBy',
+                    'search_field': 'SearchField',
+                    'search_value': 'SearchValue',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'skip': 'query',
+                    'take': 'query',
+                    'order_by': 'query',
+                    'search_field': 'query',
+                    'search_value': 'query',
+                    'work_item_select_model': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.api_v2_projects_id_work_items_tags_get_endpoint = _Endpoint(
             settings={
                 'response_type': ([TagShortModel],),
@@ -732,6 +1101,57 @@ class ProjectsApi(object):
             },
             api_client=api_client
         )
+        self.api_v2_projects_name_name_exists_get_endpoint = _Endpoint(
+            settings={
+                'response_type': (bool,),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/name/{name}/exists',
+                'operation_id': 'api_v2_projects_name_name_exists_get',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'name',
+                ],
+                'required': [
+                    'name',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'name':
+                        (str,),
+                },
+                'attribute_map': {
+                    'name': 'name',
+                },
+                'location_map': {
+                    'name': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.api_v2_projects_search_post_endpoint = _Endpoint(
             settings={
                 'response_type': ([ProjectModel],),
@@ -750,7 +1170,7 @@ class ProjectsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'project_select_model',
+                    'projects_filter_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -776,8 +1196,8 @@ class ProjectsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'project_select_model':
-                        (ProjectSelectModel,),
+                    'projects_filter_model':
+                        (ProjectsFilterModel,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -792,7 +1212,7 @@ class ProjectsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'project_select_model': 'body',
+                    'projects_filter_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -887,10 +1307,14 @@ class ProjectsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'request_body',
                 ]
             },
             root_map={
                 'validations': {
+                    ('request_body',): {
+
+                    },
                 },
                 'allowed_values': {
                 },
@@ -2212,6 +2636,170 @@ class ProjectsApi(object):
             },
             api_client=api_client
         )
+        self.search_attributes_in_project_endpoint = _Endpoint(
+            settings={
+                'response_type': ([CustomAttributeGetModel],),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{id}/attributes/search',
+                'operation_id': 'search_attributes_in_project',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'skip',
+                    'take',
+                    'order_by',
+                    'search_field',
+                    'search_value',
+                    'project_attributes_filter_model',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'order_by':
+                        (str,),
+                    'search_field':
+                        (str,),
+                    'search_value':
+                        (str,),
+                    'project_attributes_filter_model':
+                        (ProjectAttributesFilterModel,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'order_by': 'OrderBy',
+                    'search_field': 'SearchField',
+                    'search_value': 'SearchValue',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'skip': 'query',
+                    'take': 'query',
+                    'order_by': 'query',
+                    'search_field': 'query',
+                    'search_value': 'query',
+                    'project_attributes_filter_model': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.search_test_plan_attributes_in_project_endpoint = _Endpoint(
+            settings={
+                'response_type': ([CustomAttributeGetModel],),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{id}/testPlans/attributes/search',
+                'operation_id': 'search_test_plan_attributes_in_project',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'skip',
+                    'take',
+                    'order_by',
+                    'search_field',
+                    'search_value',
+                    'project_attributes_filter_model',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'order_by':
+                        (str,),
+                    'search_field':
+                        (str,),
+                    'search_value':
+                        (str,),
+                    'project_attributes_filter_model':
+                        (ProjectAttributesFilterModel,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'order_by': 'OrderBy',
+                    'search_field': 'SearchField',
+                    'search_value': 'SearchValue',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'skip': 'query',
+                    'take': 'query',
+                    'order_by': 'query',
+                    'search_field': 'query',
+                    'search_value': 'query',
+                    'project_attributes_filter_model': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_custom_attribute_test_plan_project_relations_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -2377,7 +2965,179 @@ class ProjectsApi(object):
             api_client=api_client
         )
 
-    def api_v2_projects_id_custom_attribute_templates_template_id_delete(
+    def add_globa_attributes_to_project(
+        self,
+        id,
+        **kwargs
+    ):
+        """Add global attributes to project  # noqa: E501
+
+        <br>Use case  <br>User sets project internal or global identifier and attributes identifiers  <br>System search project  <br>System relates global attributes with project  <br>System returns no content response  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.add_globa_attributes_to_project(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Project internal (UUID) or global (integer) identifier
+
+        Keyword Args:
+            request_body ([str]): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.add_globa_attributes_to_project_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_projects_id_attributes_templates_search_post(
+        self,
+        id,
+        **kwargs
+    ):
+        """Search for custom attributes templates  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_id_attributes_templates_search_post(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str):
+
+        Keyword Args:
+            skip (int): Amount of items to be skipped (offset). [optional]
+            take (int): Amount of items to be taken (limit). [optional]
+            order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
+            search_field (str): Property name for searching. [optional]
+            search_value (str): Value for searching. [optional]
+            project_custom_attributes_templates_filter_model (ProjectCustomAttributesTemplatesFilterModel): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [ProjectCustomAttributeTemplateGetModel]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.api_v2_projects_id_attributes_templates_search_post_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_projects_id_attributes_templates_template_id_delete(
         self,
         id,
         template_id,
@@ -2389,7 +3149,7 @@ class ProjectsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_projects_id_custom_attribute_templates_template_id_delete(id, template_id, async_req=True)
+        >>> thread = api.api_v2_projects_id_attributes_templates_template_id_delete(id, template_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -2462,9 +3222,9 @@ class ProjectsApi(object):
             id
         kwargs['template_id'] = \
             template_id
-        return self.api_v2_projects_id_custom_attribute_templates_template_id_delete_endpoint.call_with_http_info(**kwargs)
+        return self.api_v2_projects_id_attributes_templates_template_id_delete_endpoint.call_with_http_info(**kwargs)
 
-    def api_v2_projects_id_custom_attribute_templates_template_id_post(
+    def api_v2_projects_id_attributes_templates_template_id_post(
         self,
         id,
         template_id,
@@ -2476,7 +3236,7 @@ class ProjectsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_projects_id_custom_attribute_templates_template_id_post(id, template_id, async_req=True)
+        >>> thread = api.api_v2_projects_id_attributes_templates_template_id_post(id, template_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -2549,7 +3309,7 @@ class ProjectsApi(object):
             id
         kwargs['template_id'] = \
             template_id
-        return self.api_v2_projects_id_custom_attribute_templates_template_id_post_endpoint.call_with_http_info(**kwargs)
+        return self.api_v2_projects_id_attributes_templates_template_id_post_endpoint.call_with_http_info(**kwargs)
 
     def api_v2_projects_id_failure_classes_get(
         self,
@@ -2642,7 +3402,6 @@ class ProjectsApi(object):
     ):
         """Mark Project as favorite  # noqa: E501
 
-        User permissions for project:  {Read only}  {Execute}  {Write}  {Full control}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2650,7 +3409,7 @@ class ProjectsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str):
+            id (str): Project internal (UUID) or global (integer) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -2890,6 +3649,93 @@ class ProjectsApi(object):
         kwargs['id'] = \
             id
         return self.api_v2_projects_id_test_plans_analytics_get_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_projects_id_test_plans_name_exists_get(
+        self,
+        id,
+        name,
+        **kwargs
+    ):
+        """Checks if TestPlan exists with the specified name exists for the project  # noqa: E501
+
+        <br>Use case  <br>User sets project internal or global identifier   <br>User runs method execution  <br>System purge delete project workitems  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_id_test_plans_name_exists_get(id, name, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Project internal (UUID) or global (integer) identifier
+            name (str): TestPlan name to check
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            bool
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        kwargs['name'] = \
+            name
+        return self.api_v2_projects_id_test_plans_name_exists_get_endpoint.call_with_http_info(**kwargs)
 
     def api_v2_projects_id_test_plans_search_post(
         self,
@@ -3161,6 +4007,182 @@ class ProjectsApi(object):
             id
         return self.api_v2_projects_id_test_runs_full_get_endpoint.call_with_http_info(**kwargs)
 
+    def api_v2_projects_id_work_items_search_id_post(
+        self,
+        id,
+        **kwargs
+    ):
+        """Search for work items and extract IDs only  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_id_work_items_search_id_post(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Unique or global ID of the project
+
+        Keyword Args:
+            skip (int): Amount of items to be skipped (offset). [optional]
+            take (int): Amount of items to be taken (limit). [optional]
+            order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
+            search_field (str): Property name for searching. [optional]
+            search_value (str): Value for searching. [optional]
+            work_item_select_model (WorkItemSelectModel): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [str]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.api_v2_projects_id_work_items_search_id_post_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_projects_id_work_items_search_post(
+        self,
+        id,
+        **kwargs
+    ):
+        """Search for work items  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_id_work_items_search_post(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Unique or global ID of the project
+
+        Keyword Args:
+            skip (int): Amount of items to be skipped (offset). [optional]
+            take (int): Amount of items to be taken (limit). [optional]
+            order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
+            search_field (str): Property name for searching. [optional]
+            search_value (str): Value for searching. [optional]
+            work_item_select_model (WorkItemSelectModel): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [WorkItemShortModel]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.api_v2_projects_id_work_items_search_post_endpoint.call_with_http_info(**kwargs)
+
     def api_v2_projects_id_work_items_tags_get(
         self,
         id,
@@ -3245,11 +4267,93 @@ class ProjectsApi(object):
             id
         return self.api_v2_projects_id_work_items_tags_get_endpoint.call_with_http_info(**kwargs)
 
+    def api_v2_projects_name_name_exists_get(
+        self,
+        name,
+        **kwargs
+    ):
+        """api_v2_projects_name_name_exists_get  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_name_name_exists_get(name, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            name (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            bool
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['name'] = \
+            name
+        return self.api_v2_projects_name_name_exists_get_endpoint.call_with_http_info(**kwargs)
+
     def api_v2_projects_search_post(
         self,
         **kwargs
     ):
-        """api_v2_projects_search_post  # noqa: E501
+        """Search for projects  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3264,7 +4368,7 @@ class ProjectsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            project_select_model (ProjectSelectModel): [optional]
+            projects_filter_model (ProjectsFilterModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -3334,7 +4438,7 @@ class ProjectsApi(object):
     ):
         """Import project from JSON file  # noqa: E501
 
-        <br>    <b>A project can only be exported to another TMS instance, different from the one it was imported from.</b>    <br>This method imports a `.json` file with a project to the test management system.  <br>In the body of the request, send the `.json` file received by the `POST /api/v2/projects/export` method:  <br>    <code>              curl -X POST \"http://{domain.com}/api/v2/projects/import\" \\              -H \"accept: /\" -H \"Authorization: PrivateToken {token}\" -H \"Content-Type: multipart/form-data\" \\              -F \"file=@import.txt;type=text/plain\"              </code>    <br>              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                <br>Test plan execution history from the first instance of TMS cannot be transferred.  # noqa: E501
+        <br>    <b>A project can only be exported to another TMS instance, different from the one it was imported from.</b>    <br>This method imports a `.json` file with a project to the test management system.  <br>In the body of the request, send the `.json` file received by the `POST /api/v2/projects/export` method:  <br>    ```              curl -X POST \"http://{domain.com}/api/v2/projects/import\" \\              -H \"accept: /\" -H \"Authorization: PrivateToken {token}\" -H \"Content-Type: multipart/form-data\" \\              -F \"file=@import.txt;type=text/plain\"              ```    <br>              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                <br>Test plan execution history from the first instance of TMS cannot be transferred.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3749,7 +4853,7 @@ class ProjectsApi(object):
     ):
         """Delete project  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier and runs method execution  <br>System search and delete project  <br>System returns no content response  # noqa: E501
+        <br>Use case:  <br>1. User sets project internal or global identifier and runs method execution  <br>2. System searches and moves requested project to archive  <br>3. System responds with no content (204) result  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3925,7 +5029,7 @@ class ProjectsApi(object):
 
         Args:
             id (str): Project internal (UUID) or global (integer) identifier
-            attribute_id (str): Project attribute internal (UUID) or global (integer) identifier
+            attribute_id (str): Project attribute internal (UUID)
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4002,7 +5106,7 @@ class ProjectsApi(object):
     ):
         """Export project as JSON file  # noqa: E501
 
-        <br>This method exports the selected project or its part (sections, work items) to a `.json` file.  <br>In the request body, you can specify sections and test cases to be exported.  <br>Example of a request to export two sections and two test cases:  <br>    <code>              curl -X POST \"http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\" \\              -H \"accept: application/json\" -H \"Authorization: PrivateToken {token}\" -H \"Content-Type: application/json-patch+json\" \\              -d \"{\\\"sectionIds\\\":[\\\"3fa85f64-5717-4562-b3fc-2c963f66afa6\\\",\\\"9fa85f64-5717-4562-b3fc-2c963f66a000\\\"],\\\"workItemIds\\\":[\\\"3fa85f64-5717-4562-b3fc-2c963f66afa6\\\",\\\"90085f64-5717-4562-b3fc-2c963f66a000\\\"]}\"              </code>    <br>In the response, you get:  <br>              - A `.zip` file with attachments and a.json file if you enable attachments export.<br />              - A `.json` file with the project if you do not enable attachments export.                # noqa: E501
+        <br>This method exports the selected project or its part (sections, work items) to a `.json` file.  <br>In the request body, you can specify sections and test cases to be exported.  <br>Example of a request to export two sections and two test cases:  <br>    ```              curl -X POST \"http://{domain}.com/api/v2/projects/27a32ce6-d972-4ef8-bef5-51be4bf9e468/export\" \\              -H \"accept: application/json\" -H \"Authorization: PrivateToken {token}\" -H \"Content-Type: application/json-patch+json\" \\              -d \"{\\\"sectionIds\\\":[\\\"3fa85f64-5717-4562-b3fc-2c963f66afa6\\\",\\\"9fa85f64-5717-4562-b3fc-2c963f66a000\\\"],\\\"workItemIds\\\":[\\\"3fa85f64-5717-4562-b3fc-2c963f66afa6\\\",\\\"90085f64-5717-4562-b3fc-2c963f66a000\\\"]}\"              ```    <br>In the response, you get:  <br>              - A `.zip` file with attachments and a.json file if you enable attachments export.<br />              - A `.json` file with the project if you do not enable attachments export.                # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5279,6 +6383,182 @@ class ProjectsApi(object):
             id
         return self.restore_project_endpoint.call_with_http_info(**kwargs)
 
+    def search_attributes_in_project(
+        self,
+        id,
+        **kwargs
+    ):
+        """Search for attributes used in the project  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_attributes_in_project(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Unique or global project ID
+
+        Keyword Args:
+            skip (int): Amount of items to be skipped (offset). [optional]
+            take (int): Amount of items to be taken (limit). [optional]
+            order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
+            search_field (str): Property name for searching. [optional]
+            search_value (str): Value for searching. [optional]
+            project_attributes_filter_model (ProjectAttributesFilterModel): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [CustomAttributeGetModel]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.search_attributes_in_project_endpoint.call_with_http_info(**kwargs)
+
+    def search_test_plan_attributes_in_project(
+        self,
+        id,
+        **kwargs
+    ):
+        """Search for attributes used in the project test plans  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_test_plan_attributes_in_project(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Unique or global project ID
+
+        Keyword Args:
+            skip (int): Amount of items to be skipped (offset). [optional]
+            take (int): Amount of items to be taken (limit). [optional]
+            order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
+            search_field (str): Property name for searching. [optional]
+            search_value (str): Value for searching. [optional]
+            project_attributes_filter_model (ProjectAttributesFilterModel): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [CustomAttributeGetModel]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.search_test_plan_attributes_in_project_endpoint.call_with_http_info(**kwargs)
+
     def update_custom_attribute_test_plan_project_relations(
         self,
         id,
@@ -5447,9 +6727,8 @@ class ProjectsApi(object):
         id,
         **kwargs
     ):
-        """Update project attribute  # noqa: E501
+        """Edit attribute of the project  # noqa: E501
 
-        <br>Use case  <br>User sets project parameters (listed in request example) and runs method execution  <br>System updates project  <br>System updates attribute related to the project  <br>System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5457,7 +6736,7 @@ class ProjectsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Project internal (UUID) or global (integer) identifier
+            id (str): Unique or global project ID
 
         Keyword Args:
             custom_attribute_put_model (CustomAttributePutModel): [optional]

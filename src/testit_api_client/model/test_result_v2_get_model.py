@@ -107,8 +107,8 @@ class TestResultV2GetModel(ModelNormal):
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
-            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
-            'properties': ({str: (str,)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'properties': ({str: (str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -200,8 +200,8 @@ class TestResultV2GetModel(ModelNormal):
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -307,8 +307,8 @@ class TestResultV2GetModel(ModelNormal):
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

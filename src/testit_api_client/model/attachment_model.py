@@ -58,6 +58,15 @@ class AttachmentModel(ModelNormal):
     }
 
     validations = {
+        ('file_id',): {
+            'min_length': 1,
+        },
+        ('type',): {
+            'min_length': 1,
+        },
+        ('name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -80,7 +89,7 @@ class AttachmentModel(ModelNormal):
             'size': (float,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -151,7 +160,7 @@ class AttachmentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
@@ -252,7 +261,7 @@ class AttachmentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501

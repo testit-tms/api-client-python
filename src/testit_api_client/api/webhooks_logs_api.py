@@ -21,6 +21,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.web_hook_log_model import WebHookLogModel
 
 
@@ -153,7 +154,9 @@ class WebhooksLogsApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -214,7 +217,7 @@ class WebhooksLogsApi(object):
         self,
         **kwargs
     ):
-        """api_v2_webhooks_logs_get  # noqa: E501
+        """Get all webhook logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -224,7 +227,7 @@ class WebhooksLogsApi(object):
 
 
         Keyword Args:
-            project_id (str): [optional]
+            project_id (str): Project unique ID. [optional]
             skip (int): Amount of items to be skipped (offset). [optional]
             take (int): Amount of items to be taken (limit). [optional]
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
@@ -298,7 +301,7 @@ class WebhooksLogsApi(object):
         id,
         **kwargs
     ):
-        """api_v2_webhooks_logs_id_delete  # noqa: E501
+        """Delete webhook log by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -307,7 +310,7 @@ class WebhooksLogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str):
+            id (str): Webhook log unique ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -380,7 +383,7 @@ class WebhooksLogsApi(object):
         id,
         **kwargs
     ):
-        """api_v2_webhooks_logs_id_get  # noqa: E501
+        """Get webhook log by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -389,7 +392,7 @@ class WebhooksLogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str):
+            id (str): Webhook log unique ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

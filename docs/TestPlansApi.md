@@ -4,10 +4,10 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_test_points_with_sections**](TestPlansApi.md#add_test_points_with_sections) | **POST** /api/v2/testPlans/{id}/test-points/withSections | Add test-points to test suite with sections
+[**add_test_points_with_sections**](TestPlansApi.md#add_test_points_with_sections) | **POST** /api/v2/testPlans/{id}/test-points/withSections | Add test-points to TestPlan with sections
 [**add_work_items_with_sections**](TestPlansApi.md#add_work_items_with_sections) | **POST** /api/v2/testPlans/{id}/workItems/withSections | Add WorkItems to TestPlan with Sections as TestSuites
 [**api_v2_test_plans_id_analytics_get**](TestPlansApi.md#api_v2_test_plans_id_analytics_get) | **GET** /api/v2/testPlans/{id}/analytics | Get analytics by TestPlan
-[**api_v2_test_plans_id_autobalance_post**](TestPlansApi.md#api_v2_test_plans_id_autobalance_post) | **POST** /api/v2/testPlans/{id}/autobalance | Auto-balance for TestPlan with testers
+[**api_v2_test_plans_id_autobalance_post**](TestPlansApi.md#api_v2_test_plans_id_autobalance_post) | **POST** /api/v2/testPlans/{id}/autobalance | Distribute test points between the users
 [**api_v2_test_plans_id_configurations_get**](TestPlansApi.md#api_v2_test_plans_id_configurations_get) | **GET** /api/v2/testPlans/{id}/configurations | Get TestPlan configurations
 [**api_v2_test_plans_id_export_test_points_xlsx_post**](TestPlansApi.md#api_v2_test_plans_id_export_test_points_xlsx_post) | **POST** /api/v2/testPlans/{id}/export/testPoints/xlsx | Export TestPoints from TestPlan in xls format
 [**api_v2_test_plans_id_export_test_result_history_xlsx_post**](TestPlansApi.md#api_v2_test_plans_id_export_test_result_history_xlsx_post) | **POST** /api/v2/testPlans/{id}/export/testResultHistory/xlsx | Export TestResults history from TestPlan in xls format
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**api_v2_test_plans_id_test_points_reset_post**](TestPlansApi.md#api_v2_test_plans_id_test_points_reset_post) | **POST** /api/v2/testPlans/{id}/testPoints/reset | Reset TestPoints status of TestPlan
 [**api_v2_test_plans_id_test_runs_get**](TestPlansApi.md#api_v2_test_plans_id_test_runs_get) | **GET** /api/v2/testPlans/{id}/testRuns | Get TestRuns of TestPlan
 [**api_v2_test_plans_id_test_runs_search_post**](TestPlansApi.md#api_v2_test_plans_id_test_runs_search_post) | **POST** /api/v2/testPlans/{id}/testRuns/search | Search TestRuns of TestPlan
-[**api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get**](TestPlansApi.md#api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get) | **GET** /api/v2/testPlans/{id}/testRuns/testResults/lastModified/modifiedDate | Get max modified date in TestRun for TestPlan
+[**api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get**](TestPlansApi.md#api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get) | **GET** /api/v2/testPlans/{id}/testRuns/testResults/lastModified/modifiedDate | Get last modification date of test plan&#39;s test results
 [**api_v2_test_plans_id_unlock_request_post**](TestPlansApi.md#api_v2_test_plans_id_unlock_request_post) | **POST** /api/v2/testPlans/{id}/unlock/request | Send unlock TestPlan notification
 [**api_v2_test_plans_shorts_post**](TestPlansApi.md#api_v2_test_plans_shorts_post) | **POST** /api/v2/testPlans/shorts | Get TestPlans short models by Project identifiers
 [**clone**](TestPlansApi.md#clone) | **POST** /api/v2/testPlans/{id}/clone | Clone TestPlan
@@ -35,7 +35,7 @@ Method | HTTP request | Description
 # **add_test_points_with_sections**
 > add_test_points_with_sections(id)
 
-Add test-points to test suite with sections
+Add test-points to TestPlan with sections
 
 ### Example
 
@@ -46,6 +46,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.work_item_select_model import WorkItemSelectModel
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -68,7 +69,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132" # str | Test suite internal identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
     work_item_select_model = WorkItemSelectModel(
         filter=WorkItemFilterModel(
             name_or_id="name_or_id_example",
@@ -79,6 +80,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
                 "exclude_ids_example",
             ],
             name="name_example",
+            ids=[
+                "ids_example",
+            ],
             global_ids=[
                 1,
             ],
@@ -106,51 +110,60 @@ with testit_api_client.ApiClient(configuration) as api_client:
             priorities=[
                 WorkItemPriorityModel("Lowest"),
             ],
-            entity_types=[
-                "entity_types_example",
+            types=[
+                WorkItemEntityTypes("TestCases"),
             ],
-            created_date_minimal=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            created_date_maximal=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            modified_date_minimal=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            modified_date_maximal=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            duration_minimal=1,
-            duration_maximal=1,
+            created_date=DateTimeRangeSelectorModel(
+                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            ),
+            modified_date=DateTimeRangeSelectorModel(
+                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            ),
+            duration=Int32RangeSelectorModel(
+                _from=1,
+                to=1,
+            ),
             is_automated=True,
-            tag_names=[
-                "tag_names_example",
+            tags=[
+                "tags_example",
             ],
             auto_test_ids=[
                 "auto_test_ids_example",
             ],
-            except_work_item_ids=[
-                "except_work_item_ids_example",
-            ],
         ),
-        extraction_model=WorkItemExtractionModel(
-            include_work_items=[
-                "include_work_items_example",
-            ],
-            include_sections=[
-                "include_sections_example",
-            ],
-            include_projects=[
-                "include_projects_example",
-            ],
-            exclude_work_items=[
-                "exclude_work_items_example",
-            ],
-            exclude_sections=[
-                "exclude_sections_example",
-            ],
-            exclude_projects=[
-                "exclude_projects_example",
-            ],
+        extraction_model=WorkItemsExtractionModel(
+            ids=GuidExtractionModel(
+                include=[
+                    "include_example",
+                ],
+                exclude=[
+                    "exclude_example",
+                ],
+            ),
+            section_ids=GuidExtractionModel(
+                include=[
+                    "include_example",
+                ],
+                exclude=[
+                    "exclude_example",
+                ],
+            ),
+            project_ids=GuidExtractionModel(
+                include=[
+                    "include_example",
+                ],
+                exclude=[
+                    "exclude_example",
+                ],
+            ),
         ),
     ) # WorkItemSelectModel | Filter object to retrieve work items for test-suite's project (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Add test-points to test suite with sections
+        # Add test-points to TestPlan with sections
         api_instance.add_test_points_with_sections(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPlansApi->add_test_points_with_sections: %s\n" % e)
@@ -158,7 +171,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Add test-points to test suite with sections
+        # Add test-points to TestPlan with sections
         api_instance.add_test_points_with_sections(id, work_item_select_model=work_item_select_model)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPlansApi->add_test_points_with_sections: %s\n" % e)
@@ -169,7 +182,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test suite internal identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
  **work_item_select_model** | [**WorkItemSelectModel**](WorkItemSelectModel.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional]
 
 ### Return type
@@ -183,18 +196,18 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
+**422** | Shared steps cannot be added to test suite |  -  |
 **403** | Update permission for test plan is required |  -  |
 **404** | Test suite with provided ID was not found |  -  |
-**422** | Shared steps cannot be added to test suite |  -  |
+**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -285,11 +298,11 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Update permission for TestPlan required |  -  |
-**422** | Can&#39;t put a SharedStep in the TestSuite |  -  |
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active |  -  |
 **401** | Unauthorized |  -  |
+**400** | &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active |  -  |
 **404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist |  -  |
+**422** | Can&#39;t put a SharedStep in the TestSuite |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -379,9 +392,7 @@ Name | Type | Description  | Notes
 # **api_v2_test_plans_id_autobalance_post**
 > TestPlanWithTestSuiteTreeModel api_v2_test_plans_id_autobalance_post(id)
 
-Auto-balance for TestPlan with testers
-
-<br>Use case  <br>User sets TestPlan identifier  <br>User sets testers identifiers (listed in request example)  <br>User runs method execution  <br>System auto-balances TestPlan  <br>System returns test plan model (listed in response example)
+Distribute test points between the users
 
 ### Example
 
@@ -393,7 +404,6 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_plan_with_test_suite_tree_model import TestPlanWithTestSuiteTreeModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -416,14 +426,14 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "id_example" # str | Test plan unique or global ID
     testers = [
         "testers_example",
-    ] # [str] | List of testers internal identifiers (optional)
+    ] # [str] | Specifies a project user IDs to distribute (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Auto-balance for TestPlan with testers
+        # Distribute test points between the users
         api_response = api_instance.api_v2_test_plans_id_autobalance_post(id)
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -432,7 +442,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Auto-balance for TestPlan with testers
+        # Distribute test points between the users
         api_response = api_instance.api_v2_test_plans_id_autobalance_post(id, testers=testers)
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -444,8 +454,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
- **testers** | **[str]**| List of testers internal identifiers | [optional]
+ **id** | **str**| Test plan unique or global ID |
+ **testers** | **[str]**| Specifies a project user IDs to distribute | [optional]
 
 ### Return type
 
@@ -465,10 +475,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
-**200** | Successful operation |  -  |
-**404** | Test suite with provided ID was not found |  -  |
-**401** | Unauthorized |  -  |
+**200** | Success |  -  |
 **403** | Update permission for test plan is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -549,11 +556,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
+**404** | TestPlan not found |  -  |
 **403** | Read permission for test plan required |  -  |
 **401** | Unauthorized |  -  |
 **200** | Successful operation |  -  |
-**404** | TestPlan not found |  -  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -666,10 +673,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Read permission for test plan required |  -  |
-**401** | Unauthorized |  -  |
 **404** | TestPlan not found |  -  |
-**200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -766,10 +773,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **400** | Bad Request |  -  |
+**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
-**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -868,10 +875,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | TestPlan not found |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
+**404** | TestPlan not found |  -  |
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -967,8 +974,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** | Unauthorized |  -  |
-**200** | Successful operation |  -  |
 **403** | Read permission for test plan is required |  -  |
+**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1013,7 +1020,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
-    must_add_grouping_elements = True # bool |  (optional)
     tester_id = "testerId_example" # str |  (optional)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
     take = 1 # int | Amount of items to be taken (limit) (optional)
@@ -1033,7 +1039,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get TestPoints with last result from TestPlan
-        api_response = api_instance.api_v2_test_plans_id_test_points_last_results_get(id, must_add_grouping_elements=must_add_grouping_elements, tester_id=tester_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        api_response = api_instance.api_v2_test_plans_id_test_points_last_results_get(id, tester_id=tester_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPlansApi->api_v2_test_plans_id_test_points_last_results_get: %s\n" % e)
@@ -1045,7 +1051,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
- **must_add_grouping_elements** | **bool**|  | [optional]
  **tester_id** | **str**|  | [optional]
  **skip** | **int**| Amount of items to be skipped (offset) | [optional]
  **take** | **int**| Amount of items to be taken (limit) | [optional]
@@ -1071,11 +1076,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | TestPlan not found |  -  |
-**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
+**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**404** | TestPlan not found |  -  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1165,8 +1170,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **422** | Client Error |  -  |
 **401** | Unauthorized |  -  |
 
@@ -1274,9 +1279,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **403** | Read permission for test plan is required |  -  |
 **401** | Unauthorized |  -  |
+**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1328,19 +1333,22 @@ with testit_api_client.ApiClient(configuration) as api_client:
     search_value = "SearchValue_example" # str | Value for searching (optional)
     test_run_search_query_model = TestRunSearchQueryModel(
         name="name_example",
-        state=[
-            TestRunStateTypeModel("NotStarted"),
+        states=[
+            TestRunState("NotStarted"),
         ],
-        start_date=DateTimeRangeSelectorModel(
+        started_date=DateTimeRangeSelectorModel(
             _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
             to=dateutil_parser('1970-01-01T00:00:00.00Z'),
         ),
-        end_date=DateTimeRangeSelectorModel(
+        completed_date=DateTimeRangeSelectorModel(
             _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
             to=dateutil_parser('1970-01-01T00:00:00.00Z'),
         ),
         created_by_ids=[
             "created_by_ids_example",
+        ],
+        modified_by_ids=[
+            "modified_by_ids_example",
         ],
     ) # TestRunSearchQueryModel |  (optional)
 
@@ -1393,18 +1401,16 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test plan is required |  -  |
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **401** | Unauthorized |  -  |
+**403** | Read permission for test plan is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get**
 > datetime api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get(id)
 
-Get max modified date in TestRun for TestPlan
-
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System returns max modified date in TestRun for TestPlan
+Get last modification date of test plan's test results
 
 ### Example
 
@@ -1437,11 +1443,11 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "id_example" # str | Test plan unique or global ID
 
     # example passing only required values which don't have defaults set
     try:
-        # Get max modified date in TestRun for TestPlan
+        # Get last modification date of test plan's test results
         api_response = api_instance.api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get(id)
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -1453,7 +1459,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan unique or global ID |
 
 ### Return type
 
@@ -1473,9 +1479,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for test plan is required |  -  |
-**200** | Successful operation |  -  |
-**401** | Unauthorized |  -  |
+**200** | Last modification date exists |  -  |
+**204** | Last modification date does not exist |  -  |
+**403** | Read permission for test plan is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1553,11 +1559,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **200** | Successful operation |  -  |
 **404** | TestPlan not found |  -  |
-**403** | Read permission for test plan required |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Read permission for test plan required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1642,8 +1648,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** | Project not found |  -  |
-**403** | Read permission for project required |  -  |
 **200** | Successful operation |  -  |
+**403** | Read permission for project required |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1723,7 +1729,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**201** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
@@ -1806,8 +1812,8 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;Change status from New to Completed forbidden  &lt;br&gt;Change status from Completed to Completed forbidden |  -  |
 **401** | Unauthorized |  -  |
+**400** | &lt;br&gt;Change status from New to Completed forbidden  &lt;br&gt;Change status from Completed to Completed forbidden |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
 
@@ -1861,11 +1867,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
             ),
         ],
         name="Base test plan",
-        start_date=dateutil_parser('2022-07-21T14:38:15.619775Z'),
-        end_date=dateutil_parser('2022-07-21T14:38:15.619775Z'),
+        start_date=dateutil_parser('2023-01-23T10:19:04.1588905Z'),
+        end_date=dateutil_parser('2023-01-23T10:19:04.1588905Z'),
         description="This is a base test plan",
         build="v.3.0.0-b94f3055",
-        project_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        project_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
         product_name="Billing service",
         has_automatic_duration_timer=True,
         attributes={
@@ -1908,11 +1914,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! |  -  |
-**409** | TestPlan with the same name already exists! |  -  |
 **401** | Unauthorized |  -  |
 **201** | Successful operation |  -  |
+**400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! |  -  |
 **403** | Update permission for test plan required |  -  |
+**409** | TestPlan with the same name already exists! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1989,9 +1995,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Can&#39;t find a TestPlan with id! |  -  |
-**401** | Unauthorized |  -  |
 **403** | Delete permission for test plan required |  -  |
+**401** | Unauthorized |  -  |
+**404** | Can&#39;t find a TestPlan with id! |  -  |
 **204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2071,10 +2077,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Can&#39;t find a Project with id |  -  |
+**403** | Read permission for test plan required |  -  |
 **200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
-**403** | Read permission for test plan required |  -  |
-**404** | Can&#39;t find a Project with id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2153,10 +2159,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **404** | Can&#39;t find a TestRun with id! |  -  |
 **403** | Read permission for test plan required |  -  |
-**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2233,11 +2239,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Can&#39;t find a TestPlan with id! |  -  |
-**204** | Successful operation |  -  |
 **400** | &lt;br&gt;Change status from New to Paused forbidden  &lt;br&gt;Change status from Paused to Paused forbidden  &lt;br&gt;Change status from Completed to Paused forbidden |  -  |
-**401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
+**204** | Successful operation |  -  |
+**404** | Can&#39;t find a TestPlan with id! |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2314,10 +2320,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
-**204** | Successful operation |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
+**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2394,10 +2400,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
-**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2441,7 +2447,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
     test_plan_put_model = TestPlanPutModel(
-        id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        id="573f916c-d8ad-4f87-846f-4dba1839ae56",
         locked_by_id="locked_by_id_example",
         tags=[
             TagShortModel(
@@ -2449,11 +2455,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
             ),
         ],
         name="Base test plan",
-        start_date=dateutil_parser('2022-07-21T14:38:15.619775Z'),
-        end_date=dateutil_parser('2022-07-21T14:38:15.619775Z'),
+        start_date=dateutil_parser('2023-01-23T10:19:04.1588905Z'),
+        end_date=dateutil_parser('2023-01-23T10:19:04.1588905Z'),
         description="This is a base test plan",
         build="v.3.0.0-b94f3055",
-        project_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        project_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
         product_name="Billing service",
         has_automatic_duration_timer=True,
         attributes={
@@ -2495,13 +2501,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! |  -  |
-**204** | Successful operation |  -  |
-**401** | Unauthorized |  -  |
-**403** | Update permission for test plan required |  -  |
-**409** | TestPlan with the same name already exists! |  -  |
-**404** | Can&#39;t find a TestPlan with id! |  -  |
 **422** | Can&#39;t change ProjectId |  -  |
+**401** | Unauthorized |  -  |
+**409** | TestPlan with the same name already exists! |  -  |
+**204** | Successful operation |  -  |
+**400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! |  -  |
+**403** | Update permission for test plan required |  -  |
+**404** | Can&#39;t find a TestPlan with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

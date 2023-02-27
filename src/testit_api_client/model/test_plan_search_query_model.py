@@ -118,7 +118,7 @@ class TestPlanSearchQueryModel(ModelNormal):
             'start_date': (DateRangeModel,),  # noqa: E501
             'end_date': (DateRangeModel,),  # noqa: E501
             'tag_names': ([str], none_type,),  # noqa: E501
-            'attributes': ({str: ([str],)}, none_type,),  # noqa: E501
+            'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
         }
 
@@ -201,7 +201,7 @@ class TestPlanSearchQueryModel(ModelNormal):
             start_date (DateRangeModel): [optional]  # noqa: E501
             end_date (DateRangeModel): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
-            attributes ({str: ([str],)}, none_type): [optional]  # noqa: E501
+            attributes ({str: ([str], none_type)}, none_type): [optional]  # noqa: E501
             is_deleted (bool, none_type): [optional]  # noqa: E501
         """
 
@@ -302,7 +302,7 @@ class TestPlanSearchQueryModel(ModelNormal):
             start_date (DateRangeModel): [optional]  # noqa: E501
             end_date (DateRangeModel): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
-            attributes ({str: ([str],)}, none_type): [optional]  # noqa: E501
+            attributes ({str: ([str], none_type)}, none_type): [optional]  # noqa: E501
             is_deleted (bool, none_type): [optional]  # noqa: E501
         """
 

@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.work_item_extraction_model import WorkItemExtractionModel
     from testit_api_client.model.work_item_filter_model import WorkItemFilterModel
-    globals()['WorkItemExtractionModel'] = WorkItemExtractionModel
+    from testit_api_client.model.work_items_extraction_model import WorkItemsExtractionModel
     globals()['WorkItemFilterModel'] = WorkItemFilterModel
+    globals()['WorkItemsExtractionModel'] = WorkItemsExtractionModel
 
 
 class WorkItemSelectModel(ModelNormal):
@@ -83,7 +83,7 @@ class WorkItemSelectModel(ModelNormal):
         lazy_import()
         return {
             'filter': (WorkItemFilterModel,),  # noqa: E501
-            'extraction_model': (WorkItemExtractionModel,),  # noqa: E501
+            'extraction_model': (WorkItemsExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -138,7 +138,7 @@ class WorkItemSelectModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             filter (WorkItemFilterModel): [optional]  # noqa: E501
-            extraction_model (WorkItemExtractionModel): [optional]  # noqa: E501
+            extraction_model (WorkItemsExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,7 +225,7 @@ class WorkItemSelectModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             filter (WorkItemFilterModel): [optional]  # noqa: E501
-            extraction_model (WorkItemExtractionModel): [optional]  # noqa: E501
+            extraction_model (WorkItemsExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

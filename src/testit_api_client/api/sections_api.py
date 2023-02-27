@@ -783,9 +783,8 @@ class SectionsApi(object):
         self,
         **kwargs
     ):
-        """Move section  # noqa: E501
+        """Move section with all work items into another section  # noqa: E501
 
-        <br>Can be moved inside another section. It is possible to indicate a project  <br>Use case  <br>User sets section identifier, old parent identifier, parent identifier and  next section identifier (listed in request example)  <br>User runs method execution  <br>System search section by the identifier  <br>System unlink section from the old parent and links to the new one  <br>System updates section rank using the next section identifier  <br>System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

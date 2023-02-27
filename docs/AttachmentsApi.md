@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**api_v2_attachments_id_delete**](AttachmentsApi.md#api_v2_attachments_id_delete) | **DELETE** /api/v2/attachments/{id} | Delete attachment file
 [**api_v2_attachments_id_get**](AttachmentsApi.md#api_v2_attachments_id_get) | **GET** /api/v2/attachments/{id} | Download attachment file
-[**api_v2_attachments_occupied_file_storage_size_get**](AttachmentsApi.md#api_v2_attachments_occupied_file_storage_size_get) | **GET** /api/v2/attachments/occupiedFileStorageSize | 
+[**api_v2_attachments_occupied_file_storage_size_get**](AttachmentsApi.md#api_v2_attachments_occupied_file_storage_size_get) | **GET** /api/v2/attachments/occupiedFileStorageSize | Get size of attachments storage in bytes
 [**api_v2_attachments_post**](AttachmentsApi.md#api_v2_attachments_post) | **POST** /api/v2/attachments | Upload new attachment file
 
 
@@ -81,8 +81,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Attachment file was deleted successfully |  -  |
 **422** | Attachment file is already in use |  -  |
+**204** | Attachment file was deleted successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -126,7 +126,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     width = 1 # int | Width of the result image (optional)
     height = 1 # int | Height of the result image (optional)
     resize_type = ImageResizeType("Crop") # ImageResizeType | Type of resizing to apply to the result image (optional)
-    background_color = "backgroundColor_example" # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
+    background_color = "#62ECB0" # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
     preview = True # bool | If image must be converted to a preview (lower quality, no animation) (optional)
 
     # example passing only required values which don't have defaults set
@@ -182,9 +182,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_attachments_occupied_file_storage_size_get**
-> float api_v2_attachments_occupied_file_storage_size_get()
+> int api_v2_attachments_occupied_file_storage_size_get()
 
-
+Get size of attachments storage in bytes
 
 ### Example
 
@@ -219,6 +219,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
+        # Get size of attachments storage in bytes
         api_response = api_instance.api_v2_attachments_occupied_file_storage_size_get()
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -231,7 +232,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**float**
+**int**
 
 ### Authorization
 
@@ -328,10 +329,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**201** | Success |  -  |
-**403** | Forbidden |  -  |
+**201** | Created |  -  |
 **400** | &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -30,7 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.tag_short_model import TagShortModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    globals()['TagShortModel'] = TagShortModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
 
 
@@ -81,7 +83,7 @@ class SharedStepReferenceModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'global_id': (int, none_type,),  # noqa: E501
+            'global_id': (int,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'entity_type_name': (str, none_type,),  # noqa: E501
             'has_this_shared_step_as_step': (bool,),  # noqa: E501
@@ -95,6 +97,9 @@ class SharedStepReferenceModel(ModelNormal):
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'version_id': (str,),  # noqa: E501
+            'is_automated': (bool,),  # noqa: E501
+            'section_id': (str,),  # noqa: E501
+            'tags': ([TagShortModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -118,6 +123,9 @@ class SharedStepReferenceModel(ModelNormal):
         'priority': 'priority',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'version_id': 'versionId',  # noqa: E501
+        'is_automated': 'isAutomated',  # noqa: E501
+        'section_id': 'sectionId',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,7 +170,7 @@ class SharedStepReferenceModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             entity_type_name (str, none_type): [optional]  # noqa: E501
             has_this_shared_step_as_step (bool): [optional]  # noqa: E501
@@ -175,7 +183,10 @@ class SharedStepReferenceModel(ModelNormal):
             state (str, none_type): [optional]  # noqa: E501
             priority (WorkItemPriorityModel): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
-            version_id (str): [optional]  # noqa: E501
+            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
+            is_automated (bool): [optional]  # noqa: E501
+            section_id (str): [optional]  # noqa: E501
+            tags ([TagShortModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -262,7 +273,7 @@ class SharedStepReferenceModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             entity_type_name (str, none_type): [optional]  # noqa: E501
             has_this_shared_step_as_step (bool): [optional]  # noqa: E501
@@ -275,7 +286,10 @@ class SharedStepReferenceModel(ModelNormal):
             state (str, none_type): [optional]  # noqa: E501
             priority (WorkItemPriorityModel): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
-            version_id (str): [optional]  # noqa: E501
+            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
+            is_automated (bool): [optional]  # noqa: E501
+            section_id (str): [optional]  # noqa: E501
+            tags ([TagShortModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

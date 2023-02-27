@@ -75,13 +75,14 @@ class ConfigurationModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'capabilities': ({str: (str,)},),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'is_active': (bool,),  # noqa: E501
+            'capabilities': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -96,9 +97,10 @@ class ConfigurationModel(ModelNormal):
 
 
     attribute_map = {
-        'capabilities': 'capabilities',  # noqa: E501
         'description': 'description',  # noqa: E501
         'is_active': 'isActive',  # noqa: E501
+        'capabilities': 'capabilities',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -118,11 +120,8 @@ class ConfigurationModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, capabilities, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """ConfigurationModel - a model defined in OpenAPI
-
-        Args:
-            capabilities ({str: (str,)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -157,16 +156,18 @@ class ConfigurationModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
             is_active (bool): [optional]  # noqa: E501
+            capabilities ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             project_id (str): This property is used to link configuration with project. [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             global_id (int): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -198,7 +199,6 @@ class ConfigurationModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.capabilities = capabilities
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -219,11 +219,8 @@ class ConfigurationModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, capabilities, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """ConfigurationModel - a model defined in OpenAPI
-
-        Args:
-            capabilities ({str: (str,)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -258,16 +255,18 @@ class ConfigurationModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
             is_active (bool): [optional]  # noqa: E501
+            capabilities ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             project_id (str): This property is used to link configuration with project. [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             global_id (int): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            id (str): Unique ID of the entity. [optional]  # noqa: E501
+            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -297,7 +296,6 @@ class ConfigurationModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.capabilities = capabilities
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

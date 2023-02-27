@@ -76,7 +76,7 @@ class AutoTestShortModel(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
-            'global_id': (int, none_type,),  # noqa: E501
+            'global_id': (int,),  # noqa: E501
             'external_id': (str, none_type,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
@@ -137,7 +137,7 @@ class AutoTestShortModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
             external_id (str, none_type): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
@@ -227,7 +227,7 @@ class AutoTestShortModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            global_id (int, none_type): [optional]  # noqa: E501
+            global_id (int): [optional]  # noqa: E501
             external_id (str, none_type): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501

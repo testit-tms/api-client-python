@@ -98,6 +98,7 @@ class TestPlanModel(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'status': (TestPlanStatusModel,),  # noqa: E501
@@ -110,7 +111,6 @@ class TestPlanModel(ModelNormal):
             'global_id': (int,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'locked_date': (datetime, none_type,),  # noqa: E501
-            'id': (str,),  # noqa: E501
             'locked_by_id': (str, none_type,),  # noqa: E501
             'tags': ([TagShortModel], none_type,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
@@ -128,6 +128,7 @@ class TestPlanModel(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'status': 'status',  # noqa: E501
@@ -140,7 +141,6 @@ class TestPlanModel(ModelNormal):
         'global_id': 'globalId',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'locked_date': 'lockedDate',  # noqa: E501
-        'id': 'id',  # noqa: E501
         'locked_by_id': 'lockedById',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'start_date': 'startDate',  # noqa: E501
@@ -159,10 +159,11 @@ class TestPlanModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, project_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, project_id, *args, **kwargs):  # noqa: E501
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
+            id (str):
             name (str):
             project_id (str):
 
@@ -207,7 +208,6 @@ class TestPlanModel(ModelNormal):
             global_id (int): Used for search Test plan. [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             locked_date (datetime, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             locked_by_id (str, none_type): [optional]  # noqa: E501
             tags ([TagShortModel], none_type): [optional]  # noqa: E501
             start_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
@@ -248,6 +248,7 @@ class TestPlanModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.name = name
         self.project_id = project_id
         for var_name, var_value in kwargs.items():
@@ -270,10 +271,11 @@ class TestPlanModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, project_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, project_id, *args, **kwargs):  # noqa: E501
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
+            id (str):
             name (str):
             project_id (str):
 
@@ -318,7 +320,6 @@ class TestPlanModel(ModelNormal):
             global_id (int): Used for search Test plan. [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             locked_date (datetime, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             locked_by_id (str, none_type): [optional]  # noqa: E501
             tags ([TagShortModel], none_type): [optional]  # noqa: E501
             start_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
@@ -357,6 +358,7 @@ class TestPlanModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.name = name
         self.project_id = project_id
         for var_name, var_value in kwargs.items():

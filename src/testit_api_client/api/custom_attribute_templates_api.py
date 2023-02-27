@@ -25,9 +25,9 @@ from testit_api_client.model.custom_attribute_template_model import CustomAttrib
 from testit_api_client.model.custom_attribute_template_post_model import CustomAttributeTemplatePostModel
 from testit_api_client.model.custom_attribute_template_put_model import CustomAttributeTemplatePutModel
 from testit_api_client.model.custom_attribute_template_search_query_model import CustomAttributeTemplateSearchQueryModel
-from testit_api_client.model.custom_attribute_template_search_response_model import CustomAttributeTemplateSearchResponseModel
 from testit_api_client.model.no_content_result import NoContentResult
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.search_custom_attribute_template_get_model import SearchCustomAttributeTemplateGetModel
 from testit_api_client.model.validate_anti_forgery_token_attribute import ValidateAntiForgeryTokenAttribute
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -269,7 +269,7 @@ class CustomAttributeTemplatesApi(object):
         )
         self.api_v2_custom_attributes_templates_name_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([CustomAttributeTemplateModel],),
+                'response_type': (CustomAttributeTemplateModel,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -420,7 +420,7 @@ class CustomAttributeTemplatesApi(object):
         )
         self.api_v2_custom_attributes_templates_search_post_endpoint = _Endpoint(
             settings={
-                'response_type': ([CustomAttributeTemplateSearchResponseModel],),
+                'response_type': ([SearchCustomAttributeTemplateGetModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -431,6 +431,11 @@ class CustomAttributeTemplatesApi(object):
             },
             params_map={
                 'all': [
+                    'skip',
+                    'take',
+                    'order_by',
+                    'search_field',
+                    'search_value',
                     'custom_attribute_template_search_query_model',
                 ],
                 'required': [],
@@ -447,12 +452,32 @@ class CustomAttributeTemplatesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'order_by':
+                        (str,),
+                    'search_field':
+                        (str,),
+                    'search_value':
+                        (str,),
                     'custom_attribute_template_search_query_model':
                         (CustomAttributeTemplateSearchQueryModel,),
                 },
                 'attribute_map': {
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'order_by': 'OrderBy',
+                    'search_field': 'SearchField',
+                    'search_value': 'SearchValue',
                 },
                 'location_map': {
+                    'skip': 'query',
+                    'take': 'query',
+                    'order_by': 'query',
+                    'search_field': 'query',
+                    'search_value': 'query',
                     'custom_attribute_template_search_query_model': 'body',
                 },
                 'collection_format_map': {
@@ -853,7 +878,7 @@ class CustomAttributeTemplatesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [CustomAttributeTemplateModel]
+            CustomAttributeTemplateModel
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -969,9 +994,8 @@ class CustomAttributeTemplatesApi(object):
         self,
         **kwargs
     ):
-        """Update CustomAttributeTemplate  # noqa: E501
+        """Update custom attributes template  # noqa: E501
 
-        <br>Use case  <br>User sets attribute template parameters (listed in request example)  <br>User runs method execution  <br>System updates attribute template  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1059,6 +1083,11 @@ class CustomAttributeTemplatesApi(object):
 
 
         Keyword Args:
+            skip (int): Amount of items to be skipped (offset). [optional]
+            take (int): Amount of items to be taken (limit). [optional]
+            order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
+            search_field (str): Property name for searching. [optional]
+            search_value (str): Value for searching. [optional]
             custom_attribute_template_search_query_model (CustomAttributeTemplateSearchQueryModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1092,7 +1121,7 @@ class CustomAttributeTemplatesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [CustomAttributeTemplateSearchResponseModel]
+            [SearchCustomAttributeTemplateGetModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """

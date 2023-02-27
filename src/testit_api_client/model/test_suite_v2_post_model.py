@@ -58,6 +58,10 @@ class TestSuiteV2PostModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
     }
 
     additional_properties_type = None
@@ -75,9 +79,9 @@ class TestSuiteV2PostModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'test_plan_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
-            'test_plan_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -86,9 +90,9 @@ class TestSuiteV2PostModel(ModelNormal):
 
 
     attribute_map = {
+        'test_plan_id': 'testPlanId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
-        'test_plan_id': 'testPlanId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,10 +102,11 @@ class TestSuiteV2PostModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, test_plan_id, name, *args, **kwargs):  # noqa: E501
         """TestSuiteV2PostModel - a model defined in OpenAPI
 
         Args:
+            test_plan_id (str):
             name (str):
 
         Keyword Args:
@@ -136,7 +141,6 @@ class TestSuiteV2PostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             parent_id (str, none_type): [optional]  # noqa: E501
-            test_plan_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -168,6 +172,7 @@ class TestSuiteV2PostModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_plan_id = test_plan_id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -189,10 +194,11 @@ class TestSuiteV2PostModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, test_plan_id, name, *args, **kwargs):  # noqa: E501
         """TestSuiteV2PostModel - a model defined in OpenAPI
 
         Args:
+            test_plan_id (str):
             name (str):
 
         Keyword Args:
@@ -227,7 +233,6 @@ class TestSuiteV2PostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             parent_id (str, none_type): [optional]  # noqa: E501
-            test_plan_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,6 +262,7 @@ class TestSuiteV2PostModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_plan_id = test_plan_id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

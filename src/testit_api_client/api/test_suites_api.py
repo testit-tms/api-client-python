@@ -154,7 +154,7 @@ class TestSuitesApi(object):
         )
         self.delete_test_suite_endpoint = _Endpoint(
             settings={
-                'response_type': (str,),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -578,7 +578,7 @@ class TestSuitesApi(object):
         )
         self.set_configurations_by_test_suite_id_endpoint = _Endpoint(
             settings={
-                'response_type': ([ConfigurationModel],),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -639,7 +639,7 @@ class TestSuitesApi(object):
         )
         self.set_work_items_by_test_suite_id_endpoint = _Endpoint(
             settings={
-                'response_type': ([WorkItemShortModel],),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -700,7 +700,7 @@ class TestSuitesApi(object):
         )
         self.update_test_suite_endpoint = _Endpoint(
             settings={
-                'response_type': (TestSuiteV2GetModel,),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -961,7 +961,7 @@ class TestSuitesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            str
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1555,7 +1555,7 @@ class TestSuitesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [ConfigurationModel]
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1639,7 +1639,7 @@ class TestSuitesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [WorkItemShortModel]
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1720,7 +1720,7 @@ class TestSuitesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            TestSuiteV2GetModel
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
