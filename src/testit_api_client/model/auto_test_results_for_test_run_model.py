@@ -228,7 +228,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
 
         self.configuration_id = configuration_id
         self.auto_test_external_id = auto_test_external_id
-        self.outcome = outcome.lower().capitalize()
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -332,7 +332,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
 
         self.configuration_id = configuration_id
         self.auto_test_external_id = auto_test_external_id
-        self.outcome = outcome.lower().capitalize()
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
