@@ -85,11 +85,11 @@ class TestRunV2GetModel(ModelNormal):
         """
         lazy_import()
         return {
+            'state_name': (TestRunState,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
-            'state_name': (TestRunState,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'test_results': ([TestResultV2GetModel], none_type,),  # noqa: E501
@@ -108,11 +108,11 @@ class TestRunV2GetModel(ModelNormal):
 
 
     attribute_map = {
+        'state_name': 'stateName',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
         'completed_on': 'completedOn',  # noqa: E501
-        'state_name': 'stateName',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'test_plan_id': 'testPlanId',  # noqa: E501
         'test_results': 'testResults',  # noqa: E501
@@ -132,10 +132,11 @@ class TestRunV2GetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, state_name, id, name, *args, **kwargs):  # noqa: E501
         """TestRunV2GetModel - a model defined in OpenAPI
 
         Args:
+            state_name (TestRunState):
             id (str):
             name (str):
 
@@ -172,7 +173,6 @@ class TestRunV2GetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             started_on (datetime, none_type): [optional]  # noqa: E501
             completed_on (datetime, none_type): [optional]  # noqa: E501
-            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): This property is used to link test run with project. [optional]  # noqa: E501
             test_plan_id (str, none_type): This property is used to link test run with test plan. [optional]  # noqa: E501
             test_results ([TestResultV2GetModel], none_type): [optional]  # noqa: E501
@@ -214,6 +214,7 @@ class TestRunV2GetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.state_name = state_name
         self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():
@@ -236,10 +237,11 @@ class TestRunV2GetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, state_name, id, name, *args, **kwargs):  # noqa: E501
         """TestRunV2GetModel - a model defined in OpenAPI
 
         Args:
+            state_name (TestRunState):
             id (str):
             name (str):
 
@@ -276,7 +278,6 @@ class TestRunV2GetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             started_on (datetime, none_type): [optional]  # noqa: E501
             completed_on (datetime, none_type): [optional]  # noqa: E501
-            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): This property is used to link test run with project. [optional]  # noqa: E501
             test_plan_id (str, none_type): This property is used to link test run with test plan. [optional]  # noqa: E501
             test_results ([TestResultV2GetModel], none_type): [optional]  # noqa: E501
@@ -316,6 +317,7 @@ class TestRunV2GetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.state_name = state_name
         self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():

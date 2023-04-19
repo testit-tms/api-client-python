@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **traces** | **str, none_type** | An extended comment or a stack trace. | [optional] 
 **started_on** | **datetime, none_type** | Test run start date. | [optional] 
 **completed_on** | **datetime, none_type** | Test run end date. | [optional] 
-**duration** | **int, none_type** | Expected or actual duration of the test run execution in seconds. | [optional] 
+**duration** | **int, none_type** | Expected or actual duration of the test run execution in milliseconds. | [optional] 
 **attachments** | [**[AttachmentPutModel], none_type**](AttachmentPutModel.md) | Specifies an attachment GUID. Multiple values can be sent. | [optional] 
 **parameters** | **{str: (str, none_type)}, none_type** | \&quot;&lt;b&gt;parameter&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom parameters. Multiple parameters can be sent. | [optional] 
 **properties** | **{str: (str, none_type)}, none_type** | \&quot;&lt;b&gt;property&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom properties. Multiple properties can be sent. | [optional] 

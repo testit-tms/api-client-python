@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Read permission for the test result is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -247,8 +247,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for the test result is required |  -  |
 **200** | Success |  -  |
+**403** | Read permission for the test result is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -325,8 +325,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for the test result is required |  -  |
 **200** | Success |  -  |
+**403** | Read permission for the test result is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -416,7 +416,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         duration_in_ms=0,
         step_comments=[
             TestResultStepCommentPutModel(
-                id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                 text="text_example",
                 step_id="step_id_example",
                 parent_step_id="parent_step_id_example",
@@ -434,7 +434,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         comment="comment_example",
         links=[
             LinkModel(
-                id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                 title="title_example",
                 url="url_example",
                 description="description_example",
@@ -453,6 +453,30 @@ with testit_api_client.ApiClient(configuration) as api_client:
                         outcome="outcome_example",
                     ),
                 ],
+                comment=StepCommentModel(
+                    id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
+                    text="text_example",
+                    step_id="step_id_example",
+                    parent_step_id="parent_step_id_example",
+                    attachments=[
+                        AttachmentModel(
+                            file_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
+                            type="image/jpeg",
+                            size=5.555,
+                            created_date=dateutil_parser('2023-04-19T09:01:04.3018963Z'),
+                            modified_date=dateutil_parser('2023-04-19T09:01:04.3018963Z'),
+                            created_by_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
+                            modified_by_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
+                            name="example",
+                            id="id_example",
+                        ),
+                    ],
+                    test_result_id="test_result_id_example",
+                    created_by_id="created_by_id_example",
+                    modified_by_id="modified_by_id_example",
+                    created_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                    modified_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                ),
             ),
         ],
         attachments=[
@@ -795,10 +819,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **404** |  |  -  |
 **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 
@@ -880,10 +904,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
 **403** | Update permission for test result required |  -  |
-**401** | Unauthorized |  -  |
+**204** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -983,9 +1007,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
-**400** | Bad Request |  -  |
 **403** | Read permission for test result required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1068,11 +1092,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**404** | File not found |  -  |
+**400** | Bad Request |  -  |
 **200** | Successful operation |  -  |
 **403** | Read permission for test result required |  -  |
+**404** | File not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1152,11 +1176,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
-**200** | Success |  -  |
 **403** | Read permission for test result required |  -  |
-**404** | TestResult not found |  -  |
+**200** | Success |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**404** | TestResult not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

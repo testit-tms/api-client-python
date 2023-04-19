@@ -76,7 +76,7 @@ class TestPointSelector(ModelNormal):
         """
         return {
             'configuration_id': (str,),  # noqa: E501
-            'workitem_ids': ([str],),  # noqa: E501
+            'work_item_ids': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -86,7 +86,7 @@ class TestPointSelector(ModelNormal):
 
     attribute_map = {
         'configuration_id': 'configurationId',  # noqa: E501
-        'workitem_ids': 'workitemIds',  # noqa: E501
+        'work_item_ids': 'workItemIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -96,12 +96,12 @@ class TestPointSelector(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, configuration_id, workitem_ids, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, configuration_id, work_item_ids, *args, **kwargs):  # noqa: E501
         """TestPointSelector - a model defined in OpenAPI
 
         Args:
             configuration_id (str): Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.
-            workitem_ids ([str]): Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
+            work_item_ids ([str]): Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -166,7 +166,7 @@ class TestPointSelector(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.configuration_id = configuration_id
-        self.workitem_ids = workitem_ids
+        self.work_item_ids = work_item_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -187,12 +187,12 @@ class TestPointSelector(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, configuration_id, workitem_ids, *args, **kwargs):  # noqa: E501
+    def __init__(self, configuration_id, work_item_ids, *args, **kwargs):  # noqa: E501
         """TestPointSelector - a model defined in OpenAPI
 
         Args:
             configuration_id (str): Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.
-            workitem_ids ([str]): Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
+            work_item_ids ([str]): Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -255,7 +255,7 @@ class TestPointSelector(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.configuration_id = configuration_id
-        self.workitem_ids = workitem_ids
+        self.work_item_ids = work_item_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

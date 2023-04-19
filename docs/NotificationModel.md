@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**notification_type** | [**NotificationTypeModel**](NotificationTypeModel.md) |  | 
 **id** | **str** |  | [optional] 
 **created_date** | **datetime, none_type** |  | [optional] 
 **is_read** | **bool** |  | [optional] 
 **entity_id** | **str** |  | [optional] 
-**notification_type** | [**NotificationTypeModel**](NotificationTypeModel.md) |  | [optional] 
 **project_global_id** | **int, none_type** |  | [optional] 
 **project_name** | **str, none_type** |  | [optional] 
 **test_plan_global_id** | **int** |  | [optional] 

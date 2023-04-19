@@ -82,8 +82,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | System administrator role is required |  -  |
 **204** | No Content |  -  |
+**403** | System administrator role is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

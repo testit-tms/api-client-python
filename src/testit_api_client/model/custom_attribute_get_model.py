@@ -82,9 +82,9 @@ class CustomAttributeGetModel(ModelNormal):
         """
         lazy_import()
         return {
+            'type': (CustomAttributeTypesEnum,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'options': ([CustomAttributeOptionModel], none_type,),  # noqa: E501
-            'type': (CustomAttributeTypesEnum,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
@@ -98,9 +98,9 @@ class CustomAttributeGetModel(ModelNormal):
 
 
     attribute_map = {
+        'type': 'type',  # noqa: E501
         'id': 'id',  # noqa: E501
         'options': 'options',  # noqa: E501
-        'type': 'type',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'name': 'name',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
@@ -115,8 +115,11 @@ class CustomAttributeGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, *args, **kwargs):  # noqa: E501
         """CustomAttributeGetModel - a model defined in OpenAPI
+
+        Args:
+            type (CustomAttributeTypesEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -151,7 +154,6 @@ class CustomAttributeGetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the attribute. [optional]  # noqa: E501
             options ([CustomAttributeOptionModel], none_type): Collection of the attribute options. [optional]  # noqa: E501
-            type (CustomAttributeTypesEnum): [optional]  # noqa: E501
             is_deleted (bool): Indicates if the attribute is deleted. [optional]  # noqa: E501
             name (str, none_type): Name of the attribute. [optional]  # noqa: E501
             is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
@@ -188,6 +190,7 @@ class CustomAttributeGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,8 +211,11 @@ class CustomAttributeGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, type, *args, **kwargs):  # noqa: E501
         """CustomAttributeGetModel - a model defined in OpenAPI
+
+        Args:
+            type (CustomAttributeTypesEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -244,7 +250,6 @@ class CustomAttributeGetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the attribute. [optional]  # noqa: E501
             options ([CustomAttributeOptionModel], none_type): Collection of the attribute options. [optional]  # noqa: E501
-            type (CustomAttributeTypesEnum): [optional]  # noqa: E501
             is_deleted (bool): Indicates if the attribute is deleted. [optional]  # noqa: E501
             name (str, none_type): Name of the attribute. [optional]  # noqa: E501
             is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
@@ -279,6 +284,7 @@ class CustomAttributeGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

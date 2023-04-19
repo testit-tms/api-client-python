@@ -188,7 +188,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
             traces (str, none_type): An extended comment or a stack trace.. [optional]  # noqa: E501
             started_on (datetime, none_type): Test run start date.. [optional]  # noqa: E501
             completed_on (datetime, none_type): Test run end date.. [optional]  # noqa: E501
-            duration (int, none_type): Expected or actual duration of the test run execution in seconds.. [optional]  # noqa: E501
+            duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): Specifies an attachment GUID. Multiple values can be sent.. [optional]  # noqa: E501
             parameters ({str: (str, none_type)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501
             properties ({str: (str, none_type)}, none_type): \"<b>property</b>\": \"<b>value</b>\" pair with arbitrary custom properties. Multiple properties can be sent.. [optional]  # noqa: E501
@@ -228,7 +228,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
 
         self.configuration_id = configuration_id
         self.auto_test_external_id = auto_test_external_id
-        self.outcome = outcome.lower().capitalize()
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -294,7 +294,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
             traces (str, none_type): An extended comment or a stack trace.. [optional]  # noqa: E501
             started_on (datetime, none_type): Test run start date.. [optional]  # noqa: E501
             completed_on (datetime, none_type): Test run end date.. [optional]  # noqa: E501
-            duration (int, none_type): Expected or actual duration of the test run execution in seconds.. [optional]  # noqa: E501
+            duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): Specifies an attachment GUID. Multiple values can be sent.. [optional]  # noqa: E501
             parameters ({str: (str, none_type)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501
             properties ({str: (str, none_type)}, none_type): \"<b>property</b>\": \"<b>value</b>\" pair with arbitrary custom properties. Multiple properties can be sent.. [optional]  # noqa: E501

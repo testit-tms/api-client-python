@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entity_type_name** | [**WorkItemEntityTypes**](WorkItemEntityTypes.md) |  | 
+**id** | **str** |  | 
 **state** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **steps** | [**[StepModel]**](StepModel.md) |  | 
@@ -30,7 +31,6 @@ Name | Type | Description | Notes
 **created_by_id** | **str** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 **global_id** | **int** |  | [optional] 
-**id** | **str** |  | [optional] 
 **section_id** | **str** |  | [optional] 
 **description** | **str, none_type** |  | [optional] 
 **duration** | **int** |  | [optional] 

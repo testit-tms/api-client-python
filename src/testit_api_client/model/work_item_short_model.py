@@ -72,6 +72,9 @@ class WorkItemShortModel(ModelNormal):
         ('entity_type_name',): {
             'min_length': 1,
         },
+        ('section_name',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -94,6 +97,7 @@ class WorkItemShortModel(ModelNormal):
             'entity_type_name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
+            'section_name': (str,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
@@ -121,6 +125,7 @@ class WorkItemShortModel(ModelNormal):
         'entity_type_name': 'entityTypeName',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
+        'section_name': 'sectionName',  # noqa: E501
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'id': 'id',  # noqa: E501
@@ -145,7 +150,7 @@ class WorkItemShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, entity_type_name, project_id, section_id, state, priority, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, entity_type_name, project_id, section_id, section_name, state, priority, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
@@ -153,6 +158,7 @@ class WorkItemShortModel(ModelNormal):
             entity_type_name (str): Property can have one of these values: CheckLists, SharedSteps, TestCases
             project_id (str): This property is used to link autotest with project
             section_id (str): This property links workitem with section
+            section_name (str): Name of the section where work item is located
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
 
@@ -235,6 +241,7 @@ class WorkItemShortModel(ModelNormal):
         self.entity_type_name = entity_type_name
         self.project_id = project_id
         self.section_id = section_id
+        self.section_name = section_name
         self.state = state
         self.priority = priority
         for var_name, var_value in kwargs.items():
@@ -257,7 +264,7 @@ class WorkItemShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, entity_type_name, project_id, section_id, state, priority, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, entity_type_name, project_id, section_id, section_name, state, priority, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
@@ -265,6 +272,7 @@ class WorkItemShortModel(ModelNormal):
             entity_type_name (str): Property can have one of these values: CheckLists, SharedSteps, TestCases
             project_id (str): This property is used to link autotest with project
             section_id (str): This property links workitem with section
+            section_name (str): Name of the section where work item is located
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
 
@@ -345,6 +353,7 @@ class WorkItemShortModel(ModelNormal):
         self.entity_type_name = entity_type_name
         self.project_id = project_id
         self.section_id = section_id
+        self.section_name = section_name
         self.state = state
         self.priority = priority
         for var_name, var_value in kwargs.items():

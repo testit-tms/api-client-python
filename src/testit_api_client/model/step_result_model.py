@@ -31,7 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.shared_step_result_model import SharedStepResultModel
+    from testit_api_client.model.step_comment_model import StepCommentModel
     globals()['SharedStepResultModel'] = SharedStepResultModel
+    globals()['StepCommentModel'] = StepCommentModel
 
 
 class StepResultModel(ModelNormal):
@@ -84,6 +86,7 @@ class StepResultModel(ModelNormal):
             'outcome': (str, none_type,),  # noqa: E501
             'shared_step_version_id': (str, none_type,),  # noqa: E501
             'shared_step_results': ([SharedStepResultModel], none_type,),  # noqa: E501
+            'comment': (StepCommentModel,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +99,7 @@ class StepResultModel(ModelNormal):
         'outcome': 'outcome',  # noqa: E501
         'shared_step_version_id': 'sharedStepVersionId',  # noqa: E501
         'shared_step_results': 'sharedStepResults',  # noqa: E501
+        'comment': 'comment',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,6 +147,7 @@ class StepResultModel(ModelNormal):
             outcome (str, none_type): [optional]  # noqa: E501
             shared_step_version_id (str, none_type): [optional]  # noqa: E501
             shared_step_results ([SharedStepResultModel], none_type): [optional]  # noqa: E501
+            comment (StepCommentModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,6 +237,7 @@ class StepResultModel(ModelNormal):
             outcome (str, none_type): [optional]  # noqa: E501
             shared_step_version_id (str, none_type): [optional]  # noqa: E501
             shared_step_results ([SharedStepResultModel], none_type): [optional]  # noqa: E501
+            comment (StepCommentModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

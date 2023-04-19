@@ -77,8 +77,8 @@ class ConfigurationByParametersModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'parameter_ids': ([str],),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'parameter_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -87,8 +87,8 @@ class ConfigurationByParametersModel(ModelNormal):
 
 
     attribute_map = {
-        'project_id': 'projectId',  # noqa: E501
         'parameter_ids': 'parameterIds',  # noqa: E501
+        'project_id': 'projectId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,8 +98,11 @@ class ConfigurationByParametersModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, parameter_ids, *args, **kwargs):  # noqa: E501
         """ConfigurationByParametersModel - a model defined in OpenAPI
+
+        Args:
+            parameter_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -133,7 +136,6 @@ class ConfigurationByParametersModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             project_id (str): This property is used to link configuration with project. [optional]  # noqa: E501
-            parameter_ids ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -165,6 +167,7 @@ class ConfigurationByParametersModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.parameter_ids = parameter_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -185,8 +188,11 @@ class ConfigurationByParametersModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, parameter_ids, *args, **kwargs):  # noqa: E501
         """ConfigurationByParametersModel - a model defined in OpenAPI
+
+        Args:
+            parameter_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -220,7 +226,6 @@ class ConfigurationByParametersModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             project_id (str): This property is used to link configuration with project. [optional]  # noqa: E501
-            parameter_ids ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -250,6 +255,7 @@ class ConfigurationByParametersModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.parameter_ids = parameter_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

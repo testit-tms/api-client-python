@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attachments** | [**[AttachmentPutModel]**](AttachmentPutModel.md) |  | 
+**id** | **str** |  | 
 **state** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **steps** | [**[StepPutModel]**](StepPutModel.md) |  | 
@@ -16,7 +17,6 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **iterations** | [**[IterationPutModel], none_type**](IterationPutModel.md) |  | [optional] 
 **auto_tests** | [**[AutoTestIdModel], none_type**](AutoTestIdModel.md) |  | [optional] 
-**id** | **str** |  | [optional] 
 **section_id** | **str** |  | [optional] 
 **description** | **str, none_type** |  | [optional] 
 **duration** | **int** |  | [optional] 

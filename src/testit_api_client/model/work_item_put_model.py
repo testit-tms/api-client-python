@@ -102,6 +102,7 @@ class WorkItemPutModel(ModelNormal):
         lazy_import()
         return {
             'attachments': ([AttachmentPutModel],),  # noqa: E501
+            'id': (str,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'steps': ([StepPutModel],),  # noqa: E501
@@ -113,7 +114,6 @@ class WorkItemPutModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'iterations': ([IterationPutModel], none_type,),  # noqa: E501
             'auto_tests': ([AutoTestIdModel], none_type,),  # noqa: E501
-            'id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'duration': (int,),  # noqa: E501
@@ -126,6 +126,7 @@ class WorkItemPutModel(ModelNormal):
 
     attribute_map = {
         'attachments': 'attachments',  # noqa: E501
+        'id': 'id',  # noqa: E501
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'steps': 'steps',  # noqa: E501
@@ -137,7 +138,6 @@ class WorkItemPutModel(ModelNormal):
         'name': 'name',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
-        'id': 'id',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
         'description': 'description',  # noqa: E501
         'duration': 'duration',  # noqa: E501
@@ -150,11 +150,12 @@ class WorkItemPutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, attachments, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, attachments, id, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemPutModel - a model defined in OpenAPI
 
         Args:
             attachments ([AttachmentPutModel]):
+            id (str):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
             steps ([StepPutModel]):
@@ -198,7 +199,6 @@ class WorkItemPutModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             iterations ([IterationPutModel], none_type): [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             section_id (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             duration (int): [optional]  # noqa: E501
@@ -234,6 +234,7 @@ class WorkItemPutModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.attachments = attachments
+        self.id = id
         self.state = state
         self.priority = priority
         self.steps = steps
@@ -263,11 +264,12 @@ class WorkItemPutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, attachments, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, attachments, id, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemPutModel - a model defined in OpenAPI
 
         Args:
             attachments ([AttachmentPutModel]):
+            id (str):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
             steps ([StepPutModel]):
@@ -311,7 +313,6 @@ class WorkItemPutModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             iterations ([IterationPutModel], none_type): [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             section_id (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             duration (int): [optional]  # noqa: E501
@@ -345,6 +346,7 @@ class WorkItemPutModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.attachments = attachments
+        self.id = id
         self.state = state
         self.priority = priority
         self.steps = steps

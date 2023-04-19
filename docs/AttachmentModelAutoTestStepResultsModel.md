@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **info** | **str, none_type** | Extended description of the step result. | [optional] 
 **started_on** | **datetime, none_type** | Step start date. | [optional] 
 **completed_on** | **datetime, none_type** | Step end date. | [optional] 
-**duration** | **int, none_type** | Expected or actual duration of the test run execution in seconds. | [optional] 
+**duration** | **int, none_type** | Expected or actual duration of the test run execution in milliseconds. | [optional] 
 **outcome** | [**AvailableTestResultOutcome**](AvailableTestResultOutcome.md) |  | [optional] 
 **step_results** | [**[AttachmentModelAutoTestStepResultsModel], none_type**](AttachmentModelAutoTestStepResultsModel.md) | Nested step results. The maximum nesting level is 15. | [optional] 
 **attachments** | [**[AttachmentModel], none_type**](AttachmentModel.md) | /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt; | [optional] 

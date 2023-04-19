@@ -9,6 +9,7 @@
 |---------|------------|
 | 3.5     | 2.0.4      |
 | 4.0     | 3.0.0      |
+| 4.2     | 3.1.0      |
 
 ## Installation & Usage
 ### pip install
@@ -23,7 +24,7 @@ Then import the package:
 import testit_api_client
 ```
 
-## Getting Started
+## Examples
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
@@ -52,6 +53,7 @@ with testit_api_client.ApiClient(
         print("Exception when calling AttachmentsApi->api_v2_attachments_id_delete: %s\n" % e)
 ```
 
+
 ## Documentation for API Endpoints
 
 All URIs are relative to *http://localhost*
@@ -63,6 +65,7 @@ Class | Method | HTTP request | Description
 *AttachmentsApi* | [**api_v2_attachments_occupied_file_storage_size_get**](docs/AttachmentsApi.md#api_v2_attachments_occupied_file_storage_size_get) | **GET** /api/v2/attachments/occupiedFileStorageSize | Get size of attachments storage in bytes
 *AttachmentsApi* | [**api_v2_attachments_post**](docs/AttachmentsApi.md#api_v2_attachments_post) | **POST** /api/v2/attachments | Upload new attachment file
 *AutoTestsApi* | [**api_v2_auto_tests_flaky_bulk_post**](docs/AutoTestsApi.md#api_v2_auto_tests_flaky_bulk_post) | **POST** /api/v2/autoTests/flaky/bulk | Set \&quot;Flaky\&quot; status for multiple autotests
+*AutoTestsApi* | [**api_v2_auto_tests_id_patch**](docs/AutoTestsApi.md#api_v2_auto_tests_id_patch) | **PATCH** /api/v2/autoTests/{id} | Patch auto test
 *AutoTestsApi* | [**api_v2_auto_tests_id_test_results_search_post**](docs/AutoTestsApi.md#api_v2_auto_tests_id_test_results_search_post) | **POST** /api/v2/autoTests/{id}/testResults/search | Get test results history for autotest
 *AutoTestsApi* | [**api_v2_auto_tests_id_work_items_changed_id_get**](docs/AutoTestsApi.md#api_v2_auto_tests_id_work_items_changed_id_get) | **GET** /api/v2/autoTests/{id}/workItems/changed/id | Get identifiers of changed linked work items
 *AutoTestsApi* | [**api_v2_auto_tests_id_work_items_changed_work_item_id_approve_post**](docs/AutoTestsApi.md#api_v2_auto_tests_id_work_items_changed_work_item_id_approve_post) | **POST** /api/v2/autoTests/{id}/workItems/changed/{workItemId}/approve | Approve changes to work items linked to autotest
@@ -81,7 +84,9 @@ Class | Method | HTTP request | Description
 *AutoTestsApi* | [**link_auto_test_to_work_item**](docs/AutoTestsApi.md#link_auto_test_to_work_item) | **POST** /api/v2/autoTests/{id}/workItems | Link autotest with work items
 *AutoTestsApi* | [**update_auto_test**](docs/AutoTestsApi.md#update_auto_test) | **PUT** /api/v2/autoTests | Update autotest
 *AutoTestsApi* | [**update_multiple**](docs/AutoTestsApi.md#update_multiple) | **PUT** /api/v2/autoTests/bulk | Update multiple autotests
+*BackgroundJobsApi* | [**api_v2_background_jobs_get**](docs/BackgroundJobsApi.md#api_v2_background_jobs_get) | **GET** /api/v2/backgroundJobs | Get current user background jobs
 *ConfigurationsApi* | [**api_v2_configurations_create_by_parameters_post**](docs/ConfigurationsApi.md#api_v2_configurations_create_by_parameters_post) | **POST** /api/v2/configurations/createByParameters | Create Configurations by parameters
+*ConfigurationsApi* | [**api_v2_configurations_id_patch**](docs/ConfigurationsApi.md#api_v2_configurations_id_patch) | **PATCH** /api/v2/configurations/{id} | Patch configuration
 *ConfigurationsApi* | [**api_v2_configurations_search_post**](docs/ConfigurationsApi.md#api_v2_configurations_search_post) | **POST** /api/v2/configurations/search | Search for configurations
 *ConfigurationsApi* | [**create_configuration**](docs/ConfigurationsApi.md#create_configuration) | **POST** /api/v2/configurations | Create Configuration
 *ConfigurationsApi* | [**get_configuration_by_id**](docs/ConfigurationsApi.md#get_configuration_by_id) | **GET** /api/v2/configurations/{id} | Get configuration by internal or global ID
@@ -110,6 +115,7 @@ Class | Method | HTTP request | Description
 *ParametersApi* | [**api_v2_parameters_key_name_name_exists_get**](docs/ParametersApi.md#api_v2_parameters_key_name_name_exists_get) | **GET** /api/v2/parameters/key/name/{name}/exists | Check existence parameter key in system
 *ParametersApi* | [**api_v2_parameters_key_values_get**](docs/ParametersApi.md#api_v2_parameters_key_values_get) | **GET** /api/v2/parameters/{key}/values | Get all parameter key values
 *ParametersApi* | [**api_v2_parameters_keys_get**](docs/ParametersApi.md#api_v2_parameters_keys_get) | **GET** /api/v2/parameters/keys | Get all parameter keys
+*ParametersApi* | [**api_v2_parameters_search_post**](docs/ParametersApi.md#api_v2_parameters_search_post) | **POST** /api/v2/parameters/search | Search for parameters
 *ParametersApi* | [**create_parameter**](docs/ParametersApi.md#create_parameter) | **POST** /api/v2/parameters | Create parameter
 *ParametersApi* | [**delete_by_name**](docs/ParametersApi.md#delete_by_name) | **DELETE** /api/v2/parameters/name/{name} | Delete parameter by name
 *ParametersApi* | [**delete_by_parameter_key_id**](docs/ParametersApi.md#delete_by_parameter_key_id) | **DELETE** /api/v2/parameters/keyId/{keyId} | Delete parameters by parameter key identifier
@@ -125,8 +131,11 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**api_v2_projects_id_failure_classes_get**](docs/ProjectsApi.md#api_v2_projects_id_failure_classes_get) | **GET** /api/v2/projects/{id}/failureClasses | Get Project FailureClasses
 *ProjectsApi* | [**api_v2_projects_id_favorite_put**](docs/ProjectsApi.md#api_v2_projects_id_favorite_put) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite
 *ProjectsApi* | [**api_v2_projects_id_filters_get**](docs/ProjectsApi.md#api_v2_projects_id_filters_get) | **GET** /api/v2/projects/{id}/filters | Get Project filters
+*ProjectsApi* | [**api_v2_projects_id_patch**](docs/ProjectsApi.md#api_v2_projects_id_patch) | **PATCH** /api/v2/projects/{id} | Patch project
 *ProjectsApi* | [**api_v2_projects_id_test_plans_analytics_get**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_analytics_get) | **GET** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics
+*ProjectsApi* | [**api_v2_projects_id_test_plans_delete_bulk_post**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_delete_bulk_post) | **POST** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans
 *ProjectsApi* | [**api_v2_projects_id_test_plans_name_exists_get**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_name_exists_get) | **GET** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
+*ProjectsApi* | [**api_v2_projects_id_test_plans_restore_bulk_post**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_restore_bulk_post) | **POST** /api/v2/projects/{id}/testPlans/restore/bulk | Restore multiple test plans
 *ProjectsApi* | [**api_v2_projects_id_test_plans_search_post**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_search_post) | **POST** /api/v2/projects/{id}/testPlans/search | Get Project TestPlans with analytics
 *ProjectsApi* | [**api_v2_projects_id_test_runs_active_get**](docs/ProjectsApi.md#api_v2_projects_id_test_runs_active_get) | **GET** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
 *ProjectsApi* | [**api_v2_projects_id_test_runs_full_get**](docs/ProjectsApi.md#api_v2_projects_id_test_runs_full_get) | **GET** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models
@@ -135,6 +144,10 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**api_v2_projects_id_work_items_tags_get**](docs/ProjectsApi.md#api_v2_projects_id_work_items_tags_get) | **GET** /api/v2/projects/{id}/workItems/tags | Get WorkItems Tags
 *ProjectsApi* | [**api_v2_projects_name_name_exists_get**](docs/ProjectsApi.md#api_v2_projects_name_name_exists_get) | **GET** /api/v2/projects/name/{name}/exists | 
 *ProjectsApi* | [**api_v2_projects_search_post**](docs/ProjectsApi.md#api_v2_projects_search_post) | **POST** /api/v2/projects/search | Search for projects
+*ProjectsApi* | [**background_import_project**](docs/ProjectsApi.md#background_import_project) | **POST** /api/v2/projects/import/json | Import project from JSON file in background job
+*ProjectsApi* | [**background_import_to_existing_project**](docs/ProjectsApi.md#background_import_to_existing_project) | **POST** /api/v2/projects/{id}/import/json | Import project from JSON file into existing project in background job
+*ProjectsApi* | [**background_import_zip_project**](docs/ProjectsApi.md#background_import_zip_project) | **POST** /api/v2/projects/import/zip | Import project from Zip file in background job
+*ProjectsApi* | [**background_import_zip_to_existing_project**](docs/ProjectsApi.md#background_import_zip_to_existing_project) | **POST** /api/v2/projects/{id}/import/zip | Import project from Zip file into existing project in background job
 *ProjectsApi* | [**call_import**](docs/ProjectsApi.md#call_import) | **POST** /api/v2/projects/import | Import project from JSON file
 *ProjectsApi* | [**create_custom_attribute_test_plan_project_relations**](docs/ProjectsApi.md#create_custom_attribute_test_plan_project_relations) | **POST** /api/v2/projects/{id}/testPlans/attributes | Add attributes to project&#39;s test plans
 *ProjectsApi* | [**create_project**](docs/ProjectsApi.md#create_project) | **POST** /api/v2/projects | Create project
@@ -144,6 +157,10 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**delete_project_auto_tests**](docs/ProjectsApi.md#delete_project_auto_tests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete project
 *ProjectsApi* | [**delete_projects_attribute**](docs/ProjectsApi.md#delete_projects_attribute) | **DELETE** /api/v2/projects/{id}/attributes/{attributeId} | Delete project attribute
 *ProjectsApi* | [**export**](docs/ProjectsApi.md#export) | **POST** /api/v2/projects/{id}/export | Export project as JSON file
+*ProjectsApi* | [**export_project_json**](docs/ProjectsApi.md#export_project_json) | **POST** /api/v2/projects/{id}/export/json | Export project as JSON file in background job
+*ProjectsApi* | [**export_project_with_test_plans_json**](docs/ProjectsApi.md#export_project_with_test_plans_json) | **POST** /api/v2/projects/{id}/export/testPlans/json | Export project as JSON file with test plans in background job
+*ProjectsApi* | [**export_project_with_test_plans_zip**](docs/ProjectsApi.md#export_project_with_test_plans_zip) | **POST** /api/v2/projects/{id}/export/testPlans/zip | Export project as Zip file with test plans in background job
+*ProjectsApi* | [**export_project_zip**](docs/ProjectsApi.md#export_project_zip) | **POST** /api/v2/projects/{id}/export/zip | Export project as Zip file in background job
 *ProjectsApi* | [**export_with_test_plans_and_configurations**](docs/ProjectsApi.md#export_with_test_plans_and_configurations) | **POST** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file
 *ProjectsApi* | [**get_all_projects**](docs/ProjectsApi.md#get_all_projects) | **GET** /api/v2/projects | Get all projects
 *ProjectsApi* | [**get_attribute_by_project_id**](docs/ProjectsApi.md#get_attribute_by_project_id) | **GET** /api/v2/projects/{id}/attributes/{attributeId} | Get project attribute
@@ -163,6 +180,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**update_custom_attribute_test_plan_project_relations**](docs/ProjectsApi.md#update_custom_attribute_test_plan_project_relations) | **PUT** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
 *ProjectsApi* | [**update_project**](docs/ProjectsApi.md#update_project) | **PUT** /api/v2/projects | Update project
 *ProjectsApi* | [**update_projects_attribute**](docs/ProjectsApi.md#update_projects_attribute) | **PUT** /api/v2/projects/{id}/attributes | Edit attribute of the project
+*SectionsApi* | [**api_v2_sections_id_patch**](docs/SectionsApi.md#api_v2_sections_id_patch) | **PATCH** /api/v2/sections/{id} | Patch section
 *SectionsApi* | [**create_section**](docs/SectionsApi.md#create_section) | **POST** /api/v2/sections | Create section
 *SectionsApi* | [**delete_section**](docs/SectionsApi.md#delete_section) | **DELETE** /api/v2/sections/{id} | Delete section
 *SectionsApi* | [**get_section_by_id**](docs/SectionsApi.md#get_section_by_id) | **GET** /api/v2/sections/{id} | Get section
@@ -181,8 +199,11 @@ Class | Method | HTTP request | Description
 *TestPlansApi* | [**api_v2_test_plans_id_export_test_result_history_xlsx_post**](docs/TestPlansApi.md#api_v2_test_plans_id_export_test_result_history_xlsx_post) | **POST** /api/v2/testPlans/{id}/export/testResultHistory/xlsx | Export TestResults history from TestPlan in xls format
 *TestPlansApi* | [**api_v2_test_plans_id_history_get**](docs/TestPlansApi.md#api_v2_test_plans_id_history_get) | **GET** /api/v2/testPlans/{id}/history | Get TestPlan history
 *TestPlansApi* | [**api_v2_test_plans_id_links_get**](docs/TestPlansApi.md#api_v2_test_plans_id_links_get) | **GET** /api/v2/testPlans/{id}/links | Get Links of TestPlan
+*TestPlansApi* | [**api_v2_test_plans_id_patch**](docs/TestPlansApi.md#api_v2_test_plans_id_patch) | **PATCH** /api/v2/testPlans/{id} | Patch test plan
 *TestPlansApi* | [**api_v2_test_plans_id_test_points_last_results_get**](docs/TestPlansApi.md#api_v2_test_plans_id_test_points_last_results_get) | **GET** /api/v2/testPlans/{id}/testPoints/lastResults | Get TestPoints with last result from TestPlan
 *TestPlansApi* | [**api_v2_test_plans_id_test_points_reset_post**](docs/TestPlansApi.md#api_v2_test_plans_id_test_points_reset_post) | **POST** /api/v2/testPlans/{id}/testPoints/reset | Reset TestPoints status of TestPlan
+*TestPlansApi* | [**api_v2_test_plans_id_test_points_tester_delete**](docs/TestPlansApi.md#api_v2_test_plans_id_test_points_tester_delete) | **DELETE** /api/v2/testPlans/{id}/testPoints/tester | Unassign users from multiple test points
+*TestPlansApi* | [**api_v2_test_plans_id_test_points_tester_user_id_post**](docs/TestPlansApi.md#api_v2_test_plans_id_test_points_tester_user_id_post) | **POST** /api/v2/testPlans/{id}/testPoints/tester/{userId} | Assign user as a tester to multiple test points
 *TestPlansApi* | [**api_v2_test_plans_id_test_runs_get**](docs/TestPlansApi.md#api_v2_test_plans_id_test_runs_get) | **GET** /api/v2/testPlans/{id}/testRuns | Get TestRuns of TestPlan
 *TestPlansApi* | [**api_v2_test_plans_id_test_runs_search_post**](docs/TestPlansApi.md#api_v2_test_plans_id_test_runs_search_post) | **POST** /api/v2/testPlans/{id}/testRuns/search | Search TestRuns of TestPlan
 *TestPlansApi* | [**api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get**](docs/TestPlansApi.md#api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get) | **GET** /api/v2/testPlans/{id}/testRuns/testResults/lastModified/modifiedDate | Get last modification date of test plan&#39;s test results
@@ -230,6 +251,8 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**stop_test_run**](docs/TestRunsApi.md#stop_test_run) | **POST** /api/v2/testRuns/{id}/stop | Stop TestRun
 *TestRunsApi* | [**update_empty**](docs/TestRunsApi.md#update_empty) | **PUT** /api/v2/testRuns | Update empty TestRun
 *TestSuitesApi* | [**add_test_points_to_test_suite**](docs/TestSuitesApi.md#add_test_points_to_test_suite) | **POST** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
+*TestSuitesApi* | [**api_v2_test_suites_id_patch**](docs/TestSuitesApi.md#api_v2_test_suites_id_patch) | **PATCH** /api/v2/testSuites/{id} | Patch test suite
+*TestSuitesApi* | [**api_v2_test_suites_id_refresh_post**](docs/TestSuitesApi.md#api_v2_test_suites_id_refresh_post) | **POST** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method
 *TestSuitesApi* | [**create_test_suite**](docs/TestSuitesApi.md#create_test_suite) | **POST** /api/v2/testSuites | Create TestSuite
 *TestSuitesApi* | [**delete_test_suite**](docs/TestSuitesApi.md#delete_test_suite) | **DELETE** /api/v2/testSuites/{id} | Delete TestSuite
 *TestSuitesApi* | [**get_configurations_by_test_suite_id**](docs/TestSuitesApi.md#get_configurations_by_test_suite_id) | **GET** /api/v2/testSuites/{id}/configurations | Get Configurations By Id
@@ -251,6 +274,7 @@ Class | Method | HTTP request | Description
 *WebhooksLogsApi* | [**api_v2_webhooks_logs_get**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_get) | **GET** /api/v2/webhooks/logs | Get all webhook logs
 *WebhooksLogsApi* | [**api_v2_webhooks_logs_id_delete**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_id_delete) | **DELETE** /api/v2/webhooks/logs/{id} | Delete webhook log by ID
 *WebhooksLogsApi* | [**api_v2_webhooks_logs_id_get**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_id_get) | **GET** /api/v2/webhooks/logs/{id} | Get webhook log by ID
+*WorkItemsApi* | [**api_v2_work_items_id_attachments_post**](docs/WorkItemsApi.md#api_v2_work_items_id_attachments_post) | **POST** /api/v2/workItems/{id}/attachments | Upload and link attachment to WorkItem
 *WorkItemsApi* | [**api_v2_work_items_id_check_list_transform_to_test_case_post**](docs/WorkItemsApi.md#api_v2_work_items_id_check_list_transform_to_test_case_post) | **POST** /api/v2/workItems/{id}/checkList/transformTo/testCase | Transform CheckList to TestCase
 *WorkItemsApi* | [**api_v2_work_items_id_history_get**](docs/WorkItemsApi.md#api_v2_work_items_id_history_get) | **GET** /api/v2/workItems/{id}/history | Get change history of WorkItem
 *WorkItemsApi* | [**api_v2_work_items_id_like_delete**](docs/WorkItemsApi.md#api_v2_work_items_id_like_delete) | **DELETE** /api/v2/workItems/{id}/like | Delete like from WorkItem
@@ -272,6 +296,8 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**get_work_item_by_id**](docs/WorkItemsApi.md#get_work_item_by_id) | **GET** /api/v2/workItems/{id} | Get Test Case, Checklist or Shared Step by Id or GlobalId
 *WorkItemsApi* | [**get_work_item_chronology**](docs/WorkItemsApi.md#get_work_item_chronology) | **GET** /api/v2/workItems/{id}/chronology | Get WorkItem chronology by Id or GlobalId
 *WorkItemsApi* | [**get_work_item_versions**](docs/WorkItemsApi.md#get_work_item_versions) | **GET** /api/v2/workItems/{id}/versions | Get WorkItem versions
+*WorkItemsApi* | [**purge_work_item**](docs/WorkItemsApi.md#purge_work_item) | **POST** /api/v2/workItems/{id}/purge | Permanently delete test case, checklist or shared steps from archive
+*WorkItemsApi* | [**restore_work_item**](docs/WorkItemsApi.md#restore_work_item) | **POST** /api/v2/workItems/{id}/restore | Restore test case, checklist or shared steps from archive
 *WorkItemsApi* | [**update_work_item**](docs/WorkItemsApi.md#update_work_item) | **PUT** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 *WorkItemsCommentsApi* | [**api_v2_work_items_comments_comment_id_delete**](docs/WorkItemsCommentsApi.md#api_v2_work_items_comments_comment_id_delete) | **DELETE** /api/v2/workItems/comments/{commentId} | Delete WorkItem comment
 *WorkItemsCommentsApi* | [**api_v2_work_items_comments_post**](docs/WorkItemsCommentsApi.md#api_v2_work_items_comments_post) | **POST** /api/v2/workItems/comments | Create WorkItem comment

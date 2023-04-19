@@ -76,7 +76,7 @@ class TestRunFillByWorkItemsPostModel(ModelNormal):
         """
         return {
             'configuration_ids': ([str],),  # noqa: E501
-            'workitem_ids': ([str],),  # noqa: E501
+            'work_item_ids': ([str],),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'test_plan_id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
@@ -91,7 +91,7 @@ class TestRunFillByWorkItemsPostModel(ModelNormal):
 
     attribute_map = {
         'configuration_ids': 'configurationIds',  # noqa: E501
-        'workitem_ids': 'workitemIds',  # noqa: E501
+        'work_item_ids': 'workItemIds',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'test_plan_id': 'testPlanId',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -106,12 +106,12 @@ class TestRunFillByWorkItemsPostModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, configuration_ids, workitem_ids, project_id, test_plan_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, configuration_ids, work_item_ids, project_id, test_plan_id, *args, **kwargs):  # noqa: E501
         """TestRunFillByWorkItemsPostModel - a model defined in OpenAPI
 
         Args:
             configuration_ids ([str]): Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.
-            workitem_ids ([str]): Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
+            work_item_ids ([str]): Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
             project_id (str): Specifies the GUID of the project, in which a test run will be created.
             test_plan_id (str): Specifies the GUID of the test plan, within which the test run will be created.
 
@@ -181,7 +181,7 @@ class TestRunFillByWorkItemsPostModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.configuration_ids = configuration_ids
-        self.workitem_ids = workitem_ids
+        self.work_item_ids = work_item_ids
         self.project_id = project_id
         self.test_plan_id = test_plan_id
         for var_name, var_value in kwargs.items():
@@ -204,12 +204,12 @@ class TestRunFillByWorkItemsPostModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, configuration_ids, workitem_ids, project_id, test_plan_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, configuration_ids, work_item_ids, project_id, test_plan_id, *args, **kwargs):  # noqa: E501
         """TestRunFillByWorkItemsPostModel - a model defined in OpenAPI
 
         Args:
             configuration_ids ([str]): Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.
-            workitem_ids ([str]): Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
+            work_item_ids ([str]): Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
             project_id (str): Specifies the GUID of the project, in which a test run will be created.
             test_plan_id (str): Specifies the GUID of the test plan, within which the test run will be created.
 
@@ -277,7 +277,7 @@ class TestRunFillByWorkItemsPostModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.configuration_ids = configuration_ids
-        self.workitem_ids = workitem_ids
+        self.work_item_ids = work_item_ids
         self.project_id = project_id
         self.test_plan_id = test_plan_id
         for var_name, var_value in kwargs.items():

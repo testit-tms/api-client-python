@@ -83,8 +83,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Read permission for test points is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -161,8 +161,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Read permission for test points is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -209,6 +209,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
     test_point_filter_model = TestPointFilterModel(
+        test_plan_ids=[
+            "test_plan_ids_example",
+        ],
         test_suite_ids=[
             "test_suite_ids_example",
         ],
@@ -300,8 +303,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **403** | Read permission for all requested test plans is required |  -  |
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -349,6 +352,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
     test_point_filter_model = TestPointFilterModel(
+        test_plan_ids=[
+            "test_plan_ids_example",
+        ],
         test_suite_ids=[
             "test_suite_ids_example",
         ],

@@ -161,7 +161,7 @@ class AttachmentModelAutoTestStepResultsModel(ModelNormal):
             info (str, none_type): Extended description of the step result.. [optional]  # noqa: E501
             started_on (datetime, none_type): Step start date.. [optional]  # noqa: E501
             completed_on (datetime, none_type): Step end date.. [optional]  # noqa: E501
-            duration (int, none_type): Expected or actual duration of the test run execution in seconds.. [optional]  # noqa: E501
+            duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
             outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
             step_results ([AttachmentModelAutoTestStepResultsModel], none_type): Nested step results. The maximum nesting level is 15.. [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): /// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>. [optional]  # noqa: E501
@@ -256,7 +256,7 @@ class AttachmentModelAutoTestStepResultsModel(ModelNormal):
             info (str, none_type): Extended description of the step result.. [optional]  # noqa: E501
             started_on (datetime, none_type): Step start date.. [optional]  # noqa: E501
             completed_on (datetime, none_type): Step end date.. [optional]  # noqa: E501
-            duration (int, none_type): Expected or actual duration of the test run execution in seconds.. [optional]  # noqa: E501
+            duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
             outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
             step_results ([AttachmentModelAutoTestStepResultsModel], none_type): Nested step results. The maximum nesting level is 15.. [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): /// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>. [optional]  # noqa: E501
