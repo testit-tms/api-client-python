@@ -28,7 +28,7 @@ jobs:
           python-version: '3.x'
       - name: Check version
         run: |
-          VERSION=$(sed '4q;d' setup.py | grep -o "[0-9]\.[0-9]\.[0-9]");
+          VERSION=$(grep "version='" setup.py | grep -o "[0-9]\.[0-9]\.[0-9]");
           if [ $VERSION = ${{ github.event.release.tag_name }} ]; then exit 0; else echo "Incorrect package version"; exit 1; fi
       - name: Install dependencies
         run: |
