@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**status** | [**TestPlanStatusModel**](TestPlanStatusModel.md) |  | 
 **id** | **str** |  | 
 **name** | **str** |  | 
 **project_id** | **str** |  | 
 **analytic** | [**TestPointAnalyticResult**](TestPointAnalyticResult.md) |  | [optional] 
-**status** | [**TestPlanStatusModel**](TestPlanStatusModel.md) |  | [optional] 
 **started_on** | **datetime, none_type** | Set when test plan is starter (status changed to: In Progress) | [optional] 
 **completed_on** | **datetime, none_type** | set when test plan status is completed (status changed to: Completed) | [optional] 
 **created_date** | **datetime, none_type** |  | [optional] 

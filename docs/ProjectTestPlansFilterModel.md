@@ -1,4 +1,4 @@
-# TestPlanSearchQueryModel
+# ProjectTestPlansFilterModel
 
 
 ## Properties
@@ -11,12 +11,12 @@ Name | Type | Description | Notes
 **status** | [**[TestPlanStatusModel], none_type**](TestPlanStatusModel.md) |  | [optional] 
 **global_ids** | **[int], none_type** |  | [optional] 
 **is_locked** | **bool, none_type** |  | [optional] 
-**locked_date** | [**DateRangeModel**](DateRangeModel.md) |  | [optional] 
+**locked_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **automatic_duration_timer** | **[bool], none_type** |  | [optional] 
 **created_by_ids** | **[str], none_type** |  | [optional] 
-**created_date** | [**DateRangeModel**](DateRangeModel.md) |  | [optional] 
-**start_date** | [**DateRangeModel**](DateRangeModel.md) |  | [optional] 
-**end_date** | [**DateRangeModel**](DateRangeModel.md) |  | [optional] 
+**created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**start_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**end_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **tag_names** | **[str], none_type** |  | [optional] 
 **attributes** | **{str: ([str], none_type)}, none_type** |  | [optional] 
 **is_deleted** | **bool, none_type** |  | [optional] 

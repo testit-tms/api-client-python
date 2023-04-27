@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**failure_category** | [**FailureCategoryModel**](FailureCategoryModel.md) |  | 
 **name** | **str, none_type** |  | [optional] 
-**failure_category** | [**FailureCategoryModel**](FailureCategoryModel.md) |  | [optional] 
 **created_date** | **datetime** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **created_by_id** | **str** |  | [optional] 

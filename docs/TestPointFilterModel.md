@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**test_plan_ids** | **[str], none_type** | Specifies a test point test plan IDS to search for | [optional] 
 **test_suite_ids** | **[str], none_type** | Specifies a test point test suite IDs to search for | [optional] 
 **work_item_global_ids** | **[int], none_type** | Specifies a test point work item global IDs to search for | [optional] 
 **statuses** | [**[TestPointStatus], none_type**](TestPointStatus.md) | Specifies a test point statuses to search for | [optional] 

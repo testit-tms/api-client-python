@@ -84,6 +84,7 @@ class TestPointWithLastResultModel(ModelNormal):
         """
         lazy_import()
         return {
+            'priority': (WorkItemPriorityModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'work_item_name': (str, none_type,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
@@ -104,7 +105,6 @@ class TestPointWithLastResultModel(ModelNormal):
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'tag_names': ([str], none_type,),  # noqa: E501
             'duration': (int,),  # noqa: E501
-            'priority': (WorkItemPriorityModel,),  # noqa: E501
             'test_suite_name_bread_crumbs': ([str], none_type,),  # noqa: E501
             'group_count': (int, none_type,),  # noqa: E501
             'iteration': (IterationModel,),  # noqa: E501
@@ -116,6 +116,7 @@ class TestPointWithLastResultModel(ModelNormal):
 
 
     attribute_map = {
+        'priority': 'priority',  # noqa: E501
         'id': 'id',  # noqa: E501
         'work_item_name': 'workItemName',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
@@ -136,7 +137,6 @@ class TestPointWithLastResultModel(ModelNormal):
         'attributes': 'attributes',  # noqa: E501
         'tag_names': 'tagNames',  # noqa: E501
         'duration': 'duration',  # noqa: E501
-        'priority': 'priority',  # noqa: E501
         'test_suite_name_bread_crumbs': 'testSuiteNameBreadCrumbs',  # noqa: E501
         'group_count': 'groupCount',  # noqa: E501
         'iteration': 'iteration',  # noqa: E501
@@ -149,8 +149,11 @@ class TestPointWithLastResultModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, priority, *args, **kwargs):  # noqa: E501
         """TestPointWithLastResultModel - a model defined in OpenAPI
+
+        Args:
+            priority (WorkItemPriorityModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -203,7 +206,6 @@ class TestPointWithLastResultModel(ModelNormal):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
             duration (int): [optional]  # noqa: E501
-            priority (WorkItemPriorityModel): [optional]  # noqa: E501
             test_suite_name_bread_crumbs ([str], none_type): [optional]  # noqa: E501
             group_count (int, none_type): [optional]  # noqa: E501
             iteration (IterationModel): [optional]  # noqa: E501
@@ -238,6 +240,7 @@ class TestPointWithLastResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.priority = priority
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -258,8 +261,11 @@ class TestPointWithLastResultModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, priority, *args, **kwargs):  # noqa: E501
         """TestPointWithLastResultModel - a model defined in OpenAPI
+
+        Args:
+            priority (WorkItemPriorityModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -312,7 +318,6 @@ class TestPointWithLastResultModel(ModelNormal):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
             duration (int): [optional]  # noqa: E501
-            priority (WorkItemPriorityModel): [optional]  # noqa: E501
             test_suite_name_bread_crumbs ([str], none_type): [optional]  # noqa: E501
             group_count (int, none_type): [optional]  # noqa: E501
             iteration (IterationModel): [optional]  # noqa: E501
@@ -345,6 +350,7 @@ class TestPointWithLastResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.priority = priority
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

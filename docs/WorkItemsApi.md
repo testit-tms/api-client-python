@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**api_v2_work_items_id_attachments_post**](WorkItemsApi.md#api_v2_work_items_id_attachments_post) | **POST** /api/v2/workItems/{id}/attachments | Upload and link attachment to WorkItem
 [**api_v2_work_items_id_check_list_transform_to_test_case_post**](WorkItemsApi.md#api_v2_work_items_id_check_list_transform_to_test_case_post) | **POST** /api/v2/workItems/{id}/checkList/transformTo/testCase | Transform CheckList to TestCase
 [**api_v2_work_items_id_history_get**](WorkItemsApi.md#api_v2_work_items_id_history_get) | **GET** /api/v2/workItems/{id}/history | Get change history of WorkItem
 [**api_v2_work_items_id_like_delete**](WorkItemsApi.md#api_v2_work_items_id_like_delete) | **DELETE** /api/v2/workItems/{id}/like | Delete like from WorkItem
@@ -25,8 +26,105 @@ Method | HTTP request | Description
 [**get_work_item_by_id**](WorkItemsApi.md#get_work_item_by_id) | **GET** /api/v2/workItems/{id} | Get Test Case, Checklist or Shared Step by Id or GlobalId
 [**get_work_item_chronology**](WorkItemsApi.md#get_work_item_chronology) | **GET** /api/v2/workItems/{id}/chronology | Get WorkItem chronology by Id or GlobalId
 [**get_work_item_versions**](WorkItemsApi.md#get_work_item_versions) | **GET** /api/v2/workItems/{id}/versions | Get WorkItem versions
+[**purge_work_item**](WorkItemsApi.md#purge_work_item) | **POST** /api/v2/workItems/{id}/purge | Permanently delete test case, checklist or shared steps from archive
+[**restore_work_item**](WorkItemsApi.md#restore_work_item) | **POST** /api/v2/workItems/{id}/restore | Restore test case, checklist or shared steps from archive
 [**update_work_item**](WorkItemsApi.md#update_work_item) | **PUT** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 
+
+# **api_v2_work_items_id_attachments_post**
+> str api_v2_work_items_id_attachments_post(id)
+
+Upload and link attachment to WorkItem
+
+<br>Use case  <br>User sets workItemId  <br>User attaches a file  <br>System creates attachment and links it to the work item  <br>System returns attachment identifier
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = work_items_api.WorkItemsApi(api_client)
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Work item internal identifier (guid format)
+    file = open('/path/to/file', 'rb') # file_type | Select file (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Upload and link attachment to WorkItem
+        api_response = api_instance.api_v2_work_items_id_attachments_post(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling WorkItemsApi->api_v2_work_items_id_attachments_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Upload and link attachment to WorkItem
+        api_response = api_instance.api_v2_work_items_id_attachments_post(id, file=file)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling WorkItemsApi->api_v2_work_items_id_attachments_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Work item internal identifier (guid format) |
+ **file** | **file_type**| Select file | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
+**200** | Successful operation |  -  |
+**403** | Update permission for test result required |  -  |
+**400** | Bad Request |  -  |
+**404** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_id_check_list_transform_to_test_case_post**
 > WorkItemModel api_v2_work_items_id_check_list_transform_to_test_case_post(id)
@@ -105,11 +203,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **422** | Client Error |  -  |
+**403** | Update permission for test library required |  -  |
+**404** | Can&#39;t find CheckList with id |  -  |
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | Update permission for test library required |  -  |
-**404** | Can&#39;t find CheckList with id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -288,8 +386,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -529,8 +627,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 
@@ -658,8 +756,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 
@@ -742,8 +840,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with id |  -  |
@@ -1401,32 +1499,32 @@ with testit_api_client.ApiClient(configuration) as api_client:
         priority=WorkItemPriorityModel("Lowest"),
         steps=[
             StepPutModel(
-                id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
             ),
         ],
         precondition_steps=[
             StepPutModel(
-                id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
             ),
         ],
         postcondition_steps=[
             StepPutModel(
-                id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
             ),
         ],
         duration=10000,
@@ -1447,7 +1545,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
             IterationPutModel(
                 parameters=[
                     ParameterIterationModel(
-                        id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                     ),
                 ],
                 id="00000000-0000-0000-0000-000000000000",
@@ -1463,8 +1561,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
             ),
         ],
         name="Basic template",
-        project_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
-        section_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+        project_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
+        section_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
         auto_tests=[
             AutoTestIdModel(
                 id="id_example",
@@ -1507,11 +1605,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
-**201** | Successful operation |  -  |
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;Tags must be set  &lt;br&gt;Duration should be a positive number  &lt;br&gt;Should be empty for CheckList  &lt;br&gt;Attribute value must be a valid guid for user scheme  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
+**201** | Successful operation |  -  |
+**400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;Tags must be set  &lt;br&gt;Duration should be a positive number  &lt;br&gt;Should be empty for CheckList  &lt;br&gt;Attribute value must be a valid guid for user scheme  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
+**404** | &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1587,11 +1685,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
-**404** | Can&#39;t find a WorkItem with workItemId |  -  |
 **401** | Unauthorized |  -  |
-**403** | Update permission for test library required |  -  |
+**400** | Bad Request |  -  |
 **204** | No Content |  -  |
+**403** | Update permission for test library required |  -  |
+**404** | Can&#39;t find a WorkItem with workItemId |  -  |
 **200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1668,12 +1766,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
-**401** | Unauthorized |  -  |
-**422** | Could not delete Shared Step that has references |  -  |
-**400** | Bad Request |  -  |
-**404** | Can&#39;t find a WorkItem with id |  -  |
 **403** | Delete permission for test library required |  -  |
+**404** | Can&#39;t find a WorkItem with id |  -  |
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**422** | Could not delete Shared Step that has references |  -  |
+**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1751,9 +1849,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**200** | Successful operation |  -  |
 **403** | Read permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with workItemId |  -  |
 
@@ -1940,11 +2038,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test library required |  -  |
+**400** | Bad Request |  -  |
 **404** | Can&#39;t find workItem with id |  -  |
 **200** | Successful operation |  -  |
-**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Read permission for test library required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2022,10 +2120,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
+**400** | Not valid workItemId |  -  |
 **404** | Can&#39;t find WorkItem with workItemId |  -  |
 **200** | Successful operation |  -  |
-**400** | Not valid workItemId |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2117,11 +2215,163 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**404** | Can&#39;t find WorkItem with workItemId |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
-**404** | Can&#39;t find WorkItem with workItemId |  -  |
-**400** | Bad Request |  -  |
-**200** | Successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **purge_work_item**
+> purge_work_item(id)
+
+Permanently delete test case, checklist or shared steps from archive
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = work_items_api.WorkItemsApi(api_client)
+    id = "id_example" # str | Unique or global ID of the work item
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Permanently delete test case, checklist or shared steps from archive
+        api_instance.purge_work_item(id)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling WorkItemsApi->purge_work_item: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique or global ID of the work item |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**403** | Delete permission for test library is required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **restore_work_item**
+> restore_work_item(id)
+
+Restore test case, checklist or shared steps from archive
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = work_items_api.WorkItemsApi(api_client)
+    id = "id_example" # str | Unique or global ID of the work item
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Restore test case, checklist or shared steps from archive
+        api_instance.restore_work_item(id)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling WorkItemsApi->restore_work_item: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique or global ID of the work item |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Update permission for test library is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2173,7 +2423,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
             IterationPutModel(
                 parameters=[
                     ParameterIterationModel(
-                        id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                     ),
                 ],
                 id="00000000-0000-0000-0000-000000000000",
@@ -2184,39 +2434,39 @@ with testit_api_client.ApiClient(configuration) as api_client:
                 id="id_example",
             ),
         ],
-        id="573f916c-d8ad-4f87-846f-4dba1839ae56",
-        section_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
+        section_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
         description="This is a basic test template",
         state=WorkItemStates("NeedsWork"),
         priority=WorkItemPriorityModel("Lowest"),
         steps=[
             StepPutModel(
-                id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
             ),
         ],
         precondition_steps=[
             StepPutModel(
-                id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
             ),
         ],
         postcondition_steps=[
             StepPutModel(
-                id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
             ),
         ],
         duration=10000,
@@ -2230,7 +2480,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         ],
         links=[
             LinkPutModel(
-                id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
                 title="title_example",
                 url="url_example",
                 description="description_example",
@@ -2275,11 +2525,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;duration should be a positive number  &lt;br&gt;should be empty for CheckList  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
+**204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;duration should be a positive number  &lt;br&gt;should be empty for CheckList  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
-**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

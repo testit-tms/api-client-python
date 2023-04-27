@@ -82,8 +82,8 @@ class FailureClassModel(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str, none_type,),  # noqa: E501
             'failure_category': (FailureCategoryModel,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
@@ -99,8 +99,8 @@ class FailureClassModel(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'failure_category': 'failureCategory',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
@@ -117,8 +117,11 @@ class FailureClassModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, failure_category, *args, **kwargs):  # noqa: E501
         """FailureClassModel - a model defined in OpenAPI
+
+        Args:
+            failure_category (FailureCategoryModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -152,7 +155,6 @@ class FailureClassModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
-            failure_category (FailureCategoryModel): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
@@ -191,6 +193,7 @@ class FailureClassModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.failure_category = failure_category
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -211,8 +214,11 @@ class FailureClassModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, failure_category, *args, **kwargs):  # noqa: E501
         """FailureClassModel - a model defined in OpenAPI
+
+        Args:
+            failure_category (FailureCategoryModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -246,7 +252,6 @@ class FailureClassModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
-            failure_category (FailureCategoryModel): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
@@ -283,6 +288,7 @@ class FailureClassModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.failure_category = failure_category
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

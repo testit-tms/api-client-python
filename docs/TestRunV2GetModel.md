@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**state_name** | [**TestRunState**](TestRunState.md) |  | 
 **id** | **str** |  | 
 **name** | **str** |  | 
 **started_on** | **datetime, none_type** |  | [optional] 
 **completed_on** | **datetime, none_type** |  | [optional] 
-**state_name** | [**TestRunState**](TestRunState.md) |  | [optional] 
 **project_id** | **str** | This property is used to link test run with project | [optional] 
 **test_plan_id** | **str, none_type** | This property is used to link test run with test plan | [optional] 
 **test_results** | [**[TestResultV2GetModel], none_type**](TestResultV2GetModel.md) |  | [optional] 

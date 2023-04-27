@@ -67,7 +67,7 @@ class TestPlanPutModel(ModelNormal):
             'min_length': 0,
         },
         ('description',): {
-            'max_length': 999,
+            'max_length': 100000,
             'min_length': 0,
         },
         ('build',): {

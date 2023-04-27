@@ -87,7 +87,7 @@ class LinkPutModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'type': (LinkType, none_type,),  # noqa: E501
+            'type': (LinkType,),  # noqa: E501
             'has_info': (bool,),  # noqa: E501
         }
 

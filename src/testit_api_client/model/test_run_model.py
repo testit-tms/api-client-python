@@ -92,6 +92,7 @@ class TestRunModel(ModelNormal):
         """
         lazy_import()
         return {
+            'state_name': (TestRunState,),  # noqa: E501
             'auto_tests': ([AutoTestModel], none_type,),  # noqa: E501
             'auto_tests_count': (int,),  # noqa: E501
             'test_suite_ids': ([str], none_type,),  # noqa: E501
@@ -108,7 +109,6 @@ class TestRunModel(ModelNormal):
             'completed_date': (datetime, none_type,),  # noqa: E501
             'build': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'state_name': (TestRunState,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'run_by_user_id': (str, none_type,),  # noqa: E501
@@ -125,6 +125,7 @@ class TestRunModel(ModelNormal):
 
 
     attribute_map = {
+        'state_name': 'stateName',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
         'auto_tests_count': 'autoTestsCount',  # noqa: E501
         'test_suite_ids': 'testSuiteIds',  # noqa: E501
@@ -141,7 +142,6 @@ class TestRunModel(ModelNormal):
         'completed_date': 'completedDate',  # noqa: E501
         'build': 'build',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'state_name': 'stateName',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'test_plan_id': 'testPlanId',  # noqa: E501
         'run_by_user_id': 'runByUserId',  # noqa: E501
@@ -159,8 +159,11 @@ class TestRunModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, state_name, *args, **kwargs):  # noqa: E501
         """TestRunModel - a model defined in OpenAPI
+
+        Args:
+            state_name (TestRunState):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -209,7 +212,6 @@ class TestRunModel(ModelNormal):
             completed_date (datetime, none_type): [optional]  # noqa: E501
             build (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             run_by_user_id (str, none_type): [optional]  # noqa: E501
@@ -249,6 +251,7 @@ class TestRunModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.state_name = state_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -269,8 +272,11 @@ class TestRunModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, state_name, *args, **kwargs):  # noqa: E501
         """TestRunModel - a model defined in OpenAPI
+
+        Args:
+            state_name (TestRunState):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -319,7 +325,6 @@ class TestRunModel(ModelNormal):
             completed_date (datetime, none_type): [optional]  # noqa: E501
             build (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             run_by_user_id (str, none_type): [optional]  # noqa: E501
@@ -357,6 +362,7 @@ class TestRunModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.state_name = state_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

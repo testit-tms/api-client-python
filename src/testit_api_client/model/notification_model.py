@@ -80,11 +80,11 @@ class NotificationModel(ModelNormal):
         """
         lazy_import()
         return {
+            'notification_type': (NotificationTypeModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'is_read': (bool,),  # noqa: E501
             'entity_id': (str,),  # noqa: E501
-            'notification_type': (NotificationTypeModel,),  # noqa: E501
             'project_global_id': (int, none_type,),  # noqa: E501
             'project_name': (str, none_type,),  # noqa: E501
             'test_plan_global_id': (int,),  # noqa: E501
@@ -102,11 +102,11 @@ class NotificationModel(ModelNormal):
 
 
     attribute_map = {
+        'notification_type': 'notificationType',  # noqa: E501
         'id': 'id',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'is_read': 'isRead',  # noqa: E501
         'entity_id': 'entityId',  # noqa: E501
-        'notification_type': 'notificationType',  # noqa: E501
         'project_global_id': 'projectGlobalId',  # noqa: E501
         'project_name': 'projectName',  # noqa: E501
         'test_plan_global_id': 'testPlanGlobalId',  # noqa: E501
@@ -125,8 +125,11 @@ class NotificationModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, notification_type, *args, **kwargs):  # noqa: E501
         """NotificationModel - a model defined in OpenAPI
+
+        Args:
+            notification_type (NotificationTypeModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -163,7 +166,6 @@ class NotificationModel(ModelNormal):
             created_date (datetime, none_type): [optional]  # noqa: E501
             is_read (bool): [optional]  # noqa: E501
             entity_id (str): [optional]  # noqa: E501
-            notification_type (NotificationTypeModel): [optional]  # noqa: E501
             project_global_id (int, none_type): [optional]  # noqa: E501
             project_name (str, none_type): [optional]  # noqa: E501
             test_plan_global_id (int): [optional]  # noqa: E501
@@ -204,6 +206,7 @@ class NotificationModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.notification_type = notification_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -224,8 +227,11 @@ class NotificationModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, notification_type, *args, **kwargs):  # noqa: E501
         """NotificationModel - a model defined in OpenAPI
+
+        Args:
+            notification_type (NotificationTypeModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -262,7 +268,6 @@ class NotificationModel(ModelNormal):
             created_date (datetime, none_type): [optional]  # noqa: E501
             is_read (bool): [optional]  # noqa: E501
             entity_id (str): [optional]  # noqa: E501
-            notification_type (NotificationTypeModel): [optional]  # noqa: E501
             project_global_id (int, none_type): [optional]  # noqa: E501
             project_name (str, none_type): [optional]  # noqa: E501
             test_plan_global_id (int): [optional]  # noqa: E501
@@ -301,6 +306,7 @@ class NotificationModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.notification_type = notification_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

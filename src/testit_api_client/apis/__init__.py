@@ -16,6 +16,7 @@
 # Import APIs into API package:
 from testit_api_client.api.attachments_api import AttachmentsApi
 from testit_api_client.api.auto_tests_api import AutoTestsApi
+from testit_api_client.api.background_jobs_api import BackgroundJobsApi
 from testit_api_client.api.configurations_api import ConfigurationsApi
 from testit_api_client.api.custom_attribute_templates_api import CustomAttributeTemplatesApi
 from testit_api_client.api.custom_attributes_api import CustomAttributesApi

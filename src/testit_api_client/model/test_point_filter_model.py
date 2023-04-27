@@ -68,6 +68,8 @@ class TestPointFilterModel(ModelNormal):
     }
 
     validations = {
+        ('test_plan_ids',): {
+        },
         ('test_suite_ids',): {
         },
         ('work_item_global_ids',): {
@@ -110,6 +112,7 @@ class TestPointFilterModel(ModelNormal):
         """
         lazy_import()
         return {
+            'test_plan_ids': ([str], none_type,),  # noqa: E501
             'test_suite_ids': ([str], none_type,),  # noqa: E501
             'work_item_global_ids': ([int], none_type,),  # noqa: E501
             'statuses': ([TestPointStatus], none_type,),  # noqa: E501
@@ -134,6 +137,7 @@ class TestPointFilterModel(ModelNormal):
 
 
     attribute_map = {
+        'test_plan_ids': 'testPlanIds',  # noqa: E501
         'test_suite_ids': 'testSuiteIds',  # noqa: E501
         'work_item_global_ids': 'workItemGlobalIds',  # noqa: E501
         'statuses': 'statuses',  # noqa: E501
@@ -193,6 +197,7 @@ class TestPointFilterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            test_plan_ids ([str], none_type): Specifies a test point test plan IDS to search for. [optional]  # noqa: E501
             test_suite_ids ([str], none_type): Specifies a test point test suite IDs to search for. [optional]  # noqa: E501
             work_item_global_ids ([int], none_type): Specifies a test point work item global IDs to search for. [optional]  # noqa: E501
             statuses ([TestPointStatus], none_type): Specifies a test point statuses to search for. [optional]  # noqa: E501
@@ -294,6 +299,7 @@ class TestPointFilterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            test_plan_ids ([str], none_type): Specifies a test point test plan IDS to search for. [optional]  # noqa: E501
             test_suite_ids ([str], none_type): Specifies a test point test suite IDs to search for. [optional]  # noqa: E501
             work_item_global_ids ([int], none_type): Specifies a test point work item global IDs to search for. [optional]  # noqa: E501
             statuses ([TestPointStatus], none_type): Specifies a test point statuses to search for. [optional]  # noqa: E501

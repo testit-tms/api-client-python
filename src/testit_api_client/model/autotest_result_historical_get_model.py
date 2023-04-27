@@ -80,20 +80,20 @@ class AutotestResultHistoricalGetModel(ModelNormal):
         """
         lazy_import()
         return {
+            'outcome': (AutotestResultOutcome,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
             'test_run_name': (str, none_type,),  # noqa: E501
+            'configuration_id': (str,),  # noqa: E501
+            'launch_source': (str, none_type,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'test_plan_global_id': (int, none_type,),  # noqa: E501
             'test_plan_name': (str, none_type,),  # noqa: E501
-            'configuration_id': (str,),  # noqa: E501
-            'outcome': (AutotestResultOutcome,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
-            'launch_source': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -102,20 +102,20 @@ class AutotestResultHistoricalGetModel(ModelNormal):
 
 
     attribute_map = {
+        'outcome': 'outcome',  # noqa: E501
         'id': 'id',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
-        'modified_by_id': 'modifiedById',  # noqa: E501
         'test_run_id': 'testRunId',  # noqa: E501
         'test_run_name': 'testRunName',  # noqa: E501
+        'configuration_id': 'configurationId',  # noqa: E501
+        'launch_source': 'launchSource',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
         'test_plan_id': 'testPlanId',  # noqa: E501
         'test_plan_global_id': 'testPlanGlobalId',  # noqa: E501
         'test_plan_name': 'testPlanName',  # noqa: E501
-        'configuration_id': 'configurationId',  # noqa: E501
-        'outcome': 'outcome',  # noqa: E501
         'duration': 'duration',  # noqa: E501
-        'launch_source': 'launchSource',  # noqa: E501
     }
 
     read_only_vars = {
@@ -127,8 +127,11 @@ class AutotestResultHistoricalGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, outcome, *args, **kwargs):  # noqa: E501
         """AutotestResultHistoricalGetModel - a model defined in OpenAPI
+
+        Args:
+            outcome (AutotestResultOutcome):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -164,17 +167,16 @@ class AutotestResultHistoricalGetModel(ModelNormal):
             id (str): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
             test_run_id (str): [optional]  # noqa: E501
             test_run_name (str, none_type): [optional]  # noqa: E501
+            configuration_id (str): [optional]  # noqa: E501
+            launch_source (str, none_type): [optional]  # noqa: E501
+            modified_date (datetime, none_type): [optional]  # noqa: E501
+            modified_by_id (str, none_type): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             test_plan_global_id (int, none_type): [optional]  # noqa: E501
             test_plan_name (str, none_type): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
-            outcome (AutotestResultOutcome): [optional]  # noqa: E501
             duration (int, none_type): [optional]  # noqa: E501
-            launch_source (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -206,6 +208,7 @@ class AutotestResultHistoricalGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -226,8 +229,11 @@ class AutotestResultHistoricalGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, outcome, *args, **kwargs):  # noqa: E501
         """AutotestResultHistoricalGetModel - a model defined in OpenAPI
+
+        Args:
+            outcome (AutotestResultOutcome):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -263,17 +269,16 @@ class AutotestResultHistoricalGetModel(ModelNormal):
             id (str): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
             test_run_id (str): [optional]  # noqa: E501
             test_run_name (str, none_type): [optional]  # noqa: E501
+            configuration_id (str): [optional]  # noqa: E501
+            launch_source (str, none_type): [optional]  # noqa: E501
+            modified_date (datetime, none_type): [optional]  # noqa: E501
+            modified_by_id (str, none_type): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             test_plan_global_id (int, none_type): [optional]  # noqa: E501
             test_plan_name (str, none_type): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
-            outcome (AutotestResultOutcome): [optional]  # noqa: E501
             duration (int, none_type): [optional]  # noqa: E501
-            launch_source (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -303,6 +308,7 @@ class AutotestResultHistoricalGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

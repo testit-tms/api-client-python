@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) |  | 
 **id** | **str** | Unique ID of the attribute | [optional] 
 **options** | [**[CustomAttributeOptionModel], none_type**](CustomAttributeOptionModel.md) | Collection of the attribute options | [optional] 
-**type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) |  | [optional] 
 **is_deleted** | **bool** | Indicates if the attribute is deleted | [optional] 
 **name** | **str, none_type** | Name of the attribute | [optional] 
 **is_enabled** | **bool** | Indicates if the attribute is enabled | [optional] 

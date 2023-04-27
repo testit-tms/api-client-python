@@ -82,8 +82,9 @@ class WebHookLogModel(ModelNormal):
         """
         lazy_import()
         return {
-            'web_hook_name': (str, none_type,),  # noqa: E501
             'event_type': (WebHookEventTypeModel,),  # noqa: E501
+            'request_type': (RequestTypeModel,),  # noqa: E501
+            'web_hook_name': (str, none_type,),  # noqa: E501
             'web_hook_id': (str,),  # noqa: E501
             'request_body': (str, none_type,),  # noqa: E501
             'request_meta': (str, none_type,),  # noqa: E501
@@ -92,7 +93,6 @@ class WebHookLogModel(ModelNormal):
             'response_meta': (str, none_type,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'url': (str, none_type,),  # noqa: E501
-            'request_type': (RequestTypeModel,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
@@ -107,8 +107,9 @@ class WebHookLogModel(ModelNormal):
 
 
     attribute_map = {
-        'web_hook_name': 'webHookName',  # noqa: E501
         'event_type': 'eventType',  # noqa: E501
+        'request_type': 'requestType',  # noqa: E501
+        'web_hook_name': 'webHookName',  # noqa: E501
         'web_hook_id': 'webHookId',  # noqa: E501
         'request_body': 'requestBody',  # noqa: E501
         'request_meta': 'requestMeta',  # noqa: E501
@@ -117,7 +118,6 @@ class WebHookLogModel(ModelNormal):
         'response_meta': 'responseMeta',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'url': 'url',  # noqa: E501
-        'request_type': 'requestType',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
@@ -133,8 +133,12 @@ class WebHookLogModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, event_type, request_type, *args, **kwargs):  # noqa: E501
         """WebHookLogModel - a model defined in OpenAPI
+
+        Args:
+            event_type (WebHookEventTypeModel):
+            request_type (RequestTypeModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -168,7 +172,6 @@ class WebHookLogModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             web_hook_name (str, none_type): [optional]  # noqa: E501
-            event_type (WebHookEventTypeModel): [optional]  # noqa: E501
             web_hook_id (str): [optional]  # noqa: E501
             request_body (str, none_type): [optional]  # noqa: E501
             request_meta (str, none_type): [optional]  # noqa: E501
@@ -177,7 +180,6 @@ class WebHookLogModel(ModelNormal):
             response_meta (str, none_type): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             url (str, none_type): [optional]  # noqa: E501
-            request_type (RequestTypeModel): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
@@ -215,6 +217,8 @@ class WebHookLogModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.event_type = event_type
+        self.request_type = request_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -235,8 +239,12 @@ class WebHookLogModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, event_type, request_type, *args, **kwargs):  # noqa: E501
         """WebHookLogModel - a model defined in OpenAPI
+
+        Args:
+            event_type (WebHookEventTypeModel):
+            request_type (RequestTypeModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -270,7 +278,6 @@ class WebHookLogModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             web_hook_name (str, none_type): [optional]  # noqa: E501
-            event_type (WebHookEventTypeModel): [optional]  # noqa: E501
             web_hook_id (str): [optional]  # noqa: E501
             request_body (str, none_type): [optional]  # noqa: E501
             request_meta (str, none_type): [optional]  # noqa: E501
@@ -279,7 +286,6 @@ class WebHookLogModel(ModelNormal):
             response_meta (str, none_type): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             url (str, none_type): [optional]  # noqa: E501
-            request_type (RequestTypeModel): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
@@ -315,6 +321,8 @@ class WebHookLogModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.event_type = event_type
+        self.request_type = request_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

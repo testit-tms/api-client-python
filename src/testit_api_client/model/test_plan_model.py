@@ -69,7 +69,7 @@ class TestPlanModel(ModelNormal):
             'min_length': 0,
         },
         ('description',): {
-            'max_length': 999,
+            'max_length': 100000,
             'min_length': 0,
         },
         ('build',): {
@@ -98,10 +98,10 @@ class TestPlanModel(ModelNormal):
         """
         lazy_import()
         return {
+            'status': (TestPlanStatusModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'status': (TestPlanStatusModel,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
@@ -128,10 +128,10 @@ class TestPlanModel(ModelNormal):
 
 
     attribute_map = {
+        'status': 'status',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
-        'status': 'status',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
         'completed_on': 'completedOn',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
@@ -159,10 +159,11 @@ class TestPlanModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, status, id, name, project_id, *args, **kwargs):  # noqa: E501
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
+            status (TestPlanStatusModel):
             id (str):
             name (str):
             project_id (str):
@@ -198,7 +199,6 @@ class TestPlanModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (TestPlanStatusModel): [optional]  # noqa: E501
             started_on (datetime, none_type): Set when test plan is starter (status changed to: In Progress). [optional]  # noqa: E501
             completed_on (datetime, none_type): set when test plan status is completed (status changed to: Completed). [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
@@ -248,6 +248,7 @@ class TestPlanModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.status = status
         self.id = id
         self.name = name
         self.project_id = project_id
@@ -271,10 +272,11 @@ class TestPlanModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, status, id, name, project_id, *args, **kwargs):  # noqa: E501
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
+            status (TestPlanStatusModel):
             id (str):
             name (str):
             project_id (str):
@@ -310,7 +312,6 @@ class TestPlanModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (TestPlanStatusModel): [optional]  # noqa: E501
             started_on (datetime, none_type): Set when test plan is starter (status changed to: In Progress). [optional]  # noqa: E501
             completed_on (datetime, none_type): set when test plan status is completed (status changed to: Completed). [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
@@ -358,6 +359,7 @@ class TestPlanModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.status = status
         self.id = id
         self.name = name
         self.project_id = project_id

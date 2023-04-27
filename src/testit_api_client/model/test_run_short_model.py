@@ -111,8 +111,11 @@ class TestRunShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, state_name, *args, **kwargs):  # noqa: E501
         """TestRunShortModel - a model defined in OpenAPI
+
+        Args:
+            state_name (TestRunState):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,7 +148,6 @@ class TestRunShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
@@ -183,6 +185,7 @@ class TestRunShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.state_name = state_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -203,8 +206,11 @@ class TestRunShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, state_name, *args, **kwargs):  # noqa: E501
         """TestRunShortModel - a model defined in OpenAPI
+
+        Args:
+            state_name (TestRunState):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -237,7 +243,6 @@ class TestRunShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            state_name (TestRunState): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
@@ -273,6 +278,7 @@ class TestRunShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.state_name = state_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

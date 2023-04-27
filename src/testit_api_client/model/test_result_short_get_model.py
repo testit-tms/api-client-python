@@ -86,13 +86,13 @@ class TestResultShortGetModel(ModelNormal):
         """
         lazy_import()
         return {
+            'outcome': (TestResultOutcome,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'autotest_global_id': (int,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
             'configuration_name': (str, none_type,),  # noqa: E501
-            'outcome': (TestResultOutcome,),  # noqa: E501
             'result_reasons': ([AutotestResultReasonSubGetModel], none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'date': (datetime,),  # noqa: E501
@@ -107,13 +107,13 @@ class TestResultShortGetModel(ModelNormal):
 
 
     attribute_map = {
+        'outcome': 'outcome',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'autotest_global_id': 'autotestGlobalId',  # noqa: E501
         'test_run_id': 'testRunId',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
         'configuration_name': 'configurationName',  # noqa: E501
-        'outcome': 'outcome',  # noqa: E501
         'result_reasons': 'resultReasons',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'date': 'date',  # noqa: E501
@@ -129,8 +129,11 @@ class TestResultShortGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, outcome, *args, **kwargs):  # noqa: E501
         """TestResultShortGetModel - a model defined in OpenAPI
+
+        Args:
+            outcome (TestResultOutcome):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -169,7 +172,6 @@ class TestResultShortGetModel(ModelNormal):
             test_run_id (str): Unique ID of test run where test result is located. [optional]  # noqa: E501
             configuration_id (str): Unique ID of configuration which test result uses. [optional]  # noqa: E501
             configuration_name (str, none_type): Name of configuration which test result uses. [optional]  # noqa: E501
-            outcome (TestResultOutcome): [optional]  # noqa: E501
             result_reasons ([AutotestResultReasonSubGetModel], none_type): Collection of result reasons which test result have. [optional]  # noqa: E501
             comment (str, none_type): Comment to test result. [optional]  # noqa: E501
             date (datetime): Date when test result has been set. [optional]  # noqa: E501
@@ -207,6 +209,7 @@ class TestResultShortGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -227,8 +230,11 @@ class TestResultShortGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, outcome, *args, **kwargs):  # noqa: E501
         """TestResultShortGetModel - a model defined in OpenAPI
+
+        Args:
+            outcome (TestResultOutcome):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -267,7 +273,6 @@ class TestResultShortGetModel(ModelNormal):
             test_run_id (str): Unique ID of test run where test result is located. [optional]  # noqa: E501
             configuration_id (str): Unique ID of configuration which test result uses. [optional]  # noqa: E501
             configuration_name (str, none_type): Name of configuration which test result uses. [optional]  # noqa: E501
-            outcome (TestResultOutcome): [optional]  # noqa: E501
             result_reasons ([AutotestResultReasonSubGetModel], none_type): Collection of result reasons which test result have. [optional]  # noqa: E501
             comment (str, none_type): Comment to test result. [optional]  # noqa: E501
             date (datetime): Date when test result has been set. [optional]  # noqa: E501
@@ -303,6 +308,7 @@ class TestResultShortGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

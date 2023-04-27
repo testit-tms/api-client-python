@@ -82,11 +82,11 @@ class WebHookModel(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str, none_type,),  # noqa: E501
             'event_type': (WebHookEventTypeModel,),  # noqa: E501
+            'request_type': (RequestTypeModel,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'url': (str, none_type,),  # noqa: E501
-            'request_type': (RequestTypeModel,),  # noqa: E501
             'should_send_body': (bool,),  # noqa: E501
             'headers': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'query_parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
@@ -111,11 +111,11 @@ class WebHookModel(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'event_type': 'eventType',  # noqa: E501
+        'request_type': 'requestType',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'url': 'url',  # noqa: E501
-        'request_type': 'requestType',  # noqa: E501
         'should_send_body': 'shouldSendBody',  # noqa: E501
         'headers': 'headers',  # noqa: E501
         'query_parameters': 'queryParameters',  # noqa: E501
@@ -141,8 +141,12 @@ class WebHookModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, event_type, request_type, *args, **kwargs):  # noqa: E501
         """WebHookModel - a model defined in OpenAPI
+
+        Args:
+            event_type (WebHookEventTypeModel):
+            request_type (RequestTypeModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -176,10 +180,8 @@ class WebHookModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): Name of the webhook. [optional]  # noqa: E501
-            event_type (WebHookEventTypeModel): [optional]  # noqa: E501
             description (str, none_type): Description of the webhook. [optional]  # noqa: E501
             url (str, none_type): Url to which the webhook sends request. [optional]  # noqa: E501
-            request_type (RequestTypeModel): [optional]  # noqa: E501
             should_send_body (bool): Indicates if the webhook sends body. [optional]  # noqa: E501
             headers ({str: (str, none_type)}, none_type): Collection of headers which the webhook sends. [optional]  # noqa: E501
             query_parameters ({str: (str, none_type)}, none_type): Collection of query parameters which the webhook sends. [optional]  # noqa: E501
@@ -227,6 +229,8 @@ class WebHookModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.event_type = event_type
+        self.request_type = request_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -247,8 +251,12 @@ class WebHookModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, event_type, request_type, *args, **kwargs):  # noqa: E501
         """WebHookModel - a model defined in OpenAPI
+
+        Args:
+            event_type (WebHookEventTypeModel):
+            request_type (RequestTypeModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -282,10 +290,8 @@ class WebHookModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): Name of the webhook. [optional]  # noqa: E501
-            event_type (WebHookEventTypeModel): [optional]  # noqa: E501
             description (str, none_type): Description of the webhook. [optional]  # noqa: E501
             url (str, none_type): Url to which the webhook sends request. [optional]  # noqa: E501
-            request_type (RequestTypeModel): [optional]  # noqa: E501
             should_send_body (bool): Indicates if the webhook sends body. [optional]  # noqa: E501
             headers ({str: (str, none_type)}, none_type): Collection of headers which the webhook sends. [optional]  # noqa: E501
             query_parameters ({str: (str, none_type)}, none_type): Collection of query parameters which the webhook sends. [optional]  # noqa: E501
@@ -331,6 +337,8 @@ class WebHookModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.event_type = event_type
+        self.request_type = request_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

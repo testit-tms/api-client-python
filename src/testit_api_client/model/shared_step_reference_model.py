@@ -82,6 +82,7 @@ class SharedStepReferenceModel(ModelNormal):
         """
         lazy_import()
         return {
+            'priority': (WorkItemPriorityModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
@@ -94,7 +95,6 @@ class SharedStepReferenceModel(ModelNormal):
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'state': (str, none_type,),  # noqa: E501
-            'priority': (WorkItemPriorityModel,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'version_id': (str,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
@@ -108,6 +108,7 @@ class SharedStepReferenceModel(ModelNormal):
 
 
     attribute_map = {
+        'priority': 'priority',  # noqa: E501
         'id': 'id',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -120,7 +121,6 @@ class SharedStepReferenceModel(ModelNormal):
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'state': 'state',  # noqa: E501
-        'priority': 'priority',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'version_id': 'versionId',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
@@ -135,8 +135,11 @@ class SharedStepReferenceModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, priority, *args, **kwargs):  # noqa: E501
         """SharedStepReferenceModel - a model defined in OpenAPI
+
+        Args:
+            priority (WorkItemPriorityModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -181,7 +184,6 @@ class SharedStepReferenceModel(ModelNormal):
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             state (str, none_type): [optional]  # noqa: E501
-            priority (WorkItemPriorityModel): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
             is_automated (bool): [optional]  # noqa: E501
@@ -218,6 +220,7 @@ class SharedStepReferenceModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.priority = priority
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -238,8 +241,11 @@ class SharedStepReferenceModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, priority, *args, **kwargs):  # noqa: E501
         """SharedStepReferenceModel - a model defined in OpenAPI
+
+        Args:
+            priority (WorkItemPriorityModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -284,7 +290,6 @@ class SharedStepReferenceModel(ModelNormal):
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             state (str, none_type): [optional]  # noqa: E501
-            priority (WorkItemPriorityModel): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
             is_automated (bool): [optional]  # noqa: E501
@@ -319,6 +324,7 @@ class SharedStepReferenceModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.priority = priority
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

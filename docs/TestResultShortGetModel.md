@@ -4,13 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**outcome** | [**TestResultOutcome**](TestResultOutcome.md) |  | 
 **id** | **str** | Unique ID of test result | [optional] 
 **name** | **str, none_type** | Name of autotest represented by the test result | [optional] 
 **autotest_global_id** | **int** | Global ID of autotest represented by test result | [optional] 
 **test_run_id** | **str** | Unique ID of test run where test result is located | [optional] 
 **configuration_id** | **str** | Unique ID of configuration which test result uses | [optional] 
 **configuration_name** | **str, none_type** | Name of configuration which test result uses | [optional] 
-**outcome** | [**TestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **result_reasons** | [**[AutotestResultReasonSubGetModel], none_type**](AutotestResultReasonSubGetModel.md) | Collection of result reasons which test result have | [optional] 
 **comment** | **str, none_type** | Comment to test result | [optional] 
 **date** | **datetime** | Date when test result has been set | [optional] 

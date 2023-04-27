@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **id** | **str** |  | [optional] 
 **work_item_name** | **str, none_type** |  | [optional] 
 **is_automated** | **bool** |  | [optional] 
@@ -24,7 +25,6 @@ Name | Type | Description | Notes
 **attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 **tag_names** | **[str], none_type** |  | [optional] 
 **duration** | **int** |  | [optional] 
-**priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | [optional] 
 **test_suite_name_bread_crumbs** | **[str], none_type** |  | [optional] 
 **group_count** | **int, none_type** |  | [optional] 
 **iteration** | [**IterationModel**](IterationModel.md) |  | [optional] 

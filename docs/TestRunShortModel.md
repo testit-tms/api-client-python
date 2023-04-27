@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state_name** | [**TestRunState**](TestRunState.md) |  | [optional] 
+**state_name** | [**TestRunState**](TestRunState.md) |  | 
 **project_id** | **str** |  | [optional] 
 **test_plan_id** | **str, none_type** |  | [optional] 
 **name** | **str, none_type** |  | [optional] 

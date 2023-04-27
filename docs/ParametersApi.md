@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**api_v2_parameters_key_name_name_exists_get**](ParametersApi.md#api_v2_parameters_key_name_name_exists_get) | **GET** /api/v2/parameters/key/name/{name}/exists | Check existence parameter key in system
 [**api_v2_parameters_key_values_get**](ParametersApi.md#api_v2_parameters_key_values_get) | **GET** /api/v2/parameters/{key}/values | Get all parameter key values
 [**api_v2_parameters_keys_get**](ParametersApi.md#api_v2_parameters_keys_get) | **GET** /api/v2/parameters/keys | Get all parameter keys
+[**api_v2_parameters_search_post**](ParametersApi.md#api_v2_parameters_search_post) | **POST** /api/v2/parameters/search | Search for parameters
 [**create_parameter**](ParametersApi.md#create_parameter) | **POST** /api/v2/parameters | Create parameter
 [**delete_by_name**](ParametersApi.md#delete_by_name) | **DELETE** /api/v2/parameters/name/{name} | Delete parameter by name
 [**delete_by_parameter_key_id**](ParametersApi.md#delete_by_parameter_key_id) | **DELETE** /api/v2/parameters/keyId/{keyId} | Delete parameters by parameter key identifier
@@ -149,7 +150,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = [
         ParameterPutModel(
-            id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+            id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
             value="value_example",
             name="name_example",
         ),
@@ -189,9 +190,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Invalid user permissions |  -  |
 **400** | &lt;br&gt;- Parameter model is not valid |  -  |
 **204** | No Content |  -  |
+**403** | Invalid user permissions |  -  |
 **422** | Client Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -286,8 +287,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -520,6 +521,97 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **api_v2_parameters_search_post**
+> [ParameterModel] api_v2_parameters_search_post()
+
+Search for parameters
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import parameters_api
+from testit_api_client.model.parameter_model import ParameterModel
+from testit_api_client.model.parameter_filter_model import ParameterFilterModel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = parameters_api.ParametersApi(api_client)
+    skip = 1 # int | Amount of items to be skipped (offset) (optional)
+    take = 1 # int | Amount of items to be taken (limit) (optional)
+    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = "SearchField_example" # str | Property name for searching (optional)
+    search_value = "SearchValue_example" # str | Value for searching (optional)
+    parameter_filter_model = ParameterFilterModel(
+        is_deleted=True,
+        name="name_example",
+    ) # ParameterFilterModel |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Search for parameters
+        api_response = api_instance.api_v2_parameters_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, parameter_filter_model=parameter_filter_model)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ParametersApi->api_v2_parameters_search_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional]
+ **take** | **int**| Amount of items to be taken (limit) | [optional]
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
+ **search_field** | **str**| Property name for searching | [optional]
+ **search_value** | **str**| Value for searching | [optional]
+ **parameter_filter_model** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional]
+
+### Return type
+
+[**[ParameterModel]**](ParameterModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_parameter**
 > ParameterModel create_parameter()
 
@@ -600,8 +692,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **201** | Created |  -  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -679,9 +771,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**422** | Parameter is in use in iterations |  -  |
-**400** | Provided name either is empty or contains only white spaces |  -  |
 **204** | No Content |  -  |
+**400** | Provided name either is empty or contains only white spaces |  -  |
+**422** | Parameter is in use in iterations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -758,9 +850,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**403** | Invalid user permissions |  -  |
 **204** | No Content |  -  |
 **422** | Parameter is in use in iterations |  -  |
-**403** | Invalid user permissions |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -930,8 +1022,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Invalid user permissions |  -  |
 **201** | Created |  -  |
+**403** | Invalid user permissions |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1010,8 +1102,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **404** | Parameter with provided ID was not found |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1130,7 +1222,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = ParameterPutModel(
-        id="573f916c-d8ad-4f87-846f-4dba1839ae56",
+        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
         value="value_example",
         name="name_example",
     ) # ParameterPutModel |  (optional)
@@ -1169,8 +1261,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
 **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
+**204** | No Content |  -  |
 **404** | Parameter with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

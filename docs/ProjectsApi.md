@@ -11,8 +11,11 @@ Method | HTTP request | Description
 [**api_v2_projects_id_failure_classes_get**](ProjectsApi.md#api_v2_projects_id_failure_classes_get) | **GET** /api/v2/projects/{id}/failureClasses | Get Project FailureClasses
 [**api_v2_projects_id_favorite_put**](ProjectsApi.md#api_v2_projects_id_favorite_put) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite
 [**api_v2_projects_id_filters_get**](ProjectsApi.md#api_v2_projects_id_filters_get) | **GET** /api/v2/projects/{id}/filters | Get Project filters
+[**api_v2_projects_id_patch**](ProjectsApi.md#api_v2_projects_id_patch) | **PATCH** /api/v2/projects/{id} | Patch project
 [**api_v2_projects_id_test_plans_analytics_get**](ProjectsApi.md#api_v2_projects_id_test_plans_analytics_get) | **GET** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics
+[**api_v2_projects_id_test_plans_delete_bulk_post**](ProjectsApi.md#api_v2_projects_id_test_plans_delete_bulk_post) | **POST** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans
 [**api_v2_projects_id_test_plans_name_exists_get**](ProjectsApi.md#api_v2_projects_id_test_plans_name_exists_get) | **GET** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
+[**api_v2_projects_id_test_plans_restore_bulk_post**](ProjectsApi.md#api_v2_projects_id_test_plans_restore_bulk_post) | **POST** /api/v2/projects/{id}/testPlans/restore/bulk | Restore multiple test plans
 [**api_v2_projects_id_test_plans_search_post**](ProjectsApi.md#api_v2_projects_id_test_plans_search_post) | **POST** /api/v2/projects/{id}/testPlans/search | Get Project TestPlans with analytics
 [**api_v2_projects_id_test_runs_active_get**](ProjectsApi.md#api_v2_projects_id_test_runs_active_get) | **GET** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
 [**api_v2_projects_id_test_runs_full_get**](ProjectsApi.md#api_v2_projects_id_test_runs_full_get) | **GET** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models
@@ -21,6 +24,10 @@ Method | HTTP request | Description
 [**api_v2_projects_id_work_items_tags_get**](ProjectsApi.md#api_v2_projects_id_work_items_tags_get) | **GET** /api/v2/projects/{id}/workItems/tags | Get WorkItems Tags
 [**api_v2_projects_name_name_exists_get**](ProjectsApi.md#api_v2_projects_name_name_exists_get) | **GET** /api/v2/projects/name/{name}/exists | 
 [**api_v2_projects_search_post**](ProjectsApi.md#api_v2_projects_search_post) | **POST** /api/v2/projects/search | Search for projects
+[**background_import_project**](ProjectsApi.md#background_import_project) | **POST** /api/v2/projects/import/json | Import project from JSON file in background job
+[**background_import_to_existing_project**](ProjectsApi.md#background_import_to_existing_project) | **POST** /api/v2/projects/{id}/import/json | Import project from JSON file into existing project in background job
+[**background_import_zip_project**](ProjectsApi.md#background_import_zip_project) | **POST** /api/v2/projects/import/zip | Import project from Zip file in background job
+[**background_import_zip_to_existing_project**](ProjectsApi.md#background_import_zip_to_existing_project) | **POST** /api/v2/projects/{id}/import/zip | Import project from Zip file into existing project in background job
 [**call_import**](ProjectsApi.md#call_import) | **POST** /api/v2/projects/import | Import project from JSON file
 [**create_custom_attribute_test_plan_project_relations**](ProjectsApi.md#create_custom_attribute_test_plan_project_relations) | **POST** /api/v2/projects/{id}/testPlans/attributes | Add attributes to project&#39;s test plans
 [**create_project**](ProjectsApi.md#create_project) | **POST** /api/v2/projects | Create project
@@ -30,6 +37,10 @@ Method | HTTP request | Description
 [**delete_project_auto_tests**](ProjectsApi.md#delete_project_auto_tests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete project
 [**delete_projects_attribute**](ProjectsApi.md#delete_projects_attribute) | **DELETE** /api/v2/projects/{id}/attributes/{attributeId} | Delete project attribute
 [**export**](ProjectsApi.md#export) | **POST** /api/v2/projects/{id}/export | Export project as JSON file
+[**export_project_json**](ProjectsApi.md#export_project_json) | **POST** /api/v2/projects/{id}/export/json | Export project as JSON file in background job
+[**export_project_with_test_plans_json**](ProjectsApi.md#export_project_with_test_plans_json) | **POST** /api/v2/projects/{id}/export/testPlans/json | Export project as JSON file with test plans in background job
+[**export_project_with_test_plans_zip**](ProjectsApi.md#export_project_with_test_plans_zip) | **POST** /api/v2/projects/{id}/export/testPlans/zip | Export project as Zip file with test plans in background job
+[**export_project_zip**](ProjectsApi.md#export_project_zip) | **POST** /api/v2/projects/{id}/export/zip | Export project as Zip file in background job
 [**export_with_test_plans_and_configurations**](ProjectsApi.md#export_with_test_plans_and_configurations) | **POST** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file
 [**get_all_projects**](ProjectsApi.md#get_all_projects) | **GET** /api/v2/projects | Get all projects
 [**get_attribute_by_project_id**](ProjectsApi.md#get_attribute_by_project_id) | **GET** /api/v2/projects/{id}/attributes/{attributeId} | Get project attribute
@@ -137,12 +148,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | &lt;br&gt; Attributes must be global  |  -  |
-**403** | Project admin permission for project settings is required |  -  |
 **404** | Project with provided ID was not found |  -  |
-**200** | Success |  -  |
 **409** | Conflict |  -  |
 **422** | Client Error |  -  |
+**200** | Success |  -  |
+**400** | &lt;br&gt; Attributes must be global  |  -  |
+**403** | Project admin permission for project settings is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -327,9 +338,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Can&#39;t find a Project with identifier |  -  |
 **400** | Bad Request |  -  |
 **204** | No Content |  -  |
-**404** | Can&#39;t find a Project with identifier |  -  |
 **403** | Update project settings permission for project required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -410,9 +421,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Can&#39;t find a Project with identifier |  -  |
 **400** | Bad Request |  -  |
 **200** | Success |  -  |
-**404** | Can&#39;t find a Project with identifier |  -  |
 **403** | Update project settings permission for project required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -580,10 +591,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
+**401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 **400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
+**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -663,6 +674,102 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **400** | Bad Request |  -  |
 **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_projects_id_patch**
+> api_v2_projects_id_patch(id)
+
+Patch project
+
+See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.operation import Operation
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Unique or global Id of project
+    operation = [
+        Operation(
+            value=None,
+            path="path_example",
+            op="op_example",
+            _from="_from_example",
+        ),
+    ] # [Operation] |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Patch project
+        api_instance.api_v2_projects_id_patch(id)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->api_v2_projects_id_patch: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Patch project
+        api_instance.api_v2_projects_id_patch(id, operation=operation)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->api_v2_projects_id_patch: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique or global Id of project |
+ **operation** | [**[Operation]**](Operation.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**403** | Update permission for projects is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -764,8 +871,140 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | Bad Request |  -  |
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_projects_id_test_plans_delete_bulk_post**
+> [str] api_v2_projects_id_test_plans_delete_bulk_post(id)
+
+Delete multiple test plans
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Unique or global ID of the project
+    project_test_plans_filter_model = ProjectTestPlansFilterModel(
+        name="name_example",
+        description="description_example",
+        build="build_example",
+        product_name="product_name_example",
+        status=[
+            TestPlanStatusModel("New"),
+        ],
+        global_ids=[
+            1,
+        ],
+        is_locked=True,
+        locked_date=DateTimeRangeSelectorModel(
+            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ),
+        automatic_duration_timer=[
+            True,
+        ],
+        created_by_ids=[
+            "created_by_ids_example",
+        ],
+        created_date=DateTimeRangeSelectorModel(
+            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ),
+        start_date=DateTimeRangeSelectorModel(
+            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ),
+        end_date=DateTimeRangeSelectorModel(
+            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ),
+        tag_names=[
+            "tag_names_example",
+        ],
+        attributes={
+            "key": [
+                "key_example",
+            ],
+        },
+        is_deleted=True,
+    ) # ProjectTestPlansFilterModel |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete multiple test plans
+        api_response = api_instance.api_v2_projects_id_test_plans_delete_bulk_post(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_delete_bulk_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete multiple test plans
+        api_response = api_instance.api_v2_projects_id_test_plans_delete_bulk_post(id, project_test_plans_filter_model=project_test_plans_filter_model)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_delete_bulk_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique or global ID of the project |
+ **project_test_plans_filter_model** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional]
+
+### Return type
+
+**[str]**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | - Read permission for the project is required  - Delete permission for test plans is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -848,6 +1087,136 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **api_v2_projects_id_test_plans_restore_bulk_post**
+> api_v2_projects_id_test_plans_restore_bulk_post(id)
+
+Restore multiple test plans
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Unique or global ID of the project
+    project_test_plans_filter_model = ProjectTestPlansFilterModel(
+        name="name_example",
+        description="description_example",
+        build="build_example",
+        product_name="product_name_example",
+        status=[
+            TestPlanStatusModel("New"),
+        ],
+        global_ids=[
+            1,
+        ],
+        is_locked=True,
+        locked_date=DateTimeRangeSelectorModel(
+            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ),
+        automatic_duration_timer=[
+            True,
+        ],
+        created_by_ids=[
+            "created_by_ids_example",
+        ],
+        created_date=DateTimeRangeSelectorModel(
+            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ),
+        start_date=DateTimeRangeSelectorModel(
+            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ),
+        end_date=DateTimeRangeSelectorModel(
+            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ),
+        tag_names=[
+            "tag_names_example",
+        ],
+        attributes={
+            "key": [
+                "key_example",
+            ],
+        },
+        is_deleted=True,
+    ) # ProjectTestPlansFilterModel |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Restore multiple test plans
+        api_instance.api_v2_projects_id_test_plans_restore_bulk_post(id)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_restore_bulk_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Restore multiple test plans
+        api_instance.api_v2_projects_id_test_plans_restore_bulk_post(id, project_test_plans_filter_model=project_test_plans_filter_model)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_restore_bulk_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique or global ID of the project |
+ **project_test_plans_filter_model** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | - Read permission for the project is required  - Edit permission for test plans is required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **api_v2_projects_id_test_plans_search_post**
 > [TestPlanWithAnalyticModel] api_v2_projects_id_test_plans_search_post(id)
 
@@ -863,8 +1232,8 @@ Get Project TestPlans with analytics
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.test_plan_search_query_model import TestPlanSearchQueryModel
 from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
+from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -895,7 +1264,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    test_plan_search_query_model = TestPlanSearchQueryModel(
+    project_test_plans_filter_model = ProjectTestPlansFilterModel(
         name="name_example",
         description="description_example",
         build="build_example",
@@ -907,7 +1276,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
             1,
         ],
         is_locked=True,
-        locked_date=DateRangeModel(
+        locked_date=DateTimeRangeSelectorModel(
             _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
             to=dateutil_parser('1970-01-01T00:00:00.00Z'),
         ),
@@ -917,15 +1286,15 @@ with testit_api_client.ApiClient(configuration) as api_client:
         created_by_ids=[
             "created_by_ids_example",
         ],
-        created_date=DateRangeModel(
+        created_date=DateTimeRangeSelectorModel(
             _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
             to=dateutil_parser('1970-01-01T00:00:00.00Z'),
         ),
-        start_date=DateRangeModel(
+        start_date=DateTimeRangeSelectorModel(
             _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
             to=dateutil_parser('1970-01-01T00:00:00.00Z'),
         ),
-        end_date=DateRangeModel(
+        end_date=DateTimeRangeSelectorModel(
             _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
             to=dateutil_parser('1970-01-01T00:00:00.00Z'),
         ),
@@ -938,7 +1307,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
             ],
         },
         is_deleted=True,
-    ) # TestPlanSearchQueryModel |  (optional)
+    ) # ProjectTestPlansFilterModel |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -952,7 +1321,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get Project TestPlans with analytics
-        api_response = api_instance.api_v2_projects_id_test_plans_search_post(id, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_plan_search_query_model=test_plan_search_query_model)
+        api_response = api_instance.api_v2_projects_id_test_plans_search_post(id, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, project_test_plans_filter_model=project_test_plans_filter_model)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_search_post: %s\n" % e)
@@ -970,7 +1339,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **test_plan_search_query_model** | [**TestPlanSearchQueryModel**](TestPlanSearchQueryModel.md)|  | [optional]
+ **project_test_plans_filter_model** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional]
 
 ### Return type
 
@@ -1376,8 +1745,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **403** | Read permission for test library is required |  -  |
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1853,6 +2222,334 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **background_import_project**
+> str background_import_project()
+
+Import project from JSON file in background job
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    file = open('/path/to/file', 'rb') # file_type |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Import project from JSON file in background job
+        api_response = api_instance.background_import_project(file=file)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->background_import_project: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **file_type**|  | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data, application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Update permission for project settings required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **background_import_to_existing_project**
+> str background_import_to_existing_project(id)
+
+Import project from JSON file into existing project in background job
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Project internal (UUID) or global (integer) identifier
+    file = open('/path/to/file', 'rb') # file_type | Select file (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Import project from JSON file into existing project in background job
+        api_response = api_instance.background_import_to_existing_project(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->background_import_to_existing_project: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Import project from JSON file into existing project in background job
+        api_response = api_instance.background_import_to_existing_project(id, file=file)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->background_import_to_existing_project: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Project internal (UUID) or global (integer) identifier |
+ **file** | **file_type**| Select file | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Update permission for project settings required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **background_import_zip_project**
+> str background_import_zip_project()
+
+Import project from Zip file in background job
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    file = open('/path/to/file', 'rb') # file_type |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Import project from Zip file in background job
+        api_response = api_instance.background_import_zip_project(file=file)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->background_import_zip_project: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **file_type**|  | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data, application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Update permission for project settings required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **background_import_zip_to_existing_project**
+> str background_import_zip_to_existing_project(id)
+
+Import project from Zip file into existing project in background job
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Project internal (UUID) or global (integer) identifier
+    file = open('/path/to/file', 'rb') # file_type | Select file (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Import project from Zip file into existing project in background job
+        api_response = api_instance.background_import_zip_to_existing_project(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->background_import_zip_to_existing_project: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Import project from Zip file into existing project in background job
+        api_response = api_instance.background_import_zip_to_existing_project(id, file=file)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->background_import_zip_to_existing_project: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Project internal (UUID) or global (integer) identifier |
+ **file** | **file_type**| Select file | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Update permission for project settings required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **call_import**
 > call_import()
 
@@ -1931,9 +2628,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** | Bad Request |  -  |
 **403** | Project creator or admin system role is required |  -  |
 **413** | Multipart body length limit exceeded |  -  |
+**400** | Bad Request |  -  |
 **409** | Entity with the same ID was already imported in other project |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2073,6 +2770,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     project_post_model = ProjectPostModel(
         description="description_example",
         name="name_example",
+        is_favorite=True,
     ) # ProjectPostModel |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -2110,8 +2808,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  -  |
 **403** | Project creator or admin system role is required |  -  |
+**201** | Created |  -  |
 **400** | Bad Request |  -  |
 **409** | Project with the same name already exists |  -  |
 
@@ -2217,12 +2915,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; |  -  |
-**404** | Project with provided ID was not found |  -  |
-**403** | Update permission for project settings is required |  -  |
 **422** | Cannot add new attribute from template which is in use |  -  |
-**201** | Created |  -  |
+**403** | Update permission for project settings is required |  -  |
+**404** | Project with provided ID was not found |  -  |
+**400** | &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; |  -  |
 **409** | &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; |  -  |
+**201** | Created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2301,8 +2999,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for project settings is required |  -  |
 **204** | No Content |  -  |
+**403** | Update permission for project settings is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2379,9 +3077,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Project with provided ID does not exists |  -  |
 **204** | No Content |  -  |
 **403** | Delete permission for projects is required |  -  |
-**404** | Project with provided ID does not exists |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2458,9 +3156,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | No Content |  -  |
 **403** | Delete permission for AutoTest required |  -  |
 **404** | Can&#39;t find a Project with identifier |  -  |
-**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2540,10 +3238,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty |  -  |
 **204** | Successful operation |  -  |
-**403** | Update permission for project settings is required |  -  |
 **404** | Project with provided ID was not found |  -  |
+**400** | &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty |  -  |
+**403** | Update permission for project settings is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2643,9 +3341,395 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Root section was not found |  -  |
+**404** | Not Found |  -  |
+**200** | Success |  -  |
 **403** | Update permission for project settings is required |  -  |
-**404** | Project with provided ID was not found |  -  |
+**400** | Root section was not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_project_json**
+> str export_project_json(id)
+
+Export project as JSON file in background job
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_export_query_model import ProjectExportQueryModel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Project internal (UUID) or global (integer) identifier
+    time_zone_offset_in_minutes = 1 # int |  (optional)
+    project_export_query_model = ProjectExportQueryModel(
+        section_ids=[
+            "section_ids_example",
+        ],
+        work_item_ids=[
+            "work_item_ids_example",
+        ],
+    ) # ProjectExportQueryModel |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Export project as JSON file in background job
+        api_response = api_instance.export_project_json(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->export_project_json: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Export project as JSON file in background job
+        api_response = api_instance.export_project_json(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, project_export_query_model=project_export_query_model)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->export_project_json: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Project internal (UUID) or global (integer) identifier |
+ **time_zone_offset_in_minutes** | **int**|  | [optional]
+ **project_export_query_model** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Update permission for project settings is required |  -  |
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_project_with_test_plans_json**
+> str export_project_with_test_plans_json(id)
+
+Export project as JSON file with test plans in background job
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_export_with_test_plans_post_model import ProjectExportWithTestPlansPostModel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Project internal (UUID) or global (integer) identifier
+    time_zone_offset_in_minutes = 1 # int |  (optional)
+    project_export_with_test_plans_post_model = ProjectExportWithTestPlansPostModel(
+        test_plans_ids=[
+            "test_plans_ids_example",
+        ],
+    ) # ProjectExportWithTestPlansPostModel |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Export project as JSON file with test plans in background job
+        api_response = api_instance.export_project_with_test_plans_json(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->export_project_with_test_plans_json: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Export project as JSON file with test plans in background job
+        api_response = api_instance.export_project_with_test_plans_json(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, project_export_with_test_plans_post_model=project_export_with_test_plans_post_model)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->export_project_with_test_plans_json: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Project internal (UUID) or global (integer) identifier |
+ **time_zone_offset_in_minutes** | **int**|  | [optional]
+ **project_export_with_test_plans_post_model** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Update permission for project settings is required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_project_with_test_plans_zip**
+> str export_project_with_test_plans_zip(id)
+
+Export project as Zip file with test plans in background job
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_export_with_test_plans_post_model import ProjectExportWithTestPlansPostModel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Project internal (UUID) or global (integer) identifier
+    time_zone_offset_in_minutes = 1 # int |  (optional)
+    project_export_with_test_plans_post_model = ProjectExportWithTestPlansPostModel(
+        test_plans_ids=[
+            "test_plans_ids_example",
+        ],
+    ) # ProjectExportWithTestPlansPostModel |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Export project as Zip file with test plans in background job
+        api_response = api_instance.export_project_with_test_plans_zip(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->export_project_with_test_plans_zip: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Export project as Zip file with test plans in background job
+        api_response = api_instance.export_project_with_test_plans_zip(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, project_export_with_test_plans_post_model=project_export_with_test_plans_post_model)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->export_project_with_test_plans_zip: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Project internal (UUID) or global (integer) identifier |
+ **time_zone_offset_in_minutes** | **int**|  | [optional]
+ **project_export_with_test_plans_post_model** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Update permission for project settings is required |  -  |
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_project_zip**
+> str export_project_zip(id)
+
+Export project as Zip file in background job
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_export_query_model import ProjectExportQueryModel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Project internal (UUID) or global (integer) identifier
+    time_zone_offset_in_minutes = 1 # int |  (optional)
+    project_export_query_model = ProjectExportQueryModel(
+        section_ids=[
+            "section_ids_example",
+        ],
+        work_item_ids=[
+            "work_item_ids_example",
+        ],
+    ) # ProjectExportQueryModel |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Export project as Zip file in background job
+        api_response = api_instance.export_project_zip(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->export_project_zip: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Export project as Zip file in background job
+        api_response = api_instance.export_project_zip(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, project_export_query_model=project_export_query_model)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->export_project_zip: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Project internal (UUID) or global (integer) identifier |
+ **time_zone_offset_in_minutes** | **int**|  | [optional]
+ **project_export_query_model** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Update permission for project settings is required |  -  |
 **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2743,10 +3827,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Root section was not found |  -  |
 **404** | Project with provided ID was not found |  -  |
-**200** | Success |  -  |
+**400** | Root section was not found |  -  |
 **403** | Update permission for project settings is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2945,6 +4029,7 @@ import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
+from testit_api_client.model.deletion_state import DeletionState
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -2969,7 +4054,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
-    is_deleted = False # bool | If result must consist of only actual/deleted work items (optional) if omitted the server will use the default value of False
+    is_deleted = DeletionState("Any") # DeletionState |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -2995,7 +4080,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier |
- **is_deleted** | **bool**| If result must consist of only actual/deleted work items | [optional] if omitted the server will use the default value of False
+ **is_deleted** | **DeletionState**|  | [optional]
 
 ### Return type
 
@@ -3015,10 +4100,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Read permission for test library is required |  -  |
-**400** | Bad Request |  -  |
 **404** | Project with provided ID was not found |  -  |
+**400** | Bad Request |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3097,9 +4182,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Project with provided ID was not found |  -  |
-**403** | Read permission for test library is required |  -  |
 **200** | Success |  -  |
+**403** | Read permission for test library is required |  -  |
+**404** | Project with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3180,9 +4265,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**403** | Read permission for configurations required |  -  |
 **404** | Project with provided ID was not found |  -  |
 **400** | Bad Request |  -  |
+**403** | Read permission for configurations required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3261,8 +4346,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Read permission for project settings is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3342,10 +4427,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Project with provided ID was not found |  -  |
 **403** | Read permission for projects is required |  -  |
-**400** | ID is invalid |  -  |
+**404** | Project with provided ID was not found |  -  |
 **200** | Success |  -  |
+**400** | ID is invalid |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3444,10 +4529,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Project with provided ID was not found |  -  |
-**403** | Read permission for test library is required |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | Bad Request |  -  |
+**403** | Read permission for test library is required |  -  |
+**404** | Project with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3537,9 +4622,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**403** | Read permission for test library is required |  -  |
 **200** | Success |  -  |
 **404** | Project with provided ID was not found |  -  |
-**403** | Read permission for test library is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3652,8 +4737,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** | Project with provided ID was not found |  -  |
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **403** | Read permission for test result is required |  -  |
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3760,9 +4845,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
 **403** | Read permission for test library is required |  -  |
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **404** | Project with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3854,9 +4939,9 @@ void (empty response body)
 |-------------|-------------|------------------|
 **413** | Multipart body length limit exceeded |  -  |
 **204** | No Content |  -  |
-**404** | File not found |  -  |
-**409** | Entity with same id already imported in other project |  -  |
 **403** | Update permission for project settings required |  -  |
+**409** | Entity with same id already imported in other project |  -  |
+**404** | File not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3933,9 +5018,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | No Content |  -  |
 **403** | Update permission for projects is required |  -  |
 **404** | Project with provided ID was not found |  -  |
-**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4042,8 +5127,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **403** | Read permission for project is required |  -  |
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4292,6 +5377,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         id="id_example",
         description="description_example",
         name="name_example",
+        is_favorite=True,
     ) # ProjectPutModel |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -4328,11 +5414,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**409** | Project with the same name already exists |  -  |
-**400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required |  -  |
 **204** | No Content |  -  |
+**400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Field is required |  -  |
 **403** | Update permission for projects is required |  -  |
 **404** | Project with provided ID was not found |  -  |
+**409** | Project with the same name already exists |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -58,6 +58,9 @@ class WorkItemIdModel(ModelNormal):
     }
 
     validations = {
+        ('id',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -75,7 +78,7 @@ class WorkItemIdModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str, none_type,),  # noqa: E501
+            'id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,8 +97,11 @@ class WorkItemIdModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, *args, **kwargs):  # noqa: E501
         """WorkItemIdModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -128,7 +134,6 @@ class WorkItemIdModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -160,6 +165,7 @@ class WorkItemIdModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -180,8 +186,11 @@ class WorkItemIdModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, *args, **kwargs):  # noqa: E501
         """WorkItemIdModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -214,7 +223,6 @@ class WorkItemIdModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -244,6 +252,7 @@ class WorkItemIdModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

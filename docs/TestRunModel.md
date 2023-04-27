@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**state_name** | [**TestRunState**](TestRunState.md) |  | 
 **auto_tests** | [**[AutoTestModel], none_type**](AutoTestModel.md) |  | [optional] 
 **auto_tests_count** | **int** |  | [optional] 
 **test_suite_ids** | **[str], none_type** |  | [optional] 
@@ -20,7 +21,6 @@ Name | Type | Description | Notes
 **completed_date** | **datetime, none_type** |  | [optional] 
 **build** | **str, none_type** |  | [optional] 
 **description** | **str, none_type** |  | [optional] 
-**state_name** | [**TestRunState**](TestRunState.md) |  | [optional] 
 **project_id** | **str** |  | [optional] 
 **test_plan_id** | **str, none_type** |  | [optional] 
 **run_by_user_id** | **str, none_type** |  | [optional] 

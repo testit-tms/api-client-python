@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **id** | **str** |  | [optional] 
 **global_id** | **int** |  | [optional] 
 **name** | **str, none_type** |  | [optional] 
@@ -16,7 +17,6 @@ Name | Type | Description | Notes
 **created_date** | **datetime, none_type** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **state** | **str, none_type** |  | [optional] 
-**priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | [optional] 
 **is_deleted** | **bool** |  | [optional] 
 **version_id** | **str** | used for versioning changes in workitem | [optional] 
 **is_automated** | **bool** |  | [optional] 

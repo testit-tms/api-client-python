@@ -84,6 +84,9 @@ class TestPointShortGetModel(ModelNormal):
         """
         lazy_import()
         return {
+            'status': (TestPointStatus,),  # noqa: E501
+            'priority': (WorkItemPriorityModel,),  # noqa: E501
+            'last_test_result': (LastTestResultModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
@@ -95,17 +98,16 @@ class TestPointShortGetModel(ModelNormal):
             'tags': ([str], none_type,),  # noqa: E501
             'links': ([str], none_type,),  # noqa: E501
             'test_suite_id': (str,),  # noqa: E501
+            'work_item_id': (str,),  # noqa: E501
             'work_item_global_id': (int,),  # noqa: E501
             'work_item_version_id': (str,),  # noqa: E501
-            'status': (TestPointStatus,),  # noqa: E501
-            'priority': (WorkItemPriorityModel,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
             'duration': (int,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
+            'section_name': (str, none_type,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'last_test_result': (LastTestResultModel,),  # noqa: E501
             'iteration_id': (str,),  # noqa: E501
         }
 
@@ -115,6 +117,9 @@ class TestPointShortGetModel(ModelNormal):
 
 
     attribute_map = {
+        'status': 'status',  # noqa: E501
+        'priority': 'priority',  # noqa: E501
+        'last_test_result': 'lastTestResult',  # noqa: E501
         'id': 'id',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
@@ -126,17 +131,16 @@ class TestPointShortGetModel(ModelNormal):
         'tags': 'tags',  # noqa: E501
         'links': 'links',  # noqa: E501
         'test_suite_id': 'testSuiteId',  # noqa: E501
+        'work_item_id': 'workItemId',  # noqa: E501
         'work_item_global_id': 'workItemGlobalId',  # noqa: E501
         'work_item_version_id': 'workItemVersionId',  # noqa: E501
-        'status': 'status',  # noqa: E501
-        'priority': 'priority',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'name': 'name',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
         'duration': 'duration',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
+        'section_name': 'sectionName',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
-        'last_test_result': 'lastTestResult',  # noqa: E501
         'iteration_id': 'iterationId',  # noqa: E501
     }
 
@@ -147,8 +151,13 @@ class TestPointShortGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, status, priority, last_test_result, *args, **kwargs):  # noqa: E501
         """TestPointShortGetModel - a model defined in OpenAPI
+
+        Args:
+            status (TestPointStatus):
+            priority (WorkItemPriorityModel):
+            last_test_result (LastTestResultModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -192,17 +201,16 @@ class TestPointShortGetModel(ModelNormal):
             tags ([str], none_type): Collection of the test point tags. [optional]  # noqa: E501
             links ([str], none_type): Collection of the test point links. [optional]  # noqa: E501
             test_suite_id (str): Unique ID of test suite the test point assigned to. [optional]  # noqa: E501
+            work_item_id (str): Unique ID of work item the test point represents. [optional]  # noqa: E501
             work_item_global_id (int): Global ID of work item the test point represents. [optional]  # noqa: E501
             work_item_version_id (str): Unique ID of work item version the test point represents. [optional]  # noqa: E501
-            status (TestPointStatus): [optional]  # noqa: E501
-            priority (WorkItemPriorityModel): [optional]  # noqa: E501
             is_automated (bool): Indicates if the test point represents an autotest. [optional]  # noqa: E501
             name (str, none_type): Name of the test point. [optional]  # noqa: E501
             configuration_id (str): Unique ID of the test point configuration. [optional]  # noqa: E501
             duration (int): Duration of the test point. [optional]  # noqa: E501
             section_id (str): Unique ID of section where work item the test point represents is located. [optional]  # noqa: E501
+            section_name (str, none_type): Name of section where work item the test point represents is located. [optional]  # noqa: E501
             project_id (str): Unique ID of the test point project. [optional]  # noqa: E501
-            last_test_result (LastTestResultModel): [optional]  # noqa: E501
             iteration_id (str): Unique ID of work item iteration the test point represents. [optional]  # noqa: E501
         """
 
@@ -235,6 +243,9 @@ class TestPointShortGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.status = status
+        self.priority = priority
+        self.last_test_result = last_test_result
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -255,8 +266,13 @@ class TestPointShortGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, status, priority, last_test_result, *args, **kwargs):  # noqa: E501
         """TestPointShortGetModel - a model defined in OpenAPI
+
+        Args:
+            status (TestPointStatus):
+            priority (WorkItemPriorityModel):
+            last_test_result (LastTestResultModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -300,17 +316,16 @@ class TestPointShortGetModel(ModelNormal):
             tags ([str], none_type): Collection of the test point tags. [optional]  # noqa: E501
             links ([str], none_type): Collection of the test point links. [optional]  # noqa: E501
             test_suite_id (str): Unique ID of test suite the test point assigned to. [optional]  # noqa: E501
+            work_item_id (str): Unique ID of work item the test point represents. [optional]  # noqa: E501
             work_item_global_id (int): Global ID of work item the test point represents. [optional]  # noqa: E501
             work_item_version_id (str): Unique ID of work item version the test point represents. [optional]  # noqa: E501
-            status (TestPointStatus): [optional]  # noqa: E501
-            priority (WorkItemPriorityModel): [optional]  # noqa: E501
             is_automated (bool): Indicates if the test point represents an autotest. [optional]  # noqa: E501
             name (str, none_type): Name of the test point. [optional]  # noqa: E501
             configuration_id (str): Unique ID of the test point configuration. [optional]  # noqa: E501
             duration (int): Duration of the test point. [optional]  # noqa: E501
             section_id (str): Unique ID of section where work item the test point represents is located. [optional]  # noqa: E501
+            section_name (str, none_type): Name of section where work item the test point represents is located. [optional]  # noqa: E501
             project_id (str): Unique ID of the test point project. [optional]  # noqa: E501
-            last_test_result (LastTestResultModel): [optional]  # noqa: E501
             iteration_id (str): Unique ID of work item iteration the test point represents. [optional]  # noqa: E501
         """
 
@@ -341,6 +356,9 @@ class TestPointShortGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.status = status
+        self.priority = priority
+        self.last_test_result = last_test_result
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

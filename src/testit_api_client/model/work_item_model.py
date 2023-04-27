@@ -104,6 +104,7 @@ class WorkItemModel(ModelNormal):
         lazy_import()
         return {
             'entity_type_name': (WorkItemEntityTypes,),  # noqa: E501
+            'id': (str,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'steps': ([StepModel],),  # noqa: E501
@@ -129,7 +130,6 @@ class WorkItemModel(ModelNormal):
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
-            'id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'duration': (int,),  # noqa: E501
@@ -142,6 +142,7 @@ class WorkItemModel(ModelNormal):
 
     attribute_map = {
         'entity_type_name': 'entityTypeName',  # noqa: E501
+        'id': 'id',  # noqa: E501
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'steps': 'steps',  # noqa: E501
@@ -167,7 +168,6 @@ class WorkItemModel(ModelNormal):
         'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
-        'id': 'id',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
         'description': 'description',  # noqa: E501
         'duration': 'duration',  # noqa: E501
@@ -180,11 +180,12 @@ class WorkItemModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, entity_type_name, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, entity_type_name, id, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
             entity_type_name (WorkItemEntityTypes):
+            id (str):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
             steps ([StepModel]):
@@ -242,7 +243,6 @@ class WorkItemModel(ModelNormal):
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             global_id (int): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             section_id (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             duration (int): [optional]  # noqa: E501
@@ -278,6 +278,7 @@ class WorkItemModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.entity_type_name = entity_type_name
+        self.id = id
         self.state = state
         self.priority = priority
         self.steps = steps
@@ -307,11 +308,12 @@ class WorkItemModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, entity_type_name, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, entity_type_name, id, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
             entity_type_name (WorkItemEntityTypes):
+            id (str):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
             steps ([StepModel]):
@@ -369,7 +371,6 @@ class WorkItemModel(ModelNormal):
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             global_id (int): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             section_id (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             duration (int): [optional]  # noqa: E501
@@ -403,6 +404,7 @@ class WorkItemModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.entity_type_name = entity_type_name
+        self.id = id
         self.state = state
         self.priority = priority
         self.steps = steps

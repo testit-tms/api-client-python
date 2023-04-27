@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**event_type** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
+**request_type** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
 **name** | **str, none_type** | Name of the webhook | [optional] 
-**event_type** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | [optional] 
 **description** | **str, none_type** | Description of the webhook | [optional] 
 **url** | **str, none_type** | Url to which the webhook sends request | [optional] 
-**request_type** | [**RequestTypeModel**](RequestTypeModel.md) |  | [optional] 
 **should_send_body** | **bool** | Indicates if the webhook sends body | [optional] 
 **headers** | **{str: (str, none_type)}, none_type** | Collection of headers which the webhook sends | [optional] 
 **query_parameters** | **{str: (str, none_type)}, none_type** | Collection of query parameters which the webhook sends | [optional] 
