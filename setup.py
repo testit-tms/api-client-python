@@ -5,7 +5,7 @@ NAME = "testit-api-client"
 VERSION = "3.1.0"
 
 REQUIRES = [
-  "urllib3 >= 1.25.3",
+  "urllib3 ~= 1.25.3",
   "python-dateutil",
 ]
 
