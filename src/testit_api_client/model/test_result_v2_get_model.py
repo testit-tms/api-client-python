@@ -101,7 +101,7 @@ class TestResultV2GetModel(ModelNormal):
             'run_by_user_id': (str, none_type,),  # noqa: E501
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
             'test_point_id': (str, none_type,),  # noqa: E501
-            'test_point': (TestPointShortModel,),  # noqa: E501
+            'test_point': (TestPointShortModel, none_type,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
             'outcome': (str, none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
