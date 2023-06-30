@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**api_v2_projects_id_test_plans_analytics_get**](ProjectsApi.md#api_v2_projects_id_test_plans_analytics_get) | **GET** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics
 [**api_v2_projects_id_test_plans_delete_bulk_post**](ProjectsApi.md#api_v2_projects_id_test_plans_delete_bulk_post) | **POST** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans
 [**api_v2_projects_id_test_plans_name_exists_get**](ProjectsApi.md#api_v2_projects_id_test_plans_name_exists_get) | **GET** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
+[**api_v2_projects_id_test_plans_purge_bulk_post**](ProjectsApi.md#api_v2_projects_id_test_plans_purge_bulk_post) | **POST** /api/v2/projects/{id}/testPlans/purge/bulk | Permanently delete multiple archived test plans
 [**api_v2_projects_id_test_plans_restore_bulk_post**](ProjectsApi.md#api_v2_projects_id_test_plans_restore_bulk_post) | **POST** /api/v2/projects/{id}/testPlans/restore/bulk | Restore multiple test plans
 [**api_v2_projects_id_test_plans_search_post**](ProjectsApi.md#api_v2_projects_id_test_plans_search_post) | **POST** /api/v2/projects/{id}/testPlans/search | Get Project TestPlans with analytics
 [**api_v2_projects_id_test_runs_active_get**](ProjectsApi.md#api_v2_projects_id_test_runs_active_get) | **GET** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
@@ -148,12 +149,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Project with provided ID was not found |  -  |
-**409** | Conflict |  -  |
-**422** | Client Error |  -  |
 **200** | Success |  -  |
 **400** | &lt;br&gt; Attributes must be global  |  -  |
 **403** | Project admin permission for project settings is required |  -  |
+**404** | Project with provided ID was not found |  -  |
+**409** | Conflict |  -  |
+**422** | Client Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -170,7 +171,7 @@ Search for custom attributes templates
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.project_custom_attributes_templates_filter_model import ProjectCustomAttributesTemplatesFilterModel
+from testit_api_client.model.api_v2_projects_id_attributes_templates_search_post_request import ApiV2ProjectsIdAttributesTemplatesSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.project_custom_attribute_template_get_model import ProjectCustomAttributeTemplateGetModel
 from pprint import pprint
@@ -201,12 +202,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    project_custom_attributes_templates_filter_model = ProjectCustomAttributesTemplatesFilterModel(
-        name="name_example",
-        custom_attribute_types=[
-            CustomAttributeTypesEnum("string"),
-        ],
-    ) # ProjectCustomAttributesTemplatesFilterModel |  (optional)
+    api_v2_projects_id_attributes_templates_search_post_request = ApiV2ProjectsIdAttributesTemplatesSearchPostRequest(None) # ApiV2ProjectsIdAttributesTemplatesSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -220,7 +216,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search for custom attributes templates
-        api_response = api_instance.api_v2_projects_id_attributes_templates_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, project_custom_attributes_templates_filter_model=project_custom_attributes_templates_filter_model)
+        api_response = api_instance.api_v2_projects_id_attributes_templates_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_id_attributes_templates_search_post_request=api_v2_projects_id_attributes_templates_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_attributes_templates_search_post: %s\n" % e)
@@ -237,7 +233,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **project_custom_attributes_templates_filter_model** | [**ProjectCustomAttributesTemplatesFilterModel**](ProjectCustomAttributesTemplatesFilterModel.md)|  | [optional]
+ **api_v2_projects_id_attributes_templates_search_post_request** | [**ApiV2ProjectsIdAttributesTemplatesSearchPostRequest**](ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -257,8 +253,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Project admin permission for project settings is required |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**403** | Project admin permission for project settings is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -338,9 +334,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Can&#39;t find a Project with identifier |  -  |
-**400** | Bad Request |  -  |
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**404** | Can&#39;t find a Project with identifier |  -  |
 **403** | Update project settings permission for project required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -421,9 +417,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Can&#39;t find a Project with identifier |  -  |
-**400** | Bad Request |  -  |
 **200** | Success |  -  |
+**400** | Bad Request |  -  |
+**404** | Can&#39;t find a Project with identifier |  -  |
 **403** | Update project settings permission for project required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -514,8 +510,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Success |  -  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -591,10 +587,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
-**400** | Bad Request |  -  |
-**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -672,8 +668,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Success |  -  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -871,8 +867,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -890,7 +886,7 @@ import time
 import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
+from testit_api_client.model.api_v2_projects_id_test_plans_delete_bulk_post_request import ApiV2ProjectsIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -914,50 +910,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Unique or global ID of the project
-    project_test_plans_filter_model = ProjectTestPlansFilterModel(
-        name="name_example",
-        description="description_example",
-        build="build_example",
-        product_name="product_name_example",
-        status=[
-            TestPlanStatusModel("New"),
-        ],
-        global_ids=[
-            1,
-        ],
-        is_locked=True,
-        locked_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        automatic_duration_timer=[
-            True,
-        ],
-        created_by_ids=[
-            "created_by_ids_example",
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        start_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        end_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        tag_names=[
-            "tag_names_example",
-        ],
-        attributes={
-            "key": [
-                "key_example",
-            ],
-        },
-        is_deleted=True,
-    ) # ProjectTestPlansFilterModel |  (optional)
+    api_v2_projects_id_test_plans_delete_bulk_post_request = ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(None) # ApiV2ProjectsIdTestPlansDeleteBulkPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -971,7 +924,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Delete multiple test plans
-        api_response = api_instance.api_v2_projects_id_test_plans_delete_bulk_post(id, project_test_plans_filter_model=project_test_plans_filter_model)
+        api_response = api_instance.api_v2_projects_id_test_plans_delete_bulk_post(id, api_v2_projects_id_test_plans_delete_bulk_post_request=api_v2_projects_id_test_plans_delete_bulk_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_delete_bulk_post: %s\n" % e)
@@ -983,7 +936,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the project |
- **project_test_plans_filter_model** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional]
+ **api_v2_projects_id_test_plans_delete_bulk_post_request** | [**ApiV2ProjectsIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsIdTestPlansDeleteBulkPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1087,10 +1040,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **api_v2_projects_id_test_plans_restore_bulk_post**
-> api_v2_projects_id_test_plans_restore_bulk_post(id)
+# **api_v2_projects_id_test_plans_purge_bulk_post**
+> api_v2_projects_id_test_plans_purge_bulk_post(id)
 
-Restore multiple test plans
+Permanently delete multiple archived test plans
 
 ### Example
 
@@ -1101,7 +1054,7 @@ import time
 import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
+from testit_api_client.model.api_v2_projects_id_test_plans_delete_bulk_post_request import ApiV2ProjectsIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1125,50 +1078,94 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Unique or global ID of the project
-    project_test_plans_filter_model = ProjectTestPlansFilterModel(
-        name="name_example",
-        description="description_example",
-        build="build_example",
-        product_name="product_name_example",
-        status=[
-            TestPlanStatusModel("New"),
-        ],
-        global_ids=[
-            1,
-        ],
-        is_locked=True,
-        locked_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        automatic_duration_timer=[
-            True,
-        ],
-        created_by_ids=[
-            "created_by_ids_example",
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        start_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        end_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        tag_names=[
-            "tag_names_example",
-        ],
-        attributes={
-            "key": [
-                "key_example",
-            ],
-        },
-        is_deleted=True,
-    ) # ProjectTestPlansFilterModel |  (optional)
+    api_v2_projects_id_test_plans_delete_bulk_post_request = ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(None) # ApiV2ProjectsIdTestPlansDeleteBulkPostRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Permanently delete multiple archived test plans
+        api_instance.api_v2_projects_id_test_plans_purge_bulk_post(id)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_purge_bulk_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Permanently delete multiple archived test plans
+        api_instance.api_v2_projects_id_test_plans_purge_bulk_post(id, api_v2_projects_id_test_plans_delete_bulk_post_request=api_v2_projects_id_test_plans_delete_bulk_post_request)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_purge_bulk_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique or global ID of the project |
+ **api_v2_projects_id_test_plans_delete_bulk_post_request** | [**ApiV2ProjectsIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsIdTestPlansDeleteBulkPostRequest.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**403** | Full access permission for the archive is required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_projects_id_test_plans_restore_bulk_post**
+> api_v2_projects_id_test_plans_restore_bulk_post(id)
+
+Restore multiple test plans
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import projects_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_projects_id_test_plans_delete_bulk_post_request import ApiV2ProjectsIdTestPlansDeleteBulkPostRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = projects_api.ProjectsApi(api_client)
+    id = "id_example" # str | Unique or global ID of the project
+    api_v2_projects_id_test_plans_delete_bulk_post_request = ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(None) # ApiV2ProjectsIdTestPlansDeleteBulkPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1181,7 +1178,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Restore multiple test plans
-        api_instance.api_v2_projects_id_test_plans_restore_bulk_post(id, project_test_plans_filter_model=project_test_plans_filter_model)
+        api_instance.api_v2_projects_id_test_plans_restore_bulk_post(id, api_v2_projects_id_test_plans_delete_bulk_post_request=api_v2_projects_id_test_plans_delete_bulk_post_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_restore_bulk_post: %s\n" % e)
 ```
@@ -1192,7 +1189,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the project |
- **project_test_plans_filter_model** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional]
+ **api_v2_projects_id_test_plans_delete_bulk_post_request** | [**ApiV2ProjectsIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsIdTestPlansDeleteBulkPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1213,7 +1210,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**403** | - Read permission for the project is required  - Edit permission for test plans is required |  -  |
+**403** | Read permission for the archive is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1233,7 +1230,7 @@ import time
 import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
-from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
+from testit_api_client.model.api_v2_projects_id_test_plans_search_post_request import ApiV2ProjectsIdTestPlansSearchPostRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1264,50 +1261,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    project_test_plans_filter_model = ProjectTestPlansFilterModel(
-        name="name_example",
-        description="description_example",
-        build="build_example",
-        product_name="product_name_example",
-        status=[
-            TestPlanStatusModel("New"),
-        ],
-        global_ids=[
-            1,
-        ],
-        is_locked=True,
-        locked_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        automatic_duration_timer=[
-            True,
-        ],
-        created_by_ids=[
-            "created_by_ids_example",
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        start_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        end_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        tag_names=[
-            "tag_names_example",
-        ],
-        attributes={
-            "key": [
-                "key_example",
-            ],
-        },
-        is_deleted=True,
-    ) # ProjectTestPlansFilterModel |  (optional)
+    api_v2_projects_id_test_plans_search_post_request = ApiV2ProjectsIdTestPlansSearchPostRequest(None) # ApiV2ProjectsIdTestPlansSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1321,7 +1275,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get Project TestPlans with analytics
-        api_response = api_instance.api_v2_projects_id_test_plans_search_post(id, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, project_test_plans_filter_model=project_test_plans_filter_model)
+        api_response = api_instance.api_v2_projects_id_test_plans_search_post(id, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_id_test_plans_search_post_request=api_v2_projects_id_test_plans_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_search_post: %s\n" % e)
@@ -1339,7 +1293,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **project_test_plans_filter_model** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional]
+ **api_v2_projects_id_test_plans_search_post_request** | [**ApiV2ProjectsIdTestPlansSearchPostRequest**](ApiV2ProjectsIdTestPlansSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1441,8 +1395,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | Unauthorized |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1575,8 +1529,8 @@ Search for work items and extract IDs only
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_projects_id_work_items_search_post_request import ApiV2ProjectsIdWorkItemsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1605,96 +1559,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    work_item_select_model = WorkItemSelectModel(
-        filter=WorkItemFilterModel(
-            name_or_id="name_or_id_example",
-            include_ids=[
-                "include_ids_example",
-            ],
-            exclude_ids=[
-                "exclude_ids_example",
-            ],
-            name="name_example",
-            ids=[
-                "ids_example",
-            ],
-            global_ids=[
-                1,
-            ],
-            attributes={
-                "key": [
-                    "key_example",
-                ],
-            },
-            is_deleted=True,
-            project_ids=[
-                "project_ids_example",
-            ],
-            section_ids=[
-                "section_ids_example",
-            ],
-            created_by_ids=[
-                "created_by_ids_example",
-            ],
-            modified_by_ids=[
-                "modified_by_ids_example",
-            ],
-            states=[
-                WorkItemStates("NeedsWork"),
-            ],
-            priorities=[
-                WorkItemPriorityModel("Lowest"),
-            ],
-            types=[
-                WorkItemEntityTypes("TestCases"),
-            ],
-            created_date=DateTimeRangeSelectorModel(
-                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            ),
-            modified_date=DateTimeRangeSelectorModel(
-                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            ),
-            duration=Int32RangeSelectorModel(
-                _from=1,
-                to=1,
-            ),
-            is_automated=True,
-            tags=[
-                "tags_example",
-            ],
-            auto_test_ids=[
-                "auto_test_ids_example",
-            ],
-        ),
-        extraction_model=WorkItemsExtractionModel(
-            ids=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-            section_ids=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-            project_ids=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-        ),
-    ) # WorkItemSelectModel |  (optional)
+    api_v2_projects_id_work_items_search_post_request = ApiV2ProjectsIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsIdWorkItemsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1708,7 +1573,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search for work items and extract IDs only
-        api_response = api_instance.api_v2_projects_id_work_items_search_id_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_model=work_item_select_model)
+        api_response = api_instance.api_v2_projects_id_work_items_search_id_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_id_work_items_search_post_request=api_v2_projects_id_work_items_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_work_items_search_id_post: %s\n" % e)
@@ -1725,7 +1590,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **work_item_select_model** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional]
+ **api_v2_projects_id_work_items_search_post_request** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1745,8 +1610,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test library is required |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**403** | Read permission for test library is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1763,8 +1628,8 @@ Search for work items
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_projects_id_work_items_search_post_request import ApiV2ProjectsIdWorkItemsSearchPostRequest
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1794,96 +1659,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    work_item_select_model = WorkItemSelectModel(
-        filter=WorkItemFilterModel(
-            name_or_id="name_or_id_example",
-            include_ids=[
-                "include_ids_example",
-            ],
-            exclude_ids=[
-                "exclude_ids_example",
-            ],
-            name="name_example",
-            ids=[
-                "ids_example",
-            ],
-            global_ids=[
-                1,
-            ],
-            attributes={
-                "key": [
-                    "key_example",
-                ],
-            },
-            is_deleted=True,
-            project_ids=[
-                "project_ids_example",
-            ],
-            section_ids=[
-                "section_ids_example",
-            ],
-            created_by_ids=[
-                "created_by_ids_example",
-            ],
-            modified_by_ids=[
-                "modified_by_ids_example",
-            ],
-            states=[
-                WorkItemStates("NeedsWork"),
-            ],
-            priorities=[
-                WorkItemPriorityModel("Lowest"),
-            ],
-            types=[
-                WorkItemEntityTypes("TestCases"),
-            ],
-            created_date=DateTimeRangeSelectorModel(
-                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            ),
-            modified_date=DateTimeRangeSelectorModel(
-                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            ),
-            duration=Int32RangeSelectorModel(
-                _from=1,
-                to=1,
-            ),
-            is_automated=True,
-            tags=[
-                "tags_example",
-            ],
-            auto_test_ids=[
-                "auto_test_ids_example",
-            ],
-        ),
-        extraction_model=WorkItemsExtractionModel(
-            ids=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-            section_ids=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-            project_ids=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-        ),
-    ) # WorkItemSelectModel |  (optional)
+    api_v2_projects_id_work_items_search_post_request = ApiV2ProjectsIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsIdWorkItemsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1897,7 +1673,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search for work items
-        api_response = api_instance.api_v2_projects_id_work_items_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_model=work_item_select_model)
+        api_response = api_instance.api_v2_projects_id_work_items_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_id_work_items_search_post_request=api_v2_projects_id_work_items_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_work_items_search_post: %s\n" % e)
@@ -1914,7 +1690,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **work_item_select_model** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional]
+ **api_v2_projects_id_work_items_search_post_request** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1934,8 +1710,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test library is required |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**403** | Read permission for test library is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2118,7 +1894,7 @@ import time
 import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.project_model import ProjectModel
-from testit_api_client.model.projects_filter_model import ProjectsFilterModel
+from testit_api_client.model.api_v2_projects_search_post_request import ApiV2ProjectsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2146,43 +1922,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    projects_filter_model = ProjectsFilterModel(
-        name="name_example",
-        is_favorite=True,
-        is_deleted=True,
-        test_cases_count=Int32RangeSelectorModel(
-            _from=1,
-            to=1,
-        ),
-        checklists_count=Int32RangeSelectorModel(
-            _from=1,
-            to=1,
-        ),
-        shared_steps_count=Int32RangeSelectorModel(
-            _from=1,
-            to=1,
-        ),
-        autotests_count=Int32RangeSelectorModel(
-            _from=1,
-            to=1,
-        ),
-        global_ids=[
-            1,
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        created_by_ids=[
-            "created_by_ids_example",
-        ],
-    ) # ProjectsFilterModel |  (optional)
+    api_v2_projects_search_post_request = ApiV2ProjectsSearchPostRequest(None) # ApiV2ProjectsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for projects
-        api_response = api_instance.api_v2_projects_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, projects_filter_model=projects_filter_model)
+        api_response = api_instance.api_v2_projects_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_search_post_request=api_v2_projects_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_search_post: %s\n" % e)
@@ -2198,7 +1944,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **projects_filter_model** | [**ProjectsFilterModel**](ProjectsFilterModel.md)|  | [optional]
+ **api_v2_projects_search_post_request** | [**ApiV2ProjectsSearchPostRequest**](ApiV2ProjectsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2628,10 +2374,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**403** | Project creator or admin system role is required |  -  |
-**413** | Multipart body length limit exceeded |  -  |
 **400** | Bad Request |  -  |
+**403** | Project creator or admin system role is required |  -  |
 **409** | Entity with the same ID was already imported in other project |  -  |
+**413** | Multipart body length limit exceeded |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2720,8 +2466,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for project settings is required |  -  |
 **204** | No Content |  -  |
+**403** | Update permission for project settings is required |  -  |
 **400** | &lt;br&gt; Attributes must be global  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2742,8 +2488,8 @@ import time
 import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.project_model import ProjectModel
+from testit_api_client.model.create_project_request import CreateProjectRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_post_model import ProjectPostModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -2767,17 +2513,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
-    project_post_model = ProjectPostModel(
-        description="description_example",
-        name="name_example",
-        is_favorite=True,
-    ) # ProjectPostModel |  (optional)
+    create_project_request = CreateProjectRequest(None) # CreateProjectRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create project
-        api_response = api_instance.create_project(project_post_model=project_post_model)
+        api_response = api_instance.create_project(create_project_request=create_project_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->create_project: %s\n" % e)
@@ -2788,7 +2530,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_post_model** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional]
+ **create_project_request** | [**CreateProjectRequest**](CreateProjectRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2808,9 +2550,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Project creator or admin system role is required |  -  |
 **201** | Created |  -  |
 **400** | Bad Request |  -  |
+**403** | Project creator or admin system role is required |  -  |
 **409** | Project with the same name already exists |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2831,8 +2573,8 @@ import time
 import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.create_projects_attribute_request import CreateProjectsAttributeRequest
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
-from testit_api_client.model.custom_attribute_post_model import CustomAttributePostModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -2857,19 +2599,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
-    custom_attribute_post_model = CustomAttributePostModel(
-        options=[
-            CustomAttributeOptionPostModel(
-                value="value_example",
-                is_default=True,
-            ),
-        ],
-        type=CustomAttributeTypesEnum("string"),
-        name="name_example",
-        is_enabled=True,
-        is_required=True,
-        is_global=True,
-    ) # CustomAttributePostModel |  (optional)
+    create_projects_attribute_request = CreateProjectsAttributeRequest(None) # CreateProjectsAttributeRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -2883,7 +2613,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create project attribute
-        api_response = api_instance.create_projects_attribute(id, custom_attribute_post_model=custom_attribute_post_model)
+        api_response = api_instance.create_projects_attribute(id, create_projects_attribute_request=create_projects_attribute_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->create_projects_attribute: %s\n" % e)
@@ -2895,7 +2625,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier |
- **custom_attribute_post_model** | [**CustomAttributePostModel**](CustomAttributePostModel.md)|  | [optional]
+ **create_projects_attribute_request** | [**CreateProjectsAttributeRequest**](CreateProjectsAttributeRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2915,12 +2645,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**422** | Cannot add new attribute from template which is in use |  -  |
+**201** | Created |  -  |
+**400** | &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; |  -  |
 **403** | Update permission for project settings is required |  -  |
 **404** | Project with provided ID was not found |  -  |
-**400** | &lt;br&gt;- Attribute is &#x60;null&#x60;  &lt;br&gt;- Priority is invalid  &lt;br&gt;- Attribute with &#x60;Options&#x60; type must have an options  &lt;br&gt;- ID is not &#x60;null&#x60;  &lt;br&gt;- Option ID is not &#x60;null&#x60; |  -  |
 **409** | &lt;br&gt;&#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &lt;br&gt;&#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; |  -  |
-**201** | Created |  -  |
+**422** | Cannot add new attribute from template which is in use |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3077,9 +2807,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Project with provided ID does not exists |  -  |
 **204** | No Content |  -  |
 **403** | Delete permission for projects is required |  -  |
+**404** | Project with provided ID does not exists |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3239,9 +2969,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**404** | Project with provided ID was not found |  -  |
 **400** | &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Project attribute ID is invalid  &lt;br&gt;- Attribute is empty |  -  |
 **403** | Update permission for project settings is required |  -  |
+**404** | Project with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3260,8 +2990,8 @@ Export project as JSON file
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
+from testit_api_client.model.export_project_json_request import ExportProjectJsonRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_export_query_model import ProjectExportQueryModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -3287,14 +3017,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Specifies the ID of the project you want to export.
     include_attachments = False # bool | Enables attachment export. (optional) if omitted the server will use the default value of False
-    project_export_query_model = ProjectExportQueryModel(
-        section_ids=[
-            "section_ids_example",
-        ],
-        work_item_ids=[
-            "work_item_ids_example",
-        ],
-    ) # ProjectExportQueryModel |  (optional)
+    export_project_json_request = ExportProjectJsonRequest(None) # ExportProjectJsonRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -3308,7 +3031,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Export project as JSON file
-        api_response = api_instance.export(id, include_attachments=include_attachments, project_export_query_model=project_export_query_model)
+        api_response = api_instance.export(id, include_attachments=include_attachments, export_project_json_request=export_project_json_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->export: %s\n" % e)
@@ -3321,7 +3044,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Specifies the ID of the project you want to export. |
  **include_attachments** | **bool**| Enables attachment export. | [optional] if omitted the server will use the default value of False
- **project_export_query_model** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional]
+ **export_project_json_request** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3341,10 +3064,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Not Found |  -  |
 **200** | Success |  -  |
-**403** | Update permission for project settings is required |  -  |
 **400** | Root section was not found |  -  |
+**403** | Update permission for project settings is required |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3361,8 +3084,8 @@ Export project as JSON file in background job
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
+from testit_api_client.model.export_project_json_request import ExportProjectJsonRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_export_query_model import ProjectExportQueryModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -3387,14 +3110,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
     time_zone_offset_in_minutes = 1 # int |  (optional)
-    project_export_query_model = ProjectExportQueryModel(
-        section_ids=[
-            "section_ids_example",
-        ],
-        work_item_ids=[
-            "work_item_ids_example",
-        ],
-    ) # ProjectExportQueryModel |  (optional)
+    export_project_json_request = ExportProjectJsonRequest(None) # ExportProjectJsonRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -3408,7 +3124,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Export project as JSON file in background job
-        api_response = api_instance.export_project_json(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, project_export_query_model=project_export_query_model)
+        api_response = api_instance.export_project_json(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, export_project_json_request=export_project_json_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->export_project_json: %s\n" % e)
@@ -3421,7 +3137,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier |
  **time_zone_offset_in_minutes** | **int**|  | [optional]
- **project_export_query_model** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional]
+ **export_project_json_request** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3441,8 +3157,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for project settings is required |  -  |
 **200** | Success |  -  |
+**403** | Update permission for project settings is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3459,8 +3175,8 @@ Export project as JSON file with test plans in background job
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
+from testit_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_export_with_test_plans_post_model import ProjectExportWithTestPlansPostModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -3485,11 +3201,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
     time_zone_offset_in_minutes = 1 # int |  (optional)
-    project_export_with_test_plans_post_model = ProjectExportWithTestPlansPostModel(
-        test_plans_ids=[
-            "test_plans_ids_example",
-        ],
-    ) # ProjectExportWithTestPlansPostModel |  (optional)
+    export_project_with_test_plans_json_request = ExportProjectWithTestPlansJsonRequest(None) # ExportProjectWithTestPlansJsonRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -3503,7 +3215,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Export project as JSON file with test plans in background job
-        api_response = api_instance.export_project_with_test_plans_json(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, project_export_with_test_plans_post_model=project_export_with_test_plans_post_model)
+        api_response = api_instance.export_project_with_test_plans_json(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, export_project_with_test_plans_json_request=export_project_with_test_plans_json_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->export_project_with_test_plans_json: %s\n" % e)
@@ -3516,7 +3228,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier |
  **time_zone_offset_in_minutes** | **int**|  | [optional]
- **project_export_with_test_plans_post_model** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional]
+ **export_project_with_test_plans_json_request** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3554,8 +3266,8 @@ Export project as Zip file with test plans in background job
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
+from testit_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_export_with_test_plans_post_model import ProjectExportWithTestPlansPostModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -3580,11 +3292,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
     time_zone_offset_in_minutes = 1 # int |  (optional)
-    project_export_with_test_plans_post_model = ProjectExportWithTestPlansPostModel(
-        test_plans_ids=[
-            "test_plans_ids_example",
-        ],
-    ) # ProjectExportWithTestPlansPostModel |  (optional)
+    export_project_with_test_plans_json_request = ExportProjectWithTestPlansJsonRequest(None) # ExportProjectWithTestPlansJsonRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -3598,7 +3306,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Export project as Zip file with test plans in background job
-        api_response = api_instance.export_project_with_test_plans_zip(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, project_export_with_test_plans_post_model=project_export_with_test_plans_post_model)
+        api_response = api_instance.export_project_with_test_plans_zip(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, export_project_with_test_plans_json_request=export_project_with_test_plans_json_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->export_project_with_test_plans_zip: %s\n" % e)
@@ -3611,7 +3319,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier |
  **time_zone_offset_in_minutes** | **int**|  | [optional]
- **project_export_with_test_plans_post_model** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional]
+ **export_project_with_test_plans_json_request** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3631,8 +3339,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for project settings is required |  -  |
 **200** | Success |  -  |
+**403** | Update permission for project settings is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3649,8 +3357,8 @@ Export project as Zip file in background job
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
+from testit_api_client.model.export_project_json_request import ExportProjectJsonRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_export_query_model import ProjectExportQueryModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -3675,14 +3383,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
     time_zone_offset_in_minutes = 1 # int |  (optional)
-    project_export_query_model = ProjectExportQueryModel(
-        section_ids=[
-            "section_ids_example",
-        ],
-        work_item_ids=[
-            "work_item_ids_example",
-        ],
-    ) # ProjectExportQueryModel |  (optional)
+    export_project_json_request = ExportProjectJsonRequest(None) # ExportProjectJsonRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -3696,7 +3397,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Export project as Zip file in background job
-        api_response = api_instance.export_project_zip(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, project_export_query_model=project_export_query_model)
+        api_response = api_instance.export_project_zip(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, export_project_json_request=export_project_json_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->export_project_zip: %s\n" % e)
@@ -3709,7 +3410,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier |
  **time_zone_offset_in_minutes** | **int**|  | [optional]
- **project_export_query_model** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md)|  | [optional]
+ **export_project_json_request** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3729,8 +3430,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for project settings is required |  -  |
 **200** | Success |  -  |
+**403** | Update permission for project settings is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3749,8 +3450,8 @@ Export project with test plans, test suites and test points as JSON file
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
+from testit_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_export_with_test_plans_post_model import ProjectExportWithTestPlansPostModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -3776,11 +3477,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Specifies the ID of the project you want to export.
     include_attachments = False # bool | Enables attachment export. (optional) if omitted the server will use the default value of False
-    project_export_with_test_plans_post_model = ProjectExportWithTestPlansPostModel(
-        test_plans_ids=[
-            "test_plans_ids_example",
-        ],
-    ) # ProjectExportWithTestPlansPostModel |  (optional)
+    export_project_with_test_plans_json_request = ExportProjectWithTestPlansJsonRequest(None) # ExportProjectWithTestPlansJsonRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -3794,7 +3491,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Export project with test plans, test suites and test points as JSON file
-        api_response = api_instance.export_with_test_plans_and_configurations(id, include_attachments=include_attachments, project_export_with_test_plans_post_model=project_export_with_test_plans_post_model)
+        api_response = api_instance.export_with_test_plans_and_configurations(id, include_attachments=include_attachments, export_project_with_test_plans_json_request=export_project_with_test_plans_json_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->export_with_test_plans_and_configurations: %s\n" % e)
@@ -3807,7 +3504,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Specifies the ID of the project you want to export. |
  **include_attachments** | **bool**| Enables attachment export. | [optional] if omitted the server will use the default value of False
- **project_export_with_test_plans_post_model** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md)|  | [optional]
+ **export_project_with_test_plans_json_request** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3827,10 +3524,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Project with provided ID was not found |  -  |
+**200** | Success |  -  |
 **400** | Root section was not found |  -  |
 **403** | Update permission for project settings is required |  -  |
-**200** | Success |  -  |
+**404** | Project with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4005,10 +3702,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found |  -  |
-**403** | Read permission for test library is required |  -  |
 **200** | Success |  -  |
 **400** | Bad Request |  -  |
+**403** | Read permission for test library is required |  -  |
+**404** | &lt;br&gt;- Project with provided ID was not found  &lt;br&gt;- Project attribute with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4029,7 +3726,6 @@ import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
-from testit_api_client.model.deletion_state import DeletionState
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -4054,7 +3750,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
-    is_deleted = DeletionState("Any") # DeletionState |  (optional)
+    is_deleted = None # bool, date, datetime, dict, float, int, list, str, none_type |  (optional) if omitted the server will use the default value of NotDeleted
 
     # example passing only required values which don't have defaults set
     try:
@@ -4080,7 +3776,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier |
- **is_deleted** | **DeletionState**|  | [optional]
+ **is_deleted** | **bool, date, datetime, dict, float, int, list, str, none_type**|  | [optional] if omitted the server will use the default value of NotDeleted
 
 ### Return type
 
@@ -4100,10 +3796,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Bad Request |  -  |
 **403** | Read permission for test library is required |  -  |
 **404** | Project with provided ID was not found |  -  |
-**400** | Bad Request |  -  |
-**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4265,9 +3961,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**404** | Project with provided ID was not found |  -  |
 **400** | Bad Request |  -  |
 **403** | Read permission for configurations required |  -  |
+**404** | Project with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4346,8 +4042,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for project settings is required |  -  |
 **200** | Success |  -  |
+**403** | Read permission for project settings is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4427,10 +4123,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for projects is required |  -  |
-**404** | Project with provided ID was not found |  -  |
 **200** | Success |  -  |
 **400** | ID is invalid |  -  |
+**403** | Read permission for projects is required |  -  |
+**404** | Project with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4622,8 +4318,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test library is required |  -  |
 **200** | Success |  -  |
+**403** | Read permission for test library is required |  -  |
 **404** | Project with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4736,9 +4432,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Project with provided ID was not found |  -  |
-**403** | Read permission for test result is required |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**403** | Read permission for test result is required |  -  |
+**404** | Project with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4937,11 +4633,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**413** | Multipart body length limit exceeded |  -  |
 **204** | No Content |  -  |
 **403** | Update permission for project settings required |  -  |
-**409** | Entity with same id already imported in other project |  -  |
 **404** | File not found |  -  |
+**409** | Entity with same id already imported in other project |  -  |
+**413** | Multipart body length limit exceeded |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5039,7 +4735,7 @@ import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.custom_attribute_get_model import CustomAttributeGetModel
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_attributes_filter_model import ProjectAttributesFilterModel
+from testit_api_client.model.search_attributes_in_project_request import SearchAttributesInProjectRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -5068,15 +4764,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    project_attributes_filter_model = ProjectAttributesFilterModel(
-        name="name_example",
-        is_required=True,
-        is_global=True,
-        types=[
-            CustomAttributeTypesEnum("string"),
-        ],
-        is_enabled=True,
-    ) # ProjectAttributesFilterModel |  (optional)
+    search_attributes_in_project_request = SearchAttributesInProjectRequest(None) # SearchAttributesInProjectRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -5090,7 +4778,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search for attributes used in the project
-        api_response = api_instance.search_attributes_in_project(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, project_attributes_filter_model=project_attributes_filter_model)
+        api_response = api_instance.search_attributes_in_project(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, search_attributes_in_project_request=search_attributes_in_project_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->search_attributes_in_project: %s\n" % e)
@@ -5107,7 +4795,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **project_attributes_filter_model** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md)|  | [optional]
+ **search_attributes_in_project_request** | [**SearchAttributesInProjectRequest**](SearchAttributesInProjectRequest.md)|  | [optional]
 
 ### Return type
 
@@ -5127,8 +4815,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for project is required |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**403** | Read permission for project is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5147,7 +4835,7 @@ import testit_api_client
 from testit_api_client.api import projects_api
 from testit_api_client.model.custom_attribute_get_model import CustomAttributeGetModel
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_attributes_filter_model import ProjectAttributesFilterModel
+from testit_api_client.model.search_attributes_in_project_request import SearchAttributesInProjectRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -5176,15 +4864,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    project_attributes_filter_model = ProjectAttributesFilterModel(
-        name="name_example",
-        is_required=True,
-        is_global=True,
-        types=[
-            CustomAttributeTypesEnum("string"),
-        ],
-        is_enabled=True,
-    ) # ProjectAttributesFilterModel |  (optional)
+    search_attributes_in_project_request = SearchAttributesInProjectRequest(None) # SearchAttributesInProjectRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -5198,7 +4878,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search for attributes used in the project test plans
-        api_response = api_instance.search_test_plan_attributes_in_project(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, project_attributes_filter_model=project_attributes_filter_model)
+        api_response = api_instance.search_test_plan_attributes_in_project(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, search_attributes_in_project_request=search_attributes_in_project_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->search_test_plan_attributes_in_project: %s\n" % e)
@@ -5215,7 +4895,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **project_attributes_filter_model** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md)|  | [optional]
+ **search_attributes_in_project_request** | [**SearchAttributesInProjectRequest**](SearchAttributesInProjectRequest.md)|  | [optional]
 
 ### Return type
 
@@ -5255,8 +4935,8 @@ Update attribute of project's test plans
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.custom_attribute_test_plan_project_relation_put_model import CustomAttributeTestPlanProjectRelationPutModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.update_custom_attribute_test_plan_project_relations_request import UpdateCustomAttributeTestPlanProjectRelationsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -5280,11 +4960,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
-    custom_attribute_test_plan_project_relation_put_model = CustomAttributeTestPlanProjectRelationPutModel(
-        id="id_example",
-        is_enabled=True,
-        is_required=True,
-    ) # CustomAttributeTestPlanProjectRelationPutModel |  (optional)
+    update_custom_attribute_test_plan_project_relations_request = UpdateCustomAttributeTestPlanProjectRelationsRequest(None) # UpdateCustomAttributeTestPlanProjectRelationsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -5297,7 +4973,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update attribute of project's test plans
-        api_instance.update_custom_attribute_test_plan_project_relations(id, custom_attribute_test_plan_project_relation_put_model=custom_attribute_test_plan_project_relation_put_model)
+        api_instance.update_custom_attribute_test_plan_project_relations(id, update_custom_attribute_test_plan_project_relations_request=update_custom_attribute_test_plan_project_relations_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->update_custom_attribute_test_plan_project_relations: %s\n" % e)
 ```
@@ -5308,7 +4984,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier |
- **custom_attribute_test_plan_project_relation_put_model** | [**CustomAttributeTestPlanProjectRelationPutModel**](CustomAttributeTestPlanProjectRelationPutModel.md)|  | [optional]
+ **update_custom_attribute_test_plan_project_relations_request** | [**UpdateCustomAttributeTestPlanProjectRelationsRequest**](UpdateCustomAttributeTestPlanProjectRelationsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -5348,8 +5024,8 @@ Update project
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.project_put_model import ProjectPutModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.update_project_request import UpdateProjectRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -5373,18 +5049,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
-    project_put_model = ProjectPutModel(
-        id="id_example",
-        description="description_example",
-        name="name_example",
-        is_favorite=True,
-    ) # ProjectPutModel |  (optional)
+    update_project_request = UpdateProjectRequest(None) # UpdateProjectRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update project
-        api_instance.update_project(project_put_model=project_put_model)
+        api_instance.update_project(update_project_request=update_project_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->update_project: %s\n" % e)
 ```
@@ -5394,7 +5065,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_put_model** | [**ProjectPutModel**](ProjectPutModel.md)|  | [optional]
+ **update_project_request** | [**UpdateProjectRequest**](UpdateProjectRequest.md)|  | [optional]
 
 ### Return type
 
@@ -5435,8 +5106,8 @@ Edit attribute of the project
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
+from testit_api_client.model.update_projects_attribute_request import UpdateProjectsAttributeRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.custom_attribute_put_model import CustomAttributePutModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -5460,23 +5131,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Unique or global project ID
-    custom_attribute_put_model = CustomAttributePutModel(
-        id="id_example",
-        options=[
-            CustomAttributeOptionModel(
-                id="id_example",
-                is_deleted=True,
-                value="value_example",
-                is_default=True,
-            ),
-        ],
-        type=CustomAttributeTypesEnum("string"),
-        is_deleted=True,
-        name="name_example",
-        is_enabled=True,
-        is_required=True,
-        is_global=True,
-    ) # CustomAttributePutModel |  (optional)
+    update_projects_attribute_request = UpdateProjectsAttributeRequest(None) # UpdateProjectsAttributeRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -5489,7 +5144,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit attribute of the project
-        api_instance.update_projects_attribute(id, custom_attribute_put_model=custom_attribute_put_model)
+        api_instance.update_projects_attribute(id, update_projects_attribute_request=update_projects_attribute_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->update_projects_attribute: %s\n" % e)
 ```
@@ -5500,7 +5155,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global project ID |
- **custom_attribute_put_model** | [**CustomAttributePutModel**](CustomAttributePutModel.md)|  | [optional]
+ **update_projects_attribute_request** | [**UpdateProjectsAttributeRequest**](UpdateProjectsAttributeRequest.md)|  | [optional]
 
 ### Return type
 
