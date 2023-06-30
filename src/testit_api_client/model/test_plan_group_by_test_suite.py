@@ -76,7 +76,7 @@ class TestPlanGroupByTestSuite(ModelNormal):
         """
         return {
             'test_suite_id': (str,),  # noqa: E501
-            'test_suite_name': (str, none_type,),  # noqa: E501
+            'test_suite_name': (str,),  # noqa: E501
             'value': (int,),  # noqa: E501
         }
 
@@ -133,7 +133,7 @@ class TestPlanGroupByTestSuite(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             test_suite_id (str): [optional]  # noqa: E501
-            test_suite_name (str, none_type): [optional]  # noqa: E501
+            test_suite_name (str): [optional]  # noqa: E501
             value (int): [optional]  # noqa: E501
         """
 
@@ -221,7 +221,7 @@ class TestPlanGroupByTestSuite(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             test_suite_id (str): [optional]  # noqa: E501
-            test_suite_name (str, none_type): [optional]  # noqa: E501
+            test_suite_name (str): [optional]  # noqa: E501
             value (int): [optional]  # noqa: E501
         """
 

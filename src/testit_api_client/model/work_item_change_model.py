@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.work_item_changed_fields_view_model import WorkItemChangedFieldsViewModel
-    globals()['WorkItemChangedFieldsViewModel'] = WorkItemChangedFieldsViewModel
+    from testit_api_client.model.work_item_change_model_work_item_changed_fields import WorkItemChangeModelWorkItemChangedFields
+    globals()['WorkItemChangeModelWorkItemChangedFields'] = WorkItemChangeModelWorkItemChangedFields
 
 
 class WorkItemChangeModel(ModelNormal):
@@ -84,7 +84,7 @@ class WorkItemChangeModel(ModelNormal):
             'work_item_id': (str,),  # noqa: E501
             'old_version_id': (str,),  # noqa: E501
             'new_version_id': (str,),  # noqa: E501
-            'work_item_changed_fields': (WorkItemChangedFieldsViewModel,),  # noqa: E501
+            'work_item_changed_fields': (WorkItemChangeModelWorkItemChangedFields,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
         }
@@ -149,7 +149,7 @@ class WorkItemChangeModel(ModelNormal):
             work_item_id (str): [optional]  # noqa: E501
             old_version_id (str): [optional]  # noqa: E501
             new_version_id (str): [optional]  # noqa: E501
-            work_item_changed_fields (WorkItemChangedFieldsViewModel): [optional]  # noqa: E501
+            work_item_changed_fields (WorkItemChangeModelWorkItemChangedFields): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
         """
@@ -241,7 +241,7 @@ class WorkItemChangeModel(ModelNormal):
             work_item_id (str): [optional]  # noqa: E501
             old_version_id (str): [optional]  # noqa: E501
             new_version_id (str): [optional]  # noqa: E501
-            work_item_changed_fields (WorkItemChangedFieldsViewModel): [optional]  # noqa: E501
+            work_item_changed_fields (WorkItemChangeModelWorkItemChangedFields): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
         """

@@ -30,10 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
-    from testit_api_client.model.test_run_state import TestRunState
-    globals()['TestResultsStatisticsGetModel'] = TestResultsStatisticsGetModel
-    globals()['TestRunState'] = TestRunState
+    from testit_api_client.model.test_run_short_get_model_statistics import TestRunShortGetModelStatistics
+    globals()['TestRunShortGetModelStatistics'] = TestRunShortGetModelStatistics
 
 
 class TestRunShortGetModel(ModelNormal):
@@ -82,10 +80,10 @@ class TestRunShortGetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'state': (TestRunState,),  # noqa: E501
-            'statistics': (TestResultsStatisticsGetModel,),  # noqa: E501
+            'state': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'statistics': (TestRunShortGetModelStatistics,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
@@ -127,8 +125,8 @@ class TestRunShortGetModel(ModelNormal):
         """TestRunShortGetModel - a model defined in OpenAPI
 
         Args:
-            state (TestRunState):
-            statistics (TestResultsStatisticsGetModel):
+            state (bool, date, datetime, dict, float, int, list, str, none_type): Current state of the test run
+            statistics (TestRunShortGetModelStatistics):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -162,7 +160,7 @@ class TestRunShortGetModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the test run. [optional]  # noqa: E501
-            name (str, none_type): Name of the test run. [optional]  # noqa: E501
+            name (str): Name of the test run. [optional]  # noqa: E501
             project_id (str): Unique ID of project where test run is located. [optional]  # noqa: E501
             created_date (datetime): Date when the test run was created. [optional]  # noqa: E501
             created_by_id (str): Unique ID of user who created the test run. [optional]  # noqa: E501
@@ -228,8 +226,8 @@ class TestRunShortGetModel(ModelNormal):
         """TestRunShortGetModel - a model defined in OpenAPI
 
         Args:
-            state (TestRunState):
-            statistics (TestResultsStatisticsGetModel):
+            state (bool, date, datetime, dict, float, int, list, str, none_type): Current state of the test run
+            statistics (TestRunShortGetModelStatistics):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -263,7 +261,7 @@ class TestRunShortGetModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the test run. [optional]  # noqa: E501
-            name (str, none_type): Name of the test run. [optional]  # noqa: E501
+            name (str): Name of the test run. [optional]  # noqa: E501
             project_id (str): Unique ID of project where test run is located. [optional]  # noqa: E501
             created_date (datetime): Date when the test run was created. [optional]  # noqa: E501
             created_by_id (str): Unique ID of user who created the test run. [optional]  # noqa: E501

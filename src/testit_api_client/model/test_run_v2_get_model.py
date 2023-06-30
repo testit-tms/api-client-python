@@ -31,9 +31,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.test_result_v2_get_model import TestResultV2GetModel
-    from testit_api_client.model.test_run_state import TestRunState
     globals()['TestResultV2GetModel'] = TestResultV2GetModel
-    globals()['TestRunState'] = TestRunState
 
 
 class TestRunV2GetModel(ModelNormal):
@@ -85,7 +83,7 @@ class TestRunV2GetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'state_name': (TestRunState,),  # noqa: E501
+            'state_name': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
@@ -136,7 +134,7 @@ class TestRunV2GetModel(ModelNormal):
         """TestRunV2GetModel - a model defined in OpenAPI
 
         Args:
-            state_name (TestRunState):
+            state_name (bool, date, datetime, dict, float, int, list, str, none_type):
             id (str):
             name (str):
 
@@ -241,7 +239,7 @@ class TestRunV2GetModel(ModelNormal):
         """TestRunV2GetModel - a model defined in OpenAPI
 
         Args:
-            state_name (TestRunState):
+            state_name (bool, date, datetime, dict, float, int, list, str, none_type):
             id (str):
             name (str):
 

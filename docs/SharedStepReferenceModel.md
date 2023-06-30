@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**priority** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **id** | **str** |  | [optional] 
 **global_id** | **int** |  | [optional] 
-**name** | **str, none_type** |  | [optional] 
-**entity_type_name** | **str, none_type** |  | [optional] 
+**name** | **str** |  | [optional] 
+**entity_type_name** | **str** |  | [optional] 
 **has_this_shared_step_as_step** | **bool** |  | [optional] 
 **has_this_shared_step_as_precondition** | **bool** |  | [optional] 
 **has_this_shared_step_as_postcondition** | **bool** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **modified_by_id** | **str, none_type** |  | [optional] 
 **created_date** | **datetime, none_type** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
-**state** | **str, none_type** |  | [optional] 
+**state** | **str** |  | [optional] 
 **is_deleted** | **bool** |  | [optional] 
 **version_id** | **str** | used for versioning changes in workitem | [optional] 
 **is_automated** | **bool** |  | [optional] 

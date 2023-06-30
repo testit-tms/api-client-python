@@ -100,9 +100,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Not Found |  -  |
 **200** | Success |  -  |
 **400** | Bad Request |  -  |
+**404** | Not Found |  -  |
 **403** | Admin system role is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -193,9 +193,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Not Found |  -  |
 **200** | Success |  -  |
 **400** | Bad Request |  -  |
+**404** | Not Found |  -  |
 **403** | Admin system role is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -275,8 +275,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
 **403** | Admin system role is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -357,9 +357,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **404** | Can&#39;t find a CustomAttributeTemplate with identifier |  -  |
-**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -456,8 +456,8 @@ Create CustomAttributeTemplate
 import time
 import testit_api_client
 from testit_api_client.api import custom_attribute_templates_api
+from testit_api_client.model.api_v2_custom_attributes_templates_post_request1 import ApiV2CustomAttributesTemplatesPostRequest1
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.custom_attribute_template_post_model import CustomAttributeTemplatePostModel
 from testit_api_client.model.custom_attribute_template_model import CustomAttributeTemplateModel
 from testit_api_client.model.validate_anti_forgery_token_attribute import ValidateAntiForgeryTokenAttribute
 from pprint import pprint
@@ -482,18 +482,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_attribute_templates_api.CustomAttributeTemplatesApi(api_client)
-    custom_attribute_template_post_model = CustomAttributeTemplatePostModel(
-        custom_attribute_ids=[
-            "custom_attribute_ids_example",
-        ],
-        name="name_example",
-    ) # CustomAttributeTemplatePostModel |  (optional)
+    api_v2_custom_attributes_templates_post_request1 = ApiV2CustomAttributesTemplatesPostRequest1(None) # ApiV2CustomAttributesTemplatesPostRequest1 |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create CustomAttributeTemplate
-        api_response = api_instance.api_v2_custom_attributes_templates_post(custom_attribute_template_post_model=custom_attribute_template_post_model)
+        api_response = api_instance.api_v2_custom_attributes_templates_post(api_v2_custom_attributes_templates_post_request1=api_v2_custom_attributes_templates_post_request1)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributeTemplatesApi->api_v2_custom_attributes_templates_post: %s\n" % e)
@@ -504,7 +499,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **custom_attribute_template_post_model** | [**CustomAttributeTemplatePostModel**](CustomAttributeTemplatePostModel.md)|  | [optional]
+ **api_v2_custom_attributes_templates_post_request1** | [**ApiV2CustomAttributesTemplatesPostRequest1**](ApiV2CustomAttributesTemplatesPostRequest1.md)|  | [optional]
 
 ### Return type
 
@@ -524,9 +519,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**201** | Created |  -  |
 **400** | Bad Request |  -  |
 **403** | Admin system role is required |  -  |
-**201** | Created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -544,7 +539,7 @@ import time
 import testit_api_client
 from testit_api_client.api import custom_attribute_templates_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.custom_attribute_template_put_model import CustomAttributeTemplatePutModel
+from testit_api_client.model.api_v2_custom_attributes_templates_post_request import ApiV2CustomAttributesTemplatesPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -567,19 +562,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_attribute_templates_api.CustomAttributeTemplatesApi(api_client)
-    custom_attribute_template_put_model = CustomAttributeTemplatePutModel(
-        id="id_example",
-        custom_attribute_ids=[
-            "custom_attribute_ids_example",
-        ],
-        name="name_example",
-    ) # CustomAttributeTemplatePutModel |  (optional)
+    api_v2_custom_attributes_templates_post_request = ApiV2CustomAttributesTemplatesPostRequest(None) # ApiV2CustomAttributesTemplatesPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update custom attributes template
-        api_instance.api_v2_custom_attributes_templates_put(custom_attribute_template_put_model=custom_attribute_template_put_model)
+        api_instance.api_v2_custom_attributes_templates_put(api_v2_custom_attributes_templates_post_request=api_v2_custom_attributes_templates_post_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributeTemplatesApi->api_v2_custom_attributes_templates_put: %s\n" % e)
 ```
@@ -589,7 +578,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **custom_attribute_template_put_model** | [**CustomAttributeTemplatePutModel**](CustomAttributeTemplatePutModel.md)|  | [optional]
+ **api_v2_custom_attributes_templates_post_request** | [**ApiV2CustomAttributesTemplatesPostRequest**](ApiV2CustomAttributesTemplatesPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -609,8 +598,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | System administrator role is required |  -  |
 **200** | Success |  -  |
+**403** | System administrator role is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -629,8 +618,8 @@ Search CustomAttributeTemplates
 import time
 import testit_api_client
 from testit_api_client.api import custom_attribute_templates_api
+from testit_api_client.model.api_v2_custom_attributes_templates_search_post_request import ApiV2CustomAttributesTemplatesSearchPostRequest
 from testit_api_client.model.search_custom_attribute_template_get_model import SearchCustomAttributeTemplateGetModel
-from testit_api_client.model.custom_attribute_template_search_query_model import CustomAttributeTemplateSearchQueryModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -659,22 +648,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    custom_attribute_template_search_query_model = CustomAttributeTemplateSearchQueryModel(
-        name="name_example",
-        project_ids=[
-            "project_ids_example",
-        ],
-        custom_attribute_types=[
-            CustomAttributeTypesEnum("string"),
-        ],
-        is_deleted=True,
-    ) # CustomAttributeTemplateSearchQueryModel |  (optional)
+    api_v2_custom_attributes_templates_search_post_request = ApiV2CustomAttributesTemplatesSearchPostRequest(None) # ApiV2CustomAttributesTemplatesSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search CustomAttributeTemplates
-        api_response = api_instance.api_v2_custom_attributes_templates_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, custom_attribute_template_search_query_model=custom_attribute_template_search_query_model)
+        api_response = api_instance.api_v2_custom_attributes_templates_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_custom_attributes_templates_search_post_request=api_v2_custom_attributes_templates_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributeTemplatesApi->api_v2_custom_attributes_templates_search_post: %s\n" % e)
@@ -690,7 +670,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **custom_attribute_template_search_query_model** | [**CustomAttributeTemplateSearchQueryModel**](CustomAttributeTemplateSearchQueryModel.md)|  | [optional]
+ **api_v2_custom_attributes_templates_search_post_request** | [**ApiV2CustomAttributesTemplatesSearchPostRequest**](ApiV2CustomAttributesTemplatesSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -710,8 +690,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -21,23 +21,23 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.api_v2_projects_id_work_items_search_post_request import ApiV2ProjectsIdWorkItemsSearchPostRequest
+from testit_api_client.model.api_v2_work_items_move_post_request import ApiV2WorkItemsMovePostRequest
+from testit_api_client.model.api_v2_work_items_shared_step_id_references_sections_post_request import ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
+from testit_api_client.model.api_v2_work_items_shared_step_id_references_work_items_post_request import ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
 from testit_api_client.model.auto_test_model import AutoTestModel
+from testit_api_client.model.create_work_item_request import CreateWorkItemRequest
 from testit_api_client.model.iteration_model import IterationModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.shared_step_reference_model import SharedStepReferenceModel
 from testit_api_client.model.shared_step_reference_section_model import SharedStepReferenceSectionModel
-from testit_api_client.model.shared_step_reference_sections_query_filter_model import SharedStepReferenceSectionsQueryFilterModel
-from testit_api_client.model.shared_step_references_query_filter_model import SharedStepReferencesQueryFilterModel
 from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
 from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
+from testit_api_client.model.update_work_item_request import UpdateWorkItemRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_change_model import WorkItemChangeModel
 from testit_api_client.model.work_item_like_model import WorkItemLikeModel
 from testit_api_client.model.work_item_model import WorkItemModel
-from testit_api_client.model.work_item_move_post_model import WorkItemMovePostModel
-from testit_api_client.model.work_item_post_model import WorkItemPostModel
-from testit_api_client.model.work_item_put_model import WorkItemPutModel
-from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 from testit_api_client.model.work_item_version_model import WorkItemVersionModel
 
@@ -638,7 +638,7 @@ class WorkItemsApi(object):
             },
             params_map={
                 'all': [
-                    'work_item_move_post_model',
+                    'api_v2_work_items_move_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -654,13 +654,13 @@ class WorkItemsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'work_item_move_post_model':
-                        (WorkItemMovePostModel,),
+                    'api_v2_work_items_move_post_request':
+                        (ApiV2WorkItemsMovePostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'work_item_move_post_model': 'body',
+                    'api_v2_work_items_move_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -693,7 +693,7 @@ class WorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'work_item_select_model',
+                    'api_v2_projects_id_work_items_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -719,8 +719,8 @@ class WorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'work_item_select_model':
-                        (WorkItemSelectModel,),
+                    'api_v2_projects_id_work_items_search_post_request':
+                        (ApiV2ProjectsIdWorkItemsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -735,7 +735,7 @@ class WorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'work_item_select_model': 'body',
+                    'api_v2_projects_id_work_items_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -769,7 +769,7 @@ class WorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'shared_step_reference_sections_query_filter_model',
+                    'api_v2_work_items_shared_step_id_references_sections_post_request',
                 ],
                 'required': [
                     'shared_step_id',
@@ -799,8 +799,8 @@ class WorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'shared_step_reference_sections_query_filter_model':
-                        (SharedStepReferenceSectionsQueryFilterModel,),
+                    'api_v2_work_items_shared_step_id_references_sections_post_request':
+                        (ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest,),
                 },
                 'attribute_map': {
                     'shared_step_id': 'sharedStepId',
@@ -817,7 +817,7 @@ class WorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'shared_step_reference_sections_query_filter_model': 'body',
+                    'api_v2_work_items_shared_step_id_references_sections_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -851,7 +851,7 @@ class WorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'shared_step_references_query_filter_model',
+                    'api_v2_work_items_shared_step_id_references_work_items_post_request',
                 ],
                 'required': [
                     'shared_step_id',
@@ -881,8 +881,8 @@ class WorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'shared_step_references_query_filter_model':
-                        (SharedStepReferencesQueryFilterModel,),
+                    'api_v2_work_items_shared_step_id_references_work_items_post_request':
+                        (ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest,),
                 },
                 'attribute_map': {
                     'shared_step_id': 'sharedStepId',
@@ -899,7 +899,7 @@ class WorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'shared_step_references_query_filter_model': 'body',
+                    'api_v2_work_items_shared_step_id_references_work_items_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -978,7 +978,7 @@ class WorkItemsApi(object):
             },
             params_map={
                 'all': [
-                    'work_item_post_model',
+                    'create_work_item_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -994,13 +994,13 @@ class WorkItemsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'work_item_post_model':
-                        (WorkItemPostModel,),
+                    'create_work_item_request':
+                        (CreateWorkItemRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'work_item_post_model': 'body',
+                    'create_work_item_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1517,7 +1517,7 @@ class WorkItemsApi(object):
             },
             params_map={
                 'all': [
-                    'work_item_put_model',
+                    'update_work_item_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -1533,13 +1533,13 @@ class WorkItemsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'work_item_put_model':
-                        (WorkItemPutModel,),
+                    'update_work_item_request':
+                        (UpdateWorkItemRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'work_item_put_model': 'body',
+                    'update_work_item_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2341,7 +2341,7 @@ class WorkItemsApi(object):
 
 
         Keyword Args:
-            work_item_move_post_model (WorkItemMovePostModel): [optional]
+            api_v2_work_items_move_post_request (ApiV2WorkItemsMovePostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2424,7 +2424,7 @@ class WorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            work_item_select_model (WorkItemSelectModel): [optional]
+            api_v2_projects_id_work_items_search_post_request (ApiV2ProjectsIdWorkItemsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2511,7 +2511,7 @@ class WorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            shared_step_reference_sections_query_filter_model (SharedStepReferenceSectionsQueryFilterModel): [optional]
+            api_v2_work_items_shared_step_id_references_sections_post_request (ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2600,7 +2600,7 @@ class WorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            shared_step_references_query_filter_model (SharedStepReferencesQueryFilterModel): [optional]
+            api_v2_work_items_shared_step_id_references_work_items_post_request (ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2764,7 +2764,7 @@ class WorkItemsApi(object):
 
 
         Keyword Args:
-            work_item_post_model (WorkItemPostModel): [optional]
+            create_work_item_request (CreateWorkItemRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -3593,7 +3593,7 @@ class WorkItemsApi(object):
 
 
         Keyword Args:
-            work_item_put_model (WorkItemPutModel): [optional]
+            update_work_item_request (UpdateWorkItemRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

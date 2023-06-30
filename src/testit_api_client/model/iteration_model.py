@@ -81,7 +81,7 @@ class IterationModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'parameters': ([ParameterShortModel], none_type,),  # noqa: E501
+            'parameters': ([ParameterShortModel],),  # noqa: E501
         }
 
     @cached_property
@@ -136,7 +136,7 @@ class IterationModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            parameters ([ParameterShortModel], none_type): [optional]  # noqa: E501
+            parameters ([ParameterShortModel]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class IterationModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            parameters ([ParameterShortModel], none_type): [optional]  # noqa: E501
+            parameters ([ParameterShortModel]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

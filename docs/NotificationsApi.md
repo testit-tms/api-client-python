@@ -109,7 +109,6 @@ from testit_api_client.api import notifications_api
 from testit_api_client.model.notification_model import NotificationModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.notification_type_model import NotificationTypeModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -132,7 +131,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notifications_api.NotificationsApi(api_client)
-    notification_type = NotificationTypeModel("MentionInComment") # NotificationTypeModel |  (optional)
+    notification_type = None # bool, date, datetime, dict, float, int, list, str, none_type |  (optional)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
     take = 1 # int | Amount of items to be taken (limit) (optional)
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -154,7 +153,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_type** | **NotificationTypeModel**|  | [optional]
+ **notification_type** | **bool, date, datetime, dict, float, int, list, str, none_type**|  | [optional]
  **skip** | **int**| Amount of items to be skipped (offset) | [optional]
  **take** | **int**| Amount of items to be taken (limit) | [optional]
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
@@ -179,9 +178,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
 **401** | Unauthorized |  -  |
-**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -258,9 +257,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **404** | Can&#39;t find notification with notificationId |  -  |
-**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -333,8 +332,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **204** | Successful operation |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -355,7 +354,7 @@ import testit_api_client
 from testit_api_client.api import notifications_api
 from testit_api_client.model.notification_model import NotificationModel
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.notification_query_filter_model import NotificationQueryFilterModel
+from testit_api_client.model.api_v2_notifications_search_post_request import ApiV2NotificationsSearchPostRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -384,22 +383,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    notification_query_filter_model = NotificationQueryFilterModel(
-        types=[
-            NotificationTypeModel("MentionInComment"),
-        ],
-        is_read=True,
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-    ) # NotificationQueryFilterModel |  (optional)
+    api_v2_notifications_search_post_request = ApiV2NotificationsSearchPostRequest(None) # ApiV2NotificationsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search Notifications for current User
-        api_response = api_instance.api_v2_notifications_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, notification_query_filter_model=notification_query_filter_model)
+        api_response = api_instance.api_v2_notifications_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_notifications_search_post_request=api_v2_notifications_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_search_post: %s\n" % e)
@@ -415,7 +405,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **notification_query_filter_model** | [**NotificationQueryFilterModel**](NotificationQueryFilterModel.md)|  | [optional]
+ **api_v2_notifications_search_post_request** | [**ApiV2NotificationsSearchPostRequest**](ApiV2NotificationsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -435,9 +425,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

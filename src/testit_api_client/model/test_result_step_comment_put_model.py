@@ -82,9 +82,9 @@ class TestResultStepCommentPutModel(ModelNormal):
         return {
             'step_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'text': (str, none_type,),  # noqa: E501
+            'text': (str,),  # noqa: E501
             'parent_step_id': (str, none_type,),  # noqa: E501
-            'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
+            'attachments': ([AttachmentPutModel],),  # noqa: E501
         }
 
     @cached_property
@@ -145,9 +145,9 @@ class TestResultStepCommentPutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            text (str, none_type): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
             parent_step_id (str, none_type): [optional]  # noqa: E501
-            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            attachments ([AttachmentPutModel]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,9 +238,9 @@ class TestResultStepCommentPutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            text (str, none_type): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
             parent_step_id (str, none_type): [optional]  # noqa: E501
-            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            attachments ([AttachmentPutModel]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -42,7 +42,7 @@ import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.flaky_bulk_model import FlakyBulkModel
+from testit_api_client.model.api_v2_auto_tests_flaky_bulk_post_request import ApiV2AutoTestsFlakyBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -70,65 +70,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    flaky_bulk_model = FlakyBulkModel(
-        autotest_select=AutotestSelectModel(
-            filter=AutotestFilterModel(
-                project_ids=[
-                    "project_ids_example",
-                ],
-                external_ids=[
-                    "external_ids_example",
-                ],
-                global_ids=[
-                    1,
-                ],
-                name="name_example",
-                is_flaky=True,
-                must_be_approved=True,
-                stability_percentage=Int64RangeSelectorModel(
-                    _from=1,
-                    to=1,
-                ),
-                created_date=DateTimeRangeSelectorModel(
-                    _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                    to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                ),
-                created_by_ids=[
-                    "created_by_ids_example",
-                ],
-                modified_date=DateTimeRangeSelectorModel(
-                    _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                    to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                ),
-                modified_by_ids=[
-                    "modified_by_ids_example",
-                ],
-                is_deleted=True,
-                namespace="namespace_example",
-                is_empty_namespace=True,
-                class_name="class_name_example",
-                is_empty_class_name=True,
-                last_test_result_outcome=AutotestResultOutcome("InProgress"),
-            ),
-            extraction_model=AutotestsExtractionModel(
-                ids=GuidExtractionModel(
-                    include=[
-                        "include_example",
-                    ],
-                    exclude=[
-                        "exclude_example",
-                    ],
-                ),
-            ),
-        ),
-        value=True,
-    ) # FlakyBulkModel |  (optional)
+    api_v2_auto_tests_flaky_bulk_post_request = ApiV2AutoTestsFlakyBulkPostRequest(None) # ApiV2AutoTestsFlakyBulkPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Set \"Flaky\" status for multiple autotests
-        api_instance.api_v2_auto_tests_flaky_bulk_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, flaky_bulk_model=flaky_bulk_model)
+        api_instance.api_v2_auto_tests_flaky_bulk_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_auto_tests_flaky_bulk_post_request=api_v2_auto_tests_flaky_bulk_post_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_flaky_bulk_post: %s\n" % e)
 ```
@@ -143,7 +91,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **flaky_bulk_model** | [**FlakyBulkModel**](FlakyBulkModel.md)|  | [optional]
+ **api_v2_auto_tests_flaky_bulk_post_request** | [**ApiV2AutoTestsFlakyBulkPostRequest**](ApiV2AutoTestsFlakyBulkPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -163,8 +111,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Invalid user permissions |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**403** | Invalid user permissions |  -  |
 **422** | Autotests with provided identifiers do not belong to the same project |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -281,8 +229,8 @@ import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_auto_tests_id_test_results_search_post_request import ApiV2AutoTestsIdTestResultsSearchPostRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.autotest_historical_result_select_model import AutotestHistoricalResultSelectModel
 from testit_api_client.model.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -312,28 +260,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    autotest_historical_result_select_model = AutotestHistoricalResultSelectModel(
-        outcomes=[
-            AutotestResultOutcome("InProgress"),
-        ],
-        test_plan_ids=[
-            "test_plan_ids_example",
-        ],
-        test_run_ids=[
-            "test_run_ids_example",
-        ],
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        launch_source="launch_source_example",
-        user_ids=[
-            "user_ids_example",
-        ],
-        duration=Int64RangeSelectorModel(
-            _from=1,
-            to=1,
-        ),
-    ) # AutotestHistoricalResultSelectModel |  (optional)
+    api_v2_auto_tests_id_test_results_search_post_request = ApiV2AutoTestsIdTestResultsSearchPostRequest(None) # ApiV2AutoTestsIdTestResultsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -347,7 +274,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get test results history for autotest
-        api_response = api_instance.api_v2_auto_tests_id_test_results_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotest_historical_result_select_model=autotest_historical_result_select_model)
+        api_response = api_instance.api_v2_auto_tests_id_test_results_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_auto_tests_id_test_results_search_post_request=api_v2_auto_tests_id_test_results_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_test_results_search_post: %s\n" % e)
@@ -364,7 +291,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **autotest_historical_result_select_model** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md)|  | [optional]
+ **api_v2_auto_tests_id_test_results_search_post_request** | [**ApiV2AutoTestsIdTestResultsSearchPostRequest**](ApiV2AutoTestsIdTestResultsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -384,11 +311,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Autotest with provided ID was not found |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**401** | Unauthorized |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for autotests required |  -  |
+**404** | Autotest with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -568,7 +495,7 @@ import testit_api_client
 from testit_api_client.api import auto_tests_api
 from testit_api_client.model.auto_test_model import AutoTestModel
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.autotests_select_model import AutotestsSelectModel
+from testit_api_client.model.api_v2_auto_tests_search_post_request import ApiV2AutoTestsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -596,57 +523,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    autotests_select_model = AutotestsSelectModel(
-        filter=AutotestFilterModel(
-            project_ids=[
-                "project_ids_example",
-            ],
-            external_ids=[
-                "external_ids_example",
-            ],
-            global_ids=[
-                1,
-            ],
-            name="name_example",
-            is_flaky=True,
-            must_be_approved=True,
-            stability_percentage=Int64RangeSelectorModel(
-                _from=1,
-                to=1,
-            ),
-            created_date=DateTimeRangeSelectorModel(
-                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            ),
-            created_by_ids=[
-                "created_by_ids_example",
-            ],
-            modified_date=DateTimeRangeSelectorModel(
-                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            ),
-            modified_by_ids=[
-                "modified_by_ids_example",
-            ],
-            is_deleted=True,
-            namespace="namespace_example",
-            is_empty_namespace=True,
-            class_name="class_name_example",
-            is_empty_class_name=True,
-            last_test_result_outcome=AutotestResultOutcome("InProgress"),
-        ),
-        includes=SearchAutoTestsQueryIncludesModel(
-            include_steps=True,
-            include_links=True,
-            include_labels=True,
-        ),
-    ) # AutotestsSelectModel |  (optional)
+    api_v2_auto_tests_search_post_request = ApiV2AutoTestsSearchPostRequest(None) # ApiV2AutoTestsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for autotests
-        api_response = api_instance.api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotests_select_model=autotests_select_model)
+        api_response = api_instance.api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_auto_tests_search_post_request=api_v2_auto_tests_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_search_post: %s\n" % e)
@@ -662,7 +545,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **autotests_select_model** | [**AutotestsSelectModel**](AutotestsSelectModel.md)|  | [optional]
+ **api_v2_auto_tests_search_post_request** | [**ApiV2AutoTestsSearchPostRequest**](ApiV2AutoTestsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -682,8 +565,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for autotests library is required |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**403** | Read permission for autotests library is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -702,10 +585,10 @@ Create autotest
 import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
+from testit_api_client.model.create_auto_test_request import CreateAutoTestRequest
 from testit_api_client.model.auto_test_model import AutoTestModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.auto_test_post_model import AutoTestPostModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -728,67 +611,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
-    auto_test_post_model = AutoTestPostModel(
-        work_item_ids_for_link_with_auto_test=[
-            "work_item_ids_for_link_with_auto_test_example",
-        ],
-        should_create_work_item=True,
-        external_id="external_id_example",
-        links=[
-            LinkPostModel(
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=LinkType("Related"),
-                has_info=True,
-            ),
-        ],
-        project_id="project_id_example",
-        name="name_example",
-        namespace="namespace_example",
-        classname="classname_example",
-        steps=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        setup=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        teardown=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        title="title_example",
-        description="description_example",
-        labels=[
-            LabelPostModel(
-                name="name_example",
-            ),
-        ],
-        is_flaky=True,
-    ) # AutoTestPostModel |  (optional)
+    create_auto_test_request = CreateAutoTestRequest(None) # CreateAutoTestRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create autotest
-        api_response = api_instance.create_auto_test(auto_test_post_model=auto_test_post_model)
+        api_response = api_instance.create_auto_test(create_auto_test_request=create_auto_test_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->create_auto_test: %s\n" % e)
@@ -799,7 +628,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_test_post_model** | [**AutoTestPostModel**](AutoTestPostModel.md)|  | [optional]
+ **create_auto_test_request** | [**CreateAutoTestRequest**](CreateAutoTestRequest.md)|  | [optional]
 
 ### Return type
 
@@ -820,12 +649,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**404** | Project with provided ID cannot be found |  -  |
 **400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for autotests is required |  -  |
-**422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
+**404** | Project with provided ID cannot be found |  -  |
 **409** | Autotest with the same external ID already exists is the project |  -  |
+**422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -882,7 +711,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     title="title_example",
                     url="url_example",
                     description="description_example",
-                    type=LinkType("Related"),
+                    type=None,
                     has_info=True,
                 ),
             ],
@@ -963,13 +792,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
-**400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
 **201** | Created |  -  |
-**403** | Update permission for autotests is required |  -  |
+**400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for autotests is required |  -  |
 **404** | Project with provided ID cannot be found |  -  |
 **409** | Autotest with the same external ID already exists is the project |  -  |
+**422** | &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1048,8 +877,8 @@ void (empty response body)
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
 **401** | Unauthorized |  -  |
-**404** | Autotest with provided ID cannot be found |  -  |
 **403** | Delete permission for autotests is required |  -  |
+**404** | Autotest with provided ID cannot be found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1137,11 +966,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for autotests is required |  -  |
-**401** | Unauthorized |  -  |
-**404** | &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found |  -  |
 **204** | No Content |  -  |
 **400** | Work item ID is invalid |  -  |
+**401** | Unauthorized |  -  |
+**403** | Update permission for autotests is required |  -  |
+**404** | &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1268,10 +1097,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Not Found |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**403** | Forbidden |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1350,10 +1179,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Autotest with provided ID was not found |  -  |
 **200** | Success |  -  |
-**403** | Read permission for autotests is required |  -  |
 **401** | Unauthorized |  -  |
+**403** | Read permission for autotests is required |  -  |
+**404** | Autotest with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1433,10 +1262,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for autotests is required |  -  |
-**401** | Unauthorized |  -  |
-**400** | Autotest ID is invalid |  -  |
 **200** | Success |  -  |
+**400** | Autotest ID is invalid |  -  |
+**401** | Unauthorized |  -  |
+**403** | Read permission for autotests is required |  -  |
 **404** | Autotest with provided ID cannot be found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1516,10 +1345,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for autotests is required |  -  |
-**401** | Unauthorized |  -  |
-**404** | Autotest with provided ID was not found |  -  |
 **200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Read permission for autotests is required |  -  |
+**404** | Autotest with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1598,9 +1427,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for autotests is required |  -  |
 **200** | Success |  -  |
 **401** | Unauthorized |  -  |
+**403** | Read permission for autotests is required |  -  |
 **404** | Autotest with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1723,10 +1552,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Not Found |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1818,10 +1647,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **200** | Success |  -  |
-**404** | Autotest with provided ID cannot be found |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for autotests is required |  -  |
+**404** | Autotest with provided ID cannot be found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1840,8 +1669,8 @@ Link autotest with work items
 import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
-from testit_api_client.model.work_item_id_model import WorkItemIdModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.link_auto_test_to_work_item_request import LinkAutoTestToWorkItemRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1866,9 +1695,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
-    work_item_id_model = WorkItemIdModel(
-        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-    ) # WorkItemIdModel |  (optional)
+    link_auto_test_to_work_item_request = LinkAutoTestToWorkItemRequest(None) # LinkAutoTestToWorkItemRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1881,7 +1708,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Link autotest with work items
-        api_instance.link_auto_test_to_work_item(id, work_item_id_model=work_item_id_model)
+        api_instance.link_auto_test_to_work_item(id, link_auto_test_to_work_item_request=link_auto_test_to_work_item_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->link_auto_test_to_work_item: %s\n" % e)
 ```
@@ -1892,7 +1719,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Autotest internal (UUID) or global (integer) identifier |
- **work_item_id_model** | [**WorkItemIdModel**](WorkItemIdModel.md)|  | [optional]
+ **link_auto_test_to_work_item_request** | [**LinkAutoTestToWorkItemRequest**](LinkAutoTestToWorkItemRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1912,11 +1739,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for autotests is required |  -  |
 **404** | &lt;br&gt;- Autotest with provided ID cannot be found  &lt;br&gt;- Work item with provided ID cannot be found |  -  |
-**400** | &lt;br&gt;- Autotest cannot be linked to shared steps  &lt;br&gt;- Autotest cannot be linked to work item from other project  &lt;br&gt;- Work item ID is invalid |  -  |
-**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1936,7 +1763,7 @@ import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.auto_test_put_model import AutoTestPutModel
+from testit_api_client.model.update_auto_test_request import UpdateAutoTestRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1960,68 +1787,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
-    auto_test_put_model = AutoTestPutModel(
-        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        work_item_ids_for_link_with_auto_test=[
-            "work_item_ids_for_link_with_auto_test_example",
-        ],
-        external_id="external_id_example",
-        links=[
-            LinkPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=LinkType("Related"),
-                has_info=True,
-            ),
-        ],
-        project_id="project_id_example",
-        name="name_example",
-        namespace="namespace_example",
-        classname="classname_example",
-        steps=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        setup=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        teardown=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        title="title_example",
-        description="description_example",
-        labels=[
-            LabelPostModel(
-                name="name_example",
-            ),
-        ],
-        is_flaky=True,
-    ) # AutoTestPutModel |  (optional)
+    update_auto_test_request = UpdateAutoTestRequest(None) # UpdateAutoTestRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update autotest
-        api_instance.update_auto_test(auto_test_put_model=auto_test_put_model)
+        api_instance.update_auto_test(update_auto_test_request=update_auto_test_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->update_auto_test: %s\n" % e)
 ```
@@ -2031,7 +1803,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_test_put_model** | [**AutoTestPutModel**](AutoTestPutModel.md)|  | [optional]
+ **update_auto_test_request** | [**UpdateAutoTestRequest**](UpdateAutoTestRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2103,18 +1875,18 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     auto_test_put_model = [
         AutoTestPutModel(
-            id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
+            id="79f06d02-d9f8-4c2b-8c00-8c482c6c840f",
             work_item_ids_for_link_with_auto_test=[
                 "work_item_ids_for_link_with_auto_test_example",
             ],
             external_id="external_id_example",
             links=[
                 LinkPutModel(
-                    id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
+                    id="79f06d02-d9f8-4c2b-8c00-8c482c6c840f",
                     title="title_example",
                     url="url_example",
                     description="description_example",
-                    type=LinkType("Related"),
+                    type=None,
                     has_info=True,
                 ),
             ],
@@ -2194,13 +1966,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**422** | &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
-**400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
 **204** | No Content |  -  |
+**400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- External ID cannot be empty or contain only white space characters  &lt;br&gt;- Namespace cannot be empty or contain only white space characters  &lt;br&gt;- Classname cannot be empty or contain only white space characters  &lt;br&gt;- Steps cannot be &#x60;null&#x60;  &lt;br&gt;- Steps nesting level is more than 15  &lt;br&gt;- Invalid URI |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for autotests is required |  -  |
 **404** | &lt;br&gt;- Autotests with provided ID cannot be found  &lt;br&gt;- Project with provided ID cannot be found  &lt;br&gt;- Link with provided ID cannot be found  &lt;br&gt;- Label with provided ID cannot be found |  -  |
 **409** | Autotest with the same external ID already exists is the project |  -  |
+**422** | &lt;br&gt;- Project ID cannot be changed  &lt;br&gt;- Labels have duplicates  &lt;br&gt;- Labels begin with &#x60;::&#x60;  &lt;br&gt;- Labels with the same base have different values |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

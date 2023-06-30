@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **configuration_ids** | **[str], none_type** |  | [optional] 
 **launch_source** | **str, none_type** |  | [optional] 
 **user_ids** | **[str], none_type** |  | [optional] 
-**duration** | [**Int64RangeSelectorModel**](Int64RangeSelectorModel.md) |  | [optional] 
+**duration** | [**AutotestHistoricalResultSelectModelDuration**](AutotestHistoricalResultSelectModelDuration.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -30,8 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
-    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
+    from testit_api_client.model.shared_step_reference_sections_query_filter_model_created_date import SharedStepReferenceSectionsQueryFilterModelCreatedDate
+    from testit_api_client.model.shared_step_reference_sections_query_filter_model_modified_date import SharedStepReferenceSectionsQueryFilterModelModifiedDate
+    globals()['SharedStepReferenceSectionsQueryFilterModelCreatedDate'] = SharedStepReferenceSectionsQueryFilterModelCreatedDate
+    globals()['SharedStepReferenceSectionsQueryFilterModelModifiedDate'] = SharedStepReferenceSectionsQueryFilterModelModifiedDate
 
 
 class SharedStepReferenceSectionsQueryFilterModel(ModelNormal):
@@ -87,8 +89,8 @@ class SharedStepReferenceSectionsQueryFilterModel(ModelNormal):
             'name': (str, none_type,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
-            'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
-            'modified_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'created_date': (SharedStepReferenceSectionsQueryFilterModelCreatedDate,),  # noqa: E501
+            'modified_date': (SharedStepReferenceSectionsQueryFilterModelModifiedDate,),  # noqa: E501
         }
 
     @cached_property
@@ -148,8 +150,8 @@ class SharedStepReferenceSectionsQueryFilterModel(ModelNormal):
             name (str, none_type): Name of section. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (SharedStepReferenceSectionsQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            modified_date (SharedStepReferenceSectionsQueryFilterModelModifiedDate): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,8 +240,8 @@ class SharedStepReferenceSectionsQueryFilterModel(ModelNormal):
             name (str, none_type): Name of section. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (SharedStepReferenceSectionsQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            modified_date (SharedStepReferenceSectionsQueryFilterModelModifiedDate): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

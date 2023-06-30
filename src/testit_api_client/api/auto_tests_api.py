@@ -21,21 +21,23 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.api_v2_auto_tests_flaky_bulk_post_request import ApiV2AutoTestsFlakyBulkPostRequest
+from testit_api_client.model.api_v2_auto_tests_id_test_results_search_post_request import ApiV2AutoTestsIdTestResultsSearchPostRequest
+from testit_api_client.model.api_v2_auto_tests_search_post_request import ApiV2AutoTestsSearchPostRequest
 from testit_api_client.model.auto_test_average_duration_model import AutoTestAverageDurationModel
 from testit_api_client.model.auto_test_model import AutoTestModel
 from testit_api_client.model.auto_test_post_model import AutoTestPostModel
 from testit_api_client.model.auto_test_put_model import AutoTestPutModel
-from testit_api_client.model.autotest_historical_result_select_model import AutotestHistoricalResultSelectModel
 from testit_api_client.model.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
-from testit_api_client.model.autotests_select_model import AutotestsSelectModel
-from testit_api_client.model.flaky_bulk_model import FlakyBulkModel
+from testit_api_client.model.create_auto_test_request import CreateAutoTestRequest
+from testit_api_client.model.link_auto_test_to_work_item_request import LinkAutoTestToWorkItemRequest
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
 from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
 from testit_api_client.model.test_run_short_model import TestRunShortModel
+from testit_api_client.model.update_auto_test_request import UpdateAutoTestRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.work_item_id_model import WorkItemIdModel
 from testit_api_client.model.work_item_identifier_model import WorkItemIdentifierModel
 
 
@@ -68,7 +70,7 @@ class AutoTestsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'flaky_bulk_model',
+                    'api_v2_auto_tests_flaky_bulk_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -94,8 +96,8 @@ class AutoTestsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'flaky_bulk_model':
-                        (FlakyBulkModel,),
+                    'api_v2_auto_tests_flaky_bulk_post_request':
+                        (ApiV2AutoTestsFlakyBulkPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -110,7 +112,7 @@ class AutoTestsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'flaky_bulk_model': 'body',
+                    'api_v2_auto_tests_flaky_bulk_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -201,7 +203,7 @@ class AutoTestsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'autotest_historical_result_select_model',
+                    'api_v2_auto_tests_id_test_results_search_post_request',
                 ],
                 'required': [
                     'id',
@@ -231,8 +233,8 @@ class AutoTestsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'autotest_historical_result_select_model':
-                        (AutotestHistoricalResultSelectModel,),
+                    'api_v2_auto_tests_id_test_results_search_post_request':
+                        (ApiV2AutoTestsIdTestResultsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -249,7 +251,7 @@ class AutoTestsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'autotest_historical_result_select_model': 'body',
+                    'api_v2_auto_tests_id_test_results_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -390,7 +392,7 @@ class AutoTestsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'autotests_select_model',
+                    'api_v2_auto_tests_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -416,8 +418,8 @@ class AutoTestsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'autotests_select_model':
-                        (AutotestsSelectModel,),
+                    'api_v2_auto_tests_search_post_request':
+                        (ApiV2AutoTestsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -432,7 +434,7 @@ class AutoTestsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'autotests_select_model': 'body',
+                    'api_v2_auto_tests_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -460,7 +462,7 @@ class AutoTestsApi(object):
             },
             params_map={
                 'all': [
-                    'auto_test_post_model',
+                    'create_auto_test_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -476,13 +478,13 @@ class AutoTestsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'auto_test_post_model':
-                        (AutoTestPostModel,),
+                    'create_auto_test_request':
+                        (CreateAutoTestRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'auto_test_post_model': 'body',
+                    'create_auto_test_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1229,7 +1231,7 @@ class AutoTestsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'work_item_id_model',
+                    'link_auto_test_to_work_item_request',
                 ],
                 'required': [
                     'id',
@@ -1249,15 +1251,15 @@ class AutoTestsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'work_item_id_model':
-                        (WorkItemIdModel,),
+                    'link_auto_test_to_work_item_request':
+                        (LinkAutoTestToWorkItemRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'work_item_id_model': 'body',
+                    'link_auto_test_to_work_item_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1285,7 +1287,7 @@ class AutoTestsApi(object):
             },
             params_map={
                 'all': [
-                    'auto_test_put_model',
+                    'update_auto_test_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -1301,13 +1303,13 @@ class AutoTestsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'auto_test_put_model':
-                        (AutoTestPutModel,),
+                    'update_auto_test_request':
+                        (UpdateAutoTestRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'auto_test_put_model': 'body',
+                    'update_auto_test_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1393,7 +1395,7 @@ class AutoTestsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            flaky_bulk_model (FlakyBulkModel): [optional]
+            api_v2_auto_tests_flaky_bulk_post_request (ApiV2AutoTestsFlakyBulkPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1564,7 +1566,7 @@ class AutoTestsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            autotest_historical_result_select_model (AutotestHistoricalResultSelectModel): [optional]
+            api_v2_auto_tests_id_test_results_search_post_request (ApiV2AutoTestsIdTestResultsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1819,7 +1821,7 @@ class AutoTestsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            autotests_select_model (AutotestsSelectModel): [optional]
+            api_v2_auto_tests_search_post_request (ApiV2AutoTestsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1898,7 +1900,7 @@ class AutoTestsApi(object):
 
 
         Keyword Args:
-            auto_test_post_model (AutoTestPostModel): [optional]
+            create_auto_test_request (CreateAutoTestRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2841,7 +2843,7 @@ class AutoTestsApi(object):
             id (str): Autotest internal (UUID) or global (integer) identifier
 
         Keyword Args:
-            work_item_id_model (WorkItemIdModel): [optional]
+            link_auto_test_to_work_item_request (LinkAutoTestToWorkItemRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2922,7 +2924,7 @@ class AutoTestsApi(object):
 
 
         Keyword Args:
-            auto_test_put_model (AutoTestPutModel): [optional]
+            update_auto_test_request (UpdateAutoTestRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -75,7 +75,7 @@ class TestRunGroupByFailureClassModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'failure_category': (str, none_type,),  # noqa: E501
+            'failure_category': (str,),  # noqa: E501
             'value': (int,),  # noqa: E501
         }
 
@@ -130,7 +130,7 @@ class TestRunGroupByFailureClassModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            failure_category (str, none_type): [optional]  # noqa: E501
+            failure_category (str): [optional]  # noqa: E501
             value (int): [optional]  # noqa: E501
         """
 
@@ -217,7 +217,7 @@ class TestRunGroupByFailureClassModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            failure_category (str, none_type): [optional]  # noqa: E501
+            failure_category (str): [optional]  # noqa: E501
             value (int): [optional]  # noqa: E501
         """
 

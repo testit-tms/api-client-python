@@ -30,9 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
+    from testit_api_client.model.test_run_filter_model_created_date import TestRunFilterModelCreatedDate
     from testit_api_client.model.test_run_state import TestRunState
-    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
+    globals()['TestRunFilterModelCreatedDate'] = TestRunFilterModelCreatedDate
     globals()['TestRunState'] = TestRunState
 
 
@@ -90,7 +90,7 @@ class TestRunFilterModel(ModelNormal):
         return {
             'project_ids': ([str], none_type,),  # noqa: E501
             'states': ([TestRunState], none_type,),  # noqa: E501
-            'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'created_date': (TestRunFilterModelCreatedDate,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
         }
@@ -151,7 +151,7 @@ class TestRunFilterModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             project_ids ([str], none_type): Specifies a test run project IDs to search for. [optional]  # noqa: E501
             states ([TestRunState], none_type): Specifies a test run states to search for. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (TestRunFilterModelCreatedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test run last editor IDs to search for. [optional]  # noqa: E501
             is_deleted (bool, none_type): Specifies a test run deleted status to search for. [optional]  # noqa: E501
         """
@@ -241,7 +241,7 @@ class TestRunFilterModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             project_ids ([str], none_type): Specifies a test run project IDs to search for. [optional]  # noqa: E501
             states ([TestRunState], none_type): Specifies a test run states to search for. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (TestRunFilterModelCreatedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test run last editor IDs to search for. [optional]  # noqa: E501
             is_deleted (bool, none_type): Specifies a test run deleted status to search for. [optional]  # noqa: E501
         """

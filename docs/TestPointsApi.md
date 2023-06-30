@@ -83,8 +83,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test points is required |  -  |
 **200** | Success |  -  |
+**403** | Read permission for test points is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -161,8 +161,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test points is required |  -  |
 **200** | Success |  -  |
+**403** | Read permission for test points is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -179,7 +179,7 @@ Search for test points and extract IDs only
 import time
 import testit_api_client
 from testit_api_client.api import test_points_api
-from testit_api_client.model.test_point_filter_model import TestPointFilterModel
+from testit_api_client.model.api_v2_test_points_search_post_request import ApiV2TestPointsSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -208,66 +208,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    test_point_filter_model = TestPointFilterModel(
-        test_plan_ids=[
-            "test_plan_ids_example",
-        ],
-        test_suite_ids=[
-            "test_suite_ids_example",
-        ],
-        work_item_global_ids=[
-            1,
-        ],
-        statuses=[
-            TestPointStatus("InProgress"),
-        ],
-        priorities=[
-            WorkItemPriorityModel("Lowest"),
-        ],
-        is_automated=True,
-        name="name_example",
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        tester_ids=[
-            "tester_ids_example",
-        ],
-        duration=Int64RangeSelectorModel(
-            _from=1,
-            to=1,
-        ),
-        section_ids=[
-            "section_ids_example",
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        created_by_ids=[
-            "created_by_ids_example",
-        ],
-        modified_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        modified_by_ids=[
-            "modified_by_ids_example",
-        ],
-        tags=[
-            "tags_example",
-        ],
-        attributes={
-            "key": [
-                "key_example",
-            ],
-        },
-    ) # TestPointFilterModel |  (optional)
+    api_v2_test_points_search_post_request = ApiV2TestPointsSearchPostRequest(None) # ApiV2TestPointsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for test points and extract IDs only
-        api_response = api_instance.api_v2_test_points_search_id_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_model=test_point_filter_model)
+        api_response = api_instance.api_v2_test_points_search_id_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_test_points_search_post_request=api_v2_test_points_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPointsApi->api_v2_test_points_search_id_post: %s\n" % e)
@@ -283,7 +230,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **test_point_filter_model** | [**TestPointFilterModel**](TestPointFilterModel.md)|  | [optional]
+ **api_v2_test_points_search_post_request** | [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -303,8 +250,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for all requested test plans is required |  -  |
 **200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**403** | Read permission for all requested test plans is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -321,7 +268,7 @@ Search for test points
 import time
 import testit_api_client
 from testit_api_client.api import test_points_api
-from testit_api_client.model.test_point_filter_model import TestPointFilterModel
+from testit_api_client.model.api_v2_test_points_search_post_request import ApiV2TestPointsSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_point_short_get_model import TestPointShortGetModel
 from pprint import pprint
@@ -351,66 +298,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    test_point_filter_model = TestPointFilterModel(
-        test_plan_ids=[
-            "test_plan_ids_example",
-        ],
-        test_suite_ids=[
-            "test_suite_ids_example",
-        ],
-        work_item_global_ids=[
-            1,
-        ],
-        statuses=[
-            TestPointStatus("InProgress"),
-        ],
-        priorities=[
-            WorkItemPriorityModel("Lowest"),
-        ],
-        is_automated=True,
-        name="name_example",
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        tester_ids=[
-            "tester_ids_example",
-        ],
-        duration=Int64RangeSelectorModel(
-            _from=1,
-            to=1,
-        ),
-        section_ids=[
-            "section_ids_example",
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        created_by_ids=[
-            "created_by_ids_example",
-        ],
-        modified_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        modified_by_ids=[
-            "modified_by_ids_example",
-        ],
-        tags=[
-            "tags_example",
-        ],
-        attributes={
-            "key": [
-                "key_example",
-            ],
-        },
-    ) # TestPointFilterModel |  (optional)
+    api_v2_test_points_search_post_request = ApiV2TestPointsSearchPostRequest(None) # ApiV2TestPointsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for test points
-        api_response = api_instance.api_v2_test_points_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_model=test_point_filter_model)
+        api_response = api_instance.api_v2_test_points_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_test_points_search_post_request=api_v2_test_points_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPointsApi->api_v2_test_points_search_post: %s\n" % e)
@@ -426,7 +320,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **test_point_filter_model** | [**TestPointFilterModel**](TestPointFilterModel.md)|  | [optional]
+ **api_v2_test_points_search_post_request** | [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 

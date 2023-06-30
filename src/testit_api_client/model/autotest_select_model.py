@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.autotest_filter_model import AutotestFilterModel
-    from testit_api_client.model.autotests_extraction_model import AutotestsExtractionModel
-    globals()['AutotestFilterModel'] = AutotestFilterModel
-    globals()['AutotestsExtractionModel'] = AutotestsExtractionModel
+    from testit_api_client.model.autotest_select_model_extraction_model import AutotestSelectModelExtractionModel
+    from testit_api_client.model.autotest_select_model_filter import AutotestSelectModelFilter
+    globals()['AutotestSelectModelExtractionModel'] = AutotestSelectModelExtractionModel
+    globals()['AutotestSelectModelFilter'] = AutotestSelectModelFilter
 
 
 class AutotestSelectModel(ModelNormal):
@@ -82,8 +82,8 @@ class AutotestSelectModel(ModelNormal):
         """
         lazy_import()
         return {
-            'filter': (AutotestFilterModel,),  # noqa: E501
-            'extraction_model': (AutotestsExtractionModel,),  # noqa: E501
+            'filter': (AutotestSelectModelFilter,),  # noqa: E501
+            'extraction_model': (AutotestSelectModelExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -137,8 +137,8 @@ class AutotestSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestFilterModel): [optional]  # noqa: E501
-            extraction_model (AutotestsExtractionModel): [optional]  # noqa: E501
+            filter (AutotestSelectModelFilter): [optional]  # noqa: E501
+            extraction_model (AutotestSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,8 +224,8 @@ class AutotestSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestFilterModel): [optional]  # noqa: E501
-            extraction_model (AutotestsExtractionModel): [optional]  # noqa: E501
+            filter (AutotestSelectModelFilter): [optional]  # noqa: E501
+            extraction_model (AutotestSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -21,37 +21,37 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.api_v2_projects_id_attributes_templates_search_post_request import ApiV2ProjectsIdAttributesTemplatesSearchPostRequest
+from testit_api_client.model.api_v2_projects_id_test_plans_delete_bulk_post_request import ApiV2ProjectsIdTestPlansDeleteBulkPostRequest
+from testit_api_client.model.api_v2_projects_id_test_plans_search_post_request import ApiV2ProjectsIdTestPlansSearchPostRequest
+from testit_api_client.model.api_v2_projects_id_work_items_search_post_request import ApiV2ProjectsIdWorkItemsSearchPostRequest
+from testit_api_client.model.api_v2_projects_search_post_request import ApiV2ProjectsSearchPostRequest
 from testit_api_client.model.auto_test_namespace_model import AutoTestNamespaceModel
 from testit_api_client.model.configuration_model import ConfigurationModel
+from testit_api_client.model.create_project_request import CreateProjectRequest
+from testit_api_client.model.create_projects_attribute_request import CreateProjectsAttributeRequest
 from testit_api_client.model.custom_attribute_get_model import CustomAttributeGetModel
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
-from testit_api_client.model.custom_attribute_post_model import CustomAttributePostModel
-from testit_api_client.model.custom_attribute_put_model import CustomAttributePutModel
-from testit_api_client.model.custom_attribute_test_plan_project_relation_put_model import CustomAttributeTestPlanProjectRelationPutModel
-from testit_api_client.model.deletion_state import DeletionState
+from testit_api_client.model.export_project_json_request import ExportProjectJsonRequest
+from testit_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
 from testit_api_client.model.failure_class_model import FailureClassModel
 from testit_api_client.model.filter_model import FilterModel
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_attributes_filter_model import ProjectAttributesFilterModel
 from testit_api_client.model.project_custom_attribute_template_get_model import ProjectCustomAttributeTemplateGetModel
-from testit_api_client.model.project_custom_attributes_templates_filter_model import ProjectCustomAttributesTemplatesFilterModel
-from testit_api_client.model.project_export_query_model import ProjectExportQueryModel
-from testit_api_client.model.project_export_with_test_plans_post_model import ProjectExportWithTestPlansPostModel
 from testit_api_client.model.project_model import ProjectModel
-from testit_api_client.model.project_post_model import ProjectPostModel
-from testit_api_client.model.project_put_model import ProjectPutModel
-from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
-from testit_api_client.model.projects_filter_model import ProjectsFilterModel
 from testit_api_client.model.public_test_run_model import PublicTestRunModel
+from testit_api_client.model.search_attributes_in_project_request import SearchAttributesInProjectRequest
 from testit_api_client.model.section_model import SectionModel
 from testit_api_client.model.tag_short_model import TagShortModel
 from testit_api_client.model.test_plan_model import TestPlanModel
 from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
 from testit_api_client.model.test_run_model import TestRunModel
 from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.model.update_custom_attribute_test_plan_project_relations_request import UpdateCustomAttributeTestPlanProjectRelationsRequest
+from testit_api_client.model.update_project_request import UpdateProjectRequest
+from testit_api_client.model.update_projects_attribute_request import UpdateProjectsAttributeRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 
 
@@ -146,7 +146,7 @@ class ProjectsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'project_custom_attributes_templates_filter_model',
+                    'api_v2_projects_id_attributes_templates_search_post_request',
                 ],
                 'required': [
                     'id',
@@ -176,8 +176,8 @@ class ProjectsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'project_custom_attributes_templates_filter_model':
-                        (ProjectCustomAttributesTemplatesFilterModel,),
+                    'api_v2_projects_id_attributes_templates_search_post_request':
+                        (ApiV2ProjectsIdAttributesTemplatesSearchPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -194,7 +194,7 @@ class ProjectsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'project_custom_attributes_templates_filter_model': 'body',
+                    'api_v2_projects_id_attributes_templates_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -638,7 +638,7 @@ class ProjectsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'project_test_plans_filter_model',
+                    'api_v2_projects_id_test_plans_delete_bulk_post_request',
                 ],
                 'required': [
                     'id',
@@ -658,15 +658,15 @@ class ProjectsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'project_test_plans_filter_model':
-                        (ProjectTestPlansFilterModel,),
+                    'api_v2_projects_id_test_plans_delete_bulk_post_request':
+                        (ApiV2ProjectsIdTestPlansDeleteBulkPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'project_test_plans_filter_model': 'body',
+                    'api_v2_projects_id_test_plans_delete_bulk_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -738,21 +738,21 @@ class ProjectsApi(object):
             },
             api_client=api_client
         )
-        self.api_v2_projects_id_test_plans_restore_bulk_post_endpoint = _Endpoint(
+        self.api_v2_projects_id_test_plans_purge_bulk_post_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
-                'endpoint_path': '/api/v2/projects/{id}/testPlans/restore/bulk',
-                'operation_id': 'api_v2_projects_id_test_plans_restore_bulk_post',
+                'endpoint_path': '/api/v2/projects/{id}/testPlans/purge/bulk',
+                'operation_id': 'api_v2_projects_id_test_plans_purge_bulk_post',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'project_test_plans_filter_model',
+                    'api_v2_projects_id_test_plans_delete_bulk_post_request',
                 ],
                 'required': [
                     'id',
@@ -772,15 +772,72 @@ class ProjectsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'project_test_plans_filter_model':
-                        (ProjectTestPlansFilterModel,),
+                    'api_v2_projects_id_test_plans_delete_bulk_post_request':
+                        (ApiV2ProjectsIdTestPlansDeleteBulkPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'project_test_plans_filter_model': 'body',
+                    'api_v2_projects_id_test_plans_delete_bulk_post_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.api_v2_projects_id_test_plans_restore_bulk_post_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{id}/testPlans/restore/bulk',
+                'operation_id': 'api_v2_projects_id_test_plans_restore_bulk_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'api_v2_projects_id_test_plans_delete_bulk_post_request',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'api_v2_projects_id_test_plans_delete_bulk_post_request':
+                        (ApiV2ProjectsIdTestPlansDeleteBulkPostRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'api_v2_projects_id_test_plans_delete_bulk_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -815,7 +872,7 @@ class ProjectsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'project_test_plans_filter_model',
+                    'api_v2_projects_id_test_plans_search_post_request',
                 ],
                 'required': [
                     'id',
@@ -847,8 +904,8 @@ class ProjectsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'project_test_plans_filter_model':
-                        (ProjectTestPlansFilterModel,),
+                    'api_v2_projects_id_test_plans_search_post_request':
+                        (ApiV2ProjectsIdTestPlansSearchPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -867,7 +924,7 @@ class ProjectsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'project_test_plans_filter_model': 'body',
+                    'api_v2_projects_id_test_plans_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1073,7 +1130,7 @@ class ProjectsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'work_item_select_model',
+                    'api_v2_projects_id_work_items_search_post_request',
                 ],
                 'required': [
                     'id',
@@ -1103,8 +1160,8 @@ class ProjectsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'work_item_select_model':
-                        (WorkItemSelectModel,),
+                    'api_v2_projects_id_work_items_search_post_request':
+                        (ApiV2ProjectsIdWorkItemsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -1121,7 +1178,7 @@ class ProjectsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'work_item_select_model': 'body',
+                    'api_v2_projects_id_work_items_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1155,7 +1212,7 @@ class ProjectsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'work_item_select_model',
+                    'api_v2_projects_id_work_items_search_post_request',
                 ],
                 'required': [
                     'id',
@@ -1185,8 +1242,8 @@ class ProjectsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'work_item_select_model':
-                        (WorkItemSelectModel,),
+                    'api_v2_projects_id_work_items_search_post_request':
+                        (ApiV2ProjectsIdWorkItemsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -1203,7 +1260,7 @@ class ProjectsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'work_item_select_model': 'body',
+                    'api_v2_projects_id_work_items_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1343,7 +1400,7 @@ class ProjectsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'projects_filter_model',
+                    'api_v2_projects_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -1369,8 +1426,8 @@ class ProjectsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'projects_filter_model':
-                        (ProjectsFilterModel,),
+                    'api_v2_projects_search_post_request':
+                        (ApiV2ProjectsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -1385,7 +1442,7 @@ class ProjectsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'projects_filter_model': 'body',
+                    'api_v2_projects_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1750,7 +1807,7 @@ class ProjectsApi(object):
             },
             params_map={
                 'all': [
-                    'project_post_model',
+                    'create_project_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -1766,13 +1823,13 @@ class ProjectsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'project_post_model':
-                        (ProjectPostModel,),
+                    'create_project_request':
+                        (CreateProjectRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'project_post_model': 'body',
+                    'create_project_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1801,7 +1858,7 @@ class ProjectsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'custom_attribute_post_model',
+                    'create_projects_attribute_request',
                 ],
                 'required': [
                     'id',
@@ -1821,15 +1878,15 @@ class ProjectsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'custom_attribute_post_model':
-                        (CustomAttributePostModel,),
+                    'create_projects_attribute_request':
+                        (CreateProjectsAttributeRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'custom_attribute_post_model': 'body',
+                    'create_projects_attribute_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2075,7 +2132,7 @@ class ProjectsApi(object):
                 'all': [
                     'id',
                     'include_attachments',
-                    'project_export_query_model',
+                    'export_project_json_request',
                 ],
                 'required': [
                     'id',
@@ -2097,8 +2154,8 @@ class ProjectsApi(object):
                         (str,),
                     'include_attachments':
                         (bool,),
-                    'project_export_query_model':
-                        (ProjectExportQueryModel,),
+                    'export_project_json_request':
+                        (ExportProjectJsonRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -2107,7 +2164,7 @@ class ProjectsApi(object):
                 'location_map': {
                     'id': 'path',
                     'include_attachments': 'query',
-                    'project_export_query_model': 'body',
+                    'export_project_json_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2137,7 +2194,7 @@ class ProjectsApi(object):
                 'all': [
                     'id',
                     'time_zone_offset_in_minutes',
-                    'project_export_query_model',
+                    'export_project_json_request',
                 ],
                 'required': [
                     'id',
@@ -2159,8 +2216,8 @@ class ProjectsApi(object):
                         (str,),
                     'time_zone_offset_in_minutes':
                         (int,),
-                    'project_export_query_model':
-                        (ProjectExportQueryModel,),
+                    'export_project_json_request':
+                        (ExportProjectJsonRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -2169,7 +2226,7 @@ class ProjectsApi(object):
                 'location_map': {
                     'id': 'path',
                     'time_zone_offset_in_minutes': 'header',
-                    'project_export_query_model': 'body',
+                    'export_project_json_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2199,7 +2256,7 @@ class ProjectsApi(object):
                 'all': [
                     'id',
                     'time_zone_offset_in_minutes',
-                    'project_export_with_test_plans_post_model',
+                    'export_project_with_test_plans_json_request',
                 ],
                 'required': [
                     'id',
@@ -2221,8 +2278,8 @@ class ProjectsApi(object):
                         (str,),
                     'time_zone_offset_in_minutes':
                         (int,),
-                    'project_export_with_test_plans_post_model':
-                        (ProjectExportWithTestPlansPostModel,),
+                    'export_project_with_test_plans_json_request':
+                        (ExportProjectWithTestPlansJsonRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -2231,7 +2288,7 @@ class ProjectsApi(object):
                 'location_map': {
                     'id': 'path',
                     'time_zone_offset_in_minutes': 'header',
-                    'project_export_with_test_plans_post_model': 'body',
+                    'export_project_with_test_plans_json_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2261,7 +2318,7 @@ class ProjectsApi(object):
                 'all': [
                     'id',
                     'time_zone_offset_in_minutes',
-                    'project_export_with_test_plans_post_model',
+                    'export_project_with_test_plans_json_request',
                 ],
                 'required': [
                     'id',
@@ -2283,8 +2340,8 @@ class ProjectsApi(object):
                         (str,),
                     'time_zone_offset_in_minutes':
                         (int,),
-                    'project_export_with_test_plans_post_model':
-                        (ProjectExportWithTestPlansPostModel,),
+                    'export_project_with_test_plans_json_request':
+                        (ExportProjectWithTestPlansJsonRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -2293,7 +2350,7 @@ class ProjectsApi(object):
                 'location_map': {
                     'id': 'path',
                     'time_zone_offset_in_minutes': 'header',
-                    'project_export_with_test_plans_post_model': 'body',
+                    'export_project_with_test_plans_json_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2323,7 +2380,7 @@ class ProjectsApi(object):
                 'all': [
                     'id',
                     'time_zone_offset_in_minutes',
-                    'project_export_query_model',
+                    'export_project_json_request',
                 ],
                 'required': [
                     'id',
@@ -2345,8 +2402,8 @@ class ProjectsApi(object):
                         (str,),
                     'time_zone_offset_in_minutes':
                         (int,),
-                    'project_export_query_model':
-                        (ProjectExportQueryModel,),
+                    'export_project_json_request':
+                        (ExportProjectJsonRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -2355,7 +2412,7 @@ class ProjectsApi(object):
                 'location_map': {
                     'id': 'path',
                     'time_zone_offset_in_minutes': 'header',
-                    'project_export_query_model': 'body',
+                    'export_project_json_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2385,7 +2442,7 @@ class ProjectsApi(object):
                 'all': [
                     'id',
                     'include_attachments',
-                    'project_export_with_test_plans_post_model',
+                    'export_project_with_test_plans_json_request',
                 ],
                 'required': [
                     'id',
@@ -2407,8 +2464,8 @@ class ProjectsApi(object):
                         (str,),
                     'include_attachments':
                         (bool,),
-                    'project_export_with_test_plans_post_model':
-                        (ProjectExportWithTestPlansPostModel,),
+                    'export_project_with_test_plans_json_request':
+                        (ExportProjectWithTestPlansJsonRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -2417,7 +2474,7 @@ class ProjectsApi(object):
                 'location_map': {
                     'id': 'path',
                     'include_attachments': 'query',
-                    'project_export_with_test_plans_post_model': 'body',
+                    'export_project_with_test_plans_json_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2603,7 +2660,7 @@ class ProjectsApi(object):
                     'id':
                         (str,),
                     'is_deleted':
-                        (DeletionState,),
+                        (bool, date, datetime, dict, float, int, list, str, none_type,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -3296,7 +3353,7 @@ class ProjectsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'project_attributes_filter_model',
+                    'search_attributes_in_project_request',
                 ],
                 'required': [
                     'id',
@@ -3326,8 +3383,8 @@ class ProjectsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'project_attributes_filter_model':
-                        (ProjectAttributesFilterModel,),
+                    'search_attributes_in_project_request':
+                        (SearchAttributesInProjectRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -3344,7 +3401,7 @@ class ProjectsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'project_attributes_filter_model': 'body',
+                    'search_attributes_in_project_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -3378,7 +3435,7 @@ class ProjectsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'project_attributes_filter_model',
+                    'search_attributes_in_project_request',
                 ],
                 'required': [
                     'id',
@@ -3408,8 +3465,8 @@ class ProjectsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'project_attributes_filter_model':
-                        (ProjectAttributesFilterModel,),
+                    'search_attributes_in_project_request':
+                        (SearchAttributesInProjectRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -3426,7 +3483,7 @@ class ProjectsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'project_attributes_filter_model': 'body',
+                    'search_attributes_in_project_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -3455,7 +3512,7 @@ class ProjectsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'custom_attribute_test_plan_project_relation_put_model',
+                    'update_custom_attribute_test_plan_project_relations_request',
                 ],
                 'required': [
                     'id',
@@ -3475,15 +3532,15 @@ class ProjectsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'custom_attribute_test_plan_project_relation_put_model':
-                        (CustomAttributeTestPlanProjectRelationPutModel,),
+                    'update_custom_attribute_test_plan_project_relations_request':
+                        (UpdateCustomAttributeTestPlanProjectRelationsRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'custom_attribute_test_plan_project_relation_put_model': 'body',
+                    'update_custom_attribute_test_plan_project_relations_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -3511,7 +3568,7 @@ class ProjectsApi(object):
             },
             params_map={
                 'all': [
-                    'project_put_model',
+                    'update_project_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -3527,13 +3584,13 @@ class ProjectsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'project_put_model':
-                        (ProjectPutModel,),
+                    'update_project_request':
+                        (UpdateProjectRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'project_put_model': 'body',
+                    'update_project_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -3562,7 +3619,7 @@ class ProjectsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'custom_attribute_put_model',
+                    'update_projects_attribute_request',
                 ],
                 'required': [
                     'id',
@@ -3582,15 +3639,15 @@ class ProjectsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'custom_attribute_put_model':
-                        (CustomAttributePutModel,),
+                    'update_projects_attribute_request':
+                        (UpdateProjectsAttributeRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'custom_attribute_put_model': 'body',
+                    'update_projects_attribute_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -3712,7 +3769,7 @@ class ProjectsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            project_custom_attributes_templates_filter_model (ProjectCustomAttributesTemplatesFilterModel): [optional]
+            api_v2_projects_id_attributes_templates_search_post_request (ApiV2ProjectsIdAttributesTemplatesSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -4392,7 +4449,7 @@ class ProjectsApi(object):
             id (str): Unique or global ID of the project
 
         Keyword Args:
-            project_test_plans_filter_model (ProjectTestPlansFilterModel): [optional]
+            api_v2_projects_id_test_plans_delete_bulk_post_request (ApiV2ProjectsIdTestPlansDeleteBulkPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -4545,6 +4602,89 @@ class ProjectsApi(object):
             name
         return self.api_v2_projects_id_test_plans_name_exists_get_endpoint.call_with_http_info(**kwargs)
 
+    def api_v2_projects_id_test_plans_purge_bulk_post(
+        self,
+        id,
+        **kwargs
+    ):
+        """Permanently delete multiple archived test plans  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_id_test_plans_purge_bulk_post(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Unique or global ID of the project
+
+        Keyword Args:
+            api_v2_projects_id_test_plans_delete_bulk_post_request (ApiV2ProjectsIdTestPlansDeleteBulkPostRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.api_v2_projects_id_test_plans_purge_bulk_post_endpoint.call_with_http_info(**kwargs)
+
     def api_v2_projects_id_test_plans_restore_bulk_post(
         self,
         id,
@@ -4562,7 +4702,7 @@ class ProjectsApi(object):
             id (str): Unique or global ID of the project
 
         Keyword Args:
-            project_test_plans_filter_model (ProjectTestPlansFilterModel): [optional]
+            api_v2_projects_id_test_plans_delete_bulk_post_request (ApiV2ProjectsIdTestPlansDeleteBulkPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -4652,7 +4792,7 @@ class ProjectsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            project_test_plans_filter_model (ProjectTestPlansFilterModel): [optional]
+            api_v2_projects_id_test_plans_search_post_request (ApiV2ProjectsIdTestPlansSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -4920,7 +5060,7 @@ class ProjectsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            work_item_select_model (WorkItemSelectModel): [optional]
+            api_v2_projects_id_work_items_search_post_request (ApiV2ProjectsIdWorkItemsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5008,7 +5148,7 @@ class ProjectsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            work_item_select_model (WorkItemSelectModel): [optional]
+            api_v2_projects_id_work_items_search_post_request (ApiV2ProjectsIdWorkItemsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5259,7 +5399,7 @@ class ProjectsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            projects_filter_model (ProjectsFilterModel): [optional]
+            api_v2_projects_search_post_request (ApiV2ProjectsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5824,7 +5964,7 @@ class ProjectsApi(object):
 
 
         Keyword Args:
-            project_post_model (ProjectPostModel): [optional]
+            create_project_request (CreateProjectRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5906,7 +6046,7 @@ class ProjectsApi(object):
             id (str): Project internal (UUID) or global (integer) identifier
 
         Keyword Args:
-            custom_attribute_post_model (CustomAttributePostModel): [optional]
+            create_projects_attribute_request (CreateProjectsAttributeRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6331,7 +6471,7 @@ class ProjectsApi(object):
 
         Keyword Args:
             include_attachments (bool): Enables attachment export.. [optional] if omitted the server will use the default value of False
-            project_export_query_model (ProjectExportQueryModel): [optional]
+            export_project_json_request (ExportProjectJsonRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6415,7 +6555,7 @@ class ProjectsApi(object):
 
         Keyword Args:
             time_zone_offset_in_minutes (int): [optional]
-            project_export_query_model (ProjectExportQueryModel): [optional]
+            export_project_json_request (ExportProjectJsonRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6499,7 +6639,7 @@ class ProjectsApi(object):
 
         Keyword Args:
             time_zone_offset_in_minutes (int): [optional]
-            project_export_with_test_plans_post_model (ProjectExportWithTestPlansPostModel): [optional]
+            export_project_with_test_plans_json_request (ExportProjectWithTestPlansJsonRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6583,7 +6723,7 @@ class ProjectsApi(object):
 
         Keyword Args:
             time_zone_offset_in_minutes (int): [optional]
-            project_export_with_test_plans_post_model (ProjectExportWithTestPlansPostModel): [optional]
+            export_project_with_test_plans_json_request (ExportProjectWithTestPlansJsonRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6667,7 +6807,7 @@ class ProjectsApi(object):
 
         Keyword Args:
             time_zone_offset_in_minutes (int): [optional]
-            project_export_query_model (ProjectExportQueryModel): [optional]
+            export_project_json_request (ExportProjectJsonRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6752,7 +6892,7 @@ class ProjectsApi(object):
 
         Keyword Args:
             include_attachments (bool): Enables attachment export.. [optional] if omitted the server will use the default value of False
-            project_export_with_test_plans_post_model (ProjectExportWithTestPlansPostModel): [optional]
+            export_project_with_test_plans_json_request (ExportProjectWithTestPlansJsonRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -7008,7 +7148,7 @@ class ProjectsApi(object):
             id (str): Project internal (UUID) or global (integer) identifier
 
         Keyword Args:
-            is_deleted (DeletionState): [optional]
+            is_deleted (bool, date, datetime, dict, float, int, list, str, none_type): [optional] if omitted the server will use the default value of NotDeleted
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -7954,7 +8094,7 @@ class ProjectsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            project_attributes_filter_model (ProjectAttributesFilterModel): [optional]
+            search_attributes_in_project_request (SearchAttributesInProjectRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -8042,7 +8182,7 @@ class ProjectsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            project_attributes_filter_model (ProjectAttributesFilterModel): [optional]
+            search_attributes_in_project_request (SearchAttributesInProjectRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -8126,7 +8266,7 @@ class ProjectsApi(object):
             id (str): Project internal (UUID) or global (integer) identifier
 
         Keyword Args:
-            custom_attribute_test_plan_project_relation_put_model (CustomAttributeTestPlanProjectRelationPutModel): [optional]
+            update_custom_attribute_test_plan_project_relations_request (UpdateCustomAttributeTestPlanProjectRelationsRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -8207,7 +8347,7 @@ class ProjectsApi(object):
 
 
         Keyword Args:
-            project_put_model (ProjectPutModel): [optional]
+            update_project_request (UpdateProjectRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -8288,7 +8428,7 @@ class ProjectsApi(object):
             id (str): Unique or global project ID
 
         Keyword Args:
-            custom_attribute_put_model (CustomAttributePutModel): [optional]
+            update_projects_attribute_request (UpdateProjectsAttributeRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

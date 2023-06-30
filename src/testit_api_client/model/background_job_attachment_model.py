@@ -76,8 +76,8 @@ class BackgroundJobAttachmentModel(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'type': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -133,8 +133,8 @@ class BackgroundJobAttachmentModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            type (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,8 +221,8 @@ class BackgroundJobAttachmentModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            type (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -83,6 +83,7 @@ class TestSuiteV2PutModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'auto_refresh': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -95,6 +96,7 @@ class TestSuiteV2PutModel(ModelNormal):
         'name': 'name',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'auto_refresh': 'autoRefresh',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,6 +146,7 @@ class TestSuiteV2PutModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             parent_id (str, none_type): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
+            auto_refresh (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,6 +240,7 @@ class TestSuiteV2PutModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             parent_id (str, none_type): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
+            auto_refresh (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

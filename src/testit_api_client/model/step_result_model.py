@@ -31,9 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.shared_step_result_model import SharedStepResultModel
-    from testit_api_client.model.step_comment_model import StepCommentModel
+    from testit_api_client.model.step_result_model_comment import StepResultModelComment
     globals()['SharedStepResultModel'] = SharedStepResultModel
-    globals()['StepCommentModel'] = StepCommentModel
+    globals()['StepResultModelComment'] = StepResultModelComment
 
 
 class StepResultModel(ModelNormal):
@@ -83,10 +83,10 @@ class StepResultModel(ModelNormal):
         lazy_import()
         return {
             'step_id': (str,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (str,),  # noqa: E501
             'shared_step_version_id': (str, none_type,),  # noqa: E501
             'shared_step_results': ([SharedStepResultModel], none_type,),  # noqa: E501
-            'comment': (StepCommentModel,),  # noqa: E501
+            'comment': (StepResultModelComment,),  # noqa: E501
         }
 
     @cached_property
@@ -144,10 +144,10 @@ class StepResultModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             step_id (str): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
             shared_step_version_id (str, none_type): [optional]  # noqa: E501
             shared_step_results ([SharedStepResultModel], none_type): [optional]  # noqa: E501
-            comment (StepCommentModel): [optional]  # noqa: E501
+            comment (StepResultModelComment): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,10 +234,10 @@ class StepResultModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             step_id (str): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
             shared_step_version_id (str, none_type): [optional]  # noqa: E501
             shared_step_results ([SharedStepResultModel], none_type): [optional]  # noqa: E501
-            comment (StepCommentModel): [optional]  # noqa: E501
+            comment (StepResultModelComment): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

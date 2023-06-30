@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**name** | **str, none_type** |  | [optional] 
+**name** | **str** |  | [optional] 
 **has_this_shared_step_as_precondition** | **bool** |  | [optional] 
 **has_this_shared_step_as_postcondition** | **bool** |  | [optional] 
 **created_by_id** | **str** |  | [optional] 

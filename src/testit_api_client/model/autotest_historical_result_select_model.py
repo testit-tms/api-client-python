@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.autotest_historical_result_select_model_duration import AutotestHistoricalResultSelectModelDuration
     from testit_api_client.model.autotest_result_outcome import AutotestResultOutcome
-    from testit_api_client.model.int64_range_selector_model import Int64RangeSelectorModel
+    globals()['AutotestHistoricalResultSelectModelDuration'] = AutotestHistoricalResultSelectModelDuration
     globals()['AutotestResultOutcome'] = AutotestResultOutcome
-    globals()['Int64RangeSelectorModel'] = Int64RangeSelectorModel
 
 
 class AutotestHistoricalResultSelectModel(ModelNormal):
@@ -102,7 +102,7 @@ class AutotestHistoricalResultSelectModel(ModelNormal):
             'configuration_ids': ([str], none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
             'user_ids': ([str], none_type,),  # noqa: E501
-            'duration': (Int64RangeSelectorModel,),  # noqa: E501
+            'duration': (AutotestHistoricalResultSelectModelDuration,),  # noqa: E501
         }
 
     @cached_property
@@ -167,7 +167,7 @@ class AutotestHistoricalResultSelectModel(ModelNormal):
             configuration_ids ([str], none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
             user_ids ([str], none_type): [optional]  # noqa: E501
-            duration (Int64RangeSelectorModel): [optional]  # noqa: E501
+            duration (AutotestHistoricalResultSelectModelDuration): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,7 +259,7 @@ class AutotestHistoricalResultSelectModel(ModelNormal):
             configuration_ids ([str], none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
             user_ids ([str], none_type): [optional]  # noqa: E501
-            duration (Int64RangeSelectorModel): [optional]  # noqa: E501
+            duration (AutotestHistoricalResultSelectModelDuration): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

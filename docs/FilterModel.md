@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **modified_date** | **datetime, none_type** |  | [optional] 
 **created_by_id** | **str** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
-**data** | [**WorkItemSearchQueryModel**](WorkItemSearchQueryModel.md) |  | [optional] 
+**data** | [**FilterModelData**](FilterModelData.md) |  | [optional] 
 **project_id** | **str** |  | [optional] 
 **fields_to_show** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
-**name** | **str, none_type** |  | [optional] 
+**name** | **str** |  | [optional] 
 **id** | **str** | Unique ID of the entity | [optional] 
 **is_deleted** | **bool** | Indicates if the entity is deleted | [optional] 
 

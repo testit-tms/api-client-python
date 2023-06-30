@@ -75,9 +75,9 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'type': (str, none_type,),  # noqa: E501
-            'old_attribute_name': (str, none_type,),  # noqa: E501
-            'new_attribute_name': (str, none_type,),  # noqa: E501
+            'type': (str,),  # noqa: E501
+            'old_attribute_name': (str,),  # noqa: E501
+            'new_attribute_name': (str,),  # noqa: E501
             'old_value': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'new_value': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
@@ -136,9 +136,9 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type (str, none_type): [optional]  # noqa: E501
-            old_attribute_name (str, none_type): [optional]  # noqa: E501
-            new_attribute_name (str, none_type): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
+            old_attribute_name (str): [optional]  # noqa: E501
+            new_attribute_name (str): [optional]  # noqa: E501
             old_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             new_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
@@ -226,9 +226,9 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type (str, none_type): [optional]  # noqa: E501
-            old_attribute_name (str, none_type): [optional]  # noqa: E501
-            new_attribute_name (str, none_type): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
+            old_attribute_name (str): [optional]  # noqa: E501
+            new_attribute_name (str): [optional]  # noqa: E501
             old_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             new_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """

@@ -82,7 +82,7 @@ class ProjectModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'is_favorite': (bool,),  # noqa: E501
             'attributes_scheme': ([CustomAttributeModel], none_type,),  # noqa: E501
             'test_plans_attributes_scheme': ([CustomAttributeModel], none_type,),  # noqa: E501
@@ -165,7 +165,7 @@ class ProjectModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the project. [optional]  # noqa: E501
             description (str, none_type): Description of the project. [optional]  # noqa: E501
-            name (str, none_type): Name of the project. [optional]  # noqa: E501
+            name (str): Name of the project. [optional]  # noqa: E501
             is_favorite (bool): Indicates if the project is marked as favorite. [optional]  # noqa: E501
             attributes_scheme ([CustomAttributeModel], none_type): Collection of the project attributes. [optional]  # noqa: E501
             test_plans_attributes_scheme ([CustomAttributeModel], none_type): Collection of the project test plans attributes. [optional]  # noqa: E501
@@ -266,7 +266,7 @@ class ProjectModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the project. [optional]  # noqa: E501
             description (str, none_type): Description of the project. [optional]  # noqa: E501
-            name (str, none_type): Name of the project. [optional]  # noqa: E501
+            name (str): Name of the project. [optional]  # noqa: E501
             is_favorite (bool): Indicates if the project is marked as favorite. [optional]  # noqa: E501
             attributes_scheme ([CustomAttributeModel], none_type): Collection of the project attributes. [optional]  # noqa: E501
             test_plans_attributes_scheme ([CustomAttributeModel], none_type): Collection of the project test plans attributes. [optional]  # noqa: E501

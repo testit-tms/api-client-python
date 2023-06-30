@@ -21,13 +21,12 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.api_v2_test_results_id_get_request import ApiV2TestResultsIdGetRequest
+from testit_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
 from testit_api_client.model.attachment_model import AttachmentModel
-from testit_api_client.model.image_resize_type import ImageResizeType
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_result_model import TestResultModel
 from testit_api_client.model.test_result_short_get_model import TestResultShortGetModel
-from testit_api_client.model.test_result_update_model import TestResultUpdateModel
-from testit_api_client.model.test_results_filter_model import TestResultsFilterModel
 from testit_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -267,7 +266,7 @@ class TestResultsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'test_result_update_model',
+                    'api_v2_test_results_id_get_request',
                 ],
                 'required': [
                     'id',
@@ -287,15 +286,15 @@ class TestResultsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'test_result_update_model':
-                        (TestResultUpdateModel,),
+                    'api_v2_test_results_id_get_request':
+                        (ApiV2TestResultsIdGetRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'test_result_update_model': 'body',
+                    'api_v2_test_results_id_get_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -328,7 +327,7 @@ class TestResultsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'test_results_filter_model',
+                    'api_v2_test_results_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -354,8 +353,8 @@ class TestResultsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'test_results_filter_model':
-                        (TestResultsFilterModel,),
+                    'api_v2_test_results_search_post_request':
+                        (ApiV2TestResultsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -370,7 +369,7 @@ class TestResultsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'test_results_filter_model': 'body',
+                    'api_v2_test_results_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -398,7 +397,7 @@ class TestResultsApi(object):
             },
             params_map={
                 'all': [
-                    'test_results_filter_model',
+                    'api_v2_test_results_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -414,13 +413,13 @@ class TestResultsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'test_results_filter_model':
-                        (TestResultsFilterModel,),
+                    'api_v2_test_results_search_post_request':
+                        (ApiV2TestResultsSearchPostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'test_results_filter_model': 'body',
+                    'api_v2_test_results_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -617,7 +616,7 @@ class TestResultsApi(object):
                     'height':
                         (int,),
                     'resize_type':
-                        (ImageResizeType,),
+                        (bool, date, datetime, dict, float, int, list, str, none_type,),
                     'background_color':
                         (str,),
                     'preview':
@@ -1110,7 +1109,7 @@ class TestResultsApi(object):
             id (str): Test result unique ID
 
         Keyword Args:
-            test_result_update_model (TestResultUpdateModel): [optional]
+            api_v2_test_results_id_get_request (ApiV2TestResultsIdGetRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1195,7 +1194,7 @@ class TestResultsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            test_results_filter_model (TestResultsFilterModel): [optional]
+            api_v2_test_results_search_post_request (ApiV2TestResultsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1273,7 +1272,7 @@ class TestResultsApi(object):
 
 
         Keyword Args:
-            test_results_filter_model (TestResultsFilterModel): [optional]
+            api_v2_test_results_search_post_request (ApiV2TestResultsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1530,7 +1529,7 @@ class TestResultsApi(object):
         Keyword Args:
             width (int): Width of the result image. [optional]
             height (int): Height of the result image. [optional]
-            resize_type (ImageResizeType): Type of resizing to apply to the result image. [optional]
+            resize_type (bool, date, datetime, dict, float, int, list, str, none_type): Type of resizing to apply to the result image. [optional]
             background_color (str): Color of the background if the `resizeType` is `AddBackgroundStripes`. [optional]
             preview (bool): If image must be converted to a preview (lower quality, no animation). [optional]
             _return_http_data_only (bool): response data without head status

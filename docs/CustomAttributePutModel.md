@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) |  | 
+**type** | **bool, date, datetime, dict, float, int, list, str, none_type** | Type of the attribute | 
 **name** | **str** | Name of the attribute | 
 **id** | **str** | Unique ID of the attribute | [optional] 
 **options** | [**[CustomAttributeOptionModel], none_type**](CustomAttributeOptionModel.md) | Collection of the attribute options  &lt;br /&gt;  Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 

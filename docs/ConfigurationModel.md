@@ -5,9 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str, none_type** |  | [optional] 
-**is_active** | **bool** |  | [optional] 
-**capabilities** | **{str: (str, none_type)}, none_type** |  | [optional] 
-**parameters** | **{str: (str, none_type)}, none_type** |  | [optional] 
+**parameters** | **{str: (str,)}, none_type** |  | [optional] 
 **project_id** | **str** | This property is used to link configuration with project | [optional] 
 **is_default** | **bool** |  | [optional] 
 **name** | **str, none_type** |  | [optional] 

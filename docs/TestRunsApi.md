@@ -34,8 +34,8 @@ Search for the test run test results and build statistics
 import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
-from testit_api_client.model.test_results_local_filter_model import TestResultsLocalFilterModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_runs_id_statistics_filter_post_request import ApiV2TestRunsIdStatisticsFilterPostRequest
 from testit_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -60,19 +60,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "id_example" # str | Test run unique ID
-    test_results_local_filter_model = TestResultsLocalFilterModel(
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        outcomes=[
-            TestResultOutcome("InProgress"),
-        ],
-        failure_categories=[
-            FailureCategoryModel("InfrastructureDefect"),
-        ],
-        namespace="namespace_example",
-        class_name="class_name_example",
-    ) # TestResultsLocalFilterModel |  (optional)
+    api_v2_test_runs_id_statistics_filter_post_request = ApiV2TestRunsIdStatisticsFilterPostRequest(None) # ApiV2TestRunsIdStatisticsFilterPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -86,7 +74,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search for the test run test results and build statistics
-        api_response = api_instance.api_v2_test_runs_id_statistics_filter_post(id, test_results_local_filter_model=test_results_local_filter_model)
+        api_response = api_instance.api_v2_test_runs_id_statistics_filter_post(id, api_v2_test_runs_id_statistics_filter_post_request=api_v2_test_runs_id_statistics_filter_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_id_statistics_filter_post: %s\n" % e)
@@ -98,7 +86,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run unique ID |
- **test_results_local_filter_model** | [**TestResultsLocalFilterModel**](TestResultsLocalFilterModel.md)|  | [optional]
+ **api_v2_test_runs_id_statistics_filter_post_request** | [**ApiV2TestRunsIdStatisticsFilterPostRequest**](ApiV2TestRunsIdStatisticsFilterPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -118,8 +106,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test runs is required |  -  |
 **200** | Success |  -  |
+**403** | Read permission for test runs is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -214,8 +202,8 @@ Partial edit of multiple test results in the test run
 import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
+from testit_api_client.model.api_v2_test_runs_id_test_results_bulk_put_request import ApiV2TestRunsIdTestResultsBulkPutRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_run_test_results_partial_bulk_set_model import TestRunTestResultsPartialBulkSetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -239,47 +227,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "id_example" # str | Test run unique ID
-    test_run_test_results_partial_bulk_set_model = TestRunTestResultsPartialBulkSetModel(
-        selector=TestRunTestResultsSelectModel(
-            filter=TestResultsLocalFilterModel(
-                configuration_ids=[
-                    "configuration_ids_example",
-                ],
-                outcomes=[
-                    TestResultOutcome("InProgress"),
-                ],
-                failure_categories=[
-                    FailureCategoryModel("InfrastructureDefect"),
-                ],
-                namespace="namespace_example",
-                class_name="class_name_example",
-            ),
-            test_result_ids_extraction_model=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-        ),
-        result_reason_ids=[
-            "result_reason_ids_example",
-        ],
-        links=[
-            LinkPostModel(
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=LinkType("Related"),
-                has_info=True,
-            ),
-        ],
-        comment="comment_example",
-        attachment_ids=[
-            "attachment_ids_example",
-        ],
-    ) # TestRunTestResultsPartialBulkSetModel |  (optional)
+    api_v2_test_runs_id_test_results_bulk_put_request = ApiV2TestRunsIdTestResultsBulkPutRequest(None) # ApiV2TestRunsIdTestResultsBulkPutRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -292,7 +240,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Partial edit of multiple test results in the test run
-        api_instance.api_v2_test_runs_id_test_results_bulk_put(id, test_run_test_results_partial_bulk_set_model=test_run_test_results_partial_bulk_set_model)
+        api_instance.api_v2_test_runs_id_test_results_bulk_put(id, api_v2_test_runs_id_test_results_bulk_put_request=api_v2_test_runs_id_test_results_bulk_put_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_id_test_results_bulk_put: %s\n" % e)
 ```
@@ -303,7 +251,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run unique ID |
- **test_run_test_results_partial_bulk_set_model** | [**TestRunTestResultsPartialBulkSetModel**](TestRunTestResultsPartialBulkSetModel.md)|  | [optional]
+ **api_v2_test_runs_id_test_results_bulk_put_request** | [**ApiV2TestRunsIdTestResultsBulkPutRequest**](ApiV2TestRunsIdTestResultsBulkPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -323,8 +271,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for test runs is required |  -  |
 **204** | No Content |  -  |
+**403** | Update permission for test runs is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -419,8 +367,8 @@ import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
 from testit_api_client.model.test_run_short_get_model import TestRunShortGetModel
-from testit_api_client.model.test_run_filter_model import TestRunFilterModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_runs_search_post_request import ApiV2TestRunsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -448,28 +396,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    test_run_filter_model = TestRunFilterModel(
-        project_ids=[
-            "project_ids_example",
-        ],
-        states=[
-            TestRunState("NotStarted"),
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        modified_by_ids=[
-            "modified_by_ids_example",
-        ],
-        is_deleted=True,
-    ) # TestRunFilterModel |  (optional)
+    api_v2_test_runs_search_post_request = ApiV2TestRunsSearchPostRequest(None) # ApiV2TestRunsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for test runs
-        api_response = api_instance.api_v2_test_runs_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_run_filter_model=test_run_filter_model)
+        api_response = api_instance.api_v2_test_runs_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_test_runs_search_post_request=api_v2_test_runs_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_search_post: %s\n" % e)
@@ -485,7 +418,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **test_run_filter_model** | [**TestRunFilterModel**](TestRunFilterModel.md)|  | [optional]
+ **api_v2_test_runs_search_post_request** | [**ApiV2TestRunsSearchPostRequest**](ApiV2TestRunsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -584,11 +517,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for test result required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 **204** | Successful operation |  -  |
 **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test result required |  -  |
+**404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -607,10 +540,10 @@ This method creates a test run based on an autotest and a configuration.  The di
 import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
-from testit_api_client.model.test_run_fill_by_auto_tests_post_model import TestRunFillByAutoTestsPostModel
 from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.create_and_fill_by_auto_tests_request import CreateAndFillByAutoTestsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -633,24 +566,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_fill_by_auto_tests_post_model = TestRunFillByAutoTestsPostModel(
-        project_id="project_id_example",
-        name="name_example",
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        auto_test_external_ids=[
-            "auto_test_external_ids_example",
-        ],
-        description="description_example",
-        launch_source="launch_source_example",
-    ) # TestRunFillByAutoTestsPostModel |  (optional)
+    create_and_fill_by_auto_tests_request = CreateAndFillByAutoTestsRequest(None) # CreateAndFillByAutoTestsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create test runs based on autotests and configurations
-        api_response = api_instance.create_and_fill_by_auto_tests(test_run_fill_by_auto_tests_post_model=test_run_fill_by_auto_tests_post_model)
+        api_response = api_instance.create_and_fill_by_auto_tests(create_and_fill_by_auto_tests_request=create_and_fill_by_auto_tests_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->create_and_fill_by_auto_tests: %s\n" % e)
@@ -661,7 +583,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_fill_by_auto_tests_post_model** | [**TestRunFillByAutoTestsPostModel**](TestRunFillByAutoTestsPostModel.md)|  | [optional]
+ **create_and_fill_by_auto_tests_request** | [**CreateAndFillByAutoTestsRequest**](CreateAndFillByAutoTestsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -681,11 +603,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Some autotests do not exist |  -  |
 **201** | Created |  -  |
 **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Configuration does not exist in the project  &lt;br&gt;- Autotest does not exist in the project  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Autotest external IDs are required  &lt;br&gt;- Configuration IDs are required |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test results is required |  -  |
+**404** | Some autotests do not exist |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -704,9 +626,9 @@ This method creates a test run based on a combination of a configuration and a w
 import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
-from testit_api_client.model.test_run_fill_by_configurations_post_model import TestRunFillByConfigurationsPostModel
 from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.create_and_fill_by_configurations_request import CreateAndFillByConfigurationsRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -730,27 +652,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_fill_by_configurations_post_model = TestRunFillByConfigurationsPostModel(
-        test_point_selectors=[
-            TestPointSelector(
-                configuration_id="configuration_id_example",
-                work_item_ids=[
-                    "work_item_ids_example",
-                ],
-            ),
-        ],
-        project_id="project_id_example",
-        test_plan_id="test_plan_id_example",
-        name="name_example",
-        description="description_example",
-        launch_source="launch_source_example",
-    ) # TestRunFillByConfigurationsPostModel |  (optional)
+    create_and_fill_by_configurations_request = CreateAndFillByConfigurationsRequest(None) # CreateAndFillByConfigurationsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create test runs picking the needed test points
-        api_response = api_instance.create_and_fill_by_configurations(test_run_fill_by_configurations_post_model=test_run_fill_by_configurations_post_model)
+        api_response = api_instance.create_and_fill_by_configurations(create_and_fill_by_configurations_request=create_and_fill_by_configurations_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->create_and_fill_by_configurations: %s\n" % e)
@@ -761,7 +669,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_fill_by_configurations_post_model** | [**TestRunFillByConfigurationsPostModel**](TestRunFillByConfigurationsPostModel.md)|  | [optional]
+ **create_and_fill_by_configurations_request** | [**CreateAndFillByConfigurationsRequest**](CreateAndFillByConfigurationsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -782,9 +690,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**403** | Update permission for test results is required |  -  |
 **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Test run cannot be created with deleted test points  &lt;br&gt;- Test run cannot be created in deleted test suite  &lt;br&gt;- Test run cannot be created with non-automated test point  &lt;br&gt;- Test run must be automated  &lt;br&gt;- Some work items do not exist  &lt;br&gt;- Project ID is invalid  &lt;br&gt;- Test point selectors are required  &lt;br&gt;- Some work item IDs are invalid  &lt;br&gt;- Some configuration IDs are invalid |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test results is required |  -  |
 **404** | Some test points do not exists |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -806,7 +714,7 @@ import testit_api_client
 from testit_api_client.api import test_runs_api
 from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_run_fill_by_work_items_post_model import TestRunFillByWorkItemsPostModel
+from testit_api_client.model.create_and_fill_by_work_items_request import CreateAndFillByWorkItemsRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -830,25 +738,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_fill_by_work_items_post_model = TestRunFillByWorkItemsPostModel(
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        work_item_ids=[
-            "work_item_ids_example",
-        ],
-        project_id="project_id_example",
-        test_plan_id="test_plan_id_example",
-        name="name_example",
-        description="description_example",
-        launch_source="launch_source_example",
-    ) # TestRunFillByWorkItemsPostModel |  (optional)
+    create_and_fill_by_work_items_request = CreateAndFillByWorkItemsRequest(None) # CreateAndFillByWorkItemsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create test run based on configurations and work items
-        api_response = api_instance.create_and_fill_by_work_items(test_run_fill_by_work_items_post_model=test_run_fill_by_work_items_post_model)
+        api_response = api_instance.create_and_fill_by_work_items(create_and_fill_by_work_items_request=create_and_fill_by_work_items_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->create_and_fill_by_work_items: %s\n" % e)
@@ -859,7 +755,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_fill_by_work_items_post_model** | [**TestRunFillByWorkItemsPostModel**](TestRunFillByWorkItemsPostModel.md)|  | [optional]
+ **create_and_fill_by_work_items_request** | [**CreateAndFillByWorkItemsRequest**](CreateAndFillByWorkItemsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -904,8 +800,8 @@ import testit_api_client
 from testit_api_client.api import test_runs_api
 from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.create_empty_request import CreateEmptyRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.test_run_v2_post_short_model import TestRunV2PostShortModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -928,18 +824,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_v2_post_short_model = TestRunV2PostShortModel(
-        project_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        name="First run",
-        description="description_example",
-        launch_source="By user via API",
-    ) # TestRunV2PostShortModel |  (optional)
+    create_empty_request = CreateEmptyRequest(None) # CreateEmptyRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create empty TestRun
-        api_response = api_instance.create_empty(test_run_v2_post_short_model=test_run_v2_post_short_model)
+        api_response = api_instance.create_empty(create_empty_request=create_empty_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->create_empty: %s\n" % e)
@@ -950,7 +841,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_v2_post_short_model** | [**TestRunV2PostShortModel**](TestRunV2PostShortModel.md)|  | [optional]
+ **create_empty_request** | [**CreateEmptyRequest**](CreateEmptyRequest.md)|  | [optional]
 
 ### Return type
 
@@ -970,10 +861,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for test result required |  -  |
-**401** | TestRunTesterRequirement permission required |  -  |
 **201** | Successful operation |  -  |
 **400** | &lt;br&gt;Field is required  &lt;br&gt;TestRun must be automated  &lt;br&gt;ProjectId is not a valid! |  -  |
+**401** | TestRunTesterRequirement permission required |  -  |
+**403** | Update permission for test result required |  -  |
 **404** | Can&#39;t find a TestRun with id &#x3D; testRunId |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1053,10 +944,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for test result required |  -  |
 **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
-**401** | Unauthorized |  -  |
-**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1109,7 +1000,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     title="title_example",
                     url="url_example",
                     description="description_example",
-                    type=LinkType("Related"),
+                    type=None,
                     has_info=True,
                 ),
             ],
@@ -1117,7 +1008,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
                 FailureCategoryModel("InfrastructureDefect"),
             ],
             auto_test_external_id="auto_test_external_id_example",
-            outcome=AvailableTestResultOutcome("Passed"),
+            outcome=None,
             message="message_example",
             traces="traces_example",
             started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
@@ -1142,7 +1033,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     duration=0,
-                    outcome=AvailableTestResultOutcome("Passed"),
+                    outcome=None,
                     step_results=[
                         AttachmentPutModelAutoTestStepResultsModel(),
                     ],
@@ -1164,7 +1055,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     duration=0,
-                    outcome=AvailableTestResultOutcome("Passed"),
+                    outcome=None,
                     step_results=[
                         AttachmentPutModelAutoTestStepResultsModel(),
                     ],
@@ -1186,7 +1077,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     duration=0,
-                    outcome=AvailableTestResultOutcome("Passed"),
+                    outcome=None,
                     step_results=[
                         AttachmentPutModelAutoTestStepResultsModel(),
                     ],
@@ -1247,12 +1138,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found |  -  |
 **200** | Successful operation |  -  |
-**422** | &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found |  -  |
 **400** | &lt;br&gt;- Field is required  &lt;br&gt;- Body is invalid  &lt;br&gt;- Test points are required  &lt;br&gt;- Duration must be a positive number  &lt;br&gt;- Outcome is not defined  &lt;br&gt;- Test run is stopped |  -  |
-**403** | Update permission for test results is required |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test results is required |  -  |
+**404** | &lt;br&gt;- Test run with provided ID was not found  &lt;br&gt;- Test point was not found  &lt;br&gt;- Autotest with provided external ID was not found |  -  |
+**422** | &lt;br&gt;- Configuration with provided ID was not found  &lt;br&gt;- Test points relevant to provided filters were not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1330,11 +1221,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for test result required |  -  |
-**400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 **204** | Successful operation |  -  |
+**400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already InProgress  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test result required |  -  |
+**404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1412,11 +1303,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 **204** | Successful operation |  -  |
 **400** | &lt;br&gt;Field is required  &lt;br&gt;the StateName is already Stopped  &lt;br&gt;the StateName is already Completed |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
+**404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1436,8 +1327,8 @@ import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.update_empty_request import UpdateEmptyRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.test_run_v2_put_model import TestRunV2PutModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1460,18 +1351,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_v2_put_model = TestRunV2PutModel(
-        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        name="First run",
-        description="description_example",
-        launch_source="By user via API",
-    ) # TestRunV2PutModel |  (optional)
+    update_empty_request = UpdateEmptyRequest(None) # UpdateEmptyRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update empty TestRun
-        api_instance.update_empty(test_run_v2_put_model=test_run_v2_put_model)
+        api_instance.update_empty(update_empty_request=update_empty_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->update_empty: %s\n" % e)
 ```
@@ -1481,7 +1367,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_v2_put_model** | [**TestRunV2PutModel**](TestRunV2PutModel.md)|  | [optional]
+ **update_empty_request** | [**UpdateEmptyRequest**](UpdateEmptyRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1501,11 +1387,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Successful operation |  -  |
+**400** | &lt;br&gt;Field is required  &lt;br&gt;Name is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Name is not valid |  -  |
 **404** | &lt;br&gt;Can&#39;t find a TestRun with id! |  -  |
-**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

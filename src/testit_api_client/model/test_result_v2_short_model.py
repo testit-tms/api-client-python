@@ -32,10 +32,10 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
     from testit_api_client.model.link_model import LinkModel
-    from testit_api_client.model.test_point_short_model import TestPointShortModel
+    from testit_api_client.model.test_point_related_to_test_result import TestPointRelatedToTestResult
     globals()['AttachmentModel'] = AttachmentModel
     globals()['LinkModel'] = LinkModel
-    globals()['TestPointShortModel'] = TestPointShortModel
+    globals()['TestPointRelatedToTestResult'] = TestPointRelatedToTestResult
 
 
 class TestResultV2ShortModel(ModelNormal):
@@ -95,14 +95,14 @@ class TestResultV2ShortModel(ModelNormal):
             'run_by_user_id': (str, none_type,),  # noqa: E501
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
             'test_point_id': (str, none_type,),  # noqa: E501
-            'test_point': (TestPointShortModel, none_type,),  # noqa: E501
+            'test_point': (TestPointRelatedToTestResult,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (str,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
-            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'properties': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
+            'properties': ({str: (str,)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -184,14 +184,14 @@ class TestResultV2ShortModel(ModelNormal):
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             test_point_id (str, none_type): [optional]  # noqa: E501
-            test_point (TestPointShortModel): [optional]  # noqa: E501
+            test_point (TestPointRelatedToTestResult): [optional]  # noqa: E501
             test_run_id (str): [optional]  # noqa: E501
-            outcome (str, none_type): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
+            outcome (str): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -288,14 +288,14 @@ class TestResultV2ShortModel(ModelNormal):
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             test_point_id (str, none_type): [optional]  # noqa: E501
-            test_point (TestPointShortModel): [optional]  # noqa: E501
+            test_point (TestPointRelatedToTestResult): [optional]  # noqa: E501
             test_run_id (str): [optional]  # noqa: E501
-            outcome (str, none_type): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
+            outcome (str): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

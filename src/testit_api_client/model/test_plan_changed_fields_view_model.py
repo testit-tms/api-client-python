@@ -30,24 +30,26 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.boolean_nullable_test_plan_changed_field_view_model import BooleanNullableTestPlanChangedFieldViewModel
-    from testit_api_client.model.boolean_test_plan_changed_field_view_model import BooleanTestPlanChangedFieldViewModel
     from testit_api_client.model.custom_attribute_change_model import CustomAttributeChangeModel
-    from testit_api_client.model.period_view_model_test_plan_changed_field_view_model import PeriodViewModelTestPlanChangedFieldViewModel
-    from testit_api_client.model.string_array_test_plan_changed_field_view_model import StringArrayTestPlanChangedFieldViewModel
-    from testit_api_client.model.string_test_plan_changed_field_view_model import StringTestPlanChangedFieldViewModel
-    from testit_api_client.model.test_point_change_view_model_test_plan_changed_field_view_model import TestPointChangeViewModelTestPlanChangedFieldViewModel
-    from testit_api_client.model.test_result_change_view_model_test_plan_changed_field_view_model import TestResultChangeViewModelTestPlanChangedFieldViewModel
-    from testit_api_client.model.test_suite_change_view_model_test_plan_changed_field_view_model import TestSuiteChangeViewModelTestPlanChangedFieldViewModel
-    globals()['BooleanNullableTestPlanChangedFieldViewModel'] = BooleanNullableTestPlanChangedFieldViewModel
-    globals()['BooleanTestPlanChangedFieldViewModel'] = BooleanTestPlanChangedFieldViewModel
+    from testit_api_client.model.test_plan_changed_fields_view_model_has_automatic_duration_timer import TestPlanChangedFieldsViewModelHasAutomaticDurationTimer
+    from testit_api_client.model.test_plan_changed_fields_view_model_locking import TestPlanChangedFieldsViewModelLocking
+    from testit_api_client.model.test_plan_changed_fields_view_model_name import TestPlanChangedFieldsViewModelName
+    from testit_api_client.model.test_plan_changed_fields_view_model_period import TestPlanChangedFieldsViewModelPeriod
+    from testit_api_client.model.test_plan_changed_fields_view_model_product_name import TestPlanChangedFieldsViewModelProductName
+    from testit_api_client.model.test_plan_changed_fields_view_model_tags import TestPlanChangedFieldsViewModelTags
+    from testit_api_client.model.test_plan_changed_fields_view_model_test_points import TestPlanChangedFieldsViewModelTestPoints
+    from testit_api_client.model.test_plan_changed_fields_view_model_test_results import TestPlanChangedFieldsViewModelTestResults
+    from testit_api_client.model.test_plan_changed_fields_view_model_test_suite import TestPlanChangedFieldsViewModelTestSuite
     globals()['CustomAttributeChangeModel'] = CustomAttributeChangeModel
-    globals()['PeriodViewModelTestPlanChangedFieldViewModel'] = PeriodViewModelTestPlanChangedFieldViewModel
-    globals()['StringArrayTestPlanChangedFieldViewModel'] = StringArrayTestPlanChangedFieldViewModel
-    globals()['StringTestPlanChangedFieldViewModel'] = StringTestPlanChangedFieldViewModel
-    globals()['TestPointChangeViewModelTestPlanChangedFieldViewModel'] = TestPointChangeViewModelTestPlanChangedFieldViewModel
-    globals()['TestResultChangeViewModelTestPlanChangedFieldViewModel'] = TestResultChangeViewModelTestPlanChangedFieldViewModel
-    globals()['TestSuiteChangeViewModelTestPlanChangedFieldViewModel'] = TestSuiteChangeViewModelTestPlanChangedFieldViewModel
+    globals()['TestPlanChangedFieldsViewModelHasAutomaticDurationTimer'] = TestPlanChangedFieldsViewModelHasAutomaticDurationTimer
+    globals()['TestPlanChangedFieldsViewModelLocking'] = TestPlanChangedFieldsViewModelLocking
+    globals()['TestPlanChangedFieldsViewModelName'] = TestPlanChangedFieldsViewModelName
+    globals()['TestPlanChangedFieldsViewModelPeriod'] = TestPlanChangedFieldsViewModelPeriod
+    globals()['TestPlanChangedFieldsViewModelProductName'] = TestPlanChangedFieldsViewModelProductName
+    globals()['TestPlanChangedFieldsViewModelTags'] = TestPlanChangedFieldsViewModelTags
+    globals()['TestPlanChangedFieldsViewModelTestPoints'] = TestPlanChangedFieldsViewModelTestPoints
+    globals()['TestPlanChangedFieldsViewModelTestResults'] = TestPlanChangedFieldsViewModelTestResults
+    globals()['TestPlanChangedFieldsViewModelTestSuite'] = TestPlanChangedFieldsViewModelTestSuite
 
 
 class TestPlanChangedFieldsViewModel(ModelNormal):
@@ -96,18 +98,18 @@ class TestPlanChangedFieldsViewModel(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'description': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'product_name': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'build': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'period': (PeriodViewModelTestPlanChangedFieldViewModel,),  # noqa: E501
-            'status': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'tags': (StringArrayTestPlanChangedFieldViewModel,),  # noqa: E501
-            'test_suite': (TestSuiteChangeViewModelTestPlanChangedFieldViewModel,),  # noqa: E501
-            'test_points': (TestPointChangeViewModelTestPlanChangedFieldViewModel,),  # noqa: E501
-            'test_results': (TestResultChangeViewModelTestPlanChangedFieldViewModel,),  # noqa: E501
-            'locking': (BooleanTestPlanChangedFieldViewModel,),  # noqa: E501
-            'has_automatic_duration_timer': (BooleanNullableTestPlanChangedFieldViewModel,),  # noqa: E501
+            'name': (TestPlanChangedFieldsViewModelName,),  # noqa: E501
+            'description': (TestPlanChangedFieldsViewModelName,),  # noqa: E501
+            'product_name': (TestPlanChangedFieldsViewModelProductName,),  # noqa: E501
+            'build': (TestPlanChangedFieldsViewModelProductName,),  # noqa: E501
+            'period': (TestPlanChangedFieldsViewModelPeriod,),  # noqa: E501
+            'status': (TestPlanChangedFieldsViewModelProductName,),  # noqa: E501
+            'tags': (TestPlanChangedFieldsViewModelTags,),  # noqa: E501
+            'test_suite': (TestPlanChangedFieldsViewModelTestSuite,),  # noqa: E501
+            'test_points': (TestPlanChangedFieldsViewModelTestPoints,),  # noqa: E501
+            'test_results': (TestPlanChangedFieldsViewModelTestResults,),  # noqa: E501
+            'locking': (TestPlanChangedFieldsViewModelLocking,),  # noqa: E501
+            'has_automatic_duration_timer': (TestPlanChangedFieldsViewModelHasAutomaticDurationTimer,),  # noqa: E501
             'attributes': ({str: (CustomAttributeChangeModel,)}, none_type,),  # noqa: E501
         }
 
@@ -173,18 +175,18 @@ class TestPlanChangedFieldsViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            description (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            product_name (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            build (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            period (PeriodViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            status (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            tags (StringArrayTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_suite (TestSuiteChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_points (TestPointChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_results (TestResultChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            locking (BooleanTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            has_automatic_duration_timer (BooleanNullableTestPlanChangedFieldViewModel): [optional]  # noqa: E501
+            name (TestPlanChangedFieldsViewModelName): [optional]  # noqa: E501
+            description (TestPlanChangedFieldsViewModelName): [optional]  # noqa: E501
+            product_name (TestPlanChangedFieldsViewModelProductName): [optional]  # noqa: E501
+            build (TestPlanChangedFieldsViewModelProductName): [optional]  # noqa: E501
+            period (TestPlanChangedFieldsViewModelPeriod): [optional]  # noqa: E501
+            status (TestPlanChangedFieldsViewModelProductName): [optional]  # noqa: E501
+            tags (TestPlanChangedFieldsViewModelTags): [optional]  # noqa: E501
+            test_suite (TestPlanChangedFieldsViewModelTestSuite): [optional]  # noqa: E501
+            test_points (TestPlanChangedFieldsViewModelTestPoints): [optional]  # noqa: E501
+            test_results (TestPlanChangedFieldsViewModelTestResults): [optional]  # noqa: E501
+            locking (TestPlanChangedFieldsViewModelLocking): [optional]  # noqa: E501
+            has_automatic_duration_timer (TestPlanChangedFieldsViewModelHasAutomaticDurationTimer): [optional]  # noqa: E501
             attributes ({str: (CustomAttributeChangeModel,)}, none_type): [optional]  # noqa: E501
         """
 
@@ -271,18 +273,18 @@ class TestPlanChangedFieldsViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            description (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            product_name (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            build (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            period (PeriodViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            status (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            tags (StringArrayTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_suite (TestSuiteChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_points (TestPointChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_results (TestResultChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            locking (BooleanTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            has_automatic_duration_timer (BooleanNullableTestPlanChangedFieldViewModel): [optional]  # noqa: E501
+            name (TestPlanChangedFieldsViewModelName): [optional]  # noqa: E501
+            description (TestPlanChangedFieldsViewModelName): [optional]  # noqa: E501
+            product_name (TestPlanChangedFieldsViewModelProductName): [optional]  # noqa: E501
+            build (TestPlanChangedFieldsViewModelProductName): [optional]  # noqa: E501
+            period (TestPlanChangedFieldsViewModelPeriod): [optional]  # noqa: E501
+            status (TestPlanChangedFieldsViewModelProductName): [optional]  # noqa: E501
+            tags (TestPlanChangedFieldsViewModelTags): [optional]  # noqa: E501
+            test_suite (TestPlanChangedFieldsViewModelTestSuite): [optional]  # noqa: E501
+            test_points (TestPlanChangedFieldsViewModelTestPoints): [optional]  # noqa: E501
+            test_results (TestPlanChangedFieldsViewModelTestResults): [optional]  # noqa: E501
+            locking (TestPlanChangedFieldsViewModelLocking): [optional]  # noqa: E501
+            has_automatic_duration_timer (TestPlanChangedFieldsViewModelHasAutomaticDurationTimer): [optional]  # noqa: E501
             attributes ({str: (CustomAttributeChangeModel,)}, none_type): [optional]  # noqa: E501
         """
 

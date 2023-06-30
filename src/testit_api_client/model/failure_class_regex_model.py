@@ -75,7 +75,7 @@ class FailureClassRegexModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'regex_text': (str, none_type,),  # noqa: E501
+            'regex_text': (str,),  # noqa: E501
             'failure_class_id': (str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
@@ -134,7 +134,7 @@ class FailureClassRegexModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            regex_text (str, none_type): [optional]  # noqa: E501
+            regex_text (str): [optional]  # noqa: E501
             failure_class_id (str, none_type): [optional]  # noqa: E501
             id (str): Unique ID of the entity. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
@@ -223,7 +223,7 @@ class FailureClassRegexModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            regex_text (str, none_type): [optional]  # noqa: E501
+            regex_text (str): [optional]  # noqa: E501
             failure_class_id (str, none_type): [optional]  # noqa: E501
             id (str): Unique ID of the entity. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501

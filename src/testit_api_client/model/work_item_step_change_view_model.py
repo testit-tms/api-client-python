@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.shared_step_change_view_model import SharedStepChangeViewModel
-    globals()['SharedStepChangeViewModel'] = SharedStepChangeViewModel
+    from testit_api_client.model.work_item_step_change_view_model_work_item import WorkItemStepChangeViewModelWorkItem
+    globals()['WorkItemStepChangeViewModelWorkItem'] = WorkItemStepChangeViewModelWorkItem
 
 
 class WorkItemStepChangeViewModel(ModelNormal):
@@ -80,13 +80,13 @@ class WorkItemStepChangeViewModel(ModelNormal):
         """
         lazy_import()
         return {
-            'action': (str, none_type,),  # noqa: E501
-            'expected': (str, none_type,),  # noqa: E501
-            'comments': (str, none_type,),  # noqa: E501
-            'test_data': (str, none_type,),  # noqa: E501
+            'action': (str,),  # noqa: E501
+            'expected': (str,),  # noqa: E501
+            'comments': (str,),  # noqa: E501
+            'test_data': (str,),  # noqa: E501
             'index': (int,),  # noqa: E501
             'work_item_id': (str, none_type,),  # noqa: E501
-            'work_item': (SharedStepChangeViewModel,),  # noqa: E501
+            'work_item': (WorkItemStepChangeViewModelWorkItem,),  # noqa: E501
         }
 
     @cached_property
@@ -145,13 +145,13 @@ class WorkItemStepChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            action (str, none_type): [optional]  # noqa: E501
-            expected (str, none_type): [optional]  # noqa: E501
-            comments (str, none_type): [optional]  # noqa: E501
-            test_data (str, none_type): [optional]  # noqa: E501
+            action (str): [optional]  # noqa: E501
+            expected (str): [optional]  # noqa: E501
+            comments (str): [optional]  # noqa: E501
+            test_data (str): [optional]  # noqa: E501
             index (int): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
-            work_item (SharedStepChangeViewModel): [optional]  # noqa: E501
+            work_item (WorkItemStepChangeViewModelWorkItem): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,13 +237,13 @@ class WorkItemStepChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            action (str, none_type): [optional]  # noqa: E501
-            expected (str, none_type): [optional]  # noqa: E501
-            comments (str, none_type): [optional]  # noqa: E501
-            test_data (str, none_type): [optional]  # noqa: E501
+            action (str): [optional]  # noqa: E501
+            expected (str): [optional]  # noqa: E501
+            comments (str): [optional]  # noqa: E501
+            test_data (str): [optional]  # noqa: E501
             index (int): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
-            work_item (SharedStepChangeViewModel): [optional]  # noqa: E501
+            work_item (WorkItemStepChangeViewModelWorkItem): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

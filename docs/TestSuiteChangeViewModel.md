@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**name** | **str, none_type** |  | [optional] 
+**name** | **str** |  | [optional] 
 **configurations** | [**[ShortConfiguration], none_type**](ShortConfiguration.md) |  | [optional] 
 **work_item_count** | **int** |  | [optional] 
 

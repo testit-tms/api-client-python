@@ -4,13 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **str, none_type** |  | [optional] 
-**expected** | **str, none_type** |  | [optional] 
-**comments** | **str, none_type** |  | [optional] 
-**test_data** | **str, none_type** |  | [optional] 
+**action** | **str** |  | [optional] 
+**expected** | **str** |  | [optional] 
+**comments** | **str** |  | [optional] 
+**test_data** | **str** |  | [optional] 
 **index** | **int** |  | [optional] 
 **work_item_id** | **str, none_type** |  | [optional] 
-**work_item** | [**SharedStepChangeViewModel**](SharedStepChangeViewModel.md) |  | [optional] 
+**work_item** | [**WorkItemStepChangeViewModelWorkItem**](WorkItemStepChangeViewModelWorkItem.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -75,7 +75,7 @@ class TestRunGroupByStatusModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str, none_type,),  # noqa: E501
+            'status': (str,),  # noqa: E501
             'value': (int,),  # noqa: E501
         }
 
@@ -130,7 +130,7 @@ class TestRunGroupByStatusModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str, none_type): [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
             value (int): [optional]  # noqa: E501
         """
 
@@ -217,7 +217,7 @@ class TestRunGroupByStatusModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str, none_type): [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
             value (int): [optional]  # noqa: E501
         """
 

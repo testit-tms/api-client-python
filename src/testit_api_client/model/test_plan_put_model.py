@@ -107,7 +107,7 @@ class TestPlanPutModel(ModelNormal):
             'build': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'has_automatic_duration_timer': (bool, none_type,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -184,7 +184,7 @@ class TestPlanPutModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -286,7 +286,7 @@ class TestPlanPutModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

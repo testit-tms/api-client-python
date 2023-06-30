@@ -79,12 +79,10 @@ class ConfigurationPutModel(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
+            'parameters': ({str: (str,)},),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'is_active': (bool,),  # noqa: E501
-            'capabilities': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
         }
 
@@ -95,12 +93,10 @@ class ConfigurationPutModel(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'is_active': 'isActive',  # noqa: E501
-        'capabilities': 'capabilities',  # noqa: E501
-        'parameters': 'parameters',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
     }
 
@@ -111,11 +107,12 @@ class ConfigurationPutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, project_id, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, parameters, project_id, name, *args, **kwargs):  # noqa: E501
         """ConfigurationPutModel - a model defined in OpenAPI
 
         Args:
             id (str):
+            parameters ({str: (str,)}):
             project_id (str): This property is used to link configuration with project
             name (str):
 
@@ -151,9 +148,6 @@ class ConfigurationPutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            is_active (bool): [optional]  # noqa: E501
-            capabilities ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
         """
 
@@ -187,6 +181,7 @@ class ConfigurationPutModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
+        self.parameters = parameters
         self.project_id = project_id
         self.name = name
         for var_name, var_value in kwargs.items():
@@ -209,11 +204,12 @@ class ConfigurationPutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, project_id, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, parameters, project_id, name, *args, **kwargs):  # noqa: E501
         """ConfigurationPutModel - a model defined in OpenAPI
 
         Args:
             id (str):
+            parameters ({str: (str,)}):
             project_id (str): This property is used to link configuration with project
             name (str):
 
@@ -249,9 +245,6 @@ class ConfigurationPutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            is_active (bool): [optional]  # noqa: E501
-            capabilities ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
         """
 
@@ -283,6 +276,7 @@ class ConfigurationPutModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
+        self.parameters = parameters
         self.project_id = project_id
         self.name = name
         for var_name, var_value in kwargs.items():

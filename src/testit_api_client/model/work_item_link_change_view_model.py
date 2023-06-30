@@ -75,12 +75,12 @@ class WorkItemLinkChangeViewModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'description': (str, none_type,),  # noqa: E501
-            'url': (str, none_type,),  # noqa: E501
-            'title': (str, none_type,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'url': (str,),  # noqa: E501
+            'title': (str,),  # noqa: E501
             'has_info': (bool,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'type': (str, none_type,),  # noqa: E501
+            'type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -138,12 +138,12 @@ class WorkItemLinkChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
-            title (str, none_type): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
+            url (str): [optional]  # noqa: E501
+            title (str): [optional]  # noqa: E501
             has_info (bool): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            type (str, none_type): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,12 +229,12 @@ class WorkItemLinkChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
-            title (str, none_type): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
+            url (str): [optional]  # noqa: E501
+            title (str): [optional]  # noqa: E501
             has_info (bool): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
-            type (str, none_type): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -31,9 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.link_post_model import LinkPostModel
-    from testit_api_client.model.test_run_test_results_select_model import TestRunTestResultsSelectModel
+    from testit_api_client.model.test_run_test_results_partial_bulk_set_model_selector import TestRunTestResultsPartialBulkSetModelSelector
     globals()['LinkPostModel'] = LinkPostModel
-    globals()['TestRunTestResultsSelectModel'] = TestRunTestResultsSelectModel
+    globals()['TestRunTestResultsPartialBulkSetModelSelector'] = TestRunTestResultsPartialBulkSetModelSelector
 
 
 class TestRunTestResultsPartialBulkSetModel(ModelNormal):
@@ -88,7 +88,7 @@ class TestRunTestResultsPartialBulkSetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'selector': (TestRunTestResultsSelectModel,),  # noqa: E501
+            'selector': (TestRunTestResultsPartialBulkSetModelSelector,),  # noqa: E501
             'result_reason_ids': ([str], none_type,),  # noqa: E501
             'links': ([LinkPostModel], none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
@@ -149,7 +149,7 @@ class TestRunTestResultsPartialBulkSetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            selector (TestRunTestResultsSelectModel): [optional]  # noqa: E501
+            selector (TestRunTestResultsPartialBulkSetModelSelector): [optional]  # noqa: E501
             result_reason_ids ([str], none_type): Unique IDs of result reasons to be assigned to test results. [optional]  # noqa: E501
             links ([LinkPostModel], none_type): Collection of links to be assigned to test results. [optional]  # noqa: E501
             comment (str, none_type): Comment to be added to test results. [optional]  # noqa: E501
@@ -239,7 +239,7 @@ class TestRunTestResultsPartialBulkSetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            selector (TestRunTestResultsSelectModel): [optional]  # noqa: E501
+            selector (TestRunTestResultsPartialBulkSetModelSelector): [optional]  # noqa: E501
             result_reason_ids ([str], none_type): Unique IDs of result reasons to be assigned to test results. [optional]  # noqa: E501
             links ([LinkPostModel], none_type): Collection of links to be assigned to test results. [optional]  # noqa: E501
             comment (str, none_type): Comment to be added to test results. [optional]  # noqa: E501

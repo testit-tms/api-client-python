@@ -79,7 +79,7 @@ class TestSuiteWithChildrenModel(ModelNormal):
             'tester_id': (str, none_type,),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
             'test_plan_id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
         }
@@ -144,7 +144,7 @@ class TestSuiteWithChildrenModel(ModelNormal):
             tester_id (str, none_type): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
             test_plan_id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             id (str): Unique ID of the entity. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
@@ -236,7 +236,7 @@ class TestSuiteWithChildrenModel(ModelNormal):
             tester_id (str, none_type): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
             test_plan_id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             id (str): Unique ID of the entity. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """

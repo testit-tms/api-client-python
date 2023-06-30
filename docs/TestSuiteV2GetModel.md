@@ -4,12 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**test_plan_id** | **str** |  | 
-**name** | **str** |  | 
-**id** | **str** |  | [optional] 
-**parent_id** | **str, none_type** |  | [optional] 
-**type** | [**TestSuiteType**](TestSuiteType.md) |  | [optional] 
-**save_structure** | **bool, none_type** |  | [optional] 
+**test_plan_id** | **str** | Unique ID of test plan to which the test suite belongs | 
+**name** | **str** | Name of the test suite | 
+**id** | **str** | Unique ID of the test suite | [optional] 
+**refresh_date** | **datetime, none_type** | Date of the last refresh of the test suite | [optional] 
+**parent_id** | **str, none_type** | Unique ID of the parent test suite in hierarchy | [optional] 
+**type** | **bool, date, datetime, dict, float, int, list, str, none_type** | Type of the test suite | [optional] 
+**save_structure** | **bool, none_type** | Indicates if the test suite retains section tree structure | [optional] 
+**auto_refresh** | **bool, none_type** | Indicates if scheduled auto refresh is enabled for the test suite | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

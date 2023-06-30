@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** | [**TestRunState**](TestRunState.md) |  | 
-**statistics** | [**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md) |  | 
+**state** | **bool, date, datetime, dict, float, int, list, str, none_type** | Current state of the test run | 
+**statistics** | [**TestRunShortGetModelStatistics**](TestRunShortGetModelStatistics.md) |  | 
 **id** | **str** | Unique ID of the test run | [optional] 
-**name** | **str, none_type** | Name of the test run | [optional] 
+**name** | **str** | Name of the test run | [optional] 
 **project_id** | **str** | Unique ID of project where test run is located | [optional] 
 **created_date** | **datetime** | Date when the test run was created | [optional] 
 **created_by_id** | **str** | Unique ID of user who created the test run | [optional] 

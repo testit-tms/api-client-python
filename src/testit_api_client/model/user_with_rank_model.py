@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.user_rank_model import UserRankModel
-    globals()['UserRankModel'] = UserRankModel
+    from testit_api_client.model.user_with_rank_model_user_rank import UserWithRankModelUserRank
+    globals()['UserWithRankModelUserRank'] = UserWithRankModelUserRank
 
 
 class UserWithRankModel(ModelNormal):
@@ -81,19 +81,19 @@ class UserWithRankModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'first_name': (str, none_type,),  # noqa: E501
-            'last_name': (str, none_type,),  # noqa: E501
-            'middle_name': (str, none_type,),  # noqa: E501
-            'user_name': (str, none_type,),  # noqa: E501
-            'display_name': (str, none_type,),  # noqa: E501
-            'user_type': (str, none_type,),  # noqa: E501
-            'avatar_url': (str, none_type,),  # noqa: E501
-            'avatar_metadata': (str, none_type,),  # noqa: E501
+            'first_name': (str,),  # noqa: E501
+            'last_name': (str,),  # noqa: E501
+            'middle_name': (str,),  # noqa: E501
+            'user_name': (str,),  # noqa: E501
+            'display_name': (str,),  # noqa: E501
+            'user_type': (str,),  # noqa: E501
+            'avatar_url': (str,),  # noqa: E501
+            'avatar_metadata': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'is_disabled': (bool,),  # noqa: E501
             'provider_id': (str, none_type,),  # noqa: E501
             'is_active_status_by_entity': (bool,),  # noqa: E501
-            'user_rank': (UserRankModel,),  # noqa: E501
+            'user_rank': (UserWithRankModelUserRank,),  # noqa: E501
         }
 
     @cached_property
@@ -160,19 +160,19 @@ class UserWithRankModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            first_name (str, none_type): [optional]  # noqa: E501
-            last_name (str, none_type): [optional]  # noqa: E501
-            middle_name (str, none_type): [optional]  # noqa: E501
-            user_name (str, none_type): [optional]  # noqa: E501
-            display_name (str, none_type): [optional]  # noqa: E501
-            user_type (str, none_type): [optional]  # noqa: E501
-            avatar_url (str, none_type): [optional]  # noqa: E501
-            avatar_metadata (str, none_type): [optional]  # noqa: E501
+            first_name (str): [optional]  # noqa: E501
+            last_name (str): [optional]  # noqa: E501
+            middle_name (str): [optional]  # noqa: E501
+            user_name (str): [optional]  # noqa: E501
+            display_name (str): [optional]  # noqa: E501
+            user_type (str): [optional]  # noqa: E501
+            avatar_url (str): [optional]  # noqa: E501
+            avatar_metadata (str): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             is_disabled (bool): [optional]  # noqa: E501
             provider_id (str, none_type): [optional]  # noqa: E501
             is_active_status_by_entity (bool): [optional]  # noqa: E501
-            user_rank (UserRankModel): [optional]  # noqa: E501
+            user_rank (UserWithRankModelUserRank): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,19 +259,19 @@ class UserWithRankModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            first_name (str, none_type): [optional]  # noqa: E501
-            last_name (str, none_type): [optional]  # noqa: E501
-            middle_name (str, none_type): [optional]  # noqa: E501
-            user_name (str, none_type): [optional]  # noqa: E501
-            display_name (str, none_type): [optional]  # noqa: E501
-            user_type (str, none_type): [optional]  # noqa: E501
-            avatar_url (str, none_type): [optional]  # noqa: E501
-            avatar_metadata (str, none_type): [optional]  # noqa: E501
+            first_name (str): [optional]  # noqa: E501
+            last_name (str): [optional]  # noqa: E501
+            middle_name (str): [optional]  # noqa: E501
+            user_name (str): [optional]  # noqa: E501
+            display_name (str): [optional]  # noqa: E501
+            user_type (str): [optional]  # noqa: E501
+            avatar_url (str): [optional]  # noqa: E501
+            avatar_metadata (str): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             is_disabled (bool): [optional]  # noqa: E501
             provider_id (str, none_type): [optional]  # noqa: E501
             is_active_status_by_entity (bool): [optional]  # noqa: E501
-            user_rank (UserRankModel): [optional]  # noqa: E501
+            user_rank (UserWithRankModelUserRank): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

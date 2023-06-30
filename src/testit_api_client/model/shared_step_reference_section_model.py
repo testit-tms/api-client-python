@@ -76,7 +76,7 @@ class SharedStepReferenceSectionModel(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'has_this_shared_step_as_precondition': (bool,),  # noqa: E501
             'has_this_shared_step_as_postcondition': (bool,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
@@ -145,7 +145,7 @@ class SharedStepReferenceSectionModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             has_this_shared_step_as_precondition (bool): [optional]  # noqa: E501
             has_this_shared_step_as_postcondition (bool): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
@@ -239,7 +239,7 @@ class SharedStepReferenceSectionModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             has_this_shared_step_as_precondition (bool): [optional]  # noqa: E501
             has_this_shared_step_as_postcondition (bool): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501

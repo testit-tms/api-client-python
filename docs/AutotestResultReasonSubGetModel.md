@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**failure_category** | [**FailureCategoryModel**](FailureCategoryModel.md) |  | [optional] 
-**name** | **str, none_type** |  | [optional] 
+**failure_category** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
+**name** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

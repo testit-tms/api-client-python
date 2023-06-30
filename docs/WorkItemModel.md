@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entity_type_name** | [**WorkItemEntityTypes**](WorkItemEntityTypes.md) |  | 
+**entity_type_name** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **id** | **str** |  | 
-**state** | [**WorkItemStates**](WorkItemStates.md) |  | 
-**priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**state** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
+**priority** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **steps** | [**[StepModel]**](StepModel.md) |  | 
 **precondition_steps** | [**[StepModel]**](StepModel.md) |  | 
 **postcondition_steps** | [**[StepModel]**](StepModel.md) |  | 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **modified_by_id** | **str, none_type** |  | [optional] 
 **global_id** | **int** |  | [optional] 
 **section_id** | **str** |  | [optional] 
-**description** | **str, none_type** |  | [optional] 
+**description** | **str** |  | [optional] 
 **duration** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

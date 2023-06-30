@@ -33,11 +33,9 @@ def lazy_import():
     from testit_api_client.model.attachment_sub_get_model import AttachmentSubGetModel
     from testit_api_client.model.autotest_result_reason_sub_get_model import AutotestResultReasonSubGetModel
     from testit_api_client.model.link_sub_get_model import LinkSubGetModel
-    from testit_api_client.model.test_result_outcome import TestResultOutcome
     globals()['AttachmentSubGetModel'] = AttachmentSubGetModel
     globals()['AutotestResultReasonSubGetModel'] = AutotestResultReasonSubGetModel
     globals()['LinkSubGetModel'] = LinkSubGetModel
-    globals()['TestResultOutcome'] = TestResultOutcome
 
 
 class TestResultShortGetModel(ModelNormal):
@@ -86,19 +84,19 @@ class TestResultShortGetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'outcome': (TestResultOutcome,),  # noqa: E501
+            'outcome': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'autotest_global_id': (int,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
-            'configuration_name': (str, none_type,),  # noqa: E501
-            'result_reasons': ([AutotestResultReasonSubGetModel], none_type,),  # noqa: E501
-            'comment': (str, none_type,),  # noqa: E501
+            'configuration_name': (str,),  # noqa: E501
+            'result_reasons': ([AutotestResultReasonSubGetModel],),  # noqa: E501
+            'comment': (str,),  # noqa: E501
             'date': (datetime,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
-            'links': ([LinkSubGetModel], none_type,),  # noqa: E501
-            'attachments': ([AttachmentSubGetModel], none_type,),  # noqa: E501
+            'links': ([LinkSubGetModel],),  # noqa: E501
+            'attachments': ([AttachmentSubGetModel],),  # noqa: E501
         }
 
     @cached_property
@@ -133,7 +131,7 @@ class TestResultShortGetModel(ModelNormal):
         """TestResultShortGetModel - a model defined in OpenAPI
 
         Args:
-            outcome (TestResultOutcome):
+            outcome (bool, date, datetime, dict, float, int, list, str, none_type): Outcome of test result
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -167,17 +165,17 @@ class TestResultShortGetModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of test result. [optional]  # noqa: E501
-            name (str, none_type): Name of autotest represented by the test result. [optional]  # noqa: E501
+            name (str): Name of autotest represented by the test result. [optional]  # noqa: E501
             autotest_global_id (int): Global ID of autotest represented by test result. [optional]  # noqa: E501
             test_run_id (str): Unique ID of test run where test result is located. [optional]  # noqa: E501
             configuration_id (str): Unique ID of configuration which test result uses. [optional]  # noqa: E501
-            configuration_name (str, none_type): Name of configuration which test result uses. [optional]  # noqa: E501
-            result_reasons ([AutotestResultReasonSubGetModel], none_type): Collection of result reasons which test result have. [optional]  # noqa: E501
-            comment (str, none_type): Comment to test result. [optional]  # noqa: E501
+            configuration_name (str): Name of configuration which test result uses. [optional]  # noqa: E501
+            result_reasons ([AutotestResultReasonSubGetModel]): Collection of result reasons which test result have. [optional]  # noqa: E501
+            comment (str): Comment to test result. [optional]  # noqa: E501
             date (datetime): Date when test result has been set. [optional]  # noqa: E501
             duration (int, none_type): Time which it took to run the test. [optional]  # noqa: E501
-            links ([LinkSubGetModel], none_type): Collection of links attached to test result. [optional]  # noqa: E501
-            attachments ([AttachmentSubGetModel], none_type): Collection of files attached to test result. [optional]  # noqa: E501
+            links ([LinkSubGetModel]): Collection of links attached to test result. [optional]  # noqa: E501
+            attachments ([AttachmentSubGetModel]): Collection of files attached to test result. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,7 +232,7 @@ class TestResultShortGetModel(ModelNormal):
         """TestResultShortGetModel - a model defined in OpenAPI
 
         Args:
-            outcome (TestResultOutcome):
+            outcome (bool, date, datetime, dict, float, int, list, str, none_type): Outcome of test result
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -268,17 +266,17 @@ class TestResultShortGetModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of test result. [optional]  # noqa: E501
-            name (str, none_type): Name of autotest represented by the test result. [optional]  # noqa: E501
+            name (str): Name of autotest represented by the test result. [optional]  # noqa: E501
             autotest_global_id (int): Global ID of autotest represented by test result. [optional]  # noqa: E501
             test_run_id (str): Unique ID of test run where test result is located. [optional]  # noqa: E501
             configuration_id (str): Unique ID of configuration which test result uses. [optional]  # noqa: E501
-            configuration_name (str, none_type): Name of configuration which test result uses. [optional]  # noqa: E501
-            result_reasons ([AutotestResultReasonSubGetModel], none_type): Collection of result reasons which test result have. [optional]  # noqa: E501
-            comment (str, none_type): Comment to test result. [optional]  # noqa: E501
+            configuration_name (str): Name of configuration which test result uses. [optional]  # noqa: E501
+            result_reasons ([AutotestResultReasonSubGetModel]): Collection of result reasons which test result have. [optional]  # noqa: E501
+            comment (str): Comment to test result. [optional]  # noqa: E501
             date (datetime): Date when test result has been set. [optional]  # noqa: E501
             duration (int, none_type): Time which it took to run the test. [optional]  # noqa: E501
-            links ([LinkSubGetModel], none_type): Collection of links attached to test result. [optional]  # noqa: E501
-            attachments ([AttachmentSubGetModel], none_type): Collection of files attached to test result. [optional]  # noqa: E501
+            links ([LinkSubGetModel]): Collection of links attached to test result. [optional]  # noqa: E501
+            attachments ([AttachmentSubGetModel]): Collection of files attached to test result. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

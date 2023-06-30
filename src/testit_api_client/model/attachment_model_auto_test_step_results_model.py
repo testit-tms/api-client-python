@@ -31,9 +31,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
-    from testit_api_client.model.available_test_result_outcome import AvailableTestResultOutcome
     globals()['AttachmentModel'] = AttachmentModel
-    globals()['AvailableTestResultOutcome'] = AvailableTestResultOutcome
 
 
 class AttachmentModelAutoTestStepResultsModel(ModelNormal):
@@ -65,6 +63,7 @@ class AttachmentModelAutoTestStepResultsModel(ModelNormal):
 
     validations = {
         ('duration',): {
+            'inclusive_maximum': 43200000000,
             'inclusive_minimum': 0,
         },
     }
@@ -91,7 +90,7 @@ class AttachmentModelAutoTestStepResultsModel(ModelNormal):
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
-            'outcome': (AvailableTestResultOutcome,),  # noqa: E501
+            'outcome': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'step_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
             'parameters': ({str: (str,)}, none_type,),  # noqa: E501
@@ -162,7 +161,7 @@ class AttachmentModelAutoTestStepResultsModel(ModelNormal):
             started_on (datetime, none_type): Step start date.. [optional]  # noqa: E501
             completed_on (datetime, none_type): Step end date.. [optional]  # noqa: E501
             duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
-            outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
+            outcome (bool, date, datetime, dict, float, int, list, str, none_type): Specifies the result of the autotest execution.. [optional]  # noqa: E501
             step_results ([AttachmentModelAutoTestStepResultsModel], none_type): Nested step results. The maximum nesting level is 15.. [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): /// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>. [optional]  # noqa: E501
             parameters ({str: (str,)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501
@@ -257,7 +256,7 @@ class AttachmentModelAutoTestStepResultsModel(ModelNormal):
             started_on (datetime, none_type): Step start date.. [optional]  # noqa: E501
             completed_on (datetime, none_type): Step end date.. [optional]  # noqa: E501
             duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
-            outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
+            outcome (bool, date, datetime, dict, float, int, list, str, none_type): Specifies the result of the autotest execution.. [optional]  # noqa: E501
             step_results ([AttachmentModelAutoTestStepResultsModel], none_type): Nested step results. The maximum nesting level is 15.. [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): /// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>. [optional]  # noqa: E501
             parameters ({str: (str,)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501

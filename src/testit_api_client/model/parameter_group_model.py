@@ -75,8 +75,8 @@ class ParameterGroupModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str, none_type,),  # noqa: E501
-            'values': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'values': ({str: (str,)},),  # noqa: E501
             'parameter_key_id': (str,),  # noqa: E501
         }
 
@@ -132,8 +132,8 @@ class ParameterGroupModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            values ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
+            values ({str: (str,)}): [optional]  # noqa: E501
             parameter_key_id (str): [optional]  # noqa: E501
         """
 
@@ -220,8 +220,8 @@ class ParameterGroupModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            values ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
+            values ({str: (str,)}): [optional]  # noqa: E501
             parameter_key_id (str): [optional]  # noqa: E501
         """
 

@@ -17,7 +17,6 @@ Method | HTTP request | Description
 [**delete_parameter**](ParametersApi.md#delete_parameter) | **DELETE** /api/v2/parameters/{id} | Delete parameter
 [**get_all_parameters**](ParametersApi.md#get_all_parameters) | **GET** /api/v2/parameters | Get all parameters
 [**get_parameter_by_id**](ParametersApi.md#get_parameter_by_id) | **GET** /api/v2/parameters/{id} | Get parameter by ID
-[**obsolete_delete_by_name**](ParametersApi.md#obsolete_delete_by_name) | **POST** /api/v2/parameters/deleteByName | 
 [**update_parameter**](ParametersApi.md#update_parameter) | **PUT** /api/v2/parameters | Update parameter
 
 
@@ -150,7 +149,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = [
         ParameterPutModel(
-            id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
+            id="79f06d02-d9f8-4c2b-8c00-8c482c6c840f",
             value="value_example",
             name="name_example",
         ),
@@ -190,8 +189,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | &lt;br&gt;- Parameter model is not valid |  -  |
 **204** | No Content |  -  |
+**400** | &lt;br&gt;- Parameter model is not valid |  -  |
 **403** | Invalid user permissions |  -  |
 **422** | Client Error |  -  |
 
@@ -534,8 +533,8 @@ Search for parameters
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
+from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
 from testit_api_client.model.parameter_model import ParameterModel
-from testit_api_client.model.parameter_filter_model import ParameterFilterModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -563,16 +562,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    parameter_filter_model = ParameterFilterModel(
-        is_deleted=True,
-        name="name_example",
-    ) # ParameterFilterModel |  (optional)
+    api_v2_parameters_search_post_request = ApiV2ParametersSearchPostRequest(None) # ApiV2ParametersSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for parameters
-        api_response = api_instance.api_v2_parameters_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, parameter_filter_model=parameter_filter_model)
+        api_response = api_instance.api_v2_parameters_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_parameters_search_post_request=api_v2_parameters_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_search_post: %s\n" % e)
@@ -588,7 +584,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **parameter_filter_model** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional]
+ **api_v2_parameters_search_post_request** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -627,8 +623,8 @@ Create parameter
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
-from testit_api_client.model.parameter_post_model import ParameterPostModel
 from testit_api_client.model.parameter_model import ParameterModel
+from testit_api_client.model.create_parameter_request import CreateParameterRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -652,16 +648,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
-    parameter_post_model = ParameterPostModel(
-        value="value_example",
-        name="name_example",
-    ) # ParameterPostModel |  (optional)
+    create_parameter_request = CreateParameterRequest(None) # CreateParameterRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create parameter
-        api_response = api_instance.create_parameter(parameter_post_model=parameter_post_model)
+        api_response = api_instance.create_parameter(create_parameter_request=create_parameter_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ParametersApi->create_parameter: %s\n" % e)
@@ -672,7 +665,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parameter_post_model** | [**ParameterPostModel**](ParameterPostModel.md)|  | [optional]
+ **create_parameter_request** | [**CreateParameterRequest**](CreateParameterRequest.md)|  | [optional]
 
 ### Return type
 
@@ -850,8 +843,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Invalid user permissions |  -  |
 **204** | No Content |  -  |
+**403** | Invalid user permissions |  -  |
 **422** | Parameter is in use in iterations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1102,82 +1095,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Success |  -  |
 **404** | Parameter with provided ID was not found |  -  |
-**200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **obsolete_delete_by_name**
-> obsolete_delete_by_name()
-
-
-
-### Example
-
-* Api Key Authentication (Bearer or PrivateToken):
-
-```python
-import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    name = "name_example" # str |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_instance.obsolete_delete_by_name(name=name)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling ParametersApi->obsolete_delete_by_name: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **str**|  | [optional]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1197,8 +1116,8 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_put_model import ParameterPutModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.update_parameter_request import UpdateParameterRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1221,17 +1140,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
-    parameter_put_model = ParameterPutModel(
-        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        value="value_example",
-        name="name_example",
-    ) # ParameterPutModel |  (optional)
+    update_parameter_request = UpdateParameterRequest(None) # UpdateParameterRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update parameter
-        api_instance.update_parameter(parameter_put_model=parameter_put_model)
+        api_instance.update_parameter(update_parameter_request=update_parameter_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling ParametersApi->update_parameter: %s\n" % e)
 ```
@@ -1241,7 +1156,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parameter_put_model** | [**ParameterPutModel**](ParameterPutModel.md)|  | [optional]
+ **update_parameter_request** | [**UpdateParameterRequest**](UpdateParameterRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1261,8 +1176,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
 **204** | No Content |  -  |
+**400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
 **404** | Parameter with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

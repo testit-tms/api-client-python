@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.shared_step_model import SharedStepModel
-    globals()['SharedStepModel'] = SharedStepModel
+    from testit_api_client.model.section_shared_step import SectionSharedStep
+    globals()['SectionSharedStep'] = SectionSharedStep
 
 
 class StepModel(ModelNormal):
@@ -80,7 +80,7 @@ class StepModel(ModelNormal):
         """
         lazy_import()
         return {
-            'work_item': (SharedStepModel,),  # noqa: E501
+            'work_item': (SectionSharedStep,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'action': (str, none_type,),  # noqa: E501
             'expected': (str, none_type,),  # noqa: E501
@@ -145,7 +145,7 @@ class StepModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            work_item (SharedStepModel): [optional]  # noqa: E501
+            work_item (SectionSharedStep): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             action (str, none_type): [optional]  # noqa: E501
             expected (str, none_type): [optional]  # noqa: E501
@@ -237,7 +237,7 @@ class StepModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            work_item (SharedStepModel): [optional]  # noqa: E501
+            work_item (SectionSharedStep): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             action (str, none_type): [optional]  # noqa: E501
             expected (str, none_type): [optional]  # noqa: E501
