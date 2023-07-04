@@ -81,7 +81,7 @@ class TestSuiteChangeViewModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'configurations': ([ShortConfiguration], none_type,),  # noqa: E501
             'work_item_count': (int,),  # noqa: E501
         }
@@ -140,7 +140,7 @@ class TestSuiteChangeViewModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             configurations ([ShortConfiguration], none_type): [optional]  # noqa: E501
             work_item_count (int): [optional]  # noqa: E501
         """
@@ -229,7 +229,7 @@ class TestSuiteChangeViewModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             configurations ([ShortConfiguration], none_type): [optional]  # noqa: E501
             work_item_count (int): [optional]  # noqa: E501
         """

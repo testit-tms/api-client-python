@@ -31,9 +31,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.tag_short_model import TagShortModel
-    from testit_api_client.model.test_plan_status_model import TestPlanStatusModel
     globals()['TagShortModel'] = TagShortModel
-    globals()['TestPlanStatusModel'] = TestPlanStatusModel
 
 
 class TestPlanModel(ModelNormal):
@@ -98,7 +96,7 @@ class TestPlanModel(ModelNormal):
         """
         lazy_import()
         return {
-            'status': (TestPlanStatusModel,),  # noqa: E501
+            'status': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
@@ -119,7 +117,7 @@ class TestPlanModel(ModelNormal):
             'build': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'has_automatic_duration_timer': (bool, none_type,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -163,7 +161,7 @@ class TestPlanModel(ModelNormal):
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
-            status (TestPlanStatusModel):
+            status (bool, date, datetime, dict, float, int, list, str, none_type):
             id (str):
             name (str):
             project_id (str):
@@ -216,7 +214,7 @@ class TestPlanModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -276,7 +274,7 @@ class TestPlanModel(ModelNormal):
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
-            status (TestPlanStatusModel):
+            status (bool, date, datetime, dict, float, int, list, str, none_type):
             id (str):
             name (str):
             project_id (str):
@@ -329,7 +327,7 @@ class TestPlanModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

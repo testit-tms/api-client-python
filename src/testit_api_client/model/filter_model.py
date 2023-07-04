@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.work_item_search_query_model import WorkItemSearchQueryModel
-    globals()['WorkItemSearchQueryModel'] = WorkItemSearchQueryModel
+    from testit_api_client.model.filter_model_data import FilterModelData
+    globals()['FilterModelData'] = FilterModelData
 
 
 class FilterModel(ModelNormal):
@@ -84,10 +84,10 @@ class FilterModel(ModelNormal):
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
-            'data': (WorkItemSearchQueryModel,),  # noqa: E501
+            'data': (FilterModelData,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'fields_to_show': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
         }
@@ -155,10 +155,10 @@ class FilterModel(ModelNormal):
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            data (WorkItemSearchQueryModel): [optional]  # noqa: E501
+            data (FilterModelData): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             fields_to_show (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             id (str): Unique ID of the entity. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
@@ -250,10 +250,10 @@ class FilterModel(ModelNormal):
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            data (WorkItemSearchQueryModel): [optional]  # noqa: E501
+            data (FilterModelData): [optional]  # noqa: E501
             project_id (str): [optional]  # noqa: E501
             fields_to_show (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             id (str): Unique ID of the entity. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """

@@ -36,18 +36,12 @@ def lazy_import():
     from testit_api_client.model.link_model import LinkModel
     from testit_api_client.model.step_model import StepModel
     from testit_api_client.model.tag_short_model import TagShortModel
-    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
-    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_states import WorkItemStates
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AutoTestModel'] = AutoTestModel
     globals()['IterationModel'] = IterationModel
     globals()['LinkModel'] = LinkModel
     globals()['StepModel'] = StepModel
     globals()['TagShortModel'] = TagShortModel
-    globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
-    globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemStates'] = WorkItemStates
 
 
 class WorkItemModel(ModelNormal):
@@ -82,7 +76,7 @@ class WorkItemModel(ModelNormal):
             'min_length': 1,
         },
         ('duration',): {
-            'inclusive_maximum': 86400,
+            'inclusive_maximum': 86400000,
             'inclusive_minimum': 0,
         },
     }
@@ -103,10 +97,10 @@ class WorkItemModel(ModelNormal):
         """
         lazy_import()
         return {
-            'entity_type_name': (WorkItemEntityTypes,),  # noqa: E501
+            'entity_type_name': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'state': (WorkItemStates,),  # noqa: E501
-            'priority': (WorkItemPriorityModel,),  # noqa: E501
+            'state': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'priority': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'steps': ([StepModel],),  # noqa: E501
             'precondition_steps': ([StepModel],),  # noqa: E501
             'postcondition_steps': ([StepModel],),  # noqa: E501
@@ -131,7 +125,7 @@ class WorkItemModel(ModelNormal):
             'modified_by_id': (str, none_type,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
-            'description': (str, none_type,),  # noqa: E501
+            'description': (str,),  # noqa: E501
             'duration': (int,),  # noqa: E501
         }
 
@@ -184,10 +178,10 @@ class WorkItemModel(ModelNormal):
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
-            entity_type_name (WorkItemEntityTypes):
+            entity_type_name (bool, date, datetime, dict, float, int, list, str, none_type):
             id (str):
-            state (WorkItemStates):
-            priority (WorkItemPriorityModel):
+            state (bool, date, datetime, dict, float, int, list, str, none_type):
+            priority (bool, date, datetime, dict, float, int, list, str, none_type):
             steps ([StepModel]):
             precondition_steps ([StepModel]):
             postcondition_steps ([StepModel]):
@@ -244,7 +238,7 @@ class WorkItemModel(ModelNormal):
             modified_by_id (str, none_type): [optional]  # noqa: E501
             global_id (int): [optional]  # noqa: E501
             section_id (str): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
             duration (int): [optional]  # noqa: E501
         """
 
@@ -312,10 +306,10 @@ class WorkItemModel(ModelNormal):
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
-            entity_type_name (WorkItemEntityTypes):
+            entity_type_name (bool, date, datetime, dict, float, int, list, str, none_type):
             id (str):
-            state (WorkItemStates):
-            priority (WorkItemPriorityModel):
+            state (bool, date, datetime, dict, float, int, list, str, none_type):
+            priority (bool, date, datetime, dict, float, int, list, str, none_type):
             steps ([StepModel]):
             precondition_steps ([StepModel]):
             postcondition_steps ([StepModel]):
@@ -372,7 +366,7 @@ class WorkItemModel(ModelNormal):
             modified_by_id (str, none_type): [optional]  # noqa: E501
             global_id (int): [optional]  # noqa: E501
             section_id (str): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
             duration (int): [optional]  # noqa: E501
         """
 

@@ -30,8 +30,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.guid_extraction_model import GuidExtractionModel
-    globals()['GuidExtractionModel'] = GuidExtractionModel
+    from testit_api_client.model.configuration_extraction_model_project_ids import ConfigurationExtractionModelProjectIds
+    from testit_api_client.model.work_items_extraction_model_ids import WorkItemsExtractionModelIds
+    from testit_api_client.model.work_items_extraction_model_section_ids import WorkItemsExtractionModelSectionIds
+    globals()['ConfigurationExtractionModelProjectIds'] = ConfigurationExtractionModelProjectIds
+    globals()['WorkItemsExtractionModelIds'] = WorkItemsExtractionModelIds
+    globals()['WorkItemsExtractionModelSectionIds'] = WorkItemsExtractionModelSectionIds
 
 
 class WorkItemsExtractionModel(ModelNormal):
@@ -80,9 +84,9 @@ class WorkItemsExtractionModel(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (GuidExtractionModel,),  # noqa: E501
-            'section_ids': (GuidExtractionModel,),  # noqa: E501
-            'project_ids': (GuidExtractionModel,),  # noqa: E501
+            'ids': (WorkItemsExtractionModelIds,),  # noqa: E501
+            'section_ids': (WorkItemsExtractionModelSectionIds,),  # noqa: E501
+            'project_ids': (ConfigurationExtractionModelProjectIds,),  # noqa: E501
         }
 
     @cached_property
@@ -137,9 +141,9 @@ class WorkItemsExtractionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids (GuidExtractionModel): [optional]  # noqa: E501
-            section_ids (GuidExtractionModel): [optional]  # noqa: E501
-            project_ids (GuidExtractionModel): [optional]  # noqa: E501
+            ids (WorkItemsExtractionModelIds): [optional]  # noqa: E501
+            section_ids (WorkItemsExtractionModelSectionIds): [optional]  # noqa: E501
+            project_ids (ConfigurationExtractionModelProjectIds): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,9 +229,9 @@ class WorkItemsExtractionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids (GuidExtractionModel): [optional]  # noqa: E501
-            section_ids (GuidExtractionModel): [optional]  # noqa: E501
-            project_ids (GuidExtractionModel): [optional]  # noqa: E501
+            ids (WorkItemsExtractionModelIds): [optional]  # noqa: E501
+            section_ids (WorkItemsExtractionModelSectionIds): [optional]  # noqa: E501
+            project_ids (ConfigurationExtractionModelProjectIds): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

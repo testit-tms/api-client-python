@@ -84,9 +84,9 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'project_shortest_models': ([ProjectShortestModel], none_type,),  # noqa: E501
-            'custom_attribute_models': ([CustomAttributeModel], none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'project_shortest_models': ([ProjectShortestModel],),  # noqa: E501
+            'custom_attribute_models': ([CustomAttributeModel],),  # noqa: E501
         }
 
     @cached_property
@@ -145,9 +145,9 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            project_shortest_models ([ProjectShortestModel], none_type): [optional]  # noqa: E501
-            custom_attribute_models ([CustomAttributeModel], none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
+            project_shortest_models ([ProjectShortestModel]): [optional]  # noqa: E501
+            custom_attribute_models ([CustomAttributeModel]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,9 +235,9 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            project_shortest_models ([ProjectShortestModel], none_type): [optional]  # noqa: E501
-            custom_attribute_models ([CustomAttributeModel], none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
+            project_shortest_models ([ProjectShortestModel]): [optional]  # noqa: E501
+            custom_attribute_models ([CustomAttributeModel]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

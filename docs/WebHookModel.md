@@ -4,14 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event_type** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
-**request_type** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
-**name** | **str, none_type** | Name of the webhook | [optional] 
+**event_type** | **bool, date, datetime, dict, float, int, list, str, none_type** | Type of event which triggers the webhook | 
+**request_type** | **bool, date, datetime, dict, float, int, list, str, none_type** | Method which the webhook uses | 
+**name** | **str** | Name of the webhook | [optional] 
 **description** | **str, none_type** | Description of the webhook | [optional] 
-**url** | **str, none_type** | Url to which the webhook sends request | [optional] 
+**url** | **str** | Url to which the webhook sends request | [optional] 
 **should_send_body** | **bool** | Indicates if the webhook sends body | [optional] 
-**headers** | **{str: (str, none_type)}, none_type** | Collection of headers which the webhook sends | [optional] 
-**query_parameters** | **{str: (str, none_type)}, none_type** | Collection of query parameters which the webhook sends | [optional] 
+**headers** | **{str: (str,)}, none_type** | Collection of headers which the webhook sends | [optional] 
+**query_parameters** | **{str: (str,)}, none_type** | Collection of query parameters which the webhook sends | [optional] 
 **is_enabled** | **bool** | Indicates if the webhook is active | [optional] 
 **should_send_custom_body** | **bool** | Indicates if the webhook sends custom body | [optional] 
 **custom_body** | **str, none_type** | Custom body of the webhook | [optional] 

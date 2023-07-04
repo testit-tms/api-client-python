@@ -31,9 +31,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.custom_attribute_option_model import CustomAttributeOptionModel
-    from testit_api_client.model.custom_attribute_types_enum import CustomAttributeTypesEnum
     globals()['CustomAttributeOptionModel'] = CustomAttributeOptionModel
-    globals()['CustomAttributeTypesEnum'] = CustomAttributeTypesEnum
 
 
 class CustomAttributeGetModel(ModelNormal):
@@ -82,11 +80,11 @@ class CustomAttributeGetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'type': (CustomAttributeTypesEnum,),  # noqa: E501
+            'type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'options': ([CustomAttributeOptionModel], none_type,),  # noqa: E501
+            'options': ([CustomAttributeOptionModel],),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'is_required': (bool,),  # noqa: E501
             'is_global': (bool,),  # noqa: E501
@@ -119,7 +117,7 @@ class CustomAttributeGetModel(ModelNormal):
         """CustomAttributeGetModel - a model defined in OpenAPI
 
         Args:
-            type (CustomAttributeTypesEnum):
+            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of the attribute
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -153,9 +151,9 @@ class CustomAttributeGetModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the attribute. [optional]  # noqa: E501
-            options ([CustomAttributeOptionModel], none_type): Collection of the attribute options. [optional]  # noqa: E501
+            options ([CustomAttributeOptionModel]): Collection of the attribute options. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the attribute is deleted. [optional]  # noqa: E501
-            name (str, none_type): Name of the attribute. [optional]  # noqa: E501
+            name (str): Name of the attribute. [optional]  # noqa: E501
             is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
             is_required (bool): Indicates if the attribute is mandatory to specify. [optional]  # noqa: E501
             is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501
@@ -215,7 +213,7 @@ class CustomAttributeGetModel(ModelNormal):
         """CustomAttributeGetModel - a model defined in OpenAPI
 
         Args:
-            type (CustomAttributeTypesEnum):
+            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of the attribute
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,9 +247,9 @@ class CustomAttributeGetModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the attribute. [optional]  # noqa: E501
-            options ([CustomAttributeOptionModel], none_type): Collection of the attribute options. [optional]  # noqa: E501
+            options ([CustomAttributeOptionModel]): Collection of the attribute options. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the attribute is deleted. [optional]  # noqa: E501
-            name (str, none_type): Name of the attribute. [optional]  # noqa: E501
+            name (str): Name of the attribute. [optional]  # noqa: E501
             is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
             is_required (bool): Indicates if the attribute is mandatory to specify. [optional]  # noqa: E501
             is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501

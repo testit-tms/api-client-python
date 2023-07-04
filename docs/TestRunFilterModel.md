@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_ids** | **[str], none_type** | Specifies a test run project IDs to search for | [optional] 
 **states** | [**[TestRunState], none_type**](TestRunState.md) | Specifies a test run states to search for | [optional] 
-**created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**created_date** | [**TestRunFilterModelCreatedDate**](TestRunFilterModelCreatedDate.md) |  | [optional] 
 **modified_by_ids** | **[str], none_type** | Specifies a test run last editor IDs to search for | [optional] 
 **is_deleted** | **bool, none_type** | Specifies a test run deleted status to search for | [optional] 
 

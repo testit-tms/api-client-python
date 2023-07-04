@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for the test result is required |  -  |
 **200** | Success |  -  |
+**403** | Read permission for the test result is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -343,8 +343,8 @@ Edit test result by ID
 import time
 import testit_api_client
 from testit_api_client.api import test_results_api
-from testit_api_client.model.test_result_update_model import TestResultUpdateModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_results_id_get_request import ApiV2TestResultsIdGetRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -368,123 +368,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "id_example" # str | Test result unique ID
-    test_result_update_model = TestResultUpdateModel(
-        setup_results=[
-            AttachmentPutModelAutoTestStepResultsModel(
-                title="title_example",
-                description="description_example",
-                info="info_example",
-                started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                duration=0,
-                outcome=AvailableTestResultOutcome("Passed"),
-                step_results=[
-                    AttachmentPutModelAutoTestStepResultsModel(),
-                ],
-                attachments=[
-                    AttachmentPutModel(
-                        id="id_example",
-                    ),
-                ],
-                parameters={
-                    "key": "key_example",
-                },
-            ),
-        ],
-        teardown_results=[
-            AttachmentPutModelAutoTestStepResultsModel(
-                title="title_example",
-                description="description_example",
-                info="info_example",
-                started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                duration=0,
-                outcome=AvailableTestResultOutcome("Passed"),
-                step_results=[
-                    AttachmentPutModelAutoTestStepResultsModel(),
-                ],
-                attachments=[
-                    AttachmentPutModel(
-                        id="id_example",
-                    ),
-                ],
-                parameters={
-                    "key": "key_example",
-                },
-            ),
-        ],
-        duration_in_ms=0,
-        step_comments=[
-            TestResultStepCommentPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                text="text_example",
-                step_id="step_id_example",
-                parent_step_id="parent_step_id_example",
-                attachments=[
-                    AttachmentPutModel(
-                        id="id_example",
-                    ),
-                ],
-            ),
-        ],
-        failure_class_ids=[
-            "failure_class_ids_example",
-        ],
-        outcome="outcome_example",
-        comment="comment_example",
-        links=[
-            LinkModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=LinkType("Related"),
-                has_info=True,
-            ),
-        ],
-        step_results=[
-            StepResultModel(
-                step_id="step_id_example",
-                outcome="outcome_example",
-                shared_step_version_id="shared_step_version_id_example",
-                shared_step_results=[
-                    SharedStepResultModel(
-                        step_id="step_id_example",
-                        outcome="outcome_example",
-                    ),
-                ],
-                comment=StepCommentModel(
-                    id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                    text="text_example",
-                    step_id="step_id_example",
-                    parent_step_id="parent_step_id_example",
-                    attachments=[
-                        AttachmentModel(
-                            file_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                            type="image/jpeg",
-                            size=5.555,
-                            created_date=dateutil_parser('2023-04-19T09:01:04.3018963Z'),
-                            modified_date=dateutil_parser('2023-04-19T09:01:04.3018963Z'),
-                            created_by_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                            modified_by_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                            name="example",
-                            id="id_example",
-                        ),
-                    ],
-                    test_result_id="test_result_id_example",
-                    created_by_id="created_by_id_example",
-                    modified_by_id="modified_by_id_example",
-                    created_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                    modified_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                ),
-            ),
-        ],
-        attachments=[
-            AttachmentPutModel(
-                id="id_example",
-            ),
-        ],
-    ) # TestResultUpdateModel |  (optional)
+    api_v2_test_results_id_get_request = ApiV2TestResultsIdGetRequest(None) # ApiV2TestResultsIdGetRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -497,7 +381,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit test result by ID
-        api_instance.api_v2_test_results_id_put(id, test_result_update_model=test_result_update_model)
+        api_instance.api_v2_test_results_id_put(id, api_v2_test_results_id_get_request=api_v2_test_results_id_get_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_put: %s\n" % e)
 ```
@@ -508,7 +392,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result unique ID |
- **test_result_update_model** | [**TestResultUpdateModel**](TestResultUpdateModel.md)|  | [optional]
+ **api_v2_test_results_id_get_request** | [**ApiV2TestResultsIdGetRequest**](ApiV2TestResultsIdGetRequest.md)|  | [optional]
 
 ### Return type
 
@@ -546,8 +430,8 @@ Search for test results
 import time
 import testit_api_client
 from testit_api_client.api import test_results_api
-from testit_api_client.model.test_results_filter_model import TestResultsFilterModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
 from testit_api_client.model.test_result_short_get_model import TestResultShortGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -576,28 +460,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    test_results_filter_model = TestResultsFilterModel(
-        test_run_ids=[
-            "test_run_ids_example",
-        ],
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        outcomes=[
-            TestResultOutcome("InProgress"),
-        ],
-        failure_categories=[
-            FailureCategoryModel("InfrastructureDefect"),
-        ],
-        namespace="namespace_example",
-        class_name="class_name_example",
-    ) # TestResultsFilterModel |  (optional)
+    api_v2_test_results_search_post_request = ApiV2TestResultsSearchPostRequest(None) # ApiV2TestResultsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for test results
-        api_response = api_instance.api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_results_filter_model=test_results_filter_model)
+        api_response = api_instance.api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_test_results_search_post_request=api_v2_test_results_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_search_post: %s\n" % e)
@@ -613,7 +482,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **test_results_filter_model** | [**TestResultsFilterModel**](TestResultsFilterModel.md)|  | [optional]
+ **api_v2_test_results_search_post_request** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -651,8 +520,8 @@ Search for test results and extract statistics
 import time
 import testit_api_client
 from testit_api_client.api import test_results_api
-from testit_api_client.model.test_results_filter_model import TestResultsFilterModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
 from testit_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -676,28 +545,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
-    test_results_filter_model = TestResultsFilterModel(
-        test_run_ids=[
-            "test_run_ids_example",
-        ],
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        outcomes=[
-            TestResultOutcome("InProgress"),
-        ],
-        failure_categories=[
-            FailureCategoryModel("InfrastructureDefect"),
-        ],
-        namespace="namespace_example",
-        class_name="class_name_example",
-    ) # TestResultsFilterModel |  (optional)
+    api_v2_test_results_search_post_request = ApiV2TestResultsSearchPostRequest(None) # ApiV2TestResultsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for test results and extract statistics
-        api_response = api_instance.api_v2_test_results_statistics_filter_post(test_results_filter_model=test_results_filter_model)
+        api_response = api_instance.api_v2_test_results_statistics_filter_post(api_v2_test_results_search_post_request=api_v2_test_results_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_statistics_filter_post: %s\n" % e)
@@ -708,7 +562,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_results_filter_model** | [**TestResultsFilterModel**](TestResultsFilterModel.md)|  | [optional]
+ **api_v2_test_results_search_post_request** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -819,10 +673,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**403** | Update permission for test result required |  -  |
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Update permission for test result required |  -  |
 **404** |  |  -  |
 **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 
@@ -904,10 +758,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for test result required |  -  |
 **204** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test result required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -927,7 +781,6 @@ import time
 import testit_api_client
 from testit_api_client.api import test_results_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.image_resize_type import ImageResizeType
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -955,7 +808,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
     width = 1 # int | Width of the result image (optional)
     height = 1 # int | Height of the result image (optional)
-    resize_type = ImageResizeType("Crop") # ImageResizeType | Type of resizing to apply to the result image (optional)
+    resize_type = None # bool, date, datetime, dict, float, int, list, str, none_type | Type of resizing to apply to the result image (optional)
     background_color = "#62ECB0" # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
     preview = True # bool | If image must be converted to a preview (lower quality, no animation) (optional)
 
@@ -984,7 +837,7 @@ Name | Type | Description  | Notes
  **id** | **str**| Test result internal identifier (guid format) |
  **width** | **int**| Width of the result image | [optional]
  **height** | **int**| Height of the result image | [optional]
- **resize_type** | **ImageResizeType**| Type of resizing to apply to the result image | [optional]
+ **resize_type** | **bool, date, datetime, dict, float, int, list, str, none_type**| Type of resizing to apply to the result image | [optional]
  **background_color** | **str**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional]
  **preview** | **bool**| If image must be converted to a preview (lower quality, no animation) | [optional]
 
@@ -1009,8 +862,8 @@ void (empty response body)
 **200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
 **403** | Read permission for test result required |  -  |
+**404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1092,9 +945,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**400** | Bad Request |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for test result required |  -  |
 **404** | File not found |  -  |
 
@@ -1176,10 +1029,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test result required |  -  |
 **200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Read permission for test result required |  -  |
 **404** | TestResult not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

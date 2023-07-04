@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**job_id** | **str, none_type** |  | [optional] 
-**job_type** | [**BackgroundJobType**](BackgroundJobType.md) |  | [optional] 
-**state** | [**BackgroundJobState**](BackgroundJobState.md) |  | [optional] 
+**job_id** | **str** |  | [optional] 
+**job_type** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
+**state** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **is_deleted** | **bool** |  | [optional] 
 **progress** | **int** |  | [optional] 
 **start_date** | **datetime, none_type** |  | [optional] 

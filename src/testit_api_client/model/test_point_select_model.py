@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_point_filter_model import TestPointFilterModel
-    from testit_api_client.model.test_points_extraction_model import TestPointsExtractionModel
-    globals()['TestPointFilterModel'] = TestPointFilterModel
-    globals()['TestPointsExtractionModel'] = TestPointsExtractionModel
+    from testit_api_client.model.api_v2_test_points_search_post_request import ApiV2TestPointsSearchPostRequest
+    from testit_api_client.model.test_point_select_model_extraction_model import TestPointSelectModelExtractionModel
+    globals()['ApiV2TestPointsSearchPostRequest'] = ApiV2TestPointsSearchPostRequest
+    globals()['TestPointSelectModelExtractionModel'] = TestPointSelectModelExtractionModel
 
 
 class TestPointSelectModel(ModelNormal):
@@ -82,8 +82,8 @@ class TestPointSelectModel(ModelNormal):
         """
         lazy_import()
         return {
-            'filter': (TestPointFilterModel,),  # noqa: E501
-            'extraction_model': (TestPointsExtractionModel,),  # noqa: E501
+            'filter': (ApiV2TestPointsSearchPostRequest,),  # noqa: E501
+            'extraction_model': (TestPointSelectModelExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -137,8 +137,8 @@ class TestPointSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestPointFilterModel): [optional]  # noqa: E501
-            extraction_model (TestPointsExtractionModel): [optional]  # noqa: E501
+            filter (ApiV2TestPointsSearchPostRequest): [optional]  # noqa: E501
+            extraction_model (TestPointSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,8 +224,8 @@ class TestPointSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestPointFilterModel): [optional]  # noqa: E501
-            extraction_model (TestPointsExtractionModel): [optional]  # noqa: E501
+            filter (ApiV2TestPointsSearchPostRequest): [optional]  # noqa: E501
+            extraction_model (TestPointSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

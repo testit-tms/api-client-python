@@ -94,12 +94,12 @@ class TestResultUpdateModel(ModelNormal):
             'setup_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'teardown_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'duration_in_ms': (int, none_type,),  # noqa: E501
-            'step_comments': ([TestResultStepCommentPutModel], none_type,),  # noqa: E501
-            'failure_class_ids': ([str], none_type,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'step_comments': ([TestResultStepCommentPutModel],),  # noqa: E501
+            'failure_class_ids': ([str],),  # noqa: E501
+            'outcome': (str,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
-            'step_results': ([StepResultModel], none_type,),  # noqa: E501
+            'step_results': ([StepResultModel],),  # noqa: E501
             'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
         }
 
@@ -165,12 +165,12 @@ class TestResultUpdateModel(ModelNormal):
             setup_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             teardown_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             duration_in_ms (int, none_type): [optional]  # noqa: E501
-            step_comments ([TestResultStepCommentPutModel], none_type): [optional]  # noqa: E501
-            failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            step_comments ([TestResultStepCommentPutModel]): [optional]  # noqa: E501
+            failure_class_ids ([str]): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            step_results ([StepResultModel], none_type): [optional]  # noqa: E501
+            step_results ([StepResultModel]): [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
         """
 
@@ -260,12 +260,12 @@ class TestResultUpdateModel(ModelNormal):
             setup_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             teardown_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             duration_in_ms (int, none_type): [optional]  # noqa: E501
-            step_comments ([TestResultStepCommentPutModel], none_type): [optional]  # noqa: E501
-            failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            step_comments ([TestResultStepCommentPutModel]): [optional]  # noqa: E501
+            failure_class_ids ([str]): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            step_results ([StepResultModel], none_type): [optional]  # noqa: E501
+            step_results ([StepResultModel]): [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
         """
 

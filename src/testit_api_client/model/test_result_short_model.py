@@ -31,11 +31,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
-    from testit_api_client.model.auto_test_short_model import AutoTestShortModel
-    from testit_api_client.model.test_point_put_model import TestPointPutModel
+    from testit_api_client.model.test_result_model_test_point import TestResultModelTestPoint
+    from testit_api_client.model.test_result_short_model_auto_test import TestResultShortModelAutoTest
     globals()['AttachmentModel'] = AttachmentModel
-    globals()['AutoTestShortModel'] = AutoTestShortModel
-    globals()['TestPointPutModel'] = TestPointPutModel
+    globals()['TestResultModelTestPoint'] = TestResultModelTestPoint
+    globals()['TestResultShortModelAutoTest'] = TestResultShortModelAutoTest
 
 
 class TestResultShortModel(ModelNormal):
@@ -85,13 +85,13 @@ class TestResultShortModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (str,),  # noqa: E501
             'traces': (str, none_type,),  # noqa: E501
-            'failure_type': (str, none_type,),  # noqa: E501
+            'failure_type': (str,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
-            'test_point': (TestPointPutModel,),  # noqa: E501
+            'test_point': (TestResultModelTestPoint,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
-            'auto_test': (AutoTestShortModel,),  # noqa: E501
+            'auto_test': (TestResultShortModelAutoTest,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
         }
 
@@ -154,13 +154,13 @@ class TestResultShortModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
             traces (str, none_type): [optional]  # noqa: E501
-            failure_type (str, none_type): [optional]  # noqa: E501
+            failure_type (str): [optional]  # noqa: E501
             message (str, none_type): [optional]  # noqa: E501
-            test_point (TestPointPutModel): [optional]  # noqa: E501
+            test_point (TestResultModelTestPoint): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
-            auto_test (AutoTestShortModel): [optional]  # noqa: E501
+            auto_test (TestResultShortModelAutoTest): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
         """
 
@@ -248,13 +248,13 @@ class TestResultShortModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
             traces (str, none_type): [optional]  # noqa: E501
-            failure_type (str, none_type): [optional]  # noqa: E501
+            failure_type (str): [optional]  # noqa: E501
             message (str, none_type): [optional]  # noqa: E501
-            test_point (TestPointPutModel): [optional]  # noqa: E501
+            test_point (TestResultModelTestPoint): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
-            auto_test (AutoTestShortModel): [optional]  # noqa: E501
+            auto_test (TestResultShortModelAutoTest): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
         """
 

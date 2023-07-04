@@ -86,11 +86,11 @@ class TestPointAnalyticResult(ModelNormal):
         """
         lazy_import()
         return {
-            'count_group_by_status': ([TestPlanGroupByStatus], none_type,),  # noqa: E501
-            'sum_group_by_tester': ([TestPlanGroupByTester], none_type,),  # noqa: E501
-            'count_group_by_tester': ([TestPlanGroupByTester], none_type,),  # noqa: E501
-            'count_group_by_test_suite': ([TestPlanGroupByTestSuite], none_type,),  # noqa: E501
-            'count_group_by_tester_and_status': ([TestPlanGroupByTesterAndStatus], none_type,),  # noqa: E501
+            'count_group_by_status': ([TestPlanGroupByStatus],),  # noqa: E501
+            'sum_group_by_tester': ([TestPlanGroupByTester],),  # noqa: E501
+            'count_group_by_tester': ([TestPlanGroupByTester],),  # noqa: E501
+            'count_group_by_test_suite': ([TestPlanGroupByTestSuite],),  # noqa: E501
+            'count_group_by_tester_and_status': ([TestPlanGroupByTesterAndStatus],),  # noqa: E501
         }
 
     @cached_property
@@ -147,11 +147,11 @@ class TestPointAnalyticResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            count_group_by_status ([TestPlanGroupByStatus], none_type): [optional]  # noqa: E501
-            sum_group_by_tester ([TestPlanGroupByTester], none_type): [optional]  # noqa: E501
-            count_group_by_tester ([TestPlanGroupByTester], none_type): [optional]  # noqa: E501
-            count_group_by_test_suite ([TestPlanGroupByTestSuite], none_type): [optional]  # noqa: E501
-            count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus], none_type): [optional]  # noqa: E501
+            count_group_by_status ([TestPlanGroupByStatus]): [optional]  # noqa: E501
+            sum_group_by_tester ([TestPlanGroupByTester]): [optional]  # noqa: E501
+            count_group_by_tester ([TestPlanGroupByTester]): [optional]  # noqa: E501
+            count_group_by_test_suite ([TestPlanGroupByTestSuite]): [optional]  # noqa: E501
+            count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,11 +237,11 @@ class TestPointAnalyticResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            count_group_by_status ([TestPlanGroupByStatus], none_type): [optional]  # noqa: E501
-            sum_group_by_tester ([TestPlanGroupByTester], none_type): [optional]  # noqa: E501
-            count_group_by_tester ([TestPlanGroupByTester], none_type): [optional]  # noqa: E501
-            count_group_by_test_suite ([TestPlanGroupByTestSuite], none_type): [optional]  # noqa: E501
-            count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus], none_type): [optional]  # noqa: E501
+            count_group_by_status ([TestPlanGroupByStatus]): [optional]  # noqa: E501
+            sum_group_by_tester ([TestPlanGroupByTester]): [optional]  # noqa: E501
+            count_group_by_tester ([TestPlanGroupByTester]): [optional]  # noqa: E501
+            count_group_by_test_suite ([TestPlanGroupByTestSuite]): [optional]  # noqa: E501
+            count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

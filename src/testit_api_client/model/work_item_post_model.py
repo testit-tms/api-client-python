@@ -36,18 +36,12 @@ def lazy_import():
     from testit_api_client.model.link_post_model import LinkPostModel
     from testit_api_client.model.step_put_model import StepPutModel
     from testit_api_client.model.tag_short_model import TagShortModel
-    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
-    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_states import WorkItemStates
     globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['AutoTestIdModel'] = AutoTestIdModel
     globals()['IterationPutModel'] = IterationPutModel
     globals()['LinkPostModel'] = LinkPostModel
     globals()['StepPutModel'] = StepPutModel
     globals()['TagShortModel'] = TagShortModel
-    globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
-    globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemStates'] = WorkItemStates
 
 
 class WorkItemPostModel(ModelNormal):
@@ -79,7 +73,7 @@ class WorkItemPostModel(ModelNormal):
 
     validations = {
         ('duration',): {
-            'inclusive_maximum': 86400,
+            'inclusive_maximum': 86400000,
             'inclusive_minimum': 0,
         },
         ('name',): {
@@ -103,9 +97,9 @@ class WorkItemPostModel(ModelNormal):
         """
         lazy_import()
         return {
-            'entity_type_name': (WorkItemEntityTypes,),  # noqa: E501
-            'state': (WorkItemStates,),  # noqa: E501
-            'priority': (WorkItemPriorityModel,),  # noqa: E501
+            'entity_type_name': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'state': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'priority': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'steps': ([StepPutModel],),  # noqa: E501
             'precondition_steps': ([StepPutModel],),  # noqa: E501
             'postcondition_steps': ([StepPutModel],),  # noqa: E501
@@ -158,9 +152,9 @@ class WorkItemPostModel(ModelNormal):
         """WorkItemPostModel - a model defined in OpenAPI
 
         Args:
-            entity_type_name (WorkItemEntityTypes):
-            state (WorkItemStates):
-            priority (WorkItemPriorityModel):
+            entity_type_name (bool, date, datetime, dict, float, int, list, str, none_type):
+            state (bool, date, datetime, dict, float, int, list, str, none_type):
+            priority (bool, date, datetime, dict, float, int, list, str, none_type):
             steps ([StepPutModel]):
             precondition_steps ([StepPutModel]):
             postcondition_steps ([StepPutModel]):
@@ -275,9 +269,9 @@ class WorkItemPostModel(ModelNormal):
         """WorkItemPostModel - a model defined in OpenAPI
 
         Args:
-            entity_type_name (WorkItemEntityTypes):
-            state (WorkItemStates):
-            priority (WorkItemPriorityModel):
+            entity_type_name (bool, date, datetime, dict, float, int, list, str, none_type):
+            state (bool, date, datetime, dict, float, int, list, str, none_type):
+            priority (bool, date, datetime, dict, float, int, list, str, none_type):
             steps ([StepPutModel]):
             precondition_steps ([StepPutModel]):
             postcondition_steps ([StepPutModel]):

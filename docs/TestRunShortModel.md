@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state_name** | [**TestRunState**](TestRunState.md) |  | 
+**state_name** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **project_id** | **str** |  | [optional] 
 **test_plan_id** | **str, none_type** |  | [optional] 
 **name** | **str, none_type** |  | [optional] 

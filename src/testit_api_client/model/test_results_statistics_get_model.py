@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_run_statistics_error_categories_get_model import TestRunStatisticsErrorCategoriesGetModel
-    from testit_api_client.model.test_run_statistics_statuses_get_model import TestRunStatisticsStatusesGetModel
-    globals()['TestRunStatisticsErrorCategoriesGetModel'] = TestRunStatisticsErrorCategoriesGetModel
-    globals()['TestRunStatisticsStatusesGetModel'] = TestRunStatisticsStatusesGetModel
+    from testit_api_client.model.test_results_statistics_get_model_failure_categories import TestResultsStatisticsGetModelFailureCategories
+    from testit_api_client.model.test_results_statistics_get_model_statuses import TestResultsStatisticsGetModelStatuses
+    globals()['TestResultsStatisticsGetModelFailureCategories'] = TestResultsStatisticsGetModelFailureCategories
+    globals()['TestResultsStatisticsGetModelStatuses'] = TestResultsStatisticsGetModelStatuses
 
 
 class TestResultsStatisticsGetModel(ModelNormal):
@@ -82,8 +82,8 @@ class TestResultsStatisticsGetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'statuses': (TestRunStatisticsStatusesGetModel,),  # noqa: E501
-            'failure_categories': (TestRunStatisticsErrorCategoriesGetModel,),  # noqa: E501
+            'statuses': (TestResultsStatisticsGetModelStatuses,),  # noqa: E501
+            'failure_categories': (TestResultsStatisticsGetModelFailureCategories,),  # noqa: E501
         }
 
     @cached_property
@@ -137,8 +137,8 @@ class TestResultsStatisticsGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            statuses (TestRunStatisticsStatusesGetModel): [optional]  # noqa: E501
-            failure_categories (TestRunStatisticsErrorCategoriesGetModel): [optional]  # noqa: E501
+            statuses (TestResultsStatisticsGetModelStatuses): [optional]  # noqa: E501
+            failure_categories (TestResultsStatisticsGetModelFailureCategories): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,8 +224,8 @@ class TestResultsStatisticsGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            statuses (TestRunStatisticsStatusesGetModel): [optional]  # noqa: E501
-            failure_categories (TestRunStatisticsErrorCategoriesGetModel): [optional]  # noqa: E501
+            statuses (TestResultsStatisticsGetModelStatuses): [optional]  # noqa: E501
+            failure_categories (TestResultsStatisticsGetModelFailureCategories): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

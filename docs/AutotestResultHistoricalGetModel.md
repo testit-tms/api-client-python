@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**outcome** | [**AutotestResultOutcome**](AutotestResultOutcome.md) |  | 
+**outcome** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **id** | **str** |  | [optional] 
 **created_date** | **datetime** |  | [optional] 
 **created_by_id** | **str** |  | [optional] 

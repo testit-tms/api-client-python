@@ -31,11 +31,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.iteration_model import IterationModel
-    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_states import WorkItemStates
     globals()['IterationModel'] = IterationModel
-    globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemStates'] = WorkItemStates
 
 
 class WorkItemShortModel(ModelNormal):
@@ -98,8 +94,8 @@ class WorkItemShortModel(ModelNormal):
             'project_id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
             'section_name': (str,),  # noqa: E501
-            'state': (WorkItemStates,),  # noqa: E501
-            'priority': (WorkItemPriorityModel,),  # noqa: E501
+            'state': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'priority': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'version_id': (str,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
@@ -111,8 +107,8 @@ class WorkItemShortModel(ModelNormal):
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'tag_names': ([str], none_type,),  # noqa: E501
-            'iterations': ([IterationModel], none_type,),  # noqa: E501
+            'tag_names': ([str],),  # noqa: E501
+            'iterations': ([IterationModel],),  # noqa: E501
         }
 
     @cached_property
@@ -159,8 +155,8 @@ class WorkItemShortModel(ModelNormal):
             project_id (str): This property is used to link autotest with project
             section_id (str): This property links workitem with section
             section_name (str): Name of the section where work item is located
-            state (WorkItemStates):
-            priority (WorkItemPriorityModel):
+            state (bool, date, datetime, dict, float, int, list, str, none_type): Property can have one of these values: NeedsWork, NotReady, Ready
+            priority (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -204,8 +200,8 @@ class WorkItemShortModel(ModelNormal):
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
-            tag_names ([str], none_type): [optional]  # noqa: E501
-            iterations ([IterationModel], none_type): [optional]  # noqa: E501
+            tag_names ([str]): [optional]  # noqa: E501
+            iterations ([IterationModel]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,8 +269,8 @@ class WorkItemShortModel(ModelNormal):
             project_id (str): This property is used to link autotest with project
             section_id (str): This property links workitem with section
             section_name (str): Name of the section where work item is located
-            state (WorkItemStates):
-            priority (WorkItemPriorityModel):
+            state (bool, date, datetime, dict, float, int, list, str, none_type): Property can have one of these values: NeedsWork, NotReady, Ready
+            priority (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -318,8 +314,8 @@ class WorkItemShortModel(ModelNormal):
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
-            tag_names ([str], none_type): [optional]  # noqa: E501
-            iterations ([IterationModel], none_type): [optional]  # noqa: E501
+            tag_names ([str]): [optional]  # noqa: E501
+            iterations ([IterationModel]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

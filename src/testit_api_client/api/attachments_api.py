@@ -22,7 +22,6 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from testit_api_client.model.attachment_model import AttachmentModel
-from testit_api_client.model.image_resize_type import ImageResizeType
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -154,7 +153,7 @@ class AttachmentsApi(object):
                     'height':
                         (int,),
                     'resize_type':
-                        (ImageResizeType,),
+                        (bool, date, datetime, dict, float, int, list, str, none_type,),
                     'background_color':
                         (str,),
                     'preview':
@@ -384,7 +383,7 @@ class AttachmentsApi(object):
         Keyword Args:
             width (int): Width of the result image. [optional]
             height (int): Height of the result image. [optional]
-            resize_type (ImageResizeType): Type of resizing to apply to the result image. [optional]
+            resize_type (bool, date, datetime, dict, float, int, list, str, none_type): Type of resizing to apply to the result image. [optional]
             background_color (str): Color of the background if the `resizeType` is `AddBackgroundStripes`. [optional]
             preview (bool): If image must be converted to a preview (lower quality, no animation). [optional]
             _return_http_data_only (bool): response data without head status

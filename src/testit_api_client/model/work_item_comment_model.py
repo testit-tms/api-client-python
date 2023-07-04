@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.user_with_rank_model import UserWithRankModel
-    globals()['UserWithRankModel'] = UserWithRankModel
+    from testit_api_client.model.work_item_comment_model_user import WorkItemCommentModelUser
+    globals()['WorkItemCommentModelUser'] = WorkItemCommentModelUser
 
 
 class WorkItemCommentModel(ModelNormal):
@@ -81,8 +81,8 @@ class WorkItemCommentModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'text': (str, none_type,),  # noqa: E501
-            'user': (UserWithRankModel,),  # noqa: E501
+            'text': (str,),  # noqa: E501
+            'user': (WorkItemCommentModelUser,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
@@ -146,8 +146,8 @@ class WorkItemCommentModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            text (str, none_type): [optional]  # noqa: E501
-            user (UserWithRankModel): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
+            user (WorkItemCommentModelUser): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501
@@ -238,8 +238,8 @@ class WorkItemCommentModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            text (str, none_type): [optional]  # noqa: E501
-            user (UserWithRankModel): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
+            user (WorkItemCommentModelUser): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501

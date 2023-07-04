@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**failure_category** | [**FailureCategoryModel**](FailureCategoryModel.md) |  | 
+**failure_category** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **name** | **str, none_type** |  | [optional] 
 **created_date** | **datetime** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 

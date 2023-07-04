@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) |  | 
+**type** | **bool, date, datetime, dict, float, int, list, str, none_type** | Type of attribute | 
 **name** | **str** | Name of the attribute | 
 **options** | [**[CustomAttributeOptionPostModel], none_type**](CustomAttributeOptionPostModel.md) | Collection of attribute options  &lt;br /&gt;  Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
 **is_enabled** | **bool** | Indicates if the attribute is enabled | [optional] 

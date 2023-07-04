@@ -31,11 +31,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.background_job_attachment_model import BackgroundJobAttachmentModel
-    from testit_api_client.model.background_job_state import BackgroundJobState
-    from testit_api_client.model.background_job_type import BackgroundJobType
     globals()['BackgroundJobAttachmentModel'] = BackgroundJobAttachmentModel
-    globals()['BackgroundJobState'] = BackgroundJobState
-    globals()['BackgroundJobType'] = BackgroundJobType
 
 
 class BackgroundJobModel(ModelNormal):
@@ -85,9 +81,9 @@ class BackgroundJobModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'job_id': (str, none_type,),  # noqa: E501
-            'job_type': (BackgroundJobType,),  # noqa: E501
-            'state': (BackgroundJobState,),  # noqa: E501
+            'job_id': (str,),  # noqa: E501
+            'job_type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'state': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'progress': (int,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
@@ -156,9 +152,9 @@ class BackgroundJobModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            job_id (str, none_type): [optional]  # noqa: E501
-            job_type (BackgroundJobType): [optional]  # noqa: E501
-            state (BackgroundJobState): [optional]  # noqa: E501
+            job_id (str): [optional]  # noqa: E501
+            job_type (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            state (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             progress (int): [optional]  # noqa: E501
             start_date (datetime, none_type): [optional]  # noqa: E501
@@ -251,9 +247,9 @@ class BackgroundJobModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            job_id (str, none_type): [optional]  # noqa: E501
-            job_type (BackgroundJobType): [optional]  # noqa: E501
-            state (BackgroundJobState): [optional]  # noqa: E501
+            job_id (str): [optional]  # noqa: E501
+            job_type (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            state (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             is_deleted (bool): [optional]  # noqa: E501
             progress (int): [optional]  # noqa: E501
             start_date (datetime, none_type): [optional]  # noqa: E501

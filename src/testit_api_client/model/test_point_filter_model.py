@@ -30,12 +30,18 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
-    from testit_api_client.model.int64_range_selector_model import Int64RangeSelectorModel
+    from testit_api_client.model.test_point_filter_model_created_date import TestPointFilterModelCreatedDate
+    from testit_api_client.model.test_point_filter_model_duration import TestPointFilterModelDuration
+    from testit_api_client.model.test_point_filter_model_modified_date import TestPointFilterModelModifiedDate
+    from testit_api_client.model.test_point_filter_model_work_item_created_date import TestPointFilterModelWorkItemCreatedDate
+    from testit_api_client.model.test_point_filter_model_work_item_modified_date import TestPointFilterModelWorkItemModifiedDate
     from testit_api_client.model.test_point_status import TestPointStatus
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
-    globals()['Int64RangeSelectorModel'] = Int64RangeSelectorModel
+    globals()['TestPointFilterModelCreatedDate'] = TestPointFilterModelCreatedDate
+    globals()['TestPointFilterModelDuration'] = TestPointFilterModelDuration
+    globals()['TestPointFilterModelModifiedDate'] = TestPointFilterModelModifiedDate
+    globals()['TestPointFilterModelWorkItemCreatedDate'] = TestPointFilterModelWorkItemCreatedDate
+    globals()['TestPointFilterModelWorkItemModifiedDate'] = TestPointFilterModelWorkItemModifiedDate
     globals()['TestPointStatus'] = TestPointStatus
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
 
@@ -94,6 +100,10 @@ class TestPointFilterModel(ModelNormal):
         },
         ('tags',): {
         },
+        ('work_item_created_by_ids',): {
+        },
+        ('work_item_modified_by_ids',): {
+        },
     }
 
     additional_properties_type = None
@@ -121,14 +131,18 @@ class TestPointFilterModel(ModelNormal):
             'name': (str, none_type,),  # noqa: E501
             'configuration_ids': ([str], none_type,),  # noqa: E501
             'tester_ids': ([str], none_type,),  # noqa: E501
-            'duration': (Int64RangeSelectorModel,),  # noqa: E501
+            'duration': (TestPointFilterModelDuration,),  # noqa: E501
             'section_ids': ([str], none_type,),  # noqa: E501
-            'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'created_date': (TestPointFilterModelCreatedDate,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
-            'modified_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'modified_date': (TestPointFilterModelModifiedDate,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
             'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
+            'work_item_created_date': (TestPointFilterModelWorkItemCreatedDate,),  # noqa: E501
+            'work_item_created_by_ids': ([str], none_type,),  # noqa: E501
+            'work_item_modified_date': (TestPointFilterModelWorkItemModifiedDate,),  # noqa: E501
+            'work_item_modified_by_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -154,6 +168,10 @@ class TestPointFilterModel(ModelNormal):
         'modified_by_ids': 'modifiedByIds',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
+        'work_item_created_date': 'workItemCreatedDate',  # noqa: E501
+        'work_item_created_by_ids': 'workItemCreatedByIds',  # noqa: E501
+        'work_item_modified_date': 'workItemModifiedDate',  # noqa: E501
+        'work_item_modified_by_ids': 'workItemModifiedByIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -206,14 +224,18 @@ class TestPointFilterModel(ModelNormal):
             name (str, none_type): Specifies a test point name to search for. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test point configuration IDs to search for. [optional]  # noqa: E501
             tester_ids ([str], none_type): Specifies a test point assigned user IDs to search for. [optional]  # noqa: E501
-            duration (Int64RangeSelectorModel): [optional]  # noqa: E501
+            duration (TestPointFilterModelDuration): [optional]  # noqa: E501
             section_ids ([str], none_type): Specifies a test point work item section IDs to search for. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (TestPointFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies a test point creator IDs to search for. [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            modified_date (TestPointFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
+            work_item_created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
+            work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501
+            work_item_modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
+            work_item_modified_by_ids ([str], none_type): Specifies a work item last editor IDs to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -308,14 +330,18 @@ class TestPointFilterModel(ModelNormal):
             name (str, none_type): Specifies a test point name to search for. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test point configuration IDs to search for. [optional]  # noqa: E501
             tester_ids ([str], none_type): Specifies a test point assigned user IDs to search for. [optional]  # noqa: E501
-            duration (Int64RangeSelectorModel): [optional]  # noqa: E501
+            duration (TestPointFilterModelDuration): [optional]  # noqa: E501
             section_ids ([str], none_type): Specifies a test point work item section IDs to search for. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (TestPointFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies a test point creator IDs to search for. [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            modified_date (TestPointFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
+            work_item_created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
+            work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501
+            work_item_modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
+            work_item_modified_by_ids ([str], none_type): Specifies a work item last editor IDs to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

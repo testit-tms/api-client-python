@@ -21,9 +21,8 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.api_v2_notifications_search_post_request import ApiV2NotificationsSearchPostRequest
 from testit_api_client.model.notification_model import NotificationModel
-from testit_api_client.model.notification_query_filter_model import NotificationQueryFilterModel
-from testit_api_client.model.notification_type_model import NotificationTypeModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -123,7 +122,7 @@ class NotificationsApi(object):
                 },
                 'openapi_types': {
                     'notification_type':
-                        (NotificationTypeModel,),
+                        (bool, date, datetime, dict, float, int, list, str, none_type,),
                     'skip':
                         (int,),
                     'take':
@@ -275,7 +274,7 @@ class NotificationsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'notification_query_filter_model',
+                    'api_v2_notifications_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -301,8 +300,8 @@ class NotificationsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'notification_query_filter_model':
-                        (NotificationQueryFilterModel,),
+                    'api_v2_notifications_search_post_request':
+                        (ApiV2NotificationsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -317,7 +316,7 @@ class NotificationsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'notification_query_filter_model': 'body',
+                    'api_v2_notifications_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -427,7 +426,7 @@ class NotificationsApi(object):
 
 
         Keyword Args:
-            notification_type (NotificationTypeModel): [optional]
+            notification_type (bool, date, datetime, dict, float, int, list, str, none_type): [optional]
             skip (int): Amount of items to be skipped (offset). [optional]
             take (int): Amount of items to be taken (limit). [optional]
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
@@ -677,7 +676,7 @@ class NotificationsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            notification_query_filter_model (NotificationQueryFilterModel): [optional]
+            api_v2_notifications_search_post_request (ApiV2NotificationsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -31,9 +31,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.custom_attribute_option_post_model import CustomAttributeOptionPostModel
-    from testit_api_client.model.custom_attribute_types_enum import CustomAttributeTypesEnum
     globals()['CustomAttributeOptionPostModel'] = CustomAttributeOptionPostModel
-    globals()['CustomAttributeTypesEnum'] = CustomAttributeTypesEnum
 
 
 class CustomAttributePostModel(ModelNormal):
@@ -86,7 +84,7 @@ class CustomAttributePostModel(ModelNormal):
         """
         lazy_import()
         return {
-            'type': (CustomAttributeTypesEnum,),  # noqa: E501
+            'type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'options': ([CustomAttributeOptionPostModel], none_type,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
@@ -119,7 +117,7 @@ class CustomAttributePostModel(ModelNormal):
         """CustomAttributePostModel - a model defined in OpenAPI
 
         Args:
-            type (CustomAttributeTypesEnum):
+            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of attribute
             name (str): Name of the attribute
 
         Keyword Args:
@@ -214,7 +212,7 @@ class CustomAttributePostModel(ModelNormal):
         """CustomAttributePostModel - a model defined in OpenAPI
 
         Args:
-            type (CustomAttributeTypesEnum):
+            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of attribute
             name (str): Name of the attribute
 
         Keyword Args:

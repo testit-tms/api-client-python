@@ -30,10 +30,16 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
-    from testit_api_client.model.int32_range_selector_model import Int32RangeSelectorModel
-    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
-    globals()['Int32RangeSelectorModel'] = Int32RangeSelectorModel
+    from testit_api_client.model.projects_filter_model_autotests_count import ProjectsFilterModelAutotestsCount
+    from testit_api_client.model.projects_filter_model_checklists_count import ProjectsFilterModelChecklistsCount
+    from testit_api_client.model.projects_filter_model_created_date import ProjectsFilterModelCreatedDate
+    from testit_api_client.model.projects_filter_model_shared_steps_count import ProjectsFilterModelSharedStepsCount
+    from testit_api_client.model.projects_filter_model_test_cases_count import ProjectsFilterModelTestCasesCount
+    globals()['ProjectsFilterModelAutotestsCount'] = ProjectsFilterModelAutotestsCount
+    globals()['ProjectsFilterModelChecklistsCount'] = ProjectsFilterModelChecklistsCount
+    globals()['ProjectsFilterModelCreatedDate'] = ProjectsFilterModelCreatedDate
+    globals()['ProjectsFilterModelSharedStepsCount'] = ProjectsFilterModelSharedStepsCount
+    globals()['ProjectsFilterModelTestCasesCount'] = ProjectsFilterModelTestCasesCount
 
 
 class ProjectsFilterModel(ModelNormal):
@@ -93,12 +99,12 @@ class ProjectsFilterModel(ModelNormal):
             'name': (str, none_type,),  # noqa: E501
             'is_favorite': (bool, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
-            'test_cases_count': (Int32RangeSelectorModel,),  # noqa: E501
-            'checklists_count': (Int32RangeSelectorModel,),  # noqa: E501
-            'shared_steps_count': (Int32RangeSelectorModel,),  # noqa: E501
-            'autotests_count': (Int32RangeSelectorModel,),  # noqa: E501
+            'test_cases_count': (ProjectsFilterModelTestCasesCount,),  # noqa: E501
+            'checklists_count': (ProjectsFilterModelChecklistsCount,),  # noqa: E501
+            'shared_steps_count': (ProjectsFilterModelSharedStepsCount,),  # noqa: E501
+            'autotests_count': (ProjectsFilterModelAutotestsCount,),  # noqa: E501
             'global_ids': ([int], none_type,),  # noqa: E501
-            'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'created_date': (ProjectsFilterModelCreatedDate,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
         }
 
@@ -164,12 +170,12 @@ class ProjectsFilterModel(ModelNormal):
             name (str, none_type): Specifies a project name to search for. [optional]  # noqa: E501
             is_favorite (bool, none_type): Specifies a project favorite status to search for. [optional]  # noqa: E501
             is_deleted (bool, none_type): Specifies a project deleted status to search for. [optional]  # noqa: E501
-            test_cases_count (Int32RangeSelectorModel): [optional]  # noqa: E501
-            checklists_count (Int32RangeSelectorModel): [optional]  # noqa: E501
-            shared_steps_count (Int32RangeSelectorModel): [optional]  # noqa: E501
-            autotests_count (Int32RangeSelectorModel): [optional]  # noqa: E501
+            test_cases_count (ProjectsFilterModelTestCasesCount): [optional]  # noqa: E501
+            checklists_count (ProjectsFilterModelChecklistsCount): [optional]  # noqa: E501
+            shared_steps_count (ProjectsFilterModelSharedStepsCount): [optional]  # noqa: E501
+            autotests_count (ProjectsFilterModelAutotestsCount): [optional]  # noqa: E501
             global_ids ([int], none_type): Specifies a project global IDs to search for. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (ProjectsFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies an autotest creator IDs to search for. [optional]  # noqa: E501
         """
 
@@ -259,12 +265,12 @@ class ProjectsFilterModel(ModelNormal):
             name (str, none_type): Specifies a project name to search for. [optional]  # noqa: E501
             is_favorite (bool, none_type): Specifies a project favorite status to search for. [optional]  # noqa: E501
             is_deleted (bool, none_type): Specifies a project deleted status to search for. [optional]  # noqa: E501
-            test_cases_count (Int32RangeSelectorModel): [optional]  # noqa: E501
-            checklists_count (Int32RangeSelectorModel): [optional]  # noqa: E501
-            shared_steps_count (Int32RangeSelectorModel): [optional]  # noqa: E501
-            autotests_count (Int32RangeSelectorModel): [optional]  # noqa: E501
+            test_cases_count (ProjectsFilterModelTestCasesCount): [optional]  # noqa: E501
+            checklists_count (ProjectsFilterModelChecklistsCount): [optional]  # noqa: E501
+            shared_steps_count (ProjectsFilterModelSharedStepsCount): [optional]  # noqa: E501
+            autotests_count (ProjectsFilterModelAutotestsCount): [optional]  # noqa: E501
             global_ids ([int], none_type): Specifies a project global IDs to search for. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (ProjectsFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies an autotest creator IDs to search for. [optional]  # noqa: E501
         """
 

@@ -31,15 +31,15 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
-    from testit_api_client.model.auto_test_model_v2_get_model import AutoTestModelV2GetModel
-    from testit_api_client.model.configuration_model import ConfigurationModel
+    from testit_api_client.model.auto_test_related_to_test_result import AutoTestRelatedToTestResult
     from testit_api_client.model.link_model import LinkModel
-    from testit_api_client.model.test_point_short_model import TestPointShortModel
+    from testit_api_client.model.test_point_related_to_test_result import TestPointRelatedToTestResult
+    from testit_api_client.model.test_result_configuration import TestResultConfiguration
     globals()['AttachmentModel'] = AttachmentModel
-    globals()['AutoTestModelV2GetModel'] = AutoTestModelV2GetModel
-    globals()['ConfigurationModel'] = ConfigurationModel
+    globals()['AutoTestRelatedToTestResult'] = AutoTestRelatedToTestResult
     globals()['LinkModel'] = LinkModel
-    globals()['TestPointShortModel'] = TestPointShortModel
+    globals()['TestPointRelatedToTestResult'] = TestPointRelatedToTestResult
+    globals()['TestResultConfiguration'] = TestResultConfiguration
 
 
 class TestResultV2GetModel(ModelNormal):
@@ -88,8 +88,8 @@ class TestResultV2GetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'configuration': (ConfigurationModel,),  # noqa: E501
-            'auto_test': (AutoTestModelV2GetModel,),  # noqa: E501
+            'configuration': (TestResultConfiguration,),  # noqa: E501
+            'auto_test': (AutoTestRelatedToTestResult,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
             'work_item_version_id': (str,),  # noqa: E501
@@ -101,14 +101,14 @@ class TestResultV2GetModel(ModelNormal):
             'run_by_user_id': (str, none_type,),  # noqa: E501
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
             'test_point_id': (str, none_type,),  # noqa: E501
-            'test_point': (TestPointShortModel, none_type,),  # noqa: E501
+            'test_point': (TestPointRelatedToTestResult,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (str,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
-            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'properties': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
+            'properties': ({str: (str,)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -181,8 +181,8 @@ class TestResultV2GetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            configuration (ConfigurationModel): [optional]  # noqa: E501
-            auto_test (AutoTestModelV2GetModel): [optional]  # noqa: E501
+            configuration (TestResultConfiguration): [optional]  # noqa: E501
+            auto_test (AutoTestRelatedToTestResult): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             configuration_id (str): [optional]  # noqa: E501
             work_item_version_id (str): [optional]  # noqa: E501
@@ -194,14 +194,14 @@ class TestResultV2GetModel(ModelNormal):
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             test_point_id (str, none_type): [optional]  # noqa: E501
-            test_point (TestPointShortModel): [optional]  # noqa: E501
+            test_point (TestPointRelatedToTestResult): [optional]  # noqa: E501
             test_run_id (str): [optional]  # noqa: E501
-            outcome (str, none_type): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
+            outcome (str): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -287,8 +287,8 @@ class TestResultV2GetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            configuration (ConfigurationModel): [optional]  # noqa: E501
-            auto_test (AutoTestModelV2GetModel): [optional]  # noqa: E501
+            configuration (TestResultConfiguration): [optional]  # noqa: E501
+            auto_test (AutoTestRelatedToTestResult): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             configuration_id (str): [optional]  # noqa: E501
             work_item_version_id (str): [optional]  # noqa: E501
@@ -300,14 +300,14 @@ class TestResultV2GetModel(ModelNormal):
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             test_point_id (str, none_type): [optional]  # noqa: E501
-            test_point (TestPointShortModel): [optional]  # noqa: E501
+            test_point (TestPointRelatedToTestResult): [optional]  # noqa: E501
             test_run_id (str): [optional]  # noqa: E501
-            outcome (str, none_type): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
+            outcome (str): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

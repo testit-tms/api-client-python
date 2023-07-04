@@ -117,12 +117,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 **200** | Successful operation |  -  |
-**403** | Update permission for test result required |  -  |
 **400** | Bad Request |  -  |
-**404** |  |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test result required |  -  |
+**404** |  |  -  |
+**413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -202,12 +202,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**422** | Client Error |  -  |
-**403** | Update permission for test library required |  -  |
-**404** | Can&#39;t find CheckList with id |  -  |
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test library required |  -  |
+**404** | Can&#39;t find CheckList with id |  -  |
+**422** | Client Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -386,8 +386,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **204** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -465,8 +465,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -627,8 +627,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 
@@ -840,8 +840,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with id |  -  |
@@ -863,9 +863,9 @@ Move WorkItem to another section
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.api_v2_work_items_move_post_request import ApiV2WorkItemsMovePostRequest
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.work_item_move_post_model import WorkItemMovePostModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -888,18 +888,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
-    work_item_move_post_model = WorkItemMovePostModel(
-        id="id_example",
-        new_section_id="new_section_id_example",
-        old_section_id="old_section_id_example",
-        next_work_item_id="next_work_item_id_example",
-    ) # WorkItemMovePostModel |  (optional)
+    api_v2_work_items_move_post_request = ApiV2WorkItemsMovePostRequest(None) # ApiV2WorkItemsMovePostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Move WorkItem to another section
-        api_response = api_instance.api_v2_work_items_move_post(work_item_move_post_model=work_item_move_post_model)
+        api_response = api_instance.api_v2_work_items_move_post(api_v2_work_items_move_post_request=api_v2_work_items_move_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_move_post: %s\n" % e)
@@ -910,7 +905,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_item_move_post_model** | [**WorkItemMovePostModel**](WorkItemMovePostModel.md)|  | [optional]
+ **api_v2_work_items_move_post_request** | [**ApiV2WorkItemsMovePostRequest**](ApiV2WorkItemsMovePostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -930,8 +925,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 
@@ -950,8 +945,8 @@ Search for work items
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
-from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_projects_id_work_items_search_post_request import ApiV2ProjectsIdWorkItemsSearchPostRequest
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -980,102 +975,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    work_item_select_model = WorkItemSelectModel(
-        filter=WorkItemFilterModel(
-            name_or_id="name_or_id_example",
-            include_ids=[
-                "include_ids_example",
-            ],
-            exclude_ids=[
-                "exclude_ids_example",
-            ],
-            name="name_example",
-            ids=[
-                "ids_example",
-            ],
-            global_ids=[
-                1,
-            ],
-            attributes={
-                "key": [
-                    "key_example",
-                ],
-            },
-            is_deleted=True,
-            project_ids=[
-                "project_ids_example",
-            ],
-            section_ids=[
-                "section_ids_example",
-            ],
-            created_by_ids=[
-                "created_by_ids_example",
-            ],
-            modified_by_ids=[
-                "modified_by_ids_example",
-            ],
-            states=[
-                WorkItemStates("NeedsWork"),
-            ],
-            priorities=[
-                WorkItemPriorityModel("Lowest"),
-            ],
-            types=[
-                WorkItemEntityTypes("TestCases"),
-            ],
-            created_date=DateTimeRangeSelectorModel(
-                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            ),
-            modified_date=DateTimeRangeSelectorModel(
-                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            ),
-            duration=Int32RangeSelectorModel(
-                _from=1,
-                to=1,
-            ),
-            is_automated=True,
-            tags=[
-                "tags_example",
-            ],
-            auto_test_ids=[
-                "auto_test_ids_example",
-            ],
-        ),
-        extraction_model=WorkItemsExtractionModel(
-            ids=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-            section_ids=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-            project_ids=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-        ),
-    ) # WorkItemSelectModel |  (optional)
+    api_v2_projects_id_work_items_search_post_request = ApiV2ProjectsIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsIdWorkItemsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for work items
-        api_response = api_instance.api_v2_work_items_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_model=work_item_select_model)
+        api_response = api_instance.api_v2_work_items_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_id_work_items_search_post_request=api_v2_projects_id_work_items_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_search_post: %s\n" % e)
@@ -1091,7 +997,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **work_item_select_model** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional]
+ **api_v2_projects_id_work_items_search_post_request** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1132,7 +1038,7 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.shared_step_reference_section_model import SharedStepReferenceSectionModel
-from testit_api_client.model.shared_step_reference_sections_query_filter_model import SharedStepReferenceSectionsQueryFilterModel
+from testit_api_client.model.api_v2_work_items_shared_step_id_references_sections_post_request import ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1161,23 +1067,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    shared_step_reference_sections_query_filter_model = SharedStepReferenceSectionsQueryFilterModel(
-        name="name_example",
-        created_by_ids=[
-            "created_by_ids_example",
-        ],
-        modified_by_ids=[
-            "modified_by_ids_example",
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        modified_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-    ) # SharedStepReferenceSectionsQueryFilterModel |  (optional)
+    api_v2_work_items_shared_step_id_references_sections_post_request = ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest(None) # ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1191,7 +1081,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get SharedStep references in sections
-        api_response = api_instance.api_v2_work_items_shared_step_id_references_sections_post(shared_step_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, shared_step_reference_sections_query_filter_model=shared_step_reference_sections_query_filter_model)
+        api_response = api_instance.api_v2_work_items_shared_step_id_references_sections_post(shared_step_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_work_items_shared_step_id_references_sections_post_request=api_v2_work_items_shared_step_id_references_sections_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_shared_step_id_references_sections_post: %s\n" % e)
@@ -1208,7 +1098,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **shared_step_reference_sections_query_filter_model** | [**SharedStepReferenceSectionsQueryFilterModel**](SharedStepReferenceSectionsQueryFilterModel.md)|  | [optional]
+ **api_v2_work_items_shared_step_id_references_sections_post_request** | [**ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1250,7 +1140,7 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.shared_step_reference_model import SharedStepReferenceModel
-from testit_api_client.model.shared_step_references_query_filter_model import SharedStepReferencesQueryFilterModel
+from testit_api_client.model.api_v2_work_items_shared_step_id_references_work_items_post_request import ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1279,42 +1169,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    shared_step_references_query_filter_model = SharedStepReferencesQueryFilterModel(
-        name="name_example",
-        global_ids=[
-            1,
-        ],
-        section_ids=[
-            "section_ids_example",
-        ],
-        created_by_ids=[
-            "created_by_ids_example",
-        ],
-        modified_by_ids=[
-            "modified_by_ids_example",
-        ],
-        states=[
-            WorkItemStates("NeedsWork"),
-        ],
-        priorities=[
-            WorkItemPriorityModel("Lowest"),
-        ],
-        entity_types=[
-            "entity_types_example",
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        modified_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        is_automated=True,
-        tags=[
-            "tags_example",
-        ],
-    ) # SharedStepReferencesQueryFilterModel |  (optional)
+    api_v2_work_items_shared_step_id_references_work_items_post_request = ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(None) # ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1328,7 +1183,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get SharedStep references in workitems
-        api_response = api_instance.api_v2_work_items_shared_step_id_references_work_items_post(shared_step_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, shared_step_references_query_filter_model=shared_step_references_query_filter_model)
+        api_response = api_instance.api_v2_work_items_shared_step_id_references_work_items_post(shared_step_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_work_items_shared_step_id_references_work_items_post_request=api_v2_work_items_shared_step_id_references_work_items_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_shared_step_id_references_work_items_post: %s\n" % e)
@@ -1345,7 +1200,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **shared_step_references_query_filter_model** | [**SharedStepReferencesQueryFilterModel**](SharedStepReferencesQueryFilterModel.md)|  | [optional]
+ **api_v2_work_items_shared_step_id_references_work_items_post_request** | [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1446,8 +1301,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Can&#39;t find SharedStep with id |  -  |
 
@@ -1468,8 +1323,8 @@ Create Test Case, Checklist or Shared Step
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
-from testit_api_client.model.work_item_post_model import WorkItemPostModel
 from testit_api_client.model.work_item_model import WorkItemModel
+from testit_api_client.model.create_work_item_request import CreateWorkItemRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1492,89 +1347,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
-    work_item_post_model = WorkItemPostModel(
-        entity_type_name=WorkItemEntityTypes("TestCases"),
-        description="This is a basic test template",
-        state=WorkItemStates("NeedsWork"),
-        priority=WorkItemPriorityModel("Lowest"),
-        steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-        precondition_steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-        postcondition_steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-        duration=10000,
-        attributes={
-            "key": None,
-        },
-        tags=[
-            TagShortModel(
-                name="name_example",
-            ),
-        ],
-        attachments=[
-            AttachmentPutModel(
-                id="id_example",
-            ),
-        ],
-        iterations=[
-            IterationPutModel(
-                parameters=[
-                    ParameterIterationModel(
-                        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                    ),
-                ],
-                id="00000000-0000-0000-0000-000000000000",
-            ),
-        ],
-        links=[
-            LinkPostModel(
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=LinkType("Related"),
-                has_info=True,
-            ),
-        ],
-        name="Basic template",
-        project_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        section_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        auto_tests=[
-            AutoTestIdModel(
-                id="id_example",
-            ),
-        ],
-    ) # WorkItemPostModel |  (optional)
+    create_work_item_request = CreateWorkItemRequest(None) # CreateWorkItemRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create Test Case, Checklist or Shared Step
-        api_response = api_instance.create_work_item(work_item_post_model=work_item_post_model)
+        api_response = api_instance.create_work_item(create_work_item_request=create_work_item_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->create_work_item: %s\n" % e)
@@ -1585,7 +1364,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_item_post_model** | [**WorkItemPostModel**](WorkItemPostModel.md)|  | [optional]
+ **create_work_item_request** | [**CreateWorkItemRequest**](CreateWorkItemRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1605,10 +1384,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**403** | Update permission for test library required |  -  |
 **201** | Successful operation |  -  |
 **400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;Tags must be set  &lt;br&gt;Duration should be a positive number  &lt;br&gt;Should be empty for CheckList  &lt;br&gt;Attribute value must be a valid guid for user scheme  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
+**401** | Unauthorized |  -  |
+**403** | Update permission for test library required |  -  |
 **404** | &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1685,9 +1464,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**400** | Bad Request |  -  |
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | Can&#39;t find a WorkItem with workItemId |  -  |
 **200** | Successful operation |  -  |
@@ -1766,12 +1545,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Delete permission for test library required |  -  |
 **404** | Can&#39;t find a WorkItem with id |  -  |
-**401** | Unauthorized |  -  |
-**400** | Bad Request |  -  |
 **422** | Could not delete Shared Step that has references |  -  |
-**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1943,9 +1722,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
-**404** | Can&#39;t find workItem with id |  -  |
 **200** | Successful operation |  -  |
+**404** | Can&#39;t find workItem with id |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 
@@ -2038,11 +1817,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
-**404** | Can&#39;t find workItem with id |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
+**404** | Can&#39;t find workItem with id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2120,11 +1899,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Not valid workItemId |  -  |
-**404** | Can&#39;t find WorkItem with workItemId |  -  |
 **200** | Successful operation |  -  |
+**400** | Not valid workItemId |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
+**404** | Can&#39;t find WorkItem with workItemId |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2217,9 +1996,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
-**404** | Can&#39;t find WorkItem with workItemId |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
+**404** | Can&#39;t find WorkItem with workItemId |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2390,7 +2169,7 @@ Update Test Case, Checklist or Shared Step
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
-from testit_api_client.model.work_item_put_model import WorkItemPutModel
+from testit_api_client.model.update_work_item_request import UpdateWorkItemRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2413,89 +2192,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
-    work_item_put_model = WorkItemPutModel(
-        attachments=[
-            AttachmentPutModel(
-                id="id_example",
-            ),
-        ],
-        iterations=[
-            IterationPutModel(
-                parameters=[
-                    ParameterIterationModel(
-                        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                    ),
-                ],
-                id="00000000-0000-0000-0000-000000000000",
-            ),
-        ],
-        auto_tests=[
-            AutoTestIdModel(
-                id="id_example",
-            ),
-        ],
-        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        section_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        description="This is a basic test template",
-        state=WorkItemStates("NeedsWork"),
-        priority=WorkItemPriorityModel("Lowest"),
-        steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-        precondition_steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-        postcondition_steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-        duration=10000,
-        attributes={
-            "key": None,
-        },
-        tags=[
-            TagShortModel(
-                name="name_example",
-            ),
-        ],
-        links=[
-            LinkPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=LinkType("Related"),
-                has_info=True,
-            ),
-        ],
-        name="Basic template",
-    ) # WorkItemPutModel |  (optional)
+    update_work_item_request = UpdateWorkItemRequest(None) # UpdateWorkItemRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update Test Case, Checklist or Shared Step
-        api_instance.update_work_item(work_item_put_model=work_item_put_model)
+        api_instance.update_work_item(update_work_item_request=update_work_item_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->update_work_item: %s\n" % e)
 ```
@@ -2505,7 +2208,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_item_put_model** | [**WorkItemPutModel**](WorkItemPutModel.md)|  | [optional]
+ **update_work_item_request** | [**UpdateWorkItemRequest**](UpdateWorkItemRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2525,8 +2228,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;duration should be a positive number  &lt;br&gt;should be empty for CheckList  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
 **204** | Successful operation |  -  |
+**400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;duration should be a positive number  &lt;br&gt;should be empty for CheckList  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |

@@ -30,12 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.iteration_model import IterationModel
-    from testit_api_client.model.last_test_result_model import LastTestResultModel
-    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    globals()['IterationModel'] = IterationModel
-    globals()['LastTestResultModel'] = LastTestResultModel
-    globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
+    from testit_api_client.model.test_point_with_last_result_model_iteration import TestPointWithLastResultModelIteration
+    from testit_api_client.model.test_point_with_last_result_model_last_test_result import TestPointWithLastResultModelLastTestResult
+    globals()['TestPointWithLastResultModelIteration'] = TestPointWithLastResultModelIteration
+    globals()['TestPointWithLastResultModelLastTestResult'] = TestPointWithLastResultModelLastTestResult
 
 
 class TestPointWithLastResultModel(ModelNormal):
@@ -84,7 +82,7 @@ class TestPointWithLastResultModel(ModelNormal):
         """
         lazy_import()
         return {
-            'priority': (WorkItemPriorityModel,),  # noqa: E501
+            'priority': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'work_item_name': (str, none_type,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
@@ -92,7 +90,7 @@ class TestPointWithLastResultModel(ModelNormal):
             'work_item_id': (str,),  # noqa: E501
             'configuration_id': (str, none_type,),  # noqa: E501
             'test_suite_id': (str,),  # noqa: E501
-            'last_test_result': (LastTestResultModel,),  # noqa: E501
+            'last_test_result': (TestPointWithLastResultModelLastTestResult,),  # noqa: E501
             'status': (str, none_type,),  # noqa: E501
             'work_item_global_id': (int, none_type,),  # noqa: E501
             'work_item_entity_type_name': (str, none_type,),  # noqa: E501
@@ -107,7 +105,7 @@ class TestPointWithLastResultModel(ModelNormal):
             'duration': (int,),  # noqa: E501
             'test_suite_name_bread_crumbs': ([str], none_type,),  # noqa: E501
             'group_count': (int, none_type,),  # noqa: E501
-            'iteration': (IterationModel,),  # noqa: E501
+            'iteration': (TestPointWithLastResultModelIteration,),  # noqa: E501
         }
 
     @cached_property
@@ -153,7 +151,7 @@ class TestPointWithLastResultModel(ModelNormal):
         """TestPointWithLastResultModel - a model defined in OpenAPI
 
         Args:
-            priority (WorkItemPriorityModel):
+            priority (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -193,7 +191,7 @@ class TestPointWithLastResultModel(ModelNormal):
             work_item_id (str): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
             test_suite_id (str): [optional]  # noqa: E501
-            last_test_result (LastTestResultModel): [optional]  # noqa: E501
+            last_test_result (TestPointWithLastResultModelLastTestResult): [optional]  # noqa: E501
             status (str, none_type): [optional]  # noqa: E501
             work_item_global_id (int, none_type): [optional]  # noqa: E501
             work_item_entity_type_name (str, none_type): [optional]  # noqa: E501
@@ -208,7 +206,7 @@ class TestPointWithLastResultModel(ModelNormal):
             duration (int): [optional]  # noqa: E501
             test_suite_name_bread_crumbs ([str], none_type): [optional]  # noqa: E501
             group_count (int, none_type): [optional]  # noqa: E501
-            iteration (IterationModel): [optional]  # noqa: E501
+            iteration (TestPointWithLastResultModelIteration): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,7 +263,7 @@ class TestPointWithLastResultModel(ModelNormal):
         """TestPointWithLastResultModel - a model defined in OpenAPI
 
         Args:
-            priority (WorkItemPriorityModel):
+            priority (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -305,7 +303,7 @@ class TestPointWithLastResultModel(ModelNormal):
             work_item_id (str): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
             test_suite_id (str): [optional]  # noqa: E501
-            last_test_result (LastTestResultModel): [optional]  # noqa: E501
+            last_test_result (TestPointWithLastResultModelLastTestResult): [optional]  # noqa: E501
             status (str, none_type): [optional]  # noqa: E501
             work_item_global_id (int, none_type): [optional]  # noqa: E501
             work_item_entity_type_name (str, none_type): [optional]  # noqa: E501
@@ -320,7 +318,7 @@ class TestPointWithLastResultModel(ModelNormal):
             duration (int): [optional]  # noqa: E501
             test_suite_name_bread_crumbs ([str], none_type): [optional]  # noqa: E501
             group_count (int, none_type): [optional]  # noqa: E501
-            iteration (IterationModel): [optional]  # noqa: E501
+            iteration (TestPointWithLastResultModelIteration): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

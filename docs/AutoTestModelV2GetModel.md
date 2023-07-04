@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**external_id** | **str, none_type** | This property is used to set autotest identifier from client system | [optional] 
+**external_id** | **str** | This property is used to set autotest identifier from client system | [optional] 
 **links** | [**[LinkModel], none_type**](LinkModel.md) |  | [optional] 
 **project_id** | **str** | This property is used to link autotest with project | [optional] 
-**name** | **str, none_type** |  | [optional] 
+**name** | **str** |  | [optional] 
 **namespace** | **str, none_type** |  | [optional] 
 **classname** | **str, none_type** |  | [optional] 
 **steps** | [**[AutoTestStepModel], none_type**](AutoTestStepModel.md) |  | [optional] 

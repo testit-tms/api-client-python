@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_id** | **str** | Unique ID of the webhook project | 
-**event_type** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
+**event_type** | **bool, date, datetime, dict, float, int, list, str, none_type** | Type of event which triggers the webhook | 
 **url** | **str** | Request URL of the webhook | 
-**request_type** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
+**request_type** | **bool, date, datetime, dict, float, int, list, str, none_type** | Request method of the webhook | 
 **name** | **str** | Name of the webhook | 
 **description** | **str, none_type** | Description of the webhook | [optional] 
 **should_send_body** | **bool** | Indicates if the webhook sends body | [optional] 
-**headers** | **{str: (str, none_type)}, none_type** | Collection of the webhook headers | [optional] 
-**query_parameters** | **{str: (str, none_type)}, none_type** | Collection of the webhook query parameters | [optional] 
+**headers** | **{str: (str,)}** | Collection of the webhook headers | [optional] 
+**query_parameters** | **{str: (str,)}** | Collection of the webhook query parameters | [optional] 
 **is_enabled** | **bool** | Indicates if the webhook is active | [optional] 
 **should_send_custom_body** | **bool** | Indicates if the webhook sends custom body | [optional] 
 **custom_body** | **str, none_type** | Custom body of the webhook | [optional] 

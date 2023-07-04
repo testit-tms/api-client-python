@@ -84,10 +84,10 @@ class AutoTestModelV2GetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'external_id': (str, none_type,),  # noqa: E501
+            'external_id': (str,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'classname': (str, none_type,),  # noqa: E501
             'steps': ([AutoTestStepModel], none_type,),  # noqa: E501
@@ -169,10 +169,10 @@ class AutoTestModelV2GetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str, none_type): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
+            external_id (str): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             project_id (str): This property is used to link autotest with project. [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             namespace (str, none_type): [optional]  # noqa: E501
             classname (str, none_type): [optional]  # noqa: E501
             steps ([AutoTestStepModel], none_type): [optional]  # noqa: E501
@@ -271,10 +271,10 @@ class AutoTestModelV2GetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str, none_type): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
+            external_id (str): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             project_id (str): This property is used to link autotest with project. [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             namespace (str, none_type): [optional]  # noqa: E501
             classname (str, none_type): [optional]  # noqa: E501
             steps ([AutoTestStepModel], none_type): [optional]  # noqa: E501

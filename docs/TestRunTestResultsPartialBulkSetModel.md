@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**selector** | [**TestRunTestResultsSelectModel**](TestRunTestResultsSelectModel.md) |  | [optional] 
+**selector** | [**TestRunTestResultsPartialBulkSetModelSelector**](TestRunTestResultsPartialBulkSetModelSelector.md) |  | [optional] 
 **result_reason_ids** | **[str], none_type** | Unique IDs of result reasons to be assigned to test results | [optional] 
 **links** | [**[LinkPostModel], none_type**](LinkPostModel.md) | Collection of links to be assigned to test results | [optional] 
 **comment** | **str, none_type** | Comment to be added to test results | [optional] 

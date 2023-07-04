@@ -21,25 +21,25 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.api_v2_projects_id_work_items_search_post_request import ApiV2ProjectsIdWorkItemsSearchPostRequest
+from testit_api_client.model.api_v2_test_plans_id_export_test_points_xlsx_post_request import ApiV2TestPlansIdExportTestPointsXlsxPostRequest
+from testit_api_client.model.api_v2_test_plans_id_test_points_tester_user_id_post_request import ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
+from testit_api_client.model.api_v2_test_plans_id_test_runs_search_post_request import ApiV2TestPlansIdTestRunsSearchPostRequest
 from testit_api_client.model.configuration_model import ConfigurationModel
-from testit_api_client.model.get_xlsx_test_points_by_test_plan_model import GetXlsxTestPointsByTestPlanModel
+from testit_api_client.model.create_test_plan_request import CreateTestPlanRequest
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_plan_change_model import TestPlanChangeModel
 from testit_api_client.model.test_plan_link import TestPlanLink
 from testit_api_client.model.test_plan_model import TestPlanModel
-from testit_api_client.model.test_plan_post_model import TestPlanPostModel
-from testit_api_client.model.test_plan_put_model import TestPlanPutModel
 from testit_api_client.model.test_plan_short_model import TestPlanShortModel
 from testit_api_client.model.test_plan_with_test_suite_tree_model import TestPlanWithTestSuiteTreeModel
 from testit_api_client.model.test_point_analytic_result import TestPointAnalyticResult
-from testit_api_client.model.test_point_select_model import TestPointSelectModel
 from testit_api_client.model.test_point_with_last_result_model import TestPointWithLastResultModel
 from testit_api_client.model.test_run_model import TestRunModel
-from testit_api_client.model.test_run_search_query_model import TestRunSearchQueryModel
 from testit_api_client.model.test_suite_v2_tree_model import TestSuiteV2TreeModel
+from testit_api_client.model.update_test_plan_request import UpdateTestPlanRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 
 
 class TestPlansApi(object):
@@ -67,7 +67,7 @@ class TestPlansApi(object):
             params_map={
                 'all': [
                     'id',
-                    'work_item_select_model',
+                    'api_v2_projects_id_work_items_search_post_request',
                 ],
                 'required': [
                     'id',
@@ -87,15 +87,15 @@ class TestPlansApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'work_item_select_model':
-                        (WorkItemSelectModel,),
+                    'api_v2_projects_id_work_items_search_post_request':
+                        (ApiV2ProjectsIdWorkItemsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'work_item_select_model': 'body',
+                    'api_v2_projects_id_work_items_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -349,7 +349,7 @@ class TestPlansApi(object):
                 'all': [
                     'id',
                     'time_zone_offset_in_minutes',
-                    'get_xlsx_test_points_by_test_plan_model',
+                    'api_v2_test_plans_id_export_test_points_xlsx_post_request',
                 ],
                 'required': [
                     'id',
@@ -371,8 +371,8 @@ class TestPlansApi(object):
                         (str,),
                     'time_zone_offset_in_minutes':
                         (int,),
-                    'get_xlsx_test_points_by_test_plan_model':
-                        (GetXlsxTestPointsByTestPlanModel,),
+                    'api_v2_test_plans_id_export_test_points_xlsx_post_request':
+                        (ApiV2TestPlansIdExportTestPointsXlsxPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -381,7 +381,7 @@ class TestPlansApi(object):
                 'location_map': {
                     'id': 'path',
                     'time_zone_offset_in_minutes': 'header',
-                    'get_xlsx_test_points_by_test_plan_model': 'body',
+                    'api_v2_test_plans_id_export_test_points_xlsx_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -824,7 +824,7 @@ class TestPlansApi(object):
             params_map={
                 'all': [
                     'id',
-                    'test_point_select_model',
+                    'api_v2_test_plans_id_test_points_tester_user_id_post_request',
                 ],
                 'required': [
                     'id',
@@ -844,15 +844,15 @@ class TestPlansApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'test_point_select_model':
-                        (TestPointSelectModel,),
+                    'api_v2_test_plans_id_test_points_tester_user_id_post_request':
+                        (ApiV2TestPlansIdTestPointsTesterUserIdPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'test_point_select_model': 'body',
+                    'api_v2_test_plans_id_test_points_tester_user_id_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -882,7 +882,7 @@ class TestPlansApi(object):
                 'all': [
                     'id',
                     'user_id',
-                    'test_point_select_model',
+                    'api_v2_test_plans_id_test_points_tester_user_id_post_request',
                 ],
                 'required': [
                     'id',
@@ -905,8 +905,8 @@ class TestPlansApi(object):
                         (str,),
                     'user_id':
                         (str,),
-                    'test_point_select_model':
-                        (TestPointSelectModel,),
+                    'api_v2_test_plans_id_test_points_tester_user_id_post_request':
+                        (ApiV2TestPlansIdTestPointsTesterUserIdPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -915,7 +915,7 @@ class TestPlansApi(object):
                 'location_map': {
                     'id': 'path',
                     'user_id': 'path',
-                    'test_point_select_model': 'body',
+                    'api_v2_test_plans_id_test_points_tester_user_id_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1045,7 +1045,7 @@ class TestPlansApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'test_run_search_query_model',
+                    'api_v2_test_plans_id_test_runs_search_post_request',
                 ],
                 'required': [
                     'id',
@@ -1075,8 +1075,8 @@ class TestPlansApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'test_run_search_query_model':
-                        (TestRunSearchQueryModel,),
+                    'api_v2_test_plans_id_test_runs_search_post_request':
+                        (ApiV2TestPlansIdTestRunsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -1093,7 +1093,7 @@ class TestPlansApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'test_run_search_query_model': 'body',
+                    'api_v2_test_plans_id_test_runs_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1384,7 +1384,7 @@ class TestPlansApi(object):
             },
             params_map={
                 'all': [
-                    'test_plan_post_model',
+                    'create_test_plan_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -1400,13 +1400,13 @@ class TestPlansApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'test_plan_post_model':
-                        (TestPlanPostModel,),
+                    'create_test_plan_request':
+                        (CreateTestPlanRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'test_plan_post_model': 'body',
+                    'create_test_plan_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1625,6 +1625,57 @@ class TestPlansApi(object):
             },
             api_client=api_client
         )
+        self.purge_test_plan_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/testPlans/{id}/purge',
+                'operation_id': 'purge_test_plan',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.restore_test_plan_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -1740,7 +1791,7 @@ class TestPlansApi(object):
             },
             params_map={
                 'all': [
-                    'test_plan_put_model',
+                    'update_test_plan_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -1756,13 +1807,13 @@ class TestPlansApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'test_plan_put_model':
-                        (TestPlanPutModel,),
+                    'update_test_plan_request':
+                        (UpdateTestPlanRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'test_plan_put_model': 'body',
+                    'update_test_plan_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1795,7 +1846,7 @@ class TestPlansApi(object):
             id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
-            work_item_select_model (WorkItemSelectModel): Filter object to retrieve work items for test-suite's project. [optional]
+            api_v2_projects_id_work_items_search_post_request (ApiV2ProjectsIdWorkItemsSearchPostRequest): Filter object to retrieve work items for test-suite's project. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2213,7 +2264,7 @@ class TestPlansApi(object):
 
         Keyword Args:
             time_zone_offset_in_minutes (int): [optional]
-            get_xlsx_test_points_by_test_plan_model (GetXlsxTestPointsByTestPlanModel): [optional]
+            api_v2_test_plans_id_export_test_points_xlsx_post_request (ApiV2TestPlansIdExportTestPointsXlsxPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2814,7 +2865,7 @@ class TestPlansApi(object):
             id (str): Unique or global ID of the test plan
 
         Keyword Args:
-            test_point_select_model (TestPointSelectModel): [optional]
+            api_v2_test_plans_id_test_points_tester_user_id_post_request (ApiV2TestPlansIdTestPointsTesterUserIdPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2899,7 +2950,7 @@ class TestPlansApi(object):
             user_id (str): Unique ID of the user
 
         Keyword Args:
-            test_point_select_model (TestPointSelectModel): [optional]
+            api_v2_test_plans_id_test_points_tester_user_id_post_request (ApiV2TestPlansIdTestPointsTesterUserIdPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -3082,7 +3133,7 @@ class TestPlansApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            test_run_search_query_model (TestRunSearchQueryModel): [optional]
+            api_v2_test_plans_id_test_runs_search_post_request (ApiV2TestPlansIdTestRunsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -3574,7 +3625,7 @@ class TestPlansApi(object):
 
 
         Keyword Args:
-            test_plan_post_model (TestPlanPostModel): [optional]
+            create_test_plan_request (CreateTestPlanRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -3970,6 +4021,88 @@ class TestPlansApi(object):
             id
         return self.pause_endpoint.call_with_http_info(**kwargs)
 
+    def purge_test_plan(
+        self,
+        id,
+        **kwargs
+    ):
+        """Permanently delete test plan from archive  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.purge_test_plan(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Unique or global ID of the test plan
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.purge_test_plan_endpoint.call_with_http_info(**kwargs)
+
     def restore_test_plan(
         self,
         id,
@@ -4151,7 +4284,7 @@ class TestPlansApi(object):
 
 
         Keyword Args:
-            test_plan_put_model (TestPlanPutModel): [optional]
+            update_test_plan_request (UpdateTestPlanRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

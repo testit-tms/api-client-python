@@ -82,8 +82,8 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'custom_attribute_models': ([CustomAttributeModel], none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'custom_attribute_models': ([CustomAttributeModel],),  # noqa: E501
         }
 
     @cached_property
@@ -141,8 +141,8 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the custom attributes template. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the custom attribute template is deleted. [optional]  # noqa: E501
-            name (str, none_type): Name of the custom attribute template. [optional]  # noqa: E501
-            custom_attribute_models ([CustomAttributeModel], none_type): Attributes of the template. [optional]  # noqa: E501
+            name (str): Name of the custom attribute template. [optional]  # noqa: E501
+            custom_attribute_models ([CustomAttributeModel]): Attributes of the template. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,8 +230,8 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique ID of the custom attributes template. [optional]  # noqa: E501
             is_deleted (bool): Indicates if the custom attribute template is deleted. [optional]  # noqa: E501
-            name (str, none_type): Name of the custom attribute template. [optional]  # noqa: E501
-            custom_attribute_models ([CustomAttributeModel], none_type): Attributes of the template. [optional]  # noqa: E501
+            name (str): Name of the custom attribute template. [optional]  # noqa: E501
+            custom_attribute_models ([CustomAttributeModel]): Attributes of the template. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

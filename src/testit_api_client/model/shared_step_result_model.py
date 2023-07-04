@@ -76,7 +76,7 @@ class SharedStepResultModel(ModelNormal):
         """
         return {
             'step_id': (str,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -131,7 +131,7 @@ class SharedStepResultModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             step_id (str): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -218,7 +218,7 @@ class SharedStepResultModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             step_id (str): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

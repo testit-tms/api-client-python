@@ -32,18 +32,18 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
     from testit_api_client.model.attachment_model_auto_test_step_results_model import AttachmentModelAutoTestStepResultsModel
-    from testit_api_client.model.auto_test_model import AutoTestModel
     from testit_api_client.model.link_model import LinkModel
     from testit_api_client.model.step_comment_model import StepCommentModel
     from testit_api_client.model.step_result_model import StepResultModel
-    from testit_api_client.model.test_point_put_model import TestPointPutModel
+    from testit_api_client.model.test_result_model_auto_test import TestResultModelAutoTest
+    from testit_api_client.model.test_result_model_test_point import TestResultModelTestPoint
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AttachmentModelAutoTestStepResultsModel'] = AttachmentModelAutoTestStepResultsModel
-    globals()['AutoTestModel'] = AutoTestModel
     globals()['LinkModel'] = LinkModel
     globals()['StepCommentModel'] = StepCommentModel
     globals()['StepResultModel'] = StepResultModel
-    globals()['TestPointPutModel'] = TestPointPutModel
+    globals()['TestResultModelAutoTest'] = TestResultModelAutoTest
+    globals()['TestResultModelTestPoint'] = TestResultModelTestPoint
 
 
 class TestResultModel(ModelNormal):
@@ -104,26 +104,26 @@ class TestResultModel(ModelNormal):
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
             'test_point_id': (str,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
-            'test_point': (TestPointPutModel,),  # noqa: E501
-            'auto_test': (AutoTestModel,),  # noqa: E501
+            'test_point': (TestResultModelTestPoint,),  # noqa: E501
+            'auto_test': (TestResultModelAutoTest,),  # noqa: E501
             'auto_test_step_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'setup_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'teardown_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'work_item_version_id': (str,),  # noqa: E501
             'work_item_version_number': (int, none_type,),  # noqa: E501
-            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'properties': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
+            'properties': ({str: (str,)}, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'step_comments': ([StepCommentModel], none_type,),  # noqa: E501
-            'failure_class_ids': ([str], none_type,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'failure_class_ids': ([str],),  # noqa: E501
+            'outcome': (str,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
-            'step_results': ([StepResultModel], none_type,),  # noqa: E501
+            'step_results': ([StepResultModel],),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
         }
 
@@ -221,26 +221,26 @@ class TestResultModel(ModelNormal):
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             test_point_id (str): [optional]  # noqa: E501
             test_run_id (str): [optional]  # noqa: E501
-            test_point (TestPointPutModel): [optional]  # noqa: E501
-            auto_test (AutoTestModel): [optional]  # noqa: E501
+            test_point (TestResultModelTestPoint): [optional]  # noqa: E501
+            auto_test (TestResultModelAutoTest): [optional]  # noqa: E501
             auto_test_step_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             setup_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             teardown_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             work_item_version_id (str): [optional]  # noqa: E501
             work_item_version_number (int, none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             step_comments ([StepCommentModel], none_type): [optional]  # noqa: E501
-            failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            failure_class_ids ([str]): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            step_results ([StepResultModel], none_type): [optional]  # noqa: E501
+            step_results ([StepResultModel]): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
         """
 
@@ -339,26 +339,26 @@ class TestResultModel(ModelNormal):
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             test_point_id (str): [optional]  # noqa: E501
             test_run_id (str): [optional]  # noqa: E501
-            test_point (TestPointPutModel): [optional]  # noqa: E501
-            auto_test (AutoTestModel): [optional]  # noqa: E501
+            test_point (TestResultModelTestPoint): [optional]  # noqa: E501
+            auto_test (TestResultModelAutoTest): [optional]  # noqa: E501
             auto_test_step_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             setup_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             teardown_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             work_item_version_id (str): [optional]  # noqa: E501
             work_item_version_number (int, none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             step_comments ([StepCommentModel], none_type): [optional]  # noqa: E501
-            failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            failure_class_ids ([str]): [optional]  # noqa: E501
+            outcome (str): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            step_results ([StepResultModel], none_type): [optional]  # noqa: E501
+            step_results ([StepResultModel]): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
         """
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the project | [optional] 
 **description** | **str, none_type** | Description of the project | [optional] 
-**name** | **str, none_type** | Name of the project | [optional] 
+**name** | **str** | Name of the project | [optional] 
 **is_favorite** | **bool** | Indicates if the project is marked as favorite | [optional] 
 **attributes_scheme** | [**[CustomAttributeModel], none_type**](CustomAttributeModel.md) | Collection of the project attributes | [optional] 
 **test_plans_attributes_scheme** | [**[CustomAttributeModel], none_type**](CustomAttributeModel.md) | Collection of the project test plans attributes | [optional] 

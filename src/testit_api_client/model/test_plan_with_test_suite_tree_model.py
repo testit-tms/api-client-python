@@ -31,10 +31,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.tag_short_model import TagShortModel
-    from testit_api_client.model.test_plan_status_model import TestPlanStatusModel
     from testit_api_client.model.test_suite_with_children_model import TestSuiteWithChildrenModel
     globals()['TagShortModel'] = TagShortModel
-    globals()['TestPlanStatusModel'] = TestPlanStatusModel
     globals()['TestSuiteWithChildrenModel'] = TestSuiteWithChildrenModel
 
 
@@ -100,11 +98,11 @@ class TestPlanWithTestSuiteTreeModel(ModelNormal):
         """
         lazy_import()
         return {
-            'status': (TestPlanStatusModel,),  # noqa: E501
+            'status': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'test_suites': ([TestSuiteWithChildrenModel], none_type,),  # noqa: E501
+            'test_suites': ([TestSuiteWithChildrenModel],),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
@@ -122,7 +120,7 @@ class TestPlanWithTestSuiteTreeModel(ModelNormal):
             'build': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'has_automatic_duration_timer': (bool, none_type,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -167,7 +165,7 @@ class TestPlanWithTestSuiteTreeModel(ModelNormal):
         """TestPlanWithTestSuiteTreeModel - a model defined in OpenAPI
 
         Args:
-            status (TestPlanStatusModel):
+            status (bool, date, datetime, dict, float, int, list, str, none_type):
             id (str):
             name (str):
             project_id (str):
@@ -203,7 +201,7 @@ class TestPlanWithTestSuiteTreeModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suites ([TestSuiteWithChildrenModel], none_type): [optional]  # noqa: E501
+            test_suites ([TestSuiteWithChildrenModel]): [optional]  # noqa: E501
             started_on (datetime, none_type): Set when test plan is starter (status changed to: In Progress). [optional]  # noqa: E501
             completed_on (datetime, none_type): set when test plan status is completed (status changed to: Completed). [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
@@ -221,7 +219,7 @@ class TestPlanWithTestSuiteTreeModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,7 +279,7 @@ class TestPlanWithTestSuiteTreeModel(ModelNormal):
         """TestPlanWithTestSuiteTreeModel - a model defined in OpenAPI
 
         Args:
-            status (TestPlanStatusModel):
+            status (bool, date, datetime, dict, float, int, list, str, none_type):
             id (str):
             name (str):
             project_id (str):
@@ -317,7 +315,7 @@ class TestPlanWithTestSuiteTreeModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suites ([TestSuiteWithChildrenModel], none_type): [optional]  # noqa: E501
+            test_suites ([TestSuiteWithChildrenModel]): [optional]  # noqa: E501
             started_on (datetime, none_type): Set when test plan is starter (status changed to: In Progress). [optional]  # noqa: E501
             completed_on (datetime, none_type): set when test plan status is completed (status changed to: Completed). [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
@@ -335,7 +333,7 @@ class TestPlanWithTestSuiteTreeModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

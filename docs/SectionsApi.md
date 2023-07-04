@@ -105,8 +105,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for section is required |  -  |
 **204** | No Content |  -  |
+**403** | Update permission for section is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -127,7 +127,7 @@ import testit_api_client
 from testit_api_client.api import sections_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.section_with_steps_model import SectionWithStepsModel
-from testit_api_client.model.section_post_model import SectionPostModel
+from testit_api_client.model.create_section_request import CreateSectionRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -151,37 +151,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
-    section_post_model = SectionPostModel(
-        name="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        project_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        parent_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        precondition_steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-        postcondition_steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-    ) # SectionPostModel |  (optional)
+    create_section_request = CreateSectionRequest(None) # CreateSectionRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create section
-        api_response = api_instance.create_section(section_post_model=section_post_model)
+        api_response = api_instance.create_section(create_section_request=create_section_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling SectionsApi->create_section: %s\n" % e)
@@ -192,7 +168,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **section_post_model** | [**SectionPostModel**](SectionPostModel.md)|  | [optional]
+ **create_section_request** | [**CreateSectionRequest**](CreateSectionRequest.md)|  | [optional]
 
 ### Return type
 
@@ -213,8 +189,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**401** | Unauthorized |  -  |
 **400** | Cannot create section without parent ID |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test library is required |  -  |
 **404** | Parent section with provided ID was not found |  -  |
 **409** | Section with the same name already exists in the parent section |  -  |
@@ -295,11 +271,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**409** | Conflict |  -  |
-**401** | Unauthorized |  -  |
-**403** | Delete permission for test library is required |  -  |
 **204** | No Content |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Delete permission for test library is required |  -  |
+**409** | Conflict |  -  |
 **404** | Section with provided ID was not found |  -  |
 **422** | Cannot delete root section |  -  |
 
@@ -322,7 +298,6 @@ import testit_api_client
 from testit_api_client.api import sections_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.section_with_steps_model import SectionWithStepsModel
-from testit_api_client.model.deletion_state import DeletionState
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -347,7 +322,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     id = "id_example" # str | Section internal (UUID) identifier
-    is_deleted = DeletionState("Any") # DeletionState |  (optional)
+    is_deleted = None # bool, date, datetime, dict, float, int, list, str, none_type |  (optional) if omitted the server will use the default value of NotDeleted
 
     # example passing only required values which don't have defaults set
     try:
@@ -373,7 +348,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Section internal (UUID) identifier |
- **is_deleted** | **DeletionState**|  | [optional]
+ **is_deleted** | **bool, date, datetime, dict, float, int, list, str, none_type**|  | [optional] if omitted the server will use the default value of NotDeleted
 
 ### Return type
 
@@ -393,11 +368,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**400** | Bad Request |  -  |
-**404** | Section with provided ID was not found |  -  |
 **200** | Success |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for test library is required |  -  |
+**404** | Section with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -504,11 +479,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for test library is required |  -  |
 **404** | Section with provided ID was not found |  -  |
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**401** | Unauthorized |  -  |
-**400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -525,8 +500,8 @@ Move section with all work items into another section
 import time
 import testit_api_client
 from testit_api_client.api import sections_api
+from testit_api_client.model.move_request import MoveRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.section_move_model import SectionMoveModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -549,18 +524,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
-    section_move_model = SectionMoveModel(
-        id="id_example",
-        old_parent_id="old_parent_id_example",
-        parent_id="parent_id_example",
-        next_section_id="next_section_id_example",
-    ) # SectionMoveModel |  (optional)
+    move_request = MoveRequest(None) # MoveRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Move section with all work items into another section
-        api_instance.move(section_move_model=section_move_model)
+        api_instance.move(move_request=move_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling SectionsApi->move: %s\n" % e)
 ```
@@ -570,7 +540,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **section_move_model** | [**SectionMoveModel**](SectionMoveModel.md)|  | [optional]
+ **move_request** | [**MoveRequest**](MoveRequest.md)|  | [optional]
 
 ### Return type
 
@@ -611,7 +581,7 @@ import time
 import testit_api_client
 from testit_api_client.api import sections_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.section_rename_model import SectionRenameModel
+from testit_api_client.model.rename_request import RenameRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -634,16 +604,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
-    section_rename_model = SectionRenameModel(
-        id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        name="New root section",
-    ) # SectionRenameModel |  (optional)
+    rename_request = RenameRequest(None) # RenameRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Rename section
-        api_instance.rename(section_rename_model=section_rename_model)
+        api_instance.rename(rename_request=rename_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling SectionsApi->rename: %s\n" % e)
 ```
@@ -653,7 +620,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **section_rename_model** | [**SectionRenameModel**](SectionRenameModel.md)|  | [optional]
+ **rename_request** | [**RenameRequest**](RenameRequest.md)|  | [optional]
 
 ### Return type
 
@@ -673,11 +640,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for test library is required |  -  |
 **204** | No Content |  -  |
-**409** | Section with the same name already exists in the parent section |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test library is required |  -  |
 **404** | Section with provided ID was not found |  -  |
+**409** | Section with the same name already exists in the parent section |  -  |
 **422** | Root section cannot be renamed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -698,8 +665,8 @@ import time
 import testit_api_client
 from testit_api_client.api import sections_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.update_section_request import UpdateSectionRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.section_put_model import SectionPutModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -722,38 +689,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
-    section_put_model = SectionPutModel(
-        id="id_example",
-        name="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        project_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        parent_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-        precondition_steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-        postcondition_steps=[
-            StepPutModel(
-                id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-                action="User press the button",
-                expected="System makes a beeeep sound",
-                test_data="Some variables values",
-                comments="Comment on what to look for",
-                work_item_id="7ade0007-e3a1-4df6-9680-a5eb939c2fec",
-            ),
-        ],
-    ) # SectionPutModel |  (optional)
+    update_section_request = UpdateSectionRequest(None) # UpdateSectionRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update section
-        api_instance.update_section(section_put_model=section_put_model)
+        api_instance.update_section(update_section_request=update_section_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling SectionsApi->update_section: %s\n" % e)
 ```
@@ -763,7 +705,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **section_put_model** | [**SectionPutModel**](SectionPutModel.md)|  | [optional]
+ **update_section_request** | [**UpdateSectionRequest**](UpdateSectionRequest.md)|  | [optional]
 
 ### Return type
 
@@ -784,12 +726,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**409** | Section with the same name already exists in the parent section |  -  |
 **400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create |  -  |
-**403** | Update permission for test library is required |  -  |
-**422** | &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test library is required |  -  |
 **404** | &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found |  -  |
+**409** | Section with the same name already exists in the parent section |  -  |
+**422** | &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

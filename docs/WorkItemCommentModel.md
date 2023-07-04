@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**text** | **str, none_type** |  | [optional] 
-**user** | [**UserWithRankModel**](UserWithRankModel.md) |  | [optional] 
+**text** | **str** |  | [optional] 
+**user** | [**WorkItemCommentModelUser**](WorkItemCommentModelUser.md) |  | [optional] 
 **created_by_id** | **str** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 **created_date** | **datetime** |  | [optional] 

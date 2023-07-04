@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
 **test_plan_id** | **str** |  | [optional] 
-**test_plan_changed_fields** | [**TestPlanChangedFieldsViewModel**](TestPlanChangedFieldsViewModel.md) |  | [optional] 
+**test_plan_changed_fields** | [**TestPlanChangeModelTestPlanChangedFields**](TestPlanChangeModelTestPlanChangedFields.md) |  | [optional] 
 **created_by_id** | **str** |  | [optional] 
 **created_date** | **datetime, none_type** |  | [optional] 
 

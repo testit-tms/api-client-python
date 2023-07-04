@@ -78,7 +78,7 @@ class ProjectShortestModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -137,7 +137,7 @@ class ProjectShortestModel(ModelNormal):
             id (str): Unique ID of project. [optional]  # noqa: E501
             is_deleted (bool): Indicates whether the project is deleted. [optional]  # noqa: E501
             global_id (int): Global ID of project. [optional]  # noqa: E501
-            name (str, none_type): Name of project. [optional]  # noqa: E501
+            name (str): Name of project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,7 +226,7 @@ class ProjectShortestModel(ModelNormal):
             id (str): Unique ID of project. [optional]  # noqa: E501
             is_deleted (bool): Indicates whether the project is deleted. [optional]  # noqa: E501
             global_id (int): Global ID of project. [optional]  # noqa: E501
-            name (str, none_type): Name of project. [optional]  # noqa: E501
+            name (str): Name of project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

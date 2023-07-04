@@ -30,9 +30,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.failure_category_model import FailureCategoryModel
     from testit_api_client.model.failure_class_regex_model import FailureClassRegexModel
-    globals()['FailureCategoryModel'] = FailureCategoryModel
     globals()['FailureClassRegexModel'] = FailureClassRegexModel
 
 
@@ -82,7 +80,7 @@ class FailureClassModel(ModelNormal):
         """
         lazy_import()
         return {
-            'failure_category': (FailureCategoryModel,),  # noqa: E501
+            'failure_category': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
@@ -121,7 +119,7 @@ class FailureClassModel(ModelNormal):
         """FailureClassModel - a model defined in OpenAPI
 
         Args:
-            failure_category (FailureCategoryModel):
+            failure_category (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -218,7 +216,7 @@ class FailureClassModel(ModelNormal):
         """FailureClassModel - a model defined in OpenAPI
 
         Args:
-            failure_category (FailureCategoryModel):
+            failure_category (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

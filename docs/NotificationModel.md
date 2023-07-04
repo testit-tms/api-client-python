@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**notification_type** | [**NotificationTypeModel**](NotificationTypeModel.md) |  | 
+**notification_type** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **id** | **str** |  | [optional] 
 **created_date** | **datetime, none_type** |  | [optional] 
 **is_read** | **bool** |  | [optional] 
@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **project_global_id** | **int, none_type** |  | [optional] 
 **project_name** | **str, none_type** |  | [optional] 
 **test_plan_global_id** | **int** |  | [optional] 
-**test_plan_name** | **str, none_type** |  | [optional] 
+**test_plan_name** | **str** |  | [optional] 
 **workitem_global_id** | **int, none_type** |  | [optional] 
-**comment** | **str, none_type** |  | [optional] 
-**work_item_name** | **str, none_type** |  | [optional] 
+**comment** | **str** |  | [optional] 
+**work_item_name** | **str** |  | [optional] 
 **attribute_name** | **str, none_type** |  | [optional] 
 **created_by_id** | **str** |  | [optional] 
 

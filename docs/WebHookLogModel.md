@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event_type** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
-**request_type** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
-**web_hook_name** | **str, none_type** |  | [optional] 
+**event_type** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
+**request_type** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
+**web_hook_name** | **str** |  | [optional] 
 **web_hook_id** | **str** |  | [optional] 
 **request_body** | **str, none_type** |  | [optional] 
 **request_meta** | **str, none_type** |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **response_body** | **str, none_type** |  | [optional] 
 **response_meta** | **str, none_type** |  | [optional] 
 **project_id** | **str** |  | [optional] 
-**url** | **str, none_type** |  | [optional] 
+**url** | **str** |  | [optional] 
 **created_date** | **datetime, none_type** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **created_by_id** | **str** |  | [optional] 

@@ -76,7 +76,7 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
         """
         return {
             'user_id': (str, none_type,),  # noqa: E501
-            'status': (str, none_type,),  # noqa: E501
+            'status': (str,),  # noqa: E501
             'value': (int,),  # noqa: E501
         }
 
@@ -133,7 +133,7 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             user_id (str, none_type): [optional]  # noqa: E501
-            status (str, none_type): [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
             value (int): [optional]  # noqa: E501
         """
 
@@ -221,7 +221,7 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             user_id (str, none_type): [optional]  # noqa: E501
-            status (str, none_type): [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
             value (int): [optional]  # noqa: E501
         """
 

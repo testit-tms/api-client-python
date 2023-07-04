@@ -21,14 +21,13 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.deletion_state import DeletionState
+from testit_api_client.model.create_section_request import CreateSectionRequest
+from testit_api_client.model.move_request import MoveRequest
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.section_move_model import SectionMoveModel
-from testit_api_client.model.section_post_model import SectionPostModel
-from testit_api_client.model.section_put_model import SectionPutModel
-from testit_api_client.model.section_rename_model import SectionRenameModel
+from testit_api_client.model.rename_request import RenameRequest
 from testit_api_client.model.section_with_steps_model import SectionWithStepsModel
+from testit_api_client.model.update_section_request import UpdateSectionRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 
@@ -114,7 +113,7 @@ class SectionsApi(object):
             },
             params_map={
                 'all': [
-                    'section_post_model',
+                    'create_section_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -130,13 +129,13 @@ class SectionsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'section_post_model':
-                        (SectionPostModel,),
+                    'create_section_request':
+                        (CreateSectionRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'section_post_model': 'body',
+                    'create_section_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -237,7 +236,7 @@ class SectionsApi(object):
                     'id':
                         (str,),
                     'is_deleted':
-                        (DeletionState,),
+                        (bool, date, datetime, dict, float, int, list, str, none_type,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -363,7 +362,7 @@ class SectionsApi(object):
             },
             params_map={
                 'all': [
-                    'section_move_model',
+                    'move_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -379,13 +378,13 @@ class SectionsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'section_move_model':
-                        (SectionMoveModel,),
+                    'move_request':
+                        (MoveRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'section_move_model': 'body',
+                    'move_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -413,7 +412,7 @@ class SectionsApi(object):
             },
             params_map={
                 'all': [
-                    'section_rename_model',
+                    'rename_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -429,13 +428,13 @@ class SectionsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'section_rename_model':
-                        (SectionRenameModel,),
+                    'rename_request':
+                        (RenameRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'section_rename_model': 'body',
+                    'rename_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -463,7 +462,7 @@ class SectionsApi(object):
             },
             params_map={
                 'all': [
-                    'section_put_model',
+                    'update_section_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -479,13 +478,13 @@ class SectionsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'section_put_model':
-                        (SectionPutModel,),
+                    'update_section_request':
+                        (UpdateSectionRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'section_put_model': 'body',
+                    'update_section_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -600,7 +599,7 @@ class SectionsApi(object):
 
 
         Keyword Args:
-            section_post_model (SectionPostModel): [optional]
+            create_section_request (CreateSectionRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -765,7 +764,7 @@ class SectionsApi(object):
             id (str): Section internal (UUID) identifier
 
         Keyword Args:
-            is_deleted (DeletionState): [optional]
+            is_deleted (bool, date, datetime, dict, float, int, list, str, none_type): [optional] if omitted the server will use the default value of NotDeleted
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -936,7 +935,7 @@ class SectionsApi(object):
 
 
         Keyword Args:
-            section_move_model (SectionMoveModel): [optional]
+            move_request (MoveRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1015,7 +1014,7 @@ class SectionsApi(object):
 
 
         Keyword Args:
-            section_rename_model (SectionRenameModel): [optional]
+            rename_request (RenameRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1094,7 +1093,7 @@ class SectionsApi(object):
 
 
         Keyword Args:
-            section_put_model (SectionPutModel): [optional]
+            update_section_request (UpdateSectionRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

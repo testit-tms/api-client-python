@@ -30,10 +30,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
+    from testit_api_client.model.shared_step_reference_sections_query_filter_model_created_date import SharedStepReferenceSectionsQueryFilterModelCreatedDate
+    from testit_api_client.model.shared_step_reference_sections_query_filter_model_modified_date import SharedStepReferenceSectionsQueryFilterModelModifiedDate
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_states import WorkItemStates
-    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
+    globals()['SharedStepReferenceSectionsQueryFilterModelCreatedDate'] = SharedStepReferenceSectionsQueryFilterModelCreatedDate
+    globals()['SharedStepReferenceSectionsQueryFilterModelModifiedDate'] = SharedStepReferenceSectionsQueryFilterModelModifiedDate
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemStates'] = WorkItemStates
 
@@ -108,8 +110,8 @@ class SharedStepReferencesQueryFilterModel(ModelNormal):
             'states': ([WorkItemStates], none_type,),  # noqa: E501
             'priorities': ([WorkItemPriorityModel], none_type,),  # noqa: E501
             'entity_types': ([str], none_type,),  # noqa: E501
-            'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
-            'modified_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'created_date': (SharedStepReferenceSectionsQueryFilterModelCreatedDate,),  # noqa: E501
+            'modified_date': (SharedStepReferenceSectionsQueryFilterModelModifiedDate,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
         }
@@ -183,8 +185,8 @@ class SharedStepReferencesQueryFilterModel(ModelNormal):
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
             entity_types ([str], none_type): Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (SharedStepReferenceSectionsQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            modified_date (SharedStepReferenceSectionsQueryFilterModelModifiedDate): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
         """
@@ -280,8 +282,8 @@ class SharedStepReferencesQueryFilterModel(ModelNormal):
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
             entity_types ([str], none_type): Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            created_date (SharedStepReferenceSectionsQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            modified_date (SharedStepReferenceSectionsQueryFilterModelModifiedDate): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
         """

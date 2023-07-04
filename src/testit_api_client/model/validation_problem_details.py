@@ -81,7 +81,7 @@ class ValidationProblemDetails(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'errors': ({str: ([str],)}, none_type,),  # noqa: E501
+            'errors': ({str: ([str],)},),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'status': (int, none_type,),  # noqa: E501
@@ -144,7 +144,7 @@ class ValidationProblemDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ({str: ([str],)}, none_type): [optional]  # noqa: E501
+            errors ({str: ([str],)}): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             title (str, none_type): [optional]  # noqa: E501
             status (int, none_type): [optional]  # noqa: E501
@@ -235,7 +235,7 @@ class ValidationProblemDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ({str: ([str],)}, none_type): [optional]  # noqa: E501
+            errors ({str: ([str],)}): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             title (str, none_type): [optional]  # noqa: E501
             status (int, none_type): [optional]  # noqa: E501

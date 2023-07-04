@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**priority** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **id** | **str** |  | [optional] 
 **work_item_name** | **str, none_type** |  | [optional] 
 **is_automated** | **bool** |  | [optional] 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **work_item_id** | **str** |  | [optional] 
 **configuration_id** | **str, none_type** |  | [optional] 
 **test_suite_id** | **str** |  | [optional] 
-**last_test_result** | [**LastTestResultModel**](LastTestResultModel.md) |  | [optional] 
+**last_test_result** | [**TestPointWithLastResultModelLastTestResult**](TestPointWithLastResultModelLastTestResult.md) |  | [optional] 
 **status** | **str, none_type** |  | [optional] 
 **work_item_global_id** | **int, none_type** |  | [optional] 
 **work_item_entity_type_name** | **str, none_type** |  | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **duration** | **int** |  | [optional] 
 **test_suite_name_bread_crumbs** | **[str], none_type** |  | [optional] 
 **group_count** | **int, none_type** |  | [optional] 
-**iteration** | [**IterationModel**](IterationModel.md) |  | [optional] 
+**iteration** | [**TestPointWithLastResultModelIteration**](TestPointWithLastResultModelIteration.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

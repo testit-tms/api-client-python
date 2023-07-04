@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_plan_changed_fields_view_model import TestPlanChangedFieldsViewModel
-    globals()['TestPlanChangedFieldsViewModel'] = TestPlanChangedFieldsViewModel
+    from testit_api_client.model.test_plan_change_model_test_plan_changed_fields import TestPlanChangeModelTestPlanChangedFields
+    globals()['TestPlanChangeModelTestPlanChangedFields'] = TestPlanChangeModelTestPlanChangedFields
 
 
 class TestPlanChangeModel(ModelNormal):
@@ -82,7 +82,7 @@ class TestPlanChangeModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'test_plan_id': (str,),  # noqa: E501
-            'test_plan_changed_fields': (TestPlanChangedFieldsViewModel,),  # noqa: E501
+            'test_plan_changed_fields': (TestPlanChangeModelTestPlanChangedFields,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
         }
@@ -143,7 +143,7 @@ class TestPlanChangeModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             test_plan_id (str): [optional]  # noqa: E501
-            test_plan_changed_fields (TestPlanChangedFieldsViewModel): [optional]  # noqa: E501
+            test_plan_changed_fields (TestPlanChangeModelTestPlanChangedFields): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
         """
@@ -233,7 +233,7 @@ class TestPlanChangeModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             test_plan_id (str): [optional]  # noqa: E501
-            test_plan_changed_fields (TestPlanChangedFieldsViewModel): [optional]  # noqa: E501
+            test_plan_changed_fields (TestPlanChangeModelTestPlanChangedFields): [optional]  # noqa: E501
             created_by_id (str): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
         """

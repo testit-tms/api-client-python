@@ -21,20 +21,20 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.api_v2_test_runs_id_statistics_filter_post_request import ApiV2TestRunsIdStatisticsFilterPostRequest
+from testit_api_client.model.api_v2_test_runs_id_test_results_bulk_put_request import ApiV2TestRunsIdTestResultsBulkPutRequest
+from testit_api_client.model.api_v2_test_runs_search_post_request import ApiV2TestRunsSearchPostRequest
 from testit_api_client.model.auto_test_results_for_test_run_model import AutoTestResultsForTestRunModel
+from testit_api_client.model.create_and_fill_by_auto_tests_request import CreateAndFillByAutoTestsRequest
+from testit_api_client.model.create_and_fill_by_configurations_request import CreateAndFillByConfigurationsRequest
+from testit_api_client.model.create_and_fill_by_work_items_request import CreateAndFillByWorkItemsRequest
+from testit_api_client.model.create_empty_request import CreateEmptyRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_point_result_model import TestPointResultModel
-from testit_api_client.model.test_results_local_filter_model import TestResultsLocalFilterModel
 from testit_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
-from testit_api_client.model.test_run_fill_by_auto_tests_post_model import TestRunFillByAutoTestsPostModel
-from testit_api_client.model.test_run_fill_by_configurations_post_model import TestRunFillByConfigurationsPostModel
-from testit_api_client.model.test_run_fill_by_work_items_post_model import TestRunFillByWorkItemsPostModel
-from testit_api_client.model.test_run_filter_model import TestRunFilterModel
 from testit_api_client.model.test_run_short_get_model import TestRunShortGetModel
-from testit_api_client.model.test_run_test_results_partial_bulk_set_model import TestRunTestResultsPartialBulkSetModel
 from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
-from testit_api_client.model.test_run_v2_post_short_model import TestRunV2PostShortModel
-from testit_api_client.model.test_run_v2_put_model import TestRunV2PutModel
+from testit_api_client.model.update_empty_request import UpdateEmptyRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
@@ -63,7 +63,7 @@ class TestRunsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'test_results_local_filter_model',
+                    'api_v2_test_runs_id_statistics_filter_post_request',
                 ],
                 'required': [
                     'id',
@@ -83,15 +83,15 @@ class TestRunsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'test_results_local_filter_model':
-                        (TestResultsLocalFilterModel,),
+                    'api_v2_test_runs_id_statistics_filter_post_request':
+                        (ApiV2TestRunsIdStatisticsFilterPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'test_results_local_filter_model': 'body',
+                    'api_v2_test_runs_id_statistics_filter_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -171,7 +171,7 @@ class TestRunsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'test_run_test_results_partial_bulk_set_model',
+                    'api_v2_test_runs_id_test_results_bulk_put_request',
                 ],
                 'required': [
                     'id',
@@ -191,15 +191,15 @@ class TestRunsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'test_run_test_results_partial_bulk_set_model':
-                        (TestRunTestResultsPartialBulkSetModel,),
+                    'api_v2_test_runs_id_test_results_bulk_put_request':
+                        (ApiV2TestRunsIdTestResultsBulkPutRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'test_run_test_results_partial_bulk_set_model': 'body',
+                    'api_v2_test_runs_id_test_results_bulk_put_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -283,7 +283,7 @@ class TestRunsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'test_run_filter_model',
+                    'api_v2_test_runs_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -309,8 +309,8 @@ class TestRunsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'test_run_filter_model':
-                        (TestRunFilterModel,),
+                    'api_v2_test_runs_search_post_request':
+                        (ApiV2TestRunsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -325,7 +325,7 @@ class TestRunsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'test_run_filter_model': 'body',
+                    'api_v2_test_runs_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -404,7 +404,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'test_run_fill_by_auto_tests_post_model',
+                    'create_and_fill_by_auto_tests_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -420,13 +420,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'test_run_fill_by_auto_tests_post_model':
-                        (TestRunFillByAutoTestsPostModel,),
+                    'create_and_fill_by_auto_tests_request':
+                        (CreateAndFillByAutoTestsRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'test_run_fill_by_auto_tests_post_model': 'body',
+                    'create_and_fill_by_auto_tests_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -454,7 +454,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'test_run_fill_by_configurations_post_model',
+                    'create_and_fill_by_configurations_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -470,13 +470,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'test_run_fill_by_configurations_post_model':
-                        (TestRunFillByConfigurationsPostModel,),
+                    'create_and_fill_by_configurations_request':
+                        (CreateAndFillByConfigurationsRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'test_run_fill_by_configurations_post_model': 'body',
+                    'create_and_fill_by_configurations_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -504,7 +504,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'test_run_fill_by_work_items_post_model',
+                    'create_and_fill_by_work_items_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -520,13 +520,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'test_run_fill_by_work_items_post_model':
-                        (TestRunFillByWorkItemsPostModel,),
+                    'create_and_fill_by_work_items_request':
+                        (CreateAndFillByWorkItemsRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'test_run_fill_by_work_items_post_model': 'body',
+                    'create_and_fill_by_work_items_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -554,7 +554,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'test_run_v2_post_short_model',
+                    'create_empty_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -570,13 +570,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'test_run_v2_post_short_model':
-                        (TestRunV2PostShortModel,),
+                    'create_empty_request':
+                        (CreateEmptyRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'test_run_v2_post_short_model': 'body',
+                    'create_empty_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -814,7 +814,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'test_run_v2_put_model',
+                    'update_empty_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -830,13 +830,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'test_run_v2_put_model':
-                        (TestRunV2PutModel,),
+                    'update_empty_request':
+                        (UpdateEmptyRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'test_run_v2_put_model': 'body',
+                    'update_empty_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -869,7 +869,7 @@ class TestRunsApi(object):
             id (str): Test run unique ID
 
         Keyword Args:
-            test_results_local_filter_model (TestResultsLocalFilterModel): [optional]
+            api_v2_test_runs_id_statistics_filter_post_request (ApiV2TestRunsIdStatisticsFilterPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1034,7 +1034,7 @@ class TestRunsApi(object):
             id (str): Test run unique ID
 
         Keyword Args:
-            test_run_test_results_partial_bulk_set_model (TestRunTestResultsPartialBulkSetModel): [optional]
+            api_v2_test_runs_id_test_results_bulk_put_request (ApiV2TestRunsIdTestResultsBulkPutRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1201,7 +1201,7 @@ class TestRunsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            test_run_filter_model (TestRunFilterModel): [optional]
+            api_v2_test_runs_search_post_request (ApiV2TestRunsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1363,7 +1363,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            test_run_fill_by_auto_tests_post_model (TestRunFillByAutoTestsPostModel): [optional]
+            create_and_fill_by_auto_tests_request (CreateAndFillByAutoTestsRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1442,7 +1442,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            test_run_fill_by_configurations_post_model (TestRunFillByConfigurationsPostModel): [optional]
+            create_and_fill_by_configurations_request (CreateAndFillByConfigurationsRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1521,7 +1521,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            test_run_fill_by_work_items_post_model (TestRunFillByWorkItemsPostModel): [optional]
+            create_and_fill_by_work_items_request (CreateAndFillByWorkItemsRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1600,7 +1600,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            test_run_v2_post_short_model (TestRunV2PostShortModel): [optional]
+            create_empty_request (CreateEmptyRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2012,7 +2012,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            test_run_v2_put_model (TestRunV2PutModel): [optional]
+            update_empty_request (UpdateEmptyRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
