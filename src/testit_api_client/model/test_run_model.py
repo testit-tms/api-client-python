@@ -31,13 +31,15 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.auto_test_model import AutoTestModel
+    from testit_api_client.model.test_plan_model import TestPlanModel
     from testit_api_client.model.test_result_model import TestResultModel
-    from testit_api_client.model.test_run_model_analytic import TestRunModelAnalytic
-    from testit_api_client.model.test_run_model_test_plan import TestRunModelTestPlan
+    from testit_api_client.model.test_run_analytic_result_model import TestRunAnalyticResultModel
+    from testit_api_client.model.test_run_state import TestRunState
     globals()['AutoTestModel'] = AutoTestModel
+    globals()['TestPlanModel'] = TestPlanModel
     globals()['TestResultModel'] = TestResultModel
-    globals()['TestRunModelAnalytic'] = TestRunModelAnalytic
-    globals()['TestRunModelTestPlan'] = TestRunModelTestPlan
+    globals()['TestRunAnalyticResultModel'] = TestRunAnalyticResultModel
+    globals()['TestRunState'] = TestRunState
 
 
 class TestRunModel(ModelNormal):
@@ -90,31 +92,31 @@ class TestRunModel(ModelNormal):
         """
         lazy_import()
         return {
-            'state_name': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'auto_tests': ([AutoTestModel], none_type,),  # noqa: E501
             'auto_tests_count': (int,),  # noqa: E501
-            'test_suite_ids': ([str], none_type,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
-            'analytic': (TestRunModelAnalytic,),  # noqa: E501
-            'test_results': ([TestResultModel], none_type,),  # noqa: E501
-            'test_plan': (TestRunModelTestPlan,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'state_name': (TestRunState,),  # noqa: E501
+            'project_id': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'is_deleted': (bool,),  # noqa: E501
+            'auto_tests': ([AutoTestModel], none_type,),  # noqa: E501
+            'test_suite_ids': ([str], none_type,),  # noqa: E501
+            'analytic': (TestRunAnalyticResultModel,),  # noqa: E501
+            'test_results': ([TestResultModel], none_type,),  # noqa: E501
+            'test_plan': (TestPlanModel,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'created_by_user_name': (str, none_type,),  # noqa: E501
             'started_date': (datetime, none_type,),  # noqa: E501
             'completed_date': (datetime, none_type,),  # noqa: E501
-            'build': (str,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'project_id': (str,),  # noqa: E501
+            'build': (str, none_type,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'run_by_user_id': (str, none_type,),  # noqa: E501
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'launch_source': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
-            'is_deleted': (bool,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'launch_source': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -123,31 +125,31 @@ class TestRunModel(ModelNormal):
 
 
     attribute_map = {
-        'state_name': 'stateName',  # noqa: E501
-        'auto_tests': 'autoTests',  # noqa: E501
         'auto_tests_count': 'autoTestsCount',  # noqa: E501
-        'test_suite_ids': 'testSuiteIds',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'state_name': 'stateName',  # noqa: E501
+        'project_id': 'projectId',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
+        'auto_tests': 'autoTests',  # noqa: E501
+        'test_suite_ids': 'testSuiteIds',  # noqa: E501
         'analytic': 'analytic',  # noqa: E501
         'test_results': 'testResults',  # noqa: E501
         'test_plan': 'testPlan',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'created_by_user_name': 'createdByUserName',  # noqa: E501
         'started_date': 'startedDate',  # noqa: E501
         'completed_date': 'completedDate',  # noqa: E501
         'build': 'build',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'project_id': 'projectId',  # noqa: E501
         'test_plan_id': 'testPlanId',  # noqa: E501
         'run_by_user_id': 'runByUserId',  # noqa: E501
         'stopped_by_user_id': 'stoppedByUserId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'launch_source': 'launchSource',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
     }
 
     read_only_vars = {
@@ -157,11 +159,18 @@ class TestRunModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, state_name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, auto_tests_count, is_automated, created_date, created_by_id, state_name, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """TestRunModel - a model defined in OpenAPI
 
         Args:
-            state_name (bool, date, datetime, dict, float, int, list, str, none_type):
+            auto_tests_count (int):
+            is_automated (bool):
+            created_date (datetime):
+            created_by_id (str):
+            state_name (TestRunState):
+            project_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -195,29 +204,22 @@ class TestRunModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             auto_tests ([AutoTestModel], none_type): [optional]  # noqa: E501
-            auto_tests_count (int): [optional]  # noqa: E501
             test_suite_ids ([str], none_type): [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
-            analytic (TestRunModelAnalytic): [optional]  # noqa: E501
+            analytic (TestRunAnalyticResultModel): [optional]  # noqa: E501
             test_results ([TestResultModel], none_type): [optional]  # noqa: E501
-            test_plan (TestRunModelTestPlan): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
+            test_plan (TestPlanModel): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_by_user_name (str, none_type): [optional]  # noqa: E501
             started_date (datetime, none_type): [optional]  # noqa: E501
             completed_date (datetime, none_type): [optional]  # noqa: E501
-            build (str): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
+            build (str, none_type): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            launch_source (str): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            launch_source (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -249,7 +251,14 @@ class TestRunModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.auto_tests_count = auto_tests_count
+        self.is_automated = is_automated
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         self.state_name = state_name
+        self.project_id = project_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -270,11 +279,18 @@ class TestRunModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, state_name, *args, **kwargs):  # noqa: E501
+    def __init__(self, auto_tests_count, is_automated, created_date, created_by_id, state_name, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """TestRunModel - a model defined in OpenAPI
 
         Args:
-            state_name (bool, date, datetime, dict, float, int, list, str, none_type):
+            auto_tests_count (int):
+            is_automated (bool):
+            created_date (datetime):
+            created_by_id (str):
+            state_name (TestRunState):
+            project_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -308,29 +324,22 @@ class TestRunModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             auto_tests ([AutoTestModel], none_type): [optional]  # noqa: E501
-            auto_tests_count (int): [optional]  # noqa: E501
             test_suite_ids ([str], none_type): [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
-            analytic (TestRunModelAnalytic): [optional]  # noqa: E501
+            analytic (TestRunAnalyticResultModel): [optional]  # noqa: E501
             test_results ([TestResultModel], none_type): [optional]  # noqa: E501
-            test_plan (TestRunModelTestPlan): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
+            test_plan (TestPlanModel): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_by_user_name (str, none_type): [optional]  # noqa: E501
             started_date (datetime, none_type): [optional]  # noqa: E501
             completed_date (datetime, none_type): [optional]  # noqa: E501
-            build (str): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
+            build (str, none_type): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            launch_source (str): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            launch_source (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -360,7 +369,14 @@ class TestRunModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.auto_tests_count = auto_tests_count
+        self.is_automated = is_automated
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         self.state_name = state_name
+        self.project_id = project_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

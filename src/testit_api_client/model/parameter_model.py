@@ -83,15 +83,15 @@ class ParameterModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'value': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'parameter_key_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'value': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -100,15 +100,15 @@ class ParameterModel(ModelNormal):
 
 
     attribute_map = {
-        'value': 'value',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
-        'modified_by_id': 'modifiedById',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'parameter_key_id': 'parameterKeyId',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'value': 'value',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
     }
 
     read_only_vars = {
@@ -118,10 +118,15 @@ class ParameterModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, value, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, created_date, created_by_id, is_deleted, parameter_key_id, id, value, name, *args, **kwargs):  # noqa: E501
         """ParameterModel - a model defined in OpenAPI
 
         Args:
+            created_date (datetime):
+            created_by_id (str):
+            is_deleted (bool):
+            parameter_key_id (str):
+            id (str):
             value (str):
             name (str):
 
@@ -156,13 +161,8 @@ class ParameterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            parameter_key_id (str): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -194,6 +194,11 @@ class ParameterModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.is_deleted = is_deleted
+        self.parameter_key_id = parameter_key_id
+        self.id = id
         self.value = value
         self.name = name
         for var_name, var_value in kwargs.items():
@@ -216,10 +221,15 @@ class ParameterModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, value, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, created_date, created_by_id, is_deleted, parameter_key_id, id, value, name, *args, **kwargs):  # noqa: E501
         """ParameterModel - a model defined in OpenAPI
 
         Args:
+            created_date (datetime):
+            created_by_id (str):
+            is_deleted (bool):
+            parameter_key_id (str):
+            id (str):
             value (str):
             name (str):
 
@@ -254,13 +264,8 @@ class ParameterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            parameter_key_id (str): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -290,6 +295,11 @@ class ParameterModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.is_deleted = is_deleted
+        self.parameter_key_id = parameter_key_id
+        self.id = id
         self.value = value
         self.name = name
         for var_name, var_value in kwargs.items():

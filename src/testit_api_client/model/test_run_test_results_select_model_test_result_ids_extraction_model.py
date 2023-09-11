@@ -62,10 +62,6 @@ class TestRunTestResultsSelectModelTestResultIdsExtractionModel(ModelComposed):
     }
 
     validations = {
-        ('include',): {
-        },
-        ('exclude',): {
-        },
     }
 
     @cached_property

@@ -134,6 +134,18 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
         """ApiV2TestPlansIdExportTestPointsXlsxPostRequest - a model defined in OpenAPI
 
         Keyword Args:
+            include_name (bool):
+            include_section (bool):
+            include_priority (bool):
+            include_automated (bool):
+            include_status (bool):
+            include_duration (bool):
+            include_creation_date (bool):
+            include_author (bool):
+            include_modification_date (bool):
+            include_modified_by (bool):
+            include_tags (bool):
+            include_iterations (bool):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -164,18 +176,6 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            include_name (bool): [optional]  # noqa: E501
-            include_section (bool): [optional]  # noqa: E501
-            include_priority (bool): [optional]  # noqa: E501
-            include_automated (bool): [optional]  # noqa: E501
-            include_status (bool): [optional]  # noqa: E501
-            include_duration (bool): [optional]  # noqa: E501
-            include_creation_date (bool): [optional]  # noqa: E501
-            include_author (bool): [optional]  # noqa: E501
-            include_modification_date (bool): [optional]  # noqa: E501
-            include_modified_by (bool): [optional]  # noqa: E501
-            include_tags (bool): [optional]  # noqa: E501
-            include_iterations (bool): [optional]  # noqa: E501
             custom_attributes_ids ([str], none_type): [optional]  # noqa: E501
             configuration_ids ([str], none_type): [optional]  # noqa: E501
         """
@@ -251,6 +251,18 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
         """ApiV2TestPlansIdExportTestPointsXlsxPostRequest - a model defined in OpenAPI
 
         Keyword Args:
+            include_name (bool):
+            include_section (bool):
+            include_priority (bool):
+            include_automated (bool):
+            include_status (bool):
+            include_duration (bool):
+            include_creation_date (bool):
+            include_author (bool):
+            include_modification_date (bool):
+            include_modified_by (bool):
+            include_tags (bool):
+            include_iterations (bool):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -281,18 +293,6 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            include_name (bool): [optional]  # noqa: E501
-            include_section (bool): [optional]  # noqa: E501
-            include_priority (bool): [optional]  # noqa: E501
-            include_automated (bool): [optional]  # noqa: E501
-            include_status (bool): [optional]  # noqa: E501
-            include_duration (bool): [optional]  # noqa: E501
-            include_creation_date (bool): [optional]  # noqa: E501
-            include_author (bool): [optional]  # noqa: E501
-            include_modification_date (bool): [optional]  # noqa: E501
-            include_modified_by (bool): [optional]  # noqa: E501
-            include_tags (bool): [optional]  # noqa: E501
-            include_iterations (bool): [optional]  # noqa: E501
             custom_attributes_ids ([str], none_type): [optional]  # noqa: E501
             configuration_ids ([str], none_type): [optional]  # noqa: E501
         """

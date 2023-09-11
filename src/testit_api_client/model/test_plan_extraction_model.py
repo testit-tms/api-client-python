@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_plan_extraction_model_ids import TestPlanExtractionModelIds
-    globals()['TestPlanExtractionModelIds'] = TestPlanExtractionModelIds
+    from testit_api_client.model.guid_extraction_model import GuidExtractionModel
+    globals()['GuidExtractionModel'] = GuidExtractionModel
 
 
 class TestPlanExtractionModel(ModelNormal):
@@ -80,7 +80,7 @@ class TestPlanExtractionModel(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (TestPlanExtractionModelIds,),  # noqa: E501
+            'ids': (GuidExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -133,7 +133,7 @@ class TestPlanExtractionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids (TestPlanExtractionModelIds): [optional]  # noqa: E501
+            ids (GuidExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,7 +219,7 @@ class TestPlanExtractionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids (TestPlanExtractionModelIds): [optional]  # noqa: E501
+            ids (GuidExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

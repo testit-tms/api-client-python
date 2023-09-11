@@ -31,7 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.custom_attribute_option_model import CustomAttributeOptionModel
+    from testit_api_client.model.custom_attribute_types_enum import CustomAttributeTypesEnum
     globals()['CustomAttributeOptionModel'] = CustomAttributeOptionModel
+    globals()['CustomAttributeTypesEnum'] = CustomAttributeTypesEnum
 
 
 class CustomAttributePutModel(ModelNormal):
@@ -84,14 +86,14 @@ class CustomAttributePutModel(ModelNormal):
         """
         lazy_import()
         return {
-            'type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'options': ([CustomAttributeOptionModel], none_type,),  # noqa: E501
+            'type': (CustomAttributeTypesEnum,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'is_required': (bool,),  # noqa: E501
             'is_global': (bool,),  # noqa: E501
+            'options': ([CustomAttributeOptionModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -100,14 +102,14 @@ class CustomAttributePutModel(ModelNormal):
 
 
     attribute_map = {
-        'type': 'type',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'options': 'options',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
         'is_required': 'isRequired',  # noqa: E501
         'is_global': 'isGlobal',  # noqa: E501
+        'options': 'options',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,12 +119,17 @@ class CustomAttributePutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, type, is_deleted, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
         """CustomAttributePutModel - a model defined in OpenAPI
 
         Args:
-            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of the attribute
+            id (str): Unique ID of the attribute
+            type (CustomAttributeTypesEnum):
+            is_deleted (bool): Indicates if the entity is deleted
             name (str): Name of the attribute
+            is_enabled (bool): Indicates if the attribute is enabled
+            is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_global (bool): Indicates if the attribute is available across all projects
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -155,12 +162,7 @@ class CustomAttributePutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the attribute. [optional]  # noqa: E501
             options ([CustomAttributeOptionModel], none_type): Collection of the attribute options  <br />  Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
-            is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
-            is_required (bool): Indicates if the attribute value is mandatory to specify. [optional]  # noqa: E501
-            is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -192,8 +194,13 @@ class CustomAttributePutModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.type = type
+        self.is_deleted = is_deleted
         self.name = name
+        self.is_enabled = is_enabled
+        self.is_required = is_required
+        self.is_global = is_global
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -214,12 +221,17 @@ class CustomAttributePutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, type, is_deleted, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
         """CustomAttributePutModel - a model defined in OpenAPI
 
         Args:
-            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of the attribute
+            id (str): Unique ID of the attribute
+            type (CustomAttributeTypesEnum):
+            is_deleted (bool): Indicates if the entity is deleted
             name (str): Name of the attribute
+            is_enabled (bool): Indicates if the attribute is enabled
+            is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_global (bool): Indicates if the attribute is available across all projects
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -252,12 +264,7 @@ class CustomAttributePutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the attribute. [optional]  # noqa: E501
             options ([CustomAttributeOptionModel], none_type): Collection of the attribute options  <br />  Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
-            is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
-            is_required (bool): Indicates if the attribute value is mandatory to specify. [optional]  # noqa: E501
-            is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -287,8 +294,13 @@ class CustomAttributePutModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.type = type
+        self.is_deleted = is_deleted
         self.name = name
+        self.is_enabled = is_enabled
+        self.is_required = is_required
+        self.is_global = is_global
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

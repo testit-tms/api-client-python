@@ -82,8 +82,8 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'custom_attribute_models': ([CustomAttributeModel],),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'custom_attribute_models': ([CustomAttributeModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -105,8 +105,12 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_deleted, *args, **kwargs):  # noqa: E501
         """ProjectCustomAttributeTemplateGetModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Unique ID of the custom attributes template
+            is_deleted (bool): Indicates if the custom attribute template is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -139,10 +143,8 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the custom attributes template. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the custom attribute template is deleted. [optional]  # noqa: E501
-            name (str): Name of the custom attribute template. [optional]  # noqa: E501
-            custom_attribute_models ([CustomAttributeModel]): Attributes of the template. [optional]  # noqa: E501
+            name (str, none_type): Name of the custom attribute template. [optional]  # noqa: E501
+            custom_attribute_models ([CustomAttributeModel], none_type): Attributes of the template. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -174,6 +176,8 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,8 +198,12 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_deleted, *args, **kwargs):  # noqa: E501
         """ProjectCustomAttributeTemplateGetModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Unique ID of the custom attributes template
+            is_deleted (bool): Indicates if the custom attribute template is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -228,10 +236,8 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the custom attributes template. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the custom attribute template is deleted. [optional]  # noqa: E501
-            name (str): Name of the custom attribute template. [optional]  # noqa: E501
-            custom_attribute_models ([CustomAttributeModel]): Attributes of the template. [optional]  # noqa: E501
+            name (str, none_type): Name of the custom attribute template. [optional]  # noqa: E501
+            custom_attribute_models ([CustomAttributeModel], none_type): Attributes of the template. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,6 +267,8 @@ class ProjectCustomAttributeTemplateGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

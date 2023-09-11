@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.period_view_model_changed_field_view_model_old_value import PeriodViewModelChangedFieldViewModelOldValue
-    globals()['PeriodViewModelChangedFieldViewModelOldValue'] = PeriodViewModelChangedFieldViewModelOldValue
+    from testit_api_client.model.period_view_model import PeriodViewModel
+    globals()['PeriodViewModel'] = PeriodViewModel
 
 
 class PeriodViewModelChangedFieldViewModel(ModelNormal):
@@ -80,8 +80,8 @@ class PeriodViewModelChangedFieldViewModel(ModelNormal):
         """
         lazy_import()
         return {
-            'old_value': (PeriodViewModelChangedFieldViewModelOldValue,),  # noqa: E501
-            'new_value': (PeriodViewModelChangedFieldViewModelOldValue,),  # noqa: E501
+            'old_value': (PeriodViewModel,),  # noqa: E501
+            'new_value': (PeriodViewModel,),  # noqa: E501
         }
 
     @cached_property
@@ -135,8 +135,8 @@ class PeriodViewModelChangedFieldViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            old_value (PeriodViewModelChangedFieldViewModelOldValue): [optional]  # noqa: E501
-            new_value (PeriodViewModelChangedFieldViewModelOldValue): [optional]  # noqa: E501
+            old_value (PeriodViewModel): [optional]  # noqa: E501
+            new_value (PeriodViewModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,8 +222,8 @@ class PeriodViewModelChangedFieldViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            old_value (PeriodViewModelChangedFieldViewModelOldValue): [optional]  # noqa: E501
-            new_value (PeriodViewModelChangedFieldViewModelOldValue): [optional]  # noqa: E501
+            old_value (PeriodViewModel): [optional]  # noqa: E501
+            new_value (PeriodViewModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

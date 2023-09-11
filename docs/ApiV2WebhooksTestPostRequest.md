@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request_type** | **bool, date, datetime, dict, float, int, list, str, none_type** | Request method of the webhook | 
+**request_type** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
 **url** | **str** | Request URL of the webhook | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

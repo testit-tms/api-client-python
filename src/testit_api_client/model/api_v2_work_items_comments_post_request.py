@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.work_item_comment_put_model import WorkItemCommentPutModel
-    globals()['WorkItemCommentPutModel'] = WorkItemCommentPutModel
+    from testit_api_client.model.work_item_comment_post_model import WorkItemCommentPostModel
+    globals()['WorkItemCommentPostModel'] = WorkItemCommentPostModel
 
 
 class ApiV2WorkItemsCommentsPostRequest(ModelComposed):
@@ -92,7 +92,7 @@ class ApiV2WorkItemsCommentsPostRequest(ModelComposed):
         lazy_import()
         return {
             'text': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'work_item_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,7 +102,7 @@ class ApiV2WorkItemsCommentsPostRequest(ModelComposed):
 
     attribute_map = {
         'text': 'text',  # noqa: E501
-        'id': 'id',  # noqa: E501
+        'work_item_id': 'workItemId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -114,8 +114,8 @@ class ApiV2WorkItemsCommentsPostRequest(ModelComposed):
         """ApiV2WorkItemsCommentsPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            text (str): Text of the comment
-            id (str): Unique ID of the comment
+            text (str):
+            work_item_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -219,8 +219,8 @@ class ApiV2WorkItemsCommentsPostRequest(ModelComposed):
         """ApiV2WorkItemsCommentsPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            text (str): Text of the comment
-            id (str): Unique ID of the comment
+            text (str):
+            work_item_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -320,7 +320,7 @@ class ApiV2WorkItemsCommentsPostRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              WorkItemCommentPutModel,
+              WorkItemCommentPostModel,
           ],
           'oneOf': [
           ],

@@ -78,14 +78,14 @@ class SectionModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
-            'project_id': (str, none_type,),  # noqa: E501
-            'parent_id': (str, none_type,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'project_id': (str, none_type,),  # noqa: E501
+            'parent_id': (str, none_type,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
         }
 
@@ -95,14 +95,14 @@ class SectionModel(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
-        'project_id': 'projectId',  # noqa: E501
-        'parent_id': 'parentId',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'id': 'id',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'project_id': 'projectId',  # noqa: E501
+        'parent_id': 'parentId',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
     }
 
@@ -113,10 +113,14 @@ class SectionModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, is_deleted, id, created_date, created_by_id, name, *args, **kwargs):  # noqa: E501
         """SectionModel - a model defined in OpenAPI
 
         Args:
+            is_deleted (bool):
+            id (str):
+            created_date (datetime):
+            created_by_id (str):
             name (str):
 
         Keyword Args:
@@ -152,11 +156,7 @@ class SectionModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             project_id (str, none_type): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
         """
 
@@ -189,6 +189,10 @@ class SectionModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.is_deleted = is_deleted
+        self.id = id
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -210,10 +214,14 @@ class SectionModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, is_deleted, id, created_date, created_by_id, name, *args, **kwargs):  # noqa: E501
         """SectionModel - a model defined in OpenAPI
 
         Args:
+            is_deleted (bool):
+            id (str):
+            created_date (datetime):
+            created_by_id (str):
             name (str):
 
         Keyword Args:
@@ -249,11 +257,7 @@ class SectionModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             project_id (str, none_type): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
         """
 
@@ -284,6 +288,10 @@ class SectionModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.is_deleted = is_deleted
+        self.id = id
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

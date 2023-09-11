@@ -67,6 +67,8 @@ class WebHookEventType(ModelSimple):
             'WORKITEMATTRIBUTECHANGED': "WorkItemAttributeChanged",
             'WORKITEMCHANGED': "WorkItemChanged",
             'CONFIGURATIONCHANGED': "ConfigurationChanged",
+            'PROJECTCHANGED': "ProjectChanged",
+            'TESTPLANCHANGED': "TestPlanChanged",
         },
     }
 
@@ -118,10 +120,10 @@ class WebHookEventType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["AutomatedTestRunCreated", "TestPlansStatusChanged", "TestRunStopped", "TestPointAssigned", "TestResultJiraIssueCreated", "AutoTestFinished", "UserMentionedInComment", "UserSelectedInWorkItemAttribute", "AllTestPointsFinished", "AllAutoTestsFinished", "AutoTestChanged", "WorkItemAutoTestRelationChanged", "WorkItemAttributeChanged", "WorkItemChanged", "ConfigurationChanged", ]  # noqa: E501
+            args[0] (str):, must be one of ["AutomatedTestRunCreated", "TestPlansStatusChanged", "TestRunStopped", "TestPointAssigned", "TestResultJiraIssueCreated", "AutoTestFinished", "UserMentionedInComment", "UserSelectedInWorkItemAttribute", "AllTestPointsFinished", "AllAutoTestsFinished", "AutoTestChanged", "WorkItemAutoTestRelationChanged", "WorkItemAttributeChanged", "WorkItemChanged", "ConfigurationChanged", "ProjectChanged", "TestPlanChanged", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["AutomatedTestRunCreated", "TestPlansStatusChanged", "TestRunStopped", "TestPointAssigned", "TestResultJiraIssueCreated", "AutoTestFinished", "UserMentionedInComment", "UserSelectedInWorkItemAttribute", "AllTestPointsFinished", "AllAutoTestsFinished", "AutoTestChanged", "WorkItemAutoTestRelationChanged", "WorkItemAttributeChanged", "WorkItemChanged", "ConfigurationChanged", ]  # noqa: E501
+            value (str):, must be one of ["AutomatedTestRunCreated", "TestPlansStatusChanged", "TestRunStopped", "TestPointAssigned", "TestResultJiraIssueCreated", "AutoTestFinished", "UserMentionedInComment", "UserSelectedInWorkItemAttribute", "AllTestPointsFinished", "AllAutoTestsFinished", "AutoTestChanged", "WorkItemAutoTestRelationChanged", "WorkItemAttributeChanged", "WorkItemChanged", "ConfigurationChanged", "ProjectChanged", "TestPlanChanged", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -212,10 +214,10 @@ class WebHookEventType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["AutomatedTestRunCreated", "TestPlansStatusChanged", "TestRunStopped", "TestPointAssigned", "TestResultJiraIssueCreated", "AutoTestFinished", "UserMentionedInComment", "UserSelectedInWorkItemAttribute", "AllTestPointsFinished", "AllAutoTestsFinished", "AutoTestChanged", "WorkItemAutoTestRelationChanged", "WorkItemAttributeChanged", "WorkItemChanged", "ConfigurationChanged", ]  # noqa: E501
+            args[0] (str):, must be one of ["AutomatedTestRunCreated", "TestPlansStatusChanged", "TestRunStopped", "TestPointAssigned", "TestResultJiraIssueCreated", "AutoTestFinished", "UserMentionedInComment", "UserSelectedInWorkItemAttribute", "AllTestPointsFinished", "AllAutoTestsFinished", "AutoTestChanged", "WorkItemAutoTestRelationChanged", "WorkItemAttributeChanged", "WorkItemChanged", "ConfigurationChanged", "ProjectChanged", "TestPlanChanged", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["AutomatedTestRunCreated", "TestPlansStatusChanged", "TestRunStopped", "TestPointAssigned", "TestResultJiraIssueCreated", "AutoTestFinished", "UserMentionedInComment", "UserSelectedInWorkItemAttribute", "AllTestPointsFinished", "AllAutoTestsFinished", "AutoTestChanged", "WorkItemAutoTestRelationChanged", "WorkItemAttributeChanged", "WorkItemChanged", "ConfigurationChanged", ]  # noqa: E501
+            value (str):, must be one of ["AutomatedTestRunCreated", "TestPlansStatusChanged", "TestRunStopped", "TestPointAssigned", "TestResultJiraIssueCreated", "AutoTestFinished", "UserMentionedInComment", "UserSelectedInWorkItemAttribute", "AllTestPointsFinished", "AllAutoTestsFinished", "AutoTestChanged", "WorkItemAutoTestRelationChanged", "WorkItemAttributeChanged", "WorkItemChanged", "ConfigurationChanged", "ProjectChanged", "TestPlanChanged", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

@@ -77,12 +77,12 @@ class TestPointShortModel(ModelNormal):
         return {
             'test_suite_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'iteration_id': (str,),  # noqa: E501
             'tester_id': (str, none_type,),  # noqa: E501
             'work_item_id': (str, none_type,),  # noqa: E501
             'configuration_id': (str, none_type,),  # noqa: E501
             'status': (str, none_type,),  # noqa: E501
             'last_test_result_id': (str, none_type,),  # noqa: E501
-            'iteration_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -93,12 +93,12 @@ class TestPointShortModel(ModelNormal):
     attribute_map = {
         'test_suite_id': 'testSuiteId',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'iteration_id': 'iterationId',  # noqa: E501
         'tester_id': 'testerId',  # noqa: E501
         'work_item_id': 'workItemId',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
         'status': 'status',  # noqa: E501
         'last_test_result_id': 'lastTestResultId',  # noqa: E501
-        'iteration_id': 'iterationId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -108,8 +108,13 @@ class TestPointShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, test_suite_id, id, iteration_id, *args, **kwargs):  # noqa: E501
         """TestPointShortModel - a model defined in OpenAPI
+
+        Args:
+            test_suite_id (str):
+            id (str):
+            iteration_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,14 +147,11 @@ class TestPointShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suite_id (str): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             tester_id (str, none_type): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
             status (str, none_type): Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
             last_test_result_id (str, none_type): [optional]  # noqa: E501
-            iteration_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -181,6 +183,9 @@ class TestPointShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_suite_id = test_suite_id
+        self.id = id
+        self.iteration_id = iteration_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -201,8 +206,13 @@ class TestPointShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, test_suite_id, id, iteration_id, *args, **kwargs):  # noqa: E501
         """TestPointShortModel - a model defined in OpenAPI
+
+        Args:
+            test_suite_id (str):
+            id (str):
+            iteration_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,14 +245,11 @@ class TestPointShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suite_id (str): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             tester_id (str, none_type): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
             status (str, none_type): Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
             last_test_result_id (str, none_type): [optional]  # noqa: E501
-            iteration_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -272,6 +279,9 @@ class TestPointShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_suite_id = test_suite_id
+        self.id = id
+        self.iteration_id = iteration_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -76,8 +76,8 @@ class BackgroundJobAttachmentModel(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -98,8 +98,11 @@ class BackgroundJobAttachmentModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, *args, **kwargs):  # noqa: E501
         """BackgroundJobAttachmentModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -132,9 +135,8 @@ class BackgroundJobAttachmentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -166,6 +168,7 @@ class BackgroundJobAttachmentModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -186,8 +189,11 @@ class BackgroundJobAttachmentModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, *args, **kwargs):  # noqa: E501
         """BackgroundJobAttachmentModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -220,9 +226,8 @@ class BackgroundJobAttachmentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,6 +257,7 @@ class BackgroundJobAttachmentModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

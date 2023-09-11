@@ -85,15 +85,15 @@ class PublicTestRunModel(ModelNormal):
         lazy_import()
         return {
             'test_run_id': (str,),  # noqa: E501
-            'test_plan_id': (str, none_type,),  # noqa: E501
             'test_plan_global_id': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
+            'test_plan_id': (str, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'build': (str, none_type,),  # noqa: E501
-            'configurations': ([ConfigurationModel],),  # noqa: E501
-            'auto_tests': ([AutoTestModel],),  # noqa: E501
-            'test_points': ([PublicTestPointModel],),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'configurations': ([ConfigurationModel], none_type,),  # noqa: E501
+            'auto_tests': ([AutoTestModel], none_type,),  # noqa: E501
+            'test_points': ([PublicTestPointModel], none_type,),  # noqa: E501
+            'status': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -103,8 +103,8 @@ class PublicTestRunModel(ModelNormal):
 
     attribute_map = {
         'test_run_id': 'testRunId',  # noqa: E501
-        'test_plan_id': 'testPlanId',  # noqa: E501
         'test_plan_global_id': 'testPlanGlobalId',  # noqa: E501
+        'test_plan_id': 'testPlanId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'product_name': 'productName',  # noqa: E501
         'build': 'build',  # noqa: E501
@@ -121,8 +121,12 @@ class PublicTestRunModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, test_run_id, test_plan_global_id, *args, **kwargs):  # noqa: E501
         """PublicTestRunModel - a model defined in OpenAPI
+
+        Args:
+            test_run_id (str):
+            test_plan_global_id (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -155,16 +159,14 @@ class PublicTestRunModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_run_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
-            test_plan_global_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             build (str, none_type): [optional]  # noqa: E501
-            configurations ([ConfigurationModel]): [optional]  # noqa: E501
-            auto_tests ([AutoTestModel]): [optional]  # noqa: E501
-            test_points ([PublicTestPointModel]): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            configurations ([ConfigurationModel], none_type): [optional]  # noqa: E501
+            auto_tests ([AutoTestModel], none_type): [optional]  # noqa: E501
+            test_points ([PublicTestPointModel], none_type): [optional]  # noqa: E501
+            status (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -196,6 +198,8 @@ class PublicTestRunModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_run_id = test_run_id
+        self.test_plan_global_id = test_plan_global_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -216,8 +220,12 @@ class PublicTestRunModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, test_run_id, test_plan_global_id, *args, **kwargs):  # noqa: E501
         """PublicTestRunModel - a model defined in OpenAPI
+
+        Args:
+            test_run_id (str):
+            test_plan_global_id (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -250,16 +258,14 @@ class PublicTestRunModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_run_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
-            test_plan_global_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             build (str, none_type): [optional]  # noqa: E501
-            configurations ([ConfigurationModel]): [optional]  # noqa: E501
-            auto_tests ([AutoTestModel]): [optional]  # noqa: E501
-            test_points ([PublicTestPointModel]): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            configurations ([ConfigurationModel], none_type): [optional]  # noqa: E501
+            auto_tests ([AutoTestModel], none_type): [optional]  # noqa: E501
+            test_points ([PublicTestPointModel], none_type): [optional]  # noqa: E501
+            status (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -289,6 +295,8 @@ class PublicTestRunModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_run_id = test_run_id
+        self.test_plan_global_id = test_plan_global_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

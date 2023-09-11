@@ -689,6 +689,7 @@ class AutoTestsApi(object):
                     'flaky',
                     'include_steps',
                     'include_labels',
+                    'external_key',
                     'skip',
                     'take',
                     'order_by',
@@ -749,6 +750,8 @@ class AutoTestsApi(object):
                         (bool,),
                     'include_labels':
                         (bool,),
+                    'external_key':
+                        (str,),
                     'skip':
                         (int,),
                     'take':
@@ -781,6 +784,7 @@ class AutoTestsApi(object):
                     'flaky': 'flaky',
                     'include_steps': 'includeSteps',
                     'include_labels': 'includeLabels',
+                    'external_key': 'externalKey',
                     'skip': 'Skip',
                     'take': 'Take',
                     'order_by': 'OrderBy',
@@ -808,6 +812,7 @@ class AutoTestsApi(object):
                     'flaky': 'query',
                     'include_steps': 'query',
                     'include_labels': 'query',
+                    'external_key': 'query',
                     'skip': 'query',
                     'take': 'query',
                     'order_by': 'query',
@@ -2244,6 +2249,7 @@ class AutoTestsApi(object):
             flaky (bool): Is autotest marked as \"Flaky\". [optional]
             include_steps (bool): If result must also include autotest steps. [optional]
             include_labels (bool): If result must also include autotest labels. [optional]
+            external_key (str): External key of autotest. [optional]
             skip (int): Amount of items to be skipped (offset). [optional]
             take (int): Amount of items to be taken (limit). [optional]
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]

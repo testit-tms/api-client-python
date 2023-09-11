@@ -95,9 +95,9 @@ class UpdateParameterRequest(ModelComposed):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -106,9 +106,9 @@ class UpdateParameterRequest(ModelComposed):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'value': 'value',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'id': 'id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -120,6 +120,7 @@ class UpdateParameterRequest(ModelComposed):
         """UpdateParameterRequest - a model defined in OpenAPI
 
         Keyword Args:
+            id (str):
             value (str):
             name (str):
             _check_type (bool): if True, values for parameters in openapi_types
@@ -152,7 +153,6 @@ class UpdateParameterRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,6 +226,7 @@ class UpdateParameterRequest(ModelComposed):
         """UpdateParameterRequest - a model defined in OpenAPI
 
         Keyword Args:
+            id (str):
             value (str):
             name (str):
             _check_type (bool): if True, values for parameters in openapi_types
@@ -258,7 +259,6 @@ class UpdateParameterRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

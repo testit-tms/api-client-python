@@ -84,10 +84,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
-**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
 **403** | System admin permission required |  -  |
+**204** | Successful operation |  -  |
 **404** | WorkItem is not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -107,92 +107,10 @@ Create WorkItem comment
 import time
 import testit_api_client
 from testit_api_client.api import work_items_comments_api
-from testit_api_client.model.api_v2_work_items_comments_post_request1 import ApiV2WorkItemsCommentsPostRequest1
+from testit_api_client.model.api_v2_work_items_comments_post_request import ApiV2WorkItemsCommentsPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
-    api_v2_work_items_comments_post_request1 = ApiV2WorkItemsCommentsPostRequest1(None) # ApiV2WorkItemsCommentsPostRequest1 |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Create WorkItem comment
-        api_response = api_instance.api_v2_work_items_comments_post(api_v2_work_items_comments_post_request1=api_v2_work_items_comments_post_request1)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_post: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_v2_work_items_comments_post_request1** | [**ApiV2WorkItemsCommentsPostRequest1**](ApiV2WorkItemsCommentsPostRequest1.md)|  | [optional]
-
-### Return type
-
-[**WorkItemCommentModel**](WorkItemCommentModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Successful operation |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Read permission for test library required |  -  |
-**404** | WorkItem is not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **api_v2_work_items_comments_put**
-> api_v2_work_items_comments_put()
-
-Update work item comment
-
-### Example
-
-* Api Key Authentication (Bearer or PrivateToken):
-
-```python
-import time
-import testit_api_client
-from testit_api_client.api import work_items_comments_api
-from testit_api_client.model.api_v2_work_items_comments_post_request import ApiV2WorkItemsCommentsPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -220,8 +138,90 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
+        # Create WorkItem comment
+        api_response = api_instance.api_v2_work_items_comments_post(api_v2_work_items_comments_post_request=api_v2_work_items_comments_post_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_v2_work_items_comments_post_request** | [**ApiV2WorkItemsCommentsPostRequest**](ApiV2WorkItemsCommentsPostRequest.md)|  | [optional]
+
+### Return type
+
+[**WorkItemCommentModel**](WorkItemCommentModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**403** | Read permission for test library required |  -  |
+**404** | WorkItem is not found |  -  |
+**201** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_work_items_comments_put**
+> api_v2_work_items_comments_put()
+
+Update work item comment
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_work_items_comments_put_request import ApiV2WorkItemsCommentsPutRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
+    api_v2_work_items_comments_put_request = ApiV2WorkItemsCommentsPutRequest(None) # ApiV2WorkItemsCommentsPutRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
         # Update work item comment
-        api_instance.api_v2_work_items_comments_put(api_v2_work_items_comments_post_request=api_v2_work_items_comments_post_request)
+        api_instance.api_v2_work_items_comments_put(api_v2_work_items_comments_put_request=api_v2_work_items_comments_put_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_put: %s\n" % e)
 ```
@@ -231,7 +231,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_work_items_comments_post_request** | [**ApiV2WorkItemsCommentsPostRequest**](ApiV2WorkItemsCommentsPostRequest.md)|  | [optional]
+ **api_v2_work_items_comments_put_request** | [**ApiV2WorkItemsCommentsPutRequest**](ApiV2WorkItemsCommentsPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -251,8 +251,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
 **403** | System administrator role is required |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -329,8 +329,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Read permission for test library is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

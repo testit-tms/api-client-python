@@ -22,7 +22,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from testit_api_client.model.api_v2_custom_attributes_templates_post_request import ApiV2CustomAttributesTemplatesPostRequest
-from testit_api_client.model.api_v2_custom_attributes_templates_post_request1 import ApiV2CustomAttributesTemplatesPostRequest1
+from testit_api_client.model.api_v2_custom_attributes_templates_put_request import ApiV2CustomAttributesTemplatesPutRequest
 from testit_api_client.model.api_v2_custom_attributes_templates_search_post_request import ApiV2CustomAttributesTemplatesSearchPostRequest
 from testit_api_client.model.custom_attribute_template_model import CustomAttributeTemplateModel
 from testit_api_client.model.no_content_result import NoContentResult
@@ -331,7 +331,7 @@ class CustomAttributeTemplatesApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_custom_attributes_templates_post_request1',
+                    'api_v2_custom_attributes_templates_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -347,13 +347,13 @@ class CustomAttributeTemplatesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_custom_attributes_templates_post_request1':
-                        (ApiV2CustomAttributesTemplatesPostRequest1,),
+                    'api_v2_custom_attributes_templates_post_request':
+                        (ApiV2CustomAttributesTemplatesPostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_custom_attributes_templates_post_request1': 'body',
+                    'api_v2_custom_attributes_templates_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -381,7 +381,7 @@ class CustomAttributeTemplatesApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_custom_attributes_templates_post_request',
+                    'api_v2_custom_attributes_templates_put_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -397,13 +397,13 @@ class CustomAttributeTemplatesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_custom_attributes_templates_post_request':
-                        (ApiV2CustomAttributesTemplatesPostRequest,),
+                    'api_v2_custom_attributes_templates_put_request':
+                        (ApiV2CustomAttributesTemplatesPutRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_custom_attributes_templates_post_request': 'body',
+                    'api_v2_custom_attributes_templates_put_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -926,7 +926,7 @@ class CustomAttributeTemplatesApi(object):
 
 
         Keyword Args:
-            api_v2_custom_attributes_templates_post_request1 (ApiV2CustomAttributesTemplatesPostRequest1): [optional]
+            api_v2_custom_attributes_templates_post_request (ApiV2CustomAttributesTemplatesPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1004,7 +1004,7 @@ class CustomAttributeTemplatesApi(object):
 
 
         Keyword Args:
-            api_v2_custom_attributes_templates_post_request (ApiV2CustomAttributesTemplatesPostRequest): [optional]
+            api_v2_custom_attributes_templates_put_request (ApiV2CustomAttributesTemplatesPutRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

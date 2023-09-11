@@ -247,8 +247,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Read permission for the test result is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -325,8 +325,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Read permission for the test result is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -344,7 +344,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_results_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_test_results_id_get_request import ApiV2TestResultsIdGetRequest
+from testit_api_client.model.api_v2_test_results_id_put_request import ApiV2TestResultsIdPutRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -368,7 +368,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "id_example" # str | Test result unique ID
-    api_v2_test_results_id_get_request = ApiV2TestResultsIdGetRequest(None) # ApiV2TestResultsIdGetRequest |  (optional)
+    api_v2_test_results_id_put_request = ApiV2TestResultsIdPutRequest(None) # ApiV2TestResultsIdPutRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -381,7 +381,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit test result by ID
-        api_instance.api_v2_test_results_id_put(id, api_v2_test_results_id_get_request=api_v2_test_results_id_get_request)
+        api_instance.api_v2_test_results_id_put(id, api_v2_test_results_id_put_request=api_v2_test_results_id_put_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_put: %s\n" % e)
 ```
@@ -392,7 +392,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result unique ID |
- **api_v2_test_results_id_get_request** | [**ApiV2TestResultsIdGetRequest**](ApiV2TestResultsIdGetRequest.md)|  | [optional]
+ **api_v2_test_results_id_put_request** | [**ApiV2TestResultsIdPutRequest**](ApiV2TestResultsIdPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -502,8 +502,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **403** | Read permission for all requested test runs is required |  -  |
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -582,8 +582,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Read permission for all requested test runs is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -673,12 +673,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
 **404** |  |  -  |
 **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -781,6 +781,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_results_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.image_resize_type import ImageResizeType
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -808,7 +809,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
     width = 1 # int | Width of the result image (optional)
     height = 1 # int | Height of the result image (optional)
-    resize_type = None # bool, date, datetime, dict, float, int, list, str, none_type | Type of resizing to apply to the result image (optional)
+    resize_type = None # ImageResizeType | Type of resizing to apply to the result image (optional)
     background_color = "#62ECB0" # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
     preview = True # bool | If image must be converted to a preview (lower quality, no animation) (optional)
 
@@ -837,7 +838,7 @@ Name | Type | Description  | Notes
  **id** | **str**| Test result internal identifier (guid format) |
  **width** | **int**| Width of the result image | [optional]
  **height** | **int**| Height of the result image | [optional]
- **resize_type** | **bool, date, datetime, dict, float, int, list, str, none_type**| Type of resizing to apply to the result image | [optional]
+ **resize_type** | **ImageResizeType**| Type of resizing to apply to the result image | [optional]
  **background_color** | **str**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional]
  **preview** | **bool**| If image must be converted to a preview (lower quality, no animation) | [optional]
 
@@ -859,11 +860,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
 **200** | Success |  -  |
 **400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
 **403** | Read permission for test result required |  -  |
-**404** | &lt;br&gt;File not found  &lt;br&gt;Attachment not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -945,11 +946,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Read permission for test result required |  -  |
 **404** | File not found |  -  |
+**200** | Successful operation |  -  |
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**403** | Read permission for test result required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1029,11 +1030,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **400** | Bad Request |  -  |
+**404** | TestResult not found |  -  |
+**200** | Success |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test result required |  -  |
-**404** | TestResult not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

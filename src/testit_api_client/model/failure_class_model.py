@@ -30,7 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.failure_category_model import FailureCategoryModel
     from testit_api_client.model.failure_class_regex_model import FailureClassRegexModel
+    globals()['FailureCategoryModel'] = FailureCategoryModel
     globals()['FailureClassRegexModel'] = FailureClassRegexModel
 
 
@@ -80,15 +82,15 @@ class FailureClassModel(ModelNormal):
         """
         lazy_import()
         return {
-            'failure_category': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'failure_category': (FailureCategoryModel,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
-            'failure_class_regexes': ([FailureClassRegexModel], none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
+            'failure_class_regexes': ([FailureClassRegexModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -98,14 +100,14 @@ class FailureClassModel(ModelNormal):
 
     attribute_map = {
         'failure_category': 'failureCategory',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
-        'modified_by_id': 'modifiedById',  # noqa: E501
-        'failure_class_regexes': 'failureClassRegexes',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
+        'failure_class_regexes': 'failureClassRegexes',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,11 +117,15 @@ class FailureClassModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, failure_category, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, failure_category, created_date, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """FailureClassModel - a model defined in OpenAPI
 
         Args:
-            failure_category (bool, date, datetime, dict, float, int, list, str, none_type):
+            failure_category (FailureCategoryModel):
+            created_date (datetime):
+            created_by_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -153,13 +159,9 @@ class FailureClassModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             failure_class_regexes ([FailureClassRegexModel], none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -192,6 +194,10 @@ class FailureClassModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.failure_category = failure_category
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -212,11 +218,15 @@ class FailureClassModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, failure_category, *args, **kwargs):  # noqa: E501
+    def __init__(self, failure_category, created_date, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """FailureClassModel - a model defined in OpenAPI
 
         Args:
-            failure_category (bool, date, datetime, dict, float, int, list, str, none_type):
+            failure_category (FailureCategoryModel):
+            created_date (datetime):
+            created_by_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -250,13 +260,9 @@ class FailureClassModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             failure_class_regexes ([FailureClassRegexModel], none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -287,6 +293,10 @@ class FailureClassModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.failure_category = failure_category
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

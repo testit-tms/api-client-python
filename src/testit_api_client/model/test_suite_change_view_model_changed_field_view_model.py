@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_suite_change_view_model_changed_field_view_model_old_value import TestSuiteChangeViewModelChangedFieldViewModelOldValue
-    globals()['TestSuiteChangeViewModelChangedFieldViewModelOldValue'] = TestSuiteChangeViewModelChangedFieldViewModelOldValue
+    from testit_api_client.model.test_suite_change_view_model import TestSuiteChangeViewModel
+    globals()['TestSuiteChangeViewModel'] = TestSuiteChangeViewModel
 
 
 class TestSuiteChangeViewModelChangedFieldViewModel(ModelNormal):
@@ -80,8 +80,8 @@ class TestSuiteChangeViewModelChangedFieldViewModel(ModelNormal):
         """
         lazy_import()
         return {
-            'old_value': (TestSuiteChangeViewModelChangedFieldViewModelOldValue,),  # noqa: E501
-            'new_value': (TestSuiteChangeViewModelChangedFieldViewModelOldValue,),  # noqa: E501
+            'old_value': (TestSuiteChangeViewModel,),  # noqa: E501
+            'new_value': (TestSuiteChangeViewModel,),  # noqa: E501
         }
 
     @cached_property
@@ -135,8 +135,8 @@ class TestSuiteChangeViewModelChangedFieldViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            old_value (TestSuiteChangeViewModelChangedFieldViewModelOldValue): [optional]  # noqa: E501
-            new_value (TestSuiteChangeViewModelChangedFieldViewModelOldValue): [optional]  # noqa: E501
+            old_value (TestSuiteChangeViewModel): [optional]  # noqa: E501
+            new_value (TestSuiteChangeViewModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,8 +222,8 @@ class TestSuiteChangeViewModelChangedFieldViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            old_value (TestSuiteChangeViewModelChangedFieldViewModelOldValue): [optional]  # noqa: E501
-            new_value (TestSuiteChangeViewModelChangedFieldViewModelOldValue): [optional]  # noqa: E501
+            old_value (TestSuiteChangeViewModel): [optional]  # noqa: E501
+            new_value (TestSuiteChangeViewModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

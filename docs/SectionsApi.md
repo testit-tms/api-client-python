@@ -271,11 +271,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Delete permission for test library is required |  -  |
 **409** | Conflict |  -  |
+**400** | Bad Request |  -  |
+**403** | Delete permission for test library is required |  -  |
+**204** | No Content |  -  |
+**401** | Unauthorized |  -  |
 **404** | Section with provided ID was not found |  -  |
 **422** | Cannot delete root section |  -  |
 
@@ -298,6 +298,7 @@ import testit_api_client
 from testit_api_client.api import sections_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.section_with_steps_model import SectionWithStepsModel
+from testit_api_client.model.deletion_state import DeletionState
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -322,7 +323,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     id = "id_example" # str | Section internal (UUID) identifier
-    is_deleted = None # bool, date, datetime, dict, float, int, list, str, none_type |  (optional) if omitted the server will use the default value of NotDeleted
+    is_deleted = None # DeletionState |  (optional) if omitted the server will use the default value of NotDeleted
 
     # example passing only required values which don't have defaults set
     try:
@@ -348,7 +349,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Section internal (UUID) identifier |
- **is_deleted** | **bool, date, datetime, dict, float, int, list, str, none_type**|  | [optional] if omitted the server will use the default value of NotDeleted
+ **is_deleted** | **DeletionState**|  | [optional] if omitted the server will use the default value of NotDeleted
 
 ### Return type
 
@@ -368,11 +369,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**404** | Section with provided ID was not found |  -  |
+**403** | Read permission for test library is required |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | Read permission for test library is required |  -  |
-**404** | Section with provided ID was not found |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -479,11 +480,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library is required |  -  |
 **404** | Section with provided ID was not found |  -  |
+**400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -560,8 +561,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
 **403** | Update permission for test library is required |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -640,11 +641,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**409** | Section with the same name already exists in the parent section |  -  |
 **204** | No Content |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library is required |  -  |
 **404** | Section with provided ID was not found |  -  |
-**409** | Section with the same name already exists in the parent section |  -  |
 **422** | Root section cannot be renamed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

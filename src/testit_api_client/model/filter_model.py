@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.filter_model_data import FilterModelData
-    globals()['FilterModelData'] = FilterModelData
+    from testit_api_client.model.work_item_search_query_model import WorkItemSearchQueryModel
+    globals()['WorkItemSearchQueryModel'] = WorkItemSearchQueryModel
 
 
 class FilterModel(ModelNormal):
@@ -81,15 +81,15 @@ class FilterModel(ModelNormal):
         lazy_import()
         return {
             'created_date': (datetime,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
-            'data': (FilterModelData,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'fields_to_show': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
+            'data': (WorkItemSearchQueryModel,),  # noqa: E501
+            'fields_to_show': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,15 +99,15 @@ class FilterModel(ModelNormal):
 
     attribute_map = {
         'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
-        'modified_by_id': 'modifiedById',  # noqa: E501
-        'data': 'data',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
-        'fields_to_show': 'fieldsToShow',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
+        'data': 'data',  # noqa: E501
+        'fields_to_show': 'fieldsToShow',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,8 +117,15 @@ class FilterModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, created_date, created_by_id, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """FilterModel - a model defined in OpenAPI
+
+        Args:
+            created_date (datetime):
+            created_by_id (str):
+            project_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -151,16 +158,11 @@ class FilterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            data (FilterModelData): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
+            data (WorkItemSearchQueryModel): [optional]  # noqa: E501
             fields_to_show (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -192,6 +194,11 @@ class FilterModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.project_id = project_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -212,8 +219,15 @@ class FilterModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, created_date, created_by_id, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """FilterModel - a model defined in OpenAPI
+
+        Args:
+            created_date (datetime):
+            created_by_id (str):
+            project_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -246,16 +260,11 @@ class FilterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            data (FilterModelData): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
+            data (WorkItemSearchQueryModel): [optional]  # noqa: E501
             fields_to_show (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -285,6 +294,11 @@ class FilterModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.project_id = project_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

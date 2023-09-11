@@ -62,10 +62,6 @@ class AutotestsExtractionModelIds(ModelComposed):
     }
 
     validations = {
-        ('include',): {
-        },
-        ('exclude',): {
-        },
     }
 
     @cached_property

@@ -100,8 +100,13 @@ class ValidateAntiForgeryTokenAttribute(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, order, is_reusable, type_id, *args, **kwargs):  # noqa: E501
         """ValidateAntiForgeryTokenAttribute - a model defined in OpenAPI
+
+        Args:
+            order (int):
+            is_reusable (bool):
+            type_id (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -134,9 +139,6 @@ class ValidateAntiForgeryTokenAttribute(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            order (int): [optional]  # noqa: E501
-            is_reusable (bool): [optional]  # noqa: E501
-            type_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -168,6 +170,9 @@ class ValidateAntiForgeryTokenAttribute(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.order = order
+        self.is_reusable = is_reusable
+        self.type_id = type_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -188,9 +193,11 @@ class ValidateAntiForgeryTokenAttribute(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, order, *args, **kwargs):  # noqa: E501
         """ValidateAntiForgeryTokenAttribute - a model defined in OpenAPI
 
+        Args:
+            order (int):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -222,9 +229,6 @@ class ValidateAntiForgeryTokenAttribute(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            order (int): [optional]  # noqa: E501
-            is_reusable (bool): [optional]  # noqa: E501
-            type_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -254,6 +258,7 @@ class ValidateAntiForgeryTokenAttribute(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.order = order
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

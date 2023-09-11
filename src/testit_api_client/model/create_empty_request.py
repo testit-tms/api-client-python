@@ -30,7 +30,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
+    from testit_api_client.model.link_post_model import LinkPostModel
     from testit_api_client.model.test_run_v2_post_short_model import TestRunV2PostShortModel
+    globals()['AttachmentPutModel'] = AttachmentPutModel
+    globals()['LinkPostModel'] = LinkPostModel
     globals()['TestRunV2PostShortModel'] = TestRunV2PostShortModel
 
 
@@ -91,6 +95,8 @@ class CreateEmptyRequest(ModelComposed):
             'name': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
+            'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
+            'links': ([LinkPostModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -103,6 +109,8 @@ class CreateEmptyRequest(ModelComposed):
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'launch_source': 'launchSource',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
+        'links': 'links',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,6 +156,8 @@ class CreateEmptyRequest(ModelComposed):
             name (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            links ([LinkPostModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +265,8 @@ class CreateEmptyRequest(ModelComposed):
             name (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            links ([LinkPostModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

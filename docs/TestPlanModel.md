@@ -4,7 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
+**status** | [**TestPlanStatusModel**](TestPlanStatusModel.md) |  | 
+**created_by_id** | **str** |  | 
+**global_id** | **int** | Used for search Test plan | 
+**is_deleted** | **bool** |  | 
 **id** | **str** |  | 
 **name** | **str** |  | 
 **project_id** | **str** |  | 
@@ -12,10 +15,7 @@ Name | Type | Description | Notes
 **completed_on** | **datetime, none_type** | set when test plan status is completed (status changed to: Completed) | [optional] 
 **created_date** | **datetime, none_type** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
-**created_by_id** | **str** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
-**global_id** | **int** | Used for search Test plan | [optional] 
-**is_deleted** | **bool** |  | [optional] 
 **locked_date** | **datetime, none_type** |  | [optional] 
 **locked_by_id** | **str, none_type** |  | [optional] 
 **tags** | [**[TagShortModel], none_type**](TagShortModel.md) |  | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **build** | **str, none_type** |  | [optional] 
 **product_name** | **str, none_type** |  | [optional] 
 **has_automatic_duration_timer** | **bool, none_type** |  | [optional] 
-**attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] 
+**attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

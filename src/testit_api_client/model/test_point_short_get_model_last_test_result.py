@@ -93,10 +93,10 @@ class TestPointShortGetModelLastTestResult(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
+            'work_item_version_id': (str,),  # noqa: E501
             'auto_test_id': (str, none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
-            'work_item_version_id': (str,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
         }
 
@@ -108,10 +108,10 @@ class TestPointShortGetModelLastTestResult(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'test_run_id': 'testRunId',  # noqa: E501
+        'work_item_version_id': 'workItemVersionId',  # noqa: E501
         'auto_test_id': 'autoTestId',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'links': 'links',  # noqa: E501
-        'work_item_version_id': 'workItemVersionId',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
     }
 
@@ -124,6 +124,9 @@ class TestPointShortGetModelLastTestResult(ModelComposed):
         """TestPointShortGetModelLastTestResult - a model defined in OpenAPI
 
         Keyword Args:
+            id (str):
+            test_run_id (str):
+            work_item_version_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -154,12 +157,9 @@ class TestPointShortGetModelLastTestResult(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
             auto_test_id (str, none_type): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            work_item_version_id (str): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
         """
 
@@ -234,6 +234,9 @@ class TestPointShortGetModelLastTestResult(ModelComposed):
         """TestPointShortGetModelLastTestResult - a model defined in OpenAPI
 
         Keyword Args:
+            id (str):
+            test_run_id (str):
+            work_item_version_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -264,12 +267,9 @@ class TestPointShortGetModelLastTestResult(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
             auto_test_id (str, none_type): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            work_item_version_id (str): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
         """
 

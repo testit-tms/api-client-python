@@ -75,12 +75,12 @@ class RequestData(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'uri': (str, none_type,),  # noqa: E501
             'status_code': (int,),  # noqa: E501
-            'request_body': (str, none_type,),  # noqa: E501
             'request_meta': (str,),  # noqa: E501
             'response_body': (str,),  # noqa: E501
             'response_meta': (str,),  # noqa: E501
+            'uri': (str, none_type,),  # noqa: E501
+            'request_body': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -89,12 +89,12 @@ class RequestData(ModelNormal):
 
 
     attribute_map = {
-        'uri': 'uri',  # noqa: E501
         'status_code': 'statusCode',  # noqa: E501
-        'request_body': 'requestBody',  # noqa: E501
         'request_meta': 'requestMeta',  # noqa: E501
         'response_body': 'responseBody',  # noqa: E501
         'response_meta': 'responseMeta',  # noqa: E501
+        'uri': 'uri',  # noqa: E501
+        'request_body': 'requestBody',  # noqa: E501
     }
 
     read_only_vars = {
@@ -104,8 +104,14 @@ class RequestData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, status_code, request_meta, response_body, response_meta, *args, **kwargs):  # noqa: E501
         """RequestData - a model defined in OpenAPI
+
+        Args:
+            status_code (int):
+            request_meta (str):
+            response_body (str):
+            response_meta (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -139,11 +145,7 @@ class RequestData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             uri (str, none_type): [optional]  # noqa: E501
-            status_code (int): [optional]  # noqa: E501
             request_body (str, none_type): [optional]  # noqa: E501
-            request_meta (str): [optional]  # noqa: E501
-            response_body (str): [optional]  # noqa: E501
-            response_meta (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -175,6 +177,10 @@ class RequestData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.status_code = status_code
+        self.request_meta = request_meta
+        self.response_body = response_body
+        self.response_meta = response_meta
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -195,8 +201,14 @@ class RequestData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, status_code, request_meta, response_body, response_meta, *args, **kwargs):  # noqa: E501
         """RequestData - a model defined in OpenAPI
+
+        Args:
+            status_code (int):
+            request_meta (str):
+            response_body (str):
+            response_meta (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,11 +242,7 @@ class RequestData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             uri (str, none_type): [optional]  # noqa: E501
-            status_code (int): [optional]  # noqa: E501
             request_body (str, none_type): [optional]  # noqa: E501
-            request_meta (str): [optional]  # noqa: E501
-            response_body (str): [optional]  # noqa: E501
-            response_meta (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,6 +272,10 @@ class RequestData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.status_code = status_code
+        self.request_meta = request_meta
+        self.response_body = response_body
+        self.response_meta = response_meta
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -90,11 +90,11 @@ class CreateConfigurationRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'parameters': ({str: (str,)},),  # noqa: E501
+            'parameters': ({str: (str, none_type)},),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'is_default': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'is_default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -105,9 +105,9 @@ class CreateConfigurationRequest(ModelComposed):
     attribute_map = {
         'parameters': 'parameters',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'is_default': 'isDefault',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'is_default': 'isDefault',  # noqa: E501
     }
 
     read_only_vars = {
@@ -119,8 +119,9 @@ class CreateConfigurationRequest(ModelComposed):
         """CreateConfigurationRequest - a model defined in OpenAPI
 
         Keyword Args:
-            parameters ({str: (str,)}):
+            parameters ({str: (str, none_type)}):
             project_id (str): This property is used to link configuration with project
+            is_default (bool):
             name (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -153,7 +154,6 @@ class CreateConfigurationRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +227,9 @@ class CreateConfigurationRequest(ModelComposed):
         """CreateConfigurationRequest - a model defined in OpenAPI
 
         Keyword Args:
-            parameters ({str: (str,)}):
+            parameters ({str: (str, none_type)}):
             project_id (str): This property is used to link configuration with project
+            is_default (bool):
             name (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -261,7 +262,6 @@ class CreateConfigurationRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

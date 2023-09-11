@@ -30,7 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.request_type_model import RequestTypeModel
     from testit_api_client.model.web_hook_test_model import WebHookTestModel
+    globals()['RequestTypeModel'] = RequestTypeModel
     globals()['WebHookTestModel'] = WebHookTestModel
 
 
@@ -90,7 +92,7 @@ class ApiV2WebhooksTestPostRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'request_type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'request_type': (RequestTypeModel,),  # noqa: E501
             'url': (str,),  # noqa: E501
         }
 
@@ -113,7 +115,7 @@ class ApiV2WebhooksTestPostRequest(ModelComposed):
         """ApiV2WebhooksTestPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            request_type (bool, date, datetime, dict, float, int, list, str, none_type): Request method of the webhook
+            request_type (RequestTypeModel):
             url (str): Request URL of the webhook
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -218,7 +220,7 @@ class ApiV2WebhooksTestPostRequest(ModelComposed):
         """ApiV2WebhooksTestPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            request_type (bool, date, datetime, dict, float, int, list, str, none_type): Request method of the webhook
+            request_type (RequestTypeModel):
             url (str): Request URL of the webhook
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

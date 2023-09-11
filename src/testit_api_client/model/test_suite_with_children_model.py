@@ -75,13 +75,13 @@ class TestSuiteWithChildrenModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'test_plan_id': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'is_deleted': (bool,),  # noqa: E501
             'children': ([TestSuiteWithChildrenModel], none_type,),  # noqa: E501
             'tester_id': (str, none_type,),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
-            'test_plan_id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
-            'is_deleted': (bool,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -90,13 +90,13 @@ class TestSuiteWithChildrenModel(ModelNormal):
 
 
     attribute_map = {
+        'test_plan_id': 'testPlanId',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
         'children': 'children',  # noqa: E501
         'tester_id': 'testerId',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
-        'test_plan_id': 'testPlanId',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
     }
 
     read_only_vars = {
@@ -106,8 +106,13 @@ class TestSuiteWithChildrenModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, test_plan_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """TestSuiteWithChildrenModel - a model defined in OpenAPI
+
+        Args:
+            test_plan_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,10 +148,7 @@ class TestSuiteWithChildrenModel(ModelNormal):
             children ([TestSuiteWithChildrenModel], none_type): [optional]  # noqa: E501
             tester_id (str, none_type): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
-            test_plan_id (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -178,6 +180,9 @@ class TestSuiteWithChildrenModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_plan_id = test_plan_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -198,8 +203,13 @@ class TestSuiteWithChildrenModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, test_plan_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """TestSuiteWithChildrenModel - a model defined in OpenAPI
+
+        Args:
+            test_plan_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,10 +245,7 @@ class TestSuiteWithChildrenModel(ModelNormal):
             children ([TestSuiteWithChildrenModel], none_type): [optional]  # noqa: E501
             tester_id (str, none_type): [optional]  # noqa: E501
             parent_id (str, none_type): [optional]  # noqa: E501
-            test_plan_id (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -268,6 +275,9 @@ class TestSuiteWithChildrenModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_plan_id = test_plan_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

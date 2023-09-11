@@ -78,7 +78,7 @@ class ProjectShortestModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -100,8 +100,13 @@ class ProjectShortestModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_deleted, global_id, *args, **kwargs):  # noqa: E501
         """ProjectShortestModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Unique ID of project
+            is_deleted (bool): Indicates whether the project is deleted
+            global_id (int): Global ID of project
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -134,10 +139,7 @@ class ProjectShortestModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of project. [optional]  # noqa: E501
-            is_deleted (bool): Indicates whether the project is deleted. [optional]  # noqa: E501
-            global_id (int): Global ID of project. [optional]  # noqa: E501
-            name (str): Name of project. [optional]  # noqa: E501
+            name (str, none_type): Name of project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -169,6 +171,9 @@ class ProjectShortestModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
+        self.global_id = global_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,8 +194,13 @@ class ProjectShortestModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_deleted, global_id, *args, **kwargs):  # noqa: E501
         """ProjectShortestModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Unique ID of project
+            is_deleted (bool): Indicates whether the project is deleted
+            global_id (int): Global ID of project
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,10 +233,7 @@ class ProjectShortestModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of project. [optional]  # noqa: E501
-            is_deleted (bool): Indicates whether the project is deleted. [optional]  # noqa: E501
-            global_id (int): Global ID of project. [optional]  # noqa: E501
-            name (str): Name of project. [optional]  # noqa: E501
+            name (str, none_type): Name of project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,6 +263,9 @@ class ProjectShortestModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
+        self.global_id = global_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

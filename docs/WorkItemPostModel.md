@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entity_type_name** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
-**state** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
-**priority** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
+**entity_type_name** | [**WorkItemEntityTypes**](WorkItemEntityTypes.md) |  | 
+**state** | [**WorkItemStates**](WorkItemStates.md) |  | 
+**priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **steps** | [**[StepPutModel]**](StepPutModel.md) |  | 
 **precondition_steps** | [**[StepPutModel]**](StepPutModel.md) |  | 
 **postcondition_steps** | [**[StepPutModel]**](StepPutModel.md) |  | 

@@ -78,11 +78,11 @@ class ConfigurationPostModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'parameters': ({str: (str,)},),  # noqa: E501
+            'parameters': ({str: (str, none_type)},),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'is_default': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'is_default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -93,9 +93,9 @@ class ConfigurationPostModel(ModelNormal):
     attribute_map = {
         'parameters': 'parameters',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'is_default': 'isDefault',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'is_default': 'isDefault',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,12 +105,13 @@ class ConfigurationPostModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, parameters, project_id, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, parameters, project_id, is_default, name, *args, **kwargs):  # noqa: E501
         """ConfigurationPostModel - a model defined in OpenAPI
 
         Args:
-            parameters ({str: (str,)}):
+            parameters ({str: (str, none_type)}):
             project_id (str): This property is used to link configuration with project
+            is_default (bool):
             name (str):
 
         Keyword Args:
@@ -145,7 +146,6 @@ class ConfigurationPostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -179,6 +179,7 @@ class ConfigurationPostModel(ModelNormal):
 
         self.parameters = parameters
         self.project_id = project_id
+        self.is_default = is_default
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -200,12 +201,13 @@ class ConfigurationPostModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, parameters, project_id, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, parameters, project_id, is_default, name, *args, **kwargs):  # noqa: E501
         """ConfigurationPostModel - a model defined in OpenAPI
 
         Args:
-            parameters ({str: (str,)}):
+            parameters ({str: (str, none_type)}):
             project_id (str): This property is used to link configuration with project
+            is_default (bool):
             name (str):
 
         Keyword Args:
@@ -240,7 +242,6 @@ class ConfigurationPostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -272,6 +273,7 @@ class ConfigurationPostModel(ModelNormal):
 
         self.parameters = parameters
         self.project_id = project_id
+        self.is_default = is_default
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

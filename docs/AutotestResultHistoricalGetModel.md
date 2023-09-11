@@ -4,16 +4,18 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**outcome** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
-**id** | **str** |  | [optional] 
-**created_date** | **datetime** |  | [optional] 
-**created_by_id** | **str** |  | [optional] 
-**test_run_id** | **str** |  | [optional] 
+**id** | **str** |  | 
+**created_date** | **datetime** |  | 
+**created_by_id** | **str** |  | 
+**test_run_id** | **str** |  | 
+**configuration_id** | **str** |  | 
+**outcome** | [**AutotestResultOutcome**](AutotestResultOutcome.md) |  | 
+**created_by_name** | **str, none_type** |  | [optional] 
 **test_run_name** | **str, none_type** |  | [optional] 
-**configuration_id** | **str** |  | [optional] 
+**configuration_name** | **str, none_type** |  | [optional] 
 **launch_source** | **str, none_type** |  | [optional] 
-**modified_date** | **datetime, none_type** |  | [optional] [readonly] 
-**modified_by_id** | **str, none_type** |  | [optional] [readonly] 
+**modified_date** | **datetime, none_type** |  | [optional] 
+**modified_by_id** | **str, none_type** |  | [optional] 
 **test_plan_id** | **str, none_type** |  | [optional] 
 **test_plan_global_id** | **int, none_type** |  | [optional] 
 **test_plan_name** | **str, none_type** |  | [optional] 

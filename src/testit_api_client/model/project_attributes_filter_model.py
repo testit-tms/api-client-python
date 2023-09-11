@@ -82,10 +82,10 @@ class ProjectAttributesFilterModel(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'is_required': (bool, none_type,),  # noqa: E501
             'is_global': (bool, none_type,),  # noqa: E501
-            'types': ([CustomAttributeTypesEnum],),  # noqa: E501
+            'types': ([CustomAttributeTypesEnum], none_type,),  # noqa: E501
             'is_enabled': (bool, none_type,),  # noqa: E501
         }
 
@@ -143,10 +143,10 @@ class ProjectAttributesFilterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): Specifies an attribute name to search for. [optional]  # noqa: E501
+            name (str, none_type): Specifies an attribute name to search for. [optional]  # noqa: E501
             is_required (bool, none_type): Specifies an attribute mandatory status to search for. [optional]  # noqa: E501
             is_global (bool, none_type): Specifies an attribute global status to search for. [optional]  # noqa: E501
-            types ([CustomAttributeTypesEnum]): Specifies an attribute types to search for. [optional]  # noqa: E501
+            types ([CustomAttributeTypesEnum], none_type): Specifies an attribute types to search for. [optional]  # noqa: E501
             is_enabled (bool, none_type): Specifies an attribute enabled status to search for. [optional]  # noqa: E501
         """
 
@@ -233,10 +233,10 @@ class ProjectAttributesFilterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): Specifies an attribute name to search for. [optional]  # noqa: E501
+            name (str, none_type): Specifies an attribute name to search for. [optional]  # noqa: E501
             is_required (bool, none_type): Specifies an attribute mandatory status to search for. [optional]  # noqa: E501
             is_global (bool, none_type): Specifies an attribute global status to search for. [optional]  # noqa: E501
-            types ([CustomAttributeTypesEnum]): Specifies an attribute types to search for. [optional]  # noqa: E501
+            types ([CustomAttributeTypesEnum], none_type): Specifies an attribute types to search for. [optional]  # noqa: E501
             is_enabled (bool, none_type): Specifies an attribute enabled status to search for. [optional]  # noqa: E501
         """
 

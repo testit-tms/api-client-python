@@ -21,12 +21,14 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_webhooks_get_request import ApiV2WebhooksGetRequest
+from testit_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
 from testit_api_client.model.api_v2_webhooks_search_post_request import ApiV2WebhooksSearchPostRequest
 from testit_api_client.model.api_v2_webhooks_test_post_request import ApiV2WebhooksTestPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.request_data import RequestData
+from testit_api_client.model.web_hook_event_type import WebHookEventType
 from testit_api_client.model.web_hook_model import WebHookModel
+from testit_api_client.model.webhook_variables_type import WebhookVariablesType
 
 
 class WebhooksApi(object):
@@ -205,7 +207,7 @@ class WebhooksApi(object):
             params_map={
                 'all': [
                     'id',
-                    'api_v2_webhooks_get_request',
+                    'api_v2_webhooks_post_request',
                 ],
                 'required': [
                     'id',
@@ -225,15 +227,15 @@ class WebhooksApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'api_v2_webhooks_get_request':
-                        (ApiV2WebhooksGetRequest,),
+                    'api_v2_webhooks_post_request':
+                        (ApiV2WebhooksPostRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'api_v2_webhooks_get_request': 'body',
+                    'api_v2_webhooks_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -261,7 +263,7 @@ class WebhooksApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_webhooks_get_request',
+                    'api_v2_webhooks_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -277,13 +279,13 @@ class WebhooksApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_webhooks_get_request':
-                        (ApiV2WebhooksGetRequest,),
+                    'api_v2_webhooks_post_request':
+                        (ApiV2WebhooksPostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_webhooks_get_request': 'body',
+                    'api_v2_webhooks_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -387,6 +389,7 @@ class WebhooksApi(object):
             params_map={
                 'all': [
                     'event_type',
+                    'variables_type',
                 ],
                 'required': [],
                 'nullable': [
@@ -403,13 +406,17 @@ class WebhooksApi(object):
                 },
                 'openapi_types': {
                     'event_type':
-                        (bool, date, datetime, dict, float, int, list, str, none_type,),
+                        (WebHookEventType,),
+                    'variables_type':
+                        (WebhookVariablesType,),
                 },
                 'attribute_map': {
                     'event_type': 'eventType',
+                    'variables_type': 'variablesType',
                 },
                 'location_map': {
                     'event_type': 'query',
+                    'variables_type': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -732,7 +739,7 @@ class WebhooksApi(object):
             id (str): Webhook unique ID
 
         Keyword Args:
-            api_v2_webhooks_get_request (ApiV2WebhooksGetRequest): [optional]
+            api_v2_webhooks_post_request (ApiV2WebhooksPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -812,7 +819,7 @@ class WebhooksApi(object):
 
 
         Keyword Args:
-            api_v2_webhooks_get_request (ApiV2WebhooksGetRequest): [optional]
+            api_v2_webhooks_post_request (ApiV2WebhooksPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -973,7 +980,8 @@ class WebhooksApi(object):
 
 
         Keyword Args:
-            event_type (bool, date, datetime, dict, float, int, list, str, none_type): Webhook event type. [optional]
+            event_type (WebHookEventType): Webhook event type. [optional]
+            variables_type (WebhookVariablesType): [optional] if omitted the server will use the default value of VariablesForUrl
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

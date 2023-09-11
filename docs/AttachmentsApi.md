@@ -81,8 +81,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Attachment file was deleted successfully |  -  |
 **422** | Attachment file is already in use |  -  |
+**204** | Attachment file was deleted successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -99,6 +99,7 @@ Download attachment file
 import time
 import testit_api_client
 from testit_api_client.api import attachments_api
+from testit_api_client.model.image_resize_type import ImageResizeType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -124,7 +125,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     id = "id_example" # str | 
     width = 1 # int | Width of the result image (optional)
     height = 1 # int | Height of the result image (optional)
-    resize_type = None # bool, date, datetime, dict, float, int, list, str, none_type | Type of resizing to apply to the result image (optional)
+    resize_type = None # ImageResizeType | Type of resizing to apply to the result image (optional)
     background_color = "#62ECB0" # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
     preview = True # bool | If image must be converted to a preview (lower quality, no animation) (optional)
 
@@ -154,7 +155,7 @@ Name | Type | Description  | Notes
  **id** | **str**|  |
  **width** | **int**| Width of the result image | [optional]
  **height** | **int**| Height of the result image | [optional]
- **resize_type** | **bool, date, datetime, dict, float, int, list, str, none_type**| Type of resizing to apply to the result image | [optional]
+ **resize_type** | **ImageResizeType**| Type of resizing to apply to the result image | [optional]
  **background_color** | **str**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional]
  **preview** | **bool**| If image must be converted to a preview (lower quality, no animation) | [optional]
 
@@ -328,10 +329,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  -  |
-**400** | &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**400** | &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers |  -  |
+**201** | Created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

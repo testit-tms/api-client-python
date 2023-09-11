@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.work_item_comment_model_user import WorkItemCommentModelUser
-    globals()['WorkItemCommentModelUser'] = WorkItemCommentModelUser
+    from testit_api_client.model.user_with_rank_model import UserWithRankModel
+    globals()['UserWithRankModel'] = UserWithRankModel
 
 
 class WorkItemCommentModel(ModelNormal):
@@ -81,11 +81,11 @@ class WorkItemCommentModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'text': (str,),  # noqa: E501
-            'user': (WorkItemCommentModelUser,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
+            'text': (str, none_type,),  # noqa: E501
+            'user': (UserWithRankModel,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
         }
 
@@ -96,11 +96,11 @@ class WorkItemCommentModel(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
         'text': 'text',  # noqa: E501
         'user': 'user',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
     }
 
@@ -111,8 +111,13 @@ class WorkItemCommentModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, created_by_id, created_date, *args, **kwargs):  # noqa: E501
         """WorkItemCommentModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            created_by_id (str):
+            created_date (datetime):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,12 +150,9 @@ class WorkItemCommentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            text (str): [optional]  # noqa: E501
-            user (WorkItemCommentModelUser): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
+            text (str, none_type): [optional]  # noqa: E501
+            user (UserWithRankModel): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -183,6 +185,9 @@ class WorkItemCommentModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.created_by_id = created_by_id
+        self.created_date = created_date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -203,8 +208,13 @@ class WorkItemCommentModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, created_by_id, created_date, *args, **kwargs):  # noqa: E501
         """WorkItemCommentModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            created_by_id (str):
+            created_date (datetime):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -237,12 +247,9 @@ class WorkItemCommentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            text (str): [optional]  # noqa: E501
-            user (WorkItemCommentModelUser): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
+            text (str, none_type): [optional]  # noqa: E501
+            user (UserWithRankModel): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -273,6 +280,9 @@ class WorkItemCommentModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.created_by_id = created_by_id
+        self.created_date = created_date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

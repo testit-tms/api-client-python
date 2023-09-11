@@ -75,10 +75,10 @@ class FailureClassRegexModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'regex_text': (str,),  # noqa: E501
-            'failure_class_id': (str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'regex_text': (str, none_type,),  # noqa: E501
+            'failure_class_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -87,10 +87,10 @@ class FailureClassRegexModel(ModelNormal):
 
 
     attribute_map = {
-        'regex_text': 'regexText',  # noqa: E501
-        'failure_class_id': 'failureClassId',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'regex_text': 'regexText',  # noqa: E501
+        'failure_class_id': 'failureClassId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -100,8 +100,12 @@ class FailureClassRegexModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_deleted, *args, **kwargs):  # noqa: E501
         """FailureClassRegexModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -134,10 +138,8 @@ class FailureClassRegexModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            regex_text (str): [optional]  # noqa: E501
+            regex_text (str, none_type): [optional]  # noqa: E501
             failure_class_id (str, none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -169,6 +171,8 @@ class FailureClassRegexModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,8 +193,12 @@ class FailureClassRegexModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_deleted, *args, **kwargs):  # noqa: E501
         """FailureClassRegexModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,10 +231,8 @@ class FailureClassRegexModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            regex_text (str): [optional]  # noqa: E501
+            regex_text (str, none_type): [optional]  # noqa: E501
             failure_class_id (str, none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,6 +262,8 @@ class FailureClassRegexModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | [optional] 
-**old_attribute_name** | **str** |  | [optional] 
-**new_attribute_name** | **str** |  | [optional] 
+**type** | **str, none_type** |  | [optional] 
+**old_attribute_name** | **str, none_type** |  | [optional] 
+**new_attribute_name** | **str, none_type** |  | [optional] 
 **old_value** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **new_value** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 

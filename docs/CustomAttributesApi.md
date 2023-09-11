@@ -82,8 +82,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
 **403** | System administrator role is required |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -100,9 +100,9 @@ Edit global attribute
 import time
 import testit_api_client
 from testit_api_client.api import custom_attributes_api
+from testit_api_client.model.api_v2_custom_attributes_global_id_put_request import ApiV2CustomAttributesGlobalIdPutRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
-from testit_api_client.model.api_v2_custom_attributes_global_id_delete_request import ApiV2CustomAttributesGlobalIdDeleteRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -126,7 +126,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_attributes_api.CustomAttributesApi(api_client)
     id = "id_example" # str | Unique ID of attribute
-    api_v2_custom_attributes_global_id_delete_request = ApiV2CustomAttributesGlobalIdDeleteRequest(None) # ApiV2CustomAttributesGlobalIdDeleteRequest |  (optional)
+    api_v2_custom_attributes_global_id_put_request = ApiV2CustomAttributesGlobalIdPutRequest(None) # ApiV2CustomAttributesGlobalIdPutRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -140,7 +140,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit global attribute
-        api_response = api_instance.api_v2_custom_attributes_global_id_put(id, api_v2_custom_attributes_global_id_delete_request=api_v2_custom_attributes_global_id_delete_request)
+        api_response = api_instance.api_v2_custom_attributes_global_id_put(id, api_v2_custom_attributes_global_id_put_request=api_v2_custom_attributes_global_id_put_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_global_id_put: %s\n" % e)
@@ -152,7 +152,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique ID of attribute |
- **api_v2_custom_attributes_global_id_delete_request** | [**ApiV2CustomAttributesGlobalIdDeleteRequest**](ApiV2CustomAttributesGlobalIdDeleteRequest.md)|  | [optional]
+ **api_v2_custom_attributes_global_id_put_request** | [**ApiV2CustomAttributesGlobalIdPutRequest**](ApiV2CustomAttributesGlobalIdPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -172,8 +172,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | System administrator role is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

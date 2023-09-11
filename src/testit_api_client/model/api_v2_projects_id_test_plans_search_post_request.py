@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.notification_query_filter_model_created_date import NotificationQueryFilterModelCreatedDate
+    from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
     from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
     from testit_api_client.model.test_plan_status_model import TestPlanStatusModel
-    globals()['NotificationQueryFilterModelCreatedDate'] = NotificationQueryFilterModelCreatedDate
+    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
     globals()['ProjectTestPlansFilterModel'] = ProjectTestPlansFilterModel
     globals()['TestPlanStatusModel'] = TestPlanStatusModel
 
@@ -124,12 +124,12 @@ class ApiV2ProjectsIdTestPlansSearchPostRequest(ModelComposed):
             'status': ([TestPlanStatusModel], none_type,),  # noqa: E501
             'global_ids': ([int], none_type,),  # noqa: E501
             'is_locked': (bool, none_type,),  # noqa: E501
-            'locked_date': (NotificationQueryFilterModelCreatedDate,),  # noqa: E501
+            'locked_date': (DateTimeRangeSelectorModel,),  # noqa: E501
             'automatic_duration_timer': ([bool], none_type,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
-            'created_date': (NotificationQueryFilterModelCreatedDate,),  # noqa: E501
-            'start_date': (NotificationQueryFilterModelCreatedDate,),  # noqa: E501
-            'end_date': (NotificationQueryFilterModelCreatedDate,),  # noqa: E501
+            'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'start_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'end_date': (DateTimeRangeSelectorModel,),  # noqa: E501
             'tag_names': ([str], none_type,),  # noqa: E501
             'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
@@ -205,12 +205,12 @@ class ApiV2ProjectsIdTestPlansSearchPostRequest(ModelComposed):
             status ([TestPlanStatusModel], none_type): [optional]  # noqa: E501
             global_ids ([int], none_type): [optional]  # noqa: E501
             is_locked (bool, none_type): [optional]  # noqa: E501
-            locked_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            locked_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             automatic_duration_timer ([bool], none_type): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
-            created_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
-            start_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
-            end_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            start_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            end_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): [optional]  # noqa: E501
             is_deleted (bool, none_type): [optional]  # noqa: E501
@@ -324,12 +324,12 @@ class ApiV2ProjectsIdTestPlansSearchPostRequest(ModelComposed):
             status ([TestPlanStatusModel], none_type): [optional]  # noqa: E501
             global_ids ([int], none_type): [optional]  # noqa: E501
             is_locked (bool, none_type): [optional]  # noqa: E501
-            locked_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            locked_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             automatic_duration_timer ([bool], none_type): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
-            created_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
-            start_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
-            end_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            start_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            end_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): [optional]  # noqa: E501
             is_deleted (bool, none_type): [optional]  # noqa: E501

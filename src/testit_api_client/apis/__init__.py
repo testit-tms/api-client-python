@@ -23,6 +23,7 @@ from testit_api_client.api.custom_attributes_api import CustomAttributesApi
 from testit_api_client.api.notifications_api import NotificationsApi
 from testit_api_client.api.parameters_api import ParametersApi
 from testit_api_client.api.projects_api import ProjectsApi
+from testit_api_client.api.search_api import SearchApi
 from testit_api_client.api.sections_api import SectionsApi
 from testit_api_client.api.tags_api import TagsApi
 from testit_api_client.api.test_plans_api import TestPlansApi

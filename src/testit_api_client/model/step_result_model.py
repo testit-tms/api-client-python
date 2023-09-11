@@ -31,9 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.shared_step_result_model import SharedStepResultModel
-    from testit_api_client.model.step_result_model_comment import StepResultModelComment
+    from testit_api_client.model.step_comment_model import StepCommentModel
     globals()['SharedStepResultModel'] = SharedStepResultModel
-    globals()['StepResultModelComment'] = StepResultModelComment
+    globals()['StepCommentModel'] = StepCommentModel
 
 
 class StepResultModel(ModelNormal):
@@ -83,10 +83,10 @@ class StepResultModel(ModelNormal):
         lazy_import()
         return {
             'step_id': (str,),  # noqa: E501
-            'outcome': (str,),  # noqa: E501
+            'outcome': (str, none_type,),  # noqa: E501
             'shared_step_version_id': (str, none_type,),  # noqa: E501
             'shared_step_results': ([SharedStepResultModel], none_type,),  # noqa: E501
-            'comment': (StepResultModelComment,),  # noqa: E501
+            'comment': (StepCommentModel,),  # noqa: E501
         }
 
     @cached_property
@@ -109,8 +109,11 @@ class StepResultModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, step_id, *args, **kwargs):  # noqa: E501
         """StepResultModel - a model defined in OpenAPI
+
+        Args:
+            step_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,11 +146,10 @@ class StepResultModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            step_id (str): [optional]  # noqa: E501
-            outcome (str): [optional]  # noqa: E501
+            outcome (str, none_type): [optional]  # noqa: E501
             shared_step_version_id (str, none_type): [optional]  # noqa: E501
             shared_step_results ([SharedStepResultModel], none_type): [optional]  # noqa: E501
-            comment (StepResultModelComment): [optional]  # noqa: E501
+            comment (StepCommentModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -179,6 +181,7 @@ class StepResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.step_id = step_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -199,8 +202,11 @@ class StepResultModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, step_id, *args, **kwargs):  # noqa: E501
         """StepResultModel - a model defined in OpenAPI
+
+        Args:
+            step_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,11 +239,10 @@ class StepResultModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            step_id (str): [optional]  # noqa: E501
-            outcome (str): [optional]  # noqa: E501
+            outcome (str, none_type): [optional]  # noqa: E501
             shared_step_version_id (str, none_type): [optional]  # noqa: E501
             shared_step_results ([SharedStepResultModel], none_type): [optional]  # noqa: E501
-            comment (StepResultModelComment): [optional]  # noqa: E501
+            comment (StepCommentModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -267,6 +272,7 @@ class StepResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.step_id = step_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

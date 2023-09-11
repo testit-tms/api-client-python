@@ -101,7 +101,7 @@ class LabelPostModel(ModelNormal):
         """LabelPostModel - a model defined in OpenAPI
 
         Args:
-            name (str): Label name.
+            name (str): Name of the label
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -190,7 +190,7 @@ class LabelPostModel(ModelNormal):
         """LabelPostModel - a model defined in OpenAPI
 
         Args:
-            name (str): Label name.
+            name (str): Name of the label
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

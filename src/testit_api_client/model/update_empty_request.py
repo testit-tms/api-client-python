@@ -30,7 +30,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
+    from testit_api_client.model.link_put_model import LinkPutModel
     from testit_api_client.model.test_run_v2_put_model import TestRunV2PutModel
+    globals()['AttachmentPutModel'] = AttachmentPutModel
+    globals()['LinkPutModel'] = LinkPutModel
     globals()['TestRunV2PutModel'] = TestRunV2PutModel
 
 
@@ -94,6 +98,8 @@ class UpdateEmptyRequest(ModelComposed):
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
+            'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
+            'links': ([LinkPutModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +112,8 @@ class UpdateEmptyRequest(ModelComposed):
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'launch_source': 'launchSource',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
+        'links': 'links',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,6 +159,8 @@ class UpdateEmptyRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): Once launch source is specified it cannot be updated. [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            links ([LinkPutModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -258,6 +268,8 @@ class UpdateEmptyRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): Once launch source is specified it cannot be updated. [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            links ([LinkPutModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

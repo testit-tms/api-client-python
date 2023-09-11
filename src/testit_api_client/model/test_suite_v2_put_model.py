@@ -81,8 +81,8 @@ class TestSuiteV2PutModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'parent_id': (str, none_type,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'parent_id': (str, none_type,),  # noqa: E501
             'auto_refresh': (bool, none_type,),  # noqa: E501
         }
 
@@ -94,8 +94,8 @@ class TestSuiteV2PutModel(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'parent_id': 'parentId',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'parent_id': 'parentId',  # noqa: E501
         'auto_refresh': 'autoRefresh',  # noqa: E501
     }
 
@@ -106,12 +106,13 @@ class TestSuiteV2PutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, is_deleted, *args, **kwargs):  # noqa: E501
         """TestSuiteV2PutModel - a model defined in OpenAPI
 
         Args:
             id (str):
             name (str):
+            is_deleted (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,7 +146,6 @@ class TestSuiteV2PutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             parent_id (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
             auto_refresh (bool, none_type): [optional]  # noqa: E501
         """
 
@@ -180,6 +180,7 @@ class TestSuiteV2PutModel(ModelNormal):
 
         self.id = id
         self.name = name
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -200,12 +201,13 @@ class TestSuiteV2PutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, is_deleted, *args, **kwargs):  # noqa: E501
         """TestSuiteV2PutModel - a model defined in OpenAPI
 
         Args:
             id (str):
             name (str):
+            is_deleted (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -239,7 +241,6 @@ class TestSuiteV2PutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             parent_id (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
             auto_refresh (bool, none_type): [optional]  # noqa: E501
         """
 
@@ -272,6 +273,7 @@ class TestSuiteV2PutModel(ModelNormal):
 
         self.id = id
         self.name = name
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

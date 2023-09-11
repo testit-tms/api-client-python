@@ -31,7 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.test_run_short_get_model_statistics import TestRunShortGetModelStatistics
+    from testit_api_client.model.test_run_state import TestRunState
     globals()['TestRunShortGetModelStatistics'] = TestRunShortGetModelStatistics
+    globals()['TestRunState'] = TestRunState
 
 
 class TestRunShortGetModel(ModelNormal):
@@ -80,18 +82,17 @@ class TestRunShortGetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'state': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'statistics': (TestRunShortGetModelStatistics,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'project_id': (str,),  # noqa: E501
+            'state': (TestRunState,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'auto_tests_count': (int,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'started_date': (datetime, none_type,),  # noqa: E501
-            'autotests_count': (int,),  # noqa: E501
+            'completed_date': (datetime, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
+            'statistics': (TestRunShortGetModelStatistics,),  # noqa: E501
         }
 
     @cached_property
@@ -100,18 +101,17 @@ class TestRunShortGetModel(ModelNormal):
 
 
     attribute_map = {
-        'state': 'state',  # noqa: E501
-        'statistics': 'statistics',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'project_id': 'projectId',  # noqa: E501
+        'state': 'state',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
-        'modified_by_id': 'modifiedById',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'auto_tests_count': 'autoTestsCount',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'started_date': 'startedDate',  # noqa: E501
-        'autotests_count': 'autotestsCount',  # noqa: E501
+        'completed_date': 'completedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
+        'statistics': 'statistics',  # noqa: E501
     }
 
     read_only_vars = {
@@ -121,12 +121,16 @@ class TestRunShortGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, state, statistics, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, state, created_date, created_by_id, is_deleted, auto_tests_count, *args, **kwargs):  # noqa: E501
         """TestRunShortGetModel - a model defined in OpenAPI
 
         Args:
-            state (bool, date, datetime, dict, float, int, list, str, none_type): Current state of the test run
-            statistics (TestRunShortGetModelStatistics):
+            id (str): Unique ID of the test run
+            state (TestRunState):
+            created_date (datetime): Date when the test run was created
+            created_by_id (str): Unique ID of user who created the test run
+            is_deleted (bool): Is the test run is deleted
+            auto_tests_count (int): Number of AutoTests run in the test run
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -159,16 +163,11 @@ class TestRunShortGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the test run. [optional]  # noqa: E501
-            name (str): Name of the test run. [optional]  # noqa: E501
-            project_id (str): Unique ID of project where test run is located. [optional]  # noqa: E501
-            created_date (datetime): Date when the test run was created. [optional]  # noqa: E501
-            created_by_id (str): Unique ID of user who created the test run. [optional]  # noqa: E501
-            modified_date (datetime, none_type): Date when the test run was modified last time. [optional]  # noqa: E501
-            modified_by_id (str, none_type): Unique ID of user who modified the test run last time. [optional]  # noqa: E501
-            is_deleted (bool): Is the test run is deleted. [optional]  # noqa: E501
+            name (str, none_type): Name of the test run. [optional]  # noqa: E501
             started_date (datetime, none_type): Date when the test run was started. [optional]  # noqa: E501
-            autotests_count (int): Number of autotests run in the test run. [optional]  # noqa: E501
+            completed_date (datetime, none_type): Completion date of the test run. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of user who modified the test run last time. [optional]  # noqa: E501
+            statistics (TestRunShortGetModelStatistics): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -200,8 +199,12 @@ class TestRunShortGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.state = state
-        self.statistics = statistics
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.is_deleted = is_deleted
+        self.auto_tests_count = auto_tests_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -222,12 +225,16 @@ class TestRunShortGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, state, statistics, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, state, created_date, created_by_id, is_deleted, auto_tests_count, *args, **kwargs):  # noqa: E501
         """TestRunShortGetModel - a model defined in OpenAPI
 
         Args:
-            state (bool, date, datetime, dict, float, int, list, str, none_type): Current state of the test run
-            statistics (TestRunShortGetModelStatistics):
+            id (str): Unique ID of the test run
+            state (TestRunState):
+            created_date (datetime): Date when the test run was created
+            created_by_id (str): Unique ID of user who created the test run
+            is_deleted (bool): Is the test run is deleted
+            auto_tests_count (int): Number of AutoTests run in the test run
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,16 +267,11 @@ class TestRunShortGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the test run. [optional]  # noqa: E501
-            name (str): Name of the test run. [optional]  # noqa: E501
-            project_id (str): Unique ID of project where test run is located. [optional]  # noqa: E501
-            created_date (datetime): Date when the test run was created. [optional]  # noqa: E501
-            created_by_id (str): Unique ID of user who created the test run. [optional]  # noqa: E501
-            modified_date (datetime, none_type): Date when the test run was modified last time. [optional]  # noqa: E501
-            modified_by_id (str, none_type): Unique ID of user who modified the test run last time. [optional]  # noqa: E501
-            is_deleted (bool): Is the test run is deleted. [optional]  # noqa: E501
+            name (str, none_type): Name of the test run. [optional]  # noqa: E501
             started_date (datetime, none_type): Date when the test run was started. [optional]  # noqa: E501
-            autotests_count (int): Number of autotests run in the test run. [optional]  # noqa: E501
+            completed_date (datetime, none_type): Completion date of the test run. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of user who modified the test run last time. [optional]  # noqa: E501
+            statistics (TestRunShortGetModelStatistics): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -299,8 +301,12 @@ class TestRunShortGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.state = state
-        self.statistics = statistics
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.is_deleted = is_deleted
+        self.auto_tests_count = auto_tests_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

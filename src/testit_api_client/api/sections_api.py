@@ -22,6 +22,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from testit_api_client.model.create_section_request import CreateSectionRequest
+from testit_api_client.model.deletion_state import DeletionState
 from testit_api_client.model.move_request import MoveRequest
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
@@ -236,7 +237,7 @@ class SectionsApi(object):
                     'id':
                         (str,),
                     'is_deleted':
-                        (bool, date, datetime, dict, float, int, list, str, none_type,),
+                        (DeletionState,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -764,7 +765,7 @@ class SectionsApi(object):
             id (str): Section internal (UUID) identifier
 
         Keyword Args:
-            is_deleted (bool, date, datetime, dict, float, int, list, str, none_type): [optional] if omitted the server will use the default value of NotDeleted
+            is_deleted (DeletionState): [optional] if omitted the server will use the default value of NotDeleted
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

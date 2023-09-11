@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.autotest_select_model import AutotestSelectModel
     from testit_api_client.model.flaky_bulk_model import FlakyBulkModel
-    from testit_api_client.model.flaky_bulk_model_autotest_select import FlakyBulkModelAutotestSelect
+    globals()['AutotestSelectModel'] = AutotestSelectModel
     globals()['FlakyBulkModel'] = FlakyBulkModel
-    globals()['FlakyBulkModelAutotestSelect'] = FlakyBulkModelAutotestSelect
 
 
 class ApiV2AutoTestsFlakyBulkPostRequest(ModelComposed):
@@ -90,7 +90,7 @@ class ApiV2AutoTestsFlakyBulkPostRequest(ModelComposed):
         lazy_import()
         return {
             'value': (bool,),  # noqa: E501
-            'autotest_select': (FlakyBulkModelAutotestSelect,),  # noqa: E501
+            'autotest_select': (AutotestSelectModel,),  # noqa: E501
         }
 
     @cached_property
@@ -143,7 +143,7 @@ class ApiV2AutoTestsFlakyBulkPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            autotest_select (FlakyBulkModelAutotestSelect): [optional]  # noqa: E501
+            autotest_select (AutotestSelectModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,7 +248,7 @@ class ApiV2AutoTestsFlakyBulkPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            autotest_select (FlakyBulkModelAutotestSelect): [optional]  # noqa: E501
+            autotest_select (AutotestSelectModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

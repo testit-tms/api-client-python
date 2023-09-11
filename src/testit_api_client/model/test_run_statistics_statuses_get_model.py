@@ -102,8 +102,15 @@ class TestRunStatisticsStatusesGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, in_progress, passed, failed, skipped, blocked, *args, **kwargs):  # noqa: E501
         """TestRunStatisticsStatusesGetModel - a model defined in OpenAPI
+
+        Args:
+            in_progress (int): Number of test results which is running currently
+            passed (int): Number of test results which successfully passed
+            failed (int): Number of test results which failed with an error
+            skipped (int): Number of test results which did not run and were skipped
+            blocked (int): Number of test results which cannot be launched
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -136,11 +143,6 @@ class TestRunStatisticsStatusesGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            in_progress (int): Number of test results which is running currently. [optional]  # noqa: E501
-            passed (int): Number of test results which successfully passed. [optional]  # noqa: E501
-            failed (int): Number of test results which failed with an error. [optional]  # noqa: E501
-            skipped (int): Number of test results which did not run and were skipped. [optional]  # noqa: E501
-            blocked (int): Number of test results which cannot be launched. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,6 +174,11 @@ class TestRunStatisticsStatusesGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.in_progress = in_progress
+        self.passed = passed
+        self.failed = failed
+        self.skipped = skipped
+        self.blocked = blocked
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -192,8 +199,15 @@ class TestRunStatisticsStatusesGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, in_progress, passed, failed, skipped, blocked, *args, **kwargs):  # noqa: E501
         """TestRunStatisticsStatusesGetModel - a model defined in OpenAPI
+
+        Args:
+            in_progress (int): Number of test results which is running currently
+            passed (int): Number of test results which successfully passed
+            failed (int): Number of test results which failed with an error
+            skipped (int): Number of test results which did not run and were skipped
+            blocked (int): Number of test results which cannot be launched
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,11 +240,6 @@ class TestRunStatisticsStatusesGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            in_progress (int): Number of test results which is running currently. [optional]  # noqa: E501
-            passed (int): Number of test results which successfully passed. [optional]  # noqa: E501
-            failed (int): Number of test results which failed with an error. [optional]  # noqa: E501
-            skipped (int): Number of test results which did not run and were skipped. [optional]  # noqa: E501
-            blocked (int): Number of test results which cannot be launched. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,6 +269,11 @@ class TestRunStatisticsStatusesGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.in_progress = in_progress
+        self.passed = passed
+        self.failed = failed
+        self.skipped = skipped
+        self.blocked = blocked
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

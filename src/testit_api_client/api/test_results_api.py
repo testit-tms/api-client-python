@@ -21,9 +21,10 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_test_results_id_get_request import ApiV2TestResultsIdGetRequest
+from testit_api_client.model.api_v2_test_results_id_put_request import ApiV2TestResultsIdPutRequest
 from testit_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
 from testit_api_client.model.attachment_model import AttachmentModel
+from testit_api_client.model.image_resize_type import ImageResizeType
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_result_model import TestResultModel
 from testit_api_client.model.test_result_short_get_model import TestResultShortGetModel
@@ -266,7 +267,7 @@ class TestResultsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'api_v2_test_results_id_get_request',
+                    'api_v2_test_results_id_put_request',
                 ],
                 'required': [
                     'id',
@@ -286,15 +287,15 @@ class TestResultsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'api_v2_test_results_id_get_request':
-                        (ApiV2TestResultsIdGetRequest,),
+                    'api_v2_test_results_id_put_request':
+                        (ApiV2TestResultsIdPutRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'api_v2_test_results_id_get_request': 'body',
+                    'api_v2_test_results_id_put_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -616,7 +617,7 @@ class TestResultsApi(object):
                     'height':
                         (int,),
                     'resize_type':
-                        (bool, date, datetime, dict, float, int, list, str, none_type,),
+                        (ImageResizeType,),
                     'background_color':
                         (str,),
                     'preview':
@@ -1109,7 +1110,7 @@ class TestResultsApi(object):
             id (str): Test result unique ID
 
         Keyword Args:
-            api_v2_test_results_id_get_request (ApiV2TestResultsIdGetRequest): [optional]
+            api_v2_test_results_id_put_request (ApiV2TestResultsIdPutRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1529,7 +1530,7 @@ class TestResultsApi(object):
         Keyword Args:
             width (int): Width of the result image. [optional]
             height (int): Height of the result image. [optional]
-            resize_type (bool, date, datetime, dict, float, int, list, str, none_type): Type of resizing to apply to the result image. [optional]
+            resize_type (ImageResizeType): Type of resizing to apply to the result image. [optional]
             background_color (str): Color of the background if the `resizeType` is `AddBackgroundStripes`. [optional]
             preview (bool): If image must be converted to a preview (lower quality, no animation). [optional]
             _return_http_data_only (bool): response data without head status

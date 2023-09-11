@@ -62,10 +62,6 @@ class TestPointsExtractionModelIds(ModelComposed):
     }
 
     validations = {
-        ('include',): {
-        },
-        ('exclude',): {
-        },
     }
 
     @cached_property

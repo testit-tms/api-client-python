@@ -30,7 +30,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
+    from testit_api_client.model.link_post_model import LinkPostModel
     from testit_api_client.model.test_point_selector import TestPointSelector
+    globals()['AttachmentPutModel'] = AttachmentPutModel
+    globals()['LinkPostModel'] = LinkPostModel
     globals()['TestPointSelector'] = TestPointSelector
 
 
@@ -86,6 +90,8 @@ class TestRunFillByConfigurationsPostModel(ModelNormal):
             'name': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
+            'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
+            'links': ([LinkPostModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +106,8 @@ class TestRunFillByConfigurationsPostModel(ModelNormal):
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'launch_source': 'launchSource',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
+        'links': 'links',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,6 +159,8 @@ class TestRunFillByConfigurationsPostModel(ModelNormal):
             name (str, none_type): Specifies the name of the test run.. [optional]  # noqa: E501
             description (str, none_type): Specifies the test run description.. [optional]  # noqa: E501
             launch_source (str, none_type): Specifies the test run launch source.. [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): Collection of attachment ids to relate to the test run. [optional]  # noqa: E501
+            links ([LinkPostModel], none_type): Collection of links to relate to the test run. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,6 +257,8 @@ class TestRunFillByConfigurationsPostModel(ModelNormal):
             name (str, none_type): Specifies the name of the test run.. [optional]  # noqa: E501
             description (str, none_type): Specifies the test run description.. [optional]  # noqa: E501
             launch_source (str, none_type): Specifies the test run launch source.. [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): Collection of attachment ids to relate to the test run. [optional]  # noqa: E501
+            links ([LinkPostModel], none_type): Collection of links to relate to the test run. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

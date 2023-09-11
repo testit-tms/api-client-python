@@ -21,7 +21,8 @@ Name | Type | Description | Notes
 **is_empty_namespace** | **bool, none_type** | Specifies an autotest namespace name presence status to search for | [optional] 
 **class_name** | **str, none_type** | Specifies an autotest class name to search for | [optional] 
 **is_empty_class_name** | **bool, none_type** | Specifies an autotest class name presence status to search for | [optional] 
-**last_test_result_outcome** | **bool, date, datetime, dict, float, int, list, str, none_type** | Specifies an autotest outcome of the last test result to search for | [optional] 
+**last_test_result_outcome** | [**AutotestResultOutcome**](AutotestResultOutcome.md) |  | [optional] 
+**external_key** | **str, none_type** | Specifies an autotest external key to search for | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

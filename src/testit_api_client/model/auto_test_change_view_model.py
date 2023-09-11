@@ -77,8 +77,8 @@ class AutoTestChangeViewModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'external_id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
+            'external_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -89,8 +89,8 @@ class AutoTestChangeViewModel(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
-        'external_id': 'externalId',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
+        'external_id': 'externalId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -100,8 +100,13 @@ class AutoTestChangeViewModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, project_id, global_id, *args, **kwargs):  # noqa: E501
         """AutoTestChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            project_id (str):
+            global_id (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -134,10 +139,7 @@ class AutoTestChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
-            external_id (str): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
+            external_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -169,6 +171,9 @@ class AutoTestChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.project_id = project_id
+        self.global_id = global_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,8 +194,13 @@ class AutoTestChangeViewModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, project_id, global_id, *args, **kwargs):  # noqa: E501
         """AutoTestChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            project_id (str):
+            global_id (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,10 +233,7 @@ class AutoTestChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
-            external_id (str): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
+            external_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,6 +263,9 @@ class AutoTestChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.project_id = project_id
+        self.global_id = global_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version_id** | **str** | used for versioning changes in workitem | [optional] 
-**version_number** | **int** | used for define chronology of workitem state in each version | [optional] 
+**version_id** | **str** | used for versioning changes in workitem | 
+**version_number** | **int** | used for define chronology of workitem state in each version | 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 

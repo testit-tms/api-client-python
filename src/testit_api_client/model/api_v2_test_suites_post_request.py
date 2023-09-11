@@ -30,8 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_suite_v2_put_model import TestSuiteV2PutModel
-    globals()['TestSuiteV2PutModel'] = TestSuiteV2PutModel
+    from testit_api_client.model.test_suite_type import TestSuiteType
+    from testit_api_client.model.test_suite_v2_post_model import TestSuiteV2PostModel
+    globals()['TestSuiteType'] = TestSuiteType
+    globals()['TestSuiteV2PostModel'] = TestSuiteV2PostModel
 
 
 class ApiV2TestSuitesPostRequest(ModelComposed):
@@ -91,10 +93,11 @@ class ApiV2TestSuitesPostRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
+            'test_plan_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
-            'is_deleted': (bool,),  # noqa: E501
+            'type': (TestSuiteType,),  # noqa: E501
+            'save_structure': (bool, none_type,),  # noqa: E501
             'auto_refresh': (bool, none_type,),  # noqa: E501
         }
 
@@ -104,10 +107,11 @@ class ApiV2TestSuitesPostRequest(ModelComposed):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
+        'test_plan_id': 'testPlanId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'save_structure': 'saveStructure',  # noqa: E501
         'auto_refresh': 'autoRefresh',  # noqa: E501
     }
 
@@ -120,8 +124,8 @@ class ApiV2TestSuitesPostRequest(ModelComposed):
         """ApiV2TestSuitesPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
-            name (str):
+            test_plan_id (str): Unique ID of test plan to which the test suite belongs
+            name (str): Name of the test suite
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -152,9 +156,10 @@ class ApiV2TestSuitesPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            parent_id (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            auto_refresh (bool, none_type): [optional]  # noqa: E501
+            parent_id (str, none_type): Unique ID of the parent test suite in hierarchy. [optional]  # noqa: E501
+            type (TestSuiteType): [optional]  # noqa: E501
+            save_structure (bool, none_type): Indicates if the test suite retains section tree structure. [optional]  # noqa: E501
+            auto_refresh (bool, none_type): Indicates if scheduled auto refresh is enabled for the test suite. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +233,8 @@ class ApiV2TestSuitesPostRequest(ModelComposed):
         """ApiV2TestSuitesPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
-            name (str):
+            test_plan_id (str): Unique ID of test plan to which the test suite belongs
+            name (str): Name of the test suite
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -260,9 +265,10 @@ class ApiV2TestSuitesPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            parent_id (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            auto_refresh (bool, none_type): [optional]  # noqa: E501
+            parent_id (str, none_type): Unique ID of the parent test suite in hierarchy. [optional]  # noqa: E501
+            type (TestSuiteType): [optional]  # noqa: E501
+            save_structure (bool, none_type): Indicates if the test suite retains section tree structure. [optional]  # noqa: E501
+            auto_refresh (bool, none_type): Indicates if scheduled auto refresh is enabled for the test suite. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -332,7 +338,7 @@ class ApiV2TestSuitesPostRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              TestSuiteV2PutModel,
+              TestSuiteV2PostModel,
           ],
           'oneOf': [
           ],
