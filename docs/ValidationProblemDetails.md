@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | **{str: ([str],)}** |  | [optional] 
+**errors** | **{str: ([str],)}** |  | 
 **type** | **str, none_type** |  | [optional] 
 **title** | **str, none_type** |  | [optional] 
 **status** | **int, none_type** |  | [optional] 

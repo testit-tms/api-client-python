@@ -62,10 +62,6 @@ class WorkItemsExtractionModelIds(ModelComposed):
     }
 
     validations = {
-        ('include',): {
-        },
-        ('exclude',): {
-        },
     }
 
     @cached_property

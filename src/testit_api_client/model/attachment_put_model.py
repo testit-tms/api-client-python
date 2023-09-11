@@ -98,7 +98,7 @@ class AttachmentPutModel(ModelNormal):
         """AttachmentPutModel - a model defined in OpenAPI
 
         Args:
-            id (str): Specifies the GUID of the attachment.
+            id (str): Unique ID of the attachment
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -187,7 +187,7 @@ class AttachmentPutModel(ModelNormal):
         """AttachmentPutModel - a model defined in OpenAPI
 
         Args:
-            id (str): Specifies the GUID of the attachment.
+            id (str): Unique ID of the attachment
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

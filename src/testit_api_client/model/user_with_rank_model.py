@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.user_with_rank_model_user_rank import UserWithRankModelUserRank
-    globals()['UserWithRankModelUserRank'] = UserWithRankModelUserRank
+    from testit_api_client.model.user_rank_model import UserRankModel
+    globals()['UserRankModel'] = UserRankModel
 
 
 class UserWithRankModel(ModelNormal):
@@ -81,19 +81,19 @@ class UserWithRankModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'first_name': (str,),  # noqa: E501
-            'last_name': (str,),  # noqa: E501
-            'middle_name': (str,),  # noqa: E501
-            'user_name': (str,),  # noqa: E501
-            'display_name': (str,),  # noqa: E501
-            'user_type': (str,),  # noqa: E501
-            'avatar_url': (str,),  # noqa: E501
-            'avatar_metadata': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'is_disabled': (bool,),  # noqa: E501
-            'provider_id': (str, none_type,),  # noqa: E501
             'is_active_status_by_entity': (bool,),  # noqa: E501
-            'user_rank': (UserWithRankModelUserRank,),  # noqa: E501
+            'first_name': (str, none_type,),  # noqa: E501
+            'last_name': (str, none_type,),  # noqa: E501
+            'middle_name': (str, none_type,),  # noqa: E501
+            'user_name': (str, none_type,),  # noqa: E501
+            'display_name': (str, none_type,),  # noqa: E501
+            'user_type': (str, none_type,),  # noqa: E501
+            'avatar_url': (str, none_type,),  # noqa: E501
+            'avatar_metadata': (str, none_type,),  # noqa: E501
+            'provider_id': (str, none_type,),  # noqa: E501
+            'user_rank': (UserRankModel,),  # noqa: E501
         }
 
     @cached_property
@@ -103,6 +103,9 @@ class UserWithRankModel(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
+        'is_disabled': 'isDisabled',  # noqa: E501
+        'is_active_status_by_entity': 'isActiveStatusByEntity',  # noqa: E501
         'first_name': 'firstName',  # noqa: E501
         'last_name': 'lastName',  # noqa: E501
         'middle_name': 'middleName',  # noqa: E501
@@ -111,10 +114,7 @@ class UserWithRankModel(ModelNormal):
         'user_type': 'userType',  # noqa: E501
         'avatar_url': 'avatarUrl',  # noqa: E501
         'avatar_metadata': 'avatarMetadata',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
-        'is_disabled': 'isDisabled',  # noqa: E501
         'provider_id': 'providerId',  # noqa: E501
-        'is_active_status_by_entity': 'isActiveStatusByEntity',  # noqa: E501
         'user_rank': 'userRank',  # noqa: E501
     }
 
@@ -125,8 +125,14 @@ class UserWithRankModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_deleted, is_disabled, is_active_status_by_entity, *args, **kwargs):  # noqa: E501
         """UserWithRankModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            is_deleted (bool):
+            is_disabled (bool):
+            is_active_status_by_entity (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -159,20 +165,16 @@ class UserWithRankModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            first_name (str): [optional]  # noqa: E501
-            last_name (str): [optional]  # noqa: E501
-            middle_name (str): [optional]  # noqa: E501
-            user_name (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            user_type (str): [optional]  # noqa: E501
-            avatar_url (str): [optional]  # noqa: E501
-            avatar_metadata (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            is_disabled (bool): [optional]  # noqa: E501
+            first_name (str, none_type): [optional]  # noqa: E501
+            last_name (str, none_type): [optional]  # noqa: E501
+            middle_name (str, none_type): [optional]  # noqa: E501
+            user_name (str, none_type): [optional]  # noqa: E501
+            display_name (str, none_type): [optional]  # noqa: E501
+            user_type (str, none_type): [optional]  # noqa: E501
+            avatar_url (str, none_type): [optional]  # noqa: E501
+            avatar_metadata (str, none_type): [optional]  # noqa: E501
             provider_id (str, none_type): [optional]  # noqa: E501
-            is_active_status_by_entity (bool): [optional]  # noqa: E501
-            user_rank (UserWithRankModelUserRank): [optional]  # noqa: E501
+            user_rank (UserRankModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -204,6 +206,10 @@ class UserWithRankModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
+        self.is_disabled = is_disabled
+        self.is_active_status_by_entity = is_active_status_by_entity
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -224,8 +230,14 @@ class UserWithRankModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_deleted, is_disabled, is_active_status_by_entity, *args, **kwargs):  # noqa: E501
         """UserWithRankModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            is_deleted (bool):
+            is_disabled (bool):
+            is_active_status_by_entity (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -258,20 +270,16 @@ class UserWithRankModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            first_name (str): [optional]  # noqa: E501
-            last_name (str): [optional]  # noqa: E501
-            middle_name (str): [optional]  # noqa: E501
-            user_name (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            user_type (str): [optional]  # noqa: E501
-            avatar_url (str): [optional]  # noqa: E501
-            avatar_metadata (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            is_disabled (bool): [optional]  # noqa: E501
+            first_name (str, none_type): [optional]  # noqa: E501
+            last_name (str, none_type): [optional]  # noqa: E501
+            middle_name (str, none_type): [optional]  # noqa: E501
+            user_name (str, none_type): [optional]  # noqa: E501
+            display_name (str, none_type): [optional]  # noqa: E501
+            user_type (str, none_type): [optional]  # noqa: E501
+            avatar_url (str, none_type): [optional]  # noqa: E501
+            avatar_metadata (str, none_type): [optional]  # noqa: E501
             provider_id (str, none_type): [optional]  # noqa: E501
-            is_active_status_by_entity (bool): [optional]  # noqa: E501
-            user_rank (UserWithRankModelUserRank): [optional]  # noqa: E501
+            user_rank (UserRankModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -301,6 +309,10 @@ class UserWithRankModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
+        self.is_disabled = is_disabled
+        self.is_active_status_by_entity = is_active_status_by_entity
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

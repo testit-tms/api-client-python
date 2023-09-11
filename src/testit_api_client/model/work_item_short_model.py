@@ -31,7 +31,13 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.iteration_model import IterationModel
+    from testit_api_client.model.link_short_model import LinkShortModel
+    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testit_api_client.model.work_item_states import WorkItemStates
     globals()['IterationModel'] = IterationModel
+    globals()['LinkShortModel'] = LinkShortModel
+    globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
+    globals()['WorkItemStates'] = WorkItemStates
 
 
 class WorkItemShortModel(ModelNormal):
@@ -89,26 +95,28 @@ class WorkItemShortModel(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
+            'version_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'entity_type_name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
             'section_name': (str,),  # noqa: E501
-            'state': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'priority': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'id': (str,),  # noqa: E501
-            'version_id': (str,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'duration': (int,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'state': (WorkItemStates,),  # noqa: E501
+            'priority': (WorkItemPriorityModel,),  # noqa: E501
+            'is_deleted': (bool,),  # noqa: E501
+            'median_duration': (int, none_type,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
-            'is_deleted': (bool,),  # noqa: E501
-            'tag_names': ([str],),  # noqa: E501
-            'iterations': ([IterationModel],),  # noqa: E501
+            'tag_names': ([str], none_type,),  # noqa: E501
+            'iterations': ([IterationModel], none_type,),  # noqa: E501
+            'links': ([LinkShortModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -117,26 +125,28 @@ class WorkItemShortModel(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
+        'version_id': 'versionId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'entity_type_name': 'entityTypeName',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
         'section_name': 'sectionName',  # noqa: E501
-        'state': 'state',  # noqa: E501
-        'priority': 'priority',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'version_id': 'versionId',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
         'duration': 'duration',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'state': 'state',  # noqa: E501
+        'priority': 'priority',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
+        'median_duration': 'medianDuration',  # noqa: E501
+        'attributes': 'attributes',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
         'tag_names': 'tagNames',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
+        'links': 'links',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,17 +156,24 @@ class WorkItemShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, entity_type_name, project_id, section_id, section_name, state, priority, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, version_id, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
-            name (str):
-            entity_type_name (str): Property can have one of these values: CheckLists, SharedSteps, TestCases
-            project_id (str): This property is used to link autotest with project
-            section_id (str): This property links workitem with section
-            section_name (str): Name of the section where work item is located
-            state (bool, date, datetime, dict, float, int, list, str, none_type): Property can have one of these values: NeedsWork, NotReady, Ready
-            priority (bool, date, datetime, dict, float, int, list, str, none_type):
+            id (str): Work Item internal unique identifier
+            version_id (str): Work Item version identifier
+            name (str): Work Item name
+            entity_type_name (str): Work Item type. Possible values: CheckLists, SharedSteps, TestCases
+            project_id (str): Project unique identifier
+            section_id (str): Identifier of Section where Work Item is located
+            section_name (str): Section name of Work Item
+            is_automated (bool): Boolean flag determining whether Work Item is automated
+            global_id (int): Work Item global identifier
+            duration (int): Work Item duration
+            created_by_id (str): Unique identifier of user who created Work Item
+            state (WorkItemStates):
+            priority (WorkItemPriorityModel):
+            is_deleted (bool): Flag determining whether Work Item is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -189,19 +206,14 @@ class WorkItemShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            tag_names ([str]): [optional]  # noqa: E501
-            iterations ([IterationModel]): [optional]  # noqa: E501
+            median_duration (int, none_type): Work Item median duration. [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Work Item attributes. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique identifier of user who applied the latest modification of Work Item. [optional]  # noqa: E501
+            created_date (datetime, none_type): Date and time of Work Item creation. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Date and time of the latest modification of Work Item. [optional]  # noqa: E501
+            tag_names ([str], none_type): Array of tag names of Work Item. [optional]  # noqa: E501
+            iterations ([IterationModel], none_type): Set of iterations related to Work Item. [optional]  # noqa: E501
+            links ([LinkShortModel], none_type): Set of links related to Work Item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,13 +245,20 @@ class WorkItemShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.version_id = version_id
         self.name = name
         self.entity_type_name = entity_type_name
         self.project_id = project_id
         self.section_id = section_id
         self.section_name = section_name
+        self.is_automated = is_automated
+        self.global_id = global_id
+        self.duration = duration
+        self.created_by_id = created_by_id
         self.state = state
         self.priority = priority
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -260,17 +279,24 @@ class WorkItemShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, entity_type_name, project_id, section_id, section_name, state, priority, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, version_id, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
-            name (str):
-            entity_type_name (str): Property can have one of these values: CheckLists, SharedSteps, TestCases
-            project_id (str): This property is used to link autotest with project
-            section_id (str): This property links workitem with section
-            section_name (str): Name of the section where work item is located
-            state (bool, date, datetime, dict, float, int, list, str, none_type): Property can have one of these values: NeedsWork, NotReady, Ready
-            priority (bool, date, datetime, dict, float, int, list, str, none_type):
+            id (str): Work Item internal unique identifier
+            version_id (str): Work Item version identifier
+            name (str): Work Item name
+            entity_type_name (str): Work Item type. Possible values: CheckLists, SharedSteps, TestCases
+            project_id (str): Project unique identifier
+            section_id (str): Identifier of Section where Work Item is located
+            section_name (str): Section name of Work Item
+            is_automated (bool): Boolean flag determining whether Work Item is automated
+            global_id (int): Work Item global identifier
+            duration (int): Work Item duration
+            created_by_id (str): Unique identifier of user who created Work Item
+            state (WorkItemStates):
+            priority (WorkItemPriorityModel):
+            is_deleted (bool): Flag determining whether Work Item is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -303,19 +329,14 @@ class WorkItemShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
-            created_date (datetime, none_type): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            tag_names ([str]): [optional]  # noqa: E501
-            iterations ([IterationModel]): [optional]  # noqa: E501
+            median_duration (int, none_type): Work Item median duration. [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Work Item attributes. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique identifier of user who applied the latest modification of Work Item. [optional]  # noqa: E501
+            created_date (datetime, none_type): Date and time of Work Item creation. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Date and time of the latest modification of Work Item. [optional]  # noqa: E501
+            tag_names ([str], none_type): Array of tag names of Work Item. [optional]  # noqa: E501
+            iterations ([IterationModel], none_type): Set of iterations related to Work Item. [optional]  # noqa: E501
+            links ([LinkShortModel], none_type): Set of links related to Work Item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -345,13 +366,20 @@ class WorkItemShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.version_id = version_id
         self.name = name
         self.entity_type_name = entity_type_name
         self.project_id = project_id
         self.section_id = section_id
         self.section_name = section_name
+        self.is_automated = is_automated
+        self.global_id = global_id
+        self.duration = duration
+        self.created_by_id = created_by_id
         self.state = state
         self.priority = priority
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

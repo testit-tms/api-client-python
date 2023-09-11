@@ -30,11 +30,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
     from testit_api_client.model.notification_query_filter_model import NotificationQueryFilterModel
-    from testit_api_client.model.notification_query_filter_model_created_date import NotificationQueryFilterModelCreatedDate
     from testit_api_client.model.notification_type_model import NotificationTypeModel
+    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
     globals()['NotificationQueryFilterModel'] = NotificationQueryFilterModel
-    globals()['NotificationQueryFilterModelCreatedDate'] = NotificationQueryFilterModelCreatedDate
     globals()['NotificationTypeModel'] = NotificationTypeModel
 
 
@@ -95,7 +95,7 @@ class ApiV2NotificationsSearchPostRequest(ModelComposed):
         return {
             'types': ([NotificationTypeModel], none_type,),  # noqa: E501
             'is_read': (bool, none_type,),  # noqa: E501
-            'created_date': (NotificationQueryFilterModelCreatedDate,),  # noqa: E501
+            'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
         }
 
     @cached_property
@@ -150,7 +150,7 @@ class ApiV2NotificationsSearchPostRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             types ([NotificationTypeModel], none_type): [optional]  # noqa: E501
             is_read (bool, none_type): [optional]  # noqa: E501
-            created_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,7 +256,7 @@ class ApiV2NotificationsSearchPostRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             types ([NotificationTypeModel], none_type): [optional]  # noqa: E501
             is_read (bool, none_type): [optional]  # noqa: E501
-            created_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

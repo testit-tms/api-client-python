@@ -32,8 +32,10 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.custom_attribute_option_post_model import CustomAttributeOptionPostModel
     from testit_api_client.model.custom_attribute_post_model import CustomAttributePostModel
+    from testit_api_client.model.custom_attribute_types_enum import CustomAttributeTypesEnum
     globals()['CustomAttributeOptionPostModel'] = CustomAttributeOptionPostModel
     globals()['CustomAttributePostModel'] = CustomAttributePostModel
+    globals()['CustomAttributeTypesEnum'] = CustomAttributeTypesEnum
 
 
 class CreateProjectsAttributeRequest(ModelComposed):
@@ -93,12 +95,12 @@ class CreateProjectsAttributeRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'type': (CustomAttributeTypesEnum,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'options': ([CustomAttributeOptionPostModel], none_type,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'is_required': (bool,),  # noqa: E501
             'is_global': (bool,),  # noqa: E501
+            'options': ([CustomAttributeOptionPostModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -109,10 +111,10 @@ class CreateProjectsAttributeRequest(ModelComposed):
     attribute_map = {
         'type': 'type',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'options': 'options',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
         'is_required': 'isRequired',  # noqa: E501
         'is_global': 'isGlobal',  # noqa: E501
+        'options': 'options',  # noqa: E501
     }
 
     read_only_vars = {
@@ -124,8 +126,11 @@ class CreateProjectsAttributeRequest(ModelComposed):
         """CreateProjectsAttributeRequest - a model defined in OpenAPI
 
         Keyword Args:
-            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of attribute
+            type (CustomAttributeTypesEnum):
             name (str): Name of the attribute
+            is_enabled (bool): Indicates if the attribute is enabled
+            is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_global (bool): Indicates if the attribute is available across all projects
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -157,9 +162,6 @@ class CreateProjectsAttributeRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
-            is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
-            is_required (bool): Indicates if the attribute value is mandatory to specify. [optional]  # noqa: E501
-            is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,8 +235,11 @@ class CreateProjectsAttributeRequest(ModelComposed):
         """CreateProjectsAttributeRequest - a model defined in OpenAPI
 
         Keyword Args:
-            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of attribute
+            type (CustomAttributeTypesEnum):
             name (str): Name of the attribute
+            is_enabled (bool): Indicates if the attribute is enabled
+            is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_global (bool): Indicates if the attribute is available across all projects
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -266,9 +271,6 @@ class CreateProjectsAttributeRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
-            is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
-            is_required (bool): Indicates if the attribute value is mandatory to specify. [optional]  # noqa: E501
-            is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

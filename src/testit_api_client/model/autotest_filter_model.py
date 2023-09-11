@@ -33,9 +33,11 @@ def lazy_import():
     from testit_api_client.model.autotest_filter_model_created_date import AutotestFilterModelCreatedDate
     from testit_api_client.model.autotest_filter_model_modified_date import AutotestFilterModelModifiedDate
     from testit_api_client.model.autotest_filter_model_stability_percentage import AutotestFilterModelStabilityPercentage
+    from testit_api_client.model.autotest_result_outcome import AutotestResultOutcome
     globals()['AutotestFilterModelCreatedDate'] = AutotestFilterModelCreatedDate
     globals()['AutotestFilterModelModifiedDate'] = AutotestFilterModelModifiedDate
     globals()['AutotestFilterModelStabilityPercentage'] = AutotestFilterModelStabilityPercentage
+    globals()['AutotestResultOutcome'] = AutotestResultOutcome
 
 
 class AutotestFilterModel(ModelNormal):
@@ -114,7 +116,8 @@ class AutotestFilterModel(ModelNormal):
             'is_empty_namespace': (bool, none_type,),  # noqa: E501
             'class_name': (str, none_type,),  # noqa: E501
             'is_empty_class_name': (bool, none_type,),  # noqa: E501
-            'last_test_result_outcome': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'last_test_result_outcome': (AutotestResultOutcome,),  # noqa: E501
+            'external_key': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -140,6 +143,7 @@ class AutotestFilterModel(ModelNormal):
         'class_name': 'className',  # noqa: E501
         'is_empty_class_name': 'isEmptyClassName',  # noqa: E501
         'last_test_result_outcome': 'lastTestResultOutcome',  # noqa: E501
+        'external_key': 'externalKey',  # noqa: E501
     }
 
     read_only_vars = {
@@ -199,7 +203,8 @@ class AutotestFilterModel(ModelNormal):
             is_empty_namespace (bool, none_type): Specifies an autotest namespace name presence status to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies an autotest class name to search for. [optional]  # noqa: E501
             is_empty_class_name (bool, none_type): Specifies an autotest class name presence status to search for. [optional]  # noqa: E501
-            last_test_result_outcome (bool, date, datetime, dict, float, int, list, str, none_type): Specifies an autotest outcome of the last test result to search for. [optional]  # noqa: E501
+            last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
+            external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -301,7 +306,8 @@ class AutotestFilterModel(ModelNormal):
             is_empty_namespace (bool, none_type): Specifies an autotest namespace name presence status to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies an autotest class name to search for. [optional]  # noqa: E501
             is_empty_class_name (bool, none_type): Specifies an autotest class name presence status to search for. [optional]  # noqa: E501
-            last_test_result_outcome (bool, date, datetime, dict, float, int, list, str, none_type): Specifies an autotest outcome of the last test result to search for. [optional]  # noqa: E501
+            last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
+            external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -36,14 +36,18 @@ def lazy_import():
     from testit_api_client.model.link_put_model import LinkPutModel
     from testit_api_client.model.step_put_model import StepPutModel
     from testit_api_client.model.tag_short_model import TagShortModel
+    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_put_model import WorkItemPutModel
+    from testit_api_client.model.work_item_states import WorkItemStates
     globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['AutoTestIdModel'] = AutoTestIdModel
     globals()['IterationPutModel'] = IterationPutModel
     globals()['LinkPutModel'] = LinkPutModel
     globals()['StepPutModel'] = StepPutModel
     globals()['TagShortModel'] = TagShortModel
+    globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemPutModel'] = WorkItemPutModel
+    globals()['WorkItemStates'] = WorkItemStates
 
 
 class UpdateWorkItemRequest(ModelComposed):
@@ -74,12 +78,12 @@ class UpdateWorkItemRequest(ModelComposed):
     }
 
     validations = {
-        ('name',): {
-            'min_length': 1,
-        },
         ('duration',): {
             'inclusive_maximum': 86400000,
             'inclusive_minimum': 0,
+        },
+        ('name',): {
+            'min_length': 1,
         },
     }
 
@@ -108,20 +112,20 @@ class UpdateWorkItemRequest(ModelComposed):
         return {
             'attachments': ([AttachmentPutModel],),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'state': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'priority': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'section_id': (str,),  # noqa: E501
+            'state': (WorkItemStates,),  # noqa: E501
+            'priority': (WorkItemPriorityModel,),  # noqa: E501
             'steps': ([StepPutModel],),  # noqa: E501
             'precondition_steps': ([StepPutModel],),  # noqa: E501
             'postcondition_steps': ([StepPutModel],),  # noqa: E501
+            'duration': (int,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'tags': ([TagShortModel],),  # noqa: E501
             'links': ([LinkPutModel],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'iterations': ([IterationPutModel], none_type,),  # noqa: E501
             'auto_tests': ([AutoTestIdModel], none_type,),  # noqa: E501
-            'section_id': (str,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'duration': (int,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -132,20 +136,20 @@ class UpdateWorkItemRequest(ModelComposed):
     attribute_map = {
         'attachments': 'attachments',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'section_id': 'sectionId',  # noqa: E501
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'steps': 'steps',  # noqa: E501
         'precondition_steps': 'preconditionSteps',  # noqa: E501
         'postcondition_steps': 'postconditionSteps',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'links': 'links',  # noqa: E501
         'name': 'name',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
-        'section_id': 'sectionId',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,11 +163,13 @@ class UpdateWorkItemRequest(ModelComposed):
         Keyword Args:
             attachments ([AttachmentPutModel]):
             id (str):
-            state (bool, date, datetime, dict, float, int, list, str, none_type):
-            priority (bool, date, datetime, dict, float, int, list, str, none_type):
+            section_id (str):
+            state (WorkItemStates):
+            priority (WorkItemPriorityModel):
             steps ([StepPutModel]):
             precondition_steps ([StepPutModel]):
             postcondition_steps ([StepPutModel]):
+            duration (int):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([TagShortModel]):
             links ([LinkPutModel]):
@@ -200,9 +206,7 @@ class UpdateWorkItemRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             iterations ([IterationPutModel], none_type): [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -278,11 +282,13 @@ class UpdateWorkItemRequest(ModelComposed):
         Keyword Args:
             attachments ([AttachmentPutModel]):
             id (str):
-            state (bool, date, datetime, dict, float, int, list, str, none_type):
-            priority (bool, date, datetime, dict, float, int, list, str, none_type):
+            section_id (str):
+            state (WorkItemStates):
+            priority (WorkItemPriorityModel):
             steps ([StepPutModel]):
             precondition_steps ([StepPutModel]):
             postcondition_steps ([StepPutModel]):
+            duration (int):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([TagShortModel]):
             links ([LinkPutModel]):
@@ -319,9 +325,7 @@ class UpdateWorkItemRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             iterations ([IterationPutModel], none_type): [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

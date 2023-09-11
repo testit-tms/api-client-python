@@ -30,12 +30,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.api_v2_projects_id_test_plans_search_post_request import ApiV2ProjectsIdTestPlansSearchPostRequest
+    from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
+    from testit_api_client.model.test_plan_extraction_model import TestPlanExtractionModel
     from testit_api_client.model.test_plan_select_model import TestPlanSelectModel
-    from testit_api_client.model.test_plan_select_model_extraction_model import TestPlanSelectModelExtractionModel
-    globals()['ApiV2ProjectsIdTestPlansSearchPostRequest'] = ApiV2ProjectsIdTestPlansSearchPostRequest
+    globals()['ProjectTestPlansFilterModel'] = ProjectTestPlansFilterModel
+    globals()['TestPlanExtractionModel'] = TestPlanExtractionModel
     globals()['TestPlanSelectModel'] = TestPlanSelectModel
-    globals()['TestPlanSelectModelExtractionModel'] = TestPlanSelectModelExtractionModel
 
 
 class ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(ModelComposed):
@@ -91,8 +91,8 @@ class ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'filter': (ApiV2ProjectsIdTestPlansSearchPostRequest,),  # noqa: E501
-            'extraction_model': (TestPlanSelectModelExtractionModel,),  # noqa: E501
+            'filter': (ProjectTestPlansFilterModel,),  # noqa: E501
+            'extraction_model': (TestPlanExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (ApiV2ProjectsIdTestPlansSearchPostRequest): [optional]  # noqa: E501
-            extraction_model (TestPlanSelectModelExtractionModel): [optional]  # noqa: E501
+            filter (ProjectTestPlansFilterModel): [optional]  # noqa: E501
+            extraction_model (TestPlanExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -249,8 +249,8 @@ class ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (ApiV2ProjectsIdTestPlansSearchPostRequest): [optional]  # noqa: E501
-            extraction_model (TestPlanSelectModelExtractionModel): [optional]  # noqa: E501
+            filter (ProjectTestPlansFilterModel): [optional]  # noqa: E501
+            extraction_model (TestPlanExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

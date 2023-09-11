@@ -21,7 +21,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_custom_attributes_global_id_delete_request import ApiV2CustomAttributesGlobalIdDeleteRequest
+from testit_api_client.model.api_v2_custom_attributes_global_id_put_request import ApiV2CustomAttributesGlobalIdPutRequest
 from testit_api_client.model.api_v2_custom_attributes_global_post_request import ApiV2CustomAttributesGlobalPostRequest
 from testit_api_client.model.api_v2_custom_attributes_search_post_request import ApiV2CustomAttributesSearchPostRequest
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
@@ -104,7 +104,7 @@ class CustomAttributesApi(object):
             params_map={
                 'all': [
                     'id',
-                    'api_v2_custom_attributes_global_id_delete_request',
+                    'api_v2_custom_attributes_global_id_put_request',
                 ],
                 'required': [
                     'id',
@@ -124,15 +124,15 @@ class CustomAttributesApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'api_v2_custom_attributes_global_id_delete_request':
-                        (ApiV2CustomAttributesGlobalIdDeleteRequest,),
+                    'api_v2_custom_attributes_global_id_put_request':
+                        (ApiV2CustomAttributesGlobalIdPutRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'api_v2_custom_attributes_global_id_delete_request': 'body',
+                    'api_v2_custom_attributes_global_id_put_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -423,7 +423,7 @@ class CustomAttributesApi(object):
             id (str): Unique ID of attribute
 
         Keyword Args:
-            api_v2_custom_attributes_global_id_delete_request (ApiV2CustomAttributesGlobalIdDeleteRequest): [optional]
+            api_v2_custom_attributes_global_id_put_request (ApiV2CustomAttributesGlobalIdPutRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

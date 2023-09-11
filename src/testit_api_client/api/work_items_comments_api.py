@@ -22,7 +22,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from testit_api_client.model.api_v2_work_items_comments_post_request import ApiV2WorkItemsCommentsPostRequest
-from testit_api_client.model.api_v2_work_items_comments_post_request1 import ApiV2WorkItemsCommentsPostRequest1
+from testit_api_client.model.api_v2_work_items_comments_put_request import ApiV2WorkItemsCommentsPutRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
@@ -103,7 +103,7 @@ class WorkItemsCommentsApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_work_items_comments_post_request1',
+                    'api_v2_work_items_comments_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -119,13 +119,13 @@ class WorkItemsCommentsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_work_items_comments_post_request1':
-                        (ApiV2WorkItemsCommentsPostRequest1,),
+                    'api_v2_work_items_comments_post_request':
+                        (ApiV2WorkItemsCommentsPostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_work_items_comments_post_request1': 'body',
+                    'api_v2_work_items_comments_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -153,7 +153,7 @@ class WorkItemsCommentsApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_work_items_comments_post_request',
+                    'api_v2_work_items_comments_put_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -169,13 +169,13 @@ class WorkItemsCommentsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_work_items_comments_post_request':
-                        (ApiV2WorkItemsCommentsPostRequest,),
+                    'api_v2_work_items_comments_put_request':
+                        (ApiV2WorkItemsCommentsPutRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_work_items_comments_post_request': 'body',
+                    'api_v2_work_items_comments_put_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -340,7 +340,7 @@ class WorkItemsCommentsApi(object):
 
 
         Keyword Args:
-            api_v2_work_items_comments_post_request1 (ApiV2WorkItemsCommentsPostRequest1): [optional]
+            api_v2_work_items_comments_post_request (ApiV2WorkItemsCommentsPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -418,7 +418,7 @@ class WorkItemsCommentsApi(object):
 
 
         Keyword Args:
-            api_v2_work_items_comments_post_request (ApiV2WorkItemsCommentsPostRequest): [optional]
+            api_v2_work_items_comments_put_request (ApiV2WorkItemsCommentsPutRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -90,16 +90,16 @@ class AutoTestModel(ModelNormal):
         """
         lazy_import()
         return {
-            'external_id': (str,),  # noqa: E501
-            'project_id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'must_be_approved': (bool,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'external_id': (str,),  # noqa: E501
+            'project_id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'last_test_run_id': (str, none_type,),  # noqa: E501
             'last_test_run_name': (str, none_type,),  # noqa: E501
@@ -116,6 +116,7 @@ class AutoTestModel(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'labels': ([LabelShortModel], none_type,),  # noqa: E501
             'is_flaky': (bool, none_type,),  # noqa: E501
+            'external_key': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -124,16 +125,16 @@ class AutoTestModel(ModelNormal):
 
 
     attribute_map = {
-        'external_id': 'externalId',  # noqa: E501
-        'project_id': 'projectId',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'must_be_approved': 'mustBeApproved',  # noqa: E501
         'id': 'id',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'external_id': 'externalId',  # noqa: E501
+        'project_id': 'projectId',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'last_test_run_id': 'lastTestRunId',  # noqa: E501
         'last_test_run_name': 'lastTestRunName',  # noqa: E501
@@ -150,6 +151,7 @@ class AutoTestModel(ModelNormal):
         'description': 'description',  # noqa: E501
         'labels': 'labels',  # noqa: E501
         'is_flaky': 'isFlaky',  # noqa: E501
+        'external_key': 'externalKey',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,10 +161,16 @@ class AutoTestModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, external_id, project_id, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, global_id, is_deleted, must_be_approved, id, created_date, created_by_id, external_id, project_id, name, *args, **kwargs):  # noqa: E501
         """AutoTestModel - a model defined in OpenAPI
 
         Args:
+            global_id (int): Global ID of the autotest
+            is_deleted (bool): Indicates if the autotest is deleted
+            must_be_approved (bool): Indicates if the autotest has unapproved changes from linked work items
+            id (str): Unique ID of the autotest
+            created_date (datetime): Creation date of the autotest
+            created_by_id (str): Unique ID of the project creator
             external_id (str): External ID of the autotest
             project_id (str): Unique ID of the autotest project
             name (str): Name of the autotest
@@ -198,13 +206,7 @@ class AutoTestModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            global_id (int): Global ID of the autotest. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the autotest is deleted. [optional]  # noqa: E501
-            must_be_approved (bool): Indicates if the autotest has unapproved changes from linked work items. [optional]  # noqa: E501
-            id (str): Unique ID of the autotest. [optional]  # noqa: E501
-            created_date (datetime): Creation date of the autotest. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
-            created_by_id (str): Unique ID of the project creator. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
             last_test_run_id (str, none_type): Unique ID of the autotest last test run. [optional]  # noqa: E501
             last_test_run_name (str, none_type): Name of the autotest last test run. [optional]  # noqa: E501
@@ -221,6 +223,7 @@ class AutoTestModel(ModelNormal):
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             labels ([LabelShortModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,6 +255,12 @@ class AutoTestModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.global_id = global_id
+        self.is_deleted = is_deleted
+        self.must_be_approved = must_be_approved
+        self.id = id
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         self.external_id = external_id
         self.project_id = project_id
         self.name = name
@@ -275,10 +284,16 @@ class AutoTestModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, external_id, project_id, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, global_id, is_deleted, must_be_approved, id, created_date, created_by_id, external_id, project_id, name, *args, **kwargs):  # noqa: E501
         """AutoTestModel - a model defined in OpenAPI
 
         Args:
+            global_id (int): Global ID of the autotest
+            is_deleted (bool): Indicates if the autotest is deleted
+            must_be_approved (bool): Indicates if the autotest has unapproved changes from linked work items
+            id (str): Unique ID of the autotest
+            created_date (datetime): Creation date of the autotest
+            created_by_id (str): Unique ID of the project creator
             external_id (str): External ID of the autotest
             project_id (str): Unique ID of the autotest project
             name (str): Name of the autotest
@@ -314,13 +329,7 @@ class AutoTestModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            global_id (int): Global ID of the autotest. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the autotest is deleted. [optional]  # noqa: E501
-            must_be_approved (bool): Indicates if the autotest has unapproved changes from linked work items. [optional]  # noqa: E501
-            id (str): Unique ID of the autotest. [optional]  # noqa: E501
-            created_date (datetime): Creation date of the autotest. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
-            created_by_id (str): Unique ID of the project creator. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
             last_test_run_id (str, none_type): Unique ID of the autotest last test run. [optional]  # noqa: E501
             last_test_run_name (str, none_type): Name of the autotest last test run. [optional]  # noqa: E501
@@ -337,6 +346,7 @@ class AutoTestModel(ModelNormal):
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             labels ([LabelShortModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -366,6 +376,12 @@ class AutoTestModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.global_id = global_id
+        self.is_deleted = is_deleted
+        self.must_be_approved = must_be_approved
+        self.id = id
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         self.external_id = external_id
         self.project_id = project_id
         self.name = name

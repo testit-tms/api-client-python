@@ -73,7 +73,7 @@ class AutotestsSelectModelIncludes(ModelComposed):
         lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = False
+    _nullable = True
 
     @cached_property
     def openapi_types():
@@ -112,6 +112,9 @@ class AutotestsSelectModelIncludes(ModelComposed):
         """AutotestsSelectModelIncludes - a model defined in OpenAPI
 
         Keyword Args:
+            include_steps (bool): If autotest steps will be included
+            include_links (bool): If autotest links will be included
+            include_labels (bool): If autotest labels will be included
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -142,9 +145,6 @@ class AutotestsSelectModelIncludes(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            include_steps (bool): If autotest steps will be included. [optional]  # noqa: E501
-            include_links (bool): If autotest links will be included. [optional]  # noqa: E501
-            include_labels (bool): If autotest labels will be included. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -218,6 +218,9 @@ class AutotestsSelectModelIncludes(ModelComposed):
         """AutotestsSelectModelIncludes - a model defined in OpenAPI
 
         Keyword Args:
+            include_steps (bool): If autotest steps will be included
+            include_links (bool): If autotest links will be included
+            include_labels (bool): If autotest labels will be included
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -248,9 +251,6 @@ class AutotestsSelectModelIncludes(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            include_steps (bool): If autotest steps will be included. [optional]  # noqa: E501
-            include_links (bool): If autotest links will be included. [optional]  # noqa: E501
-            include_labels (bool): If autotest labels will be included. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

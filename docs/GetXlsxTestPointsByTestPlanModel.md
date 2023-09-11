@@ -4,18 +4,18 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**include_name** | **bool** |  | [optional] 
-**include_section** | **bool** |  | [optional] 
-**include_priority** | **bool** |  | [optional] 
-**include_automated** | **bool** |  | [optional] 
-**include_status** | **bool** |  | [optional] 
-**include_duration** | **bool** |  | [optional] 
-**include_creation_date** | **bool** |  | [optional] 
-**include_author** | **bool** |  | [optional] 
-**include_modification_date** | **bool** |  | [optional] 
-**include_modified_by** | **bool** |  | [optional] 
-**include_tags** | **bool** |  | [optional] 
-**include_iterations** | **bool** |  | [optional] 
+**include_name** | **bool** |  | 
+**include_section** | **bool** |  | 
+**include_priority** | **bool** |  | 
+**include_automated** | **bool** |  | 
+**include_status** | **bool** |  | 
+**include_duration** | **bool** |  | 
+**include_creation_date** | **bool** |  | 
+**include_author** | **bool** |  | 
+**include_modification_date** | **bool** |  | 
+**include_modified_by** | **bool** |  | 
+**include_tags** | **bool** |  | 
+**include_iterations** | **bool** |  | 
 **custom_attributes_ids** | **[str], none_type** |  | [optional] 
 **configuration_ids** | **[str], none_type** |  | [optional] 
 

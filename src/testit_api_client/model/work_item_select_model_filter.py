@@ -32,16 +32,18 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.test_point_filter_model_work_item_created_date import TestPointFilterModelWorkItemCreatedDate
     from testit_api_client.model.test_point_filter_model_work_item_modified_date import TestPointFilterModelWorkItemModifiedDate
+    from testit_api_client.model.test_suite_work_items_search_model_duration import TestSuiteWorkItemsSearchModelDuration
+    from testit_api_client.model.test_suite_work_items_search_model_median_duration import TestSuiteWorkItemsSearchModelMedianDuration
     from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
     from testit_api_client.model.work_item_filter_model import WorkItemFilterModel
-    from testit_api_client.model.work_item_filter_model_duration import WorkItemFilterModelDuration
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_states import WorkItemStates
     globals()['TestPointFilterModelWorkItemCreatedDate'] = TestPointFilterModelWorkItemCreatedDate
     globals()['TestPointFilterModelWorkItemModifiedDate'] = TestPointFilterModelWorkItemModifiedDate
+    globals()['TestSuiteWorkItemsSearchModelDuration'] = TestSuiteWorkItemsSearchModelDuration
+    globals()['TestSuiteWorkItemsSearchModelMedianDuration'] = TestSuiteWorkItemsSearchModelMedianDuration
     globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
     globals()['WorkItemFilterModel'] = WorkItemFilterModel
-    globals()['WorkItemFilterModelDuration'] = WorkItemFilterModelDuration
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemStates'] = WorkItemStates
 
@@ -115,7 +117,7 @@ class WorkItemSelectModelFilter(ModelComposed):
         lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = False
+    _nullable = True
 
     @cached_property
     def openapi_types():
@@ -146,7 +148,8 @@ class WorkItemSelectModelFilter(ModelComposed):
             'types': ([WorkItemEntityTypes], none_type,),  # noqa: E501
             'created_date': (TestPointFilterModelWorkItemCreatedDate,),  # noqa: E501
             'modified_date': (TestPointFilterModelWorkItemModifiedDate,),  # noqa: E501
-            'duration': (WorkItemFilterModelDuration,),  # noqa: E501
+            'duration': (TestSuiteWorkItemsSearchModelDuration,),  # noqa: E501
+            'median_duration': (TestSuiteWorkItemsSearchModelMedianDuration,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
@@ -176,6 +179,7 @@ class WorkItemSelectModelFilter(ModelComposed):
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'duration': 'duration',  # noqa: E501
+        'median_duration': 'medianDuration',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
@@ -237,7 +241,8 @@ class WorkItemSelectModelFilter(ModelComposed):
             types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
             created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
             modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
-            duration (WorkItemFilterModelDuration): [optional]  # noqa: E501
+            duration (TestSuiteWorkItemsSearchModelDuration): [optional]  # noqa: E501
+            median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
@@ -361,7 +366,8 @@ class WorkItemSelectModelFilter(ModelComposed):
             types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
             created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
             modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
-            duration (WorkItemFilterModelDuration): [optional]  # noqa: E501
+            duration (TestSuiteWorkItemsSearchModelDuration): [optional]  # noqa: E501
+            median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501

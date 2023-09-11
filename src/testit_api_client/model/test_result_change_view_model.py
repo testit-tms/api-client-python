@@ -94,8 +94,11 @@ class TestResultChangeViewModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, test_point_count, *args, **kwargs):  # noqa: E501
         """TestResultChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            test_point_count (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -128,7 +131,6 @@ class TestResultChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_point_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -160,6 +162,7 @@ class TestResultChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_point_count = test_point_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -180,8 +183,11 @@ class TestResultChangeViewModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, test_point_count, *args, **kwargs):  # noqa: E501
         """TestResultChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            test_point_count (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -214,7 +220,6 @@ class TestResultChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_point_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -244,6 +249,7 @@ class TestResultChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.test_point_count = test_point_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

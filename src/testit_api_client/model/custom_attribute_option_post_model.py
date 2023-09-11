@@ -79,8 +79,8 @@ class CustomAttributeOptionPostModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'value': (str, none_type,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
+            'value': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -89,8 +89,8 @@ class CustomAttributeOptionPostModel(ModelNormal):
 
 
     attribute_map = {
-        'value': 'value',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
+        'value': 'value',  # noqa: E501
     }
 
     read_only_vars = {
@@ -100,8 +100,11 @@ class CustomAttributeOptionPostModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, is_default, *args, **kwargs):  # noqa: E501
         """CustomAttributeOptionPostModel - a model defined in OpenAPI
+
+        Args:
+            is_default (bool): Indicates if the attribute option is used by default
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -135,7 +138,6 @@ class CustomAttributeOptionPostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             value (str, none_type): Value of the attribute option. [optional]  # noqa: E501
-            is_default (bool): Indicates if the attribute option is used by default. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -167,6 +169,7 @@ class CustomAttributeOptionPostModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.is_default = is_default
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -187,8 +190,11 @@ class CustomAttributeOptionPostModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, is_default, *args, **kwargs):  # noqa: E501
         """CustomAttributeOptionPostModel - a model defined in OpenAPI
+
+        Args:
+            is_default (bool): Indicates if the attribute option is used by default
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -222,7 +228,6 @@ class CustomAttributeOptionPostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             value (str, none_type): Value of the attribute option. [optional]  # noqa: E501
-            is_default (bool): Indicates if the attribute option is used by default. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,6 +257,7 @@ class CustomAttributeOptionPostModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.is_default = is_default
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

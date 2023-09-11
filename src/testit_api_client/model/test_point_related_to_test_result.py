@@ -89,12 +89,12 @@ class TestPointRelatedToTestResult(ModelComposed):
         return {
             'test_suite_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'iteration_id': (str,),  # noqa: E501
             'tester_id': (str, none_type,),  # noqa: E501
             'work_item_id': (str, none_type,),  # noqa: E501
             'configuration_id': (str, none_type,),  # noqa: E501
             'status': (str, none_type,),  # noqa: E501
             'last_test_result_id': (str, none_type,),  # noqa: E501
-            'iteration_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -105,12 +105,12 @@ class TestPointRelatedToTestResult(ModelComposed):
     attribute_map = {
         'test_suite_id': 'testSuiteId',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'iteration_id': 'iterationId',  # noqa: E501
         'tester_id': 'testerId',  # noqa: E501
         'work_item_id': 'workItemId',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
         'status': 'status',  # noqa: E501
         'last_test_result_id': 'lastTestResultId',  # noqa: E501
-        'iteration_id': 'iterationId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -122,6 +122,9 @@ class TestPointRelatedToTestResult(ModelComposed):
         """TestPointRelatedToTestResult - a model defined in OpenAPI
 
         Keyword Args:
+            test_suite_id (str):
+            id (str):
+            iteration_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -152,14 +155,11 @@ class TestPointRelatedToTestResult(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suite_id (str): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             tester_id (str, none_type): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
             status (str, none_type): Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
             last_test_result_id (str, none_type): [optional]  # noqa: E501
-            iteration_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,6 +233,9 @@ class TestPointRelatedToTestResult(ModelComposed):
         """TestPointRelatedToTestResult - a model defined in OpenAPI
 
         Keyword Args:
+            test_suite_id (str):
+            id (str):
+            iteration_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -263,14 +266,11 @@ class TestPointRelatedToTestResult(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suite_id (str): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
             tester_id (str, none_type): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
             status (str, none_type): Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
             last_test_result_id (str, none_type): [optional]  # noqa: E501
-            iteration_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

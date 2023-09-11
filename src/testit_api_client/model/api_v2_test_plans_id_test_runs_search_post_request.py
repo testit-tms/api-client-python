@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.notification_query_filter_model_created_date import NotificationQueryFilterModelCreatedDate
+    from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
     from testit_api_client.model.test_run_search_query_model import TestRunSearchQueryModel
     from testit_api_client.model.test_run_state import TestRunState
-    globals()['NotificationQueryFilterModelCreatedDate'] = NotificationQueryFilterModelCreatedDate
+    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
     globals()['TestRunSearchQueryModel'] = TestRunSearchQueryModel
     globals()['TestRunState'] = TestRunState
 
@@ -103,8 +103,8 @@ class ApiV2TestPlansIdTestRunsSearchPostRequest(ModelComposed):
         return {
             'name': (str, none_type,),  # noqa: E501
             'states': ([TestRunState], none_type,),  # noqa: E501
-            'started_date': (NotificationQueryFilterModelCreatedDate,),  # noqa: E501
-            'completed_date': (NotificationQueryFilterModelCreatedDate,),  # noqa: E501
+            'started_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'completed_date': (DateTimeRangeSelectorModel,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
         }
@@ -164,8 +164,8 @@ class ApiV2TestPlansIdTestRunsSearchPostRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             states ([TestRunState], none_type): [optional]  # noqa: E501
-            started_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
-            completed_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            started_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            completed_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): [optional]  # noqa: E501
         """
@@ -273,8 +273,8 @@ class ApiV2TestPlansIdTestRunsSearchPostRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             states ([TestRunState], none_type): [optional]  # noqa: E501
-            started_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
-            completed_date (NotificationQueryFilterModelCreatedDate): [optional]  # noqa: E501
+            started_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            completed_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): [optional]  # noqa: E501
         """

@@ -23,6 +23,7 @@ from testit_api_client.model_utils import (  # noqa: F401
 )
 from testit_api_client.model.api_v2_notifications_search_post_request import ApiV2NotificationsSearchPostRequest
 from testit_api_client.model.notification_model import NotificationModel
+from testit_api_client.model.notification_type_model import NotificationTypeModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -122,7 +123,7 @@ class NotificationsApi(object):
                 },
                 'openapi_types': {
                     'notification_type':
-                        (bool, date, datetime, dict, float, int, list, str, none_type,),
+                        (NotificationTypeModel,),
                     'skip':
                         (int,),
                     'take':
@@ -426,7 +427,7 @@ class NotificationsApi(object):
 
 
         Keyword Args:
-            notification_type (bool, date, datetime, dict, float, int, list, str, none_type): [optional]
+            notification_type (NotificationTypeModel): [optional]
             skip (int): Amount of items to be skipped (offset). [optional]
             take (int): Amount of items to be taken (limit). [optional]
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]

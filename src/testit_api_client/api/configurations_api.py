@@ -22,8 +22,8 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from testit_api_client.model.api_v2_configurations_create_by_parameters_post_request import ApiV2ConfigurationsCreateByParametersPostRequest
-from testit_api_client.model.api_v2_configurations_post_request import ApiV2ConfigurationsPostRequest
 from testit_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
+from testit_api_client.model.api_v2_configurations_put_request import ApiV2ConfigurationsPutRequest
 from testit_api_client.model.api_v2_configurations_search_post_request import ApiV2ConfigurationsSearchPostRequest
 from testit_api_client.model.configuration_model import ConfigurationModel
 from testit_api_client.model.create_configuration_request import CreateConfigurationRequest
@@ -416,7 +416,7 @@ class ConfigurationsApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_configurations_post_request',
+                    'api_v2_configurations_put_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -432,13 +432,13 @@ class ConfigurationsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_configurations_post_request':
-                        (ApiV2ConfigurationsPostRequest,),
+                    'api_v2_configurations_put_request':
+                        (ApiV2ConfigurationsPutRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_configurations_post_request': 'body',
+                    'api_v2_configurations_put_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1259,7 +1259,7 @@ class ConfigurationsApi(object):
 
 
         Keyword Args:
-            api_v2_configurations_post_request (ApiV2ConfigurationsPostRequest): [optional]
+            api_v2_configurations_put_request (ApiV2ConfigurationsPutRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

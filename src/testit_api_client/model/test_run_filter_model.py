@@ -30,9 +30,17 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_run_filter_model_created_date import TestRunFilterModelCreatedDate
+    from testit_api_client.model.failure_category_model import FailureCategoryModel
+    from testit_api_client.model.test_result_outcome import TestResultOutcome
+    from testit_api_client.model.test_run_filter_model_auto_tests_count import TestRunFilterModelAutoTestsCount
+    from testit_api_client.model.test_run_filter_model_completed_date import TestRunFilterModelCompletedDate
+    from testit_api_client.model.test_run_filter_model_started_date import TestRunFilterModelStartedDate
     from testit_api_client.model.test_run_state import TestRunState
-    globals()['TestRunFilterModelCreatedDate'] = TestRunFilterModelCreatedDate
+    globals()['FailureCategoryModel'] = FailureCategoryModel
+    globals()['TestResultOutcome'] = TestResultOutcome
+    globals()['TestRunFilterModelAutoTestsCount'] = TestRunFilterModelAutoTestsCount
+    globals()['TestRunFilterModelCompletedDate'] = TestRunFilterModelCompletedDate
+    globals()['TestRunFilterModelStartedDate'] = TestRunFilterModelStartedDate
     globals()['TestRunState'] = TestRunState
 
 
@@ -68,6 +76,8 @@ class TestRunFilterModel(ModelNormal):
         },
         ('states',): {
         },
+        ('created_by_ids',): {
+        },
         ('modified_by_ids',): {
         },
     }
@@ -89,10 +99,16 @@ class TestRunFilterModel(ModelNormal):
         lazy_import()
         return {
             'project_ids': ([str], none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'states': ([TestRunState], none_type,),  # noqa: E501
-            'created_date': (TestRunFilterModelCreatedDate,),  # noqa: E501
+            'started_date': (TestRunFilterModelStartedDate,),  # noqa: E501
+            'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
+            'auto_tests_count': (TestRunFilterModelAutoTestsCount,),  # noqa: E501
+            'test_results_outcome': ([TestResultOutcome], none_type,),  # noqa: E501
+            'failure_category': ([FailureCategoryModel], none_type,),  # noqa: E501
+            'completed_date': (TestRunFilterModelCompletedDate,),  # noqa: E501
         }
 
     @cached_property
@@ -102,10 +118,16 @@ class TestRunFilterModel(ModelNormal):
 
     attribute_map = {
         'project_ids': 'projectIds',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'states': 'states',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
+        'started_date': 'startedDate',  # noqa: E501
+        'created_by_ids': 'createdByIds',  # noqa: E501
         'modified_by_ids': 'modifiedByIds',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'auto_tests_count': 'autoTestsCount',  # noqa: E501
+        'test_results_outcome': 'testResultsOutcome',  # noqa: E501
+        'failure_category': 'failureCategory',  # noqa: E501
+        'completed_date': 'completedDate',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,10 +172,16 @@ class TestRunFilterModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             project_ids ([str], none_type): Specifies a test run project IDs to search for. [optional]  # noqa: E501
+            name (str, none_type): Specifies test run name. [optional]  # noqa: E501
             states ([TestRunState], none_type): Specifies a test run states to search for. [optional]  # noqa: E501
-            created_date (TestRunFilterModelCreatedDate): [optional]  # noqa: E501
+            started_date (TestRunFilterModelStartedDate): [optional]  # noqa: E501
+            created_by_ids ([str], none_type): Specifies a test run creator IDs to search for. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test run last editor IDs to search for. [optional]  # noqa: E501
             is_deleted (bool, none_type): Specifies a test run deleted status to search for. [optional]  # noqa: E501
+            auto_tests_count (TestRunFilterModelAutoTestsCount): [optional]  # noqa: E501
+            test_results_outcome ([TestResultOutcome], none_type): Specifies test results outcomes. [optional]  # noqa: E501
+            failure_category ([FailureCategoryModel], none_type): Specifies failure categories. [optional]  # noqa: E501
+            completed_date (TestRunFilterModelCompletedDate): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -240,10 +268,16 @@ class TestRunFilterModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             project_ids ([str], none_type): Specifies a test run project IDs to search for. [optional]  # noqa: E501
+            name (str, none_type): Specifies test run name. [optional]  # noqa: E501
             states ([TestRunState], none_type): Specifies a test run states to search for. [optional]  # noqa: E501
-            created_date (TestRunFilterModelCreatedDate): [optional]  # noqa: E501
+            started_date (TestRunFilterModelStartedDate): [optional]  # noqa: E501
+            created_by_ids ([str], none_type): Specifies a test run creator IDs to search for. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test run last editor IDs to search for. [optional]  # noqa: E501
             is_deleted (bool, none_type): Specifies a test run deleted status to search for. [optional]  # noqa: E501
+            auto_tests_count (TestRunFilterModelAutoTestsCount): [optional]  # noqa: E501
+            test_results_outcome ([TestResultOutcome], none_type): Specifies test results outcomes. [optional]  # noqa: E501
+            failure_category ([FailureCategoryModel], none_type): Specifies failure categories. [optional]  # noqa: E501
+            completed_date (TestRunFilterModelCompletedDate): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

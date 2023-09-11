@@ -16,13 +16,13 @@ Method | HTTP request | Description
 [**api_v2_work_items_move_post**](WorkItemsApi.md#api_v2_work_items_move_post) | **POST** /api/v2/workItems/move | Move WorkItem to another section
 [**api_v2_work_items_search_post**](WorkItemsApi.md#api_v2_work_items_search_post) | **POST** /api/v2/workItems/search | Search for work items
 [**api_v2_work_items_shared_step_id_references_sections_post**](WorkItemsApi.md#api_v2_work_items_shared_step_id_references_sections_post) | **POST** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
-[**api_v2_work_items_shared_step_id_references_work_items_post**](WorkItemsApi.md#api_v2_work_items_shared_step_id_references_work_items_post) | **POST** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in workitems
+[**api_v2_work_items_shared_step_id_references_work_items_post**](WorkItemsApi.md#api_v2_work_items_shared_step_id_references_work_items_post) | **POST** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
 [**api_v2_work_items_shared_steps_shared_step_id_references_get**](WorkItemsApi.md#api_v2_work_items_shared_steps_shared_step_id_references_get) | **GET** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references
 [**create_work_item**](WorkItemsApi.md#create_work_item) | **POST** /api/v2/workItems | Create Test Case, Checklist or Shared Step
 [**delete_all_work_items_from_auto_test**](WorkItemsApi.md#delete_all_work_items_from_auto_test) | **DELETE** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId
 [**delete_work_item**](WorkItemsApi.md#delete_work_item) | **DELETE** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId
 [**get_auto_tests_for_work_item**](WorkItemsApi.md#get_auto_tests_for_work_item) | **GET** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId
-[**get_iterations**](WorkItemsApi.md#get_iterations) | **GET** /api/v2/workItems/{id}/iterations | Get iterations by workitem Id or GlobalId
+[**get_iterations**](WorkItemsApi.md#get_iterations) | **GET** /api/v2/workItems/{id}/iterations | Get iterations by work item Id or GlobalId
 [**get_work_item_by_id**](WorkItemsApi.md#get_work_item_by_id) | **GET** /api/v2/workItems/{id} | Get Test Case, Checklist or Shared Step by Id or GlobalId
 [**get_work_item_chronology**](WorkItemsApi.md#get_work_item_chronology) | **GET** /api/v2/workItems/{id}/chronology | Get WorkItem chronology by Id or GlobalId
 [**get_work_item_versions**](WorkItemsApi.md#get_work_item_versions) | **GET** /api/v2/workItems/{id}/versions | Get WorkItem versions
@@ -117,12 +117,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
+**404** |  |  -  |
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
-**404** |  |  -  |
-**413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -202,12 +202,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
-**404** | Can&#39;t find CheckList with id |  -  |
 **422** | Client Error |  -  |
+**404** | Can&#39;t find CheckList with id |  -  |
+**200** | Successful operation |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 Get change history of WorkItem
 
-<br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System return change history of WorkItem
+<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System return change history of WorkItem
 
 ### Example
 
@@ -465,8 +465,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -545,8 +545,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 
@@ -627,8 +627,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 
@@ -756,8 +756,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | Bad Request |  -  |
+**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 
@@ -768,7 +768,7 @@ Name | Type | Description  | Notes
 
 Set WorkItem as actual
 
-<br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System set WorkItem as actual
+<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System set WorkItem as actual
 
 ### Example
 
@@ -1127,7 +1127,7 @@ Name | Type | Description  | Notes
 # **api_v2_work_items_shared_step_id_references_work_items_post**
 > [SharedStepReferenceModel] api_v2_work_items_shared_step_id_references_work_items_post(shared_step_id)
 
-Get SharedStep references in workitems
+Get SharedStep references in work items
 
 <br>Use case  <br>User sets SharedStep identifier  <br>User runs method execution  <br>System return SharedStep references
 
@@ -1173,7 +1173,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get SharedStep references in workitems
+        # Get SharedStep references in work items
         api_response = api_instance.api_v2_work_items_shared_step_id_references_work_items_post(shared_step_id)
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -1182,7 +1182,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get SharedStep references in workitems
+        # Get SharedStep references in work items
         api_response = api_instance.api_v2_work_items_shared_step_id_references_work_items_post(shared_step_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_work_items_shared_step_id_references_work_items_post_request=api_v2_work_items_shared_step_id_references_work_items_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -1313,7 +1313,7 @@ Name | Type | Description  | Notes
 
 Create Test Case, Checklist or Shared Step
 
-<br>Use case  <br>User sets workitem properties (listed in request parameters)  <br>User runs method execution  <br>System creates workitem by identifier  <br>System returns workitem model (listed in response parameters)
+<br>Use case  <br>User sets work item properties (listed in request parameters)  <br>User runs method execution  <br>System creates work item by identifier  <br>System returns work item model (listed in response parameters)
 
 ### Example
 
@@ -1384,8 +1384,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Successful operation |  -  |
 **400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;Tags must be set  &lt;br&gt;Duration should be a positive number  &lt;br&gt;Should be empty for CheckList  &lt;br&gt;Attribute value must be a valid guid for user scheme  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
+**201** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
@@ -1397,7 +1397,7 @@ Name | Type | Description  | Notes
 
 Delete all links AutoTests from WorkItem by Id or GlobalId
 
-<br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System search workitem by identifier  <br>System search and delete all autotests, related to found workitem  <br>System returns no content response
+<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System search work item by identifier  <br>System search and delete all autotests, related to found work item  <br>System returns no content response
 
 ### Example
 
@@ -1464,11 +1464,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
-**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | Can&#39;t find a WorkItem with workItemId |  -  |
+**400** | Bad Request |  -  |
+**204** | No Content |  -  |
 **200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1478,7 +1478,7 @@ void (empty response body)
 
 Delete Test Case, Checklist or Shared Step by Id or GlobalId
 
-<br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System deletes workitem  <br>System returns no content response
+<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System deletes work item  <br>System returns no content response
 
 ### Example
 
@@ -1545,12 +1545,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Delete permission for test library required |  -  |
-**404** | Can&#39;t find a WorkItem with id |  -  |
 **422** | Could not delete Shared Step that has references |  -  |
+**404** | Can&#39;t find a WorkItem with id |  -  |
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**403** | Delete permission for test library required |  -  |
+**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1559,7 +1559,7 @@ void (empty response body)
 
 Get all AutoTests linked to WorkItem by Id or GlobalId
 
-<br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System search workitem by identifier  <br>System search all autotests, related to found workitem  <br>System returns list of found autotests
+<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System search work item by identifier  <br>System search all autotests, related to found work item  <br>System returns list of found autotests
 
 ### Example
 
@@ -1628,18 +1628,18 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**200** | Successful operation |  -  |
 **403** | Read permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with workItemId |  -  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_iterations**
 > [IterationModel] get_iterations(id)
 
-Get iterations by workitem Id or GlobalId
+Get iterations by work item Id or GlobalId
 
 ### Example
 
@@ -1679,7 +1679,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get iterations by workitem Id or GlobalId
+        # Get iterations by work item Id or GlobalId
         api_response = api_instance.get_iterations(id)
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -1688,7 +1688,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get iterations by workitem Id or GlobalId
+        # Get iterations by work item Id or GlobalId
         api_response = api_instance.get_iterations(id, version_id=version_id, version_number=version_number)
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -1722,9 +1722,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
 **404** | Can&#39;t find workItem with id |  -  |
 **400** | Bad Request |  -  |
+**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 
@@ -1735,7 +1735,7 @@ Name | Type | Description  | Notes
 
 Get Test Case, Checklist or Shared Step by Id or GlobalId
 
-<br>Use case  <br>User sets workitem identifier  <br>[Optional] User sets workitem version identifier  <br>[Optional] User sets workitem version number  <br>User runs method execution  <br>System search workitem by identifier  <br>[Optional] if User sets workitem version identifier, system search workitem version by identifier.  <br>[Optional] if user sets workitem version number, system search workitem version by number  <br>Otherwise, system search last workitem version  <br>System returns workitem 
+<br>Use case  <br>User sets work item identifier  <br>[Optional] User sets work item version identifier  <br>[Optional] User sets work item version number  <br>User runs method execution  <br>System search work item by identifier  <br>[Optional] if User sets work item version identifier, system search work item version by identifier.  <br>[Optional] if user sets work item version number, system search work item version by number  <br>Otherwise, system search last work item version  <br>System returns work item 
 
 ### Example
 
@@ -1817,11 +1817,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**403** | Read permission for test library required |  -  |
+**401** | Unauthorized |  -  |
+**404** | Can&#39;t find workItem with id |  -  |
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Read permission for test library required |  -  |
-**404** | Can&#39;t find workItem with id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1830,7 +1830,7 @@ Name | Type | Description  | Notes
 
 Get WorkItem chronology by Id or GlobalId
 
-<br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System search workitem by identifier  <br>System search test results of all autotests, related to found workitem  <br>System sort results by CompletedOn ascending, then by CreatedDate ascending  <br>System returns sorted collection of test results
+<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System search work item by identifier  <br>System search test results of all autotests, related to found work item  <br>System sort results by CompletedOn ascending, then by CreatedDate ascending  <br>System returns sorted collection of test results
 
 ### Example
 
@@ -1900,10 +1900,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
-**400** | Not valid workItemId |  -  |
 **401** | Unauthorized |  -  |
-**403** | Read permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with workItemId |  -  |
+**400** | Not valid workItemId |  -  |
+**403** | Read permission for test library required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1912,7 +1912,7 @@ Name | Type | Description  | Notes
 
 Get WorkItem versions
 
-<br>Use case  <br>User sets workitem identifier  <br>[Optional] User sets workitem version identifier  <br>User runs method execution  <br>System search workitem by identifier  <br>                      [Optional] If User set workitem version identifier, System search workitem version by version identifier                      Otherwise, system search all version of workitem                    <br>System returns array of workitem version models (listed in response example)
+<br>Use case  <br>User sets work item identifier  <br>[Optional] User sets work item version identifier  <br>User runs method execution  <br>System search work item by identifier  <br>                      [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                    <br>System returns array of work item version models (listed in response example)
 
 ### Example
 
@@ -1994,11 +1994,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Can&#39;t find WorkItem with workItemId |  -  |
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
-**404** | Can&#39;t find WorkItem with workItemId |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2073,8 +2073,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
 **403** | Delete permission for test library is required |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2159,7 +2159,7 @@ void (empty response body)
 
 Update Test Case, Checklist or Shared Step
 
-<br>Use case  <br>User sets workitem properties (listed in request parameters)  <br>User runs method execution  <br>System updates workitem by identifier  <br>System returns updated workitem model (listed in response parameters)
+<br>Use case  <br>User sets work item properties (listed in request parameters)  <br>User runs method execution  <br>System updates work item by identifier  <br>System returns updated work item model (listed in response parameters)
 
 ### Example
 
@@ -2228,11 +2228,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
+**404** | &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
 **400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;duration should be a positive number  &lt;br&gt;should be empty for CheckList  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
-**404** | &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
+**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

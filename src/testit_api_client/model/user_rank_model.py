@@ -104,8 +104,16 @@ class UserRankModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, score, work_items_created, passed_test_points, failed_test_points, skipped_test_points, blocked_test_points, *args, **kwargs):  # noqa: E501
         """UserRankModel - a model defined in OpenAPI
+
+        Args:
+            score (int):
+            work_items_created (int):
+            passed_test_points (int):
+            failed_test_points (int):
+            skipped_test_points (int):
+            blocked_test_points (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -138,12 +146,6 @@ class UserRankModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            score (int): [optional]  # noqa: E501
-            work_items_created (int): [optional]  # noqa: E501
-            passed_test_points (int): [optional]  # noqa: E501
-            failed_test_points (int): [optional]  # noqa: E501
-            skipped_test_points (int): [optional]  # noqa: E501
-            blocked_test_points (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -175,6 +177,12 @@ class UserRankModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.score = score
+        self.work_items_created = work_items_created
+        self.passed_test_points = passed_test_points
+        self.failed_test_points = failed_test_points
+        self.skipped_test_points = skipped_test_points
+        self.blocked_test_points = blocked_test_points
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -195,8 +203,16 @@ class UserRankModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, score, work_items_created, passed_test_points, failed_test_points, skipped_test_points, blocked_test_points, *args, **kwargs):  # noqa: E501
         """UserRankModel - a model defined in OpenAPI
+
+        Args:
+            score (int):
+            work_items_created (int):
+            passed_test_points (int):
+            failed_test_points (int):
+            skipped_test_points (int):
+            blocked_test_points (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,12 +245,6 @@ class UserRankModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            score (int): [optional]  # noqa: E501
-            work_items_created (int): [optional]  # noqa: E501
-            passed_test_points (int): [optional]  # noqa: E501
-            failed_test_points (int): [optional]  # noqa: E501
-            skipped_test_points (int): [optional]  # noqa: E501
-            blocked_test_points (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,6 +274,12 @@ class UserRankModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.score = score
+        self.work_items_created = work_items_created
+        self.passed_test_points = passed_test_points
+        self.failed_test_points = failed_test_points
+        self.skipped_test_points = skipped_test_points
+        self.blocked_test_points = blocked_test_points
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

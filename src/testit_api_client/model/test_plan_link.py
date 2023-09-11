@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_plan_link_bug_link import TestPlanLinkBugLink
-    from testit_api_client.model.test_plan_link_info import TestPlanLinkInfo
-    globals()['TestPlanLinkBugLink'] = TestPlanLinkBugLink
-    globals()['TestPlanLinkInfo'] = TestPlanLinkInfo
+    from testit_api_client.model.external_link_model import ExternalLinkModel
+    from testit_api_client.model.link_model import LinkModel
+    globals()['ExternalLinkModel'] = ExternalLinkModel
+    globals()['LinkModel'] = LinkModel
 
 
 class TestPlanLink(ModelNormal):
@@ -82,13 +82,13 @@ class TestPlanLink(ModelNormal):
         """
         lazy_import()
         return {
-            'bug_link': (TestPlanLinkBugLink,),  # noqa: E501
+            'bug_link': (LinkModel,),  # noqa: E501
             'work_item_global_id': (int, none_type,),  # noqa: E501
             'work_item_name': (str, none_type,),  # noqa: E501
             'configuration_name': (str, none_type,),  # noqa: E501
             'created_by_id': (str, none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
-            'info': (TestPlanLinkInfo,),  # noqa: E501
+            'info': (ExternalLinkModel,),  # noqa: E501
         }
 
     @cached_property
@@ -147,13 +147,13 @@ class TestPlanLink(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bug_link (TestPlanLinkBugLink): [optional]  # noqa: E501
+            bug_link (LinkModel): [optional]  # noqa: E501
             work_item_global_id (int, none_type): [optional]  # noqa: E501
             work_item_name (str, none_type): [optional]  # noqa: E501
             configuration_name (str, none_type): [optional]  # noqa: E501
             created_by_id (str, none_type): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
-            info (TestPlanLinkInfo): [optional]  # noqa: E501
+            info (ExternalLinkModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,13 +239,13 @@ class TestPlanLink(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bug_link (TestPlanLinkBugLink): [optional]  # noqa: E501
+            bug_link (LinkModel): [optional]  # noqa: E501
             work_item_global_id (int, none_type): [optional]  # noqa: E501
             work_item_name (str, none_type): [optional]  # noqa: E501
             configuration_name (str, none_type): [optional]  # noqa: E501
             created_by_id (str, none_type): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
-            info (TestPlanLinkInfo): [optional]  # noqa: E501
+            info (ExternalLinkModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

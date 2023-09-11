@@ -91,9 +91,9 @@ class SectionSharedStep(ModelComposed):
         return {
             'version_id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'steps': ([StepModel],),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'steps': ([StepModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -104,9 +104,9 @@ class SectionSharedStep(ModelComposed):
     attribute_map = {
         'version_id': 'versionId',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
         'name': 'name',  # noqa: E501
         'steps': 'steps',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
     }
 
     read_only_vars = {
@@ -118,6 +118,9 @@ class SectionSharedStep(ModelComposed):
         """SectionSharedStep - a model defined in OpenAPI
 
         Keyword Args:
+            version_id (str):
+            global_id (int):
+            is_deleted (bool):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -148,11 +151,8 @@ class SectionSharedStep(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            version_id (str): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            steps ([StepModel]): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            steps ([StepModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,6 +226,9 @@ class SectionSharedStep(ModelComposed):
         """SectionSharedStep - a model defined in OpenAPI
 
         Keyword Args:
+            version_id (str):
+            global_id (int):
+            is_deleted (bool):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -256,11 +259,8 @@ class SectionSharedStep(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            version_id (str): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            steps ([StepModel]): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            steps ([StepModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

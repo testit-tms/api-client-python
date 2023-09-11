@@ -34,6 +34,7 @@ def lazy_import():
     from testit_api_client.model.test_point_filter_model_duration import TestPointFilterModelDuration
     from testit_api_client.model.test_point_filter_model_modified_date import TestPointFilterModelModifiedDate
     from testit_api_client.model.test_point_filter_model_work_item_created_date import TestPointFilterModelWorkItemCreatedDate
+    from testit_api_client.model.test_point_filter_model_work_item_median_duration import TestPointFilterModelWorkItemMedianDuration
     from testit_api_client.model.test_point_filter_model_work_item_modified_date import TestPointFilterModelWorkItemModifiedDate
     from testit_api_client.model.test_point_status import TestPointStatus
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
@@ -41,6 +42,7 @@ def lazy_import():
     globals()['TestPointFilterModelDuration'] = TestPointFilterModelDuration
     globals()['TestPointFilterModelModifiedDate'] = TestPointFilterModelModifiedDate
     globals()['TestPointFilterModelWorkItemCreatedDate'] = TestPointFilterModelWorkItemCreatedDate
+    globals()['TestPointFilterModelWorkItemMedianDuration'] = TestPointFilterModelWorkItemMedianDuration
     globals()['TestPointFilterModelWorkItemModifiedDate'] = TestPointFilterModelWorkItemModifiedDate
     globals()['TestPointStatus'] = TestPointStatus
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
@@ -74,35 +76,9 @@ class TestPointFilterModel(ModelNormal):
     }
 
     validations = {
-        ('test_plan_ids',): {
-        },
-        ('test_suite_ids',): {
-        },
-        ('work_item_global_ids',): {
-        },
-        ('statuses',): {
-        },
-        ('priorities',): {
-        },
         ('name',): {
             'max_length': 255,
             'min_length': 0,
-        },
-        ('configuration_ids',): {
-        },
-        ('tester_ids',): {
-        },
-        ('section_ids',): {
-        },
-        ('created_by_ids',): {
-        },
-        ('modified_by_ids',): {
-        },
-        ('tags',): {
-        },
-        ('work_item_created_by_ids',): {
-        },
-        ('work_item_modified_by_ids',): {
         },
     }
 
@@ -125,6 +101,7 @@ class TestPointFilterModel(ModelNormal):
             'test_plan_ids': ([str], none_type,),  # noqa: E501
             'test_suite_ids': ([str], none_type,),  # noqa: E501
             'work_item_global_ids': ([int], none_type,),  # noqa: E501
+            'work_item_median_duration': (TestPointFilterModelWorkItemMedianDuration,),  # noqa: E501
             'statuses': ([TestPointStatus], none_type,),  # noqa: E501
             'priorities': ([WorkItemPriorityModel], none_type,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
@@ -138,7 +115,7 @@ class TestPointFilterModel(ModelNormal):
             'modified_date': (TestPointFilterModelModifiedDate,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
-            'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
+            'attributes': ({str: ([str],)}, none_type,),  # noqa: E501
             'work_item_created_date': (TestPointFilterModelWorkItemCreatedDate,),  # noqa: E501
             'work_item_created_by_ids': ([str], none_type,),  # noqa: E501
             'work_item_modified_date': (TestPointFilterModelWorkItemModifiedDate,),  # noqa: E501
@@ -154,6 +131,7 @@ class TestPointFilterModel(ModelNormal):
         'test_plan_ids': 'testPlanIds',  # noqa: E501
         'test_suite_ids': 'testSuiteIds',  # noqa: E501
         'work_item_global_ids': 'workItemGlobalIds',  # noqa: E501
+        'work_item_median_duration': 'workItemMedianDuration',  # noqa: E501
         'statuses': 'statuses',  # noqa: E501
         'priorities': 'priorities',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
@@ -218,6 +196,7 @@ class TestPointFilterModel(ModelNormal):
             test_plan_ids ([str], none_type): Specifies a test point test plan IDS to search for. [optional]  # noqa: E501
             test_suite_ids ([str], none_type): Specifies a test point test suite IDs to search for. [optional]  # noqa: E501
             work_item_global_ids ([int], none_type): Specifies a test point work item global IDs to search for. [optional]  # noqa: E501
+            work_item_median_duration (TestPointFilterModelWorkItemMedianDuration): [optional]  # noqa: E501
             statuses ([TestPointStatus], none_type): Specifies a test point statuses to search for. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Specifies a test point priorities to search for. [optional]  # noqa: E501
             is_automated (bool, none_type): Specifies a test point automation status to search for. [optional]  # noqa: E501
@@ -231,7 +210,7 @@ class TestPointFilterModel(ModelNormal):
             modified_date (TestPointFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
-            attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
+            attributes ({str: ([str],)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
             work_item_created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
             work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501
             work_item_modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
@@ -324,6 +303,7 @@ class TestPointFilterModel(ModelNormal):
             test_plan_ids ([str], none_type): Specifies a test point test plan IDS to search for. [optional]  # noqa: E501
             test_suite_ids ([str], none_type): Specifies a test point test suite IDs to search for. [optional]  # noqa: E501
             work_item_global_ids ([int], none_type): Specifies a test point work item global IDs to search for. [optional]  # noqa: E501
+            work_item_median_duration (TestPointFilterModelWorkItemMedianDuration): [optional]  # noqa: E501
             statuses ([TestPointStatus], none_type): Specifies a test point statuses to search for. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Specifies a test point priorities to search for. [optional]  # noqa: E501
             is_automated (bool, none_type): Specifies a test point automation status to search for. [optional]  # noqa: E501
@@ -337,7 +317,7 @@ class TestPointFilterModel(ModelNormal):
             modified_date (TestPointFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
-            attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
+            attributes ({str: ([str],)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
             work_item_created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
             work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501
             work_item_modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501

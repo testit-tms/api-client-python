@@ -1,6 +1,6 @@
 # TestSuiteWorkItemsSearchModelDuration
 
-Duration range model
+Specifies a work item duration range to search for
 
 ## Properties
 Name | Type | Description | Notes

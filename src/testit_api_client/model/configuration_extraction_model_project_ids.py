@@ -62,10 +62,6 @@ class ConfigurationExtractionModelProjectIds(ModelComposed):
     }
 
     validations = {
-        ('include',): {
-        },
-        ('exclude',): {
-        },
     }
 
     @cached_property

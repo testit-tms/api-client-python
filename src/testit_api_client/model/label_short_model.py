@@ -78,8 +78,8 @@ class LabelShortModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
+            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -88,8 +88,8 @@ class LabelShortModel(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -99,11 +99,12 @@ class LabelShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, global_id, name, *args, **kwargs):  # noqa: E501
         """LabelShortModel - a model defined in OpenAPI
 
         Args:
-            name (str): Label name.
+            global_id (int): Global ID of the label
+            name (str): Name of the label
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -136,7 +137,6 @@ class LabelShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            global_id (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -168,6 +168,7 @@ class LabelShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.global_id = global_id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -189,11 +190,12 @@ class LabelShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, global_id, name, *args, **kwargs):  # noqa: E501
         """LabelShortModel - a model defined in OpenAPI
 
         Args:
-            name (str): Label name.
+            global_id (int): Global ID of the label
+            name (str): Name of the label
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,7 +228,6 @@ class LabelShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            global_id (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,6 +257,7 @@ class LabelShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.global_id = global_id
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

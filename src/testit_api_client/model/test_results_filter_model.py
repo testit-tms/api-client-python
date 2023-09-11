@@ -64,14 +64,6 @@ class TestResultsFilterModel(ModelNormal):
     }
 
     validations = {
-        ('test_run_ids',): {
-        },
-        ('configuration_ids',): {
-        },
-        ('outcomes',): {
-        },
-        ('failure_categories',): {
-        },
         ('namespace',): {
             'max_length': 255,
             'min_length': 0,

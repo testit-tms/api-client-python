@@ -31,7 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.tag_short_model import TagShortModel
+    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     globals()['TagShortModel'] = TagShortModel
+    globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
 
 
 class SharedStepReferenceModel(ModelNormal):
@@ -80,23 +82,23 @@ class SharedStepReferenceModel(ModelNormal):
         """
         lazy_import()
         return {
-            'priority': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'entity_type_name': (str,),  # noqa: E501
             'has_this_shared_step_as_step': (bool,),  # noqa: E501
             'has_this_shared_step_as_precondition': (bool,),  # noqa: E501
             'has_this_shared_step_as_postcondition': (bool,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
-            'state': (str,),  # noqa: E501
+            'priority': (WorkItemPriorityModel,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'version_id': (str,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'entity_type_name': (str, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
+            'created_date': (datetime, none_type,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'state': (str, none_type,),  # noqa: E501
             'tags': ([TagShortModel], none_type,),  # noqa: E501
         }
 
@@ -106,23 +108,23 @@ class SharedStepReferenceModel(ModelNormal):
 
 
     attribute_map = {
-        'priority': 'priority',  # noqa: E501
         'id': 'id',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'entity_type_name': 'entityTypeName',  # noqa: E501
         'has_this_shared_step_as_step': 'hasThisSharedStepAsStep',  # noqa: E501
         'has_this_shared_step_as_precondition': 'hasThisSharedStepAsPrecondition',  # noqa: E501
         'has_this_shared_step_as_postcondition': 'hasThisSharedStepAsPostcondition',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
-        'modified_by_id': 'modifiedById',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
-        'state': 'state',  # noqa: E501
+        'priority': 'priority',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'version_id': 'versionId',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'entity_type_name': 'entityTypeName',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'state': 'state',  # noqa: E501
         'tags': 'tags',  # noqa: E501
     }
 
@@ -133,11 +135,21 @@ class SharedStepReferenceModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, priority, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, global_id, has_this_shared_step_as_step, has_this_shared_step_as_precondition, has_this_shared_step_as_postcondition, created_by_id, priority, is_deleted, version_id, is_automated, section_id, *args, **kwargs):  # noqa: E501
         """SharedStepReferenceModel - a model defined in OpenAPI
 
         Args:
-            priority (bool, date, datetime, dict, float, int, list, str, none_type):
+            id (str):
+            global_id (int):
+            has_this_shared_step_as_step (bool):
+            has_this_shared_step_as_precondition (bool):
+            has_this_shared_step_as_postcondition (bool):
+            created_by_id (str):
+            priority (WorkItemPriorityModel):
+            is_deleted (bool):
+            version_id (str): used for versioning changes in workitem
+            is_automated (bool):
+            section_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -170,22 +182,12 @@ class SharedStepReferenceModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            entity_type_name (str): [optional]  # noqa: E501
-            has_this_shared_step_as_step (bool): [optional]  # noqa: E501
-            has_this_shared_step_as_precondition (bool): [optional]  # noqa: E501
-            has_this_shared_step_as_postcondition (bool): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            entity_type_name (str, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            state (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
+            state (str, none_type): [optional]  # noqa: E501
             tags ([TagShortModel], none_type): [optional]  # noqa: E501
         """
 
@@ -218,7 +220,17 @@ class SharedStepReferenceModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.global_id = global_id
+        self.has_this_shared_step_as_step = has_this_shared_step_as_step
+        self.has_this_shared_step_as_precondition = has_this_shared_step_as_precondition
+        self.has_this_shared_step_as_postcondition = has_this_shared_step_as_postcondition
+        self.created_by_id = created_by_id
         self.priority = priority
+        self.is_deleted = is_deleted
+        self.version_id = version_id
+        self.is_automated = is_automated
+        self.section_id = section_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -239,11 +251,21 @@ class SharedStepReferenceModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, priority, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, global_id, has_this_shared_step_as_step, has_this_shared_step_as_precondition, has_this_shared_step_as_postcondition, created_by_id, priority, is_deleted, version_id, is_automated, section_id, *args, **kwargs):  # noqa: E501
         """SharedStepReferenceModel - a model defined in OpenAPI
 
         Args:
-            priority (bool, date, datetime, dict, float, int, list, str, none_type):
+            id (str):
+            global_id (int):
+            has_this_shared_step_as_step (bool):
+            has_this_shared_step_as_precondition (bool):
+            has_this_shared_step_as_postcondition (bool):
+            created_by_id (str):
+            priority (WorkItemPriorityModel):
+            is_deleted (bool):
+            version_id (str): used for versioning changes in workitem
+            is_automated (bool):
+            section_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -276,22 +298,12 @@ class SharedStepReferenceModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            entity_type_name (str): [optional]  # noqa: E501
-            has_this_shared_step_as_step (bool): [optional]  # noqa: E501
-            has_this_shared_step_as_precondition (bool): [optional]  # noqa: E501
-            has_this_shared_step_as_postcondition (bool): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            entity_type_name (str, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            state (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
+            state (str, none_type): [optional]  # noqa: E501
             tags ([TagShortModel], none_type): [optional]  # noqa: E501
         """
 
@@ -322,7 +334,17 @@ class SharedStepReferenceModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.global_id = global_id
+        self.has_this_shared_step_as_step = has_this_shared_step_as_step
+        self.has_this_shared_step_as_precondition = has_this_shared_step_as_precondition
+        self.has_this_shared_step_as_postcondition = has_this_shared_step_as_postcondition
+        self.created_by_id = created_by_id
         self.priority = priority
+        self.is_deleted = is_deleted
+        self.version_id = version_id
+        self.is_automated = is_automated
+        self.section_id = section_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

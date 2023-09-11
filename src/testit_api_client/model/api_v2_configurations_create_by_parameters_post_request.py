@@ -89,8 +89,8 @@ class ApiV2ConfigurationsCreateByParametersPostRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'parameter_ids': ([str],),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'parameter_ids': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -99,8 +99,8 @@ class ApiV2ConfigurationsCreateByParametersPostRequest(ModelComposed):
 
 
     attribute_map = {
-        'parameter_ids': 'parameterIds',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'parameter_ids': 'parameterIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -112,6 +112,7 @@ class ApiV2ConfigurationsCreateByParametersPostRequest(ModelComposed):
         """ApiV2ConfigurationsCreateByParametersPostRequest - a model defined in OpenAPI
 
         Keyword Args:
+            project_id (str): This property is used to link configuration with project
             parameter_ids ([str]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -143,7 +144,6 @@ class ApiV2ConfigurationsCreateByParametersPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_id (str): This property is used to link configuration with project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,6 +217,7 @@ class ApiV2ConfigurationsCreateByParametersPostRequest(ModelComposed):
         """ApiV2ConfigurationsCreateByParametersPostRequest - a model defined in OpenAPI
 
         Keyword Args:
+            project_id (str): This property is used to link configuration with project
             parameter_ids ([str]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -248,7 +249,6 @@ class ApiV2ConfigurationsCreateByParametersPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_id (str): This property is used to link configuration with project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

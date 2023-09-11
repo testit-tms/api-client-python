@@ -87,18 +87,18 @@ class TestResultConfiguration(ModelComposed):
         """
         lazy_import()
         return {
-            'description': (str, none_type,),  # noqa: E501
-            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
+            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -107,18 +107,18 @@ class TestResultConfiguration(ModelComposed):
 
 
     attribute_map = {
-        'description': 'description',  # noqa: E501
-        'parameters': 'parameters',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
-        'modified_by_id': 'modifiedById',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
     }
 
     read_only_vars = {
@@ -130,6 +130,13 @@ class TestResultConfiguration(ModelComposed):
         """TestResultConfiguration - a model defined in OpenAPI
 
         Keyword Args:
+            project_id (str): This property is used to link configuration with project
+            is_default (bool):
+            created_date (datetime):
+            created_by_id (str):
+            global_id (int):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -161,17 +168,10 @@ class TestResultConfiguration(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            project_id (str): This property is used to link configuration with project. [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,6 +245,13 @@ class TestResultConfiguration(ModelComposed):
         """TestResultConfiguration - a model defined in OpenAPI
 
         Keyword Args:
+            project_id (str): This property is used to link configuration with project
+            is_default (bool):
+            created_date (datetime):
+            created_by_id (str):
+            global_id (int):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -276,17 +283,10 @@ class TestResultConfiguration(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            project_id (str): This property is used to link configuration with project. [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

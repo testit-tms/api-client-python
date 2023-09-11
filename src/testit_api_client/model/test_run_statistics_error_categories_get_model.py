@@ -102,8 +102,15 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, no_analytics, no_defect, infrastructure_defect, product_defect, test_defect, *args, **kwargs):  # noqa: E501
         """TestRunStatisticsErrorCategoriesGetModel - a model defined in OpenAPI
+
+        Args:
+            no_analytics (int): Number of test results which outcomes were not analyzed
+            no_defect (int): Number of test results which outcomes were not caused by any defect
+            infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect
+            product_defect (int): Number of test results which outcomes were caused by some tested product defect
+            test_defect (int): Number of test results which outcomes were caused by test itself
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -136,11 +143,6 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            no_analytics (int): Number of test results which outcomes were not analyzed. [optional]  # noqa: E501
-            no_defect (int): Number of test results which outcomes were not caused by any defect. [optional]  # noqa: E501
-            infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect. [optional]  # noqa: E501
-            product_defect (int): Number of test results which outcomes were caused by some tested product defect. [optional]  # noqa: E501
-            test_defect (int): Number of test results which outcomes were caused by test itself. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,6 +174,11 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.no_analytics = no_analytics
+        self.no_defect = no_defect
+        self.infrastructure_defect = infrastructure_defect
+        self.product_defect = product_defect
+        self.test_defect = test_defect
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -192,8 +199,15 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, no_analytics, no_defect, infrastructure_defect, product_defect, test_defect, *args, **kwargs):  # noqa: E501
         """TestRunStatisticsErrorCategoriesGetModel - a model defined in OpenAPI
+
+        Args:
+            no_analytics (int): Number of test results which outcomes were not analyzed
+            no_defect (int): Number of test results which outcomes were not caused by any defect
+            infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect
+            product_defect (int): Number of test results which outcomes were caused by some tested product defect
+            test_defect (int): Number of test results which outcomes were caused by test itself
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,11 +240,6 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            no_analytics (int): Number of test results which outcomes were not analyzed. [optional]  # noqa: E501
-            no_defect (int): Number of test results which outcomes were not caused by any defect. [optional]  # noqa: E501
-            infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect. [optional]  # noqa: E501
-            product_defect (int): Number of test results which outcomes were caused by some tested product defect. [optional]  # noqa: E501
-            test_defect (int): Number of test results which outcomes were caused by test itself. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,6 +269,11 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.no_analytics = no_analytics
+        self.no_defect = no_defect
+        self.infrastructure_defect = infrastructure_defect
+        self.product_defect = product_defect
+        self.test_defect = test_defect
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

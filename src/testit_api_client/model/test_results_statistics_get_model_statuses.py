@@ -73,7 +73,7 @@ class TestResultsStatisticsGetModelStatuses(ModelComposed):
         lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = False
+    _nullable = True
 
     @cached_property
     def openapi_types():
@@ -116,6 +116,11 @@ class TestResultsStatisticsGetModelStatuses(ModelComposed):
         """TestResultsStatisticsGetModelStatuses - a model defined in OpenAPI
 
         Keyword Args:
+            in_progress (int): Number of test results which is running currently
+            passed (int): Number of test results which successfully passed
+            failed (int): Number of test results which failed with an error
+            skipped (int): Number of test results which did not run and were skipped
+            blocked (int): Number of test results which cannot be launched
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -146,11 +151,6 @@ class TestResultsStatisticsGetModelStatuses(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            in_progress (int): Number of test results which is running currently. [optional]  # noqa: E501
-            passed (int): Number of test results which successfully passed. [optional]  # noqa: E501
-            failed (int): Number of test results which failed with an error. [optional]  # noqa: E501
-            skipped (int): Number of test results which did not run and were skipped. [optional]  # noqa: E501
-            blocked (int): Number of test results which cannot be launched. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,6 +224,11 @@ class TestResultsStatisticsGetModelStatuses(ModelComposed):
         """TestResultsStatisticsGetModelStatuses - a model defined in OpenAPI
 
         Keyword Args:
+            in_progress (int): Number of test results which is running currently
+            passed (int): Number of test results which successfully passed
+            failed (int): Number of test results which failed with an error
+            skipped (int): Number of test results which did not run and were skipped
+            blocked (int): Number of test results which cannot be launched
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -254,11 +259,6 @@ class TestResultsStatisticsGetModelStatuses(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            in_progress (int): Number of test results which is running currently. [optional]  # noqa: E501
-            passed (int): Number of test results which successfully passed. [optional]  # noqa: E501
-            failed (int): Number of test results which failed with an error. [optional]  # noqa: E501
-            skipped (int): Number of test results which did not run and were skipped. [optional]  # noqa: E501
-            blocked (int): Number of test results which cannot be launched. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

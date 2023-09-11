@@ -73,7 +73,7 @@ class TestResultsStatisticsGetModelFailureCategories(ModelComposed):
         lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = False
+    _nullable = True
 
     @cached_property
     def openapi_types():
@@ -116,6 +116,11 @@ class TestResultsStatisticsGetModelFailureCategories(ModelComposed):
         """TestResultsStatisticsGetModelFailureCategories - a model defined in OpenAPI
 
         Keyword Args:
+            no_analytics (int): Number of test results which outcomes were not analyzed
+            no_defect (int): Number of test results which outcomes were not caused by any defect
+            infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect
+            product_defect (int): Number of test results which outcomes were caused by some tested product defect
+            test_defect (int): Number of test results which outcomes were caused by test itself
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -146,11 +151,6 @@ class TestResultsStatisticsGetModelFailureCategories(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            no_analytics (int): Number of test results which outcomes were not analyzed. [optional]  # noqa: E501
-            no_defect (int): Number of test results which outcomes were not caused by any defect. [optional]  # noqa: E501
-            infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect. [optional]  # noqa: E501
-            product_defect (int): Number of test results which outcomes were caused by some tested product defect. [optional]  # noqa: E501
-            test_defect (int): Number of test results which outcomes were caused by test itself. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,6 +224,11 @@ class TestResultsStatisticsGetModelFailureCategories(ModelComposed):
         """TestResultsStatisticsGetModelFailureCategories - a model defined in OpenAPI
 
         Keyword Args:
+            no_analytics (int): Number of test results which outcomes were not analyzed
+            no_defect (int): Number of test results which outcomes were not caused by any defect
+            infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect
+            product_defect (int): Number of test results which outcomes were caused by some tested product defect
+            test_defect (int): Number of test results which outcomes were caused by test itself
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -254,11 +259,6 @@ class TestResultsStatisticsGetModelFailureCategories(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            no_analytics (int): Number of test results which outcomes were not analyzed. [optional]  # noqa: E501
-            no_defect (int): Number of test results which outcomes were not caused by any defect. [optional]  # noqa: E501
-            infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect. [optional]  # noqa: E501
-            product_defect (int): Number of test results which outcomes were caused by some tested product defect. [optional]  # noqa: E501
-            test_defect (int): Number of test results which outcomes were caused by test itself. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

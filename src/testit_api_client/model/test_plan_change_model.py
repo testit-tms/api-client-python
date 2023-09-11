@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_plan_change_model_test_plan_changed_fields import TestPlanChangeModelTestPlanChangedFields
-    globals()['TestPlanChangeModelTestPlanChangedFields'] = TestPlanChangeModelTestPlanChangedFields
+    from testit_api_client.model.test_plan_changed_fields_view_model import TestPlanChangedFieldsViewModel
+    globals()['TestPlanChangedFieldsViewModel'] = TestPlanChangedFieldsViewModel
 
 
 class TestPlanChangeModel(ModelNormal):
@@ -82,8 +82,8 @@ class TestPlanChangeModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'test_plan_id': (str,),  # noqa: E501
-            'test_plan_changed_fields': (TestPlanChangeModelTestPlanChangedFields,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'test_plan_changed_fields': (TestPlanChangedFieldsViewModel,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
         }
 
@@ -95,8 +95,8 @@ class TestPlanChangeModel(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'test_plan_id': 'testPlanId',  # noqa: E501
-        'test_plan_changed_fields': 'testPlanChangedFields',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'test_plan_changed_fields': 'testPlanChangedFields',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
     }
 
@@ -107,8 +107,13 @@ class TestPlanChangeModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, test_plan_id, created_by_id, *args, **kwargs):  # noqa: E501
         """TestPlanChangeModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            test_plan_id (str):
+            created_by_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,10 +146,7 @@ class TestPlanChangeModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            test_plan_id (str): [optional]  # noqa: E501
-            test_plan_changed_fields (TestPlanChangeModelTestPlanChangedFields): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
+            test_plan_changed_fields (TestPlanChangedFieldsViewModel): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -177,6 +179,9 @@ class TestPlanChangeModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.test_plan_id = test_plan_id
+        self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -197,8 +202,13 @@ class TestPlanChangeModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, test_plan_id, created_by_id, *args, **kwargs):  # noqa: E501
         """TestPlanChangeModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            test_plan_id (str):
+            created_by_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -231,10 +241,7 @@ class TestPlanChangeModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            test_plan_id (str): [optional]  # noqa: E501
-            test_plan_changed_fields (TestPlanChangeModelTestPlanChangedFields): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
+            test_plan_changed_fields (TestPlanChangedFieldsViewModel): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -265,6 +272,9 @@ class TestPlanChangeModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.test_plan_id = test_plan_id
+        self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

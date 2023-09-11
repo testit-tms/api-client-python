@@ -260,8 +260,8 @@ import time
 import testit_api_client
 from testit_api_client.api import webhooks_api
 from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.api_v2_webhooks_get_request import ApiV2WebhooksGetRequest
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -285,7 +285,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
     id = "id_example" # str | Webhook unique ID
-    api_v2_webhooks_get_request = ApiV2WebhooksGetRequest(None) # ApiV2WebhooksGetRequest |  (optional)
+    api_v2_webhooks_post_request = ApiV2WebhooksPostRequest(None) # ApiV2WebhooksPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -299,7 +299,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit webhook by ID
-        api_response = api_instance.api_v2_webhooks_id_put(id, api_v2_webhooks_get_request=api_v2_webhooks_get_request)
+        api_response = api_instance.api_v2_webhooks_id_put(id, api_v2_webhooks_post_request=api_v2_webhooks_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_id_put: %s\n" % e)
@@ -311,7 +311,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Webhook unique ID |
- **api_v2_webhooks_get_request** | [**ApiV2WebhooksGetRequest**](ApiV2WebhooksGetRequest.md)|  | [optional]
+ **api_v2_webhooks_post_request** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -331,8 +331,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Update permission for webhooks is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -350,8 +350,8 @@ import time
 import testit_api_client
 from testit_api_client.api import webhooks_api
 from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.api_v2_webhooks_get_request import ApiV2WebhooksGetRequest
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -374,13 +374,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
-    api_v2_webhooks_get_request = ApiV2WebhooksGetRequest(None) # ApiV2WebhooksGetRequest |  (optional)
+    api_v2_webhooks_post_request = ApiV2WebhooksPostRequest(None) # ApiV2WebhooksPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create webhook
-        api_response = api_instance.api_v2_webhooks_post(api_v2_webhooks_get_request=api_v2_webhooks_get_request)
+        api_response = api_instance.api_v2_webhooks_post(api_v2_webhooks_post_request=api_v2_webhooks_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_post: %s\n" % e)
@@ -391,7 +391,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_webhooks_get_request** | [**ApiV2WebhooksGetRequest**](ApiV2WebhooksGetRequest.md)|  | [optional]
+ **api_v2_webhooks_post_request** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -501,8 +501,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **403** | Read permission for all requested projects is required |  -  |
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -519,6 +519,8 @@ Get special variables for webhook event type
 import time
 import testit_api_client
 from testit_api_client.api import webhooks_api
+from testit_api_client.model.webhook_variables_type import WebhookVariablesType
+from testit_api_client.model.web_hook_event_type import WebHookEventType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -541,13 +543,14 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
-    event_type = None # bool, date, datetime, dict, float, int, list, str, none_type | Webhook event type (optional)
+    event_type = None # WebHookEventType | Webhook event type (optional)
+    variables_type = None # WebhookVariablesType |  (optional) if omitted the server will use the default value of VariablesForUrl
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Get special variables for webhook event type
-        api_response = api_instance.api_v2_webhooks_special_variables_get(event_type=event_type)
+        api_response = api_instance.api_v2_webhooks_special_variables_get(event_type=event_type, variables_type=variables_type)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_special_variables_get: %s\n" % e)
@@ -558,7 +561,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event_type** | **bool, date, datetime, dict, float, int, list, str, none_type**| Webhook event type | [optional]
+ **event_type** | **WebHookEventType**| Webhook event type | [optional]
+ **variables_type** | **WebhookVariablesType**|  | [optional] if omitted the server will use the default value of VariablesForUrl
 
 ### Return type
 
@@ -657,8 +661,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **403** | Update permission for webhooks is required |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

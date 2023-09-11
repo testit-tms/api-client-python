@@ -116,6 +116,7 @@ class CreateAutoTestRequest(ModelComposed):
             'description': (str, none_type,),  # noqa: E501
             'labels': ([LabelPostModel], none_type,),  # noqa: E501
             'is_flaky': (bool, none_type,),  # noqa: E501
+            'external_key': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -139,6 +140,7 @@ class CreateAutoTestRequest(ModelComposed):
         'description': 'description',  # noqa: E501
         'labels': 'labels',  # noqa: E501
         'is_flaky': 'isFlaky',  # noqa: E501
+        'external_key': 'externalKey',  # noqa: E501
     }
 
     read_only_vars = {
@@ -195,6 +197,7 @@ class CreateAutoTestRequest(ModelComposed):
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -313,6 +316,7 @@ class CreateAutoTestRequest(ModelComposed):
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

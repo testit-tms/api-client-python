@@ -95,8 +95,8 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**400** | &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty |  -  |
 **404** | &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found |  -  |
+**400** | &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty |  -  |
 **200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -345,8 +345,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
 **403** | Update permission for configuration is required |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -421,8 +421,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
 **403** | Full access permission for the archive is required |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -593,7 +593,7 @@ import time
 import testit_api_client
 from testit_api_client.api import configurations_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_configurations_post_request import ApiV2ConfigurationsPostRequest
+from testit_api_client.model.api_v2_configurations_put_request import ApiV2ConfigurationsPutRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -616,13 +616,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
-    api_v2_configurations_post_request = ApiV2ConfigurationsPostRequest(None) # ApiV2ConfigurationsPostRequest |  (optional)
+    api_v2_configurations_put_request = ApiV2ConfigurationsPutRequest(None) # ApiV2ConfigurationsPutRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Edit configuration
-        api_instance.api_v2_configurations_put(api_v2_configurations_post_request=api_v2_configurations_post_request)
+        api_instance.api_v2_configurations_put(api_v2_configurations_put_request=api_v2_configurations_put_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_put: %s\n" % e)
 ```
@@ -632,7 +632,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_configurations_post_request** | [**ApiV2ConfigurationsPostRequest**](ApiV2ConfigurationsPostRequest.md)|  | [optional]
+ **api_v2_configurations_put_request** | [**ApiV2ConfigurationsPutRequest**](ApiV2ConfigurationsPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -652,8 +652,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
 **403** | Update permission for configurations is required |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -900,11 +900,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Successful operation |  -  |
 **400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
 **403** | Update permission for configuration required |  -  |
 **404** | Can&#39;t find project |  -  |
+**401** | Unauthorized |  -  |
+**201** | Successful operation |  -  |
 **409** | Configuration with the same name already exists! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -984,8 +984,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
+**200** | Successful operation |  -  |
 **403** | Read permission for configuration required |  -  |
 **404** | Can&#39;t find configuration with id |  -  |
 

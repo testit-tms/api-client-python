@@ -75,15 +75,15 @@ class TestPointPutModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'tester_id': (str, none_type,),  # noqa: E501
             'iteration_id': (str,),  # noqa: E501
-            'work_item_id': (str, none_type,),  # noqa: E501
-            'configuration_id': (str, none_type,),  # noqa: E501
             'test_suite_id': (str,),  # noqa: E501
-            'status': (str, none_type,),  # noqa: E501
-            'last_test_result_id': (str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'tester_id': (str, none_type,),  # noqa: E501
+            'work_item_id': (str, none_type,),  # noqa: E501
+            'configuration_id': (str, none_type,),  # noqa: E501
+            'status': (str, none_type,),  # noqa: E501
+            'last_test_result_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -92,15 +92,15 @@ class TestPointPutModel(ModelNormal):
 
 
     attribute_map = {
-        'tester_id': 'testerId',  # noqa: E501
         'iteration_id': 'iterationId',  # noqa: E501
-        'work_item_id': 'workItemId',  # noqa: E501
-        'configuration_id': 'configurationId',  # noqa: E501
         'test_suite_id': 'testSuiteId',  # noqa: E501
-        'status': 'status',  # noqa: E501
-        'last_test_result_id': 'lastTestResultId',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'tester_id': 'testerId',  # noqa: E501
+        'work_item_id': 'workItemId',  # noqa: E501
+        'configuration_id': 'configurationId',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'last_test_result_id': 'lastTestResultId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -110,8 +110,14 @@ class TestPointPutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, iteration_id, test_suite_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """TestPointPutModel - a model defined in OpenAPI
+
+        Args:
+            iteration_id (str):
+            test_suite_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,14 +151,10 @@ class TestPointPutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tester_id (str, none_type): [optional]  # noqa: E501
-            iteration_id (str): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
-            test_suite_id (str): [optional]  # noqa: E501
             status (str, none_type): [optional]  # noqa: E501
             last_test_result_id (str, none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -184,6 +186,10 @@ class TestPointPutModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.iteration_id = iteration_id
+        self.test_suite_id = test_suite_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -204,8 +210,14 @@ class TestPointPutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, iteration_id, test_suite_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """TestPointPutModel - a model defined in OpenAPI
+
+        Args:
+            iteration_id (str):
+            test_suite_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -239,14 +251,10 @@ class TestPointPutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tester_id (str, none_type): [optional]  # noqa: E501
-            iteration_id (str): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
-            test_suite_id (str): [optional]  # noqa: E501
             status (str, none_type): [optional]  # noqa: E501
             last_test_result_id (str, none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -276,6 +284,10 @@ class TestPointPutModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.iteration_id = iteration_id
+        self.test_suite_id = test_suite_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

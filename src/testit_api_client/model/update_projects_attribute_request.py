@@ -32,8 +32,10 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.custom_attribute_option_model import CustomAttributeOptionModel
     from testit_api_client.model.custom_attribute_put_model import CustomAttributePutModel
+    from testit_api_client.model.custom_attribute_types_enum import CustomAttributeTypesEnum
     globals()['CustomAttributeOptionModel'] = CustomAttributeOptionModel
     globals()['CustomAttributePutModel'] = CustomAttributePutModel
+    globals()['CustomAttributeTypesEnum'] = CustomAttributeTypesEnum
 
 
 class UpdateProjectsAttributeRequest(ModelComposed):
@@ -93,14 +95,14 @@ class UpdateProjectsAttributeRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'options': ([CustomAttributeOptionModel], none_type,),  # noqa: E501
+            'type': (CustomAttributeTypesEnum,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'is_required': (bool,),  # noqa: E501
             'is_global': (bool,),  # noqa: E501
+            'options': ([CustomAttributeOptionModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -109,14 +111,14 @@ class UpdateProjectsAttributeRequest(ModelComposed):
 
 
     attribute_map = {
-        'type': 'type',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'options': 'options',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
         'is_required': 'isRequired',  # noqa: E501
         'is_global': 'isGlobal',  # noqa: E501
+        'options': 'options',  # noqa: E501
     }
 
     read_only_vars = {
@@ -128,8 +130,13 @@ class UpdateProjectsAttributeRequest(ModelComposed):
         """UpdateProjectsAttributeRequest - a model defined in OpenAPI
 
         Keyword Args:
-            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of the attribute
+            id (str): Unique ID of the attribute
+            type (CustomAttributeTypesEnum):
+            is_deleted (bool): Indicates if the entity is deleted
             name (str): Name of the attribute
+            is_enabled (bool): Indicates if the attribute is enabled
+            is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_global (bool): Indicates if the attribute is available across all projects
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -160,12 +167,7 @@ class UpdateProjectsAttributeRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the attribute. [optional]  # noqa: E501
             options ([CustomAttributeOptionModel], none_type): Collection of the attribute options  <br />  Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
-            is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
-            is_required (bool): Indicates if the attribute value is mandatory to specify. [optional]  # noqa: E501
-            is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,8 +241,13 @@ class UpdateProjectsAttributeRequest(ModelComposed):
         """UpdateProjectsAttributeRequest - a model defined in OpenAPI
 
         Keyword Args:
-            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of the attribute
+            id (str): Unique ID of the attribute
+            type (CustomAttributeTypesEnum):
+            is_deleted (bool): Indicates if the entity is deleted
             name (str): Name of the attribute
+            is_enabled (bool): Indicates if the attribute is enabled
+            is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_global (bool): Indicates if the attribute is available across all projects
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -271,12 +278,7 @@ class UpdateProjectsAttributeRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the attribute. [optional]  # noqa: E501
             options ([CustomAttributeOptionModel], none_type): Collection of the attribute options  <br />  Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
-            is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
-            is_required (bool): Indicates if the attribute value is mandatory to specify. [optional]  # noqa: E501
-            is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

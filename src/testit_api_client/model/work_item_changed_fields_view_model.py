@@ -30,30 +30,30 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_plan_changed_fields_view_model_name import TestPlanChangedFieldsViewModelName
+    from testit_api_client.model.attachment_change_view_model_array_changed_field_view_model import AttachmentChangeViewModelArrayChangedFieldViewModel
+    from testit_api_client.model.auto_test_change_view_model_array_changed_field_view_model import AutoTestChangeViewModelArrayChangedFieldViewModel
+    from testit_api_client.model.boolean_changed_field_view_model import BooleanChangedFieldViewModel
+    from testit_api_client.model.guid_changed_field_view_model import GuidChangedFieldViewModel
+    from testit_api_client.model.int32_changed_field_view_model import Int32ChangedFieldViewModel
+    from testit_api_client.model.int64_changed_field_view_model import Int64ChangedFieldViewModel
+    from testit_api_client.model.string_array_changed_field_view_model import StringArrayChangedFieldViewModel
+    from testit_api_client.model.string_changed_field_view_model import StringChangedFieldViewModel
+    from testit_api_client.model.string_changed_field_with_diffs_view_model import StringChangedFieldWithDiffsViewModel
     from testit_api_client.model.work_item_changed_attribute_view_model import WorkItemChangedAttributeViewModel
-    from testit_api_client.model.work_item_changed_fields_view_model_attachments import WorkItemChangedFieldsViewModelAttachments
-    from testit_api_client.model.work_item_changed_fields_view_model_auto_tests import WorkItemChangedFieldsViewModelAutoTests
-    from testit_api_client.model.work_item_changed_fields_view_model_duration import WorkItemChangedFieldsViewModelDuration
-    from testit_api_client.model.work_item_changed_fields_view_model_global_id import WorkItemChangedFieldsViewModelGlobalId
-    from testit_api_client.model.work_item_changed_fields_view_model_is_deleted import WorkItemChangedFieldsViewModelIsDeleted
-    from testit_api_client.model.work_item_changed_fields_view_model_links import WorkItemChangedFieldsViewModelLinks
-    from testit_api_client.model.work_item_changed_fields_view_model_project_id import WorkItemChangedFieldsViewModelProjectId
-    from testit_api_client.model.work_item_changed_fields_view_model_state import WorkItemChangedFieldsViewModelState
-    from testit_api_client.model.work_item_changed_fields_view_model_steps import WorkItemChangedFieldsViewModelSteps
-    from testit_api_client.model.work_item_changed_fields_view_model_tags import WorkItemChangedFieldsViewModelTags
-    globals()['TestPlanChangedFieldsViewModelName'] = TestPlanChangedFieldsViewModelName
+    from testit_api_client.model.work_item_link_change_view_model_array_changed_field_view_model import WorkItemLinkChangeViewModelArrayChangedFieldViewModel
+    from testit_api_client.model.work_item_step_change_view_model_array_changed_field_with_diffs_view_model import WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
+    globals()['AttachmentChangeViewModelArrayChangedFieldViewModel'] = AttachmentChangeViewModelArrayChangedFieldViewModel
+    globals()['AutoTestChangeViewModelArrayChangedFieldViewModel'] = AutoTestChangeViewModelArrayChangedFieldViewModel
+    globals()['BooleanChangedFieldViewModel'] = BooleanChangedFieldViewModel
+    globals()['GuidChangedFieldViewModel'] = GuidChangedFieldViewModel
+    globals()['Int32ChangedFieldViewModel'] = Int32ChangedFieldViewModel
+    globals()['Int64ChangedFieldViewModel'] = Int64ChangedFieldViewModel
+    globals()['StringArrayChangedFieldViewModel'] = StringArrayChangedFieldViewModel
+    globals()['StringChangedFieldViewModel'] = StringChangedFieldViewModel
+    globals()['StringChangedFieldWithDiffsViewModel'] = StringChangedFieldWithDiffsViewModel
     globals()['WorkItemChangedAttributeViewModel'] = WorkItemChangedAttributeViewModel
-    globals()['WorkItemChangedFieldsViewModelAttachments'] = WorkItemChangedFieldsViewModelAttachments
-    globals()['WorkItemChangedFieldsViewModelAutoTests'] = WorkItemChangedFieldsViewModelAutoTests
-    globals()['WorkItemChangedFieldsViewModelDuration'] = WorkItemChangedFieldsViewModelDuration
-    globals()['WorkItemChangedFieldsViewModelGlobalId'] = WorkItemChangedFieldsViewModelGlobalId
-    globals()['WorkItemChangedFieldsViewModelIsDeleted'] = WorkItemChangedFieldsViewModelIsDeleted
-    globals()['WorkItemChangedFieldsViewModelLinks'] = WorkItemChangedFieldsViewModelLinks
-    globals()['WorkItemChangedFieldsViewModelProjectId'] = WorkItemChangedFieldsViewModelProjectId
-    globals()['WorkItemChangedFieldsViewModelState'] = WorkItemChangedFieldsViewModelState
-    globals()['WorkItemChangedFieldsViewModelSteps'] = WorkItemChangedFieldsViewModelSteps
-    globals()['WorkItemChangedFieldsViewModelTags'] = WorkItemChangedFieldsViewModelTags
+    globals()['WorkItemLinkChangeViewModelArrayChangedFieldViewModel'] = WorkItemLinkChangeViewModelArrayChangedFieldViewModel
+    globals()['WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel'] = WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
 
 
 class WorkItemChangedFieldsViewModel(ModelNormal):
@@ -102,26 +102,26 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (TestPlanChangedFieldsViewModelName,),  # noqa: E501
-            'is_deleted': (WorkItemChangedFieldsViewModelIsDeleted,),  # noqa: E501
-            'project_id': (WorkItemChangedFieldsViewModelProjectId,),  # noqa: E501
-            'is_automated': (WorkItemChangedFieldsViewModelIsDeleted,),  # noqa: E501
-            'section_id': (WorkItemChangedFieldsViewModelProjectId,),  # noqa: E501
-            'description': (TestPlanChangedFieldsViewModelName,),  # noqa: E501
-            'state': (WorkItemChangedFieldsViewModelState,),  # noqa: E501
-            'priority': (WorkItemChangedFieldsViewModelState,),  # noqa: E501
-            'duration': (WorkItemChangedFieldsViewModelDuration,),  # noqa: E501
-            'attributes': ({str: (WorkItemChangedAttributeViewModel,)},),  # noqa: E501
-            'steps': (WorkItemChangedFieldsViewModelSteps,),  # noqa: E501
-            'precondition_steps': (WorkItemChangedFieldsViewModelSteps,),  # noqa: E501
-            'postcondition_steps': (WorkItemChangedFieldsViewModelSteps,),  # noqa: E501
-            'auto_tests': (WorkItemChangedFieldsViewModelAutoTests,),  # noqa: E501
-            'attachments': (WorkItemChangedFieldsViewModelAttachments,),  # noqa: E501
-            'tags': (WorkItemChangedFieldsViewModelTags,),  # noqa: E501
-            'links': (WorkItemChangedFieldsViewModelLinks,),  # noqa: E501
-            'global_id': (WorkItemChangedFieldsViewModelGlobalId,),  # noqa: E501
-            'version_number': (WorkItemChangedFieldsViewModelDuration,),  # noqa: E501
-            'entity_type_name': (WorkItemChangedFieldsViewModelState,),  # noqa: E501
+            'name': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
+            'is_deleted': (BooleanChangedFieldViewModel,),  # noqa: E501
+            'project_id': (GuidChangedFieldViewModel,),  # noqa: E501
+            'is_automated': (BooleanChangedFieldViewModel,),  # noqa: E501
+            'section_id': (GuidChangedFieldViewModel,),  # noqa: E501
+            'description': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
+            'state': (StringChangedFieldViewModel,),  # noqa: E501
+            'priority': (StringChangedFieldViewModel,),  # noqa: E501
+            'duration': (Int32ChangedFieldViewModel,),  # noqa: E501
+            'attributes': ({str: (WorkItemChangedAttributeViewModel,)}, none_type,),  # noqa: E501
+            'steps': (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel,),  # noqa: E501
+            'precondition_steps': (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel,),  # noqa: E501
+            'postcondition_steps': (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel,),  # noqa: E501
+            'auto_tests': (AutoTestChangeViewModelArrayChangedFieldViewModel,),  # noqa: E501
+            'attachments': (AttachmentChangeViewModelArrayChangedFieldViewModel,),  # noqa: E501
+            'tags': (StringArrayChangedFieldViewModel,),  # noqa: E501
+            'links': (WorkItemLinkChangeViewModelArrayChangedFieldViewModel,),  # noqa: E501
+            'global_id': (Int64ChangedFieldViewModel,),  # noqa: E501
+            'version_number': (Int32ChangedFieldViewModel,),  # noqa: E501
+            'entity_type_name': (StringChangedFieldViewModel,),  # noqa: E501
         }
 
     @cached_property
@@ -193,26 +193,26 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (TestPlanChangedFieldsViewModelName): [optional]  # noqa: E501
-            is_deleted (WorkItemChangedFieldsViewModelIsDeleted): [optional]  # noqa: E501
-            project_id (WorkItemChangedFieldsViewModelProjectId): [optional]  # noqa: E501
-            is_automated (WorkItemChangedFieldsViewModelIsDeleted): [optional]  # noqa: E501
-            section_id (WorkItemChangedFieldsViewModelProjectId): [optional]  # noqa: E501
-            description (TestPlanChangedFieldsViewModelName): [optional]  # noqa: E501
-            state (WorkItemChangedFieldsViewModelState): [optional]  # noqa: E501
-            priority (WorkItemChangedFieldsViewModelState): [optional]  # noqa: E501
-            duration (WorkItemChangedFieldsViewModelDuration): [optional]  # noqa: E501
-            attributes ({str: (WorkItemChangedAttributeViewModel,)}): [optional]  # noqa: E501
-            steps (WorkItemChangedFieldsViewModelSteps): [optional]  # noqa: E501
-            precondition_steps (WorkItemChangedFieldsViewModelSteps): [optional]  # noqa: E501
-            postcondition_steps (WorkItemChangedFieldsViewModelSteps): [optional]  # noqa: E501
-            auto_tests (WorkItemChangedFieldsViewModelAutoTests): [optional]  # noqa: E501
-            attachments (WorkItemChangedFieldsViewModelAttachments): [optional]  # noqa: E501
-            tags (WorkItemChangedFieldsViewModelTags): [optional]  # noqa: E501
-            links (WorkItemChangedFieldsViewModelLinks): [optional]  # noqa: E501
-            global_id (WorkItemChangedFieldsViewModelGlobalId): [optional]  # noqa: E501
-            version_number (WorkItemChangedFieldsViewModelDuration): [optional]  # noqa: E501
-            entity_type_name (WorkItemChangedFieldsViewModelState): [optional]  # noqa: E501
+            name (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            is_deleted (BooleanChangedFieldViewModel): [optional]  # noqa: E501
+            project_id (GuidChangedFieldViewModel): [optional]  # noqa: E501
+            is_automated (BooleanChangedFieldViewModel): [optional]  # noqa: E501
+            section_id (GuidChangedFieldViewModel): [optional]  # noqa: E501
+            description (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            state (StringChangedFieldViewModel): [optional]  # noqa: E501
+            priority (StringChangedFieldViewModel): [optional]  # noqa: E501
+            duration (Int32ChangedFieldViewModel): [optional]  # noqa: E501
+            attributes ({str: (WorkItemChangedAttributeViewModel,)}, none_type): [optional]  # noqa: E501
+            steps (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            precondition_steps (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            postcondition_steps (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            auto_tests (AutoTestChangeViewModelArrayChangedFieldViewModel): [optional]  # noqa: E501
+            attachments (AttachmentChangeViewModelArrayChangedFieldViewModel): [optional]  # noqa: E501
+            tags (StringArrayChangedFieldViewModel): [optional]  # noqa: E501
+            links (WorkItemLinkChangeViewModelArrayChangedFieldViewModel): [optional]  # noqa: E501
+            global_id (Int64ChangedFieldViewModel): [optional]  # noqa: E501
+            version_number (Int32ChangedFieldViewModel): [optional]  # noqa: E501
+            entity_type_name (StringChangedFieldViewModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -298,26 +298,26 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (TestPlanChangedFieldsViewModelName): [optional]  # noqa: E501
-            is_deleted (WorkItemChangedFieldsViewModelIsDeleted): [optional]  # noqa: E501
-            project_id (WorkItemChangedFieldsViewModelProjectId): [optional]  # noqa: E501
-            is_automated (WorkItemChangedFieldsViewModelIsDeleted): [optional]  # noqa: E501
-            section_id (WorkItemChangedFieldsViewModelProjectId): [optional]  # noqa: E501
-            description (TestPlanChangedFieldsViewModelName): [optional]  # noqa: E501
-            state (WorkItemChangedFieldsViewModelState): [optional]  # noqa: E501
-            priority (WorkItemChangedFieldsViewModelState): [optional]  # noqa: E501
-            duration (WorkItemChangedFieldsViewModelDuration): [optional]  # noqa: E501
-            attributes ({str: (WorkItemChangedAttributeViewModel,)}): [optional]  # noqa: E501
-            steps (WorkItemChangedFieldsViewModelSteps): [optional]  # noqa: E501
-            precondition_steps (WorkItemChangedFieldsViewModelSteps): [optional]  # noqa: E501
-            postcondition_steps (WorkItemChangedFieldsViewModelSteps): [optional]  # noqa: E501
-            auto_tests (WorkItemChangedFieldsViewModelAutoTests): [optional]  # noqa: E501
-            attachments (WorkItemChangedFieldsViewModelAttachments): [optional]  # noqa: E501
-            tags (WorkItemChangedFieldsViewModelTags): [optional]  # noqa: E501
-            links (WorkItemChangedFieldsViewModelLinks): [optional]  # noqa: E501
-            global_id (WorkItemChangedFieldsViewModelGlobalId): [optional]  # noqa: E501
-            version_number (WorkItemChangedFieldsViewModelDuration): [optional]  # noqa: E501
-            entity_type_name (WorkItemChangedFieldsViewModelState): [optional]  # noqa: E501
+            name (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            is_deleted (BooleanChangedFieldViewModel): [optional]  # noqa: E501
+            project_id (GuidChangedFieldViewModel): [optional]  # noqa: E501
+            is_automated (BooleanChangedFieldViewModel): [optional]  # noqa: E501
+            section_id (GuidChangedFieldViewModel): [optional]  # noqa: E501
+            description (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            state (StringChangedFieldViewModel): [optional]  # noqa: E501
+            priority (StringChangedFieldViewModel): [optional]  # noqa: E501
+            duration (Int32ChangedFieldViewModel): [optional]  # noqa: E501
+            attributes ({str: (WorkItemChangedAttributeViewModel,)}, none_type): [optional]  # noqa: E501
+            steps (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            precondition_steps (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            postcondition_steps (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            auto_tests (AutoTestChangeViewModelArrayChangedFieldViewModel): [optional]  # noqa: E501
+            attachments (AttachmentChangeViewModelArrayChangedFieldViewModel): [optional]  # noqa: E501
+            tags (StringArrayChangedFieldViewModel): [optional]  # noqa: E501
+            links (WorkItemLinkChangeViewModelArrayChangedFieldViewModel): [optional]  # noqa: E501
+            global_id (Int64ChangedFieldViewModel): [optional]  # noqa: E501
+            version_number (Int32ChangedFieldViewModel): [optional]  # noqa: E501
+            entity_type_name (StringChangedFieldViewModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

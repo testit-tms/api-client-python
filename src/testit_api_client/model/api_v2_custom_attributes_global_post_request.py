@@ -31,8 +31,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.custom_attribute_option_post_model import CustomAttributeOptionPostModel
+    from testit_api_client.model.custom_attribute_types_enum import CustomAttributeTypesEnum
     from testit_api_client.model.global_custom_attribute_post_model import GlobalCustomAttributePostModel
     globals()['CustomAttributeOptionPostModel'] = CustomAttributeOptionPostModel
+    globals()['CustomAttributeTypesEnum'] = CustomAttributeTypesEnum
     globals()['GlobalCustomAttributePostModel'] = GlobalCustomAttributePostModel
 
 
@@ -94,7 +96,7 @@ class ApiV2CustomAttributesGlobalPostRequest(ModelComposed):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'type': (CustomAttributeTypesEnum,),  # noqa: E501
             'is_enabled': (bool, none_type,),  # noqa: E501
             'is_required': (bool, none_type,),  # noqa: E501
             'options': ([CustomAttributeOptionPostModel], none_type,),  # noqa: E501
@@ -123,7 +125,7 @@ class ApiV2CustomAttributesGlobalPostRequest(ModelComposed):
 
         Keyword Args:
             name (str): Name of attribute
-            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of attribute
+            type (CustomAttributeTypesEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -231,7 +233,7 @@ class ApiV2CustomAttributesGlobalPostRequest(ModelComposed):
 
         Keyword Args:
             name (str): Name of attribute
-            type (bool, date, datetime, dict, float, int, list, str, none_type): Type of attribute
+            type (CustomAttributeTypesEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

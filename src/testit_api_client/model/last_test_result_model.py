@@ -84,10 +84,10 @@ class LastTestResultModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
+            'work_item_version_id': (str,),  # noqa: E501
             'auto_test_id': (str, none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
-            'work_item_version_id': (str,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
         }
 
@@ -99,10 +99,10 @@ class LastTestResultModel(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'test_run_id': 'testRunId',  # noqa: E501
+        'work_item_version_id': 'workItemVersionId',  # noqa: E501
         'auto_test_id': 'autoTestId',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'links': 'links',  # noqa: E501
-        'work_item_version_id': 'workItemVersionId',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
     }
 
@@ -113,8 +113,13 @@ class LastTestResultModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, test_run_id, work_item_version_id, *args, **kwargs):  # noqa: E501
         """LastTestResultModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            test_run_id (str):
+            work_item_version_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,12 +152,9 @@ class LastTestResultModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
             auto_test_id (str, none_type): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            work_item_version_id (str): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
         """
 
@@ -185,6 +187,9 @@ class LastTestResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.test_run_id = test_run_id
+        self.work_item_version_id = work_item_version_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -205,8 +210,13 @@ class LastTestResultModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, test_run_id, work_item_version_id, *args, **kwargs):  # noqa: E501
         """LastTestResultModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            test_run_id (str):
+            work_item_version_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -239,12 +249,9 @@ class LastTestResultModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
             auto_test_id (str, none_type): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            work_item_version_id (str): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
         """
 
@@ -275,6 +282,9 @@ class LastTestResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.test_run_id = test_run_id
+        self.work_item_version_id = work_item_version_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

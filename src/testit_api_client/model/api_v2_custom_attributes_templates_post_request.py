@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.custom_attribute_template_put_model import CustomAttributeTemplatePutModel
-    globals()['CustomAttributeTemplatePutModel'] = CustomAttributeTemplatePutModel
+    from testit_api_client.model.custom_attribute_template_post_model import CustomAttributeTemplatePostModel
+    globals()['CustomAttributeTemplatePostModel'] = CustomAttributeTemplatePostModel
 
 
 class ApiV2CustomAttributesTemplatesPostRequest(ModelComposed):
@@ -93,7 +93,6 @@ class ApiV2CustomAttributesTemplatesPostRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'custom_attribute_ids': ([str], none_type,),  # noqa: E501
         }
@@ -104,7 +103,6 @@ class ApiV2CustomAttributesTemplatesPostRequest(ModelComposed):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'custom_attribute_ids': 'customAttributeIds',  # noqa: E501
     }
@@ -118,7 +116,6 @@ class ApiV2CustomAttributesTemplatesPostRequest(ModelComposed):
         """ApiV2CustomAttributesTemplatesPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            id (str): Unique ID of the attribute template
             name (str): Custom attributes template name
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -224,7 +221,6 @@ class ApiV2CustomAttributesTemplatesPostRequest(ModelComposed):
         """ApiV2CustomAttributesTemplatesPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            id (str): Unique ID of the attribute template
             name (str): Custom attributes template name
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -326,7 +322,7 @@ class ApiV2CustomAttributesTemplatesPostRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CustomAttributeTemplatePutModel,
+              CustomAttributeTemplatePostModel,
           ],
           'oneOf': [
           ],

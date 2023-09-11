@@ -79,9 +79,9 @@ class CustomAttributeTemplateModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -90,9 +90,9 @@ class CustomAttributeTemplateModel(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -102,10 +102,12 @@ class CustomAttributeTemplateModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_deleted, name, *args, **kwargs):  # noqa: E501
         """CustomAttributeTemplateModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            is_deleted (bool):
             name (str): Custom attributes template name
 
         Keyword Args:
@@ -139,8 +141,6 @@ class CustomAttributeTemplateModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,6 +172,8 @@ class CustomAttributeTemplateModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -193,10 +195,12 @@ class CustomAttributeTemplateModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_deleted, name, *args, **kwargs):  # noqa: E501
         """CustomAttributeTemplateModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            is_deleted (bool):
             name (str): Custom attributes template name
 
         Keyword Args:
@@ -230,8 +234,6 @@ class CustomAttributeTemplateModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,6 +263,8 @@ class CustomAttributeTemplateModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

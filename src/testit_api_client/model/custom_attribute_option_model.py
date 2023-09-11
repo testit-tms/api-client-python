@@ -81,8 +81,8 @@ class CustomAttributeOptionModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'value': (str, none_type,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
+            'value': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,8 +93,8 @@ class CustomAttributeOptionModel(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
-        'value': 'value',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
+        'value': 'value',  # noqa: E501
     }
 
     read_only_vars = {
@@ -104,8 +104,13 @@ class CustomAttributeOptionModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_deleted, is_default, *args, **kwargs):  # noqa: E501
         """CustomAttributeOptionModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Unique ID of the attribute option
+            is_deleted (bool): Indicates if the attributes option is deleted
+            is_default (bool): Indicates if the attribute option is used by default
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -138,10 +143,7 @@ class CustomAttributeOptionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the attribute option. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the attributes option is deleted. [optional]  # noqa: E501
             value (str, none_type): Value of the attribute option. [optional]  # noqa: E501
-            is_default (bool): Indicates if the attribute option is used by default. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,6 +175,9 @@ class CustomAttributeOptionModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
+        self.is_default = is_default
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,8 +198,13 @@ class CustomAttributeOptionModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_deleted, is_default, *args, **kwargs):  # noqa: E501
         """CustomAttributeOptionModel - a model defined in OpenAPI
+
+        Args:
+            id (str): Unique ID of the attribute option
+            is_deleted (bool): Indicates if the attributes option is deleted
+            is_default (bool): Indicates if the attribute option is used by default
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -227,10 +237,7 @@ class CustomAttributeOptionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Unique ID of the attribute option. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the attributes option is deleted. [optional]  # noqa: E501
             value (str, none_type): Value of the attribute option. [optional]  # noqa: E501
-            is_default (bool): Indicates if the attribute option is used by default. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,6 +267,9 @@ class CustomAttributeOptionModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
+        self.is_default = is_default
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

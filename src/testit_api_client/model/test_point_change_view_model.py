@@ -76,8 +76,8 @@ class TestPointChangeViewModel(ModelNormal):
         """
         return {
             'user_id': (str,),  # noqa: E501
-            'user_name': (str, none_type,),  # noqa: E501
             'test_point_count': (int,),  # noqa: E501
+            'user_name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -87,8 +87,8 @@ class TestPointChangeViewModel(ModelNormal):
 
     attribute_map = {
         'user_id': 'userId',  # noqa: E501
-        'user_name': 'userName',  # noqa: E501
         'test_point_count': 'testPointCount',  # noqa: E501
+        'user_name': 'userName',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,8 +98,12 @@ class TestPointChangeViewModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, user_id, test_point_count, *args, **kwargs):  # noqa: E501
         """TestPointChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            user_id (str):
+            test_point_count (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -132,9 +136,7 @@ class TestPointChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user_id (str): [optional]  # noqa: E501
             user_name (str, none_type): [optional]  # noqa: E501
-            test_point_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -166,6 +168,8 @@ class TestPointChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.user_id = user_id
+        self.test_point_count = test_point_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -186,8 +190,12 @@ class TestPointChangeViewModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, user_id, test_point_count, *args, **kwargs):  # noqa: E501
         """TestPointChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            user_id (str):
+            test_point_count (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -220,9 +228,7 @@ class TestPointChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user_id (str): [optional]  # noqa: E501
             user_name (str, none_type): [optional]  # noqa: E501
-            test_point_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,6 +258,8 @@ class TestPointChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.user_id = user_id
+        self.test_point_count = test_point_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

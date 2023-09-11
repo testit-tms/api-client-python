@@ -87,6 +87,7 @@ class TestResultV2ShortModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
             'work_item_version_id': (str,),  # noqa: E501
+            'test_run_id': (str,),  # noqa: E501
             'auto_test_id': (str, none_type,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'traces': (str, none_type,),  # noqa: E501
@@ -96,13 +97,12 @@ class TestResultV2ShortModel(ModelNormal):
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
             'test_point_id': (str, none_type,),  # noqa: E501
             'test_point': (TestPointRelatedToTestResult,),  # noqa: E501
-            'test_run_id': (str,),  # noqa: E501
-            'outcome': (str,),  # noqa: E501
+            'outcome': (str, none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
-            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
-            'properties': ({str: (str,)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'properties': ({str: (str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +114,7 @@ class TestResultV2ShortModel(ModelNormal):
         'id': 'id',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
         'work_item_version_id': 'workItemVersionId',  # noqa: E501
+        'test_run_id': 'testRunId',  # noqa: E501
         'auto_test_id': 'autoTestId',  # noqa: E501
         'message': 'message',  # noqa: E501
         'traces': 'traces',  # noqa: E501
@@ -123,7 +124,6 @@ class TestResultV2ShortModel(ModelNormal):
         'stopped_by_user_id': 'stoppedByUserId',  # noqa: E501
         'test_point_id': 'testPointId',  # noqa: E501
         'test_point': 'testPoint',  # noqa: E501
-        'test_run_id': 'testRunId',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'links': 'links',  # noqa: E501
@@ -139,8 +139,14 @@ class TestResultV2ShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, configuration_id, work_item_version_id, test_run_id, *args, **kwargs):  # noqa: E501
         """TestResultV2ShortModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            configuration_id (str):
+            work_item_version_id (str):
+            test_run_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -173,9 +179,6 @@ class TestResultV2ShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
-            work_item_version_id (str): [optional]  # noqa: E501
             auto_test_id (str, none_type): [optional]  # noqa: E501
             message (str, none_type): [optional]  # noqa: E501
             traces (str, none_type): [optional]  # noqa: E501
@@ -185,13 +188,12 @@ class TestResultV2ShortModel(ModelNormal):
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             test_point_id (str, none_type): [optional]  # noqa: E501
             test_point (TestPointRelatedToTestResult): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
-            outcome (str): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
+            outcome (str, none_type): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,6 +225,10 @@ class TestResultV2ShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.configuration_id = configuration_id
+        self.work_item_version_id = work_item_version_id
+        self.test_run_id = test_run_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -243,8 +249,14 @@ class TestResultV2ShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, configuration_id, work_item_version_id, test_run_id, *args, **kwargs):  # noqa: E501
         """TestResultV2ShortModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            configuration_id (str):
+            work_item_version_id (str):
+            test_run_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -277,9 +289,6 @@ class TestResultV2ShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
-            work_item_version_id (str): [optional]  # noqa: E501
             auto_test_id (str, none_type): [optional]  # noqa: E501
             message (str, none_type): [optional]  # noqa: E501
             traces (str, none_type): [optional]  # noqa: E501
@@ -289,13 +298,12 @@ class TestResultV2ShortModel(ModelNormal):
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
             test_point_id (str, none_type): [optional]  # noqa: E501
             test_point (TestPointRelatedToTestResult): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
-            outcome (str): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
+            outcome (str, none_type): Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped. [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -325,6 +333,10 @@ class TestResultV2ShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.configuration_id = configuration_id
+        self.work_item_version_id = work_item_version_id
+        self.test_run_id = test_run_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

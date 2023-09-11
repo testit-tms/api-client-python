@@ -80,15 +80,15 @@ class StepCommentModel(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
             'step_id': (str,),  # noqa: E501
             'test_result_id': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'text': (str, none_type,),  # noqa: E501
             'parent_step_id': (str, none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
-            'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
-            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
         }
 
@@ -98,15 +98,15 @@ class StepCommentModel(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'step_id': 'stepId',  # noqa: E501
         'test_result_id': 'testResultId',  # noqa: E501
-        'id': 'id',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
         'text': 'text',  # noqa: E501
         'parent_step_id': 'parentStepId',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
     }
 
@@ -117,12 +117,15 @@ class StepCommentModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, step_id, test_result_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, step_id, test_result_id, created_by_id, created_date, *args, **kwargs):  # noqa: E501
         """StepCommentModel - a model defined in OpenAPI
 
         Args:
+            id (str):
             step_id (str):
             test_result_id (str):
+            created_by_id (str):
+            created_date (datetime):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -155,13 +158,10 @@ class StepCommentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             text (str, none_type): [optional]  # noqa: E501
             parent_step_id (str, none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -194,8 +194,11 @@ class StepCommentModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.step_id = step_id
         self.test_result_id = test_result_id
+        self.created_by_id = created_by_id
+        self.created_date = created_date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -216,12 +219,15 @@ class StepCommentModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, step_id, test_result_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, step_id, test_result_id, created_by_id, created_date, *args, **kwargs):  # noqa: E501
         """StepCommentModel - a model defined in OpenAPI
 
         Args:
+            id (str):
             step_id (str):
             test_result_id (str):
+            created_by_id (str):
+            created_date (datetime):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -254,13 +260,10 @@ class StepCommentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             text (str, none_type): [optional]  # noqa: E501
             parent_step_id (str, none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -291,8 +294,11 @@ class StepCommentModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.step_id = step_id
         self.test_result_id = test_result_id
+        self.created_by_id = created_by_id
+        self.created_date = created_date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
