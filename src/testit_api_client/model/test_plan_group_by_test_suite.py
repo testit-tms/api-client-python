@@ -76,8 +76,8 @@ class TestPlanGroupByTestSuite(ModelNormal):
         """
         return {
             'test_suite_id': (str,),  # noqa: E501
+            'test_suite_name': (str,),  # noqa: E501
             'value': (int,),  # noqa: E501
-            'test_suite_name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -87,8 +87,8 @@ class TestPlanGroupByTestSuite(ModelNormal):
 
     attribute_map = {
         'test_suite_id': 'testSuiteId',  # noqa: E501
-        'value': 'value',  # noqa: E501
         'test_suite_name': 'testSuiteName',  # noqa: E501
+        'value': 'value',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,11 +98,12 @@ class TestPlanGroupByTestSuite(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, test_suite_id, value, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, test_suite_id, test_suite_name, value, *args, **kwargs):  # noqa: E501
         """TestPlanGroupByTestSuite - a model defined in OpenAPI
 
         Args:
             test_suite_id (str):
+            test_suite_name (str):
             value (int):
 
         Keyword Args:
@@ -136,7 +137,6 @@ class TestPlanGroupByTestSuite(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suite_name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -169,6 +169,7 @@ class TestPlanGroupByTestSuite(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.test_suite_id = test_suite_id
+        self.test_suite_name = test_suite_name
         self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -190,11 +191,12 @@ class TestPlanGroupByTestSuite(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, test_suite_id, value, *args, **kwargs):  # noqa: E501
+    def __init__(self, test_suite_id, test_suite_name, value, *args, **kwargs):  # noqa: E501
         """TestPlanGroupByTestSuite - a model defined in OpenAPI
 
         Args:
             test_suite_id (str):
+            test_suite_name (str):
             value (int):
 
         Keyword Args:
@@ -228,7 +230,6 @@ class TestPlanGroupByTestSuite(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_suite_name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,6 +260,7 @@ class TestPlanGroupByTestSuite(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.test_suite_id = test_suite_id
+        self.test_suite_name = test_suite_name
         self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

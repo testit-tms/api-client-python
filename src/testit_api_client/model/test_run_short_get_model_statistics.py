@@ -77,7 +77,7 @@ class TestRunShortGetModelStatistics(ModelComposed):
         lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = True
+    _nullable = False
 
     @cached_property
     def openapi_types():
@@ -114,6 +114,8 @@ class TestRunShortGetModelStatistics(ModelComposed):
         """TestRunShortGetModelStatistics - a model defined in OpenAPI
 
         Keyword Args:
+            statuses (TestResultsStatisticsGetModelStatuses):
+            failure_categories (TestResultsStatisticsGetModelFailureCategories):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -144,8 +146,6 @@ class TestRunShortGetModelStatistics(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            statuses (TestResultsStatisticsGetModelStatuses): [optional]  # noqa: E501
-            failure_categories (TestResultsStatisticsGetModelFailureCategories): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +219,8 @@ class TestRunShortGetModelStatistics(ModelComposed):
         """TestRunShortGetModelStatistics - a model defined in OpenAPI
 
         Keyword Args:
+            statuses (TestResultsStatisticsGetModelStatuses):
+            failure_categories (TestResultsStatisticsGetModelFailureCategories):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -249,8 +251,6 @@ class TestRunShortGetModelStatistics(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            statuses (TestResultsStatisticsGetModelStatuses): [optional]  # noqa: E501
-            failure_categories (TestResultsStatisticsGetModelFailureCategories): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

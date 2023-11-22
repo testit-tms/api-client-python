@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **user_id** | **str** | If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result | 
 **is_automated** | **bool** |  | 
 **created_by_id** | **str** |  | 
+**failure_class_ids** | **[str]** |  | 
 **test_run_id** | **str, none_type** |  | [optional] 
 **test_run_name** | **str, none_type** |  | [optional] 
 **created_by_user_name** | **str, none_type** |  | [optional] 
@@ -28,8 +29,7 @@ Name | Type | Description | Notes
 **work_item_version_id** | **str, none_type** |  | [optional] 
 **work_item_version_number** | **int, none_type** |  | [optional] 
 **launch_source** | **str, none_type** |  | [optional] 
-**failure_class_ids** | **[str], none_type** |  | [optional] 
-**parameters** | **{str: (str, none_type)}, none_type** |  | [optional] 
+**parameters** | **{str: (str,)}, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

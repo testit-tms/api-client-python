@@ -32,10 +32,10 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.tag_short_model import TagShortModel
     from testit_api_client.model.test_plan_status_model import TestPlanStatusModel
-    from testit_api_client.model.test_point_analytic_result import TestPointAnalyticResult
+    from testit_api_client.model.test_plan_with_analytic_model_analytic import TestPlanWithAnalyticModelAnalytic
     globals()['TagShortModel'] = TagShortModel
     globals()['TestPlanStatusModel'] = TestPlanStatusModel
-    globals()['TestPointAnalyticResult'] = TestPointAnalyticResult
+    globals()['TestPlanWithAnalyticModelAnalytic'] = TestPlanWithAnalyticModelAnalytic
 
 
 class TestPlanWithAnalyticModel(ModelNormal):
@@ -100,6 +100,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
         """
         lazy_import()
         return {
+            'analytic': (TestPlanWithAnalyticModelAnalytic,),  # noqa: E501
             'status': (TestPlanStatusModel,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
@@ -107,7 +108,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'analytic': (TestPointAnalyticResult,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
@@ -122,7 +123,6 @@ class TestPlanWithAnalyticModel(ModelNormal):
             'build': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'has_automatic_duration_timer': (bool, none_type,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -131,6 +131,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
 
 
     attribute_map = {
+        'analytic': 'analytic',  # noqa: E501
         'status': 'status',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
@@ -138,7 +139,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
-        'analytic': 'analytic',  # noqa: E501
+        'attributes': 'attributes',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
         'completed_on': 'completedOn',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
@@ -153,7 +154,6 @@ class TestPlanWithAnalyticModel(ModelNormal):
         'build': 'build',  # noqa: E501
         'product_name': 'productName',  # noqa: E501
         'has_automatic_duration_timer': 'hasAutomaticDurationTimer',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
     }
 
     read_only_vars = {
@@ -163,10 +163,11 @@ class TestPlanWithAnalyticModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, status, created_by_id, global_id, is_deleted, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, analytic, status, created_by_id, global_id, is_deleted, id, name, project_id, attributes, *args, **kwargs):  # noqa: E501
         """TestPlanWithAnalyticModel - a model defined in OpenAPI
 
         Args:
+            analytic (TestPlanWithAnalyticModelAnalytic):
             status (TestPlanStatusModel):
             created_by_id (str):
             global_id (int): Used for search Test plan
@@ -174,6 +175,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
             id (str):
             name (str):
             project_id (str):
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +208,6 @@ class TestPlanWithAnalyticModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            analytic (TestPointAnalyticResult): [optional]  # noqa: E501
             started_on (datetime, none_type): Set when test plan is starter (status changed to: In Progress). [optional]  # noqa: E501
             completed_on (datetime, none_type): set when test plan status is completed (status changed to: Completed). [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
@@ -221,7 +222,6 @@ class TestPlanWithAnalyticModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,6 +253,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.analytic = analytic
         self.status = status
         self.created_by_id = created_by_id
         self.global_id = global_id
@@ -260,6 +261,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
         self.id = id
         self.name = name
         self.project_id = project_id
+        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -280,10 +282,11 @@ class TestPlanWithAnalyticModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, status, created_by_id, global_id, is_deleted, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, analytic, status, created_by_id, global_id, is_deleted, id, name, project_id, attributes, *args, **kwargs):  # noqa: E501
         """TestPlanWithAnalyticModel - a model defined in OpenAPI
 
         Args:
+            analytic (TestPlanWithAnalyticModelAnalytic):
             status (TestPlanStatusModel):
             created_by_id (str):
             global_id (int): Used for search Test plan
@@ -291,6 +294,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
             id (str):
             name (str):
             project_id (str):
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -323,7 +327,6 @@ class TestPlanWithAnalyticModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            analytic (TestPointAnalyticResult): [optional]  # noqa: E501
             started_on (datetime, none_type): Set when test plan is starter (status changed to: In Progress). [optional]  # noqa: E501
             completed_on (datetime, none_type): set when test plan status is completed (status changed to: Completed). [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
@@ -338,7 +341,6 @@ class TestPlanWithAnalyticModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -368,6 +370,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.analytic = analytic
         self.status = status
         self.created_by_id = created_by_id
         self.global_id = global_id
@@ -375,6 +378,7 @@ class TestPlanWithAnalyticModel(ModelNormal):
         self.id = id
         self.name = name
         self.project_id = project_id
+        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

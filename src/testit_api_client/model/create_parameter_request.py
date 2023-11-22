@@ -63,7 +63,7 @@ class CreateParameterRequest(ModelComposed):
 
     validations = {
         ('value',): {
-            'max_length': 255,
+            'max_length': 1500,
             'min_length': 0,
         },
         ('name',): {
@@ -118,8 +118,8 @@ class CreateParameterRequest(ModelComposed):
         """CreateParameterRequest - a model defined in OpenAPI
 
         Keyword Args:
-            value (str):
-            name (str):
+            value (str): Value of the parameter
+            name (str): Key of the parameter
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -223,8 +223,8 @@ class CreateParameterRequest(ModelComposed):
         """CreateParameterRequest - a model defined in OpenAPI
 
         Keyword Args:
-            value (str):
-            name (str):
+            value (str): Value of the parameter
+            name (str): Key of the parameter
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

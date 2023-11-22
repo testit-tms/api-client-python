@@ -22,6 +22,15 @@ from testit_api_client.api.custom_attribute_templates_api import CustomAttribute
 from testit_api_client.api.custom_attributes_api import CustomAttributesApi
 from testit_api_client.api.notifications_api import NotificationsApi
 from testit_api_client.api.parameters_api import ParametersApi
+from testit_api_client.api.project_attribute_templates_api import ProjectAttributeTemplatesApi
+from testit_api_client.api.project_attributes_api import ProjectAttributesApi
+from testit_api_client.api.project_configurations_api import ProjectConfigurationsApi
+from testit_api_client.api.project_export_api import ProjectExportApi
+from testit_api_client.api.project_import_api import ProjectImportApi
+from testit_api_client.api.project_sections_api import ProjectSectionsApi
+from testit_api_client.api.project_test_plan_attributes_api import ProjectTestPlanAttributesApi
+from testit_api_client.api.project_test_plans_api import ProjectTestPlansApi
+from testit_api_client.api.project_work_items_api import ProjectWorkItemsApi
 from testit_api_client.api.projects_api import ProjectsApi
 from testit_api_client.api.search_api import SearchApi
 from testit_api_client.api.sections_api import SectionsApi

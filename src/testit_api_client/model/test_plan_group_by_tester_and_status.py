@@ -75,9 +75,9 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'status': (str,),  # noqa: E501
             'value': (int,),  # noqa: E501
             'user_id': (str, none_type,),  # noqa: E501
-            'status': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -86,9 +86,9 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
 
 
     attribute_map = {
+        'status': 'status',  # noqa: E501
         'value': 'value',  # noqa: E501
         'user_id': 'userId',  # noqa: E501
-        'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,10 +98,11 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, value, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, status, value, *args, **kwargs):  # noqa: E501
         """TestPlanGroupByTesterAndStatus - a model defined in OpenAPI
 
         Args:
+            status (str):
             value (int):
 
         Keyword Args:
@@ -136,7 +137,6 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             user_id (str, none_type): [optional]  # noqa: E501
-            status (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -168,6 +168,7 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.status = status
         self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -189,10 +190,11 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, value, *args, **kwargs):  # noqa: E501
+    def __init__(self, status, value, *args, **kwargs):  # noqa: E501
         """TestPlanGroupByTesterAndStatus - a model defined in OpenAPI
 
         Args:
+            status (str):
             value (int):
 
         Keyword Args:
@@ -227,7 +229,6 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             user_id (str, none_type): [optional]  # noqa: E501
-            status (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,6 +258,7 @@ class TestPlanGroupByTesterAndStatus(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.status = status
         self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

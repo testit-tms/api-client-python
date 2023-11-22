@@ -105,6 +105,7 @@ class TestPlanModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
@@ -119,7 +120,6 @@ class TestPlanModel(ModelNormal):
             'build': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'has_automatic_duration_timer': (bool, none_type,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -135,6 +135,7 @@ class TestPlanModel(ModelNormal):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'attributes': 'attributes',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
         'completed_on': 'completedOn',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
@@ -149,7 +150,6 @@ class TestPlanModel(ModelNormal):
         'build': 'build',  # noqa: E501
         'product_name': 'productName',  # noqa: E501
         'has_automatic_duration_timer': 'hasAutomaticDurationTimer',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,7 +159,7 @@ class TestPlanModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, status, created_by_id, global_id, is_deleted, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, status, created_by_id, global_id, is_deleted, id, name, project_id, attributes, *args, **kwargs):  # noqa: E501
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
@@ -170,6 +170,7 @@ class TestPlanModel(ModelNormal):
             id (str):
             name (str):
             project_id (str):
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -216,7 +217,6 @@ class TestPlanModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +255,7 @@ class TestPlanModel(ModelNormal):
         self.id = id
         self.name = name
         self.project_id = project_id
+        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -275,7 +276,7 @@ class TestPlanModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, status, created_by_id, global_id, is_deleted, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, status, created_by_id, global_id, is_deleted, id, name, project_id, attributes, *args, **kwargs):  # noqa: E501
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
@@ -286,6 +287,7 @@ class TestPlanModel(ModelNormal):
             id (str):
             name (str):
             project_id (str):
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -332,7 +334,6 @@ class TestPlanModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -369,6 +370,7 @@ class TestPlanModel(ModelNormal):
         self.id = id
         self.name = name
         self.project_id = project_id
+        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

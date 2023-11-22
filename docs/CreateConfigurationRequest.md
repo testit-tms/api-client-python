@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**parameters** | **{str: (str, none_type)}** |  | 
+**parameters** | **{str: (str,)}** |  | 
 **project_id** | **str** | This property is used to link configuration with project | 
 **is_default** | **bool** |  | 
 **name** | **str** |  | 

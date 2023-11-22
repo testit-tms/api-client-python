@@ -83,6 +83,7 @@ class TestPointShortModel(ModelNormal):
             'configuration_id': (str, none_type,),  # noqa: E501
             'status': (str, none_type,),  # noqa: E501
             'last_test_result_id': (str, none_type,),  # noqa: E501
+            'work_item_median_duration': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +100,7 @@ class TestPointShortModel(ModelNormal):
         'configuration_id': 'configurationId',  # noqa: E501
         'status': 'status',  # noqa: E501
         'last_test_result_id': 'lastTestResultId',  # noqa: E501
+        'work_item_median_duration': 'workItemMedianDuration',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,8 +115,8 @@ class TestPointShortModel(ModelNormal):
 
         Args:
             test_suite_id (str):
-            id (str):
-            iteration_id (str):
+            id (str): Test point unique internal identifier
+            iteration_id (str): Iteration unique identifier
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,11 +149,12 @@ class TestPointShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tester_id (str, none_type): [optional]  # noqa: E501
-            work_item_id (str, none_type): [optional]  # noqa: E501
-            configuration_id (str, none_type): [optional]  # noqa: E501
-            status (str, none_type): Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
-            last_test_result_id (str, none_type): [optional]  # noqa: E501
+            tester_id (str, none_type): Tester who is responded for the test unique internal identifier. [optional]  # noqa: E501
+            work_item_id (str, none_type): Workitem to which test point relates unique identifier. [optional]  # noqa: E501
+            configuration_id (str, none_type): Configuration to which test point relates unique identifier. [optional]  # noqa: E501
+            status (str, none_type): Test point status  <br>Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
+            last_test_result_id (str, none_type): Last test result unique identifier. [optional]  # noqa: E501
+            work_item_median_duration (int, none_type): Median duration of work item the test point represents. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -211,8 +214,8 @@ class TestPointShortModel(ModelNormal):
 
         Args:
             test_suite_id (str):
-            id (str):
-            iteration_id (str):
+            id (str): Test point unique internal identifier
+            iteration_id (str): Iteration unique identifier
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -245,11 +248,12 @@ class TestPointShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tester_id (str, none_type): [optional]  # noqa: E501
-            work_item_id (str, none_type): [optional]  # noqa: E501
-            configuration_id (str, none_type): [optional]  # noqa: E501
-            status (str, none_type): Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
-            last_test_result_id (str, none_type): [optional]  # noqa: E501
+            tester_id (str, none_type): Tester who is responded for the test unique internal identifier. [optional]  # noqa: E501
+            work_item_id (str, none_type): Workitem to which test point relates unique identifier. [optional]  # noqa: E501
+            configuration_id (str, none_type): Configuration to which test point relates unique identifier. [optional]  # noqa: E501
+            status (str, none_type): Test point status  <br>Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
+            last_test_result_id (str, none_type): Last test result unique identifier. [optional]  # noqa: E501
+            work_item_median_duration (int, none_type): Median duration of work item the test point represents. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

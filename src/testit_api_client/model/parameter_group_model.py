@@ -75,9 +75,9 @@ class ParameterGroupModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'name': (str,),  # noqa: E501
+            'values': ({str: (str,)},),  # noqa: E501
             'parameter_key_id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'values': ({str: (str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -86,9 +86,9 @@ class ParameterGroupModel(ModelNormal):
 
 
     attribute_map = {
-        'parameter_key_id': 'parameterKeyId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'values': 'values',  # noqa: E501
+        'parameter_key_id': 'parameterKeyId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,10 +98,12 @@ class ParameterGroupModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, parameter_key_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, values, parameter_key_id, *args, **kwargs):  # noqa: E501
         """ParameterGroupModel - a model defined in OpenAPI
 
         Args:
+            name (str):
+            values ({str: (str,)}):
             parameter_key_id (str):
 
         Keyword Args:
@@ -135,8 +137,6 @@ class ParameterGroupModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            values ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -168,6 +168,8 @@ class ParameterGroupModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
+        self.values = values
         self.parameter_key_id = parameter_key_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -189,10 +191,12 @@ class ParameterGroupModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, parameter_key_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, values, parameter_key_id, *args, **kwargs):  # noqa: E501
         """ParameterGroupModel - a model defined in OpenAPI
 
         Args:
+            name (str):
+            values ({str: (str,)}):
             parameter_key_id (str):
 
         Keyword Args:
@@ -226,8 +230,6 @@ class ParameterGroupModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            values ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,6 +259,8 @@ class ParameterGroupModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
+        self.values = values
         self.parameter_key_id = parameter_key_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

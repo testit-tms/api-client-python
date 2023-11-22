@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.shared_step_change_view_model import SharedStepChangeViewModel
-    globals()['SharedStepChangeViewModel'] = SharedStepChangeViewModel
+    from testit_api_client.model.work_item_step_change_view_model_work_item import WorkItemStepChangeViewModelWorkItem
+    globals()['WorkItemStepChangeViewModelWorkItem'] = WorkItemStepChangeViewModelWorkItem
 
 
 class WorkItemStepChangeViewModel(ModelNormal):
@@ -80,13 +80,13 @@ class WorkItemStepChangeViewModel(ModelNormal):
         """
         lazy_import()
         return {
+            'action': (str,),  # noqa: E501
+            'expected': (str,),  # noqa: E501
+            'comments': (str,),  # noqa: E501
+            'test_data': (str,),  # noqa: E501
             'index': (int,),  # noqa: E501
-            'action': (str, none_type,),  # noqa: E501
-            'expected': (str, none_type,),  # noqa: E501
-            'comments': (str, none_type,),  # noqa: E501
-            'test_data': (str, none_type,),  # noqa: E501
+            'work_item': (WorkItemStepChangeViewModelWorkItem,),  # noqa: E501
             'work_item_id': (str, none_type,),  # noqa: E501
-            'work_item': (SharedStepChangeViewModel,),  # noqa: E501
         }
 
     @cached_property
@@ -95,13 +95,13 @@ class WorkItemStepChangeViewModel(ModelNormal):
 
 
     attribute_map = {
-        'index': 'index',  # noqa: E501
         'action': 'action',  # noqa: E501
         'expected': 'expected',  # noqa: E501
         'comments': 'comments',  # noqa: E501
         'test_data': 'testData',  # noqa: E501
-        'work_item_id': 'workItemId',  # noqa: E501
+        'index': 'index',  # noqa: E501
         'work_item': 'workItem',  # noqa: E501
+        'work_item_id': 'workItemId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,11 +111,16 @@ class WorkItemStepChangeViewModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, index, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, action, expected, comments, test_data, index, work_item, *args, **kwargs):  # noqa: E501
         """WorkItemStepChangeViewModel - a model defined in OpenAPI
 
         Args:
+            action (str):
+            expected (str):
+            comments (str):
+            test_data (str):
             index (int):
+            work_item (WorkItemStepChangeViewModelWorkItem):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -148,12 +153,7 @@ class WorkItemStepChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            action (str, none_type): [optional]  # noqa: E501
-            expected (str, none_type): [optional]  # noqa: E501
-            comments (str, none_type): [optional]  # noqa: E501
-            test_data (str, none_type): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
-            work_item (SharedStepChangeViewModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -185,7 +185,12 @@ class WorkItemStepChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.action = action
+        self.expected = expected
+        self.comments = comments
+        self.test_data = test_data
         self.index = index
+        self.work_item = work_item
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -206,11 +211,16 @@ class WorkItemStepChangeViewModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, index, *args, **kwargs):  # noqa: E501
+    def __init__(self, action, expected, comments, test_data, index, work_item, *args, **kwargs):  # noqa: E501
         """WorkItemStepChangeViewModel - a model defined in OpenAPI
 
         Args:
+            action (str):
+            expected (str):
+            comments (str):
+            test_data (str):
             index (int):
+            work_item (WorkItemStepChangeViewModelWorkItem):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -243,12 +253,7 @@ class WorkItemStepChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            action (str, none_type): [optional]  # noqa: E501
-            expected (str, none_type): [optional]  # noqa: E501
-            comments (str, none_type): [optional]  # noqa: E501
-            test_data (str, none_type): [optional]  # noqa: E501
             work_item_id (str, none_type): [optional]  # noqa: E501
-            work_item (SharedStepChangeViewModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -278,7 +283,12 @@ class WorkItemStepChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.action = action
+        self.expected = expected
+        self.comments = comments
+        self.test_data = test_data
         self.index = index
+        self.work_item = work_item
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

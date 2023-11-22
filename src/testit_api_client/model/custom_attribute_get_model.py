@@ -83,13 +83,13 @@ class CustomAttributeGetModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
+            'options': ([CustomAttributeOptionModel],),  # noqa: E501
             'type': (CustomAttributeTypesEnum,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'is_required': (bool,),  # noqa: E501
             'is_global': (bool,),  # noqa: E501
-            'options': ([CustomAttributeOptionModel], none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,13 +99,13 @@ class CustomAttributeGetModel(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'options': 'options',  # noqa: E501
         'type': 'type',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
         'is_required': 'isRequired',  # noqa: E501
         'is_global': 'isGlobal',  # noqa: E501
-        'options': 'options',  # noqa: E501
-        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,13 +115,15 @@ class CustomAttributeGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, type, is_deleted, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, options, type, is_deleted, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
         """CustomAttributeGetModel - a model defined in OpenAPI
 
         Args:
             id (str): Unique ID of the attribute
+            options ([CustomAttributeOptionModel]): Collection of the attribute options
             type (CustomAttributeTypesEnum):
             is_deleted (bool): Indicates if the attribute is deleted
+            name (str): Name of the attribute
             is_enabled (bool): Indicates if the attribute is enabled
             is_required (bool): Indicates if the attribute is mandatory to specify
             is_global (bool): Indicates if the attribute is available across all projects
@@ -157,8 +159,6 @@ class CustomAttributeGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options ([CustomAttributeOptionModel], none_type): Collection of the attribute options. [optional]  # noqa: E501
-            name (str, none_type): Name of the attribute. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -191,8 +191,10 @@ class CustomAttributeGetModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
+        self.options = options
         self.type = type
         self.is_deleted = is_deleted
+        self.name = name
         self.is_enabled = is_enabled
         self.is_required = is_required
         self.is_global = is_global
@@ -216,13 +218,15 @@ class CustomAttributeGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, type, is_deleted, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, options, type, is_deleted, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
         """CustomAttributeGetModel - a model defined in OpenAPI
 
         Args:
             id (str): Unique ID of the attribute
+            options ([CustomAttributeOptionModel]): Collection of the attribute options
             type (CustomAttributeTypesEnum):
             is_deleted (bool): Indicates if the attribute is deleted
+            name (str): Name of the attribute
             is_enabled (bool): Indicates if the attribute is enabled
             is_required (bool): Indicates if the attribute is mandatory to specify
             is_global (bool): Indicates if the attribute is available across all projects
@@ -258,8 +262,6 @@ class CustomAttributeGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options ([CustomAttributeOptionModel], none_type): Collection of the attribute options. [optional]  # noqa: E501
-            name (str, none_type): Name of the attribute. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -290,8 +292,10 @@ class CustomAttributeGetModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
+        self.options = options
         self.type = type
         self.is_deleted = is_deleted
+        self.name = name
         self.is_enabled = is_enabled
         self.is_required = is_required
         self.is_global = is_global

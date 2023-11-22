@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **created_date** | **datetime** |  | 
 **created_by_id** | **str** |  | 
+**created_by_name** | **str** |  | 
 **test_run_id** | **str** |  | 
 **configuration_id** | **str** |  | 
+**configuration_name** | **str** |  | 
 **outcome** | [**AutotestResultOutcome**](AutotestResultOutcome.md) |  | 
-**created_by_name** | **str, none_type** |  | [optional] 
 **test_run_name** | **str, none_type** |  | [optional] 
-**configuration_name** | **str, none_type** |  | [optional] 
 **launch_source** | **str, none_type** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 

@@ -114,6 +114,8 @@ class ApiV2AutoTestsSearchPostRequest(ModelComposed):
         """ApiV2AutoTestsSearchPostRequest - a model defined in OpenAPI
 
         Keyword Args:
+            filter (AutotestsSelectModelFilter):
+            includes (AutotestsSelectModelIncludes):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -144,8 +146,6 @@ class ApiV2AutoTestsSearchPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestsSelectModelFilter): [optional]  # noqa: E501
-            includes (AutotestsSelectModelIncludes): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +219,8 @@ class ApiV2AutoTestsSearchPostRequest(ModelComposed):
         """ApiV2AutoTestsSearchPostRequest - a model defined in OpenAPI
 
         Keyword Args:
+            filter (AutotestsSelectModelFilter):
+            includes (AutotestsSelectModelIncludes):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -249,8 +251,6 @@ class ApiV2AutoTestsSearchPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestsSelectModelFilter): [optional]  # noqa: E501
-            includes (AutotestsSelectModelIncludes): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

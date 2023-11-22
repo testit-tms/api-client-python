@@ -90,6 +90,7 @@ class BackgroundJobGetModel(ModelNormal):
             'state': (BackgroundJobState,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'progress': (int,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'attachments': ([BackgroundJobAttachmentModel],),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
             'end_date': (datetime, none_type,),  # noqa: E501
@@ -108,6 +109,7 @@ class BackgroundJobGetModel(ModelNormal):
         'state': 'state',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'progress': 'progress',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'start_date': 'startDate',  # noqa: E501
         'end_date': 'endDate',  # noqa: E501
@@ -121,7 +123,7 @@ class BackgroundJobGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, job_id, job_type, state, is_deleted, progress, attachments, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, job_id, job_type, state, is_deleted, progress, created_date, attachments, *args, **kwargs):  # noqa: E501
         """BackgroundJobGetModel - a model defined in OpenAPI
 
         Args:
@@ -131,6 +133,7 @@ class BackgroundJobGetModel(ModelNormal):
             state (BackgroundJobState):
             is_deleted (bool):
             progress (int):
+            created_date (datetime):
             attachments ([BackgroundJobAttachmentModel]):
 
         Keyword Args:
@@ -204,6 +207,7 @@ class BackgroundJobGetModel(ModelNormal):
         self.state = state
         self.is_deleted = is_deleted
         self.progress = progress
+        self.created_date = created_date
         self.attachments = attachments
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -225,7 +229,7 @@ class BackgroundJobGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, job_id, job_type, state, is_deleted, progress, attachments, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, job_id, job_type, state, is_deleted, progress, created_date, attachments, *args, **kwargs):  # noqa: E501
         """BackgroundJobGetModel - a model defined in OpenAPI
 
         Args:
@@ -235,6 +239,7 @@ class BackgroundJobGetModel(ModelNormal):
             state (BackgroundJobState):
             is_deleted (bool):
             progress (int):
+            created_date (datetime):
             attachments ([BackgroundJobAttachmentModel]):
 
         Keyword Args:
@@ -306,6 +311,7 @@ class BackgroundJobGetModel(ModelNormal):
         self.state = state
         self.is_deleted = is_deleted
         self.progress = progress
+        self.created_date = created_date
         self.attachments = attachments
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

@@ -75,9 +75,9 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'type': (str, none_type,),  # noqa: E501
-            'old_attribute_name': (str, none_type,),  # noqa: E501
-            'new_attribute_name': (str, none_type,),  # noqa: E501
+            'type': (str,),  # noqa: E501
+            'old_attribute_name': (str,),  # noqa: E501
+            'new_attribute_name': (str,),  # noqa: E501
             'old_value': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'new_value': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
@@ -102,8 +102,15 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, old_attribute_name, new_attribute_name, old_value, new_value, *args, **kwargs):  # noqa: E501
         """WorkItemChangedAttributeViewModel - a model defined in OpenAPI
+
+        Args:
+            type (str):
+            old_attribute_name (str):
+            new_attribute_name (str):
+            old_value (bool, date, datetime, dict, float, int, list, str, none_type):
+            new_value (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -136,11 +143,6 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type (str, none_type): [optional]  # noqa: E501
-            old_attribute_name (str, none_type): [optional]  # noqa: E501
-            new_attribute_name (str, none_type): [optional]  # noqa: E501
-            old_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            new_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,6 +174,11 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.type = type
+        self.old_attribute_name = old_attribute_name
+        self.new_attribute_name = new_attribute_name
+        self.old_value = old_value
+        self.new_value = new_value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -192,8 +199,15 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, type, old_attribute_name, new_attribute_name, old_value, new_value, *args, **kwargs):  # noqa: E501
         """WorkItemChangedAttributeViewModel - a model defined in OpenAPI
+
+        Args:
+            type (str):
+            old_attribute_name (str):
+            new_attribute_name (str):
+            old_value (bool, date, datetime, dict, float, int, list, str, none_type):
+            new_value (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,11 +240,6 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type (str, none_type): [optional]  # noqa: E501
-            old_attribute_name (str, none_type): [optional]  # noqa: E501
-            new_attribute_name (str, none_type): [optional]  # noqa: E501
-            old_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            new_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,6 +269,11 @@ class WorkItemChangedAttributeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.type = type
+        self.old_attribute_name = old_attribute_name
+        self.new_attribute_name = new_attribute_name
+        self.old_value = old_value
+        self.new_value = new_value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -94,9 +94,9 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
         lazy_import()
         return {
             'select_model': (TestRunSelectionModel,),  # noqa: E501
-            'description': (str, none_type,),  # noqa: E501
             'attachment_update_scheme': (SetOfAttachmentIds,),  # noqa: E501
             'link_update_scheme': (SetOfLinks,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -106,9 +106,9 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
 
     attribute_map = {
         'select_model': 'selectModel',  # noqa: E501
-        'description': 'description',  # noqa: E501
         'attachment_update_scheme': 'attachmentUpdateScheme',  # noqa: E501
         'link_update_scheme': 'linkUpdateScheme',  # noqa: E501
+        'description': 'description',  # noqa: E501
     }
 
     read_only_vars = {
@@ -121,6 +121,8 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
 
         Keyword Args:
             select_model (TestRunSelectionModel):
+            attachment_update_scheme (SetOfAttachmentIds):
+            link_update_scheme (SetOfLinks):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -152,8 +154,6 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            attachment_update_scheme (SetOfAttachmentIds): [optional]  # noqa: E501
-            link_update_scheme (SetOfLinks): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,6 +228,8 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
 
         Keyword Args:
             select_model (TestRunSelectionModel):
+            attachment_update_scheme (SetOfAttachmentIds):
+            link_update_scheme (SetOfLinks):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -259,8 +261,6 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            attachment_update_scheme (SetOfAttachmentIds): [optional]  # noqa: E501
-            link_update_scheme (SetOfLinks): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

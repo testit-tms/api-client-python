@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.work_item_changed_fields_view_model import WorkItemChangedFieldsViewModel
-    globals()['WorkItemChangedFieldsViewModel'] = WorkItemChangedFieldsViewModel
+    from testit_api_client.model.work_item_change_model_work_item_changed_fields import WorkItemChangeModelWorkItemChangedFields
+    globals()['WorkItemChangeModelWorkItemChangedFields'] = WorkItemChangeModelWorkItemChangedFields
 
 
 class WorkItemChangeModel(ModelNormal):
@@ -84,8 +84,8 @@ class WorkItemChangeModel(ModelNormal):
             'work_item_id': (str,),  # noqa: E501
             'old_version_id': (str,),  # noqa: E501
             'new_version_id': (str,),  # noqa: E501
+            'work_item_changed_fields': (WorkItemChangeModelWorkItemChangedFields,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'work_item_changed_fields': (WorkItemChangedFieldsViewModel,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
         }
 
@@ -99,8 +99,8 @@ class WorkItemChangeModel(ModelNormal):
         'work_item_id': 'workItemId',  # noqa: E501
         'old_version_id': 'oldVersionId',  # noqa: E501
         'new_version_id': 'newVersionId',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'work_item_changed_fields': 'workItemChangedFields',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
     }
 
@@ -111,7 +111,7 @@ class WorkItemChangeModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, work_item_id, old_version_id, new_version_id, created_by_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, work_item_id, old_version_id, new_version_id, work_item_changed_fields, created_by_id, *args, **kwargs):  # noqa: E501
         """WorkItemChangeModel - a model defined in OpenAPI
 
         Args:
@@ -119,6 +119,7 @@ class WorkItemChangeModel(ModelNormal):
             work_item_id (str):
             old_version_id (str):
             new_version_id (str):
+            work_item_changed_fields (WorkItemChangeModelWorkItemChangedFields):
             created_by_id (str):
 
         Keyword Args:
@@ -152,7 +153,6 @@ class WorkItemChangeModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            work_item_changed_fields (WorkItemChangedFieldsViewModel): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -189,6 +189,7 @@ class WorkItemChangeModel(ModelNormal):
         self.work_item_id = work_item_id
         self.old_version_id = old_version_id
         self.new_version_id = new_version_id
+        self.work_item_changed_fields = work_item_changed_fields
         self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -210,7 +211,7 @@ class WorkItemChangeModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, work_item_id, old_version_id, new_version_id, created_by_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, work_item_id, old_version_id, new_version_id, work_item_changed_fields, created_by_id, *args, **kwargs):  # noqa: E501
         """WorkItemChangeModel - a model defined in OpenAPI
 
         Args:
@@ -218,6 +219,7 @@ class WorkItemChangeModel(ModelNormal):
             work_item_id (str):
             old_version_id (str):
             new_version_id (str):
+            work_item_changed_fields (WorkItemChangeModelWorkItemChangedFields):
             created_by_id (str):
 
         Keyword Args:
@@ -251,7 +253,6 @@ class WorkItemChangeModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            work_item_changed_fields (WorkItemChangedFieldsViewModel): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -286,6 +287,7 @@ class WorkItemChangeModel(ModelNormal):
         self.work_item_id = work_item_id
         self.old_version_id = old_version_id
         self.new_version_id = new_version_id
+        self.work_item_changed_fields = work_item_changed_fields
         self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

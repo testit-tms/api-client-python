@@ -30,9 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.work_item_select_model_extraction_model import WorkItemSelectModelExtractionModel
+    from testit_api_client.model.work_item_local_select_model_extraction_model import WorkItemLocalSelectModelExtractionModel
     from testit_api_client.model.work_item_select_model_filter import WorkItemSelectModelFilter
-    globals()['WorkItemSelectModelExtractionModel'] = WorkItemSelectModelExtractionModel
+    globals()['WorkItemLocalSelectModelExtractionModel'] = WorkItemLocalSelectModelExtractionModel
     globals()['WorkItemSelectModelFilter'] = WorkItemSelectModelFilter
 
 
@@ -83,7 +83,7 @@ class WorkItemSelectModel(ModelNormal):
         lazy_import()
         return {
             'filter': (WorkItemSelectModelFilter,),  # noqa: E501
-            'extraction_model': (WorkItemSelectModelExtractionModel,),  # noqa: E501
+            'extraction_model': (WorkItemLocalSelectModelExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -103,8 +103,11 @@ class WorkItemSelectModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, filter, *args, **kwargs):  # noqa: E501
         """WorkItemSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (WorkItemSelectModelFilter):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -137,8 +140,7 @@ class WorkItemSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (WorkItemSelectModelFilter): [optional]  # noqa: E501
-            extraction_model (WorkItemSelectModelExtractionModel): [optional]  # noqa: E501
+            extraction_model (WorkItemLocalSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +172,7 @@ class WorkItemSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,8 +193,11 @@ class WorkItemSelectModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, filter, *args, **kwargs):  # noqa: E501
         """WorkItemSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (WorkItemSelectModelFilter):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +230,7 @@ class WorkItemSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (WorkItemSelectModelFilter): [optional]  # noqa: E501
-            extraction_model (WorkItemSelectModelExtractionModel): [optional]  # noqa: E501
+            extraction_model (WorkItemLocalSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +260,7 @@ class WorkItemSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

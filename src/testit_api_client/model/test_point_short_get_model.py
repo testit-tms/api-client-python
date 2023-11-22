@@ -89,6 +89,9 @@ class TestPointShortGetModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'tags': ([str],),  # noqa: E501
+            'links': ([str],),  # noqa: E501
             'test_suite_id': (str,),  # noqa: E501
             'work_item_id': (str,),  # noqa: E501
             'work_item_global_id': (int,),  # noqa: E501
@@ -96,6 +99,7 @@ class TestPointShortGetModel(ModelNormal):
             'status': (TestPointStatus,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
             'duration': (int,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
@@ -108,12 +112,8 @@ class TestPointShortGetModel(ModelNormal):
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'tester_id': (str, none_type,),  # noqa: E501
-            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
-            'tags': ([str], none_type,),  # noqa: E501
-            'links': ([str], none_type,),  # noqa: E501
+            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
             'work_item_median_duration': (int, none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
             'section_name': (str, none_type,),  # noqa: E501
             'work_item_modified_by_id': (str, none_type,),  # noqa: E501
             'work_item_modified_date': (datetime, none_type,),  # noqa: E501
@@ -128,6 +128,9 @@ class TestPointShortGetModel(ModelNormal):
         'id': 'id',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'attributes': 'attributes',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
+        'links': 'links',  # noqa: E501
         'test_suite_id': 'testSuiteId',  # noqa: E501
         'work_item_id': 'workItemId',  # noqa: E501
         'work_item_global_id': 'workItemGlobalId',  # noqa: E501
@@ -135,6 +138,7 @@ class TestPointShortGetModel(ModelNormal):
         'status': 'status',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
         'duration': 'duration',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
@@ -148,11 +152,7 @@ class TestPointShortGetModel(ModelNormal):
         'modified_by_id': 'modifiedById',  # noqa: E501
         'tester_id': 'testerId',  # noqa: E501
         'parameters': 'parameters',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
-        'tags': 'tags',  # noqa: E501
-        'links': 'links',  # noqa: E501
         'work_item_median_duration': 'workItemMedianDuration',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'section_name': 'sectionName',  # noqa: E501
         'work_item_modified_by_id': 'workItemModifiedById',  # noqa: E501
         'work_item_modified_date': 'workItemModifiedDate',  # noqa: E501
@@ -165,13 +165,16 @@ class TestPointShortGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, created_date, created_by_id, test_suite_id, work_item_id, work_item_global_id, work_item_version_id, status, priority, is_automated, configuration_id, duration, section_id, project_id, last_test_result, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, created_date, created_by_id, attributes, tags, links, test_suite_id, work_item_id, work_item_global_id, work_item_version_id, status, priority, is_automated, name, configuration_id, duration, section_id, project_id, last_test_result, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
         """TestPointShortGetModel - a model defined in OpenAPI
 
         Args:
             id (str): Unique ID of the test point
             created_date (datetime): Creation date of the test point
             created_by_id (str): Unique ID of the test point creator
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Collection of attributes of work item the test point represents
+            tags ([str]): Collection of the test point tags
+            links ([str]): Collection of the test point links
             test_suite_id (str): Unique ID of test suite the test point assigned to
             work_item_id (str): Unique ID of work item the test point represents
             work_item_global_id (int): Global ID of work item the test point represents
@@ -179,6 +182,7 @@ class TestPointShortGetModel(ModelNormal):
             status (TestPointStatus):
             priority (WorkItemPriorityModel):
             is_automated (bool): Indicates if the test point represents an autotest
+            name (str): Name of the test point
             configuration_id (str): Unique ID of the test point configuration
             duration (int): Duration of the test point
             section_id (str): Unique ID of section where work item the test point represents is located
@@ -223,12 +227,8 @@ class TestPointShortGetModel(ModelNormal):
             modified_date (datetime, none_type): Last modification date of the test point. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the test point last editor. [optional]  # noqa: E501
             tester_id (str, none_type): Unique ID of the test point assigned user. [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): Collection of the test point parameters. [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Collection of attributes of work item the test point represents. [optional]  # noqa: E501
-            tags ([str], none_type): Collection of the test point tags. [optional]  # noqa: E501
-            links ([str], none_type): Collection of the test point links. [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): Collection of the test point parameters. [optional]  # noqa: E501
             work_item_median_duration (int, none_type): Median duration of work item the test point represents. [optional]  # noqa: E501
-            name (str, none_type): Name of the test point. [optional]  # noqa: E501
             section_name (str, none_type): Name of section where work item the test point represents is located. [optional]  # noqa: E501
             work_item_modified_by_id (str, none_type): Unique ID of the work item last editor. [optional]  # noqa: E501
             work_item_modified_date (datetime, none_type): Modified date of work item. [optional]  # noqa: E501
@@ -266,6 +266,9 @@ class TestPointShortGetModel(ModelNormal):
         self.id = id
         self.created_date = created_date
         self.created_by_id = created_by_id
+        self.attributes = attributes
+        self.tags = tags
+        self.links = links
         self.test_suite_id = test_suite_id
         self.work_item_id = work_item_id
         self.work_item_global_id = work_item_global_id
@@ -273,6 +276,7 @@ class TestPointShortGetModel(ModelNormal):
         self.status = status
         self.priority = priority
         self.is_automated = is_automated
+        self.name = name
         self.configuration_id = configuration_id
         self.duration = duration
         self.section_id = section_id
@@ -302,13 +306,16 @@ class TestPointShortGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, created_date, created_by_id, test_suite_id, work_item_id, work_item_global_id, work_item_version_id, status, priority, is_automated, configuration_id, duration, section_id, project_id, last_test_result, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, created_date, created_by_id, attributes, tags, links, test_suite_id, work_item_id, work_item_global_id, work_item_version_id, status, priority, is_automated, name, configuration_id, duration, section_id, project_id, last_test_result, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
         """TestPointShortGetModel - a model defined in OpenAPI
 
         Args:
             id (str): Unique ID of the test point
             created_date (datetime): Creation date of the test point
             created_by_id (str): Unique ID of the test point creator
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Collection of attributes of work item the test point represents
+            tags ([str]): Collection of the test point tags
+            links ([str]): Collection of the test point links
             test_suite_id (str): Unique ID of test suite the test point assigned to
             work_item_id (str): Unique ID of work item the test point represents
             work_item_global_id (int): Global ID of work item the test point represents
@@ -316,6 +323,7 @@ class TestPointShortGetModel(ModelNormal):
             status (TestPointStatus):
             priority (WorkItemPriorityModel):
             is_automated (bool): Indicates if the test point represents an autotest
+            name (str): Name of the test point
             configuration_id (str): Unique ID of the test point configuration
             duration (int): Duration of the test point
             section_id (str): Unique ID of section where work item the test point represents is located
@@ -360,12 +368,8 @@ class TestPointShortGetModel(ModelNormal):
             modified_date (datetime, none_type): Last modification date of the test point. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the test point last editor. [optional]  # noqa: E501
             tester_id (str, none_type): Unique ID of the test point assigned user. [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): Collection of the test point parameters. [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Collection of attributes of work item the test point represents. [optional]  # noqa: E501
-            tags ([str], none_type): Collection of the test point tags. [optional]  # noqa: E501
-            links ([str], none_type): Collection of the test point links. [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): Collection of the test point parameters. [optional]  # noqa: E501
             work_item_median_duration (int, none_type): Median duration of work item the test point represents. [optional]  # noqa: E501
-            name (str, none_type): Name of the test point. [optional]  # noqa: E501
             section_name (str, none_type): Name of section where work item the test point represents is located. [optional]  # noqa: E501
             work_item_modified_by_id (str, none_type): Unique ID of the work item last editor. [optional]  # noqa: E501
             work_item_modified_date (datetime, none_type): Modified date of work item. [optional]  # noqa: E501
@@ -401,6 +405,9 @@ class TestPointShortGetModel(ModelNormal):
         self.id = id
         self.created_date = created_date
         self.created_by_id = created_by_id
+        self.attributes = attributes
+        self.tags = tags
+        self.links = links
         self.test_suite_id = test_suite_id
         self.work_item_id = work_item_id
         self.work_item_global_id = work_item_global_id
@@ -408,6 +415,7 @@ class TestPointShortGetModel(ModelNormal):
         self.status = status
         self.priority = priority
         self.is_automated = is_automated
+        self.name = name
         self.configuration_id = configuration_id
         self.duration = duration
         self.section_id = section_id

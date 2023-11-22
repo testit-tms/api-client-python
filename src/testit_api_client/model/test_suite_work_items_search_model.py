@@ -82,6 +82,8 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
         },
         ('exclude_ids',): {
         },
+        ('project_ids',): {
+        },
         ('name',): {
             'max_length': 255,
             'min_length': 0,
@@ -89,8 +91,6 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
         ('ids',): {
         },
         ('global_ids',): {
-        },
-        ('project_ids',): {
         },
         ('section_ids',): {
         },
@@ -131,12 +131,12 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             'name_or_id': (str, none_type,),  # noqa: E501
             'include_ids': ([str], none_type,),  # noqa: E501
             'exclude_ids': ([str], none_type,),  # noqa: E501
+            'project_ids': ([str], none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'ids': ([str], none_type,),  # noqa: E501
             'global_ids': ([int], none_type,),  # noqa: E501
             'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
-            'project_ids': ([str], none_type,),  # noqa: E501
             'section_ids': ([str], none_type,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
@@ -163,12 +163,12 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
         'name_or_id': 'nameOrId',  # noqa: E501
         'include_ids': 'includeIds',  # noqa: E501
         'exclude_ids': 'excludeIds',  # noqa: E501
+        'project_ids': 'projectIds',  # noqa: E501
         'name': 'name',  # noqa: E501
         'ids': 'ids',  # noqa: E501
         'global_ids': 'globalIds',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
-        'project_ids': 'projectIds',  # noqa: E501
         'section_ids': 'sectionIds',  # noqa: E501
         'created_by_ids': 'createdByIds',  # noqa: E501
         'modified_by_ids': 'modifiedByIds',  # noqa: E501
@@ -230,12 +230,12 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
+            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
-            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             section_ids ([str], none_type): Collection of section identifiers. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
@@ -339,12 +339,12 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
+            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
-            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             section_ids ([str], none_type): Collection of section identifiers. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501

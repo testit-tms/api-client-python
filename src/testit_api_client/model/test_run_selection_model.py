@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_run_filter_model import TestRunFilterModel
+    from testit_api_client.model.api_v2_test_runs_search_post_request import ApiV2TestRunsSearchPostRequest
     from testit_api_client.model.test_run_select_model import TestRunSelectModel
     from testit_api_client.model.test_run_select_model_extraction_model import TestRunSelectModelExtractionModel
-    globals()['TestRunFilterModel'] = TestRunFilterModel
+    globals()['ApiV2TestRunsSearchPostRequest'] = ApiV2TestRunsSearchPostRequest
     globals()['TestRunSelectModel'] = TestRunSelectModel
     globals()['TestRunSelectModelExtractionModel'] = TestRunSelectModelExtractionModel
 
@@ -91,7 +91,7 @@ class TestRunSelectionModel(ModelComposed):
         """
         lazy_import()
         return {
-            'filter': (TestRunFilterModel,),  # noqa: E501
+            'filter': (ApiV2TestRunsSearchPostRequest,),  # noqa: E501
             'extraction_model': (TestRunSelectModelExtractionModel,),  # noqa: E501
         }
 
@@ -114,6 +114,8 @@ class TestRunSelectionModel(ModelComposed):
         """TestRunSelectionModel - a model defined in OpenAPI
 
         Keyword Args:
+            filter (ApiV2TestRunsSearchPostRequest):
+            extraction_model (TestRunSelectModelExtractionModel):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -144,8 +146,6 @@ class TestRunSelectionModel(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestRunFilterModel): [optional]  # noqa: E501
-            extraction_model (TestRunSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +219,8 @@ class TestRunSelectionModel(ModelComposed):
         """TestRunSelectionModel - a model defined in OpenAPI
 
         Keyword Args:
+            filter (ApiV2TestRunsSearchPostRequest):
+            extraction_model (TestRunSelectModelExtractionModel):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -249,8 +251,6 @@ class TestRunSelectionModel(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestRunFilterModel): [optional]  # noqa: E501
-            extraction_model (TestRunSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

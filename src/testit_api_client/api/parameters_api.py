@@ -733,7 +733,7 @@ class ParametersApi(object):
         )
         self.get_all_parameters_endpoint = _Endpoint(
             settings={
-                'response_type': (ParameterModel,),
+                'response_type': ([ParameterModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1941,7 +1941,7 @@ class ParametersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ParameterModel
+            [ParameterModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """

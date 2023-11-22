@@ -103,8 +103,12 @@ class AutotestsSelectModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, filter, includes, *args, **kwargs):  # noqa: E501
         """AutotestsSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (AutotestsSelectModelFilter):
+            includes (AutotestsSelectModelIncludes):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -137,8 +141,6 @@ class AutotestsSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestsSelectModelFilter): [optional]  # noqa: E501
-            includes (AutotestsSelectModelIncludes): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +172,8 @@ class AutotestsSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
+        self.includes = includes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,8 +194,12 @@ class AutotestsSelectModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, filter, includes, *args, **kwargs):  # noqa: E501
         """AutotestsSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (AutotestsSelectModelFilter):
+            includes (AutotestsSelectModelIncludes):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +232,6 @@ class AutotestsSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestsSelectModelFilter): [optional]  # noqa: E501
-            includes (AutotestsSelectModelIncludes): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +261,8 @@ class AutotestsSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
+        self.includes = includes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

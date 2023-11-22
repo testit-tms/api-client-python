@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filter** | [**AutotestsSelectModelFilter**](AutotestsSelectModelFilter.md) |  | [optional] 
-**includes** | [**AutotestsSelectModelIncludes**](AutotestsSelectModelIncludes.md) |  | [optional] 
+**filter** | [**AutotestsSelectModelFilter**](AutotestsSelectModelFilter.md) |  | 
+**includes** | [**AutotestsSelectModelIncludes**](AutotestsSelectModelIncludes.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

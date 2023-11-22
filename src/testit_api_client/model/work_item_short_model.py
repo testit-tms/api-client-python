@@ -109,14 +109,14 @@ class WorkItemShortModel(ModelNormal):
             'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'iterations': ([IterationModel],),  # noqa: E501
+            'links': ([LinkShortModel],),  # noqa: E501
             'median_duration': (int, none_type,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'tag_names': ([str], none_type,),  # noqa: E501
-            'iterations': ([IterationModel], none_type,),  # noqa: E501
-            'links': ([LinkShortModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -139,14 +139,14 @@ class WorkItemShortModel(ModelNormal):
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'iterations': 'iterations',  # noqa: E501
+        'links': 'links',  # noqa: E501
         'median_duration': 'medianDuration',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'tag_names': 'tagNames',  # noqa: E501
-        'iterations': 'iterations',  # noqa: E501
-        'links': 'links',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,7 +156,7 @@ class WorkItemShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, version_id, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, version_id, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
@@ -174,6 +174,8 @@ class WorkItemShortModel(ModelNormal):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
             is_deleted (bool): Flag determining whether Work Item is deleted
+            iterations ([IterationModel]): Set of iterations related to Work Item
+            links ([LinkShortModel]): Set of links related to Work Item
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -212,8 +214,6 @@ class WorkItemShortModel(ModelNormal):
             created_date (datetime, none_type): Date and time of Work Item creation. [optional]  # noqa: E501
             modified_date (datetime, none_type): Date and time of the latest modification of Work Item. [optional]  # noqa: E501
             tag_names ([str], none_type): Array of tag names of Work Item. [optional]  # noqa: E501
-            iterations ([IterationModel], none_type): Set of iterations related to Work Item. [optional]  # noqa: E501
-            links ([LinkShortModel], none_type): Set of links related to Work Item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,6 +259,8 @@ class WorkItemShortModel(ModelNormal):
         self.state = state
         self.priority = priority
         self.is_deleted = is_deleted
+        self.iterations = iterations
+        self.links = links
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -279,7 +281,7 @@ class WorkItemShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, version_id, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, version_id, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
@@ -297,6 +299,8 @@ class WorkItemShortModel(ModelNormal):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
             is_deleted (bool): Flag determining whether Work Item is deleted
+            iterations ([IterationModel]): Set of iterations related to Work Item
+            links ([LinkShortModel]): Set of links related to Work Item
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -335,8 +339,6 @@ class WorkItemShortModel(ModelNormal):
             created_date (datetime, none_type): Date and time of Work Item creation. [optional]  # noqa: E501
             modified_date (datetime, none_type): Date and time of the latest modification of Work Item. [optional]  # noqa: E501
             tag_names ([str], none_type): Array of tag names of Work Item. [optional]  # noqa: E501
-            iterations ([IterationModel], none_type): Set of iterations related to Work Item. [optional]  # noqa: E501
-            links ([LinkShortModel], none_type): Set of links related to Work Item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -380,6 +382,8 @@ class WorkItemShortModel(ModelNormal):
         self.state = state
         self.priority = priority
         self.is_deleted = is_deleted
+        self.iterations = iterations
+        self.links = links
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

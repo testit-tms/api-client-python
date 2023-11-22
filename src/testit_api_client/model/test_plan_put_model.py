@@ -99,6 +99,7 @@ class TestPlanPutModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'locked_by_id': (str, none_type,),  # noqa: E501
             'tags': ([TagShortModel], none_type,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
@@ -107,7 +108,6 @@ class TestPlanPutModel(ModelNormal):
             'build': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'has_automatic_duration_timer': (bool, none_type,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -119,6 +119,7 @@ class TestPlanPutModel(ModelNormal):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'attributes': 'attributes',  # noqa: E501
         'locked_by_id': 'lockedById',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'start_date': 'startDate',  # noqa: E501
@@ -127,7 +128,6 @@ class TestPlanPutModel(ModelNormal):
         'build': 'build',  # noqa: E501
         'product_name': 'productName',  # noqa: E501
         'has_automatic_duration_timer': 'hasAutomaticDurationTimer',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,13 +137,14 @@ class TestPlanPutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, project_id, attributes, *args, **kwargs):  # noqa: E501
         """TestPlanPutModel - a model defined in OpenAPI
 
         Args:
             id (str):
             name (str):
             project_id (str):
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -184,7 +185,6 @@ class TestPlanPutModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +219,7 @@ class TestPlanPutModel(ModelNormal):
         self.id = id
         self.name = name
         self.project_id = project_id
+        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -239,13 +240,14 @@ class TestPlanPutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, project_id, attributes, *args, **kwargs):  # noqa: E501
         """TestPlanPutModel - a model defined in OpenAPI
 
         Args:
             id (str):
             name (str):
             project_id (str):
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -286,7 +288,6 @@ class TestPlanPutModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -319,6 +320,7 @@ class TestPlanPutModel(ModelNormal):
         self.id = id
         self.name = name
         self.project_id = project_id
+        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -82,9 +82,9 @@ class SharedStepModel(ModelNormal):
         return {
             'version_id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'steps': ([StepModel],),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'steps': ([StepModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -95,9 +95,9 @@ class SharedStepModel(ModelNormal):
     attribute_map = {
         'version_id': 'versionId',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
         'name': 'name',  # noqa: E501
         'steps': 'steps',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,12 +107,14 @@ class SharedStepModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, version_id, global_id, is_deleted, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, version_id, global_id, name, steps, is_deleted, *args, **kwargs):  # noqa: E501
         """SharedStepModel - a model defined in OpenAPI
 
         Args:
             version_id (str):
             global_id (int):
+            name (str):
+            steps ([StepModel]):
             is_deleted (bool):
 
         Keyword Args:
@@ -146,8 +148,6 @@ class SharedStepModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            steps ([StepModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -181,6 +181,8 @@ class SharedStepModel(ModelNormal):
 
         self.version_id = version_id
         self.global_id = global_id
+        self.name = name
+        self.steps = steps
         self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -202,12 +204,14 @@ class SharedStepModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, version_id, global_id, is_deleted, *args, **kwargs):  # noqa: E501
+    def __init__(self, version_id, global_id, name, steps, is_deleted, *args, **kwargs):  # noqa: E501
         """SharedStepModel - a model defined in OpenAPI
 
         Args:
             version_id (str):
             global_id (int):
+            name (str):
+            steps ([StepModel]):
             is_deleted (bool):
 
         Keyword Args:
@@ -241,8 +245,6 @@ class SharedStepModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            steps ([StepModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -274,6 +276,8 @@ class SharedStepModel(ModelNormal):
 
         self.version_id = version_id
         self.global_id = global_id
+        self.name = name
+        self.steps = steps
         self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

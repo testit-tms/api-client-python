@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**description** | **str** |  | 
+**url** | **str** |  | 
+**title** | **str** |  | 
 **has_info** | **bool** |  | 
 **id** | **str** |  | 
-**description** | **str, none_type** |  | [optional] 
-**url** | **str, none_type** |  | [optional] 
-**title** | **str, none_type** |  | [optional] 
-**type** | **str, none_type** |  | [optional] 
+**type** | **str** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

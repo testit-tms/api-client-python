@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **id** | **str** | Unique ID of the entity | 
 **is_deleted** | **bool** | Indicates if the entity is deleted | 
 **description** | **str, none_type** |  | [optional] 
-**parameters** | **{str: (str, none_type)}, none_type** |  | [optional] 
+**parameters** | **{str: (str,)}, none_type** |  | [optional] 
 **name** | **str, none_type** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 

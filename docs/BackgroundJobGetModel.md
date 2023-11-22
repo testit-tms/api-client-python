@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **state** | [**BackgroundJobState**](BackgroundJobState.md) |  | 
 **is_deleted** | **bool** |  | 
 **progress** | **int** |  | 
+**created_date** | **datetime** |  | 
 **attachments** | [**[BackgroundJobAttachmentModel]**](BackgroundJobAttachmentModel.md) |  | 
 **start_date** | **datetime, none_type** |  | [optional] 
 **end_date** | **datetime, none_type** |  | [optional] 

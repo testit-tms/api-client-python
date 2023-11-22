@@ -91,7 +91,7 @@ class ApiV2ConfigurationsPutRequest(ModelComposed):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'parameters': ({str: (str, none_type)},),  # noqa: E501
+            'parameters': ({str: (str,)},),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -122,7 +122,7 @@ class ApiV2ConfigurationsPutRequest(ModelComposed):
 
         Keyword Args:
             id (str):
-            parameters ({str: (str, none_type)}):
+            parameters ({str: (str,)}):
             project_id (str): This property is used to link configuration with project
             is_default (bool):
             name (str):
@@ -231,7 +231,7 @@ class ApiV2ConfigurationsPutRequest(ModelComposed):
 
         Keyword Args:
             id (str):
-            parameters ({str: (str, none_type)}):
+            parameters ({str: (str,)}):
             project_id (str): This property is used to link configuration with project
             is_default (bool):
             name (str):
