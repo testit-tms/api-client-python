@@ -85,14 +85,14 @@ class NotificationModel(ModelNormal):
             'entity_id': (str,),  # noqa: E501
             'notification_type': (NotificationTypeModel,),  # noqa: E501
             'test_plan_global_id': (int,),  # noqa: E501
+            'test_plan_name': (str,),  # noqa: E501
+            'comment': (str,),  # noqa: E501
+            'work_item_name': (str,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'project_global_id': (int, none_type,),  # noqa: E501
             'project_name': (str, none_type,),  # noqa: E501
-            'test_plan_name': (str, none_type,),  # noqa: E501
             'workitem_global_id': (int, none_type,),  # noqa: E501
-            'comment': (str, none_type,),  # noqa: E501
-            'work_item_name': (str, none_type,),  # noqa: E501
             'attribute_name': (str, none_type,),  # noqa: E501
         }
 
@@ -107,14 +107,14 @@ class NotificationModel(ModelNormal):
         'entity_id': 'entityId',  # noqa: E501
         'notification_type': 'notificationType',  # noqa: E501
         'test_plan_global_id': 'testPlanGlobalId',  # noqa: E501
+        'test_plan_name': 'testPlanName',  # noqa: E501
+        'comment': 'comment',  # noqa: E501
+        'work_item_name': 'workItemName',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'project_global_id': 'projectGlobalId',  # noqa: E501
         'project_name': 'projectName',  # noqa: E501
-        'test_plan_name': 'testPlanName',  # noqa: E501
         'workitem_global_id': 'workitemGlobalId',  # noqa: E501
-        'comment': 'comment',  # noqa: E501
-        'work_item_name': 'workItemName',  # noqa: E501
         'attribute_name': 'attributeName',  # noqa: E501
     }
 
@@ -125,7 +125,7 @@ class NotificationModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, is_read, entity_id, notification_type, test_plan_global_id, created_by_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_read, entity_id, notification_type, test_plan_global_id, test_plan_name, comment, work_item_name, created_by_id, *args, **kwargs):  # noqa: E501
         """NotificationModel - a model defined in OpenAPI
 
         Args:
@@ -134,6 +134,9 @@ class NotificationModel(ModelNormal):
             entity_id (str):
             notification_type (NotificationTypeModel):
             test_plan_global_id (int):
+            test_plan_name (str):
+            comment (str):
+            work_item_name (str):
             created_by_id (str):
 
         Keyword Args:
@@ -170,10 +173,7 @@ class NotificationModel(ModelNormal):
             created_date (datetime, none_type): [optional]  # noqa: E501
             project_global_id (int, none_type): [optional]  # noqa: E501
             project_name (str, none_type): [optional]  # noqa: E501
-            test_plan_name (str, none_type): [optional]  # noqa: E501
             workitem_global_id (int, none_type): [optional]  # noqa: E501
-            comment (str, none_type): [optional]  # noqa: E501
-            work_item_name (str, none_type): [optional]  # noqa: E501
             attribute_name (str, none_type): [optional]  # noqa: E501
         """
 
@@ -211,6 +211,9 @@ class NotificationModel(ModelNormal):
         self.entity_id = entity_id
         self.notification_type = notification_type
         self.test_plan_global_id = test_plan_global_id
+        self.test_plan_name = test_plan_name
+        self.comment = comment
+        self.work_item_name = work_item_name
         self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -232,7 +235,7 @@ class NotificationModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, is_read, entity_id, notification_type, test_plan_global_id, created_by_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_read, entity_id, notification_type, test_plan_global_id, test_plan_name, comment, work_item_name, created_by_id, *args, **kwargs):  # noqa: E501
         """NotificationModel - a model defined in OpenAPI
 
         Args:
@@ -241,6 +244,9 @@ class NotificationModel(ModelNormal):
             entity_id (str):
             notification_type (NotificationTypeModel):
             test_plan_global_id (int):
+            test_plan_name (str):
+            comment (str):
+            work_item_name (str):
             created_by_id (str):
 
         Keyword Args:
@@ -277,10 +283,7 @@ class NotificationModel(ModelNormal):
             created_date (datetime, none_type): [optional]  # noqa: E501
             project_global_id (int, none_type): [optional]  # noqa: E501
             project_name (str, none_type): [optional]  # noqa: E501
-            test_plan_name (str, none_type): [optional]  # noqa: E501
             workitem_global_id (int, none_type): [optional]  # noqa: E501
-            comment (str, none_type): [optional]  # noqa: E501
-            work_item_name (str, none_type): [optional]  # noqa: E501
             attribute_name (str, none_type): [optional]  # noqa: E501
         """
 
@@ -316,6 +319,9 @@ class NotificationModel(ModelNormal):
         self.entity_id = entity_id
         self.notification_type = notification_type
         self.test_plan_global_id = test_plan_global_id
+        self.test_plan_name = test_plan_name
+        self.comment = comment
+        self.work_item_name = work_item_name
         self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

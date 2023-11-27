@@ -30,9 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.project_test_plans_filter_model import ProjectTestPlansFilterModel
+    from testit_api_client.model.api_v2_projects_project_id_test_plans_search_post_request import ApiV2ProjectsProjectIdTestPlansSearchPostRequest
     from testit_api_client.model.test_plan_extraction_model import TestPlanExtractionModel
-    globals()['ProjectTestPlansFilterModel'] = ProjectTestPlansFilterModel
+    globals()['ApiV2ProjectsProjectIdTestPlansSearchPostRequest'] = ApiV2ProjectsProjectIdTestPlansSearchPostRequest
     globals()['TestPlanExtractionModel'] = TestPlanExtractionModel
 
 
@@ -82,7 +82,7 @@ class TestPlanSelectModel(ModelNormal):
         """
         lazy_import()
         return {
-            'filter': (ProjectTestPlansFilterModel,),  # noqa: E501
+            'filter': (ApiV2ProjectsProjectIdTestPlansSearchPostRequest,),  # noqa: E501
             'extraction_model': (TestPlanExtractionModel,),  # noqa: E501
         }
 
@@ -103,8 +103,11 @@ class TestPlanSelectModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, filter, *args, **kwargs):  # noqa: E501
         """TestPlanSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (ApiV2ProjectsProjectIdTestPlansSearchPostRequest):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -137,7 +140,6 @@ class TestPlanSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (ProjectTestPlansFilterModel): [optional]  # noqa: E501
             extraction_model (TestPlanExtractionModel): [optional]  # noqa: E501
         """
 
@@ -170,6 +172,7 @@ class TestPlanSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,8 +193,11 @@ class TestPlanSelectModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, filter, *args, **kwargs):  # noqa: E501
         """TestPlanSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (ApiV2ProjectsProjectIdTestPlansSearchPostRequest):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,7 +230,6 @@ class TestPlanSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (ProjectTestPlansFilterModel): [optional]  # noqa: E501
             extraction_model (TestPlanExtractionModel): [optional]  # noqa: E501
         """
 
@@ -255,6 +260,7 @@ class TestPlanSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

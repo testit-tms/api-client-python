@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the project | 
+**name** | **str** | Name of the project | 
 **is_favorite** | **bool** | Indicates if the project is marked as favorite | 
 **is_deleted** | **bool** | Indicates if the project is deleted | 
 **created_date** | **datetime** | Creation date of the project | 
 **created_by_id** | **str** | Unique ID of the project creator | 
 **global_id** | **int** | Global ID of the project | 
 **description** | **str, none_type** | Description of the project | [optional] 
-**name** | **str, none_type** | Name of the project | [optional] 
 **attributes_scheme** | [**[CustomAttributeModel], none_type**](CustomAttributeModel.md) | Collection of the project attributes | [optional] 
 **test_plans_attributes_scheme** | [**[CustomAttributeModel], none_type**](CustomAttributeModel.md) | Collection of the project test plans attributes | [optional] 
 **test_cases_count** | **int, none_type** | Number of test cases in the project | [optional] 

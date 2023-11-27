@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.autotest_filter_model import AutotestFilterModel
-    from testit_api_client.model.autotests_extraction_model import AutotestsExtractionModel
-    globals()['AutotestFilterModel'] = AutotestFilterModel
-    globals()['AutotestsExtractionModel'] = AutotestsExtractionModel
+    from testit_api_client.model.autotest_select_model_extraction_model import AutotestSelectModelExtractionModel
+    from testit_api_client.model.autotest_select_model_filter import AutotestSelectModelFilter
+    globals()['AutotestSelectModelExtractionModel'] = AutotestSelectModelExtractionModel
+    globals()['AutotestSelectModelFilter'] = AutotestSelectModelFilter
 
 
 class AutotestSelectModel(ModelNormal):
@@ -82,8 +82,8 @@ class AutotestSelectModel(ModelNormal):
         """
         lazy_import()
         return {
-            'filter': (AutotestFilterModel,),  # noqa: E501
-            'extraction_model': (AutotestsExtractionModel,),  # noqa: E501
+            'filter': (AutotestSelectModelFilter,),  # noqa: E501
+            'extraction_model': (AutotestSelectModelExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -103,8 +103,12 @@ class AutotestSelectModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, filter, extraction_model, *args, **kwargs):  # noqa: E501
         """AutotestSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (AutotestSelectModelFilter):
+            extraction_model (AutotestSelectModelExtractionModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -137,8 +141,6 @@ class AutotestSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestFilterModel): [optional]  # noqa: E501
-            extraction_model (AutotestsExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +172,8 @@ class AutotestSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
+        self.extraction_model = extraction_model
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,8 +194,12 @@ class AutotestSelectModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, filter, extraction_model, *args, **kwargs):  # noqa: E501
         """AutotestSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (AutotestSelectModelFilter):
+            extraction_model (AutotestSelectModelExtractionModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +232,6 @@ class AutotestSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestFilterModel): [optional]  # noqa: E501
-            extraction_model (AutotestsExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +261,8 @@ class AutotestSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
+        self.extraction_model = extraction_model
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

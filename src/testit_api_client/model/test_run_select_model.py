@@ -30,9 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_run_filter_model import TestRunFilterModel
+    from testit_api_client.model.api_v2_test_runs_search_post_request import ApiV2TestRunsSearchPostRequest
     from testit_api_client.model.test_run_select_model_extraction_model import TestRunSelectModelExtractionModel
-    globals()['TestRunFilterModel'] = TestRunFilterModel
+    globals()['ApiV2TestRunsSearchPostRequest'] = ApiV2TestRunsSearchPostRequest
     globals()['TestRunSelectModelExtractionModel'] = TestRunSelectModelExtractionModel
 
 
@@ -82,7 +82,7 @@ class TestRunSelectModel(ModelNormal):
         """
         lazy_import()
         return {
-            'filter': (TestRunFilterModel,),  # noqa: E501
+            'filter': (ApiV2TestRunsSearchPostRequest,),  # noqa: E501
             'extraction_model': (TestRunSelectModelExtractionModel,),  # noqa: E501
         }
 
@@ -103,8 +103,12 @@ class TestRunSelectModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, filter, extraction_model, *args, **kwargs):  # noqa: E501
         """TestRunSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (ApiV2TestRunsSearchPostRequest):
+            extraction_model (TestRunSelectModelExtractionModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -137,8 +141,6 @@ class TestRunSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestRunFilterModel): [optional]  # noqa: E501
-            extraction_model (TestRunSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +172,8 @@ class TestRunSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
+        self.extraction_model = extraction_model
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,8 +194,12 @@ class TestRunSelectModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, filter, extraction_model, *args, **kwargs):  # noqa: E501
         """TestRunSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (ApiV2TestRunsSearchPostRequest):
+            extraction_model (TestRunSelectModelExtractionModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +232,6 @@ class TestRunSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestRunFilterModel): [optional]  # noqa: E501
-            extraction_model (TestRunSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +261,8 @@ class TestRunSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
+        self.extraction_model = extraction_model
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

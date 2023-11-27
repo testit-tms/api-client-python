@@ -74,6 +74,8 @@ class WorkItemSearchQueryModel(ModelNormal):
     }
 
     validations = {
+        ('project_ids',): {
+        },
         ('name',): {
             'max_length': 255,
             'min_length': 0,
@@ -81,8 +83,6 @@ class WorkItemSearchQueryModel(ModelNormal):
         ('ids',): {
         },
         ('global_ids',): {
-        },
-        ('project_ids',): {
         },
         ('section_ids',): {
         },
@@ -118,12 +118,12 @@ class WorkItemSearchQueryModel(ModelNormal):
         """
         lazy_import()
         return {
+            'project_ids': ([str], none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'ids': ([str], none_type,),  # noqa: E501
             'global_ids': ([int], none_type,),  # noqa: E501
             'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
-            'project_ids': ([str], none_type,),  # noqa: E501
             'section_ids': ([str], none_type,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
@@ -145,12 +145,12 @@ class WorkItemSearchQueryModel(ModelNormal):
 
 
     attribute_map = {
+        'project_ids': 'projectIds',  # noqa: E501
         'name': 'name',  # noqa: E501
         'ids': 'ids',  # noqa: E501
         'global_ids': 'globalIds',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
-        'project_ids': 'projectIds',  # noqa: E501
         'section_ids': 'sectionIds',  # noqa: E501
         'created_by_ids': 'createdByIds',  # noqa: E501
         'modified_by_ids': 'modifiedByIds',  # noqa: E501
@@ -207,12 +207,12 @@ class WorkItemSearchQueryModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
-            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             section_ids ([str], none_type): Collection of section identifiers. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
@@ -311,12 +311,12 @@ class WorkItemSearchQueryModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
-            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             section_ids ([str], none_type): Collection of section identifiers. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501

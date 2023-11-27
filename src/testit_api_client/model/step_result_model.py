@@ -83,7 +83,7 @@ class StepResultModel(ModelNormal):
         lazy_import()
         return {
             'step_id': (str,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (str,),  # noqa: E501
             'shared_step_version_id': (str, none_type,),  # noqa: E501
             'shared_step_results': ([SharedStepResultModel], none_type,),  # noqa: E501
             'comment': (StepCommentModel,),  # noqa: E501
@@ -109,11 +109,12 @@ class StepResultModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, step_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, step_id, outcome, *args, **kwargs):  # noqa: E501
         """StepResultModel - a model defined in OpenAPI
 
         Args:
             step_id (str):
+            outcome (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,7 +147,6 @@ class StepResultModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            outcome (str, none_type): [optional]  # noqa: E501
             shared_step_version_id (str, none_type): [optional]  # noqa: E501
             shared_step_results ([SharedStepResultModel], none_type): [optional]  # noqa: E501
             comment (StepCommentModel): [optional]  # noqa: E501
@@ -182,6 +182,7 @@ class StepResultModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.step_id = step_id
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -202,11 +203,12 @@ class StepResultModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, step_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, step_id, outcome, *args, **kwargs):  # noqa: E501
         """StepResultModel - a model defined in OpenAPI
 
         Args:
             step_id (str):
+            outcome (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -239,7 +241,6 @@ class StepResultModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            outcome (str, none_type): [optional]  # noqa: E501
             shared_step_version_id (str, none_type): [optional]  # noqa: E501
             shared_step_results ([SharedStepResultModel], none_type): [optional]  # noqa: E501
             comment (StepCommentModel): [optional]  # noqa: E501
@@ -273,6 +274,7 @@ class StepResultModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.step_id = step_id
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

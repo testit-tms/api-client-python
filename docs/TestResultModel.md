@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **created_date** | **datetime** |  | 
 **created_by_id** | **str** |  | 
+**failure_class_ids** | **[str]** |  | 
 **auto_test_id** | **str, none_type** |  | [optional] 
 **started_on** | **datetime, none_type** |  | [optional] 
 **completed_on** | **datetime, none_type** |  | [optional] 
@@ -26,12 +27,11 @@ Name | Type | Description | Notes
 **setup_results** | [**[AttachmentModelAutoTestStepResultsModel], none_type**](AttachmentModelAutoTestStepResultsModel.md) |  | [optional] 
 **teardown_results** | [**[AttachmentModelAutoTestStepResultsModel], none_type**](AttachmentModelAutoTestStepResultsModel.md) |  | [optional] 
 **work_item_version_number** | **int, none_type** |  | [optional] 
-**parameters** | **{str: (str, none_type)}, none_type** |  | [optional] 
-**properties** | **{str: (str, none_type)}, none_type** |  | [optional] 
+**parameters** | **{str: (str,)}, none_type** |  | [optional] 
+**properties** | **{str: (str,)}, none_type** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 **step_comments** | [**[StepCommentModel], none_type**](StepCommentModel.md) |  | [optional] 
-**failure_class_ids** | **[str], none_type** |  | [optional] 
 **outcome** | [**TestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **comment** | **str, none_type** |  | [optional] 
 **links** | [**[LinkModel], none_type**](LinkModel.md) |  | [optional] 

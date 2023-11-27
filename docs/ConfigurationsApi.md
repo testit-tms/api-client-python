@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_v2_configurations_create_by_parameters_post**](ConfigurationsApi.md#api_v2_configurations_create_by_parameters_post) | **POST** /api/v2/configurations/createByParameters | Create Configurations by parameters
+[**api_v2_configurations_create_by_parameters_post**](ConfigurationsApi.md#api_v2_configurations_create_by_parameters_post) | **POST** /api/v2/configurations/createByParameters | Create configurations by parameters
 [**api_v2_configurations_delete_bulk_post**](ConfigurationsApi.md#api_v2_configurations_delete_bulk_post) | **POST** /api/v2/configurations/delete/bulk | Delete multiple configurations
 [**api_v2_configurations_id_delete**](ConfigurationsApi.md#api_v2_configurations_id_delete) | **DELETE** /api/v2/configurations/{id} | Delete configuration
 [**api_v2_configurations_id_patch**](ConfigurationsApi.md#api_v2_configurations_id_patch) | **PATCH** /api/v2/configurations/{id} | Patch configuration
@@ -19,11 +19,9 @@ Method | HTTP request | Description
 
 
 # **api_v2_configurations_create_by_parameters_post**
-> api_v2_configurations_create_by_parameters_post()
+> [str] api_v2_configurations_create_by_parameters_post()
 
-Create Configurations by parameters
-
-<br>Use case  <br>User sets request model (listed in the request example)  <br>User runs method execution  <br>System creates configurations  <br>System returns created configuration ids (listed in the response example)
+Create configurations by parameters
 
 ### Example
 
@@ -35,7 +33,6 @@ import testit_api_client
 from testit_api_client.api import configurations_api
 from testit_api_client.model.api_v2_configurations_create_by_parameters_post_request import ApiV2ConfigurationsCreateByParametersPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -63,8 +60,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Create Configurations by parameters
-        api_instance.api_v2_configurations_create_by_parameters_post(api_v2_configurations_create_by_parameters_post_request=api_v2_configurations_create_by_parameters_post_request)
+        # Create configurations by parameters
+        api_response = api_instance.api_v2_configurations_create_by_parameters_post(api_v2_configurations_create_by_parameters_post_request=api_v2_configurations_create_by_parameters_post_request)
+        pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_create_by_parameters_post: %s\n" % e)
 ```
@@ -78,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**[str]**
 
 ### Authorization
 
@@ -95,9 +93,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**404** | &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found |  -  |
-**400** | &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty |  -  |
-**200** | Successful operation |  -  |
+**403** | Update permission for configuration is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -345,8 +341,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for configuration is required |  -  |
 **204** | No Content |  -  |
+**403** | Update permission for configuration is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -421,8 +417,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Full access permission for the archive is required |  -  |
 **204** | No Content |  -  |
+**403** | Full access permission for the archive is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -575,6 +571,7 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Success |  -  |
 **403** | Full access permission for the archive is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -652,8 +649,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for configurations is required |  -  |
 **204** | No Content |  -  |
+**403** | Update permission for configurations is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -900,11 +897,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**201** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for configuration required |  -  |
 **404** | Can&#39;t find project |  -  |
-**401** | Unauthorized |  -  |
-**201** | Successful operation |  -  |
 **409** | Configuration with the same name already exists! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -984,8 +981,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **200** | Successful operation |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for configuration required |  -  |
 **404** | Can&#39;t find configuration with id |  -  |
 

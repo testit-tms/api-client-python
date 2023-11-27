@@ -95,7 +95,7 @@ class AutoTestPutModel(ModelNormal):
             'external_id': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
             'work_item_ids_for_link_with_auto_test': ([str], none_type,),  # noqa: E501
             'links': ([LinkPutModel], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
@@ -180,7 +180,7 @@ class AutoTestPutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
+            id (str, none_type): Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
             work_item_ids_for_link_with_auto_test ([str], none_type): [optional]  # noqa: E501
             links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
@@ -286,7 +286,7 @@ class AutoTestPutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
+            id (str, none_type): Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
             work_item_ids_for_link_with_auto_test ([str], none_type): [optional]  # noqa: E501
             links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501

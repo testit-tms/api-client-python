@@ -85,9 +85,9 @@ class TestRunUpdateMultipleModel(ModelNormal):
         lazy_import()
         return {
             'select_model': (TestRunSelectionModel,),  # noqa: E501
-            'description': (str, none_type,),  # noqa: E501
             'attachment_update_scheme': (SetOfAttachmentIds,),  # noqa: E501
             'link_update_scheme': (SetOfLinks,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -97,9 +97,9 @@ class TestRunUpdateMultipleModel(ModelNormal):
 
     attribute_map = {
         'select_model': 'selectModel',  # noqa: E501
-        'description': 'description',  # noqa: E501
         'attachment_update_scheme': 'attachmentUpdateScheme',  # noqa: E501
         'link_update_scheme': 'linkUpdateScheme',  # noqa: E501
+        'description': 'description',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,11 +109,13 @@ class TestRunUpdateMultipleModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, select_model, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, select_model, attachment_update_scheme, link_update_scheme, *args, **kwargs):  # noqa: E501
         """TestRunUpdateMultipleModel - a model defined in OpenAPI
 
         Args:
             select_model (TestRunSelectionModel):
+            attachment_update_scheme (SetOfAttachmentIds):
+            link_update_scheme (SetOfLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,8 +149,6 @@ class TestRunUpdateMultipleModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            attachment_update_scheme (SetOfAttachmentIds): [optional]  # noqa: E501
-            link_update_scheme (SetOfLinks): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -181,6 +181,8 @@ class TestRunUpdateMultipleModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.select_model = select_model
+        self.attachment_update_scheme = attachment_update_scheme
+        self.link_update_scheme = link_update_scheme
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -201,11 +203,13 @@ class TestRunUpdateMultipleModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, select_model, *args, **kwargs):  # noqa: E501
+    def __init__(self, select_model, attachment_update_scheme, link_update_scheme, *args, **kwargs):  # noqa: E501
         """TestRunUpdateMultipleModel - a model defined in OpenAPI
 
         Args:
             select_model (TestRunSelectionModel):
+            attachment_update_scheme (SetOfAttachmentIds):
+            link_update_scheme (SetOfLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -239,8 +243,6 @@ class TestRunUpdateMultipleModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            attachment_update_scheme (SetOfAttachmentIds): [optional]  # noqa: E501
-            link_update_scheme (SetOfLinks): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,6 +273,8 @@ class TestRunUpdateMultipleModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.select_model = select_model
+        self.attachment_update_scheme = attachment_update_scheme
+        self.link_update_scheme = link_update_scheme
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

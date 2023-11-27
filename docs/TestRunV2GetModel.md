@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **project_id** | **str** | This property is used to link test run with project | 
 **created_date** | **datetime** |  | 
 **created_by_id** | **str** |  | 
+**attachments** | [**[AttachmentModel]**](AttachmentModel.md) |  | 
+**links** | [**[LinkModel]**](LinkModel.md) |  | 
 **id** | **str** |  | 
 **name** | **str** |  | 
 **started_on** | **datetime, none_type** |  | [optional] 
@@ -17,8 +19,6 @@ Name | Type | Description | Notes
 **modified_date** | **datetime, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 **created_by_user_name** | **str, none_type** |  | [optional] 
-**attachments** | [**[AttachmentModel], none_type**](AttachmentModel.md) |  | [optional] 
-**links** | [**[LinkModel], none_type**](LinkModel.md) |  | [optional] 
 **description** | **str, none_type** |  | [optional] 
 **launch_source** | **str, none_type** | Once launch source is specified it cannot be updated | [optional] 
 

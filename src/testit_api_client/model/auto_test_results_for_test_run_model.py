@@ -106,8 +106,8 @@ class AutoTestResultsForTestRunModel(ModelNormal):
             'completed_on': (datetime, none_type,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
             'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
-            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'properties': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
+            'properties': ({str: (str,)}, none_type,),  # noqa: E501
             'step_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'setup_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'teardown_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
@@ -191,8 +191,8 @@ class AutoTestResultsForTestRunModel(ModelNormal):
             completed_on (datetime, none_type): Test run end date.. [optional]  # noqa: E501
             duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): Specifies an attachment GUID. Multiple values can be sent.. [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): \"<b>property</b>\": \"<b>value</b>\" pair with arbitrary custom properties. Multiple properties can be sent.. [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): \"<b>property</b>\": \"<b>value</b>\" pair with arbitrary custom properties. Multiple properties can be sent.. [optional]  # noqa: E501
             step_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): Specifies the results of individual steps.. [optional]  # noqa: E501
             setup_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): Specifies the results of setup steps. For information on supported values, see the `stepResults` parameter above.. [optional]  # noqa: E501
             teardown_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): Specifies the results of the teardown steps. For information on supported values, see the `stepResults` parameter above.. [optional]  # noqa: E501
@@ -297,8 +297,8 @@ class AutoTestResultsForTestRunModel(ModelNormal):
             completed_on (datetime, none_type): Test run end date.. [optional]  # noqa: E501
             duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): Specifies an attachment GUID. Multiple values can be sent.. [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): \"<b>property</b>\": \"<b>value</b>\" pair with arbitrary custom properties. Multiple properties can be sent.. [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): \"<b>property</b>\": \"<b>value</b>\" pair with arbitrary custom properties. Multiple properties can be sent.. [optional]  # noqa: E501
             step_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): Specifies the results of individual steps.. [optional]  # noqa: E501
             setup_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): Specifies the results of setup steps. For information on supported values, see the `stepResults` parameter above.. [optional]  # noqa: E501
             teardown_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): Specifies the results of the teardown steps. For information on supported values, see the `stepResults` parameter above.. [optional]  # noqa: E501

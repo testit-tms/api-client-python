@@ -84,11 +84,11 @@ class LinkPutModel(ModelNormal):
         lazy_import()
         return {
             'url': (str,),  # noqa: E501
+            'has_info': (bool,),  # noqa: E501
             'id': (str, none_type,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'type': (LinkType,),  # noqa: E501
-            'has_info': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -98,11 +98,11 @@ class LinkPutModel(ModelNormal):
 
     attribute_map = {
         'url': 'url',  # noqa: E501
+        'has_info': 'hasInfo',  # noqa: E501
         'id': 'id',  # noqa: E501
         'title': 'title',  # noqa: E501
         'description': 'description',  # noqa: E501
         'type': 'type',  # noqa: E501
-        'has_info': 'hasInfo',  # noqa: E501
     }
 
     read_only_vars = {
@@ -112,11 +112,12 @@ class LinkPutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, url, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, url, has_info, *args, **kwargs):  # noqa: E501
         """LinkPutModel - a model defined in OpenAPI
 
         Args:
             url (str): Address can be specified without protocol, but necessarily with the domain.
+            has_info (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -153,7 +154,6 @@ class LinkPutModel(ModelNormal):
             title (str, none_type): Link name.. [optional]  # noqa: E501
             description (str, none_type): Link description.. [optional]  # noqa: E501
             type (LinkType): [optional]  # noqa: E501
-            has_info (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -186,6 +186,7 @@ class LinkPutModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.url = url
+        self.has_info = has_info
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -206,11 +207,12 @@ class LinkPutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, url, *args, **kwargs):  # noqa: E501
+    def __init__(self, url, has_info, *args, **kwargs):  # noqa: E501
         """LinkPutModel - a model defined in OpenAPI
 
         Args:
             url (str): Address can be specified without protocol, but necessarily with the domain.
+            has_info (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -247,7 +249,6 @@ class LinkPutModel(ModelNormal):
             title (str, none_type): Link name.. [optional]  # noqa: E501
             description (str, none_type): Link description.. [optional]  # noqa: E501
             type (LinkType): [optional]  # noqa: E501
-            has_info (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -278,6 +279,7 @@ class LinkPutModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.url = url
+        self.has_info = has_info
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
+**name** | **str** |  | 
 **has_this_shared_step_as_precondition** | **bool** |  | 
 **has_this_shared_step_as_postcondition** | **bool** |  | 
 **created_by_id** | **str** |  | 
 **is_deleted** | **bool** |  | 
-**name** | **str, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 **created_date** | **datetime, none_type** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 

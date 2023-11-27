@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **external_id** | **str** | External ID of the autotest | 
 **project_id** | **str** | Unique ID of the autotest project | 
 **name** | **str** | Name of the autotest | 
-**id** | **str** | Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId | [optional] 
+**id** | **str, none_type** | Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId | [optional] 
 **work_item_ids_for_link_with_auto_test** | **[str], none_type** |  | [optional] 
 **links** | [**[LinkPutModel], none_type**](LinkPutModel.md) | Collection of the autotest links | [optional] 
 **namespace** | **str, none_type** | Name of the autotest namespace | [optional] 

@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
+**text** | **str** |  | 
+**user** | [**WorkItemCommentModelUser**](WorkItemCommentModelUser.md) |  | 
 **created_by_id** | **str** |  | 
 **created_date** | **datetime** |  | 
-**text** | **str, none_type** |  | [optional] 
-**user** | [**UserWithRankModel**](UserWithRankModel.md) |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 

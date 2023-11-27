@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **is_deleted** | **bool** |  | 
 **parameter_key_id** | **str** |  | 
 **id** | **str** |  | 
-**value** | **str** |  | 
-**name** | **str** |  | 
+**value** | **str** | Value of the parameter | 
+**name** | **str** | Key of the parameter | 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 

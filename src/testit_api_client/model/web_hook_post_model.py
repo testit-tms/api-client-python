@@ -94,14 +94,14 @@ class WebHookPostModel(ModelNormal):
             'url': (str,),  # noqa: E501
             'request_type': (RequestTypeModel,),  # noqa: E501
             'should_send_body': (bool,),  # noqa: E501
+            'headers': ({str: (str,)},),  # noqa: E501
+            'query_parameters': ({str: (str,)},),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'should_send_custom_body': (bool,),  # noqa: E501
             'should_replace_parameters': (bool,),  # noqa: E501
             'should_escape_parameters': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'headers': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'query_parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'custom_body': (str, none_type,),  # noqa: E501
         }
 
@@ -116,14 +116,14 @@ class WebHookPostModel(ModelNormal):
         'url': 'url',  # noqa: E501
         'request_type': 'requestType',  # noqa: E501
         'should_send_body': 'shouldSendBody',  # noqa: E501
+        'headers': 'headers',  # noqa: E501
+        'query_parameters': 'queryParameters',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
         'should_send_custom_body': 'shouldSendCustomBody',  # noqa: E501
         'should_replace_parameters': 'shouldReplaceParameters',  # noqa: E501
         'should_escape_parameters': 'shouldEscapeParameters',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'headers': 'headers',  # noqa: E501
-        'query_parameters': 'queryParameters',  # noqa: E501
         'custom_body': 'customBody',  # noqa: E501
     }
 
@@ -134,7 +134,7 @@ class WebHookPostModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, project_id, event_type, url, request_type, should_send_body, is_enabled, should_send_custom_body, should_replace_parameters, should_escape_parameters, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, project_id, event_type, url, request_type, should_send_body, headers, query_parameters, is_enabled, should_send_custom_body, should_replace_parameters, should_escape_parameters, name, *args, **kwargs):  # noqa: E501
         """WebHookPostModel - a model defined in OpenAPI
 
         Args:
@@ -143,6 +143,8 @@ class WebHookPostModel(ModelNormal):
             url (str): Request URL of the webhook
             request_type (RequestTypeModel):
             should_send_body (bool): Indicates if the webhook sends body
+            headers ({str: (str,)}): Collection of the webhook headers
+            query_parameters ({str: (str,)}): Collection of the webhook query parameters
             is_enabled (bool): Indicates if the webhook is active
             should_send_custom_body (bool): Indicates if the webhook sends custom body
             should_replace_parameters (bool): Indicates if the webhook injects parameters
@@ -181,8 +183,6 @@ class WebHookPostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the webhook. [optional]  # noqa: E501
-            headers ({str: (str, none_type)}, none_type): Collection of the webhook headers. [optional]  # noqa: E501
-            query_parameters ({str: (str, none_type)}, none_type): Collection of the webhook query parameters. [optional]  # noqa: E501
             custom_body (str, none_type): Custom body of the webhook. [optional]  # noqa: E501
         """
 
@@ -220,6 +220,8 @@ class WebHookPostModel(ModelNormal):
         self.url = url
         self.request_type = request_type
         self.should_send_body = should_send_body
+        self.headers = headers
+        self.query_parameters = query_parameters
         self.is_enabled = is_enabled
         self.should_send_custom_body = should_send_custom_body
         self.should_replace_parameters = should_replace_parameters
@@ -245,7 +247,7 @@ class WebHookPostModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, project_id, event_type, url, request_type, should_send_body, is_enabled, should_send_custom_body, should_replace_parameters, should_escape_parameters, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, project_id, event_type, url, request_type, should_send_body, headers, query_parameters, is_enabled, should_send_custom_body, should_replace_parameters, should_escape_parameters, name, *args, **kwargs):  # noqa: E501
         """WebHookPostModel - a model defined in OpenAPI
 
         Args:
@@ -254,6 +256,8 @@ class WebHookPostModel(ModelNormal):
             url (str): Request URL of the webhook
             request_type (RequestTypeModel):
             should_send_body (bool): Indicates if the webhook sends body
+            headers ({str: (str,)}): Collection of the webhook headers
+            query_parameters ({str: (str,)}): Collection of the webhook query parameters
             is_enabled (bool): Indicates if the webhook is active
             should_send_custom_body (bool): Indicates if the webhook sends custom body
             should_replace_parameters (bool): Indicates if the webhook injects parameters
@@ -292,8 +296,6 @@ class WebHookPostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the webhook. [optional]  # noqa: E501
-            headers ({str: (str, none_type)}, none_type): Collection of the webhook headers. [optional]  # noqa: E501
-            query_parameters ({str: (str, none_type)}, none_type): Collection of the webhook query parameters. [optional]  # noqa: E501
             custom_body (str, none_type): Custom body of the webhook. [optional]  # noqa: E501
         """
 
@@ -329,6 +331,8 @@ class WebHookPostModel(ModelNormal):
         self.url = url
         self.request_type = request_type
         self.should_send_body = should_send_body
+        self.headers = headers
+        self.query_parameters = query_parameters
         self.is_enabled = is_enabled
         self.should_send_custom_body = should_send_custom_body
         self.should_replace_parameters = should_replace_parameters

@@ -84,14 +84,14 @@ class AutoTestModelV2GetModel(ModelNormal):
         """
         lazy_import()
         return {
+            'external_id': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'external_id': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'classname': (str, none_type,),  # noqa: E501
             'steps': ([AutoTestStepModel], none_type,),  # noqa: E501
@@ -109,14 +109,14 @@ class AutoTestModelV2GetModel(ModelNormal):
 
 
     attribute_map = {
+        'external_id': 'externalId',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
-        'external_id': 'externalId',  # noqa: E501
         'links': 'links',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
         'classname': 'classname',  # noqa: E501
         'steps': 'steps',  # noqa: E501
@@ -135,11 +135,13 @@ class AutoTestModelV2GetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, project_id, global_id, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, external_id, project_id, name, global_id, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """AutoTestModelV2GetModel - a model defined in OpenAPI
 
         Args:
+            external_id (str): This property is used to set autotest identifier from client system
             project_id (str): This property is used to link autotest with project
+            name (str):
             global_id (int):
             created_by_id (str):
             id (str): Unique ID of the entity
@@ -176,9 +178,7 @@ class AutoTestModelV2GetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str, none_type): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
             namespace (str, none_type): [optional]  # noqa: E501
             classname (str, none_type): [optional]  # noqa: E501
             steps ([AutoTestStepModel], none_type): [optional]  # noqa: E501
@@ -219,7 +219,9 @@ class AutoTestModelV2GetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.external_id = external_id
         self.project_id = project_id
+        self.name = name
         self.global_id = global_id
         self.created_by_id = created_by_id
         self.id = id
@@ -244,11 +246,13 @@ class AutoTestModelV2GetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, project_id, global_id, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
+    def __init__(self, external_id, project_id, name, global_id, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """AutoTestModelV2GetModel - a model defined in OpenAPI
 
         Args:
+            external_id (str): This property is used to set autotest identifier from client system
             project_id (str): This property is used to link autotest with project
+            name (str):
             global_id (int):
             created_by_id (str):
             id (str): Unique ID of the entity
@@ -285,9 +289,7 @@ class AutoTestModelV2GetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str, none_type): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
             namespace (str, none_type): [optional]  # noqa: E501
             classname (str, none_type): [optional]  # noqa: E501
             steps ([AutoTestStepModel], none_type): [optional]  # noqa: E501
@@ -326,7 +328,9 @@ class AutoTestModelV2GetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.external_id = external_id
         self.project_id = project_id
+        self.name = name
         self.global_id = global_id
         self.created_by_id = created_by_id
         self.id = id

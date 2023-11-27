@@ -7,6 +7,9 @@ Name | Type | Description | Notes
 **id** | **str** | Unique ID of the test point | 
 **created_date** | **datetime** | Creation date of the test point | 
 **created_by_id** | **str** | Unique ID of the test point creator | 
+**attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | Collection of attributes of work item the test point represents | 
+**tags** | **[str]** | Collection of the test point tags | 
+**links** | **[str]** | Collection of the test point links | 
 **test_suite_id** | **str** | Unique ID of test suite the test point assigned to | 
 **work_item_id** | **str** | Unique ID of work item the test point represents | 
 **work_item_global_id** | **int** | Global ID of work item the test point represents | 
@@ -14,6 +17,7 @@ Name | Type | Description | Notes
 **status** | [**TestPointStatus**](TestPointStatus.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **is_automated** | **bool** | Indicates if the test point represents an autotest | 
+**name** | **str** | Name of the test point | 
 **configuration_id** | **str** | Unique ID of the test point configuration | 
 **duration** | **int** | Duration of the test point | 
 **section_id** | **str** | Unique ID of section where work item the test point represents is located | 
@@ -26,12 +30,8 @@ Name | Type | Description | Notes
 **modified_date** | **datetime, none_type** | Last modification date of the test point | [optional] 
 **modified_by_id** | **str, none_type** | Unique ID of the test point last editor | [optional] 
 **tester_id** | **str, none_type** | Unique ID of the test point assigned user | [optional] 
-**parameters** | **{str: (str, none_type)}, none_type** | Collection of the test point parameters | [optional] 
-**attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** | Collection of attributes of work item the test point represents | [optional] 
-**tags** | **[str], none_type** | Collection of the test point tags | [optional] 
-**links** | **[str], none_type** | Collection of the test point links | [optional] 
+**parameters** | **{str: (str,)}, none_type** | Collection of the test point parameters | [optional] 
 **work_item_median_duration** | **int, none_type** | Median duration of work item the test point represents | [optional] 
-**name** | **str, none_type** | Name of the test point | [optional] 
 **section_name** | **str, none_type** | Name of section where work item the test point represents is located | [optional] 
 **work_item_modified_by_id** | **str, none_type** | Unique ID of the work item last editor | [optional] 
 **work_item_modified_date** | **datetime, none_type** | Modified date of work item | [optional] 

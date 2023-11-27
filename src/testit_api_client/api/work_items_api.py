@@ -21,7 +21,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_projects_id_work_items_search_post_request import ApiV2ProjectsIdWorkItemsSearchPostRequest
+from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from testit_api_client.model.api_v2_work_items_move_post_request import ApiV2WorkItemsMovePostRequest
 from testit_api_client.model.api_v2_work_items_shared_step_id_references_sections_post_request import ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
 from testit_api_client.model.api_v2_work_items_shared_step_id_references_work_items_post_request import ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
@@ -693,7 +693,7 @@ class WorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'api_v2_projects_id_work_items_search_post_request',
+                    'api_v2_projects_project_id_work_items_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -719,8 +719,8 @@ class WorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'api_v2_projects_id_work_items_search_post_request':
-                        (ApiV2ProjectsIdWorkItemsSearchPostRequest,),
+                    'api_v2_projects_project_id_work_items_search_post_request':
+                        (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -735,7 +735,7 @@ class WorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'api_v2_projects_id_work_items_search_post_request': 'body',
+                    'api_v2_projects_project_id_work_items_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2424,7 +2424,7 @@ class WorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            api_v2_projects_id_work_items_search_post_request (ApiV2ProjectsIdWorkItemsSearchPostRequest): [optional]
+            api_v2_projects_project_id_work_items_search_post_request (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

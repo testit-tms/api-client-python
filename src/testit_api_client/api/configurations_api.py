@@ -45,7 +45,7 @@ class ConfigurationsApi(object):
         self.api_client = api_client
         self.api_v2_configurations_create_by_parameters_post_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': ([str],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -684,9 +684,8 @@ class ConfigurationsApi(object):
         self,
         **kwargs
     ):
-        """Create Configurations by parameters  # noqa: E501
+        """Create configurations by parameters  # noqa: E501
 
-        <br>Use case  <br>User sets request model (listed in the request example)  <br>User runs method execution  <br>System creates configurations  <br>System returns created configuration ids (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -728,7 +727,7 @@ class ConfigurationsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            [str]
                 If the method is called asynchronously, returns the request
                 thread.
         """

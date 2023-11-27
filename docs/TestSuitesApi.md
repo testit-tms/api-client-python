@@ -33,7 +33,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_id_work_items_search_post_request import ApiV2ProjectsIdWorkItemsSearchPostRequest
+from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -58,7 +58,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132" # str | Test suite internal identifier
-    api_v2_projects_id_work_items_search_post_request = ApiV2ProjectsIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
+    api_v2_projects_project_id_work_items_search_post_request = ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -71,7 +71,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Add test-points to test suite
-        api_instance.add_test_points_to_test_suite(id, api_v2_projects_id_work_items_search_post_request=api_v2_projects_id_work_items_search_post_request)
+        api_instance.add_test_points_to_test_suite(id, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->add_test_points_to_test_suite: %s\n" % e)
 ```
@@ -82,7 +82,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal identifier |
- **api_v2_projects_id_work_items_search_post_request** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional]
+ **api_v2_projects_project_id_work_items_search_post_request** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional]
 
 ### Return type
 
@@ -102,11 +102,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Test suite with provided ID was not found |  -  |
-**400** | Bad Request |  -  |
 **204** | Successful operation |  -  |
-**403** | Update permission for test plan is required |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Update permission for test plan is required |  -  |
+**404** | Test suite with provided ID was not found |  -  |
 **422** | Shared steps cannot be added to test suite |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -278,8 +278,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for test suite is required |  -  |
 **204** | No Content |  -  |
+**403** | Update permission for test suite is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -602,10 +602,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 **204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Delete permission for test plan required |  -  |
+**404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -930,10 +930,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
-**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1035,11 +1035,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Can&#39;t find a TestSuite with id! |  -  |
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
+**404** | Can&#39;t find a TestSuite with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1129,11 +1129,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Successful operation |  -  |
 **400** | &lt;br&gt;Some of Configurations do not exist in the project, or they are not active |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
-**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

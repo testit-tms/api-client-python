@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.autotest_select_model import AutotestSelectModel
-    globals()['AutotestSelectModel'] = AutotestSelectModel
+    from testit_api_client.model.flaky_bulk_model_autotest_select import FlakyBulkModelAutotestSelect
+    globals()['FlakyBulkModelAutotestSelect'] = FlakyBulkModelAutotestSelect
 
 
 class FlakyBulkModel(ModelNormal):
@@ -80,8 +80,8 @@ class FlakyBulkModel(ModelNormal):
         """
         lazy_import()
         return {
+            'autotest_select': (FlakyBulkModelAutotestSelect,),  # noqa: E501
             'value': (bool,),  # noqa: E501
-            'autotest_select': (AutotestSelectModel,),  # noqa: E501
         }
 
     @cached_property
@@ -90,8 +90,8 @@ class FlakyBulkModel(ModelNormal):
 
 
     attribute_map = {
-        'value': 'value',  # noqa: E501
         'autotest_select': 'autotestSelect',  # noqa: E501
+        'value': 'value',  # noqa: E501
     }
 
     read_only_vars = {
@@ -101,10 +101,11 @@ class FlakyBulkModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, value, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, autotest_select, value, *args, **kwargs):  # noqa: E501
         """FlakyBulkModel - a model defined in OpenAPI
 
         Args:
+            autotest_select (FlakyBulkModelAutotestSelect):
             value (bool): Are autotests flaky
 
         Keyword Args:
@@ -138,7 +139,6 @@ class FlakyBulkModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            autotest_select (AutotestSelectModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +170,7 @@ class FlakyBulkModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.autotest_select = autotest_select
         self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -191,10 +192,11 @@ class FlakyBulkModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, value, *args, **kwargs):  # noqa: E501
+    def __init__(self, autotest_select, value, *args, **kwargs):  # noqa: E501
         """FlakyBulkModel - a model defined in OpenAPI
 
         Args:
+            autotest_select (FlakyBulkModelAutotestSelect):
             value (bool): Are autotests flaky
 
         Keyword Args:
@@ -228,7 +230,6 @@ class FlakyBulkModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            autotest_select (AutotestSelectModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -258,6 +259,7 @@ class FlakyBulkModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.autotest_select = autotest_select
         self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

@@ -82,7 +82,9 @@ class WebHookModel(ModelNormal):
         """
         lazy_import()
         return {
+            'name': (str,),  # noqa: E501
             'event_type': (WebHookEventTypeModel,),  # noqa: E501
+            'url': (str,),  # noqa: E501
             'request_type': (RequestTypeModel,),  # noqa: E501
             'should_send_body': (bool,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
@@ -94,11 +96,9 @@ class WebHookModel(ModelNormal):
             'project_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'url': (str, none_type,),  # noqa: E501
-            'headers': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'query_parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'headers': ({str: (str,)}, none_type,),  # noqa: E501
+            'query_parameters': ({str: (str,)}, none_type,),  # noqa: E501
             'custom_body': (str, none_type,),  # noqa: E501
             'custom_body_media_type': (str, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
@@ -111,7 +111,9 @@ class WebHookModel(ModelNormal):
 
 
     attribute_map = {
+        'name': 'name',  # noqa: E501
         'event_type': 'eventType',  # noqa: E501
+        'url': 'url',  # noqa: E501
         'request_type': 'requestType',  # noqa: E501
         'should_send_body': 'shouldSendBody',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
@@ -123,9 +125,7 @@ class WebHookModel(ModelNormal):
         'project_id': 'projectId',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'url': 'url',  # noqa: E501
         'headers': 'headers',  # noqa: E501
         'query_parameters': 'queryParameters',  # noqa: E501
         'custom_body': 'customBody',  # noqa: E501
@@ -141,11 +141,13 @@ class WebHookModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, event_type, request_type, should_send_body, is_enabled, should_send_custom_body, should_replace_parameters, should_escape_parameters, created_date, created_by_id, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, event_type, url, request_type, should_send_body, is_enabled, should_send_custom_body, should_replace_parameters, should_escape_parameters, created_date, created_by_id, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """WebHookModel - a model defined in OpenAPI
 
         Args:
+            name (str): Name of the webhook
             event_type (WebHookEventTypeModel):
+            url (str): Url to which the webhook sends request
             request_type (RequestTypeModel):
             should_send_body (bool): Indicates if the webhook sends body
             is_enabled (bool): Indicates if the webhook is active
@@ -189,11 +191,9 @@ class WebHookModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): Name of the webhook. [optional]  # noqa: E501
             description (str, none_type): Description of the webhook. [optional]  # noqa: E501
-            url (str, none_type): Url to which the webhook sends request. [optional]  # noqa: E501
-            headers ({str: (str, none_type)}, none_type): Collection of headers which the webhook sends. [optional]  # noqa: E501
-            query_parameters ({str: (str, none_type)}, none_type): Collection of query parameters which the webhook sends. [optional]  # noqa: E501
+            headers ({str: (str,)}, none_type): Collection of headers which the webhook sends. [optional]  # noqa: E501
+            query_parameters ({str: (str,)}, none_type): Collection of query parameters which the webhook sends. [optional]  # noqa: E501
             custom_body (str, none_type): Custom body of the webhook. [optional]  # noqa: E501
             custom_body_media_type (str, none_type): MIME type of body of the webhook. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the webhook. [optional]  # noqa: E501
@@ -229,7 +229,9 @@ class WebHookModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         self.event_type = event_type
+        self.url = url
         self.request_type = request_type
         self.should_send_body = should_send_body
         self.is_enabled = is_enabled
@@ -261,11 +263,13 @@ class WebHookModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, event_type, request_type, should_send_body, is_enabled, should_send_custom_body, should_replace_parameters, should_escape_parameters, created_date, created_by_id, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, event_type, url, request_type, should_send_body, is_enabled, should_send_custom_body, should_replace_parameters, should_escape_parameters, created_date, created_by_id, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """WebHookModel - a model defined in OpenAPI
 
         Args:
+            name (str): Name of the webhook
             event_type (WebHookEventTypeModel):
+            url (str): Url to which the webhook sends request
             request_type (RequestTypeModel):
             should_send_body (bool): Indicates if the webhook sends body
             is_enabled (bool): Indicates if the webhook is active
@@ -309,11 +313,9 @@ class WebHookModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): Name of the webhook. [optional]  # noqa: E501
             description (str, none_type): Description of the webhook. [optional]  # noqa: E501
-            url (str, none_type): Url to which the webhook sends request. [optional]  # noqa: E501
-            headers ({str: (str, none_type)}, none_type): Collection of headers which the webhook sends. [optional]  # noqa: E501
-            query_parameters ({str: (str, none_type)}, none_type): Collection of query parameters which the webhook sends. [optional]  # noqa: E501
+            headers ({str: (str,)}, none_type): Collection of headers which the webhook sends. [optional]  # noqa: E501
+            query_parameters ({str: (str,)}, none_type): Collection of query parameters which the webhook sends. [optional]  # noqa: E501
             custom_body (str, none_type): Custom body of the webhook. [optional]  # noqa: E501
             custom_body_media_type (str, none_type): MIME type of body of the webhook. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the webhook. [optional]  # noqa: E501
@@ -347,7 +349,9 @@ class WebHookModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         self.event_type = event_type
+        self.url = url
         self.request_type = request_type
         self.should_send_body = should_send_body
         self.is_enabled = is_enabled

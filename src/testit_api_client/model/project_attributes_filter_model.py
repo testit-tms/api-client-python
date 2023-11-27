@@ -82,10 +82,10 @@ class ProjectAttributesFilterModel(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'types': ([CustomAttributeTypesEnum],),  # noqa: E501
             'is_required': (bool, none_type,),  # noqa: E501
             'is_global': (bool, none_type,),  # noqa: E501
-            'types': ([CustomAttributeTypesEnum], none_type,),  # noqa: E501
             'is_enabled': (bool, none_type,),  # noqa: E501
         }
 
@@ -96,9 +96,9 @@ class ProjectAttributesFilterModel(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'types': 'types',  # noqa: E501
         'is_required': 'isRequired',  # noqa: E501
         'is_global': 'isGlobal',  # noqa: E501
-        'types': 'types',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
     }
 
@@ -109,8 +109,12 @@ class ProjectAttributesFilterModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, types, *args, **kwargs):  # noqa: E501
         """ProjectAttributesFilterModel - a model defined in OpenAPI
+
+        Args:
+            name (str): Specifies an attribute name to search for
+            types ([CustomAttributeTypesEnum]): Specifies an attribute types to search for
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,10 +147,8 @@ class ProjectAttributesFilterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): Specifies an attribute name to search for. [optional]  # noqa: E501
             is_required (bool, none_type): Specifies an attribute mandatory status to search for. [optional]  # noqa: E501
             is_global (bool, none_type): Specifies an attribute global status to search for. [optional]  # noqa: E501
-            types ([CustomAttributeTypesEnum], none_type): Specifies an attribute types to search for. [optional]  # noqa: E501
             is_enabled (bool, none_type): Specifies an attribute enabled status to search for. [optional]  # noqa: E501
         """
 
@@ -179,6 +181,8 @@ class ProjectAttributesFilterModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
+        self.types = types
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -199,8 +203,12 @@ class ProjectAttributesFilterModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, types, *args, **kwargs):  # noqa: E501
         """ProjectAttributesFilterModel - a model defined in OpenAPI
+
+        Args:
+            name (str): Specifies an attribute name to search for
+            types ([CustomAttributeTypesEnum]): Specifies an attribute types to search for
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,10 +241,8 @@ class ProjectAttributesFilterModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): Specifies an attribute name to search for. [optional]  # noqa: E501
             is_required (bool, none_type): Specifies an attribute mandatory status to search for. [optional]  # noqa: E501
             is_global (bool, none_type): Specifies an attribute global status to search for. [optional]  # noqa: E501
-            types ([CustomAttributeTypesEnum], none_type): Specifies an attribute types to search for. [optional]  # noqa: E501
             is_enabled (bool, none_type): Specifies an attribute enabled status to search for. [optional]  # noqa: E501
         """
 
@@ -267,6 +273,8 @@ class ProjectAttributesFilterModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
+        self.types = types
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

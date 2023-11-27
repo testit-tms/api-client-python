@@ -93,14 +93,14 @@ class AutoTestRelatedToTestResult(ModelComposed):
         """
         lazy_import()
         return {
+            'external_id': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'external_id': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'classname': (str, none_type,),  # noqa: E501
             'steps': ([AutoTestStepModel], none_type,),  # noqa: E501
@@ -118,14 +118,14 @@ class AutoTestRelatedToTestResult(ModelComposed):
 
 
     attribute_map = {
+        'external_id': 'externalId',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
-        'external_id': 'externalId',  # noqa: E501
         'links': 'links',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
         'classname': 'classname',  # noqa: E501
         'steps': 'steps',  # noqa: E501
@@ -146,7 +146,9 @@ class AutoTestRelatedToTestResult(ModelComposed):
         """AutoTestRelatedToTestResult - a model defined in OpenAPI
 
         Keyword Args:
+            external_id (str): This property is used to set autotest identifier from client system
             project_id (str): This property is used to link autotest with project
+            name (str):
             global_id (int):
             created_by_id (str):
             id (str): Unique ID of the entity
@@ -181,9 +183,7 @@ class AutoTestRelatedToTestResult(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str, none_type): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
             namespace (str, none_type): [optional]  # noqa: E501
             classname (str, none_type): [optional]  # noqa: E501
             steps ([AutoTestStepModel], none_type): [optional]  # noqa: E501
@@ -266,7 +266,9 @@ class AutoTestRelatedToTestResult(ModelComposed):
         """AutoTestRelatedToTestResult - a model defined in OpenAPI
 
         Keyword Args:
+            external_id (str): This property is used to set autotest identifier from client system
             project_id (str): This property is used to link autotest with project
+            name (str):
             global_id (int):
             created_by_id (str):
             id (str): Unique ID of the entity
@@ -301,9 +303,7 @@ class AutoTestRelatedToTestResult(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str, none_type): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
             namespace (str, none_type): [optional]  # noqa: E501
             classname (str, none_type): [optional]  # noqa: E501
             steps ([AutoTestStepModel], none_type): [optional]  # noqa: E501

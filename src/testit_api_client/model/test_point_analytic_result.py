@@ -86,11 +86,11 @@ class TestPointAnalyticResult(ModelNormal):
         """
         lazy_import()
         return {
-            'count_group_by_status': ([TestPlanGroupByStatus], none_type,),  # noqa: E501
-            'sum_group_by_tester': ([TestPlanGroupByTester], none_type,),  # noqa: E501
-            'count_group_by_tester': ([TestPlanGroupByTester], none_type,),  # noqa: E501
-            'count_group_by_test_suite': ([TestPlanGroupByTestSuite], none_type,),  # noqa: E501
-            'count_group_by_tester_and_status': ([TestPlanGroupByTesterAndStatus], none_type,),  # noqa: E501
+            'count_group_by_status': ([TestPlanGroupByStatus],),  # noqa: E501
+            'sum_group_by_tester': ([TestPlanGroupByTester],),  # noqa: E501
+            'count_group_by_tester': ([TestPlanGroupByTester],),  # noqa: E501
+            'count_group_by_test_suite': ([TestPlanGroupByTestSuite],),  # noqa: E501
+            'count_group_by_tester_and_status': ([TestPlanGroupByTesterAndStatus],),  # noqa: E501
         }
 
     @cached_property
@@ -113,8 +113,15 @@ class TestPointAnalyticResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, count_group_by_status, sum_group_by_tester, count_group_by_tester, count_group_by_test_suite, count_group_by_tester_and_status, *args, **kwargs):  # noqa: E501
         """TestPointAnalyticResult - a model defined in OpenAPI
+
+        Args:
+            count_group_by_status ([TestPlanGroupByStatus]):
+            sum_group_by_tester ([TestPlanGroupByTester]):
+            count_group_by_tester ([TestPlanGroupByTester]):
+            count_group_by_test_suite ([TestPlanGroupByTestSuite]):
+            count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,11 +154,6 @@ class TestPointAnalyticResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            count_group_by_status ([TestPlanGroupByStatus], none_type): [optional]  # noqa: E501
-            sum_group_by_tester ([TestPlanGroupByTester], none_type): [optional]  # noqa: E501
-            count_group_by_tester ([TestPlanGroupByTester], none_type): [optional]  # noqa: E501
-            count_group_by_test_suite ([TestPlanGroupByTestSuite], none_type): [optional]  # noqa: E501
-            count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -183,6 +185,11 @@ class TestPointAnalyticResult(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.count_group_by_status = count_group_by_status
+        self.sum_group_by_tester = sum_group_by_tester
+        self.count_group_by_tester = count_group_by_tester
+        self.count_group_by_test_suite = count_group_by_test_suite
+        self.count_group_by_tester_and_status = count_group_by_tester_and_status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -203,8 +210,15 @@ class TestPointAnalyticResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, count_group_by_status, sum_group_by_tester, count_group_by_tester, count_group_by_test_suite, count_group_by_tester_and_status, *args, **kwargs):  # noqa: E501
         """TestPointAnalyticResult - a model defined in OpenAPI
+
+        Args:
+            count_group_by_status ([TestPlanGroupByStatus]):
+            sum_group_by_tester ([TestPlanGroupByTester]):
+            count_group_by_tester ([TestPlanGroupByTester]):
+            count_group_by_test_suite ([TestPlanGroupByTestSuite]):
+            count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -237,11 +251,6 @@ class TestPointAnalyticResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            count_group_by_status ([TestPlanGroupByStatus], none_type): [optional]  # noqa: E501
-            sum_group_by_tester ([TestPlanGroupByTester], none_type): [optional]  # noqa: E501
-            count_group_by_tester ([TestPlanGroupByTester], none_type): [optional]  # noqa: E501
-            count_group_by_test_suite ([TestPlanGroupByTestSuite], none_type): [optional]  # noqa: E501
-            count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,6 +280,11 @@ class TestPointAnalyticResult(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.count_group_by_status = count_group_by_status
+        self.sum_group_by_tester = sum_group_by_tester
+        self.count_group_by_tester = count_group_by_tester
+        self.count_group_by_test_suite = count_group_by_test_suite
+        self.count_group_by_tester_and_status = count_group_by_tester_and_status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

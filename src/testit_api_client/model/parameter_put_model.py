@@ -59,7 +59,7 @@ class ParameterPutModel(ModelNormal):
 
     validations = {
         ('value',): {
-            'max_length': 255,
+            'max_length': 1500,
             'min_length': 0,
         },
         ('name',): {
@@ -111,8 +111,8 @@ class ParameterPutModel(ModelNormal):
 
         Args:
             id (str):
-            value (str):
-            name (str):
+            value (str): Value of the parameter
+            name (str): Key of the parameter
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -204,8 +204,8 @@ class ParameterPutModel(ModelNormal):
 
         Args:
             id (str):
-            value (str):
-            name (str):
+            value (str): Value of the parameter
+            name (str): Key of the parameter
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
