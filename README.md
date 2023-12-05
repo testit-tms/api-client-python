@@ -1,6 +1,11 @@
 # Api client for Test IT TMS
 ![Test IT](https://raw.githubusercontent.com/testit-tms/api-client-python/master/images/banner.png)
 
+[![Release
+Status](https://img.shields.io/pypi/v/testit-api-client?style=plastic)](https://pypi.python.org/pypi/testit-api-client)
+[![Downloads](https://img.shields.io/pypi/dm/testit-api-client?style=plastic)](https://pypi.python.org/pypi/testit-api-client)
+[![GitHub contributors](https://img.shields.io/github/contributors/testit-tms/api-client-python?style=plastic)](https://github.com/testit-tms/api-client-python)
+
 ## Getting Started
 
 ### Compatibility
