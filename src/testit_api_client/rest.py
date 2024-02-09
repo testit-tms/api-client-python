@@ -15,7 +15,7 @@ import re
 import ssl
 from urllib.parse import urlencode
 from urllib.parse import urlparse
-from urllib.request import proxy_bypass
+from urllib.request import proxy_bypass_environment
 import urllib3
 import ipaddress
 
