@@ -15,7 +15,7 @@ import re
 import ssl
 from urllib.parse import urlencode
 from urllib.parse import urlparse
-from urllib.request import proxy_bypass_environment
+from urllib.request import proxy_bypass
 import urllib3
 import ipaddress
 
@@ -44,7 +44,7 @@ class RESTResponse(io.IOBase):
 
 class RESTClientObject(object):
 
-    def __init__(self, configuration, pools_size=4, maxsize=None):
+    def __init__(self, configuration):
         # urllib3.PoolManager will pass all kw parameters to connectionpool
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75  # noqa: E501
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/connectionpool.py#L680  # noqa: E501
@@ -71,18 +71,10 @@ class RESTClientObject(object):
         if configuration.socket_options is not None:
             addition_pool_args['socket_options'] = configuration.socket_options
 
-        if maxsize is None:
-            if configuration.connection_pool_maxsize is not None:
-                maxsize = configuration.connection_pool_maxsize
-            else:
-                maxsize = 4
-
         # https pool manager
         if configuration.proxy and not should_bypass_proxies(
                 configuration.host, no_proxy=configuration.no_proxy or ''):
             self.pool_manager = urllib3.ProxyManager(
-                num_pools=pools_size,
-                maxsize=maxsize,
                 cert_reqs=cert_reqs,
                 ca_certs=configuration.ssl_ca_cert,
                 cert_file=configuration.cert_file,
@@ -93,8 +85,6 @@ class RESTClientObject(object):
             )
         else:
             self.pool_manager = urllib3.PoolManager(
-                num_pools=pools_size,
-                maxsize=maxsize,
                 cert_reqs=cert_reqs,
                 ca_certs=configuration.ssl_ca_cert,
                 cert_file=configuration.cert_file,
@@ -353,4 +343,4 @@ def should_bypass_proxies(url, no_proxy=None):
         for item in entries:
             if in_ipv4net(parsed.hostname, item):
                 return True
-    return proxy_bypass_environment(parsed.hostname, {'no': no_proxy})
+    return proxy_bypass(parsed.hostname, {'no': no_proxy})
