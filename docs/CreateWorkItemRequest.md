@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 **entity_type_name** | [**WorkItemEntityTypes**](WorkItemEntityTypes.md) |  | 
 **state** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**steps** | [**[StepPutModel]**](StepPutModel.md) |  | 
-**precondition_steps** | [**[StepPutModel]**](StepPutModel.md) |  | 
-**postcondition_steps** | [**[StepPutModel]**](StepPutModel.md) |  | 
+**steps** | [**[StepPostModel]**](StepPostModel.md) |  | 
+**precondition_steps** | [**[StepPostModel]**](StepPostModel.md) |  | 
+**postcondition_steps** | [**[StepPostModel]**](StepPostModel.md) |  | 
 **duration** | **int** | Must be 0 for shared steps and greater than 0 for the other types of work items | 
 **attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
-**tags** | [**[TagShortModel]**](TagShortModel.md) |  | 
+**tags** | [**[TagPostModel]**](TagPostModel.md) |  | 
 **links** | [**[LinkPostModel]**](LinkPostModel.md) |  | 
 **name** | **str** |  | 
 **project_id** | **str** | This property is used to link workitem with project | 

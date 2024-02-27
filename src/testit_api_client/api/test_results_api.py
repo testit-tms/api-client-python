@@ -552,7 +552,7 @@ class TestResultsApi(object):
         )
         self.download_attachment_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (file_type,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -646,6 +646,7 @@ class TestResultsApi(object):
             },
             headers_map={
                 'accept': [
+                    'application/octet-stream',
                     'application/json'
                 ],
                 'content_type': [],
@@ -1565,7 +1566,7 @@ class TestResultsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            file_type
                 If the method is called asynchronously, returns the request
                 thread.
         """

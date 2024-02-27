@@ -102,6 +102,7 @@ class TestPointFilterModel(ModelNormal):
             'test_suite_ids': ([str], none_type,),  # noqa: E501
             'work_item_global_ids': ([int], none_type,),  # noqa: E501
             'work_item_median_duration': (TestPointFilterModelWorkItemMedianDuration,),  # noqa: E501
+            'work_item_is_deleted': (bool, none_type,),  # noqa: E501
             'statuses': ([TestPointStatus], none_type,),  # noqa: E501
             'priorities': ([WorkItemPriorityModel], none_type,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
@@ -132,6 +133,7 @@ class TestPointFilterModel(ModelNormal):
         'test_suite_ids': 'testSuiteIds',  # noqa: E501
         'work_item_global_ids': 'workItemGlobalIds',  # noqa: E501
         'work_item_median_duration': 'workItemMedianDuration',  # noqa: E501
+        'work_item_is_deleted': 'workItemIsDeleted',  # noqa: E501
         'statuses': 'statuses',  # noqa: E501
         'priorities': 'priorities',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
@@ -197,6 +199,7 @@ class TestPointFilterModel(ModelNormal):
             test_suite_ids ([str], none_type): Specifies a test point test suite IDs to search for. [optional]  # noqa: E501
             work_item_global_ids ([int], none_type): Specifies a test point work item global IDs to search for. [optional]  # noqa: E501
             work_item_median_duration (TestPointFilterModelWorkItemMedianDuration): [optional]  # noqa: E501
+            work_item_is_deleted (bool, none_type): Specifies a test point work item is deleted flag to search for. [optional]  # noqa: E501
             statuses ([TestPointStatus], none_type): Specifies a test point statuses to search for. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Specifies a test point priorities to search for. [optional]  # noqa: E501
             is_automated (bool, none_type): Specifies a test point automation status to search for. [optional]  # noqa: E501
@@ -304,6 +307,7 @@ class TestPointFilterModel(ModelNormal):
             test_suite_ids ([str], none_type): Specifies a test point test suite IDs to search for. [optional]  # noqa: E501
             work_item_global_ids ([int], none_type): Specifies a test point work item global IDs to search for. [optional]  # noqa: E501
             work_item_median_duration (TestPointFilterModelWorkItemMedianDuration): [optional]  # noqa: E501
+            work_item_is_deleted (bool, none_type): Specifies a test point work item is deleted flag to search for. [optional]  # noqa: E501
             statuses ([TestPointStatus], none_type): Specifies a test point statuses to search for. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Specifies a test point priorities to search for. [optional]  # noqa: E501
             is_automated (bool, none_type): Specifies a test point automation status to search for. [optional]  # noqa: E501

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **postcondition_steps** | [**[StepModel]**](StepModel.md) |  | 
 **duration** | **int** |  | 
 **attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
-**tags** | [**[TagShortModel]**](TagShortModel.md) |  | 
+**tags** | [**[TagPutModel]**](TagPutModel.md) |  | 
 **links** | [**[LinkModel]**](LinkModel.md) |  | 
 **name** | **str** |  | 
 **auto_tests** | [**[AutoTestModel], none_type**](AutoTestModel.md) |  | [optional] 

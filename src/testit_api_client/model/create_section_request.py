@@ -30,10 +30,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
     from testit_api_client.model.section_post_model import SectionPostModel
-    from testit_api_client.model.step_put_model import StepPutModel
+    from testit_api_client.model.step_post_model import StepPostModel
+    globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['SectionPostModel'] = SectionPostModel
-    globals()['StepPutModel'] = StepPutModel
+    globals()['StepPostModel'] = StepPostModel
 
 
 class CreateSectionRequest(ModelComposed):
@@ -95,9 +97,10 @@ class CreateSectionRequest(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'attachments': ([AttachmentPutModel],),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
-            'precondition_steps': ([StepPutModel], none_type,),  # noqa: E501
-            'postcondition_steps': ([StepPutModel], none_type,),  # noqa: E501
+            'precondition_steps': ([StepPostModel], none_type,),  # noqa: E501
+            'postcondition_steps': ([StepPostModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +111,7 @@ class CreateSectionRequest(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
         'precondition_steps': 'preconditionSteps',  # noqa: E501
         'postcondition_steps': 'postconditionSteps',  # noqa: E501
@@ -124,6 +128,7 @@ class CreateSectionRequest(ModelComposed):
         Keyword Args:
             name (str):
             project_id (str):
+            attachments ([AttachmentPutModel]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -155,8 +160,8 @@ class CreateSectionRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             parent_id (str, none_type): [optional]  # noqa: E501
-            precondition_steps ([StepPutModel], none_type): [optional]  # noqa: E501
-            postcondition_steps ([StepPutModel], none_type): [optional]  # noqa: E501
+            precondition_steps ([StepPostModel], none_type): [optional]  # noqa: E501
+            postcondition_steps ([StepPostModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,6 +237,7 @@ class CreateSectionRequest(ModelComposed):
         Keyword Args:
             name (str):
             project_id (str):
+            attachments ([AttachmentPutModel]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -263,8 +269,8 @@ class CreateSectionRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             parent_id (str, none_type): [optional]  # noqa: E501
-            precondition_steps ([StepPutModel], none_type): [optional]  # noqa: E501
-            postcondition_steps ([StepPutModel], none_type): [optional]  # noqa: E501
+            precondition_steps ([StepPostModel], none_type): [optional]  # noqa: E501
+            postcondition_steps ([StepPostModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

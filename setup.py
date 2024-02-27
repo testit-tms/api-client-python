@@ -2,7 +2,7 @@ from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "testit-api-client"
 
-VERSION = "3.4.1"
+VERSION = "3.5.0"
 
 REQUIRES = [
   "urllib3 >= 1.25.3",

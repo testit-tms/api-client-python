@@ -30,9 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.tag_short_model import TagShortModel
+    from testit_api_client.model.tag_post_model import TagPostModel
     from testit_api_client.model.test_plan_status_model import TestPlanStatusModel
-    globals()['TagShortModel'] = TagShortModel
+    globals()['TagPostModel'] = TagPostModel
     globals()['TestPlanStatusModel'] = TestPlanStatusModel
 
 
@@ -113,7 +113,7 @@ class TestPlanModel(ModelNormal):
             'modified_by_id': (str, none_type,),  # noqa: E501
             'locked_date': (datetime, none_type,),  # noqa: E501
             'locked_by_id': (str, none_type,),  # noqa: E501
-            'tags': ([TagShortModel], none_type,),  # noqa: E501
+            'tags': ([TagPostModel], none_type,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
             'end_date': (datetime, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -210,7 +210,7 @@ class TestPlanModel(ModelNormal):
             modified_by_id (str, none_type): [optional]  # noqa: E501
             locked_date (datetime, none_type): [optional]  # noqa: E501
             locked_by_id (str, none_type): [optional]  # noqa: E501
-            tags ([TagShortModel], none_type): [optional]  # noqa: E501
+            tags ([TagPostModel], none_type): [optional]  # noqa: E501
             start_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
             end_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
@@ -327,7 +327,7 @@ class TestPlanModel(ModelNormal):
             modified_by_id (str, none_type): [optional]  # noqa: E501
             locked_date (datetime, none_type): [optional]  # noqa: E501
             locked_by_id (str, none_type): [optional]  # noqa: E501
-            tags ([TagShortModel], none_type): [optional]  # noqa: E501
+            tags ([TagPostModel], none_type): [optional]  # noqa: E501
             start_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
             end_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501

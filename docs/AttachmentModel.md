@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **created_date** | **datetime** | Creation date of the attachment | 
 **created_by_id** | **str** | Unique ID of the attachment creator | 
 **name** | **str** | Name of the attachment file | 
-**is_temp** | **bool** | Indicates whether the attachment is temporary (may be automatically deleted) | 
 **id** | **str** | Unique ID of the attachment | 
 **modified_date** | **datetime, none_type** | Last modification date of the attachment | [optional] 
 **modified_by_id** | **str, none_type** | Unique ID of the attachment last editor | [optional] 

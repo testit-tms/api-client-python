@@ -215,7 +215,12 @@ Class | Method | HTTP request | Description
 *SectionsApi* | [**move**](docs/SectionsApi.md#move) | **POST** /api/v2/sections/move | Move section with all work items into another section
 *SectionsApi* | [**rename**](docs/SectionsApi.md#rename) | **POST** /api/v2/sections/rename | Rename section
 *SectionsApi* | [**update_section**](docs/SectionsApi.md#update_section) | **PUT** /api/v2/sections | Update section
+*TagsApi* | [**api_v2_tags_delete**](docs/TagsApi.md#api_v2_tags_delete) | **DELETE** /api/v2/tags | Delete tags
 *TagsApi* | [**api_v2_tags_get**](docs/TagsApi.md#api_v2_tags_get) | **GET** /api/v2/tags | Get all Tags
+*TagsApi* | [**api_v2_tags_id_delete**](docs/TagsApi.md#api_v2_tags_id_delete) | **DELETE** /api/v2/tags/{id} | Delete tag
+*TagsApi* | [**api_v2_tags_post**](docs/TagsApi.md#api_v2_tags_post) | **POST** /api/v2/tags | Create tag
+*TagsApi* | [**api_v2_tags_put**](docs/TagsApi.md#api_v2_tags_put) | **PUT** /api/v2/tags | Update tag
+*TagsApi* | [**api_v2_tags_search_get**](docs/TagsApi.md#api_v2_tags_search_get) | **GET** /api/v2/tags/search | Search tags
 *TagsApi* | [**api_v2_tags_test_plans_tags_get**](docs/TagsApi.md#api_v2_tags_test_plans_tags_get) | **GET** /api/v2/tags/testPlansTags | Get all Tags that are used in TestPlans
 *TestPlansApi* | [**add_test_points_with_sections**](docs/TestPlansApi.md#add_test_points_with_sections) | **POST** /api/v2/testPlans/{id}/test-points/withSections | Add test-points to TestPlan with sections
 *TestPlansApi* | [**add_work_items_with_sections**](docs/TestPlansApi.md#add_work_items_with_sections) | **POST** /api/v2/testPlans/{id}/workItems/withSections | Add WorkItems to TestPlan with Sections as TestSuites

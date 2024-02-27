@@ -35,6 +35,7 @@ def lazy_import():
     from testit_api_client.model.test_run_filter_model import TestRunFilterModel
     from testit_api_client.model.test_run_filter_model_auto_tests_count import TestRunFilterModelAutoTestsCount
     from testit_api_client.model.test_run_filter_model_completed_date import TestRunFilterModelCompletedDate
+    from testit_api_client.model.test_run_filter_model_created_date import TestRunFilterModelCreatedDate
     from testit_api_client.model.test_run_filter_model_started_date import TestRunFilterModelStartedDate
     from testit_api_client.model.test_run_state import TestRunState
     globals()['FailureCategoryModel'] = FailureCategoryModel
@@ -42,6 +43,7 @@ def lazy_import():
     globals()['TestRunFilterModel'] = TestRunFilterModel
     globals()['TestRunFilterModelAutoTestsCount'] = TestRunFilterModelAutoTestsCount
     globals()['TestRunFilterModelCompletedDate'] = TestRunFilterModelCompletedDate
+    globals()['TestRunFilterModelCreatedDate'] = TestRunFilterModelCreatedDate
     globals()['TestRunFilterModelStartedDate'] = TestRunFilterModelStartedDate
     globals()['TestRunState'] = TestRunState
 
@@ -110,6 +112,7 @@ class ApiV2TestRunsSearchPostRequest(ModelComposed):
             'project_ids': ([str], none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'states': ([TestRunState], none_type,),  # noqa: E501
+            'created_date': (TestRunFilterModelCreatedDate,),  # noqa: E501
             'started_date': (TestRunFilterModelStartedDate,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
@@ -129,6 +132,7 @@ class ApiV2TestRunsSearchPostRequest(ModelComposed):
         'project_ids': 'projectIds',  # noqa: E501
         'name': 'name',  # noqa: E501
         'states': 'states',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
         'started_date': 'startedDate',  # noqa: E501
         'created_by_ids': 'createdByIds',  # noqa: E501
         'modified_by_ids': 'modifiedByIds',  # noqa: E501
@@ -181,6 +185,7 @@ class ApiV2TestRunsSearchPostRequest(ModelComposed):
             project_ids ([str], none_type): Specifies a test run project IDs to search for. [optional]  # noqa: E501
             name (str, none_type): Specifies test run name. [optional]  # noqa: E501
             states ([TestRunState], none_type): Specifies a test run states to search for. [optional]  # noqa: E501
+            created_date (TestRunFilterModelCreatedDate): [optional]  # noqa: E501
             started_date (TestRunFilterModelStartedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies a test run creator IDs to search for. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test run last editor IDs to search for. [optional]  # noqa: E501
@@ -295,6 +300,7 @@ class ApiV2TestRunsSearchPostRequest(ModelComposed):
             project_ids ([str], none_type): Specifies a test run project IDs to search for. [optional]  # noqa: E501
             name (str, none_type): Specifies test run name. [optional]  # noqa: E501
             states ([TestRunState], none_type): Specifies a test run states to search for. [optional]  # noqa: E501
+            created_date (TestRunFilterModelCreatedDate): [optional]  # noqa: E501
             started_date (TestRunFilterModelStartedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies a test run creator IDs to search for. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test run last editor IDs to search for. [optional]  # noqa: E501

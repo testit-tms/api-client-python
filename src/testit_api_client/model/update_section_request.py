@@ -30,8 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
     from testit_api_client.model.section_put_model import SectionPutModel
     from testit_api_client.model.step_put_model import StepPutModel
+    globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['SectionPutModel'] = SectionPutModel
     globals()['StepPutModel'] = StepPutModel
 
@@ -96,6 +98,7 @@ class UpdateSectionRequest(ModelComposed):
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'attachments': ([AttachmentPutModel],),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
             'precondition_steps': ([StepPutModel], none_type,),  # noqa: E501
             'postcondition_steps': ([StepPutModel], none_type,),  # noqa: E501
@@ -110,6 +113,7 @@ class UpdateSectionRequest(ModelComposed):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
         'precondition_steps': 'preconditionSteps',  # noqa: E501
         'postcondition_steps': 'postconditionSteps',  # noqa: E501
@@ -127,6 +131,7 @@ class UpdateSectionRequest(ModelComposed):
             id (str):
             name (str):
             project_id (str):
+            attachments ([AttachmentPutModel]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -236,6 +241,7 @@ class UpdateSectionRequest(ModelComposed):
             id (str):
             name (str):
             project_id (str):
+            attachments ([AttachmentPutModel]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

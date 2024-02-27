@@ -32,8 +32,12 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.failure_category_model import FailureCategoryModel
     from testit_api_client.model.test_result_outcome import TestResultOutcome
+    from testit_api_client.model.test_results_filter_model_created_date import TestResultsFilterModelCreatedDate
+    from testit_api_client.model.test_results_filter_model_duration import TestResultsFilterModelDuration
     globals()['FailureCategoryModel'] = FailureCategoryModel
     globals()['TestResultOutcome'] = TestResultOutcome
+    globals()['TestResultsFilterModelCreatedDate'] = TestResultsFilterModelCreatedDate
+    globals()['TestResultsFilterModelDuration'] = TestResultsFilterModelDuration
 
 
 class TestResultsFilterModel(ModelNormal):
@@ -91,6 +95,11 @@ class TestResultsFilterModel(ModelNormal):
         lazy_import()
         return {
             'test_run_ids': ([str], none_type,),  # noqa: E501
+            'auto_test_global_ids': ([int], none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'created_date': (TestResultsFilterModelCreatedDate,),  # noqa: E501
+            'duration': (TestResultsFilterModelDuration,),  # noqa: E501
+            'result_reasons': ([str], none_type,),  # noqa: E501
             'configuration_ids': ([str], none_type,),  # noqa: E501
             'outcomes': ([TestResultOutcome], none_type,),  # noqa: E501
             'failure_categories': ([FailureCategoryModel], none_type,),  # noqa: E501
@@ -105,6 +114,11 @@ class TestResultsFilterModel(ModelNormal):
 
     attribute_map = {
         'test_run_ids': 'testRunIds',  # noqa: E501
+        'auto_test_global_ids': 'autoTestGlobalIds',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
+        'result_reasons': 'resultReasons',  # noqa: E501
         'configuration_ids': 'configurationIds',  # noqa: E501
         'outcomes': 'outcomes',  # noqa: E501
         'failure_categories': 'failureCategories',  # noqa: E501
@@ -154,6 +168,11 @@ class TestResultsFilterModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             test_run_ids ([str], none_type): Specifies a test result test run IDs to search for. [optional]  # noqa: E501
+            auto_test_global_ids ([int], none_type): Specifies an autotest global IDs to search results for. [optional]  # noqa: E501
+            name (str, none_type): Specifies an autotest name to search results for. [optional]  # noqa: E501
+            created_date (TestResultsFilterModelCreatedDate): [optional]  # noqa: E501
+            duration (TestResultsFilterModelDuration): [optional]  # noqa: E501
+            result_reasons ([str], none_type): Specifies result reasons for searching test results. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
             outcomes ([TestResultOutcome], none_type): Specifies a test result outcomes to search for. [optional]  # noqa: E501
             failure_categories ([FailureCategoryModel], none_type): Specifies a test result failure categories to search for. [optional]  # noqa: E501
@@ -245,6 +264,11 @@ class TestResultsFilterModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             test_run_ids ([str], none_type): Specifies a test result test run IDs to search for. [optional]  # noqa: E501
+            auto_test_global_ids ([int], none_type): Specifies an autotest global IDs to search results for. [optional]  # noqa: E501
+            name (str, none_type): Specifies an autotest name to search results for. [optional]  # noqa: E501
+            created_date (TestResultsFilterModelCreatedDate): [optional]  # noqa: E501
+            duration (TestResultsFilterModelDuration): [optional]  # noqa: E501
+            result_reasons ([str], none_type): Specifies result reasons for searching test results. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
             outcomes ([TestResultOutcome], none_type): Specifies a test result outcomes to search for. [optional]  # noqa: E501
             failure_categories ([FailureCategoryModel], none_type): Specifies a test result failure categories to search for. [optional]  # noqa: E501

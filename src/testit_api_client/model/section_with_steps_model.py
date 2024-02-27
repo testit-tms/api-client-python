@@ -30,7 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.attachment_model import AttachmentModel
     from testit_api_client.model.step_model import StepModel
+    globals()['AttachmentModel'] = AttachmentModel
     globals()['StepModel'] = StepModel
 
 
@@ -88,6 +90,7 @@ class SectionWithStepsModel(ModelNormal):
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'attachments': ([AttachmentModel], none_type,),  # noqa: E501
             'precondition_steps': ([StepModel], none_type,),  # noqa: E501
             'postcondition_steps': ([StepModel], none_type,),  # noqa: E501
             'project_id': (str, none_type,),  # noqa: E501
@@ -107,6 +110,7 @@ class SectionWithStepsModel(ModelNormal):
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
         'precondition_steps': 'preconditionSteps',  # noqa: E501
         'postcondition_steps': 'postconditionSteps',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
@@ -163,6 +167,7 @@ class SectionWithStepsModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
             precondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             postcondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             project_id (str, none_type): [optional]  # noqa: E501
@@ -266,6 +271,7 @@ class SectionWithStepsModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
             precondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             postcondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             project_id (str, none_type): [optional]  # noqa: E501

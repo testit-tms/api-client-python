@@ -97,6 +97,7 @@ class AutoTestPostModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'work_item_ids_for_link_with_auto_test': ([str], none_type,),  # noqa: E501
             'should_create_work_item': (bool, none_type,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'links': ([LinkPostModel], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'classname': (str, none_type,),  # noqa: E501
@@ -121,6 +122,7 @@ class AutoTestPostModel(ModelNormal):
         'name': 'name',  # noqa: E501
         'work_item_ids_for_link_with_auto_test': 'workItemIdsForLinkWithAutoTest',  # noqa: E501
         'should_create_work_item': 'shouldCreateWorkItem',  # noqa: E501
+        'attributes': 'attributes',  # noqa: E501
         'links': 'links',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
         'classname': 'classname',  # noqa: E501
@@ -182,6 +184,7 @@ class AutoTestPostModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             work_item_ids_for_link_with_auto_test ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
             should_create_work_item (bool, none_type): Creates a test case linked to the autotest.. [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Key value pair of custom work item attributes. [optional]  # noqa: E501
             links ([LinkPostModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
             classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501
@@ -288,6 +291,7 @@ class AutoTestPostModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             work_item_ids_for_link_with_auto_test ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
             should_create_work_item (bool, none_type): Creates a test case linked to the autotest.. [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Key value pair of custom work item attributes. [optional]  # noqa: E501
             links ([LinkPostModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
             classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501

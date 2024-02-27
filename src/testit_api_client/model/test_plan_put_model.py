@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.tag_short_model import TagShortModel
-    globals()['TagShortModel'] = TagShortModel
+    from testit_api_client.model.tag_post_model import TagPostModel
+    globals()['TagPostModel'] = TagPostModel
 
 
 class TestPlanPutModel(ModelNormal):
@@ -101,7 +101,7 @@ class TestPlanPutModel(ModelNormal):
             'project_id': (str,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'locked_by_id': (str, none_type,),  # noqa: E501
-            'tags': ([TagShortModel], none_type,),  # noqa: E501
+            'tags': ([TagPostModel], none_type,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
             'end_date': (datetime, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -178,7 +178,7 @@ class TestPlanPutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             locked_by_id (str, none_type): [optional]  # noqa: E501
-            tags ([TagShortModel], none_type): [optional]  # noqa: E501
+            tags ([TagPostModel], none_type): [optional]  # noqa: E501
             start_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
             end_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
@@ -281,7 +281,7 @@ class TestPlanPutModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             locked_by_id (str, none_type): [optional]  # noqa: E501
-            tags ([TagShortModel], none_type): [optional]  # noqa: E501
+            tags ([TagPostModel], none_type): [optional]  # noqa: E501
             start_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
             end_date (datetime, none_type): Used for analytics. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
