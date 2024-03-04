@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **postcondition_steps** | [**[StepPutModel]**](StepPutModel.md) |  | 
 **duration** | **int** |  | 
 **attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
-**tags** | [**[TagShortModel]**](TagShortModel.md) |  | 
+**tags** | [**[TagPutModel]**](TagPutModel.md) |  | 
 **links** | [**[LinkPutModel]**](LinkPutModel.md) |  | 
 **name** | **str** |  | 
 **iterations** | [**[IterationPutModel], none_type**](IterationPutModel.md) |  | [optional] 

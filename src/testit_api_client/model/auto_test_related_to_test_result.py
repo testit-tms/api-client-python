@@ -110,6 +110,7 @@ class AutoTestRelatedToTestResult(ModelComposed):
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'labels': ([LabelShortModel], none_type,),  # noqa: E501
+            'external_key': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -135,6 +136,7 @@ class AutoTestRelatedToTestResult(ModelComposed):
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'labels': 'labels',  # noqa: E501
+        'external_key': 'externalKey',  # noqa: E501
     }
 
     read_only_vars = {
@@ -193,6 +195,7 @@ class AutoTestRelatedToTestResult(ModelComposed):
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             labels ([LabelShortModel], none_type): [optional]  # noqa: E501
+            external_key (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -313,6 +316,7 @@ class AutoTestRelatedToTestResult(ModelComposed):
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             labels ([LabelShortModel], none_type): [optional]  # noqa: E501
+            external_key (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

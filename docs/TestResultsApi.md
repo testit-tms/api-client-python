@@ -766,7 +766,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_attachment**
-> download_attachment(attachment_id, id)
+> file_type download_attachment(attachment_id, id)
 
 Get attachment of TestResult
 
@@ -816,7 +816,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get attachment of TestResult
-        api_instance.download_attachment(attachment_id, id)
+        api_response = api_instance.download_attachment(attachment_id, id)
+        pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->download_attachment: %s\n" % e)
 
@@ -824,7 +825,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get attachment of TestResult
-        api_instance.download_attachment(attachment_id, id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
+        api_response = api_instance.download_attachment(attachment_id, id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
+        pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->download_attachment: %s\n" % e)
 ```
@@ -844,7 +846,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**file_type**
 
 ### Authorization
 
@@ -853,7 +855,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details

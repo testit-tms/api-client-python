@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **test_suite_ids** | **[str], none_type** | Specifies a test point test suite IDs to search for | [optional] 
 **work_item_global_ids** | **[int], none_type** | Specifies a test point work item global IDs to search for | [optional] 
 **work_item_median_duration** | [**TestPointFilterModelWorkItemMedianDuration**](TestPointFilterModelWorkItemMedianDuration.md) |  | [optional] 
+**work_item_is_deleted** | **bool, none_type** | Specifies a test point work item is deleted flag to search for | [optional] 
 **statuses** | [**[TestPointStatus], none_type**](TestPointStatus.md) | Specifies a test point statuses to search for | [optional] 
 **priorities** | [**[WorkItemPriorityModel], none_type**](WorkItemPriorityModel.md) | Specifies a test point priorities to search for | [optional] 
 **is_automated** | **bool, none_type** | Specifies a test point automation status to search for | [optional] 

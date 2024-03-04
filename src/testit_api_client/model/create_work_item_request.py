@@ -34,8 +34,8 @@ def lazy_import():
     from testit_api_client.model.auto_test_id_model import AutoTestIdModel
     from testit_api_client.model.iteration_put_model import IterationPutModel
     from testit_api_client.model.link_post_model import LinkPostModel
-    from testit_api_client.model.step_put_model import StepPutModel
-    from testit_api_client.model.tag_short_model import TagShortModel
+    from testit_api_client.model.step_post_model import StepPostModel
+    from testit_api_client.model.tag_post_model import TagPostModel
     from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
     from testit_api_client.model.work_item_post_model import WorkItemPostModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
@@ -44,8 +44,8 @@ def lazy_import():
     globals()['AutoTestIdModel'] = AutoTestIdModel
     globals()['IterationPutModel'] = IterationPutModel
     globals()['LinkPostModel'] = LinkPostModel
-    globals()['StepPutModel'] = StepPutModel
-    globals()['TagShortModel'] = TagShortModel
+    globals()['StepPostModel'] = StepPostModel
+    globals()['TagPostModel'] = TagPostModel
     globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
     globals()['WorkItemPostModel'] = WorkItemPostModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
@@ -115,12 +115,12 @@ class CreateWorkItemRequest(ModelComposed):
             'entity_type_name': (WorkItemEntityTypes,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
-            'steps': ([StepPutModel],),  # noqa: E501
-            'precondition_steps': ([StepPutModel],),  # noqa: E501
-            'postcondition_steps': ([StepPutModel],),  # noqa: E501
+            'steps': ([StepPostModel],),  # noqa: E501
+            'precondition_steps': ([StepPostModel],),  # noqa: E501
+            'postcondition_steps': ([StepPostModel],),  # noqa: E501
             'duration': (int,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'tags': ([TagShortModel],),  # noqa: E501
+            'tags': ([TagPostModel],),  # noqa: E501
             'links': ([LinkPostModel],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
@@ -168,12 +168,12 @@ class CreateWorkItemRequest(ModelComposed):
             entity_type_name (WorkItemEntityTypes):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
-            steps ([StepPutModel]):
-            precondition_steps ([StepPutModel]):
-            postcondition_steps ([StepPutModel]):
+            steps ([StepPostModel]):
+            precondition_steps ([StepPostModel]):
+            postcondition_steps ([StepPostModel]):
             duration (int): Must be 0 for shared steps and greater than 0 for the other types of work items
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            tags ([TagShortModel]):
+            tags ([TagPostModel]):
             links ([LinkPostModel]):
             name (str):
             project_id (str): This property is used to link workitem with project
@@ -288,12 +288,12 @@ class CreateWorkItemRequest(ModelComposed):
             entity_type_name (WorkItemEntityTypes):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
-            steps ([StepPutModel]):
-            precondition_steps ([StepPutModel]):
-            postcondition_steps ([StepPutModel]):
+            steps ([StepPostModel]):
+            precondition_steps ([StepPostModel]):
+            postcondition_steps ([StepPostModel]):
             duration (int): Must be 0 for shared steps and greater than 0 for the other types of work items
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            tags ([TagShortModel]):
+            tags ([TagPostModel]):
             links ([LinkPostModel]):
             name (str):
             project_id (str): This property is used to link workitem with project

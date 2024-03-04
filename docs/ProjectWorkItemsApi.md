@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_project_id_work_items_tags_get**
-> [TagShortModel] api_v2_projects_project_id_work_items_tags_get(project_id)
+> [TagModel] api_v2_projects_project_id_work_items_tags_get(project_id)
 
 Get WorkItems Tags
 
@@ -325,7 +325,7 @@ Get WorkItems Tags
 import time
 import testit_api_client
 from testit_api_client.api import project_work_items_api
-from testit_api_client.model.tag_short_model import TagShortModel
+from testit_api_client.model.tag_model import TagModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[TagShortModel]**](TagShortModel.md)
+[**[TagModel]**](TagModel.md)
 
 ### Authorization
 

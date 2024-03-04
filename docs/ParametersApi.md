@@ -150,7 +150,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = [
         ParameterPutModel(
-            id="0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8",
+            id="b21976c2-c9f3-497b-bd88-9e068d01bd4a",
             value="value_example",
             name="name_example",
         ),

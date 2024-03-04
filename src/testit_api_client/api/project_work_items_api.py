@@ -24,7 +24,7 @@ from testit_api_client.model_utils import (  # noqa: F401
 from testit_api_client.model.api_v2_projects_project_id_work_items_search_grouped_post_request import ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
 from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.tag_short_model import TagShortModel
+from testit_api_client.model.tag_model import TagModel
 from testit_api_client.model.work_item_group_model import WorkItemGroupModel
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 
@@ -288,7 +288,7 @@ class ProjectWorkItemsApi(object):
         )
         self.api_v2_projects_project_id_work_items_tags_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([TagShortModel],),
+                'response_type': ([TagModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -750,7 +750,7 @@ class ProjectWorkItemsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [TagShortModel]
+            [TagModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """

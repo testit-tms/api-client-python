@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **created_date** | **datetime** |  | 
 **created_by_id** | **str** |  | 
 **name** | **str** |  | 
+**attachments** | [**[AttachmentModel], none_type**](AttachmentModel.md) |  | [optional] 
 **precondition_steps** | [**[StepModel], none_type**](StepModel.md) |  | [optional] 
 **postcondition_steps** | [**[StepModel], none_type**](StepModel.md) |  | [optional] 
 **project_id** | **str, none_type** |  | [optional] 

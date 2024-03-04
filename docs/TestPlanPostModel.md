@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **project_id** | **str** |  | 
 **attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
-**tags** | [**[TagShortModel], none_type**](TagShortModel.md) |  | [optional] 
+**tags** | [**[TagPostModel], none_type**](TagPostModel.md) |  | [optional] 
 **start_date** | **datetime, none_type** | Used for analytics | [optional] 
 **end_date** | **datetime, none_type** | Used for analytics | [optional] 
 **description** | **str, none_type** |  | [optional] 

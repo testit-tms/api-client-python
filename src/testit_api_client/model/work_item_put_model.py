@@ -35,7 +35,7 @@ def lazy_import():
     from testit_api_client.model.iteration_put_model import IterationPutModel
     from testit_api_client.model.link_put_model import LinkPutModel
     from testit_api_client.model.step_put_model import StepPutModel
-    from testit_api_client.model.tag_short_model import TagShortModel
+    from testit_api_client.model.tag_put_model import TagPutModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_states import WorkItemStates
     globals()['AttachmentPutModel'] = AttachmentPutModel
@@ -43,7 +43,7 @@ def lazy_import():
     globals()['IterationPutModel'] = IterationPutModel
     globals()['LinkPutModel'] = LinkPutModel
     globals()['StepPutModel'] = StepPutModel
-    globals()['TagShortModel'] = TagShortModel
+    globals()['TagPutModel'] = TagPutModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemStates'] = WorkItemStates
 
@@ -111,7 +111,7 @@ class WorkItemPutModel(ModelNormal):
             'postcondition_steps': ([StepPutModel],),  # noqa: E501
             'duration': (int,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'tags': ([TagShortModel],),  # noqa: E501
+            'tags': ([TagPutModel],),  # noqa: E501
             'links': ([LinkPutModel],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'iterations': ([IterationPutModel], none_type,),  # noqa: E501
@@ -164,7 +164,7 @@ class WorkItemPutModel(ModelNormal):
             postcondition_steps ([StepPutModel]):
             duration (int):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            tags ([TagShortModel]):
+            tags ([TagPutModel]):
             links ([LinkPutModel]):
             name (str):
 
@@ -280,7 +280,7 @@ class WorkItemPutModel(ModelNormal):
             postcondition_steps ([StepPutModel]):
             duration (int):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            tags ([TagShortModel]):
+            tags ([TagPutModel]):
             links ([LinkPutModel]):
             name (str):
 

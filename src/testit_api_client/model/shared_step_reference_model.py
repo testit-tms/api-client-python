@@ -30,9 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.tag_short_model import TagShortModel
+    from testit_api_client.model.tag_model import TagModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    globals()['TagShortModel'] = TagShortModel
+    globals()['TagModel'] = TagModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
 
 
@@ -99,7 +99,7 @@ class SharedStepReferenceModel(ModelNormal):
             'modified_by_id': (str, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
-            'tags': ([TagShortModel], none_type,),  # noqa: E501
+            'tags': ([TagModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -188,7 +188,7 @@ class SharedStepReferenceModel(ModelNormal):
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            tags ([TagShortModel], none_type): [optional]  # noqa: E501
+            tags ([TagModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -307,7 +307,7 @@ class SharedStepReferenceModel(ModelNormal):
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            tags ([TagShortModel], none_type): [optional]  # noqa: E501
+            tags ([TagModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
