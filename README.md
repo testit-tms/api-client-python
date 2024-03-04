@@ -18,6 +18,7 @@ Status](https://img.shields.io/pypi/v/testit-api-client?style=plastic)](https://
 | 4.3     | 3.2.0      |
 | 4.4     | 3.3.0      |
 | 4.5     | 3.4.0      |
+| 4.6     | 3.5.0      |
 
 ## Installation & Usage
 ### pip install

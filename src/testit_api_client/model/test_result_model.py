@@ -111,7 +111,7 @@ class TestResultModel(ModelNormal):
             'message': (str, none_type,),  # noqa: E501
             'run_by_user_id': (str, none_type,),  # noqa: E501
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
-            'test_point': (TestPointPutModel,),  # noqa: E501
+            'test_point': (TestPointPutModel, none_type,),  # noqa: E501
             'auto_test': (AutoTestModel,),  # noqa: E501
             'auto_test_step_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'setup_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
