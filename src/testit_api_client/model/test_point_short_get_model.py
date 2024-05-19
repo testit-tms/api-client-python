@@ -93,9 +93,11 @@ class TestPointShortGetModel(ModelNormal):
             'tags': ([str],),  # noqa: E501
             'links': ([str],),  # noqa: E501
             'test_suite_id': (str,),  # noqa: E501
+            'test_suite_name': (str,),  # noqa: E501
             'work_item_id': (str,),  # noqa: E501
             'work_item_global_id': (int,),  # noqa: E501
             'work_item_version_id': (str,),  # noqa: E501
+            'work_item_version_number': (int,),  # noqa: E501
             'status': (TestPointStatus,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
@@ -132,9 +134,11 @@ class TestPointShortGetModel(ModelNormal):
         'tags': 'tags',  # noqa: E501
         'links': 'links',  # noqa: E501
         'test_suite_id': 'testSuiteId',  # noqa: E501
+        'test_suite_name': 'testSuiteName',  # noqa: E501
         'work_item_id': 'workItemId',  # noqa: E501
         'work_item_global_id': 'workItemGlobalId',  # noqa: E501
         'work_item_version_id': 'workItemVersionId',  # noqa: E501
+        'work_item_version_number': 'workItemVersionNumber',  # noqa: E501
         'status': 'status',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
@@ -165,7 +169,7 @@ class TestPointShortGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, created_date, created_by_id, attributes, tags, links, test_suite_id, work_item_id, work_item_global_id, work_item_version_id, status, priority, is_automated, name, configuration_id, duration, section_id, project_id, last_test_result, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, created_date, created_by_id, attributes, tags, links, test_suite_id, test_suite_name, work_item_id, work_item_global_id, work_item_version_id, work_item_version_number, status, priority, is_automated, name, configuration_id, duration, section_id, project_id, last_test_result, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
         """TestPointShortGetModel - a model defined in OpenAPI
 
         Args:
@@ -176,9 +180,11 @@ class TestPointShortGetModel(ModelNormal):
             tags ([str]): Collection of the test point tags
             links ([str]): Collection of the test point links
             test_suite_id (str): Unique ID of test suite the test point assigned to
+            test_suite_name (str): Name of the test suite
             work_item_id (str): Unique ID of work item the test point represents
             work_item_global_id (int): Global ID of work item the test point represents
             work_item_version_id (str): Unique ID of work item version the test point represents
+            work_item_version_number (int): Number of work item version the test point represents
             status (TestPointStatus):
             priority (WorkItemPriorityModel):
             is_automated (bool): Indicates if the test point represents an autotest
@@ -270,9 +276,11 @@ class TestPointShortGetModel(ModelNormal):
         self.tags = tags
         self.links = links
         self.test_suite_id = test_suite_id
+        self.test_suite_name = test_suite_name
         self.work_item_id = work_item_id
         self.work_item_global_id = work_item_global_id
         self.work_item_version_id = work_item_version_id
+        self.work_item_version_number = work_item_version_number
         self.status = status
         self.priority = priority
         self.is_automated = is_automated
@@ -306,7 +314,7 @@ class TestPointShortGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, created_date, created_by_id, attributes, tags, links, test_suite_id, work_item_id, work_item_global_id, work_item_version_id, status, priority, is_automated, name, configuration_id, duration, section_id, project_id, last_test_result, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, created_date, created_by_id, attributes, tags, links, test_suite_id, test_suite_name, work_item_id, work_item_global_id, work_item_version_id, work_item_version_number, status, priority, is_automated, name, configuration_id, duration, section_id, project_id, last_test_result, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
         """TestPointShortGetModel - a model defined in OpenAPI
 
         Args:
@@ -317,9 +325,11 @@ class TestPointShortGetModel(ModelNormal):
             tags ([str]): Collection of the test point tags
             links ([str]): Collection of the test point links
             test_suite_id (str): Unique ID of test suite the test point assigned to
+            test_suite_name (str): Name of the test suite
             work_item_id (str): Unique ID of work item the test point represents
             work_item_global_id (int): Global ID of work item the test point represents
             work_item_version_id (str): Unique ID of work item version the test point represents
+            work_item_version_number (int): Number of work item version the test point represents
             status (TestPointStatus):
             priority (WorkItemPriorityModel):
             is_automated (bool): Indicates if the test point represents an autotest
@@ -409,9 +419,11 @@ class TestPointShortGetModel(ModelNormal):
         self.tags = tags
         self.links = links
         self.test_suite_id = test_suite_id
+        self.test_suite_name = test_suite_name
         self.work_item_id = work_item_id
         self.work_item_global_id = work_item_global_id
         self.work_item_version_id = work_item_version_id
+        self.work_item_version_number = work_item_version_number
         self.status = status
         self.priority = priority
         self.is_automated = is_automated

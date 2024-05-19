@@ -11,9 +11,11 @@ Name | Type | Description | Notes
 **tags** | **[str]** | Collection of the test point tags | 
 **links** | **[str]** | Collection of the test point links | 
 **test_suite_id** | **str** | Unique ID of test suite the test point assigned to | 
+**test_suite_name** | **str** | Name of the test suite | 
 **work_item_id** | **str** | Unique ID of work item the test point represents | 
 **work_item_global_id** | **int** | Global ID of work item the test point represents | 
 **work_item_version_id** | **str** | Unique ID of work item version the test point represents | 
+**work_item_version_number** | **int** | Number of work item version the test point represents | 
 **status** | [**TestPointStatus**](TestPointStatus.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **is_automated** | **bool** | Indicates if the test point represents an autotest | 

@@ -1881,14 +1881,14 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     auto_test_put_model = [
         AutoTestPutModel(
-            id="b21976c2-c9f3-497b-bd88-9e068d01bd4a",
+            id="20b3442e-1e9e-4fea-b940-4fde3f2f9ff6",
             work_item_ids_for_link_with_auto_test=[
                 "work_item_ids_for_link_with_auto_test_example",
             ],
             external_id="external_id_example",
             links=[
                 LinkPutModel(
-                    id="b21976c2-c9f3-497b-bd88-9e068d01bd4a",
+                    id="20b3442e-1e9e-4fea-b940-4fde3f2f9ff6",
                     title="title_example",
                     url="url_example",
                     description="description_example",

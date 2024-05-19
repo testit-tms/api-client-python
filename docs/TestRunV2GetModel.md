@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **created_by_id** | **str** |  | 
 **attachments** | [**[AttachmentModel]**](AttachmentModel.md) |  | 
 **links** | [**[LinkModel]**](LinkModel.md) |  | 
+**webhooks** | [**[NamedEntityModel]**](NamedEntityModel.md) |  | 
 **id** | **str** |  | 
 **name** | **str** |  | 
 **started_on** | **datetime, none_type** |  | [optional] 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **modified_date** | **datetime, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 **created_by_user_name** | **str, none_type** |  | [optional] 
+**custom_parameters** | **{str: (str,)}, none_type** |  | [optional] 
 **description** | **str, none_type** |  | [optional] 
 **launch_source** | **str, none_type** | Once launch source is specified it cannot be updated | [optional] 
 

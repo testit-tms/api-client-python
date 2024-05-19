@@ -93,9 +93,13 @@ class TestResultShortGetModel(ModelNormal):
             'outcome': (str,),  # noqa: E501
             'result_reasons': ([AutotestResultReasonSubGetModel],),  # noqa: E501
             'date': (datetime,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
             'links': ([LinkSubGetModel],),  # noqa: E501
             'attachments': ([AttachmentModel],),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'started_on': (datetime, none_type,),  # noqa: E501
+            'completed_on': (datetime, none_type,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
         }
 
@@ -114,9 +118,13 @@ class TestResultShortGetModel(ModelNormal):
         'outcome': 'outcome',  # noqa: E501
         'result_reasons': 'resultReasons',  # noqa: E501
         'date': 'date',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
         'links': 'links',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'comment': 'comment',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'started_on': 'startedOn',  # noqa: E501
+        'completed_on': 'completedOn',  # noqa: E501
         'duration': 'duration',  # noqa: E501
     }
 
@@ -127,7 +135,7 @@ class TestResultShortGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, autotest_global_id, test_run_id, configuration_id, configuration_name, outcome, result_reasons, date, links, attachments, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, autotest_global_id, test_run_id, configuration_id, configuration_name, outcome, result_reasons, date, created_date, links, attachments, *args, **kwargs):  # noqa: E501
         """TestResultShortGetModel - a model defined in OpenAPI
 
         Args:
@@ -139,7 +147,8 @@ class TestResultShortGetModel(ModelNormal):
             configuration_name (str): Name of configuration which the test result uses
             outcome (str): Outcome of the test result
             result_reasons ([AutotestResultReasonSubGetModel]): Collection of result reasons which the test result have
-            date (datetime): Date when the test result has been set
+            date (datetime): Date when the test result was completed or started or created
+            created_date (datetime): Date when the test result has been created
             links ([LinkSubGetModel]): Collection of links attached to the test result
             attachments ([AttachmentModel]): Collection of files attached to the test result
 
@@ -175,6 +184,9 @@ class TestResultShortGetModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             comment (str, none_type): Comment to the test result. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Date when the test result has been modified. [optional]  # noqa: E501
+            started_on (datetime, none_type): Date when the test result has been started. [optional]  # noqa: E501
+            completed_on (datetime, none_type): Date when the test result has been completed. [optional]  # noqa: E501
             duration (int, none_type): Time which it took to run the test. [optional]  # noqa: E501
         """
 
@@ -216,6 +228,7 @@ class TestResultShortGetModel(ModelNormal):
         self.outcome = outcome
         self.result_reasons = result_reasons
         self.date = date
+        self.created_date = created_date
         self.links = links
         self.attachments = attachments
         for var_name, var_value in kwargs.items():
@@ -238,7 +251,7 @@ class TestResultShortGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, autotest_global_id, test_run_id, configuration_id, configuration_name, outcome, result_reasons, date, links, attachments, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, autotest_global_id, test_run_id, configuration_id, configuration_name, outcome, result_reasons, date, created_date, links, attachments, *args, **kwargs):  # noqa: E501
         """TestResultShortGetModel - a model defined in OpenAPI
 
         Args:
@@ -250,7 +263,8 @@ class TestResultShortGetModel(ModelNormal):
             configuration_name (str): Name of configuration which the test result uses
             outcome (str): Outcome of the test result
             result_reasons ([AutotestResultReasonSubGetModel]): Collection of result reasons which the test result have
-            date (datetime): Date when the test result has been set
+            date (datetime): Date when the test result was completed or started or created
+            created_date (datetime): Date when the test result has been created
             links ([LinkSubGetModel]): Collection of links attached to the test result
             attachments ([AttachmentModel]): Collection of files attached to the test result
 
@@ -286,6 +300,9 @@ class TestResultShortGetModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             comment (str, none_type): Comment to the test result. [optional]  # noqa: E501
+            modified_date (datetime, none_type): Date when the test result has been modified. [optional]  # noqa: E501
+            started_on (datetime, none_type): Date when the test result has been started. [optional]  # noqa: E501
+            completed_on (datetime, none_type): Date when the test result has been completed. [optional]  # noqa: E501
             duration (int, none_type): Time which it took to run the test. [optional]  # noqa: E501
         """
 
@@ -325,6 +342,7 @@ class TestResultShortGetModel(ModelNormal):
         self.outcome = outcome
         self.result_reasons = result_reasons
         self.date = date
+        self.created_date = created_date
         self.links = links
         self.attachments = attachments
         for var_name, var_value in kwargs.items():

@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_test_post**
-> RequestData api_v2_webhooks_test_post()
+> WebhookResponse api_v2_webhooks_test_post()
 
 Test webhook's url
 
@@ -599,7 +599,7 @@ Test webhook's url
 import time
 import testit_api_client
 from testit_api_client.api import webhooks_api
-from testit_api_client.model.request_data import RequestData
+from testit_api_client.model.webhook_response import WebhookResponse
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.api_v2_webhooks_test_post_request import ApiV2WebhooksTestPostRequest
 from pprint import pprint
@@ -645,7 +645,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RequestData**](RequestData.md)
+[**WebhookResponse**](WebhookResponse.md)
 
 ### Authorization
 

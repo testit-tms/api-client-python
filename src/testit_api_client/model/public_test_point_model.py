@@ -83,6 +83,7 @@ class PublicTestPointModel(ModelNormal):
             'configuration_id': (str,),  # noqa: E501
             'configuration_global_id': (int,),  # noqa: E501
             'iteration_id': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
             'parameter_models': ([ParameterShortModel], none_type,),  # noqa: E501
         }
@@ -96,6 +97,7 @@ class PublicTestPointModel(ModelNormal):
         'configuration_id': 'configurationId',  # noqa: E501
         'configuration_global_id': 'configurationGlobalId',  # noqa: E501
         'iteration_id': 'iterationId',  # noqa: E501
+        'id': 'id',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
         'parameter_models': 'parameterModels',  # noqa: E501
     }
@@ -107,13 +109,14 @@ class PublicTestPointModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, configuration_id, configuration_global_id, iteration_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, configuration_id, configuration_global_id, iteration_id, id, *args, **kwargs):  # noqa: E501
         """PublicTestPointModel - a model defined in OpenAPI
 
         Args:
             configuration_id (str):
             configuration_global_id (int):
             iteration_id (str):
+            id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -182,6 +185,7 @@ class PublicTestPointModel(ModelNormal):
         self.configuration_id = configuration_id
         self.configuration_global_id = configuration_global_id
         self.iteration_id = iteration_id
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -202,13 +206,14 @@ class PublicTestPointModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, configuration_id, configuration_global_id, iteration_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, configuration_id, configuration_global_id, iteration_id, id, *args, **kwargs):  # noqa: E501
         """PublicTestPointModel - a model defined in OpenAPI
 
         Args:
             configuration_id (str):
             configuration_global_id (int):
             iteration_id (str):
+            id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -275,6 +280,7 @@ class PublicTestPointModel(ModelNormal):
         self.configuration_id = configuration_id
         self.configuration_global_id = configuration_global_id
         self.iteration_id = iteration_id
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
