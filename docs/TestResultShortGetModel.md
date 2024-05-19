@@ -12,10 +12,14 @@ Name | Type | Description | Notes
 **configuration_name** | **str** | Name of configuration which the test result uses | 
 **outcome** | **str** | Outcome of the test result | 
 **result_reasons** | [**[AutotestResultReasonSubGetModel]**](AutotestResultReasonSubGetModel.md) | Collection of result reasons which the test result have | 
-**date** | **datetime** | Date when the test result has been set | 
+**date** | **datetime** | Date when the test result was completed or started or created | 
+**created_date** | **datetime** | Date when the test result has been created | 
 **links** | [**[LinkSubGetModel]**](LinkSubGetModel.md) | Collection of links attached to the test result | 
 **attachments** | [**[AttachmentModel]**](AttachmentModel.md) | Collection of files attached to the test result | 
 **comment** | **str, none_type** | Comment to the test result | [optional] 
+**modified_date** | **datetime, none_type** | Date when the test result has been modified | [optional] 
+**started_on** | **datetime, none_type** | Date when the test result has been started | [optional] 
+**completed_on** | **datetime, none_type** | Date when the test result has been completed | [optional] 
 **duration** | **int, none_type** | Time which it took to run the test | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

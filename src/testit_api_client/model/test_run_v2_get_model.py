@@ -32,10 +32,12 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
     from testit_api_client.model.link_model import LinkModel
+    from testit_api_client.model.named_entity_model import NamedEntityModel
     from testit_api_client.model.test_result_v2_get_model import TestResultV2GetModel
     from testit_api_client.model.test_run_state import TestRunState
     globals()['AttachmentModel'] = AttachmentModel
     globals()['LinkModel'] = LinkModel
+    globals()['NamedEntityModel'] = NamedEntityModel
     globals()['TestResultV2GetModel'] = TestResultV2GetModel
     globals()['TestRunState'] = TestRunState
 
@@ -95,6 +97,7 @@ class TestRunV2GetModel(ModelNormal):
             'created_by_id': (str,),  # noqa: E501
             'attachments': ([AttachmentModel],),  # noqa: E501
             'links': ([LinkModel],),  # noqa: E501
+            'webhooks': ([NamedEntityModel],),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
@@ -104,6 +107,7 @@ class TestRunV2GetModel(ModelNormal):
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'created_by_user_name': (str, none_type,),  # noqa: E501
+            'custom_parameters': ({str: (str,)}, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
         }
@@ -120,6 +124,7 @@ class TestRunV2GetModel(ModelNormal):
         'created_by_id': 'createdById',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'links': 'links',  # noqa: E501
+        'webhooks': 'webhooks',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
@@ -129,6 +134,7 @@ class TestRunV2GetModel(ModelNormal):
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'created_by_user_name': 'createdByUserName',  # noqa: E501
+        'custom_parameters': 'customParameters',  # noqa: E501
         'description': 'description',  # noqa: E501
         'launch_source': 'launchSource',  # noqa: E501
     }
@@ -140,7 +146,7 @@ class TestRunV2GetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, state_name, project_id, created_date, created_by_id, attachments, links, id, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, state_name, project_id, created_date, created_by_id, attachments, links, webhooks, id, name, *args, **kwargs):  # noqa: E501
         """TestRunV2GetModel - a model defined in OpenAPI
 
         Args:
@@ -150,6 +156,7 @@ class TestRunV2GetModel(ModelNormal):
             created_by_id (str):
             attachments ([AttachmentModel]):
             links ([LinkModel]):
+            webhooks ([NamedEntityModel]):
             id (str):
             name (str):
 
@@ -191,6 +198,7 @@ class TestRunV2GetModel(ModelNormal):
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_by_user_name (str, none_type): [optional]  # noqa: E501
+            custom_parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): Once launch source is specified it cannot be updated. [optional]  # noqa: E501
         """
@@ -230,6 +238,7 @@ class TestRunV2GetModel(ModelNormal):
         self.created_by_id = created_by_id
         self.attachments = attachments
         self.links = links
+        self.webhooks = webhooks
         self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():
@@ -252,7 +261,7 @@ class TestRunV2GetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, state_name, project_id, created_date, created_by_id, attachments, links, id, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, state_name, project_id, created_date, created_by_id, attachments, links, webhooks, id, name, *args, **kwargs):  # noqa: E501
         """TestRunV2GetModel - a model defined in OpenAPI
 
         Args:
@@ -262,6 +271,7 @@ class TestRunV2GetModel(ModelNormal):
             created_by_id (str):
             attachments ([AttachmentModel]):
             links ([LinkModel]):
+            webhooks ([NamedEntityModel]):
             id (str):
             name (str):
 
@@ -303,6 +313,7 @@ class TestRunV2GetModel(ModelNormal):
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_by_user_name (str, none_type): [optional]  # noqa: E501
+            custom_parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): Once launch source is specified it cannot be updated. [optional]  # noqa: E501
         """
@@ -340,6 +351,7 @@ class TestRunV2GetModel(ModelNormal):
         self.created_by_id = created_by_id
         self.attachments = attachments
         self.links = links
+        self.webhooks = webhooks
         self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():

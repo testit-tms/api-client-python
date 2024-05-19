@@ -66,6 +66,9 @@ class CreateAndFillByAutoTestsRequest(ModelComposed):
     }
 
     validations = {
+        ('configuration_ids',): {
+            'min_items': 1,
+        },
     }
 
     @cached_property

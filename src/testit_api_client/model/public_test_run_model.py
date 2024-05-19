@@ -94,6 +94,8 @@ class PublicTestRunModel(ModelNormal):
             'test_plan_id': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'build': (str, none_type,),  # noqa: E501
+            'custom_parameters': ({str: (str,)}, none_type,),  # noqa: E501
+            'test_run_description': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +114,8 @@ class PublicTestRunModel(ModelNormal):
         'test_plan_id': 'testPlanId',  # noqa: E501
         'product_name': 'productName',  # noqa: E501
         'build': 'build',  # noqa: E501
+        'custom_parameters': 'customParameters',  # noqa: E501
+        'test_run_description': 'testRunDescription',  # noqa: E501
     }
 
     read_only_vars = {
@@ -167,6 +171,8 @@ class PublicTestRunModel(ModelNormal):
             test_plan_id (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             build (str, none_type): [optional]  # noqa: E501
+            custom_parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            test_run_description (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,6 +277,8 @@ class PublicTestRunModel(ModelNormal):
             test_plan_id (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             build (str, none_type): [optional]  # noqa: E501
+            custom_parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            test_run_description (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

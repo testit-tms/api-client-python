@@ -25,9 +25,9 @@ from testit_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPo
 from testit_api_client.model.api_v2_webhooks_search_post_request import ApiV2WebhooksSearchPostRequest
 from testit_api_client.model.api_v2_webhooks_test_post_request import ApiV2WebhooksTestPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.request_data import RequestData
 from testit_api_client.model.web_hook_event_type import WebHookEventType
 from testit_api_client.model.web_hook_model import WebHookModel
+from testit_api_client.model.webhook_response import WebhookResponse
 from testit_api_client.model.webhook_variables_type import WebhookVariablesType
 
 
@@ -431,7 +431,7 @@ class WebhooksApi(object):
         )
         self.api_v2_webhooks_test_post_endpoint = _Endpoint(
             settings={
-                'response_type': (RequestData,),
+                'response_type': (WebhookResponse,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1092,7 +1092,7 @@ class WebhooksApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            RequestData
+            WebhookResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

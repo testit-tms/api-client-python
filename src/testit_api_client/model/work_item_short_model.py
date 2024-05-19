@@ -97,6 +97,7 @@ class WorkItemShortModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'version_id': (str,),  # noqa: E501
+            'version_number': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'entity_type_name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
@@ -127,6 +128,7 @@ class WorkItemShortModel(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'version_id': 'versionId',  # noqa: E501
+        'version_number': 'versionNumber',  # noqa: E501
         'name': 'name',  # noqa: E501
         'entity_type_name': 'entityTypeName',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
@@ -156,12 +158,13 @@ class WorkItemShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, version_id, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, version_id, version_number, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
             id (str): Work Item internal unique identifier
             version_id (str): Work Item version identifier
+            version_number (int): Work Item version number
             name (str): Work Item name
             entity_type_name (str): Work Item type. Possible values: CheckLists, SharedSteps, TestCases
             project_id (str): Project unique identifier
@@ -247,6 +250,7 @@ class WorkItemShortModel(ModelNormal):
 
         self.id = id
         self.version_id = version_id
+        self.version_number = version_number
         self.name = name
         self.entity_type_name = entity_type_name
         self.project_id = project_id
@@ -281,12 +285,13 @@ class WorkItemShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, version_id, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, version_id, version_number, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
             id (str): Work Item internal unique identifier
             version_id (str): Work Item version identifier
+            version_number (int): Work Item version number
             name (str): Work Item name
             entity_type_name (str): Work Item type. Possible values: CheckLists, SharedSteps, TestCases
             project_id (str): Project unique identifier
@@ -370,6 +375,7 @@ class WorkItemShortModel(ModelNormal):
 
         self.id = id
         self.version_id = version_id
+        self.version_number = version_number
         self.name = name
         self.entity_type_name = entity_type_name
         self.project_id = project_id

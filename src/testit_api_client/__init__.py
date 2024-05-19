@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "3.5.0"
+__version__ = "3.6.0"
 
 # import ApiClient
 from testit_api_client.api_client import ApiClient

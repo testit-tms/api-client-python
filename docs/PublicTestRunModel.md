@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **test_plan_id** | **str, none_type** |  | [optional] 
 **product_name** | **str, none_type** |  | [optional] 
 **build** | **str, none_type** |  | [optional] 
+**custom_parameters** | **{str: (str,)}, none_type** |  | [optional] 
+**test_run_description** | **str, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
