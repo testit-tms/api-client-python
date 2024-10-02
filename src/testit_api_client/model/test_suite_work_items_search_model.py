@@ -150,6 +150,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             'is_automated': (bool, none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
+            'work_item_version_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -182,6 +183,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
         'is_automated': 'isAutomated',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
+        'work_item_version_ids': 'workItemVersionIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -226,7 +228,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tag_names ([str], none_type): Collection of tags. [optional]  # noqa: E501
-            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item   Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
@@ -249,6 +251,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
+            work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -335,7 +338,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tag_names ([str], none_type): Collection of tags. [optional]  # noqa: E501
-            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item   Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
@@ -358,6 +361,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
+            work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

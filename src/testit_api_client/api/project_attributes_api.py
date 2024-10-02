@@ -28,6 +28,7 @@ from testit_api_client.model.deletion_state import DeletionState
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.search_attributes_in_project_request import SearchAttributesInProjectRequest
 from testit_api_client.model.update_projects_attribute_request import UpdateProjectsAttributeRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class ProjectAttributesApi(object):
@@ -415,7 +416,7 @@ class ProjectAttributesApi(object):
     ):
         """Create project attribute  # noqa: E501
 
-        <br>Use case  <br>User sets attribute parameters (listed in request example) and runs method execution  <br>System search project  <br>System creates attribute and relates it to the project  <br>System returns project attribute properties (example listed in response parameters)  # noqa: E501
+         Use case   User sets attribute parameters (listed in request example) and runs method execution   System search project   System creates attribute and relates it to the project   System returns project attribute properties (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -500,7 +501,7 @@ class ProjectAttributesApi(object):
     ):
         """Delete project attribute  # noqa: E501
 
-        <br>Use case  <br>User sets project identifier and runs method execution  <br>User sets attribute identifier  <br>User runs method execution  <br>System search project  <br>System search and delete attribute  <br>System returns no content response  # noqa: E501
+         Use case   User sets project identifier and runs method execution   User sets attribute identifier   User runs method execution   System search project   System search and delete attribute   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -587,7 +588,7 @@ class ProjectAttributesApi(object):
     ):
         """Get project attribute  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier  <br>User sets project attribute identifier  <br>User runs method execution  <br>System search project  <br>System search project attribute   <br>System returns project attribute (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   User sets project attribute identifier   User runs method execution   System search project   System search project attribute    System returns project attribute (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -673,7 +674,7 @@ class ProjectAttributesApi(object):
     ):
         """Get project attributes  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier  <br>[Optional] User sets isDeleted field value  <br>User runs method execution  <br>System search project  <br>[Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  <br>[Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  <br>[Optional] If User did not set isDeleted field value, System search all attributes related to project  <br>System returns array of found attributes (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project   [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all attributes related to project   System returns array of found attributes (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

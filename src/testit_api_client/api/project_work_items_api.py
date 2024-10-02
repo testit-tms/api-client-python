@@ -25,6 +25,7 @@ from testit_api_client.model.api_v2_projects_project_id_work_items_search_groupe
 from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.tag_short_model import TagShortModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_group_model import WorkItemGroupModel
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 
@@ -706,7 +707,7 @@ class ProjectWorkItemsApi(object):
     ):
         """Get WorkItems Tags  # noqa: E501
 
-        <br>Use case  <br>User sets project internal identifier   <br>User runs method execution  <br>System returns work items tags  # noqa: E501
+         Use case   User sets project internal identifier    User runs method execution   System returns work items tags  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -790,7 +791,7 @@ class ProjectWorkItemsApi(object):
     ):
         """Get project work items  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier  <br>[Optional] User sets isDeleted field value  <br>User runs method execution  <br>System search project  <br>[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  <br>[Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  <br>If User did not set isDeleted field value, System search all  workitems related to project  <br>System returns array of found workitems (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

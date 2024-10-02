@@ -107,6 +107,7 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
 **404** | Test suite with provided ID was not found |  -  |
+**409** | Conflict |  -  |
 **422** | Shared steps cannot be added to test suite |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -127,6 +128,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.operation import Operation
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -203,7 +205,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test suite is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -221,6 +228,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -279,7 +287,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test suite is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -297,6 +310,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -367,7 +381,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -387,6 +406,7 @@ from testit_api_client.api import test_suites_api
 from testit_api_client.model.api_v2_test_suites_post_request import ApiV2TestSuitesPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -447,7 +467,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -466,6 +491,7 @@ import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.api_v2_test_suites_put_request import ApiV2TestSuitesPutRequest
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -525,7 +551,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -534,7 +565,7 @@ void (empty response body)
 
 Delete TestSuite
 
-<br>Use case  <br>User sets test suite identifier  <br>User runs method execution  <br>System search test suite by identifier  <br>System deletes test suite  <br>System returns no content response
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
 
 ### Example
 
@@ -545,6 +576,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -603,9 +635,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Delete permission for test plan required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
+**404** |  Can&#39;t find a TestSuite with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -614,7 +649,7 @@ void (empty response body)
 
 Get Configurations By Id
 
-<br>Use case  <br>User sets test suite identifier  <br>User runs method execution  <br>System search test suite by identifier  <br>System search test points related to the test suite  <br>System search configurations related to the test points  <br>System returns configurations array
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
 
 ### Example
 
@@ -626,6 +661,7 @@ import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.configuration_model import ConfigurationModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -685,9 +721,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+**404** |  Can&#39;t find a TestSuite with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -696,7 +735,7 @@ Name | Type | Description  | Notes
 
 Get TestPoints By Id
 
-<br>Use case  <br>User sets test suite identifier  <br>User runs method execution  <br>System search test suite by identifier  <br>System search test points related to the test suite  <br>System returns test points array
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
 
 ### Example
 
@@ -708,6 +747,7 @@ import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_point_by_test_suite_model import TestPointByTestSuiteModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -767,9 +807,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+**404** |  Can&#39;t find a TestSuite with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -778,7 +821,7 @@ Name | Type | Description  | Notes
 
 Get TestResults By Id
 
-<br>Use case  <br>User sets test suite identifier  <br>User runs method execution  <br>System search test suite by identifier  <br>System search test points related to the test suite  <br>System search test results related to the test points  <br>System returns test results array
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
 
 ### Example
 
@@ -790,6 +833,7 @@ import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_result_v2_short_model import TestResultV2ShortModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -849,9 +893,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+**404** |  Can&#39;t find a TestSuite with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -860,7 +907,7 @@ Name | Type | Description  | Notes
 
 Get TestSuite by Id
 
-<br>Use case  <br>User sets test suite identifier  <br>User runs method execution  <br>System search test suite by identifier  <br>System returns test suite
+ Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
 
 ### Example
 
@@ -872,6 +919,7 @@ import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -931,9 +979,13 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**404** |  Can&#39;t find a TestSuite with id! |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -942,7 +994,7 @@ Name | Type | Description  | Notes
 
 Search WorkItems
 
-<br>Use case  <br>User sets test suite identifier  <br>[Optional] User sets filter  <br>User runs method execution  <br>System search test suite by identifier  <br>System search test points related to the test suite  <br>System search work items related to the test points  <br>                      [Optional] User sets filter, system applies filter                    <br>System returns work items array
+ Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
 
 ### Example
 
@@ -1040,6 +1092,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | Can&#39;t find a TestSuite with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1048,7 +1102,7 @@ Name | Type | Description  | Notes
 
 Set Configurations By TestSuite Id
 
-<br>Use case  <br>User sets test suite identifier  <br>User sets collection of configuration identifiers  <br>User runs method execution  <br>System search test suite by identifier  <br>System search test points related to the test suite  <br>System search configuration  <br>System restores(if exist) or creates test points with listed configuration  <br>System returns no content response
+ Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
 
 ### Example
 
@@ -1130,10 +1184,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;Some of Configurations do not exist in the project, or they are not active |  -  |
+**400** |  Some of Configurations do not exist in the project, or they are not active |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestSuite with id |  -  |
+**404** |  Can&#39;t find a TestSuite with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Delete WorkItem comment
 
-<br>Use case  <br>User sets comment identifier  <br>User runs method execution  <br>System delete comment   <br>System returns success status code
+ Use case   User sets comment identifier   User runs method execution   System delete comment    System returns success status code
 
 ### Example
 
@@ -89,6 +89,8 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | System admin permission required |  -  |
 **404** | WorkItem is not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -97,7 +99,7 @@ void (empty response body)
 
 Create WorkItem comment
 
-<br>Use case  <br>User sets comment properties (listed in request parameters)  <br>User runs method execution  <br>System creates comment   <br>System returns comment model (listed in response parameters)
+ Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
 
 ### Example
 
@@ -175,6 +177,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 **404** | WorkItem is not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -192,6 +196,7 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_comments_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.api_v2_work_items_comments_put_request import ApiV2WorkItemsCommentsPutRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -252,7 +257,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | System administrator role is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -271,6 +281,7 @@ import testit_api_client
 from testit_api_client.api import work_items_comments_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -329,8 +340,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for test library is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -25,6 +25,7 @@ from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_p
 from testit_api_client.model.api_v2_projects_project_id_test_plans_search_post_request import ApiV2ProjectsProjectIdTestPlansSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class ProjectTestPlansApi(object):
@@ -297,7 +298,7 @@ class ProjectTestPlansApi(object):
         )
         self.api_v2_projects_project_id_test_plans_restore_bulk_post_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': ([str],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -447,7 +448,7 @@ class ProjectTestPlansApi(object):
     ):
         """Get TestPlans analytics  # noqa: E501
 
-        <br>Use case  <br>User sets project internal identifier  <br>User sets query params  <br>User runs method execution  <br>System return analytics  # noqa: E501
+         Use case   User sets project internal identifier   User sets query params   User runs method execution   System return analytics  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -621,7 +622,7 @@ class ProjectTestPlansApi(object):
     ):
         """Checks if TestPlan exists with the specified name exists for the project  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier   <br>User runs method execution  <br>System purge delete project workitems  # noqa: E501
+         Use case   User sets project internal or global identifier    User runs method execution   System purge delete project workitems  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -833,7 +834,7 @@ class ProjectTestPlansApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            [str]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -873,7 +874,7 @@ class ProjectTestPlansApi(object):
     ):
         """Get Project TestPlans with analytics  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier   <br>User sets request body   <br>User runs method execution  <br>System returns project testplans with analytics  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets request body    User runs method execution   System returns project testplans with analytics  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

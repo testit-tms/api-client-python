@@ -913,7 +913,7 @@ class ParametersApi(object):
     ):
         """Create multiple parameters  # noqa: E501
 
-        <br>Use case  <br>User sets list of parameter model (listed in the request example)  <br>User runs method execution  <br>System creates parameters  <br>System returns list of parameter model (listed in the response example)  # noqa: E501
+         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -992,7 +992,7 @@ class ParametersApi(object):
     ):
         """Update multiple parameters  # noqa: E501
 
-        <br>Use case  <br>User sets list of parameter model (listed in the request example)  <br>User runs method execution  <br>System updates parameters  # noqa: E501
+         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1071,7 +1071,7 @@ class ParametersApi(object):
     ):
         """Get parameters as group  # noqa: E501
 
-        <br>Use case  <br>User runs method execution  <br>System search parameters  <br>System returns parameters models as groups (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1157,7 +1157,7 @@ class ParametersApi(object):
     ):
         """Check existence parameter key in system  # noqa: E501
 
-        <br>Use case  <br>User sets name of parameter key  <br>User runs method execution  <br>System search parameter key  <br>System returns the flag for the existence of the parameter key in the system  # noqa: E501
+         Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1240,7 +1240,7 @@ class ParametersApi(object):
     ):
         """Get all parameter key values  # noqa: E501
 
-        <br>Use case  <br>User sets parameter key (string format)  <br>User runs method execution  <br>System search parameter values using the key  <br>System returns parameter  # noqa: E501
+         Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1322,7 +1322,7 @@ class ParametersApi(object):
     ):
         """Get all parameter keys  # noqa: E501
 
-        <br>Use case  <br>User runs method execution  <br>System search all parameter keys  <br>System returns parameter keys  # noqa: E501
+         Use case   User runs method execution   System search all parameter keys   System returns parameter keys  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1566,7 +1566,7 @@ class ParametersApi(object):
     ):
         """Create parameter  # noqa: E501
 
-        <br>Use case  <br>User sets parameter model (listed in the request example)  <br>User runs method execution  <br>System creates parameter  <br>System returns parameter model  # noqa: E501
+         Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1737,7 +1737,7 @@ class ParametersApi(object):
         >>> result = thread.get()
 
         Args:
-            key_id (str):
+            key_id (str): Identifier of the parameter key
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1812,7 +1812,7 @@ class ParametersApi(object):
     ):
         """Delete parameter  # noqa: E501
 
-        <br>Use case  <br>User sets parameter internal (guid format) identifier  <br>System search and delete parameter  <br>System returns deleted parameter  # noqa: E501
+         Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1894,7 +1894,7 @@ class ParametersApi(object):
     ):
         """Get all parameters  # noqa: E501
 
-        <br>Use case  <br>[Optional] User sets isDeleted field value  <br>[Optional] If User sets isDeleted field value as true, System search all deleted parameters  <br>[Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  <br>If User did not set isDeleted field value, System search all parameters  <br>System returns array of all found parameters(listed in response model)  # noqa: E501
+         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1979,7 +1979,7 @@ class ParametersApi(object):
     ):
         """Get parameter by ID  # noqa: E501
 
-        <br>Use case  <br>User sets parameter internal (guid format) identifier  <br>User runs method execution  <br>System search parameter using the identifier  <br>System returns parameter  # noqa: E501
+         Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2061,7 +2061,7 @@ class ParametersApi(object):
     ):
         """Update parameter  # noqa: E501
 
-        <br>Use case  <br>User sets parameter updated properties(listed in the request example)  <br>User runs method execution  <br>System updated parameter using updated properties  <br>System returns no content response  # noqa: E501
+         Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

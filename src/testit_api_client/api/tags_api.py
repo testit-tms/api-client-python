@@ -444,7 +444,7 @@ class TagsApi(object):
     ):
         """Delete tags  # noqa: E501
 
-        <br>Use case  <br>User sets collection of tags internal (guid format) identifiers  <br>System searches and deletes a collection of tags  # noqa: E501
+         Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -523,7 +523,7 @@ class TagsApi(object):
     ):
         """Get all Tags  # noqa: E501
 
-        <br>Use case  <br>User runs method execution  <br>System returns tags (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns tags (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -602,7 +602,7 @@ class TagsApi(object):
     ):
         """Delete tag  # noqa: E501
 
-        <br>Use case  <br>User sets tag internal (guid format) identifier  <br>System search and delete tag  # noqa: E501
+         Use case   User sets tag internal (guid format) identifier   System search and delete tag  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -684,7 +684,7 @@ class TagsApi(object):
     ):
         """Create tag  # noqa: E501
 
-        <br>Use case  <br>User sets tag model (listed in the request example)  <br>User runs method execution  <br>System creates tag  <br>System returns tag model (listed in the response example)  # noqa: E501
+         Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -763,7 +763,7 @@ class TagsApi(object):
     ):
         """Update tag  # noqa: E501
 
-        <br>Use case  <br>User sets tag ID and model (listed in the request example)  <br>User runs method execution  <br>System updates tag  <br>System returns tag model (listed in the response example)  # noqa: E501
+         Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -843,7 +843,7 @@ class TagsApi(object):
     ):
         """Search tags  # noqa: E501
 
-        <br>Use case  <br>User runs method execution  <br>System returns collection of tags (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns collection of tags (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -926,7 +926,7 @@ class TagsApi(object):
     ):
         """Get all Tags that are used in TestPlans  # noqa: E501
 
-        <br>Use case  <br>User runs method execution  <br>System returns tags (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns tags (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

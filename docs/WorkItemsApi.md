@@ -32,11 +32,11 @@ Method | HTTP request | Description
 
 
 # **api_v2_work_items_id_attachments_post**
-> str api_v2_work_items_id_attachments_post(id)
+> api_v2_work_items_id_attachments_post(id)
 
 Upload and link attachment to WorkItem
 
-<br>Use case  <br>User sets workItemId  <br>User attaches a file  <br>System creates attachment and links it to the work item  <br>System returns attachment identifier
+ Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier
 
 ### Example
 
@@ -76,8 +76,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Upload and link attachment to WorkItem
-        api_response = api_instance.api_v2_work_items_id_attachments_post(id)
-        pprint(api_response)
+        api_instance.api_v2_work_items_id_attachments_post(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_attachments_post: %s\n" % e)
 
@@ -85,8 +84,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Upload and link attachment to WorkItem
-        api_response = api_instance.api_v2_work_items_id_attachments_post(id, file=file)
-        pprint(api_response)
+        api_instance.api_v2_work_items_id_attachments_post(id, file=file)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_attachments_post: %s\n" % e)
 ```
@@ -101,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+void (empty response body)
 
 ### Authorization
 
@@ -117,12 +115,14 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
 **404** |  |  -  |
-**413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 Transform CheckList to TestCase
 
-<br>Use case  <br>User sets checklist identifier  <br>User runs method execution  <br>System transform CheckList to TestCase
+ Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase
 
 ### Example
 
@@ -207,7 +207,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | Can&#39;t find CheckList with id |  -  |
-**422** | Client Error |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -216,7 +217,7 @@ Name | Type | Description  | Notes
 
 Get change history of WorkItem
 
-<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System return change history of WorkItem
+ Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem
 
 ### Example
 
@@ -226,6 +227,7 @@ Get change history of WorkItem
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_change_model import WorkItemChangeModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -310,6 +312,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -318,7 +322,7 @@ Name | Type | Description  | Notes
 
 Delete like from WorkItem
 
-<br>Use case  <br>User sets WorkItem identifier  <br>User runs method execution  <br>System delete like from WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem
 
 ### Example
 
@@ -328,6 +332,7 @@ Delete like from WorkItem
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -389,6 +394,10 @@ void (empty response body)
 **204** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -397,7 +406,7 @@ void (empty response body)
 
 Set like to WorkItem
 
-<br>Use case  <br>User sets WorkItem identifier  <br>User runs method execution  <br>System set like to WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem
 
 ### Example
 
@@ -407,6 +416,7 @@ Set like to WorkItem
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -468,6 +478,10 @@ void (empty response body)
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -476,7 +490,7 @@ void (empty response body)
 
 Get likes count of WorkItem
 
-<br>Use case  <br>User sets WorkItem identifier  <br>User runs method execution  <br>System return likes count of WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem
 
 ### Example
 
@@ -486,6 +500,7 @@ Get likes count of WorkItem
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -549,6 +564,9 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -557,7 +575,7 @@ Name | Type | Description  | Notes
 
 Get likes of WorkItem
 
-<br>Use case  <br>User sets WorkItem identifier  <br>User runs method execution  <br>System return likes of WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem
 
 ### Example
 
@@ -567,6 +585,7 @@ Get likes of WorkItem
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_like_model import WorkItemLikeModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -631,6 +650,9 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -639,7 +661,7 @@ Name | Type | Description  | Notes
 
 Get test results history of WorkItem
 
-<br>Use case  <br>User sets WorkItem identifier  <br>User runs method execution  <br>System return test results history of WorkItem
+ Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
 
 ### Example
 
@@ -649,6 +671,7 @@ Get test results history of WorkItem
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -760,6 +783,9 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -768,7 +794,7 @@ Name | Type | Description  | Notes
 
 Set WorkItem as actual
 
-<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System set WorkItem as actual
+ Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual
 
 ### Example
 
@@ -778,6 +804,7 @@ Set WorkItem as actual
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_model import WorkItemModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -845,6 +872,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -853,7 +882,7 @@ Name | Type | Description  | Notes
 
 Move WorkItem to another section
 
-<br>Use case  <br>User sets WorkItem identifier  <br>User runs method execution  <br>System move WorkItem to another section
+ Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section
 
 ### Example
 
@@ -863,6 +892,7 @@ Move WorkItem to another section
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.api_v2_work_items_move_post_request import ApiV2WorkItemsMovePostRequest
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
@@ -929,6 +959,9 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -948,6 +981,7 @@ from testit_api_client.api import work_items_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1017,8 +1051,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Test library read permission for all requested projects is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1027,7 +1066,7 @@ Name | Type | Description  | Notes
 
 Get SharedStep references in sections
 
-<br>Use case  <br>User sets SharedStep identifier  <br>User runs method execution  <br>System return SharedStep references
+ Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
 
 ### Example
 
@@ -1038,7 +1077,9 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.shared_step_reference_section_model import SharedStepReferenceSectionModel
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.api_v2_work_items_shared_step_id_references_sections_post_request import ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1119,8 +1160,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Can&#39;t find SharedStep with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1129,7 +1174,7 @@ Name | Type | Description  | Notes
 
 Get SharedStep references in work items
 
-<br>Use case  <br>User sets SharedStep identifier  <br>User runs method execution  <br>System return SharedStep references
+ Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
 
 ### Example
 
@@ -1140,6 +1185,8 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.shared_step_reference_model import SharedStepReferenceModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.api_v2_work_items_shared_step_id_references_work_items_post_request import ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1221,8 +1268,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Can&#39;t find SharedStep with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1231,7 +1282,7 @@ Name | Type | Description  | Notes
 
 Get SharedStep references
 
-<br>Use case  <br>User sets SharedStep identifier  <br>User runs method execution  <br>System return SharedStep references
+ Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
 
 ### Example
 
@@ -1242,6 +1293,7 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.shared_step_reference_model import SharedStepReferenceModel
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1304,7 +1356,10 @@ Name | Type | Description  | Notes
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Can&#39;t find SharedStep with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1313,7 +1368,7 @@ Name | Type | Description  | Notes
 
 Create Test Case, Checklist or Shared Step
 
-<br>Use case  <br>User sets work item properties (listed in request parameters)  <br>User runs method execution  <br>System creates work item by identifier  <br>System returns work item model (listed in response parameters)
+ Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)
 
 ### Example
 
@@ -1323,8 +1378,10 @@ Create Test Case, Checklist or Shared Step
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_model import WorkItemModel
 from testit_api_client.model.create_work_item_request import CreateWorkItemRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1385,10 +1442,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;Tags must be set  &lt;br&gt;Duration should be a positive number  &lt;br&gt;Should be empty for CheckList  &lt;br&gt;Attribute value must be a valid guid for user scheme  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
+**400** |  Field is required   Priority is not a valid   Tags must be set   Duration should be a positive number   Should be empty for CheckList   Attribute value must be a valid guid for user scheme   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
-**404** | &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t find project  &lt;br&gt;Can&#39;t find attachmentIds  &lt;br&gt;Project not found  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
+**404** |  Can&#39;t find section   Can&#39;t find project   Can&#39;t find attachmentIds   Project not found   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1397,7 +1456,7 @@ Name | Type | Description  | Notes
 
 Delete all links AutoTests from WorkItem by Id or GlobalId
 
-<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System search work item by identifier  <br>System search and delete all autotests, related to found work item  <br>System returns no content response
+ Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response
 
 ### Example
 
@@ -1407,6 +1466,8 @@ Delete all links AutoTests from WorkItem by Id or GlobalId
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1469,6 +1530,8 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
 **404** | Can&#39;t find a WorkItem with workItemId |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 **200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1478,7 +1541,7 @@ void (empty response body)
 
 Delete Test Case, Checklist or Shared Step by Id or GlobalId
 
-<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System deletes work item  <br>System returns no content response
+ Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response
 
 ### Example
 
@@ -1488,6 +1551,8 @@ Delete Test Case, Checklist or Shared Step by Id or GlobalId
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1550,6 +1615,7 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | Delete permission for test library required |  -  |
 **404** | Can&#39;t find a WorkItem with id |  -  |
+**409** | Conflict |  -  |
 **422** | Could not delete Shared Step that has references |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1559,7 +1625,7 @@ void (empty response body)
 
 Get all AutoTests linked to WorkItem by Id or GlobalId
 
-<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System search work item by identifier  <br>System search all autotests, related to found work item  <br>System returns list of found autotests
+ Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests
 
 ### Example
 
@@ -1570,6 +1636,8 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.auto_test_model import AutoTestModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1633,6 +1701,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with workItemId |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1650,6 +1720,7 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.iteration_model import IterationModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1723,10 +1794,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
-**404** | Can&#39;t find workItem with id |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
+**404** | Can&#39;t find workItem with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1735,7 +1808,7 @@ Name | Type | Description  | Notes
 
 Get Test Case, Checklist or Shared Step by Id or GlobalId
 
-<br>Use case  <br>User sets work item identifier  <br>[Optional] User sets work item version identifier  <br>[Optional] User sets work item version number  <br>User runs method execution  <br>System search work item by identifier  <br>[Optional] if User sets work item version identifier, system search work item version by identifier.  <br>[Optional] if user sets work item version number, system search work item version by number  <br>Otherwise, system search last work item version  <br>System returns work item 
+ Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item 
 
 ### Example
 
@@ -1745,7 +1818,9 @@ Get Test Case, Checklist or Shared Step by Id or GlobalId
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_model import WorkItemModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1822,6 +1897,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 **404** | Can&#39;t find workItem with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1830,7 +1907,7 @@ Name | Type | Description  | Notes
 
 Get WorkItem chronology by Id or GlobalId
 
-<br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System search work item by identifier  <br>System search test results of all autotests, related to found work item  <br>System sort results by CompletedOn ascending, then by CreatedDate ascending  <br>System returns sorted collection of test results
+ Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results
 
 ### Example
 
@@ -1840,7 +1917,9 @@ Get WorkItem chronology by Id or GlobalId
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1904,6 +1983,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with workItemId |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1912,7 +1993,7 @@ Name | Type | Description  | Notes
 
 Get WorkItem versions
 
-<br>Use case  <br>User sets work item identifier  <br>[Optional] User sets work item version identifier  <br>User runs method execution  <br>System search work item by identifier  <br>                      [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                    <br>System returns array of work item version models (listed in response example)
+ Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)
 
 ### Example
 
@@ -1922,6 +2003,8 @@ Get WorkItem versions
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_version_model import WorkItemVersionModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1999,6 +2082,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library required |  -  |
 **404** | Can&#39;t find WorkItem with workItemId |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2079,7 +2164,8 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | Delete permission for test library is required |  -  |
 **404** | Not Found |  -  |
-**422** | Client Error |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2155,11 +2241,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library is required |  -  |
 **404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2168,7 +2256,7 @@ void (empty response body)
 
 Update Test Case, Checklist or Shared Step
 
-<br>Use case  <br>User sets work item properties (listed in request parameters)  <br>User runs method execution  <br>System updates work item by identifier  <br>System returns updated work item model (listed in response parameters)
+ Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)
 
 ### Example
 
@@ -2178,7 +2266,9 @@ Update Test Case, Checklist or Shared Step
 import time
 import testit_api_client
 from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.update_work_item_request import UpdateWorkItemRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2238,10 +2328,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Priority is not a valid  &lt;br&gt;duration should be a positive number  &lt;br&gt;should be empty for CheckList  &lt;br&gt;There is no option in ProjectAttributesScheme with such Id  &lt;br&gt;Attribute value must be a valid guid for options scheme |  -  |
+**400** |  Field is required   Priority is not a valid   duration should be a positive number   should be empty for CheckList   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
-**404** | &lt;br&gt;WorkItem not found  &lt;br&gt;Can&#39;t find section  &lt;br&gt;Can&#39;t attributesScheme  &lt;br&gt;Can&#39;t attribute  &lt;br&gt;AutoTestIds not exist in project |  -  |
+**404** |  WorkItem not found   Can&#39;t find section   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

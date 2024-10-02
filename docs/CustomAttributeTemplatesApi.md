@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Exclude CustomAttributes from CustomAttributeTemplate
 
-<br>Use case  <br>User sets attribute template internal identifier  <br>User sets attribute internal identifiers   <br>User runs method execution  <br>System delete attributes from attributes tempalte
+ Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System delete attributes from attributes tempalte
 
 ### Example
 
@@ -100,10 +100,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
 **400** | Bad Request |  -  |
-**404** | Not Found |  -  |
+**401** | Unauthorized |  -  |
 **403** | Admin system role is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -112,7 +115,7 @@ void (empty response body)
 
 Include CustomAttributes to CustomAttributeTemplate
 
-<br>Use case  <br>User sets attribute template internal identifier  <br>User sets attribute internal identifiers   <br>User runs method execution  <br>System add attributes to attributes tempalte
+ Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System add attributes to attributes tempalte
 
 ### Example
 
@@ -193,19 +196,22 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
 **400** | Bad Request |  -  |
-**404** | Not Found |  -  |
+**401** | Unauthorized |  -  |
 **403** | Admin system role is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_custom_attributes_templates_id_delete**
-> NoContentResult api_v2_custom_attributes_templates_id_delete(id)
+> api_v2_custom_attributes_templates_id_delete(id)
 
 Delete CustomAttributeTemplate
 
-<br>Use case  <br>User sets attribute template internal identifier  <br>User runs method execution  <br>System search and delete attribute template  <br>System returns no content response
+ Use case   User sets attribute template internal identifier   User runs method execution   System search and delete attribute template   System returns no content response
 
 ### Example
 
@@ -215,7 +221,7 @@ Delete CustomAttributeTemplate
 import time
 import testit_api_client
 from testit_api_client.api import custom_attribute_templates_api
-from testit_api_client.model.no_content_result import NoContentResult
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -244,8 +250,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Delete CustomAttributeTemplate
-        api_response = api_instance.api_v2_custom_attributes_templates_id_delete(id)
-        pprint(api_response)
+        api_instance.api_v2_custom_attributes_templates_id_delete(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributeTemplatesApi->api_v2_custom_attributes_templates_id_delete: %s\n" % e)
 ```
@@ -259,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NoContentResult**](NoContentResult.md)
+void (empty response body)
 
 ### Authorization
 
@@ -277,7 +282,11 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Admin system role is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -286,7 +295,7 @@ Name | Type | Description  | Notes
 
 Get CustomAttributeTemplate by ID
 
-<br>Use case  <br>User sets attribute template internal identifier   <br>User runs method execution  <br>System return attribute template (listed in response example)
+ Use case   User sets attribute template internal identifier    User runs method execution   System return attribute template (listed in response example)
 
 ### Example
 
@@ -357,9 +366,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Can&#39;t find a CustomAttributeTemplate with identifier |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -368,7 +381,7 @@ Name | Type | Description  | Notes
 
 Get CustomAttributeTemplate by name
 
-<br>Use case  <br>User sets attribute template name  <br>User runs method execution  <br>System search and return list of attribute templates (listed in response example)
+ Use case   User sets attribute template name   User runs method execution   System search and return list of attribute templates (listed in response example)
 
 ### Example
 
@@ -378,7 +391,9 @@ Get CustomAttributeTemplate by name
 import time
 import testit_api_client
 from testit_api_client.api import custom_attribute_templates_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.custom_attribute_template_model import CustomAttributeTemplateModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -437,7 +452,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -446,7 +467,7 @@ Name | Type | Description  | Notes
 
 Create CustomAttributeTemplate
 
-<br>Use case  <br>User sets attribute template parameters (listed in request example)  <br>User runs method execution  <br>System creates attribute template  <br>System returns attribute template model (example listed in response parameters)
+ Use case   User sets attribute template parameters (listed in request example)   User runs method execution   System creates attribute template   System returns attribute template model (example listed in response parameters)
 
 ### Example
 
@@ -458,7 +479,7 @@ import testit_api_client
 from testit_api_client.api import custom_attribute_templates_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.custom_attribute_template_model import CustomAttributeTemplateModel
-from testit_api_client.model.validate_anti_forgery_token_attribute import ValidateAntiForgeryTokenAttribute
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.api_v2_custom_attributes_templates_post_request import ApiV2CustomAttributesTemplatesPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -521,7 +542,11 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **201** | Created |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Admin system role is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -540,6 +565,7 @@ import testit_api_client
 from testit_api_client.api import custom_attribute_templates_api
 from testit_api_client.model.api_v2_custom_attributes_templates_put_request import ApiV2CustomAttributesTemplatesPutRequest
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -598,8 +624,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | System administrator role is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -608,7 +639,7 @@ void (empty response body)
 
 Search CustomAttributeTemplates
 
-<br>Use case  <br>User sets search params model (listed in request example)  <br>User runs method execution  <br>System return attribute templates (listed in response example)
+ Use case   User sets search params model (listed in request example)   User runs method execution   System return attribute templates (listed in response example)
 
 ### Example
 
@@ -620,6 +651,7 @@ import testit_api_client
 from testit_api_client.api import custom_attribute_templates_api
 from testit_api_client.model.api_v2_custom_attributes_templates_search_post_request import ApiV2CustomAttributesTemplatesSearchPostRequest
 from testit_api_client.model.search_custom_attribute_template_get_model import SearchCustomAttributeTemplateGetModel
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -690,8 +722,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

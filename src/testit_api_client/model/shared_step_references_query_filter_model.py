@@ -184,7 +184,7 @@ class SharedStepReferencesQueryFilterModel(ModelNormal):
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
-            entity_types ([str], none_type): Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([str], none_type): Collection of types of work item   Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             created_date (SharedStepReferenceSectionsQueryFilterModelCreatedDate): [optional]  # noqa: E501
             modified_date (SharedStepReferenceSectionsQueryFilterModelModifiedDate): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
@@ -281,7 +281,7 @@ class SharedStepReferencesQueryFilterModel(ModelNormal):
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
-            entity_types ([str], none_type): Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([str], none_type): Collection of types of work item   Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             created_date (SharedStepReferenceSectionsQueryFilterModelCreatedDate): [optional]  # noqa: E501
             modified_date (SharedStepReferenceSectionsQueryFilterModelModifiedDate): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501

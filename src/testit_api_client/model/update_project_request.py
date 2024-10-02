@@ -31,7 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.project_put_model import ProjectPutModel
+    from testit_api_client.model.project_type_model import ProjectTypeModel
     globals()['ProjectPutModel'] = ProjectPutModel
+    globals()['ProjectTypeModel'] = ProjectTypeModel
 
 
 class UpdateProjectRequest(ModelComposed):
@@ -92,8 +94,10 @@ class UpdateProjectRequest(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'type': (ProjectTypeModel,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'is_favorite': (bool, none_type,),  # noqa: E501
+            'is_flaky_auto': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -104,8 +108,10 @@ class UpdateProjectRequest(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'description': 'description',  # noqa: E501
         'is_favorite': 'isFavorite',  # noqa: E501
+        'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
     }
 
     read_only_vars = {
@@ -119,6 +125,7 @@ class UpdateProjectRequest(ModelComposed):
         Keyword Args:
             id (str): Unique ID of the project
             name (str): Name of the project
+            type (ProjectTypeModel):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -151,6 +158,7 @@ class UpdateProjectRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the project. [optional]  # noqa: E501
             is_favorite (bool, none_type): Indicates if the project is marked as favorite. [optional]  # noqa: E501
+            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" sets automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,6 +234,7 @@ class UpdateProjectRequest(ModelComposed):
         Keyword Args:
             id (str): Unique ID of the project
             name (str): Name of the project
+            type (ProjectTypeModel):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -258,6 +267,7 @@ class UpdateProjectRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the project. [optional]  # noqa: E501
             is_favorite (bool, none_type): Indicates if the project is marked as favorite. [optional]  # noqa: E501
+            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" sets automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

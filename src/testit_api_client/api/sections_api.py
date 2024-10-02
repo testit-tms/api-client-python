@@ -591,7 +591,7 @@ class SectionsApi(object):
     ):
         """Create section  # noqa: E501
 
-        <br>Use case  <br>User sets section properties (listed in request example)  <br>User runs method execution  <br>System creates section property values  <br>System returns section (listed in response example)  # noqa: E501
+         Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -671,7 +671,7 @@ class SectionsApi(object):
     ):
         """Delete section  # noqa: E501
 
-        <br>Use case  <br>User sets section identifier  <br>User runs method execution  <br>System search section by the identifier  <br>System search and delete nested sections of the found section  <br>System search and delete workitems related to the found nested sections  <br>System deletes initial section and related workitem  <br>System returns no content response  # noqa: E501
+         Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -754,7 +754,7 @@ class SectionsApi(object):
     ):
         """Get section  # noqa: E501
 
-        <br>Use case  <br>User sets section internal (guid format) identifier  <br>User runs method execution  <br>System search section by the section identifier  <br>              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                <br>System returns section  # noqa: E501
+         Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -838,7 +838,7 @@ class SectionsApi(object):
     ):
         """Get section work items  # noqa: E501
 
-        <br>Use case  <br>User sets section identifier  <br>User runs method execution  <br>System search section by the identifier  <br>System search work items related to the section  <br>              [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                <br>System returns work item collection  # noqa: E501
+         Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1006,7 +1006,7 @@ class SectionsApi(object):
     ):
         """Rename section  # noqa: E501
 
-        <br>Use case  <br>User sets section identifier and new name (listed in request example)  <br>User runs method execution  <br>System search section by the identifier  <br>System updates section name using the new name  <br>System returns no content response  # noqa: E501
+         Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1085,7 +1085,7 @@ class SectionsApi(object):
     ):
         """Update section  # noqa: E501
 
-        <br>Use case  <br>User sets section properties (listed in request example)  <br>User runs method execution  <br>System search section by the identifier  <br>System updates section using the property values  <br>System returns no content response  # noqa: E501
+         Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

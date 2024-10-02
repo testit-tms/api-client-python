@@ -25,7 +25,6 @@ from testit_api_client.model.api_v2_projects_restore_bulk_post_request import Ap
 from testit_api_client.model.api_v2_projects_search_post_request import ApiV2ProjectsSearchPostRequest
 from testit_api_client.model.auto_test_namespace_model import AutoTestNamespaceModel
 from testit_api_client.model.create_project_request import CreateProjectRequest
-from testit_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
 from testit_api_client.model.failure_class_model import FailureClassModel
 from testit_api_client.model.filter_model import FilterModel
 from testit_api_client.model.operation import Operation
@@ -1303,68 +1302,6 @@ class ProjectsApi(object):
             },
             api_client=api_client
         )
-        self.export_with_test_plans_and_configurations_endpoint = _Endpoint(
-            settings={
-                'response_type': (file_type,),
-                'auth': [
-                    'Bearer or PrivateToken'
-                ],
-                'endpoint_path': '/api/v2/projects/{id}/export-by-testPlans',
-                'operation_id': 'export_with_test_plans_and_configurations',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'include_attachments',
-                    'export_project_with_test_plans_json_request',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (str,),
-                    'include_attachments':
-                        (bool,),
-                    'export_project_with_test_plans_json_request':
-                        (ExportProjectWithTestPlansJsonRequest,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                    'include_attachments': 'includeAttachments',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'include_attachments': 'query',
-                    'export_project_with_test_plans_json_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
         self.get_all_projects_endpoint = _Endpoint(
             settings={
                 'response_type': ([ProjectModel],),
@@ -1771,7 +1708,7 @@ class ProjectsApi(object):
     ):
         """Add global attributes to project  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier and attributes identifiers  <br>System search project  <br>System relates global attributes with project  <br>System returns no content response  # noqa: E501
+         Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2180,7 +2117,7 @@ class ProjectsApi(object):
     ):
         """Get Project filters  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier   <br>User runs method execution  <br>System returns project filters  # noqa: E501
+         Use case   User sets project internal or global identifier    User runs method execution   System returns project filters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2345,7 +2282,7 @@ class ProjectsApi(object):
         id,
         **kwargs
     ):
-        """Purge archived project  # noqa: E501
+        """Purge the project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2512,7 +2449,7 @@ class ProjectsApi(object):
     ):
         """Delete attribute from project's test plans  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier and attribute identifier  <br>User runs method execution  <br>System updates project and delete attribute from project for test plans  <br>System returns no content response  # noqa: E501
+         Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2598,7 +2535,7 @@ class ProjectsApi(object):
     ):
         """Update attribute of project's test plans  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier and attribute model  <br>User runs method execution  <br>System updates project and project attribute for test plan  <br>System returns no content response  # noqa: E501
+         Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2682,7 +2619,7 @@ class ProjectsApi(object):
     ):
         """Get active Project TestRuns  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier   <br>User runs method execution  <br>System returns active testruns  # noqa: E501
+         Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2765,7 +2702,7 @@ class ProjectsApi(object):
     ):
         """Get Project TestRuns full models  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier   <br>User sets query params   <br>User runs method execution  <br>System returns project test runs full models  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3338,7 +3275,7 @@ class ProjectsApi(object):
     ):
         """Import project from JSON file  # noqa: E501
 
-        <br>    <b>A project can only be exported to another TMS instance, different from the one it was imported from.</b>    <br>This method imports a `.json` file with a project to the test management system.  <br>In the body of the request, send the `.json` file received by the `POST /api/v2/projects/export` method:  <br>    ```              curl -X POST \"http://{domain.com}/api/v2/projects/import\" \\              -H \"accept: /\" -H \"Authorization: PrivateToken {token}\" -H \"Content-Type: multipart/form-data\" \\              -F \"file=@import.txt;type=text/plain\"              ```    <br>              In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                <br>Test plan execution history from the first instance of TMS cannot be transferred.  # noqa: E501
+             <b>A project can only be exported to another TMS instance, different from the one it was imported from.</b>     This method imports a `.json` file with a project to the test management system.   In the body of the request, send the `.json` file received by the `POST /api/v2/projects/export` method:       ```              curl -X POST \"http://{domain.com}/api/v2/projects/import\" \\              -H \"accept: /\" -H \"Authorization: PrivateToken {token}\" -H \"Content-Type: multipart/form-data\" \\              -F \"file=@import.txt;type=text/plain\"              ```                   In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                 Test plan execution history from the first instance of TMS cannot be transferred.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3418,7 +3355,7 @@ class ProjectsApi(object):
     ):
         """Create project  # noqa: E501
 
-        <br>Use case  <br>User sets project parameters (listed in request example) and runs method execution  <br>System creates project  <br>System returns project model (example listed in response parameters)  # noqa: E501
+         Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3573,98 +3510,13 @@ class ProjectsApi(object):
             id
         return self.delete_project_auto_tests_endpoint.call_with_http_info(**kwargs)
 
-    def export_with_test_plans_and_configurations(
-        self,
-        id,
-        **kwargs
-    ):
-        """Export project with test plans, test suites and test points as JSON file  # noqa: E501
-
-        <br>    <b>You cannot export test cases execution history.</b>    <br>This method exports the project with the test library and specified test plans to another TMS instance.  <br>              After sending a correct request, the project is exported to a `.json` file.              If you enable attachment export, the `.json` file and the attachments are placed in a `.zip` file.              You can import such a project by using the `POST /api/v2/projects/import` method.                # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.export_with_test_plans_and_configurations(id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (str): Specifies the ID of the project you want to export.
-
-        Keyword Args:
-            include_attachments (bool): Enables attachment export.. [optional] if omitted the server will use the default value of False
-            export_project_with_test_plans_json_request (ExportProjectWithTestPlansJsonRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            file_type
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['id'] = \
-            id
-        return self.export_with_test_plans_and_configurations_endpoint.call_with_http_info(**kwargs)
-
     def get_all_projects(
         self,
         **kwargs
     ):
         """Get all projects  # noqa: E501
 
-        <br>Use case  <br>[Optional] User sets isDeleted field value  <br>[Optional] If User sets isDeleted field value as true, System search all deleted projects  <br>[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  <br>If User did not set isDeleted field value, System search all projects  <br>System returns array of all found projects(listed in response model)  # noqa: E501
+         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3750,7 +3602,7 @@ class ProjectsApi(object):
     ):
         """Get namespaces of autotests in project  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier and runs method execution  <br>System search project  <br>System search all autotest related to the project  <br>System returns array of autotest with namespaces and classnames (listed in response)  # noqa: E501
+         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3833,7 +3685,7 @@ class ProjectsApi(object):
     ):
         """Get project by ID  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier and runs method execution  <br>System search project  <br>System returns project (example listed in response parameters)  # noqa: E501
+         Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3916,7 +3768,7 @@ class ProjectsApi(object):
     ):
         """Get project test plans  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier  <br>[Optional] User sets isDeleted field value  <br>User runs method execution  <br>System search project  <br>[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  <br>[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  <br>[Optional] If User did not set isDeleted field value, System search all v related to project  <br>System returns array of found test plans (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4000,7 +3852,7 @@ class ProjectsApi(object):
     ):
         """Get project test runs  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier  <br>User runs method execution  <br>System search project  <br>System search all test runs related to project  <br>System returns array of found test runs (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4094,7 +3946,7 @@ class ProjectsApi(object):
     ):
         """Update project  # noqa: E501
 
-        <br>Use case  <br>User sets project parameters (listed in request example) and runs method execution  <br>System updates project  <br>System returns updated project model (example listed in response parameters)  # noqa: E501
+         Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

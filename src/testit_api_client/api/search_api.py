@@ -23,6 +23,8 @@ from testit_api_client.model_utils import (  # noqa: F401
 )
 from testit_api_client.model.api_v2_search_global_search_post_request import ApiV2SearchGlobalSearchPostRequest
 from testit_api_client.model.global_search_response import GlobalSearchResponse
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class SearchApi(object):

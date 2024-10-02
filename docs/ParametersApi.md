@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 Create multiple parameters
 
-<br>Use case  <br>User sets list of parameter model (listed in the request example)  <br>User runs method execution  <br>System creates parameters  <br>System returns list of parameter model (listed in the response example)
+ Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
 
 ### Example
 
@@ -37,6 +37,7 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.parameter_post_model import ParameterPostModel
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.parameter_model import ParameterModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -104,7 +105,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**400** | &lt;br&gt;- Parameter model is not valid |  -  |
+**400** |  - Parameter model is not valid |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -113,7 +119,7 @@ Name | Type | Description  | Notes
 
 Update multiple parameters
 
-<br>Use case  <br>User sets list of parameter model (listed in the request example)  <br>User runs method execution  <br>System updates parameters
+ Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
 
 ### Example
 
@@ -150,7 +156,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = [
         ParameterPutModel(
-            id="20b3442e-1e9e-4fea-b940-4fde3f2f9ff6",
+            id="59173397-9485-4b36-9196-9405cf7416c2",
             value="value_example",
             name="name_example",
         ),
@@ -191,9 +197,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** | &lt;br&gt;- Parameter model is not valid |  -  |
+**400** |  - Parameter model is not valid |  -  |
+**401** | Unauthorized |  -  |
 **403** | Invalid user permissions |  -  |
-**422** | Client Error |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -202,7 +211,7 @@ void (empty response body)
 
 Get parameters as group
 
-<br>Use case  <br>User runs method execution  <br>System search parameters  <br>System returns parameters models as groups (listed in the response example)
+ Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
 
 ### Example
 
@@ -213,6 +222,7 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.parameter_group_model import ParameterGroupModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -287,8 +297,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -297,7 +312,7 @@ Name | Type | Description  | Notes
 
 Check existence parameter key in system
 
-<br>Use case  <br>User sets name of parameter key  <br>User runs method execution  <br>System search parameter key  <br>System returns the flag for the existence of the parameter key in the system
+ Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
 
 ### Example
 
@@ -307,6 +322,7 @@ Check existence parameter key in system
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -366,8 +382,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -376,7 +397,7 @@ Name | Type | Description  | Notes
 
 Get all parameter key values
 
-<br>Use case  <br>User sets parameter key (string format)  <br>User runs method execution  <br>System search parameter values using the key  <br>System returns parameter
+ Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
 
 ### Example
 
@@ -386,6 +407,8 @@ Get all parameter key values
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -445,6 +468,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -453,7 +482,7 @@ Name | Type | Description  | Notes
 
 Get all parameter keys
 
-<br>Use case  <br>User runs method execution  <br>System search all parameter keys  <br>System returns parameter keys
+ Use case   User runs method execution   System search all parameter keys   System returns parameter keys
 
 ### Example
 
@@ -463,6 +492,8 @@ Get all parameter keys
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -518,6 +549,12 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -534,7 +571,9 @@ Search for parameters as group
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.parameter_group_model import ParameterGroupModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -605,7 +644,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -622,8 +667,10 @@ Search for parameters
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
 from testit_api_client.model.parameter_model import ParameterModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -693,7 +740,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -702,7 +755,7 @@ Name | Type | Description  | Notes
 
 Create parameter
 
-<br>Use case  <br>User sets parameter model (listed in the request example)  <br>User runs method execution  <br>System creates parameter  <br>System returns parameter model
+ Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
 
 ### Example
 
@@ -712,6 +765,7 @@ Create parameter
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.parameter_model import ParameterModel
 from testit_api_client.model.create_parameter_request import CreateParameterRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
@@ -776,6 +830,11 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **201** | Created |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -855,6 +914,10 @@ void (empty response body)
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
 **400** | Provided name either is empty or contains only white spaces |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
 **422** | Parameter is in use in iterations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -875,6 +938,7 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -897,7 +961,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
-    key_id = "keyId_example" # str | 
+    key_id = "keyId_example" # str | Identifier of the parameter key
 
     # example passing only required values which don't have defaults set
     try:
@@ -912,7 +976,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key_id** | **str**|  |
+ **key_id** | **str**| Identifier of the parameter key |
 
 ### Return type
 
@@ -933,7 +997,11 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Invalid user permissions |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
 **422** | Parameter is in use in iterations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -943,7 +1011,7 @@ void (empty response body)
 
 Delete parameter
 
-<br>Use case  <br>User sets parameter internal (guid format) identifier  <br>System search and delete parameter  <br>System returns deleted parameter
+ Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
 
 ### Example
 
@@ -954,7 +1022,6 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1012,9 +1079,14 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
-**400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**400** |  - ID is not valid   - DTO is not valid |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**409** | Conflict |  -  |
 **422** | Parameter is in use in iterations |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1023,7 +1095,7 @@ void (empty response body)
 
 Get all parameters
 
-<br>Use case  <br>[Optional] User sets isDeleted field value  <br>[Optional] If User sets isDeleted field value as true, System search all deleted parameters  <br>[Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  <br>If User did not set isDeleted field value, System search all parameters  <br>System returns array of all found parameters(listed in response model)
+ Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
 
 ### Example
 
@@ -1035,6 +1107,7 @@ import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.parameter_model import ParameterModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1104,8 +1177,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Invalid user permissions |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1114,7 +1192,7 @@ Name | Type | Description  | Notes
 
 Get parameter by ID
 
-<br>Use case  <br>User sets parameter internal (guid format) identifier  <br>User runs method execution  <br>System search parameter using the identifier  <br>System returns parameter
+ Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
 
 ### Example
 
@@ -1126,6 +1204,7 @@ import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.parameter_model import ParameterModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1184,8 +1263,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Parameter with provided ID was not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1194,7 +1278,7 @@ Name | Type | Description  | Notes
 
 Update parameter
 
-<br>Use case  <br>User sets parameter updated properties(listed in the request example)  <br>User runs method execution  <br>System updated parameter using updated properties  <br>System returns no content response
+ Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
 
 ### Example
 
@@ -1266,8 +1350,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
+**400** |  - ID is not valid   - DTO is not valid |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Parameter with provided ID was not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

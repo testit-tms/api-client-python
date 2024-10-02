@@ -78,6 +78,7 @@ class BackgroundJobAttachmentModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
+            'size': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -89,6 +90,7 @@ class BackgroundJobAttachmentModel(ModelNormal):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'size': 'size',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,13 +100,14 @@ class BackgroundJobAttachmentModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, type, size, *args, **kwargs):  # noqa: E501
         """BackgroundJobAttachmentModel - a model defined in OpenAPI
 
         Args:
             id (str):
             name (str):
             type (str):
+            size (float):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -171,6 +174,7 @@ class BackgroundJobAttachmentModel(ModelNormal):
         self.id = id
         self.name = name
         self.type = type
+        self.size = size
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -191,13 +195,14 @@ class BackgroundJobAttachmentModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, type, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, type, size, *args, **kwargs):  # noqa: E501
         """BackgroundJobAttachmentModel - a model defined in OpenAPI
 
         Args:
             id (str):
             name (str):
             type (str):
+            size (float):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -262,6 +267,7 @@ class BackgroundJobAttachmentModel(ModelNormal):
         self.id = id
         self.name = name
         self.type = type
+        self.size = size
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

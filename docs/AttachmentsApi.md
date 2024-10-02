@@ -24,6 +24,7 @@ import time
 import testit_api_client
 from testit_api_client.api import attachments_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -74,7 +75,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -82,12 +83,17 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Attachment file was deleted successfully |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
 **422** | Attachment file is already in use |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_attachments_id_get**
-> file_type api_v2_attachments_id_get(id)
+> api_v2_attachments_id_get(id)
 
 Download attachment file
 
@@ -99,7 +105,9 @@ Download attachment file
 import time
 import testit_api_client
 from testit_api_client.api import attachments_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.image_resize_type import ImageResizeType
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -132,8 +140,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Download attachment file
-        api_response = api_instance.api_v2_attachments_id_get(id)
-        pprint(api_response)
+        api_instance.api_v2_attachments_id_get(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_id_get: %s\n" % e)
 
@@ -141,8 +148,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Download attachment file
-        api_response = api_instance.api_v2_attachments_id_get(id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
-        pprint(api_response)
+        api_instance.api_v2_attachments_id_get(id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
     except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_id_get: %s\n" % e)
 ```
@@ -161,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**file_type**
+void (empty response body)
 
 ### Authorization
 
@@ -170,14 +176,20 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/json
 
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -194,6 +206,8 @@ Get size of attachments storage in bytes
 import time
 import testit_api_client
 from testit_api_client.api import attachments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -248,7 +262,13 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -330,9 +350,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**400** | &lt;br&gt;- Invalid file contents  &lt;br&gt;- Invalid HTTP headers |  -  |
+**400** |  - Invalid file contents   - Invalid HTTP headers |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

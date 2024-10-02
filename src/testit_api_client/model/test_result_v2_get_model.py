@@ -103,7 +103,7 @@ class TestResultV2GetModel(ModelNormal):
             'run_by_user_id': (str, none_type,),  # noqa: E501
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
             'test_point_id': (str, none_type,),  # noqa: E501
-            'test_point': (TestPointRelatedToTestResult, none_type,),  # noqa: E501
+            'test_point': (TestPointRelatedToTestResult,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501

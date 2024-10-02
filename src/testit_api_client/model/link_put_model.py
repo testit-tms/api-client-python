@@ -88,7 +88,7 @@ class LinkPutModel(ModelNormal):
             'id': (str, none_type,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'type': (LinkType, none_type,),  # noqa: E501
+            'type': (LinkType,),  # noqa: E501
         }
 
     @cached_property

@@ -83,9 +83,7 @@ class AttachmentsApi(object):
             },
             headers_map={
                 'accept': [
-                    'text/plain',
-                    'application/json',
-                    'text/json'
+                    'application/json'
                 ],
                 'content_type': [],
             },
@@ -93,7 +91,7 @@ class AttachmentsApi(object):
         )
         self.api_v2_attachments_id_get_endpoint = _Endpoint(
             settings={
-                'response_type': (file_type,),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -181,7 +179,7 @@ class AttachmentsApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/octet-stream'
+                    'application/json'
                 ],
                 'content_type': [],
             },
@@ -419,7 +417,7 @@ class AttachmentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            file_type
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """

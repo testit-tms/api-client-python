@@ -25,10 +25,8 @@ from testit_api_client.model.api_v2_custom_attributes_templates_post_request imp
 from testit_api_client.model.api_v2_custom_attributes_templates_put_request import ApiV2CustomAttributesTemplatesPutRequest
 from testit_api_client.model.api_v2_custom_attributes_templates_search_post_request import ApiV2CustomAttributesTemplatesSearchPostRequest
 from testit_api_client.model.custom_attribute_template_model import CustomAttributeTemplateModel
-from testit_api_client.model.no_content_result import NoContentResult
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.search_custom_attribute_template_get_model import SearchCustomAttributeTemplateGetModel
-from testit_api_client.model.validate_anti_forgery_token_attribute import ValidateAntiForgeryTokenAttribute
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
@@ -167,7 +165,7 @@ class CustomAttributeTemplatesApi(object):
         )
         self.api_v2_custom_attributes_templates_id_delete_endpoint = _Endpoint(
             settings={
-                'response_type': (NoContentResult,),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -501,7 +499,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Exclude CustomAttributes from CustomAttributeTemplate  # noqa: E501
 
-        <br>Use case  <br>User sets attribute template internal identifier  <br>User sets attribute internal identifiers   <br>User runs method execution  <br>System delete attributes from attributes tempalte  # noqa: E501
+         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System delete attributes from attributes tempalte  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -585,7 +583,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Include CustomAttributes to CustomAttributeTemplate  # noqa: E501
 
-        <br>Use case  <br>User sets attribute template internal identifier  <br>User sets attribute internal identifiers   <br>User runs method execution  <br>System add attributes to attributes tempalte  # noqa: E501
+         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System add attributes to attributes tempalte  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -669,7 +667,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Delete CustomAttributeTemplate  # noqa: E501
 
-        <br>Use case  <br>User sets attribute template internal identifier  <br>User runs method execution  <br>System search and delete attribute template  <br>System returns no content response  # noqa: E501
+         Use case   User sets attribute template internal identifier   User runs method execution   System search and delete attribute template   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -712,7 +710,7 @@ class CustomAttributeTemplatesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            NoContentResult
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -752,7 +750,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Get CustomAttributeTemplate by ID  # noqa: E501
 
-        <br>Use case  <br>User sets attribute template internal identifier   <br>User runs method execution  <br>System return attribute template (listed in response example)  # noqa: E501
+         Use case   User sets attribute template internal identifier    User runs method execution   System return attribute template (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -835,7 +833,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Get CustomAttributeTemplate by name  # noqa: E501
 
-        <br>Use case  <br>User sets attribute template name  <br>User runs method execution  <br>System search and return list of attribute templates (listed in response example)  # noqa: E501
+         Use case   User sets attribute template name   User runs method execution   System search and return list of attribute templates (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -917,7 +915,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Create CustomAttributeTemplate  # noqa: E501
 
-        <br>Use case  <br>User sets attribute template parameters (listed in request example)  <br>User runs method execution  <br>System creates attribute template  <br>System returns attribute template model (example listed in response parameters)  # noqa: E501
+         Use case   User sets attribute template parameters (listed in request example)   User runs method execution   System creates attribute template   System returns attribute template model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1074,7 +1072,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Search CustomAttributeTemplates  # noqa: E501
 
-        <br>Use case  <br>User sets search params model (listed in request example)  <br>User runs method execution  <br>System return attribute templates (listed in response example)  # noqa: E501
+         Use case   User sets search params model (listed in request example)   User runs method execution   System return attribute templates (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

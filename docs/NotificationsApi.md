@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Get unread Notifications total in last 7 days
 
-<br>Use case  <br>User runs method execution  <br>System returns unread notifications total (listed in the response example)
+ Use case   User runs method execution   System returns unread notifications total (listed in the response example)
 
 ### Example
 
@@ -27,6 +27,7 @@ import time
 import testit_api_client
 from testit_api_client.api import notifications_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -87,7 +88,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -96,7 +102,7 @@ Name | Type | Description  | Notes
 
 Get all Notifications for current User
 
-<br>Use case  <br>User runs method execution  <br>System returns notifications (listed in the response example)
+ Use case   User runs method execution   System returns notifications (listed in the response example)
 
 ### Example
 
@@ -180,8 +186,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
+**400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -190,7 +200,7 @@ Name | Type | Description  | Notes
 
 Set Notification as read
 
-<br>Use case  <br>User sets notification internal (guid format) identifier  <br>User runs method execution  <br>System set notification as read
+ Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
 
 ### Example
 
@@ -201,6 +211,7 @@ import time
 import testit_api_client
 from testit_api_client.api import notifications_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -258,9 +269,14 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Can&#39;t find notification with notificationId |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -269,7 +285,7 @@ void (empty response body)
 
 Set all Notifications as read
 
-<br>Use case  <br>User runs method execution  <br>System set all notifications as read
+ Use case   User runs method execution   System set all notifications as read
 
 ### Example
 
@@ -280,6 +296,7 @@ import time
 import testit_api_client
 from testit_api_client.api import notifications_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -333,8 +350,14 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successful operation |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -343,7 +366,7 @@ void (empty response body)
 
 Search Notifications for current User
 
-<br>Use case  <br>User set filter and runs method execution  <br>System returns notifications (listed in the response example)
+ Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
 
 ### Example
 
@@ -429,6 +452,10 @@ Name | Type | Description  | Notes
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

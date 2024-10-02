@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **global_ids** | **[int], none_type** | Specifies a project global IDs to search for | [optional] 
 **created_date** | [**ProjectsFilterModelCreatedDate**](ProjectsFilterModelCreatedDate.md) |  | [optional] 
 **created_by_ids** | **[str], none_type** | Specifies an autotest creator IDs to search for | [optional] 
+**types** | [**[ProjectTypeModel], none_type**](ProjectTypeModel.md) | Collection of project types to search for | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

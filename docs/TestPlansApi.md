@@ -51,6 +51,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -119,9 +120,11 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
 **404** | Test suite with provided ID was not found |  -  |
+**409** | Conflict |  -  |
 **422** | Shared steps cannot be added to test suite |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -131,7 +134,7 @@ void (empty response body)
 
 Add WorkItems to TestPlan with Sections as TestSuites
 
-<br>Use case  <br>User sets TestPlan identifier  <br>User sets WorkItem identifiers (listed in request example)  <br>User runs method execution  <br>System added WorkItems and Sections to TestPlan  <br>System returns no content response
+ Use case   User sets TestPlan identifier   User sets WorkItem identifiers (listed in request example)   User runs method execution   System added WorkItems and Sections to TestPlan   System returns no content response
 
 ### Example
 
@@ -213,10 +216,11 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active |  -  |
+**400** |  TestPlan is locked   Some of configurations do not exist in the project, or they are not active |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for TestPlan required |  -  |
-**404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist |  -  |
+**404** |  Can&#39;t find a TestPlan with id   Some of workItems do not exist |  -  |
+**409** | Conflict |  -  |
 **422** | Can&#39;t put a SharedStep in the TestSuite |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -226,7 +230,7 @@ void (empty response body)
 
 Get analytics by TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System returns analytics by test plan
+ Use case   User sets test plan identifier   User runs method execution   System returns analytics by test plan
 
 ### Example
 
@@ -299,8 +303,11 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
-**404** | Can&#39;t find a Project with id |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Can&#39;t find a Project with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -319,6 +326,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_plan_with_test_suite_tree_model import TestPlanWithTestSuiteTreeModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -390,8 +398,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -400,7 +413,7 @@ Name | Type | Description  | Notes
 
 Get TestPlan configurations
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System return test plan configurations
+ Use case   User sets test plan identifier   User runs method execution   System return test plan configurations
 
 ### Example
 
@@ -476,15 +489,17 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_plans_id_export_test_points_xlsx_post**
-> file_type api_v2_test_plans_id_export_test_points_xlsx_post(id)
+> api_v2_test_plans_id_export_test_points_xlsx_post(id)
 
 Export TestPoints from TestPlan in xls format
 
-<br>Use case  <br>User sets test plan identifier  <br>User sets filter model (listed in request example)  <br>User runs method execution  <br>System return export xlsx file
+ Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
 
 ### Example
 
@@ -526,8 +541,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Export TestPoints from TestPlan in xls format
-        api_response = api_instance.api_v2_test_plans_id_export_test_points_xlsx_post(id)
-        pprint(api_response)
+        api_instance.api_v2_test_plans_id_export_test_points_xlsx_post(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPlansApi->api_v2_test_plans_id_export_test_points_xlsx_post: %s\n" % e)
 
@@ -535,8 +549,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Export TestPoints from TestPlan in xls format
-        api_response = api_instance.api_v2_test_plans_id_export_test_points_xlsx_post(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, api_v2_test_plans_id_export_test_points_xlsx_post_request=api_v2_test_plans_id_export_test_points_xlsx_post_request)
-        pprint(api_response)
+        api_instance.api_v2_test_plans_id_export_test_points_xlsx_post(id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, api_v2_test_plans_id_export_test_points_xlsx_post_request=api_v2_test_plans_id_export_test_points_xlsx_post_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPlansApi->api_v2_test_plans_id_export_test_points_xlsx_post: %s\n" % e)
 ```
@@ -552,7 +565,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**file_type**
+void (empty response body)
 
 ### Authorization
 
@@ -561,7 +574,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/octet-stream, application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -573,15 +586,17 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_plans_id_export_test_result_history_xlsx_post**
-> file_type api_v2_test_plans_id_export_test_result_history_xlsx_post(id)
+> api_v2_test_plans_id_export_test_result_history_xlsx_post(id)
 
 Export TestResults history from TestPlan in xls format
 
-<br>Use case  <br>User sets test plan identifier  <br>User sets filter model (listed in request example)  <br>User runs method execution  <br>System return export xlsx file
+ Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file
 
 ### Example
 
@@ -624,8 +639,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Export TestResults history from TestPlan in xls format
-        api_response = api_instance.api_v2_test_plans_id_export_test_result_history_xlsx_post(id)
-        pprint(api_response)
+        api_instance.api_v2_test_plans_id_export_test_result_history_xlsx_post(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPlansApi->api_v2_test_plans_id_export_test_result_history_xlsx_post: %s\n" % e)
 
@@ -633,8 +647,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Export TestResults history from TestPlan in xls format
-        api_response = api_instance.api_v2_test_plans_id_export_test_result_history_xlsx_post(id, must_return_only_last_test_result=must_return_only_last_test_result, include_steps=include_steps, include_deleted_test_suites=include_deleted_test_suites, time_zone_offset_in_minutes=time_zone_offset_in_minutes)
-        pprint(api_response)
+        api_instance.api_v2_test_plans_id_export_test_result_history_xlsx_post(id, must_return_only_last_test_result=must_return_only_last_test_result, include_steps=include_steps, include_deleted_test_suites=include_deleted_test_suites, time_zone_offset_in_minutes=time_zone_offset_in_minutes)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPlansApi->api_v2_test_plans_id_export_test_result_history_xlsx_post: %s\n" % e)
 ```
@@ -652,7 +665,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**file_type**
+void (empty response body)
 
 ### Authorization
 
@@ -661,7 +674,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream, application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -673,6 +686,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -681,7 +696,7 @@ Name | Type | Description  | Notes
 
 Get TestPlan history
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System return test plan history
+ Use case   User sets test plan identifier   User runs method execution   System return test plan history
 
 ### Example
 
@@ -776,6 +791,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -784,7 +801,7 @@ Name | Type | Description  | Notes
 
 Get Links of TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User sets pagination filter (listed in request example)  <br>User runs method execution  <br>System returns links of TestPlan
+ Use case   User sets test plan identifier   User sets pagination filter (listed in request example)   User runs method execution   System returns links of TestPlan
 
 ### Example
 
@@ -796,6 +813,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.test_plan_link import TestPlanLink
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -870,8 +888,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -891,6 +913,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.operation import Operation
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -967,7 +990,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -976,7 +1004,7 @@ void (empty response body)
 
 Get TestPoints with last result from TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User sets filter (listed in request example)  <br>User runs method execution  <br>System return test points with last result from test plan
+ Use case   User sets test plan identifier   User sets filter (listed in request example)   User runs method execution   System return test points with last result from test plan
 
 ### Example
 
@@ -1073,6 +1101,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1081,7 +1111,7 @@ Name | Type | Description  | Notes
 
 Reset TestPoints status of TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User sets test points identifiers  <br>User runs method execution  <br>System reset test points statuses of test plan
+ Use case   User sets test plan identifier   User sets test points identifiers   User runs method execution   System reset test points statuses of test plan
 
 ### Example
 
@@ -1164,8 +1194,11 @@ void (empty response body)
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
-**422** | Client Error |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1184,6 +1217,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.api_v2_test_plans_id_test_points_tester_user_id_post_request import ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1253,8 +1287,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test plans is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1273,6 +1312,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.api_v2_test_plans_id_test_points_tester_user_id_post_request import ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1344,8 +1384,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test plans is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1354,7 +1399,7 @@ Name | Type | Description  | Notes
 
 Get TestRuns of TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User sets TestRun status filter (listed in request example)  <br>User runs method execution  <br>System returns TestRuns for TestPlan
+ Use case   User sets test plan identifier   User sets TestRun status filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
 
 ### Example
 
@@ -1366,6 +1411,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_run_model import TestRunModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1452,8 +1498,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1462,7 +1512,7 @@ Name | Type | Description  | Notes
 
 Search TestRuns of TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User sets TestRuns filter (listed in request example)  <br>User runs method execution  <br>System returns TestRuns for TestPlan
+ Use case   User sets test plan identifier   User sets TestRuns filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
 
 ### Example
 
@@ -1475,6 +1525,7 @@ from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_run_model import TestRunModel
 from testit_api_client.model.api_v2_test_plans_id_test_runs_search_post_request import ApiV2TestPlansIdTestRunsSearchPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1555,13 +1606,17 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get**
-> datetime api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get(id)
+> api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get(id)
 
 Get last modification date of test plan's test results
 
@@ -1574,6 +1629,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1601,8 +1657,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get last modification date of test plan's test results
-        api_response = api_instance.api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get(id)
-        pprint(api_response)
+        api_instance.api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get(id)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPlansApi->api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get: %s\n" % e)
 ```
@@ -1616,7 +1671,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**datetime**
+void (empty response body)
 
 ### Authorization
 
@@ -1632,9 +1687,14 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Last modification date exists |  -  |
 **204** | Last modification date does not exist |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for test plan is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**200** | Last modification date exists |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1643,7 +1703,7 @@ Name | Type | Description  | Notes
 
 Send unlock TestPlan notification
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System send unlock test plan notification
+ Use case   User sets test plan identifier   User runs method execution   System send unlock test plan notification
 
 ### Example
 
@@ -1654,7 +1714,6 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1712,11 +1771,15 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**201** | Created |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**200** | Successful operation |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1725,7 +1788,7 @@ void (empty response body)
 
 Get TestPlans short models by Project identifiers
 
-<br>Use case  <br>User sets projects identifiers  <br>User runs method execution  <br>System return test plans short models (listed in response example)
+ Use case   User sets projects identifiers   User runs method execution   System return test plans short models (listed in response example)
 
 ### Example
 
@@ -1737,6 +1800,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.test_plan_short_model import TestPlanShortModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1801,9 +1865,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for project required |  -  |
 **404** | Project not found |  -  |
-**401** | Unauthorized |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1812,7 +1879,7 @@ Name | Type | Description  | Notes
 
 Clone TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System clones test plan  <br>System returns test plan (listed in response example)
+ Use case   User sets test plan identifier   User runs method execution   System clones test plan   System returns test plan (listed in response example)
 
 ### Example
 
@@ -1822,6 +1889,7 @@ Clone TestPlan
 import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_plan_model import TestPlanModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -1887,6 +1955,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1895,7 +1965,7 @@ Name | Type | Description  | Notes
 
 Complete TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System completes the test plan and updates test plan status  <br>System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System completes the test plan and updates test plan status   System returns no content response
 
 ### Example
 
@@ -1965,10 +2035,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;Execute status from New to Completed forbidden  &lt;br&gt;Execute status from Completed to Completed forbidden |  -  |
+**400** |  Execute status from New to Completed forbidden   Execute status from Completed to Completed forbidden |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1977,7 +2049,7 @@ void (empty response body)
 
 Create TestPlan
 
-<br>Use case  <br>User sets test plan properties (listed in request example)  <br>User runs method execution  <br>System creates test plan  <br>System returns test plan (listed in response example)
+ Use case   User sets test plan properties (listed in request example)   User runs method execution   System creates test plan   System returns test plan (listed in response example)
 
 ### Example
 
@@ -2051,10 +2123,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! |  -  |
+**400** |  Field is required   Tags must be no more than 10! |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
+**404** | Not Found |  -  |
 **409** | TestPlan with the same name already exists! |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2063,7 +2137,7 @@ Name | Type | Description  | Notes
 
 Delete TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System delete test plan  <br>System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System delete test plan   System returns no content response
 
 ### Example
 
@@ -2074,6 +2148,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2132,9 +2207,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Delete permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2143,7 +2221,7 @@ void (empty response body)
 
 Get TestPlan by Id
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System search  test plan by the identifier  <br>System returns test plan
+ Use case   User sets test plan identifier   User runs method execution   System search  test plan by the identifier   System returns test plan
 
 ### Example
 
@@ -2155,6 +2233,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_plan_model import TestPlanModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2214,9 +2293,13 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**404** | Can&#39;t find a Project with id |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** | Can&#39;t find a Project with id |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2225,7 +2308,7 @@ Name | Type | Description  | Notes
 
 Get TestSuites Tree By Id
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System finds test suites related to the test plan  <br>System returns test suites as a tree model (listed in response example)
+ Use case   User sets test plan identifier   User runs method execution   System finds test suites related to the test plan   System returns test suites as a tree model (listed in response example)
 
 ### Example
 
@@ -2237,6 +2320,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_suite_v2_tree_model import TestSuiteV2TreeModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2296,9 +2380,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | Can&#39;t find a TestRun with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2307,7 +2394,7 @@ Name | Type | Description  | Notes
 
 Pause TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System pauses the test plan and updates test plan status  <br>System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System pauses the test plan and updates test plan status   System returns no content response
 
 ### Example
 
@@ -2318,6 +2405,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2376,10 +2464,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;Execute status from New to Paused forbidden  &lt;br&gt;Execute status from Paused to Paused forbidden  &lt;br&gt;Execute status from Completed to Paused forbidden |  -  |
+**400** |  Execute status from New to Paused forbidden   Execute status from Paused to Paused forbidden   Execute status from Completed to Paused forbidden |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2397,6 +2487,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2455,7 +2546,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Full access permission for the archive is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2464,7 +2560,7 @@ void (empty response body)
 
 Restore TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System restores test plan  <br>System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System restores test plan   System returns no content response
 
 ### Example
 
@@ -2475,6 +2571,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2533,9 +2630,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2544,7 +2644,7 @@ void (empty response body)
 
 Start TestPlan
 
-<br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System starts the test plan and updates test plan status  <br>System returns no content response
+ Use case   User sets test plan identifier   User runs method execution   System starts the test plan and updates test plan status   System returns no content response
 
 ### Example
 
@@ -2555,6 +2655,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2613,9 +2714,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2624,7 +2728,7 @@ void (empty response body)
 
 Update TestPlan
 
-<br>Use case  <br>User sets test plan properties(listed in request example)  <br>User runs method execution  <br>System updates test plan  <br>System returns no content response
+ Use case   User sets test plan properties(listed in request example)   User runs method execution   System updates test plan   System returns no content response
 
 ### Example
 
@@ -2636,6 +2740,7 @@ import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.update_test_plan_request import UpdateTestPlanRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2695,7 +2800,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! |  -  |
+**400** |  Field is required   Tags must be no more than 10!   StartDate can&#39;t be more than EndDate! |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |

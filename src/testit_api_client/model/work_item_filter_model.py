@@ -144,6 +144,7 @@ class WorkItemFilterModel(ModelNormal):
             'is_automated': (bool, none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
+            'work_item_version_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -174,6 +175,7 @@ class WorkItemFilterModel(ModelNormal):
         'is_automated': 'isAutomated',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
+        'work_item_version_ids': 'workItemVersionIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -239,6 +241,7 @@ class WorkItemFilterModel(ModelNormal):
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
+            work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -346,6 +349,7 @@ class WorkItemFilterModel(ModelNormal):
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
+            work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
