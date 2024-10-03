@@ -1,10 +1,10 @@
-# NoContentResult
+# ProjectTypeModel
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | **int** |  | 
+**value** | **str** |  |  must be one of ["Regular", "Demo", ]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

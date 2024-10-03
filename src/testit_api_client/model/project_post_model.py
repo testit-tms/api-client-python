@@ -81,6 +81,7 @@ class ProjectPostModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'is_favorite': (bool, none_type,),  # noqa: E501
+            'is_flaky_auto': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +93,7 @@ class ProjectPostModel(ModelNormal):
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'is_favorite': 'isFavorite',  # noqa: E501
+        'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,6 +142,7 @@ class ProjectPostModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the project. [optional]  # noqa: E501
             is_favorite (bool, none_type): Indicates if the project is marked as favorite. [optional]  # noqa: E501
+            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" sets automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,6 +234,7 @@ class ProjectPostModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the project. [optional]  # noqa: E501
             is_favorite (bool, none_type): Indicates if the project is marked as favorite. [optional]  # noqa: E501
+            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" sets automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

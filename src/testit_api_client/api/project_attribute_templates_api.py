@@ -24,6 +24,7 @@ from testit_api_client.model_utils import (  # noqa: F401
 from testit_api_client.model.api_v2_projects_project_id_attributes_templates_search_post_request import ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.project_custom_attribute_template_get_model import ProjectCustomAttributeTemplateGetModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class ProjectAttributeTemplatesApi(object):
@@ -169,7 +170,9 @@ class ProjectAttributeTemplatesApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -224,7 +227,9 @@ class ProjectAttributeTemplatesApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -326,7 +331,7 @@ class ProjectAttributeTemplatesApi(object):
     ):
         """Delete CustomAttributeTemplate from Project  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier   <br>User sets attribute template internal identifier   <br>User runs method execution  <br>System delete attribute template from project  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System delete attribute template from project  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -413,7 +418,7 @@ class ProjectAttributeTemplatesApi(object):
     ):
         """Add CustomAttributeTemplate to Project  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier   <br>User sets attribute template internal identifier   <br>User runs method execution  <br>System add attribute template to project  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System add attribute template to project  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

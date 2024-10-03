@@ -25,6 +25,7 @@ from testit_api_client.model.api_v2_test_points_search_post_request import ApiV2
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_point_short_get_model import TestPointShortGetModel
 from testit_api_client.model.test_run_model import TestRunModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_model import WorkItemModel
 
 

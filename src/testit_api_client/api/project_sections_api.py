@@ -23,6 +23,7 @@ from testit_api_client.model_utils import (  # noqa: F401
 )
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.section_model import SectionModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class ProjectSectionsApi(object):
@@ -120,7 +121,7 @@ class ProjectSectionsApi(object):
     ):
         """Get project sections  # noqa: E501
 
-        <br>Use case  <br>User sets project internal or global identifier and runs method execution  <br>System search project  <br>System search all sections related to the project  <br>System returns array of sections (listed in response)  # noqa: E501
+         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all sections related to the project   System returns array of sections (listed in response)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

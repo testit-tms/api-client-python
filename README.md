@@ -1,8 +1,7 @@
 # Api client for Test IT TMS
 ![Test IT](https://raw.githubusercontent.com/testit-tms/api-client-python/master/images/banner.png)
 
-[![Release
-Status](https://img.shields.io/pypi/v/testit-api-client?style=plastic)](https://pypi.python.org/pypi/testit-api-client)
+[![Release Status](https://img.shields.io/pypi/v/testit-api-client?style=plastic)](https://pypi.python.org/pypi/testit-api-client)
 [![Downloads](https://img.shields.io/pypi/dm/testit-api-client?style=plastic)](https://pypi.python.org/pypi/testit-api-client)
 [![GitHub contributors](https://img.shields.io/github/contributors/testit-tms/api-client-python?style=plastic)](https://github.com/testit-tms/api-client-python)
 
@@ -20,6 +19,7 @@ Status](https://img.shields.io/pypi/v/testit-api-client?style=plastic)](https://
 | 4.5     | 3.4.0      |
 | 4.6     | 3.5.0      |
 | 5.0     | 4.0.0      |
+| 5.1     | 4.1.0      |
 
 ## Installation & Usage
 ### pip install
@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *AutoTestsApi* | [**link_auto_test_to_work_item**](docs/AutoTestsApi.md#link_auto_test_to_work_item) | **POST** /api/v2/autoTests/{id}/workItems | Link autotest with work items
 *AutoTestsApi* | [**update_auto_test**](docs/AutoTestsApi.md#update_auto_test) | **PUT** /api/v2/autoTests | Update autotest
 *AutoTestsApi* | [**update_multiple**](docs/AutoTestsApi.md#update_multiple) | **PUT** /api/v2/autoTests/bulk | Update multiple autotests
+*BackgroundJobsApi* | [**api_v2_background_jobs_completed_delete**](docs/BackgroundJobsApi.md#api_v2_background_jobs_completed_delete) | **DELETE** /api/v2/backgroundJobs/completed | Delete all completed background jobs
 *BackgroundJobsApi* | [**api_v2_background_jobs_get**](docs/BackgroundJobsApi.md#api_v2_background_jobs_get) | **GET** /api/v2/backgroundJobs | 
 *BackgroundJobsApi* | [**api_v2_background_jobs_id_cancel_post**](docs/BackgroundJobsApi.md#api_v2_background_jobs_id_cancel_post) | **POST** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job
 *BackgroundJobsApi* | [**api_v2_background_jobs_id_get**](docs/BackgroundJobsApi.md#api_v2_background_jobs_id_get) | **GET** /api/v2/backgroundJobs/{id} | Get background job by ID
@@ -154,11 +155,6 @@ Class | Method | HTTP request | Description
 *ProjectAttributesApi* | [**search_attributes_in_project**](docs/ProjectAttributesApi.md#search_attributes_in_project) | **POST** /api/v2/projects/{projectId}/attributes/search | Search for attributes used in the project
 *ProjectAttributesApi* | [**update_projects_attribute**](docs/ProjectAttributesApi.md#update_projects_attribute) | **PUT** /api/v2/projects/{projectId}/attributes | Edit attribute of the project
 *ProjectConfigurationsApi* | [**get_configurations_by_project_id**](docs/ProjectConfigurationsApi.md#get_configurations_by_project_id) | **GET** /api/v2/projects/{projectId}/configurations | Get project configurations
-*ProjectExportApi* | [**export**](docs/ProjectExportApi.md#export) | **POST** /api/v2/projects/{projectId}/export | Export project as JSON file
-*ProjectExportApi* | [**export_project_json**](docs/ProjectExportApi.md#export_project_json) | **POST** /api/v2/projects/{projectId}/export/json | Export project as JSON file in background job
-*ProjectExportApi* | [**export_project_with_test_plans_json**](docs/ProjectExportApi.md#export_project_with_test_plans_json) | **POST** /api/v2/projects/{projectId}/export/testPlans/json | Export project as JSON file with test plans in background job
-*ProjectExportApi* | [**export_project_with_test_plans_zip**](docs/ProjectExportApi.md#export_project_with_test_plans_zip) | **POST** /api/v2/projects/{projectId}/export/testPlans/zip | Export project as Zip file with test plans in background job
-*ProjectExportApi* | [**export_project_zip**](docs/ProjectExportApi.md#export_project_zip) | **POST** /api/v2/projects/{projectId}/export/zip | Export project as Zip file in background job
 *ProjectImportApi* | [**background_import_to_existing_project**](docs/ProjectImportApi.md#background_import_to_existing_project) | **POST** /api/v2/projects/{projectId}/import/json | Import project from JSON file into existing project in background job
 *ProjectImportApi* | [**background_import_zip_to_existing_project**](docs/ProjectImportApi.md#background_import_zip_to_existing_project) | **POST** /api/v2/projects/{projectId}/import/zip | Import project from Zip file into existing project in background job
 *ProjectImportApi* | [**import_to_existing_project**](docs/ProjectImportApi.md#import_to_existing_project) | **POST** /api/v2/projects/{projectId}/import | Import project from JSON file into existing project
@@ -186,7 +182,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**api_v2_projects_id_favorite_put**](docs/ProjectsApi.md#api_v2_projects_id_favorite_put) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite
 *ProjectsApi* | [**api_v2_projects_id_filters_get**](docs/ProjectsApi.md#api_v2_projects_id_filters_get) | **GET** /api/v2/projects/{id}/filters | Get Project filters
 *ProjectsApi* | [**api_v2_projects_id_patch**](docs/ProjectsApi.md#api_v2_projects_id_patch) | **PATCH** /api/v2/projects/{id} | Patch project
-*ProjectsApi* | [**api_v2_projects_id_purge_post**](docs/ProjectsApi.md#api_v2_projects_id_purge_post) | **POST** /api/v2/projects/{id}/purge | Purge archived project
+*ProjectsApi* | [**api_v2_projects_id_purge_post**](docs/ProjectsApi.md#api_v2_projects_id_purge_post) | **POST** /api/v2/projects/{id}/purge | Purge the project
 *ProjectsApi* | [**api_v2_projects_id_restore_post**](docs/ProjectsApi.md#api_v2_projects_id_restore_post) | **POST** /api/v2/projects/{id}/restore | Restore archived project
 *ProjectsApi* | [**api_v2_projects_id_test_plans_attribute_attribute_id_delete**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_attribute_attribute_id_delete) | **DELETE** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
 *ProjectsApi* | [**api_v2_projects_id_test_plans_attribute_put**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_attribute_put) | **PUT** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
@@ -201,7 +197,6 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**call_import**](docs/ProjectsApi.md#call_import) | **POST** /api/v2/projects/import | Import project from JSON file
 *ProjectsApi* | [**create_project**](docs/ProjectsApi.md#create_project) | **POST** /api/v2/projects | Create project
 *ProjectsApi* | [**delete_project_auto_tests**](docs/ProjectsApi.md#delete_project_auto_tests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete all autotests from project
-*ProjectsApi* | [**export_with_test_plans_and_configurations**](docs/ProjectsApi.md#export_with_test_plans_and_configurations) | **POST** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file
 *ProjectsApi* | [**get_all_projects**](docs/ProjectsApi.md#get_all_projects) | **GET** /api/v2/projects | Get all projects
 *ProjectsApi* | [**get_auto_tests_namespaces**](docs/ProjectsApi.md#get_auto_tests_namespaces) | **GET** /api/v2/projects/{id}/autoTestsNamespaces | Get namespaces of autotests in project
 *ProjectsApi* | [**get_project_by_id**](docs/ProjectsApi.md#get_project_by_id) | **GET** /api/v2/projects/{id} | Get project by ID

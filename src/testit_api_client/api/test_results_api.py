@@ -437,7 +437,7 @@ class TestResultsApi(object):
         )
         self.create_attachment_endpoint = _Endpoint(
             settings={
-                'response_type': (str,),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -552,7 +552,7 @@ class TestResultsApi(object):
         )
         self.download_attachment_endpoint = _Endpoint(
             settings={
-                'response_type': (file_type,),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -646,7 +646,6 @@ class TestResultsApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/octet-stream',
                     'application/json'
                 ],
                 'content_type': [],
@@ -1345,7 +1344,7 @@ class TestResultsApi(object):
     ):
         """Upload and link attachment to TestResult  # noqa: E501
 
-        <br>Use case  <br>User sets testResultId  <br>User attaches a file  <br>System creates attachment and links it to the test result  <br>System returns attachment identifier  # noqa: E501
+         Use case   User sets testResultId   User attaches a file   System creates attachment and links it to the test result   System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1389,7 +1388,7 @@ class TestResultsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            str
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1430,7 +1429,7 @@ class TestResultsApi(object):
     ):
         """Remove attachment and unlink from TestResult  # noqa: E501
 
-        <br>Use case  <br>User sets testResultId and attachmentId  <br>User attaches a file  <br>User runs method execution  <br>System deletes attachment and unlinks it from the test result  <br>System returns attachment identifier  # noqa: E501
+         Use case   User sets testResultId and attachmentId   User attaches a file   User runs method execution   System deletes attachment and unlinks it from the test result   System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1517,7 +1516,7 @@ class TestResultsApi(object):
     ):
         """Get attachment of TestResult  # noqa: E501
 
-        <br>Use case  <br>User sets attachmentId and testResultId  <br>[Optional] User sets resize configuration  <br>User runs method execution  <br>System search attachments by the attachmentId and the testResultId  <br>                      [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                    <br>[Optional] Otherwise, System does not resize the attachment  <br>System returns attachment as a file  # noqa: E501
+         Use case   User sets attachmentId and testResultId   [Optional] User sets resize configuration   User runs method execution   System search attachments by the attachmentId and the testResultId                         [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                     [Optional] Otherwise, System does not resize the attachment   System returns attachment as a file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1566,7 +1565,7 @@ class TestResultsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            file_type
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1609,7 +1608,7 @@ class TestResultsApi(object):
     ):
         """Get Metadata of TestResult's attachment  # noqa: E501
 
-        <br>Use case  <br>User sets attachmentId and testResultId  <br>User runs method execution  <br>System search attachment by the attachmentId and the testResultId  <br>System returns attachment data  # noqa: E501
+         Use case   User sets attachmentId and testResultId   User runs method execution   System search attachment by the attachmentId and the testResultId   System returns attachment data  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1695,7 +1694,7 @@ class TestResultsApi(object):
     ):
         """Get all attachments of TestResult  # noqa: E501
 
-        <br>Use case  <br>User sets testResultId  <br>User runs method execution  <br>System search all attachments of the test result  <br>System returns attachments enumeration  # noqa: E501
+         Use case   User sets testResultId   User runs method execution   System search all attachments of the test result   System returns attachments enumeration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

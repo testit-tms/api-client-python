@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Get TestPlans analytics
 
-<br>Use case  <br>User sets project internal identifier  <br>User sets query params  <br>User runs method execution  <br>System return analytics
+ Use case   User sets project internal identifier   User sets query params   User runs method execution   System return analytics
 
 ### Example
 
@@ -28,6 +28,8 @@ import time
 import testit_api_client
 from testit_api_client.api import project_test_plans_api
 from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -109,7 +111,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -127,6 +135,7 @@ import time
 import testit_api_client
 from testit_api_client.api import project_test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -197,8 +206,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | - Read permission for the project is required  - Delete permission for test plans is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -207,7 +221,7 @@ Name | Type | Description  | Notes
 
 Checks if TestPlan exists with the specified name exists for the project
 
-<br>Use case  <br>User sets project internal or global identifier   <br>User runs method execution  <br>System purge delete project workitems
+ Use case   User sets project internal or global identifier    User runs method execution   System purge delete project workitems
 
 ### Example
 
@@ -217,6 +231,8 @@ Checks if TestPlan exists with the specified name exists for the project
 import time
 import testit_api_client
 from testit_api_client.api import project_test_plans_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -277,7 +293,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -295,6 +317,7 @@ import time
 import testit_api_client
 from testit_api_client.api import project_test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -364,12 +387,17 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Full access permission for the archive is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_project_id_test_plans_restore_bulk_post**
-> api_v2_projects_project_id_test_plans_restore_bulk_post(project_id)
+> [str] api_v2_projects_project_id_test_plans_restore_bulk_post(project_id)
 
 Restore multiple test plans
 
@@ -382,6 +410,7 @@ import time
 import testit_api_client
 from testit_api_client.api import project_test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -411,7 +440,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Restore multiple test plans
-        api_instance.api_v2_projects_project_id_test_plans_restore_bulk_post(project_id)
+        api_response = api_instance.api_v2_projects_project_id_test_plans_restore_bulk_post(project_id)
+        pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_restore_bulk_post: %s\n" % e)
 
@@ -419,7 +449,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Restore multiple test plans
-        api_instance.api_v2_projects_project_id_test_plans_restore_bulk_post(project_id, api_v2_projects_project_id_test_plans_delete_bulk_post_request=api_v2_projects_project_id_test_plans_delete_bulk_post_request)
+        api_response = api_instance.api_v2_projects_project_id_test_plans_restore_bulk_post(project_id, api_v2_projects_project_id_test_plans_delete_bulk_post_request=api_v2_projects_project_id_test_plans_delete_bulk_post_request)
+        pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_restore_bulk_post: %s\n" % e)
 ```
@@ -434,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**[str]**
 
 ### Authorization
 
@@ -450,8 +481,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **403** | Read permission for the archive is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -460,7 +496,7 @@ void (empty response body)
 
 Get Project TestPlans with analytics
 
-<br>Use case  <br>User sets project internal or global identifier   <br>User sets request body   <br>User runs method execution  <br>System returns project testplans with analytics
+ Use case   User sets project internal or global identifier    User sets request body    User runs method execution   System returns project testplans with analytics
 
 ### Example
 
@@ -471,7 +507,9 @@ import time
 import testit_api_client
 from testit_api_client.api import project_test_plans_api
 from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
+from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.api_v2_projects_project_id_test_plans_search_post_request import ApiV2ProjectsProjectIdTestPlansSearchPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -553,7 +591,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

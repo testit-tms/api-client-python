@@ -336,7 +336,7 @@ class TestPlansApi(object):
         )
         self.api_v2_test_plans_id_export_test_points_xlsx_post_endpoint = _Endpoint(
             settings={
-                'response_type': (file_type,),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -388,7 +388,6 @@ class TestPlansApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/octet-stream',
                     'application/json'
                 ],
                 'content_type': [
@@ -399,7 +398,7 @@ class TestPlansApi(object):
         )
         self.api_v2_test_plans_id_export_test_result_history_xlsx_post_endpoint = _Endpoint(
             settings={
-                'response_type': (file_type,),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -462,7 +461,6 @@ class TestPlansApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/octet-stream',
                     'application/json'
                 ],
                 'content_type': [],
@@ -1110,7 +1108,7 @@ class TestPlansApi(object):
         )
         self.api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get_endpoint = _Endpoint(
             settings={
-                'response_type': (datetime,),
+                'response_type': None,
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1919,7 +1917,7 @@ class TestPlansApi(object):
     ):
         """Add WorkItems to TestPlan with Sections as TestSuites  # noqa: E501
 
-        <br>Use case  <br>User sets TestPlan identifier  <br>User sets WorkItem identifiers (listed in request example)  <br>User runs method execution  <br>System added WorkItems and Sections to TestPlan  <br>System returns no content response  # noqa: E501
+         Use case   User sets TestPlan identifier   User sets WorkItem identifiers (listed in request example)   User runs method execution   System added WorkItems and Sections to TestPlan   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2003,7 +2001,7 @@ class TestPlansApi(object):
     ):
         """Get analytics by TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System returns analytics by test plan  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System returns analytics by test plan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2169,7 +2167,7 @@ class TestPlansApi(object):
     ):
         """Get TestPlan configurations  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System return test plan configurations  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System return test plan configurations  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2252,7 +2250,7 @@ class TestPlansApi(object):
     ):
         """Export TestPoints from TestPlan in xls format  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User sets filter model (listed in request example)  <br>User runs method execution  <br>System return export xlsx file  # noqa: E501
+         Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2297,7 +2295,7 @@ class TestPlansApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            file_type
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2337,7 +2335,7 @@ class TestPlansApi(object):
     ):
         """Export TestResults history from TestPlan in xls format  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User sets filter model (listed in request example)  <br>User runs method execution  <br>System return export xlsx file  # noqa: E501
+         Use case   User sets test plan identifier   User sets filter model (listed in request example)   User runs method execution   System return export xlsx file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2384,7 +2382,7 @@ class TestPlansApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            file_type
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2424,7 +2422,7 @@ class TestPlansApi(object):
     ):
         """Get TestPlan history  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System return test plan history  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System return test plan history  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2512,7 +2510,7 @@ class TestPlansApi(object):
     ):
         """Get Links of TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User sets pagination filter (listed in request example)  <br>User runs method execution  <br>System returns links of TestPlan  # noqa: E501
+         Use case   User sets test plan identifier   User sets pagination filter (listed in request example)   User runs method execution   System returns links of TestPlan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2682,7 +2680,7 @@ class TestPlansApi(object):
     ):
         """Get TestPoints with last result from TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User sets filter (listed in request example)  <br>User runs method execution  <br>System return test points with last result from test plan  # noqa: E501
+         Use case   User sets test plan identifier   User sets filter (listed in request example)   User runs method execution   System return test points with last result from test plan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2771,7 +2769,7 @@ class TestPlansApi(object):
     ):
         """Reset TestPoints status of TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User sets test points identifiers  <br>User runs method execution  <br>System reset test points statuses of test plan  # noqa: E501
+         Use case   User sets test plan identifier   User sets test points identifiers   User runs method execution   System reset test points statuses of test plan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3025,7 +3023,7 @@ class TestPlansApi(object):
     ):
         """Get TestRuns of TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User sets TestRun status filter (listed in request example)  <br>User runs method execution  <br>System returns TestRuns for TestPlan  # noqa: E501
+         Use case   User sets test plan identifier   User sets TestRun status filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3117,7 +3115,7 @@ class TestPlansApi(object):
     ):
         """Search TestRuns of TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User sets TestRuns filter (listed in request example)  <br>User runs method execution  <br>System returns TestRuns for TestPlan  # noqa: E501
+         Use case   User sets test plan identifier   User sets TestRuns filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3248,7 +3246,7 @@ class TestPlansApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            datetime
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -3288,7 +3286,7 @@ class TestPlansApi(object):
     ):
         """Send unlock TestPlan notification  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System send unlock test plan notification  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System send unlock test plan notification  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3370,7 +3368,7 @@ class TestPlansApi(object):
     ):
         """Get TestPlans short models by Project identifiers  # noqa: E501
 
-        <br>Use case  <br>User sets projects identifiers  <br>User runs method execution  <br>System return test plans short models (listed in response example)  # noqa: E501
+         Use case   User sets projects identifiers   User runs method execution   System return test plans short models (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3451,7 +3449,7 @@ class TestPlansApi(object):
     ):
         """Clone TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System clones test plan  <br>System returns test plan (listed in response example)  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System clones test plan   System returns test plan (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3534,7 +3532,7 @@ class TestPlansApi(object):
     ):
         """Complete TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System completes the test plan and updates test plan status  <br>System returns no content response  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System completes the test plan and updates test plan status   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3616,7 +3614,7 @@ class TestPlansApi(object):
     ):
         """Create TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan properties (listed in request example)  <br>User runs method execution  <br>System creates test plan  <br>System returns test plan (listed in response example)  # noqa: E501
+         Use case   User sets test plan properties (listed in request example)   User runs method execution   System creates test plan   System returns test plan (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3696,7 +3694,7 @@ class TestPlansApi(object):
     ):
         """Delete TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System delete test plan  <br>System returns no content response  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System delete test plan   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3779,7 +3777,7 @@ class TestPlansApi(object):
     ):
         """Get TestPlan by Id  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System search  test plan by the identifier  <br>System returns test plan  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System search  test plan by the identifier   System returns test plan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3862,7 +3860,7 @@ class TestPlansApi(object):
     ):
         """Get TestSuites Tree By Id  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System finds test suites related to the test plan  <br>System returns test suites as a tree model (listed in response example)  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System finds test suites related to the test plan   System returns test suites as a tree model (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3945,7 +3943,7 @@ class TestPlansApi(object):
     ):
         """Pause TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System pauses the test plan and updates test plan status  <br>System returns no content response  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System pauses the test plan and updates test plan status   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4110,7 +4108,7 @@ class TestPlansApi(object):
     ):
         """Restore TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System restores test plan  <br>System returns no content response  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System restores test plan   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4193,7 +4191,7 @@ class TestPlansApi(object):
     ):
         """Start TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan identifier  <br>User runs method execution  <br>System starts the test plan and updates test plan status  <br>System returns no content response  # noqa: E501
+         Use case   User sets test plan identifier   User runs method execution   System starts the test plan and updates test plan status   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4275,7 +4273,7 @@ class TestPlansApi(object):
     ):
         """Update TestPlan  # noqa: E501
 
-        <br>Use case  <br>User sets test plan properties(listed in request example)  <br>User runs method execution  <br>System updates test plan  <br>System returns no content response  # noqa: E501
+         Use case   User sets test plan properties(listed in request example)   User runs method execution   System updates test plan   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

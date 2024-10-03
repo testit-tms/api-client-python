@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Delete tags
 
-<br>Use case  <br>User sets collection of tags internal (guid format) identifiers  <br>System searches and deletes a collection of tags
+ Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags
 
 ### Example
 
@@ -90,10 +90,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** | &lt;br&gt;- ID is not valid |  -  |
+**400** |  - ID is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | System administrator role is required |  -  |
 **404** | No tags with provided IDs were found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -102,7 +104,7 @@ void (empty response body)
 
 Get all Tags
 
-<br>Use case  <br>User runs method execution  <br>System returns tags (listed in the response example)
+ Use case   User runs method execution   System returns tags (listed in the response example)
 
 ### Example
 
@@ -114,6 +116,7 @@ import testit_api_client
 from testit_api_client.api import tags_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.tag_model import TagModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -169,7 +172,12 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -178,7 +186,7 @@ This endpoint does not need any parameter.
 
 Delete tag
 
-<br>Use case  <br>User sets tag internal (guid format) identifier  <br>System search and delete tag
+ Use case   User sets tag internal (guid format) identifier   System search and delete tag
 
 ### Example
 
@@ -248,10 +256,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** | &lt;br&gt;- ID is not valid |  -  |
+**400** |  - ID is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | System administrator role is required |  -  |
 **404** | Tag with provided ID cannot be found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -260,7 +270,7 @@ void (empty response body)
 
 Create tag
 
-<br>Use case  <br>User sets tag model (listed in the request example)  <br>User runs method execution  <br>System creates tag  <br>System returns tag model (listed in the response example)
+ Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)
 
 ### Example
 
@@ -334,8 +344,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
-**400** | &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long |  -  |
+**400** |  - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -344,7 +358,7 @@ Name | Type | Description  | Notes
 
 Update tag
 
-<br>Use case  <br>User sets tag ID and model (listed in the request example)  <br>User runs method execution  <br>System updates tag  <br>System returns tag model (listed in the response example)
+ Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)
 
 ### Example
 
@@ -420,10 +434,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
-**400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- Name cannot be empty or contain only white space characters  &lt;br&gt;- Name already in use  &lt;br&gt;- Name must be no more than 30 characters long |  -  |
+**400** |  - ID is not valid   - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long |  -  |
 **401** | Unauthorized |  -  |
 **403** | Project creator role is required |  -  |
 **404** | Tag with provided ID cannot be found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -432,7 +448,7 @@ Name | Type | Description  | Notes
 
 Search tags
 
-<br>Use case  <br>User runs method execution  <br>System returns collection of tags (listed in the response example)
+ Use case   User runs method execution   System returns collection of tags (listed in the response example)
 
 ### Example
 
@@ -444,6 +460,7 @@ import testit_api_client
 from testit_api_client.api import tags_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.tag_model import TagModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -512,8 +529,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found |  -  |
 **401** | Unauthorized |  -  |
-**400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -522,7 +543,7 @@ Name | Type | Description  | Notes
 
 Get all Tags that are used in TestPlans
 
-<br>Use case  <br>User runs method execution  <br>System returns tags (listed in the response example)
+ Use case   User runs method execution   System returns tags (listed in the response example)
 
 ### Example
 
@@ -603,8 +624,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** | &lt;br&gt;orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  &lt;br&gt;orderByStatement has invalid length  &lt;br&gt;orderByStatement must have uuid as attribute key  &lt;br&gt;Search field not found |  -  |
+**400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found |  -  |
 **401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

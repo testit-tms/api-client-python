@@ -31,7 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.custom_attribute_model import CustomAttributeModel
+    from testit_api_client.model.project_type_model import ProjectTypeModel
     globals()['CustomAttributeModel'] = CustomAttributeModel
+    globals()['ProjectTypeModel'] = ProjectTypeModel
 
 
 class ProjectModel(ModelNormal):
@@ -87,6 +89,8 @@ class ProjectModel(ModelNormal):
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
+            'type': (ProjectTypeModel,),  # noqa: E501
+            'is_flaky_auto': (bool,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'attributes_scheme': ([CustomAttributeModel], none_type,),  # noqa: E501
             'test_plans_attributes_scheme': ([CustomAttributeModel], none_type,),  # noqa: E501
@@ -111,6 +115,8 @@ class ProjectModel(ModelNormal):
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
         'description': 'description',  # noqa: E501
         'attributes_scheme': 'attributesScheme',  # noqa: E501
         'test_plans_attributes_scheme': 'testPlansAttributesScheme',  # noqa: E501
@@ -129,7 +135,7 @@ class ProjectModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, is_flaky_auto, *args, **kwargs):  # noqa: E501
         """ProjectModel - a model defined in OpenAPI
 
         Args:
@@ -140,6 +146,8 @@ class ProjectModel(ModelNormal):
             created_date (datetime): Creation date of the project
             created_by_id (str): Unique ID of the project creator
             global_id (int): Global ID of the project
+            type (ProjectTypeModel):
+            is_flaky_auto (bool): Indicates if the status \"Flaky/Stable\" sets automatically
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -219,6 +227,8 @@ class ProjectModel(ModelNormal):
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.global_id = global_id
+        self.type = type
+        self.is_flaky_auto = is_flaky_auto
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -239,7 +249,7 @@ class ProjectModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, is_flaky_auto, *args, **kwargs):  # noqa: E501
         """ProjectModel - a model defined in OpenAPI
 
         Args:
@@ -250,6 +260,8 @@ class ProjectModel(ModelNormal):
             created_date (datetime): Creation date of the project
             created_by_id (str): Unique ID of the project creator
             global_id (int): Global ID of the project
+            type (ProjectTypeModel):
+            is_flaky_auto (bool): Indicates if the status \"Flaky/Stable\" sets automatically
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -327,6 +339,8 @@ class ProjectModel(ModelNormal):
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.global_id = global_id
+        self.type = type
+        self.is_flaky_auto = is_flaky_auto
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

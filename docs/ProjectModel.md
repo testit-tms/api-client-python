@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **created_date** | **datetime** | Creation date of the project | 
 **created_by_id** | **str** | Unique ID of the project creator | 
 **global_id** | **int** | Global ID of the project | 
+**type** | [**ProjectTypeModel**](ProjectTypeModel.md) |  | 
+**is_flaky_auto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | 
 **description** | **str, none_type** | Description of the project | [optional] 
 **attributes_scheme** | [**[CustomAttributeModel], none_type**](CustomAttributeModel.md) | Collection of the project attributes | [optional] 
 **test_plans_attributes_scheme** | [**[CustomAttributeModel], none_type**](CustomAttributeModel.md) | Collection of the project test plans attributes | [optional] 

@@ -26,6 +26,7 @@ from testit_api_client.model.api_v2_custom_attributes_global_post_request import
 from testit_api_client.model.api_v2_custom_attributes_search_post_request import ApiV2CustomAttributesSearchPostRequest
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class CustomAttributesApi(object):

@@ -132,8 +132,6 @@
  - [CustomAttributeTypesEnum](CustomAttributeTypesEnum.md)
  - [DateTimeRangeSelectorModel](DateTimeRangeSelectorModel.md)
  - [DeletionState](DeletionState.md)
- - [ExportProjectJsonRequest](ExportProjectJsonRequest.md)
- - [ExportProjectWithTestPlansJsonRequest](ExportProjectWithTestPlansJsonRequest.md)
  - [ExternalLinkModel](ExternalLinkModel.md)
  - [FailureCategoryModel](FailureCategoryModel.md)
  - [FailureClassModel](FailureClassModel.md)
@@ -169,7 +167,6 @@
  - [LinkType](LinkType.md)
  - [MoveRequest](MoveRequest.md)
  - [NamedEntityModel](NamedEntityModel.md)
- - [NoContentResult](NoContentResult.md)
  - [NotificationModel](NotificationModel.md)
  - [NotificationQueryFilterModel](NotificationQueryFilterModel.md)
  - [NotificationTypeModel](NotificationTypeModel.md)
@@ -187,8 +184,6 @@
  - [ProjectAttributesFilterModel](ProjectAttributesFilterModel.md)
  - [ProjectCustomAttributeTemplateGetModel](ProjectCustomAttributeTemplateGetModel.md)
  - [ProjectCustomAttributesTemplatesFilterModel](ProjectCustomAttributesTemplatesFilterModel.md)
- - [ProjectExportQueryModel](ProjectExportQueryModel.md)
- - [ProjectExportWithTestPlansPostModel](ProjectExportWithTestPlansPostModel.md)
  - [ProjectExtractionModel](ProjectExtractionModel.md)
  - [ProjectModel](ProjectModel.md)
  - [ProjectPostModel](ProjectPostModel.md)
@@ -196,6 +191,7 @@
  - [ProjectSelectModel](ProjectSelectModel.md)
  - [ProjectShortestModel](ProjectShortestModel.md)
  - [ProjectTestPlansFilterModel](ProjectTestPlansFilterModel.md)
+ - [ProjectTypeModel](ProjectTypeModel.md)
  - [ProjectsFilterModel](ProjectsFilterModel.md)
  - [ProjectsFilterModelAutotestsCount](ProjectsFilterModelAutotestsCount.md)
  - [ProjectsFilterModelChecklistsCount](ProjectsFilterModelChecklistsCount.md)
@@ -369,7 +365,6 @@
  - [UserRankModel](UserRankModel.md)
  - [UserWithRankModel](UserWithRankModel.md)
  - [UserWithRankModelUserRank](UserWithRankModelUserRank.md)
- - [ValidateAntiForgeryTokenAttribute](ValidateAntiForgeryTokenAttribute.md)
  - [ValidationProblemDetails](ValidationProblemDetails.md)
  - [WebHookEventType](WebHookEventType.md)
  - [WebHookEventTypeModel](WebHookEventTypeModel.md)
@@ -432,3 +427,4 @@
  - [WorkItemVersionModel](WorkItemVersionModel.md)
 
 
+<a id="documentation-for-authorization"></a>

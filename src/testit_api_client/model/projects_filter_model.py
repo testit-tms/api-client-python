@@ -30,11 +30,13 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.project_type_model import ProjectTypeModel
     from testit_api_client.model.projects_filter_model_autotests_count import ProjectsFilterModelAutotestsCount
     from testit_api_client.model.projects_filter_model_checklists_count import ProjectsFilterModelChecklistsCount
     from testit_api_client.model.projects_filter_model_created_date import ProjectsFilterModelCreatedDate
     from testit_api_client.model.projects_filter_model_shared_steps_count import ProjectsFilterModelSharedStepsCount
     from testit_api_client.model.projects_filter_model_test_cases_count import ProjectsFilterModelTestCasesCount
+    globals()['ProjectTypeModel'] = ProjectTypeModel
     globals()['ProjectsFilterModelAutotestsCount'] = ProjectsFilterModelAutotestsCount
     globals()['ProjectsFilterModelChecklistsCount'] = ProjectsFilterModelChecklistsCount
     globals()['ProjectsFilterModelCreatedDate'] = ProjectsFilterModelCreatedDate
@@ -78,6 +80,8 @@ class ProjectsFilterModel(ModelNormal):
         },
         ('created_by_ids',): {
         },
+        ('types',): {
+        },
     }
 
     additional_properties_type = None
@@ -106,6 +110,7 @@ class ProjectsFilterModel(ModelNormal):
             'global_ids': ([int], none_type,),  # noqa: E501
             'created_date': (ProjectsFilterModelCreatedDate,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
+            'types': ([ProjectTypeModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -124,6 +129,7 @@ class ProjectsFilterModel(ModelNormal):
         'global_ids': 'globalIds',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_ids': 'createdByIds',  # noqa: E501
+        'types': 'types',  # noqa: E501
     }
 
     read_only_vars = {
@@ -177,6 +183,7 @@ class ProjectsFilterModel(ModelNormal):
             global_ids ([int], none_type): Specifies a project global IDs to search for. [optional]  # noqa: E501
             created_date (ProjectsFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies an autotest creator IDs to search for. [optional]  # noqa: E501
+            types ([ProjectTypeModel], none_type): Collection of project types to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -272,6 +279,7 @@ class ProjectsFilterModel(ModelNormal):
             global_ids ([int], none_type): Specifies a project global IDs to search for. [optional]  # noqa: E501
             created_date (ProjectsFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies an autotest creator IDs to search for. [optional]  # noqa: E501
+            types ([ProjectTypeModel], none_type): Collection of project types to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
