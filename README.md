@@ -1,8 +1,7 @@
 # Api client for Test IT TMS
 ![Test IT](https://raw.githubusercontent.com/testit-tms/api-client-python/master/images/banner.png)
 
-[![Release
-Status](https://img.shields.io/pypi/v/testit-api-client?style=plastic)](https://pypi.python.org/pypi/testit-api-client)
+[![Release Status](https://img.shields.io/pypi/v/testit-api-client?style=plastic)](https://pypi.python.org/pypi/testit-api-client)
 [![Downloads](https://img.shields.io/pypi/dm/testit-api-client?style=plastic)](https://pypi.python.org/pypi/testit-api-client)
 [![GitHub contributors](https://img.shields.io/github/contributors/testit-tms/api-client-python?style=plastic)](https://github.com/testit-tms/api-client-python)
 
@@ -20,6 +19,7 @@ Status](https://img.shields.io/pypi/v/testit-api-client?style=plastic)](https://
 | 4.5     | 3.4.0      |
 | 4.6     | 3.5.0      |
 | 5.0     | 4.0.0      |
+| 5.1     | 4.1.0      |
 
 ## Installation & Usage
 ### pip install
