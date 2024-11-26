@@ -32,20 +32,20 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.failure_category_model import FailureCategoryModel
     from testit_api_client.model.test_result_outcome import TestResultOutcome
-    from testit_api_client.model.test_results_filter_model import TestResultsFilterModel
-    from testit_api_client.model.test_results_filter_model_completed_on import TestResultsFilterModelCompletedOn
-    from testit_api_client.model.test_results_filter_model_created_date import TestResultsFilterModelCreatedDate
-    from testit_api_client.model.test_results_filter_model_duration import TestResultsFilterModelDuration
-    from testit_api_client.model.test_results_filter_model_modified_date import TestResultsFilterModelModifiedDate
-    from testit_api_client.model.test_results_filter_model_started_on import TestResultsFilterModelStartedOn
+    from testit_api_client.model.test_results_filter_request import TestResultsFilterRequest
+    from testit_api_client.model.test_results_filter_request_completed_on import TestResultsFilterRequestCompletedOn
+    from testit_api_client.model.test_results_filter_request_created_date import TestResultsFilterRequestCreatedDate
+    from testit_api_client.model.test_results_filter_request_duration import TestResultsFilterRequestDuration
+    from testit_api_client.model.test_results_filter_request_modified_date import TestResultsFilterRequestModifiedDate
+    from testit_api_client.model.test_results_filter_request_started_on import TestResultsFilterRequestStartedOn
     globals()['FailureCategoryModel'] = FailureCategoryModel
     globals()['TestResultOutcome'] = TestResultOutcome
-    globals()['TestResultsFilterModel'] = TestResultsFilterModel
-    globals()['TestResultsFilterModelCompletedOn'] = TestResultsFilterModelCompletedOn
-    globals()['TestResultsFilterModelCreatedDate'] = TestResultsFilterModelCreatedDate
-    globals()['TestResultsFilterModelDuration'] = TestResultsFilterModelDuration
-    globals()['TestResultsFilterModelModifiedDate'] = TestResultsFilterModelModifiedDate
-    globals()['TestResultsFilterModelStartedOn'] = TestResultsFilterModelStartedOn
+    globals()['TestResultsFilterRequest'] = TestResultsFilterRequest
+    globals()['TestResultsFilterRequestCompletedOn'] = TestResultsFilterRequestCompletedOn
+    globals()['TestResultsFilterRequestCreatedDate'] = TestResultsFilterRequestCreatedDate
+    globals()['TestResultsFilterRequestDuration'] = TestResultsFilterRequestDuration
+    globals()['TestResultsFilterRequestModifiedDate'] = TestResultsFilterRequestModifiedDate
+    globals()['TestResultsFilterRequestStartedOn'] = TestResultsFilterRequestStartedOn
 
 
 class ApiV2TestResultsSearchPostRequest(ModelComposed):
@@ -109,20 +109,21 @@ class ApiV2TestResultsSearchPostRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'test_run_ids': ([str], none_type,),  # noqa: E501
-            'auto_test_global_ids': ([int], none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'created_date': (TestResultsFilterModelCreatedDate,),  # noqa: E501
-            'modified_date': (TestResultsFilterModelModifiedDate,),  # noqa: E501
-            'started_on': (TestResultsFilterModelStartedOn,),  # noqa: E501
-            'completed_on': (TestResultsFilterModelCompletedOn,),  # noqa: E501
-            'duration': (TestResultsFilterModelDuration,),  # noqa: E501
-            'result_reasons': ([str], none_type,),  # noqa: E501
             'configuration_ids': ([str], none_type,),  # noqa: E501
             'outcomes': ([TestResultOutcome], none_type,),  # noqa: E501
+            'status_codes': ([str], none_type,),  # noqa: E501
             'failure_categories': ([FailureCategoryModel], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'class_name': (str, none_type,),  # noqa: E501
+            'auto_test_global_ids': ([int], none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'created_date': (TestResultsFilterRequestCreatedDate,),  # noqa: E501
+            'modified_date': (TestResultsFilterRequestModifiedDate,),  # noqa: E501
+            'started_on': (TestResultsFilterRequestStartedOn,),  # noqa: E501
+            'completed_on': (TestResultsFilterRequestCompletedOn,),  # noqa: E501
+            'duration': (TestResultsFilterRequestDuration,),  # noqa: E501
+            'result_reasons': ([str], none_type,),  # noqa: E501
+            'test_run_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -131,7 +132,12 @@ class ApiV2TestResultsSearchPostRequest(ModelComposed):
 
 
     attribute_map = {
-        'test_run_ids': 'testRunIds',  # noqa: E501
+        'configuration_ids': 'configurationIds',  # noqa: E501
+        'outcomes': 'outcomes',  # noqa: E501
+        'status_codes': 'statusCodes',  # noqa: E501
+        'failure_categories': 'failureCategories',  # noqa: E501
+        'namespace': 'namespace',  # noqa: E501
+        'class_name': 'className',  # noqa: E501
         'auto_test_global_ids': 'autoTestGlobalIds',  # noqa: E501
         'name': 'name',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
@@ -140,11 +146,7 @@ class ApiV2TestResultsSearchPostRequest(ModelComposed):
         'completed_on': 'completedOn',  # noqa: E501
         'duration': 'duration',  # noqa: E501
         'result_reasons': 'resultReasons',  # noqa: E501
-        'configuration_ids': 'configurationIds',  # noqa: E501
-        'outcomes': 'outcomes',  # noqa: E501
-        'failure_categories': 'failureCategories',  # noqa: E501
-        'namespace': 'namespace',  # noqa: E501
-        'class_name': 'className',  # noqa: E501
+        'test_run_ids': 'testRunIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -186,20 +188,21 @@ class ApiV2TestResultsSearchPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_run_ids ([str], none_type): Specifies a test result test run IDs to search for. [optional]  # noqa: E501
-            auto_test_global_ids ([int], none_type): Specifies an autotest global IDs to search results for. [optional]  # noqa: E501
-            name (str, none_type): Specifies an autotest name to search results for. [optional]  # noqa: E501
-            created_date (TestResultsFilterModelCreatedDate): [optional]  # noqa: E501
-            modified_date (TestResultsFilterModelModifiedDate): [optional]  # noqa: E501
-            started_on (TestResultsFilterModelStartedOn): [optional]  # noqa: E501
-            completed_on (TestResultsFilterModelCompletedOn): [optional]  # noqa: E501
-            duration (TestResultsFilterModelDuration): [optional]  # noqa: E501
-            result_reasons ([str], none_type): Specifies result reasons for searching test results. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
             outcomes ([TestResultOutcome], none_type): Specifies a test result outcomes to search for. [optional]  # noqa: E501
+            status_codes ([str], none_type): Specifies a test result status codes to search for. [optional]  # noqa: E501
             failure_categories ([FailureCategoryModel], none_type): Specifies a test result failure categories to search for. [optional]  # noqa: E501
             namespace (str, none_type): Specifies a test result namespace to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies a test result class name to search for. [optional]  # noqa: E501
+            auto_test_global_ids ([int], none_type): Specifies an autotest global IDs to search results for. [optional]  # noqa: E501
+            name (str, none_type): Specifies an autotest name to search results for. [optional]  # noqa: E501
+            created_date (TestResultsFilterRequestCreatedDate): [optional]  # noqa: E501
+            modified_date (TestResultsFilterRequestModifiedDate): [optional]  # noqa: E501
+            started_on (TestResultsFilterRequestStartedOn): [optional]  # noqa: E501
+            completed_on (TestResultsFilterRequestCompletedOn): [optional]  # noqa: E501
+            duration (TestResultsFilterRequestDuration): [optional]  # noqa: E501
+            result_reasons ([str], none_type): Specifies result reasons for searching test results. [optional]  # noqa: E501
+            test_run_ids ([str], none_type): Specifies a test result test run IDs to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -303,20 +306,21 @@ class ApiV2TestResultsSearchPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_run_ids ([str], none_type): Specifies a test result test run IDs to search for. [optional]  # noqa: E501
-            auto_test_global_ids ([int], none_type): Specifies an autotest global IDs to search results for. [optional]  # noqa: E501
-            name (str, none_type): Specifies an autotest name to search results for. [optional]  # noqa: E501
-            created_date (TestResultsFilterModelCreatedDate): [optional]  # noqa: E501
-            modified_date (TestResultsFilterModelModifiedDate): [optional]  # noqa: E501
-            started_on (TestResultsFilterModelStartedOn): [optional]  # noqa: E501
-            completed_on (TestResultsFilterModelCompletedOn): [optional]  # noqa: E501
-            duration (TestResultsFilterModelDuration): [optional]  # noqa: E501
-            result_reasons ([str], none_type): Specifies result reasons for searching test results. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
             outcomes ([TestResultOutcome], none_type): Specifies a test result outcomes to search for. [optional]  # noqa: E501
+            status_codes ([str], none_type): Specifies a test result status codes to search for. [optional]  # noqa: E501
             failure_categories ([FailureCategoryModel], none_type): Specifies a test result failure categories to search for. [optional]  # noqa: E501
             namespace (str, none_type): Specifies a test result namespace to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies a test result class name to search for. [optional]  # noqa: E501
+            auto_test_global_ids ([int], none_type): Specifies an autotest global IDs to search results for. [optional]  # noqa: E501
+            name (str, none_type): Specifies an autotest name to search results for. [optional]  # noqa: E501
+            created_date (TestResultsFilterRequestCreatedDate): [optional]  # noqa: E501
+            modified_date (TestResultsFilterRequestModifiedDate): [optional]  # noqa: E501
+            started_on (TestResultsFilterRequestStartedOn): [optional]  # noqa: E501
+            completed_on (TestResultsFilterRequestCompletedOn): [optional]  # noqa: E501
+            duration (TestResultsFilterRequestDuration): [optional]  # noqa: E501
+            result_reasons ([str], none_type): Specifies result reasons for searching test results. [optional]  # noqa: E501
+            test_run_ids ([str], none_type): Specifies a test result test run IDs to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -386,7 +390,7 @@ class ApiV2TestResultsSearchPostRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              TestResultsFilterModel,
+              TestResultsFilterRequest,
           ],
           'oneOf': [
           ],

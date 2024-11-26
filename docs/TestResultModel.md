@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **modified_by_id** | **str, none_type** |  | [optional] 
 **step_comments** | [**[StepCommentModel], none_type**](StepCommentModel.md) |  | [optional] 
 **outcome** | [**TestResultOutcome**](TestResultOutcome.md) |  | [optional] 
+**status** | [**TestStatusModel**](TestStatusModel.md) |  | [optional] 
 **comment** | **str, none_type** |  | [optional] 
 **links** | [**[LinkModel], none_type**](LinkModel.md) |  | [optional] 
 **step_results** | [**[StepResultModel], none_type**](StepResultModel.md) |  | [optional] 

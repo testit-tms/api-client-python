@@ -5,8 +5,10 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**api_v2_test_runs_delete**](TestRunsApi.md#api_v2_test_runs_delete) | **DELETE** /api/v2/testRuns | Delete multiple test runs
+[**api_v2_test_runs_id_auto_tests_namespaces_get**](TestRunsApi.md#api_v2_test_runs_id_auto_tests_namespaces_get) | **GET** /api/v2/testRuns/{id}/autoTestsNamespaces | Get autotest classes and namespaces in test run
 [**api_v2_test_runs_id_delete**](TestRunsApi.md#api_v2_test_runs_id_delete) | **DELETE** /api/v2/testRuns/{id} | Delete test run
 [**api_v2_test_runs_id_purge_post**](TestRunsApi.md#api_v2_test_runs_id_purge_post) | **POST** /api/v2/testRuns/{id}/purge | Permanently delete test run from archive
+[**api_v2_test_runs_id_reruns_post**](TestRunsApi.md#api_v2_test_runs_id_reruns_post) | **POST** /api/v2/testRuns/{id}/reruns | Manual autotests rerun in test run
 [**api_v2_test_runs_id_restore_post**](TestRunsApi.md#api_v2_test_runs_id_restore_post) | **POST** /api/v2/testRuns/{id}/restore | Restore test run from the archive
 [**api_v2_test_runs_id_statistics_filter_post**](TestRunsApi.md#api_v2_test_runs_id_statistics_filter_post) | **POST** /api/v2/testRuns/{id}/statistics/filter | Search for the test run test results and build statistics
 [**api_v2_test_runs_id_test_points_results_get**](TestRunsApi.md#api_v2_test_runs_id_test_points_results_get) | **GET** /api/v2/testRuns/{id}/testPoints/results | Get test results from the test run grouped by test points
@@ -43,7 +45,7 @@ Delete multiple test runs
 import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
-from testit_api_client.model.api_v2_test_runs_delete_request import ApiV2TestRunsDeleteRequest
+from testit_api_client.model.test_run_select_model import TestRunSelectModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -68,13 +70,16 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    api_v2_test_runs_delete_request = ApiV2TestRunsDeleteRequest(None) # ApiV2TestRunsDeleteRequest |  (optional)
+    test_run_select_model = TestRunSelectModel(
+        filter=ApiV2TestRunsSearchPostRequest(None),
+        extraction_model=TestRunSelectModelExtractionModel(None),
+    ) # TestRunSelectModel |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Delete multiple test runs
-        api_response = api_instance.api_v2_test_runs_delete(api_v2_test_runs_delete_request=api_v2_test_runs_delete_request)
+        api_response = api_instance.api_v2_test_runs_delete(test_run_select_model=test_run_select_model)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_delete: %s\n" % e)
@@ -85,7 +90,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_test_runs_delete_request** | [**ApiV2TestRunsDeleteRequest**](ApiV2TestRunsDeleteRequest.md)|  | [optional]
+ **test_run_select_model** | [**TestRunSelectModel**](TestRunSelectModel.md)|  | [optional]
 
 ### Return type
 
@@ -107,6 +112,90 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** |  - ID is not valid   - Project was archived and cannot be edited anymore |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_test_runs_id_auto_tests_namespaces_get**
+> AutoTestNamespacesCountResponse api_v2_test_runs_id_auto_tests_namespaces_get(id)
+
+Get autotest classes and namespaces in test run
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.auto_test_namespaces_count_response import AutoTestNamespacesCountResponse
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = test_runs_api.TestRunsApi(api_client)
+    id = "id_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get autotest classes and namespaces in test run
+        api_response = api_instance.api_v2_test_runs_id_auto_tests_namespaces_get(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling TestRunsApi->api_v2_test_runs_id_auto_tests_namespaces_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  |
+
+### Return type
+
+[**AutoTestNamespacesCountResponse**](AutoTestNamespacesCountResponse.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
@@ -277,6 +366,102 @@ void (empty response body)
 **400** |  - ID is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Delete permission for archived test runs is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_test_runs_id_reruns_post**
+> ManualRerunResultModel api_v2_test_runs_id_reruns_post(id)
+
+Manual autotests rerun in test run
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.api_v2_test_runs_id_reruns_post_request import ApiV2TestRunsIdRerunsPostRequest
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.manual_rerun_result_model import ManualRerunResultModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = test_runs_api.TestRunsApi(api_client)
+    id = "id_example" # str | 
+    api_v2_test_runs_id_reruns_post_request = ApiV2TestRunsIdRerunsPostRequest(None) # ApiV2TestRunsIdRerunsPostRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Manual autotests rerun in test run
+        api_response = api_instance.api_v2_test_runs_id_reruns_post(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling TestRunsApi->api_v2_test_runs_id_reruns_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Manual autotests rerun in test run
+        api_response = api_instance.api_v2_test_runs_id_reruns_post(id, api_v2_test_runs_id_reruns_post_request=api_v2_test_runs_id_reruns_post_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling TestRunsApi->api_v2_test_runs_id_reruns_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  |
+ **api_v2_test_runs_id_reruns_post_request** | [**ApiV2TestRunsIdRerunsPostRequest**](ApiV2TestRunsIdRerunsPostRequest.md)|  | [optional]
+
+### Return type
+
+[**ManualRerunResultModel**](ManualRerunResultModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -738,7 +923,7 @@ Permanently delete multiple test runs from archive
 import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
-from testit_api_client.model.api_v2_test_runs_delete_request import ApiV2TestRunsDeleteRequest
+from testit_api_client.model.api_v2_test_runs_purge_bulk_post_request import ApiV2TestRunsPurgeBulkPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -763,13 +948,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    api_v2_test_runs_delete_request = ApiV2TestRunsDeleteRequest(None) # ApiV2TestRunsDeleteRequest |  (optional)
+    api_v2_test_runs_purge_bulk_post_request = ApiV2TestRunsPurgeBulkPostRequest(None) # ApiV2TestRunsPurgeBulkPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Permanently delete multiple test runs from archive
-        api_response = api_instance.api_v2_test_runs_purge_bulk_post(api_v2_test_runs_delete_request=api_v2_test_runs_delete_request)
+        api_response = api_instance.api_v2_test_runs_purge_bulk_post(api_v2_test_runs_purge_bulk_post_request=api_v2_test_runs_purge_bulk_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_purge_bulk_post: %s\n" % e)
@@ -780,7 +965,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_test_runs_delete_request** | [**ApiV2TestRunsDeleteRequest**](ApiV2TestRunsDeleteRequest.md)|  | [optional]
+ **api_v2_test_runs_purge_bulk_post_request** | [**ApiV2TestRunsPurgeBulkPostRequest**](ApiV2TestRunsPurgeBulkPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -825,7 +1010,7 @@ Restore multiple test runs from the archive
 import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
-from testit_api_client.model.api_v2_test_runs_delete_request import ApiV2TestRunsDeleteRequest
+from testit_api_client.model.api_v2_test_runs_purge_bulk_post_request import ApiV2TestRunsPurgeBulkPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -850,13 +1035,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    api_v2_test_runs_delete_request = ApiV2TestRunsDeleteRequest(None) # ApiV2TestRunsDeleteRequest |  (optional)
+    api_v2_test_runs_purge_bulk_post_request = ApiV2TestRunsPurgeBulkPostRequest(None) # ApiV2TestRunsPurgeBulkPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Restore multiple test runs from the archive
-        api_response = api_instance.api_v2_test_runs_restore_bulk_post(api_v2_test_runs_delete_request=api_v2_test_runs_delete_request)
+        api_response = api_instance.api_v2_test_runs_restore_bulk_post(api_v2_test_runs_purge_bulk_post_request=api_v2_test_runs_purge_bulk_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_restore_bulk_post: %s\n" % e)
@@ -867,7 +1052,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_test_runs_delete_request** | [**ApiV2TestRunsDeleteRequest**](ApiV2TestRunsDeleteRequest.md)|  | [optional]
+ **api_v2_test_runs_purge_bulk_post_request** | [**ApiV2TestRunsPurgeBulkPostRequest**](ApiV2TestRunsPurgeBulkPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1442,8 +1627,8 @@ import testit_api_client
 from testit_api_client.api import test_runs_api
 from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.create_empty_request import CreateEmptyRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.test_run_v2_post_short_model import TestRunV2PostShortModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1466,13 +1651,32 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    create_empty_request = CreateEmptyRequest(None) # CreateEmptyRequest |  (optional)
+    test_run_v2_post_short_model = TestRunV2PostShortModel(
+        project_id="3e5a61f5-bb50-44f4-8898-6dda6d40fe23",
+        name="First run",
+        description="description_example",
+        launch_source="By user via API",
+        attachments=[
+            AttachmentPutModel(
+                id="id_example",
+            ),
+        ],
+        links=[
+            LinkPostModel(
+                title="title_example",
+                url="url_example",
+                description="description_example",
+                type=None,
+                has_info=True,
+            ),
+        ],
+    ) # TestRunV2PostShortModel |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create empty TestRun
-        api_response = api_instance.create_empty(create_empty_request=create_empty_request)
+        api_response = api_instance.create_empty(test_run_v2_post_short_model=test_run_v2_post_short_model)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->create_empty: %s\n" % e)
@@ -1483,7 +1687,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_empty_request** | [**CreateEmptyRequest**](CreateEmptyRequest.md)|  | [optional]
+ **test_run_v2_post_short_model** | [**TestRunV2PostShortModel**](TestRunV2PostShortModel.md)|  | [optional]
 
 ### Return type
 
@@ -1590,13 +1794,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
-**404** |  Can&#39;t find a TestRun with id! |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test result required |  -  |
+**404** |  TestRun with ID &#39;{id}&#39; does not exist. |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1981,8 +2184,8 @@ import time
 import testit_api_client
 from testit_api_client.api import test_runs_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.update_empty_request import UpdateEmptyRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.test_run_v2_put_model import TestRunV2PutModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -2005,13 +2208,33 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    update_empty_request = UpdateEmptyRequest(None) # UpdateEmptyRequest |  (optional)
+    test_run_v2_put_model = TestRunV2PutModel(
+        id="3e5a61f5-bb50-44f4-8898-6dda6d40fe23",
+        name="First run",
+        description="description_example",
+        launch_source="By user via API",
+        attachments=[
+            AttachmentPutModel(
+                id="id_example",
+            ),
+        ],
+        links=[
+            LinkPutModel(
+                id="3e5a61f5-bb50-44f4-8898-6dda6d40fe23",
+                title="title_example",
+                url="url_example",
+                description="description_example",
+                type=None,
+                has_info=True,
+            ),
+        ],
+    ) # TestRunV2PutModel |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update empty TestRun
-        api_instance.update_empty(update_empty_request=update_empty_request)
+        api_instance.update_empty(test_run_v2_put_model=test_run_v2_put_model)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->update_empty: %s\n" % e)
 ```
@@ -2021,7 +2244,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_empty_request** | [**UpdateEmptyRequest**](UpdateEmptyRequest.md)|  | [optional]
+ **test_run_v2_put_model** | [**TestRunV2PutModel**](TestRunV2PutModel.md)|  | [optional]
 
 ### Return type
 

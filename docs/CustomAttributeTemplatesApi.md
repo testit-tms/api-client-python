@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**api_v2_custom_attributes_templates_exists_get**](CustomAttributeTemplatesApi.md#api_v2_custom_attributes_templates_exists_get) | **GET** /api/v2/customAttributes/templates/exists | 
 [**api_v2_custom_attributes_templates_id_custom_attributes_exclude_post**](CustomAttributeTemplatesApi.md#api_v2_custom_attributes_templates_id_custom_attributes_exclude_post) | **POST** /api/v2/customAttributes/templates/{id}/customAttributes/exclude | Exclude CustomAttributes from CustomAttributeTemplate
 [**api_v2_custom_attributes_templates_id_custom_attributes_include_post**](CustomAttributeTemplatesApi.md#api_v2_custom_attributes_templates_id_custom_attributes_include_post) | **POST** /api/v2/customAttributes/templates/{id}/customAttributes/include | Include CustomAttributes to CustomAttributeTemplate
 [**api_v2_custom_attributes_templates_id_delete**](CustomAttributeTemplatesApi.md#api_v2_custom_attributes_templates_id_delete) | **DELETE** /api/v2/customAttributes/templates/{id} | Delete CustomAttributeTemplate
@@ -13,6 +14,90 @@ Method | HTTP request | Description
 [**api_v2_custom_attributes_templates_put**](CustomAttributeTemplatesApi.md#api_v2_custom_attributes_templates_put) | **PUT** /api/v2/customAttributes/templates | Update custom attributes template
 [**api_v2_custom_attributes_templates_search_post**](CustomAttributeTemplatesApi.md#api_v2_custom_attributes_templates_search_post) | **POST** /api/v2/customAttributes/templates/search | Search CustomAttributeTemplates
 
+
+# **api_v2_custom_attributes_templates_exists_get**
+> CustomAttributeTemplateValidationResult api_v2_custom_attributes_templates_exists_get()
+
+
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import custom_attribute_templates_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.custom_attribute_template_validation_result import CustomAttributeTemplateValidationResult
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = custom_attribute_templates_api.CustomAttributeTemplatesApi(api_client)
+    name = "name_example" # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.api_v2_custom_attributes_templates_exists_get(name=name)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling CustomAttributeTemplatesApi->api_v2_custom_attributes_templates_exists_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | [optional]
+
+### Return type
+
+[**CustomAttributeTemplateValidationResult**](CustomAttributeTemplateValidationResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_custom_attributes_templates_id_custom_attributes_exclude_post**
 > api_v2_custom_attributes_templates_id_custom_attributes_exclude_post(id)

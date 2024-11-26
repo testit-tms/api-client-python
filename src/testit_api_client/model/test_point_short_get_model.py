@@ -30,11 +30,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_point_short_get_model_last_test_result import TestPointShortGetModelLastTestResult
+    from testit_api_client.model.last_test_result_model import LastTestResultModel
     from testit_api_client.model.test_point_status import TestPointStatus
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_state import WorkItemState
-    globals()['TestPointShortGetModelLastTestResult'] = TestPointShortGetModelLastTestResult
+    globals()['LastTestResultModel'] = LastTestResultModel
     globals()['TestPointStatus'] = TestPointStatus
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemState'] = WorkItemState
@@ -106,7 +106,7 @@ class TestPointShortGetModel(ModelNormal):
             'duration': (int,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'last_test_result': (TestPointShortGetModelLastTestResult,),  # noqa: E501
+            'last_test_result': (LastTestResultModel,),  # noqa: E501
             'iteration_id': (str,),  # noqa: E501
             'work_item_state': (WorkItemState,),  # noqa: E501
             'work_item_created_by_id': (str,),  # noqa: E501
@@ -193,7 +193,7 @@ class TestPointShortGetModel(ModelNormal):
             duration (int): Duration of the test point
             section_id (str): Unique ID of section where work item the test point represents is located
             project_id (str): Unique ID of the test point project
-            last_test_result (TestPointShortGetModelLastTestResult):
+            last_test_result (LastTestResultModel):
             iteration_id (str): Unique ID of work item iteration the test point represents
             work_item_state (WorkItemState):
             work_item_created_by_id (str): Unique ID of the work item creator
@@ -338,7 +338,7 @@ class TestPointShortGetModel(ModelNormal):
             duration (int): Duration of the test point
             section_id (str): Unique ID of section where work item the test point represents is located
             project_id (str): Unique ID of the test point project
-            last_test_result (TestPointShortGetModelLastTestResult):
+            last_test_result (LastTestResultModel):
             iteration_id (str): Unique ID of work item iteration the test point represents
             work_item_state (WorkItemState):
             work_item_created_by_id (str): Unique ID of the work item creator

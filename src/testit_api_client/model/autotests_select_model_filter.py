@@ -84,6 +84,8 @@ class AutotestsSelectModelFilter(ModelComposed):
         },
         ('modified_by_ids',): {
         },
+        ('last_test_result_configuration_ids',): {
+        },
     }
 
     @cached_property
@@ -127,6 +129,7 @@ class AutotestsSelectModelFilter(ModelComposed):
             'is_empty_class_name': (bool, none_type,),  # noqa: E501
             'last_test_result_outcome': (AutotestResultOutcome,),  # noqa: E501
             'external_key': (str, none_type,),  # noqa: E501
+            'last_test_result_configuration_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -153,6 +156,7 @@ class AutotestsSelectModelFilter(ModelComposed):
         'is_empty_class_name': 'isEmptyClassName',  # noqa: E501
         'last_test_result_outcome': 'lastTestResultOutcome',  # noqa: E501
         'external_key': 'externalKey',  # noqa: E501
+        'last_test_result_configuration_ids': 'lastTestResultConfigurationIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -212,6 +216,7 @@ class AutotestsSelectModelFilter(ModelComposed):
             is_empty_class_name (bool, none_type): Specifies an autotest class name presence status to search for. [optional]  # noqa: E501
             last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
             external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
+            last_test_result_configuration_ids ([str], none_type): Specifies an autotest configuration IDs of the last test result to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -333,6 +338,7 @@ class AutotestsSelectModelFilter(ModelComposed):
             is_empty_class_name (bool, none_type): Specifies an autotest class name presence status to search for. [optional]  # noqa: E501
             last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
             external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
+            last_test_result_configuration_ids ([str], none_type): Specifies an autotest configuration IDs of the last test result to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

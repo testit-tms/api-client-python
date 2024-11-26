@@ -4,15 +4,100 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**api_v2_webhooks_delete**](WebhooksApi.md#api_v2_webhooks_delete) | **DELETE** /api/v2/webhooks | 
 [**api_v2_webhooks_get**](WebhooksApi.md#api_v2_webhooks_get) | **GET** /api/v2/webhooks | Get all webhooks
 [**api_v2_webhooks_id_delete**](WebhooksApi.md#api_v2_webhooks_id_delete) | **DELETE** /api/v2/webhooks/{id} | Delete webhook by ID
 [**api_v2_webhooks_id_get**](WebhooksApi.md#api_v2_webhooks_id_get) | **GET** /api/v2/webhooks/{id} | Get webhook by ID
 [**api_v2_webhooks_id_put**](WebhooksApi.md#api_v2_webhooks_id_put) | **PUT** /api/v2/webhooks/{id} | Edit webhook by ID
 [**api_v2_webhooks_post**](WebhooksApi.md#api_v2_webhooks_post) | **POST** /api/v2/webhooks | Create webhook
+[**api_v2_webhooks_put**](WebhooksApi.md#api_v2_webhooks_put) | **PUT** /api/v2/webhooks | 
 [**api_v2_webhooks_search_post**](WebhooksApi.md#api_v2_webhooks_search_post) | **POST** /api/v2/webhooks/search | Search for webhooks
 [**api_v2_webhooks_special_variables_get**](WebhooksApi.md#api_v2_webhooks_special_variables_get) | **GET** /api/v2/webhooks/specialVariables | Get special variables for webhook event type
 [**api_v2_webhooks_test_post**](WebhooksApi.md#api_v2_webhooks_test_post) | **POST** /api/v2/webhooks/test | Test webhook&#39;s url
 
+
+# **api_v2_webhooks_delete**
+> api_v2_webhooks_delete()
+
+
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import webhooks_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_webhooks_delete_request import ApiV2WebhooksDeleteRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = webhooks_api.WebhooksApi(api_client)
+    api_v2_webhooks_delete_request = ApiV2WebhooksDeleteRequest(None) # ApiV2WebhooksDeleteRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_instance.api_v2_webhooks_delete(api_v2_webhooks_delete_request=api_v2_webhooks_delete_request)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling WebhooksApi->api_v2_webhooks_delete: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_v2_webhooks_delete_request** | [**ApiV2WebhooksDeleteRequest**](ApiV2WebhooksDeleteRequest.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_get**
 > [WebHookModel] api_v2_webhooks_get()
@@ -442,6 +527,91 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for webhooks is required |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_webhooks_put**
+> WebhooksUpdateResponse api_v2_webhooks_put()
+
+
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import webhooks_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_webhooks_put_request import ApiV2WebhooksPutRequest
+from testit_api_client.model.webhooks_update_response import WebhooksUpdateResponse
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = webhooks_api.WebhooksApi(api_client)
+    api_v2_webhooks_put_request = ApiV2WebhooksPutRequest(None) # ApiV2WebhooksPutRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.api_v2_webhooks_put(api_v2_webhooks_put_request=api_v2_webhooks_put_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling WebhooksApi->api_v2_webhooks_put: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_v2_webhooks_put_request** | [**ApiV2WebhooksPutRequest**](ApiV2WebhooksPutRequest.md)|  | [optional]
+
+### Return type
+
+[**WebhooksUpdateResponse**](WebhooksUpdateResponse.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |

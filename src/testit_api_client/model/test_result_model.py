@@ -38,6 +38,7 @@ def lazy_import():
     from testit_api_client.model.step_result_model import StepResultModel
     from testit_api_client.model.test_point_put_model import TestPointPutModel
     from testit_api_client.model.test_result_outcome import TestResultOutcome
+    from testit_api_client.model.test_status_model import TestStatusModel
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AttachmentModelAutoTestStepResultsModel'] = AttachmentModelAutoTestStepResultsModel
     globals()['AutoTestModel'] = AutoTestModel
@@ -46,6 +47,7 @@ def lazy_import():
     globals()['StepResultModel'] = StepResultModel
     globals()['TestPointPutModel'] = TestPointPutModel
     globals()['TestResultOutcome'] = TestResultOutcome
+    globals()['TestStatusModel'] = TestStatusModel
 
 
 class TestResultModel(ModelNormal):
@@ -123,6 +125,7 @@ class TestResultModel(ModelNormal):
             'modified_by_id': (str, none_type,),  # noqa: E501
             'step_comments': ([StepCommentModel], none_type,),  # noqa: E501
             'outcome': (TestResultOutcome,),  # noqa: E501
+            'status': (TestStatusModel,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'step_results': ([StepResultModel], none_type,),  # noqa: E501
@@ -164,6 +167,7 @@ class TestResultModel(ModelNormal):
         'modified_by_id': 'modifiedById',  # noqa: E501
         'step_comments': 'stepComments',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
+        'status': 'status',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'links': 'links',  # noqa: E501
         'step_results': 'stepResults',  # noqa: E501
@@ -242,6 +246,7 @@ class TestResultModel(ModelNormal):
             modified_by_id (str, none_type): [optional]  # noqa: E501
             step_comments ([StepCommentModel], none_type): [optional]  # noqa: E501
             outcome (TestResultOutcome): [optional]  # noqa: E501
+            status (TestStatusModel): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             step_results ([StepResultModel], none_type): [optional]  # noqa: E501
@@ -370,6 +375,7 @@ class TestResultModel(ModelNormal):
             modified_by_id (str, none_type): [optional]  # noqa: E501
             step_comments ([StepCommentModel], none_type): [optional]  # noqa: E501
             outcome (TestResultOutcome): [optional]  # noqa: E501
+            status (TestStatusModel): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             step_results ([StepResultModel], none_type): [optional]  # noqa: E501

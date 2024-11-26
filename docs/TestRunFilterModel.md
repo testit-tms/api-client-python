@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **test_results_outcome** | [**[TestResultOutcome], none_type**](TestResultOutcome.md) | Specifies test results outcomes | [optional] 
 **failure_category** | [**[FailureCategoryModel], none_type**](FailureCategoryModel.md) | Specifies failure categories | [optional] 
 **completed_date** | [**TestRunFilterModelCompletedDate**](TestRunFilterModelCompletedDate.md) |  | [optional] 
+**test_results_configuration_ids** | **[str], none_type** | Specifies a test result configuration IDs to search for | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

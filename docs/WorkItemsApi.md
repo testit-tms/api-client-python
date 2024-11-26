@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_id_test_results_history_get**
-> [TestResultHistoryReportModel] api_v2_work_items_id_test_results_history_get(id)
+> [TestResultHistoryResponse] api_v2_work_items_id_test_results_history_get(id)
 
 Get test results history of WorkItem
 
@@ -672,7 +672,7 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
+from testit_api_client.model.test_result_history_response import TestResultHistoryResponse
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[TestResultHistoryReportModel]**](TestResultHistoryReportModel.md)
+[**[TestResultHistoryResponse]**](TestResultHistoryResponse.md)
 
 ### Authorization
 
@@ -979,8 +979,8 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.add_test_points_with_sections_request import AddTestPointsWithSectionsRequest
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1009,13 +1009,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_projects_project_id_work_items_search_post_request = ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsProjectIdWorkItemsSearchPostRequest |  (optional)
+    add_test_points_with_sections_request = AddTestPointsWithSectionsRequest(None) # AddTestPointsWithSectionsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for work items
-        api_response = api_instance.api_v2_work_items_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
+        api_response = api_instance.api_v2_work_items_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, add_test_points_with_sections_request=add_test_points_with_sections_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_search_post: %s\n" % e)
@@ -1031,7 +1031,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **api_v2_projects_project_id_work_items_search_post_request** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)|  | [optional]
+ **add_test_points_with_sections_request** | [**AddTestPointsWithSectionsRequest**](AddTestPointsWithSectionsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2162,7 +2162,7 @@ void (empty response body)
 **204** | No Content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | Delete permission for test library is required |  -  |
+**403** | Delete permission for the archive is required |  -  |
 **404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -2244,7 +2244,7 @@ void (empty response body)
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | Update permission for test library is required |  -  |
+**403** | Update permission for the archive is required |  -  |
 **404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |

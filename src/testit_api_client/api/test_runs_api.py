@@ -21,22 +21,26 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_test_runs_delete_request import ApiV2TestRunsDeleteRequest
+from testit_api_client.model.api_v2_test_runs_id_reruns_post_request import ApiV2TestRunsIdRerunsPostRequest
 from testit_api_client.model.api_v2_test_runs_id_statistics_filter_post_request import ApiV2TestRunsIdStatisticsFilterPostRequest
 from testit_api_client.model.api_v2_test_runs_id_test_results_bulk_put_request import ApiV2TestRunsIdTestResultsBulkPutRequest
+from testit_api_client.model.api_v2_test_runs_purge_bulk_post_request import ApiV2TestRunsPurgeBulkPostRequest
 from testit_api_client.model.api_v2_test_runs_search_post_request import ApiV2TestRunsSearchPostRequest
 from testit_api_client.model.api_v2_test_runs_update_multiple_post_request import ApiV2TestRunsUpdateMultiplePostRequest
+from testit_api_client.model.auto_test_namespaces_count_response import AutoTestNamespacesCountResponse
 from testit_api_client.model.auto_test_results_for_test_run_model import AutoTestResultsForTestRunModel
 from testit_api_client.model.create_and_fill_by_auto_tests_request import CreateAndFillByAutoTestsRequest
 from testit_api_client.model.create_and_fill_by_configurations_request import CreateAndFillByConfigurationsRequest
 from testit_api_client.model.create_and_fill_by_work_items_request import CreateAndFillByWorkItemsRequest
-from testit_api_client.model.create_empty_request import CreateEmptyRequest
+from testit_api_client.model.manual_rerun_result_model import ManualRerunResultModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_point_result_model import TestPointResultModel
 from testit_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
+from testit_api_client.model.test_run_select_model import TestRunSelectModel
 from testit_api_client.model.test_run_short_get_model import TestRunShortGetModel
 from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
-from testit_api_client.model.update_empty_request import UpdateEmptyRequest
+from testit_api_client.model.test_run_v2_post_short_model import TestRunV2PostShortModel
+from testit_api_client.model.test_run_v2_put_model import TestRunV2PutModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
@@ -64,7 +68,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_test_runs_delete_request',
+                    'test_run_select_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -80,13 +84,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_test_runs_delete_request':
-                        (ApiV2TestRunsDeleteRequest,),
+                    'test_run_select_model':
+                        (TestRunSelectModel,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_test_runs_delete_request': 'body',
+                    'test_run_select_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -98,6 +102,57 @@ class TestRunsApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.api_v2_test_runs_id_auto_tests_namespaces_get_endpoint = _Endpoint(
+            settings={
+                'response_type': (AutoTestNamespacesCountResponse,),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/testRuns/{id}/autoTestsNamespaces',
+                'operation_id': 'api_v2_test_runs_id_auto_tests_namespaces_get',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -200,6 +255,63 @@ class TestRunsApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.api_v2_test_runs_id_reruns_post_endpoint = _Endpoint(
+            settings={
+                'response_type': (ManualRerunResultModel,),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/testRuns/{id}/reruns',
+                'operation_id': 'api_v2_test_runs_id_reruns_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'api_v2_test_runs_id_reruns_post_request',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'api_v2_test_runs_id_reruns_post_request':
+                        (ApiV2TestRunsIdRerunsPostRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'api_v2_test_runs_id_reruns_post_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -483,7 +595,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_test_runs_delete_request',
+                    'api_v2_test_runs_purge_bulk_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -499,13 +611,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_test_runs_delete_request':
-                        (ApiV2TestRunsDeleteRequest,),
+                    'api_v2_test_runs_purge_bulk_post_request':
+                        (ApiV2TestRunsPurgeBulkPostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_test_runs_delete_request': 'body',
+                    'api_v2_test_runs_purge_bulk_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -533,7 +645,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_test_runs_delete_request',
+                    'api_v2_test_runs_purge_bulk_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -549,13 +661,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_test_runs_delete_request':
-                        (ApiV2TestRunsDeleteRequest,),
+                    'api_v2_test_runs_purge_bulk_post_request':
+                        (ApiV2TestRunsPurgeBulkPostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_test_runs_delete_request': 'body',
+                    'api_v2_test_runs_purge_bulk_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -909,7 +1021,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'create_empty_request',
+                    'test_run_v2_post_short_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -925,13 +1037,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'create_empty_request':
-                        (CreateEmptyRequest,),
+                    'test_run_v2_post_short_model':
+                        (TestRunV2PostShortModel,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'create_empty_request': 'body',
+                    'test_run_v2_post_short_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1169,7 +1281,7 @@ class TestRunsApi(object):
             },
             params_map={
                 'all': [
-                    'update_empty_request',
+                    'test_run_v2_put_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -1185,13 +1297,13 @@ class TestRunsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'update_empty_request':
-                        (UpdateEmptyRequest,),
+                    'test_run_v2_put_model':
+                        (TestRunV2PutModel,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'update_empty_request': 'body',
+                    'test_run_v2_put_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1222,7 +1334,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            api_v2_test_runs_delete_request (ApiV2TestRunsDeleteRequest): [optional]
+            test_run_select_model (TestRunSelectModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1285,6 +1397,88 @@ class TestRunsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.api_v2_test_runs_delete_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_test_runs_id_auto_tests_namespaces_get(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get autotest classes and namespaces in test run  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_test_runs_id_auto_tests_namespaces_get(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AutoTestNamespacesCountResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.api_v2_test_runs_id_auto_tests_namespaces_get_endpoint.call_with_http_info(**kwargs)
 
     def api_v2_test_runs_id_delete(
         self,
@@ -1451,6 +1645,89 @@ class TestRunsApi(object):
         kwargs['id'] = \
             id
         return self.api_v2_test_runs_id_purge_post_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_test_runs_id_reruns_post(
+        self,
+        id,
+        **kwargs
+    ):
+        """Manual autotests rerun in test run  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_test_runs_id_reruns_post(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str):
+
+        Keyword Args:
+            api_v2_test_runs_id_reruns_post_request (ApiV2TestRunsIdRerunsPostRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ManualRerunResultModel
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.api_v2_test_runs_id_reruns_post_endpoint.call_with_http_info(**kwargs)
 
     def api_v2_test_runs_id_restore_post(
         self,
@@ -1880,7 +2157,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            api_v2_test_runs_delete_request (ApiV2TestRunsDeleteRequest): [optional]
+            api_v2_test_runs_purge_bulk_post_request (ApiV2TestRunsPurgeBulkPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1959,7 +2236,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            api_v2_test_runs_delete_request (ApiV2TestRunsDeleteRequest): [optional]
+            api_v2_test_runs_purge_bulk_post_request (ApiV2TestRunsPurgeBulkPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2519,7 +2796,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            create_empty_request (CreateEmptyRequest): [optional]
+            test_run_v2_post_short_model (TestRunV2PostShortModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2931,7 +3208,7 @@ class TestRunsApi(object):
 
 
         Keyword Args:
-            update_empty_request (UpdateEmptyRequest): [optional]
+            test_run_v2_put_model (TestRunV2PutModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

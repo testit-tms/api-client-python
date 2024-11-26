@@ -64,6 +64,12 @@ class TestRunFillByWorkItemsPostModel(ModelNormal):
     }
 
     validations = {
+        ('configuration_ids',): {
+            'min_items': 1,
+        },
+        ('work_item_ids',): {
+            'min_items': 1,
+        },
     }
 
     additional_properties_type = None

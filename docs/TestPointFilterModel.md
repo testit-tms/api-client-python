@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **modified_date** | [**TestPointFilterModelModifiedDate**](TestPointFilterModelModifiedDate.md) |  | [optional] 
 **modified_by_ids** | **[str], none_type** | Specifies a test point last editor IDs to search for | [optional] 
 **tags** | **[str], none_type** | Specifies a test point tags to search for | [optional] 
-**attributes** | **{str: ([str],)}, none_type** | Specifies a test point attributes to search for | [optional] 
+**attributes** | **{str: ([str], none_type)}, none_type** | Specifies a test point attributes to search for | [optional] 
 **work_item_created_date** | [**TestPointFilterModelWorkItemCreatedDate**](TestPointFilterModelWorkItemCreatedDate.md) |  | [optional] 
 **work_item_created_by_ids** | **[str], none_type** | Specifies a work item creator IDs to search for | [optional] 
 **work_item_modified_date** | [**TestPointFilterModelWorkItemModifiedDate**](TestPointFilterModelWorkItemModifiedDate.md) |  | [optional] 

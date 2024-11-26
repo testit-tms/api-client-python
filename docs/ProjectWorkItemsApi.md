@@ -24,7 +24,7 @@ Search for work items and group results by attribute
 import time
 import testit_api_client
 from testit_api_client.api import project_work_items_api
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_grouped_post_request import ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
+from testit_api_client.model.work_item_group_get_model import WorkItemGroupGetModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_group_model import WorkItemGroupModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
@@ -56,7 +56,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_projects_project_id_work_items_search_grouped_post_request = ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest(None) # ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest |  (optional)
+    work_item_group_get_model = WorkItemGroupGetModel(
+        select_model=WorkItemGroupGetModelSelectModel(None),
+        group_type=None,
+        custom_attribute_id="custom_attribute_id_example",
+    ) # WorkItemGroupGetModel |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -70,7 +74,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search for work items and group results by attribute
-        api_response = api_instance.api_v2_projects_project_id_work_items_search_grouped_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_work_items_search_grouped_post_request=api_v2_projects_project_id_work_items_search_grouped_post_request)
+        api_response = api_instance.api_v2_projects_project_id_work_items_search_grouped_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_group_get_model=work_item_group_get_model)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_grouped_post: %s\n" % e)
@@ -87,7 +91,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **api_v2_projects_project_id_work_items_search_grouped_post_request** | [**ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest.md)|  | [optional]
+ **work_item_group_get_model** | [**WorkItemGroupGetModel**](WorkItemGroupGetModel.md)|  | [optional]
 
 ### Return type
 
@@ -130,8 +134,8 @@ Search for work items and extract IDs only
 import time
 import testit_api_client
 from testit_api_client.api import project_work_items_api
+from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -161,7 +165,10 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_projects_project_id_work_items_search_post_request = ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsProjectIdWorkItemsSearchPostRequest |  (optional)
+    work_item_select_model = WorkItemSelectModel(
+        filter=WorkItemSelectModelFilter(None),
+        extraction_model=WorkItemLocalSelectModelExtractionModel(None),
+    ) # WorkItemSelectModel |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -175,7 +182,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search for work items and extract IDs only
-        api_response = api_instance.api_v2_projects_project_id_work_items_search_id_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
+        api_response = api_instance.api_v2_projects_project_id_work_items_search_id_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_model=work_item_select_model)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_id_post: %s\n" % e)
@@ -192,7 +199,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **api_v2_projects_project_id_work_items_search_post_request** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)|  | [optional]
+ **work_item_select_model** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional]
 
 ### Return type
 
@@ -235,9 +242,9 @@ Search for work items
 import time
 import testit_api_client
 from testit_api_client.api import project_work_items_api
+from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -267,7 +274,10 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_projects_project_id_work_items_search_post_request = ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsProjectIdWorkItemsSearchPostRequest |  (optional)
+    work_item_select_model = WorkItemSelectModel(
+        filter=WorkItemSelectModelFilter(None),
+        extraction_model=WorkItemLocalSelectModelExtractionModel(None),
+    ) # WorkItemSelectModel |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -281,7 +291,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search for work items
-        api_response = api_instance.api_v2_projects_project_id_work_items_search_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
+        api_response = api_instance.api_v2_projects_project_id_work_items_search_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_model=work_item_select_model)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_post: %s\n" % e)
@@ -298,7 +308,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **api_v2_projects_project_id_work_items_search_post_request** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)|  | [optional]
+ **work_item_select_model** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional]
 
 ### Return type
 
