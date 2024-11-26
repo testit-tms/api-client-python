@@ -67,6 +67,9 @@ class TestRunFillByAutoTestsPostModel(ModelNormal):
         ('configuration_ids',): {
             'min_items': 1,
         },
+        ('auto_test_external_ids',): {
+            'min_items': 1,
+        },
     }
 
     additional_properties_type = None

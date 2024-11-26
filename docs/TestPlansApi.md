@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**api_v2_test_plans_id_history_get**](TestPlansApi.md#api_v2_test_plans_id_history_get) | **GET** /api/v2/testPlans/{id}/history | Get TestPlan history
 [**api_v2_test_plans_id_links_get**](TestPlansApi.md#api_v2_test_plans_id_links_get) | **GET** /api/v2/testPlans/{id}/links | Get Links of TestPlan
 [**api_v2_test_plans_id_patch**](TestPlansApi.md#api_v2_test_plans_id_patch) | **PATCH** /api/v2/testPlans/{id} | Patch test plan
+[**api_v2_test_plans_id_summaries_get**](TestPlansApi.md#api_v2_test_plans_id_summaries_get) | **GET** /api/v2/testPlans/{id}/summaries | Get summary by TestPlan
 [**api_v2_test_plans_id_test_points_last_results_get**](TestPlansApi.md#api_v2_test_plans_id_test_points_last_results_get) | **GET** /api/v2/testPlans/{id}/testPoints/lastResults | Get TestPoints with last result from TestPlan
 [**api_v2_test_plans_id_test_points_reset_post**](TestPlansApi.md#api_v2_test_plans_id_test_points_reset_post) | **POST** /api/v2/testPlans/{id}/testPoints/reset | Reset TestPoints status of TestPlan
 [**api_v2_test_plans_id_test_points_tester_delete**](TestPlansApi.md#api_v2_test_plans_id_test_points_tester_delete) | **DELETE** /api/v2/testPlans/{id}/testPoints/tester | Unassign users from multiple test points
@@ -50,7 +51,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testit_api_client.model.add_test_points_with_sections_request import AddTestPointsWithSectionsRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -75,7 +76,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
-    api_v2_projects_project_id_work_items_search_post_request = ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
+    add_test_points_with_sections_request = AddTestPointsWithSectionsRequest(None) # AddTestPointsWithSectionsRequest | Filter object to retrieve work items for test-suite's project (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -88,7 +89,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Add test-points to TestPlan with sections
-        api_instance.add_test_points_with_sections(id, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
+        api_instance.add_test_points_with_sections(id, add_test_points_with_sections_request=add_test_points_with_sections_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestPlansApi->add_test_points_with_sections: %s\n" % e)
 ```
@@ -99,7 +100,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
- **api_v2_projects_project_id_work_items_search_post_request** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional]
+ **add_test_points_with_sections_request** | [**AddTestPointsWithSectionsRequest**](AddTestPointsWithSectionsRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional]
 
 ### Return type
 
@@ -994,6 +995,92 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
 **404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_test_plans_id_summaries_get**
+> TestPlanSummaryModel api_v2_test_plans_id_summaries_get(id)
+
+Get summary by TestPlan
+
+ Use case   User sets test plan identifier   User runs method execution   System returns summary by test plan
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import test_plans_api
+from testit_api_client.model.test_plan_summary_model import TestPlanSummaryModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = test_plans_api.TestPlansApi(api_client)
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get summary by TestPlan
+        api_response = api_instance.api_v2_test_plans_id_summaries_get(id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling TestPlansApi->api_v2_test_plans_id_summaries_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+
+### Return type
+
+[**TestPlanSummaryModel**](TestPlanSummaryModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Can&#39;t find a Test Plan with id |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -2632,7 +2719,7 @@ void (empty response body)
 **204** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | Update permission for test plan required |  -  |
+**403** | Update permission for the archive is required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |

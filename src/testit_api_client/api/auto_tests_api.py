@@ -21,23 +21,20 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_auto_tests_flaky_bulk_post_request import ApiV2AutoTestsFlakyBulkPostRequest
-from testit_api_client.model.api_v2_auto_tests_id_test_results_search_post_request import ApiV2AutoTestsIdTestResultsSearchPostRequest
 from testit_api_client.model.api_v2_auto_tests_search_post_request import ApiV2AutoTestsSearchPostRequest
 from testit_api_client.model.auto_test_average_duration_model import AutoTestAverageDurationModel
 from testit_api_client.model.auto_test_model import AutoTestModel
 from testit_api_client.model.auto_test_post_model import AutoTestPostModel
 from testit_api_client.model.auto_test_put_model import AutoTestPutModel
+from testit_api_client.model.autotest_historical_result_select_model import AutotestHistoricalResultSelectModel
 from testit_api_client.model.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
-from testit_api_client.model.create_auto_test_request import CreateAutoTestRequest
-from testit_api_client.model.link_auto_test_to_work_item_request import LinkAutoTestToWorkItemRequest
+from testit_api_client.model.flaky_bulk_model import FlakyBulkModel
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
-from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
 from testit_api_client.model.test_run_short_model import TestRunShortModel
-from testit_api_client.model.update_auto_test_request import UpdateAutoTestRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.work_item_id_model import WorkItemIdModel
 from testit_api_client.model.work_item_identifier_model import WorkItemIdentifierModel
 
 
@@ -70,7 +67,7 @@ class AutoTestsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'api_v2_auto_tests_flaky_bulk_post_request',
+                    'flaky_bulk_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -96,8 +93,8 @@ class AutoTestsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'api_v2_auto_tests_flaky_bulk_post_request':
-                        (ApiV2AutoTestsFlakyBulkPostRequest,),
+                    'flaky_bulk_model':
+                        (FlakyBulkModel,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -112,7 +109,7 @@ class AutoTestsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'api_v2_auto_tests_flaky_bulk_post_request': 'body',
+                    'flaky_bulk_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -203,7 +200,7 @@ class AutoTestsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'api_v2_auto_tests_id_test_results_search_post_request',
+                    'autotest_historical_result_select_model',
                 ],
                 'required': [
                     'id',
@@ -233,8 +230,8 @@ class AutoTestsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'api_v2_auto_tests_id_test_results_search_post_request':
-                        (ApiV2AutoTestsIdTestResultsSearchPostRequest,),
+                    'autotest_historical_result_select_model':
+                        (AutotestHistoricalResultSelectModel,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -251,7 +248,7 @@ class AutoTestsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'api_v2_auto_tests_id_test_results_search_post_request': 'body',
+                    'autotest_historical_result_select_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -462,7 +459,7 @@ class AutoTestsApi(object):
             },
             params_map={
                 'all': [
-                    'create_auto_test_request',
+                    'auto_test_post_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -478,13 +475,13 @@ class AutoTestsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'create_auto_test_request':
-                        (CreateAutoTestRequest,),
+                    'auto_test_post_model':
+                        (AutoTestPostModel,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'create_auto_test_request': 'body',
+                    'auto_test_post_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1035,132 +1032,6 @@ class AutoTestsApi(object):
             },
             api_client=api_client
         )
-        self.get_work_item_results_endpoint = _Endpoint(
-            settings={
-                'response_type': ([TestResultHistoryReportModel],),
-                'auth': [
-                    'Bearer or PrivateToken'
-                ],
-                'endpoint_path': '/api/v2/autoTests/{id}/testResultHistory',
-                'operation_id': 'get_work_item_results',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    '_from',
-                    'to',
-                    'configuration_ids',
-                    'test_plan_ids',
-                    'user_ids',
-                    'outcomes',
-                    'is_automated',
-                    'automated',
-                    'test_run_ids',
-                    'skip',
-                    'take',
-                    'order_by',
-                    'search_field',
-                    'search_value',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (str,),
-                    '_from':
-                        (datetime,),
-                    'to':
-                        (datetime,),
-                    'configuration_ids':
-                        ([str],),
-                    'test_plan_ids':
-                        ([str],),
-                    'user_ids':
-                        ([str],),
-                    'outcomes':
-                        ([str],),
-                    'is_automated':
-                        (bool,),
-                    'automated':
-                        (bool,),
-                    'test_run_ids':
-                        ([str],),
-                    'skip':
-                        (int,),
-                    'take':
-                        (int,),
-                    'order_by':
-                        (str,),
-                    'search_field':
-                        (str,),
-                    'search_value':
-                        (str,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                    '_from': 'from',
-                    'to': 'to',
-                    'configuration_ids': 'configurationIds',
-                    'test_plan_ids': 'testPlanIds',
-                    'user_ids': 'userIds',
-                    'outcomes': 'outcomes',
-                    'is_automated': 'isAutomated',
-                    'automated': 'automated',
-                    'test_run_ids': 'testRunIds',
-                    'skip': 'Skip',
-                    'take': 'Take',
-                    'order_by': 'OrderBy',
-                    'search_field': 'SearchField',
-                    'search_value': 'SearchValue',
-                },
-                'location_map': {
-                    'id': 'path',
-                    '_from': 'query',
-                    'to': 'query',
-                    'configuration_ids': 'query',
-                    'test_plan_ids': 'query',
-                    'user_ids': 'query',
-                    'outcomes': 'query',
-                    'is_automated': 'query',
-                    'automated': 'query',
-                    'test_run_ids': 'query',
-                    'skip': 'query',
-                    'take': 'query',
-                    'order_by': 'query',
-                    'search_field': 'query',
-                    'search_value': 'query',
-                },
-                'collection_format_map': {
-                    'configuration_ids': 'multi',
-                    'test_plan_ids': 'multi',
-                    'user_ids': 'multi',
-                    'outcomes': 'multi',
-                    'test_run_ids': 'multi',
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
         self.get_work_items_linked_to_auto_test_endpoint = _Endpoint(
             settings={
                 'response_type': ([WorkItemIdentifierModel],),
@@ -1236,7 +1107,7 @@ class AutoTestsApi(object):
             params_map={
                 'all': [
                     'id',
-                    'link_auto_test_to_work_item_request',
+                    'work_item_id_model',
                 ],
                 'required': [
                     'id',
@@ -1256,15 +1127,15 @@ class AutoTestsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'link_auto_test_to_work_item_request':
-                        (LinkAutoTestToWorkItemRequest,),
+                    'work_item_id_model':
+                        (WorkItemIdModel,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'link_auto_test_to_work_item_request': 'body',
+                    'work_item_id_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1292,7 +1163,7 @@ class AutoTestsApi(object):
             },
             params_map={
                 'all': [
-                    'update_auto_test_request',
+                    'auto_test_put_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -1308,13 +1179,13 @@ class AutoTestsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'update_auto_test_request':
-                        (UpdateAutoTestRequest,),
+                    'auto_test_put_model':
+                        (AutoTestPutModel,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'update_auto_test_request': 'body',
+                    'auto_test_put_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1400,7 +1271,7 @@ class AutoTestsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            api_v2_auto_tests_flaky_bulk_post_request (ApiV2AutoTestsFlakyBulkPostRequest): [optional]
+            flaky_bulk_model (FlakyBulkModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1571,7 +1442,7 @@ class AutoTestsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            api_v2_auto_tests_id_test_results_search_post_request (ApiV2AutoTestsIdTestResultsSearchPostRequest): [optional]
+            autotest_historical_result_select_model (AutotestHistoricalResultSelectModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1905,7 +1776,7 @@ class AutoTestsApi(object):
 
 
         Keyword Args:
-            create_auto_test_request (CreateAutoTestRequest): [optional]
+            auto_test_post_model (AutoTestPostModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2650,102 +2521,6 @@ class AutoTestsApi(object):
             id
         return self.get_test_runs_endpoint.call_with_http_info(**kwargs)
 
-    def get_work_item_results(
-        self,
-        id,
-        **kwargs
-    ):
-        """get_work_item_results  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_work_item_results(id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (str):
-
-        Keyword Args:
-            _from (datetime): Take results from this date. [optional]
-            to (datetime): Take results until this date. [optional]
-            configuration_ids ([str]): Identifiers of test result configurations. [optional]
-            test_plan_ids ([str]): Identifiers of test plans which contain test results. [optional]
-            user_ids ([str]): Identifiers of users who set test results. [optional]
-            outcomes ([str]): List of outcomes of test results. [optional]
-            is_automated (bool): OBSOLETE: Use `Automated` instead. [optional]
-            automated (bool): If result must consist of only manual/automated test results. [optional]
-            test_run_ids ([str]): Identifiers of test runs which contain test results. [optional]
-            skip (int): Amount of items to be skipped (offset). [optional]
-            take (int): Amount of items to be taken (limit). [optional]
-            order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
-            search_field (str): Property name for searching. [optional]
-            search_value (str): Value for searching. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [TestResultHistoryReportModel]
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['id'] = \
-            id
-        return self.get_work_item_results_endpoint.call_with_http_info(**kwargs)
-
     def get_work_items_linked_to_auto_test(
         self,
         id,
@@ -2849,7 +2624,7 @@ class AutoTestsApi(object):
             id (str): Autotest internal (UUID) or global (integer) identifier
 
         Keyword Args:
-            link_auto_test_to_work_item_request (LinkAutoTestToWorkItemRequest): [optional]
+            work_item_id_model (WorkItemIdModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2930,7 +2705,7 @@ class AutoTestsApi(object):
 
 
         Keyword Args:
-            update_auto_test_request (UpdateAutoTestRequest): [optional]
+            auto_test_put_model (AutoTestPutModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

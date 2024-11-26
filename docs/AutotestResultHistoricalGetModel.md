@@ -12,14 +12,16 @@ Name | Type | Description | Notes
 **configuration_id** | **str** |  | 
 **configuration_name** | **str** |  | 
 **outcome** | [**AutotestResultOutcome**](AutotestResultOutcome.md) |  | 
-**test_run_name** | **str, none_type** |  | [optional] 
-**launch_source** | **str, none_type** |  | [optional] 
+**rerun_count** | **int** |  | 
+**rerun_test_results** | [**[RerunTestResultModel]**](RerunTestResultModel.md) |  | 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
 **test_plan_id** | **str, none_type** |  | [optional] 
 **test_plan_global_id** | **int, none_type** |  | [optional] 
 **test_plan_name** | **str, none_type** |  | [optional] 
 **duration** | **int, none_type** |  | [optional] 
+**test_run_name** | **str, none_type** |  | [optional] 
+**launch_source** | **str, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

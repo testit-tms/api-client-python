@@ -21,7 +21,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testit_api_client.model.add_test_points_with_sections_request import AddTestPointsWithSectionsRequest
 from testit_api_client.model.api_v2_work_items_move_post_request import ApiV2WorkItemsMovePostRequest
 from testit_api_client.model.api_v2_work_items_shared_step_id_references_sections_post_request import ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
 from testit_api_client.model.api_v2_work_items_shared_step_id_references_work_items_post_request import ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
@@ -32,7 +32,7 @@ from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.shared_step_reference_model import SharedStepReferenceModel
 from testit_api_client.model.shared_step_reference_section_model import SharedStepReferenceSectionModel
 from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
-from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
+from testit_api_client.model.test_result_history_response import TestResultHistoryResponse
 from testit_api_client.model.update_work_item_request import UpdateWorkItemRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_change_model import WorkItemChangeModel
@@ -444,7 +444,7 @@ class WorkItemsApi(object):
         )
         self.api_v2_work_items_id_test_results_history_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([TestResultHistoryReportModel],),
+                'response_type': ([TestResultHistoryResponse],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -693,7 +693,7 @@ class WorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'api_v2_projects_project_id_work_items_search_post_request',
+                    'add_test_points_with_sections_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -719,8 +719,8 @@ class WorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'api_v2_projects_project_id_work_items_search_post_request':
-                        (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest,),
+                    'add_test_points_with_sections_request':
+                        (AddTestPointsWithSectionsRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -735,7 +735,7 @@ class WorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'api_v2_projects_project_id_work_items_search_post_request': 'body',
+                    'add_test_points_with_sections_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2206,7 +2206,7 @@ class WorkItemsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [TestResultHistoryReportModel]
+            [TestResultHistoryResponse]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2424,7 +2424,7 @@ class WorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            api_v2_projects_project_id_work_items_search_post_request (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest): [optional]
+            add_test_points_with_sections_request (AddTestPointsWithSectionsRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -92,6 +92,7 @@ class TestResultsLocalFilterModel(ModelNormal):
         return {
             'configuration_ids': ([str], none_type,),  # noqa: E501
             'outcomes': ([TestResultOutcome], none_type,),  # noqa: E501
+            'status_codes': ([str], none_type,),  # noqa: E501
             'failure_categories': ([FailureCategoryModel], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'class_name': (str, none_type,),  # noqa: E501
@@ -105,6 +106,7 @@ class TestResultsLocalFilterModel(ModelNormal):
     attribute_map = {
         'configuration_ids': 'configurationIds',  # noqa: E501
         'outcomes': 'outcomes',  # noqa: E501
+        'status_codes': 'statusCodes',  # noqa: E501
         'failure_categories': 'failureCategories',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
         'class_name': 'className',  # noqa: E501
@@ -153,6 +155,7 @@ class TestResultsLocalFilterModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
             outcomes ([TestResultOutcome], none_type): Specifies a test result outcomes to search for. [optional]  # noqa: E501
+            status_codes ([str], none_type): Specifies a test result status codes to search for. [optional]  # noqa: E501
             failure_categories ([FailureCategoryModel], none_type): Specifies a test result failure categories to search for. [optional]  # noqa: E501
             namespace (str, none_type): Specifies a test result namespace to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies a test result class name to search for. [optional]  # noqa: E501
@@ -243,6 +246,7 @@ class TestResultsLocalFilterModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
             outcomes ([TestResultOutcome], none_type): Specifies a test result outcomes to search for. [optional]  # noqa: E501
+            status_codes ([str], none_type): Specifies a test result status codes to search for. [optional]  # noqa: E501
             failure_categories ([FailureCategoryModel], none_type): Specifies a test result failure categories to search for. [optional]  # noqa: E501
             namespace (str, none_type): Specifies a test result namespace to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies a test result class name to search for. [optional]  # noqa: E501

@@ -35,7 +35,6 @@ def lazy_import():
     from testit_api_client.model.custom_attribute_change_model import CustomAttributeChangeModel
     from testit_api_client.model.period_view_model_changed_field_view_model import PeriodViewModelChangedFieldViewModel
     from testit_api_client.model.string_array_changed_field_view_model import StringArrayChangedFieldViewModel
-    from testit_api_client.model.string_changed_field_view_model import StringChangedFieldViewModel
     from testit_api_client.model.string_changed_field_with_diffs_view_model import StringChangedFieldWithDiffsViewModel
     from testit_api_client.model.test_plan_changed_fields_view_model import TestPlanChangedFieldsViewModel
     from testit_api_client.model.test_point_change_view_model_changed_field_view_model import TestPointChangeViewModelChangedFieldViewModel
@@ -46,7 +45,6 @@ def lazy_import():
     globals()['CustomAttributeChangeModel'] = CustomAttributeChangeModel
     globals()['PeriodViewModelChangedFieldViewModel'] = PeriodViewModelChangedFieldViewModel
     globals()['StringArrayChangedFieldViewModel'] = StringArrayChangedFieldViewModel
-    globals()['StringChangedFieldViewModel'] = StringChangedFieldViewModel
     globals()['StringChangedFieldWithDiffsViewModel'] = StringChangedFieldWithDiffsViewModel
     globals()['TestPlanChangedFieldsViewModel'] = TestPlanChangedFieldsViewModel
     globals()['TestPointChangeViewModelChangedFieldViewModel'] = TestPointChangeViewModelChangedFieldViewModel
@@ -109,10 +107,10 @@ class TestPlanChangeModelTestPlanChangedFields(ModelComposed):
         return {
             'name': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
             'description': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
-            'product_name': (StringChangedFieldViewModel,),  # noqa: E501
-            'build': (StringChangedFieldViewModel,),  # noqa: E501
+            'product_name': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
+            'build': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
             'period': (PeriodViewModelChangedFieldViewModel,),  # noqa: E501
-            'status': (StringChangedFieldViewModel,),  # noqa: E501
+            'status': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
             'tags': (StringArrayChangedFieldViewModel,),  # noqa: E501
             'test_suite': (TestSuiteChangeViewModelChangedFieldViewModel,),  # noqa: E501
             'test_points': (TestPointChangeViewModelChangedFieldViewModel,),  # noqa: E501
@@ -184,10 +182,10 @@ class TestPlanChangeModelTestPlanChangedFields(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
             description (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
-            product_name (StringChangedFieldViewModel): [optional]  # noqa: E501
-            build (StringChangedFieldViewModel): [optional]  # noqa: E501
+            product_name (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            build (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
             period (PeriodViewModelChangedFieldViewModel): [optional]  # noqa: E501
-            status (StringChangedFieldViewModel): [optional]  # noqa: E501
+            status (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
             tags (StringArrayChangedFieldViewModel): [optional]  # noqa: E501
             test_suite (TestSuiteChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501
             test_points (TestPointChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501
@@ -300,10 +298,10 @@ class TestPlanChangeModelTestPlanChangedFields(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             name (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
             description (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
-            product_name (StringChangedFieldViewModel): [optional]  # noqa: E501
-            build (StringChangedFieldViewModel): [optional]  # noqa: E501
+            product_name (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            build (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
             period (PeriodViewModelChangedFieldViewModel): [optional]  # noqa: E501
-            status (StringChangedFieldViewModel): [optional]  # noqa: E501
+            status (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
             tags (StringArrayChangedFieldViewModel): [optional]  # noqa: E501
             test_suite (TestSuiteChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501
             test_points (TestPointChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501

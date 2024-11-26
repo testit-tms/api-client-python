@@ -30,8 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.configuration_short_model import ConfigurationShortModel
     from testit_api_client.model.test_run_short_get_model_statistics import TestRunShortGetModelStatistics
     from testit_api_client.model.test_run_state import TestRunState
+    globals()['ConfigurationShortModel'] = ConfigurationShortModel
     globals()['TestRunShortGetModelStatistics'] = TestRunShortGetModelStatistics
     globals()['TestRunState'] = TestRunState
 
@@ -90,6 +92,7 @@ class TestRunShortGetModel(ModelNormal):
             'is_deleted': (bool,),  # noqa: E501
             'auto_tests_count': (int,),  # noqa: E501
             'statistics': (TestRunShortGetModelStatistics,),  # noqa: E501
+            'test_results_configurations': ([ConfigurationShortModel],),  # noqa: E501
             'started_date': (datetime, none_type,),  # noqa: E501
             'completed_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -109,6 +112,7 @@ class TestRunShortGetModel(ModelNormal):
         'is_deleted': 'isDeleted',  # noqa: E501
         'auto_tests_count': 'autoTestsCount',  # noqa: E501
         'statistics': 'statistics',  # noqa: E501
+        'test_results_configurations': 'testResultsConfigurations',  # noqa: E501
         'started_date': 'startedDate',  # noqa: E501
         'completed_date': 'completedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
@@ -121,7 +125,7 @@ class TestRunShortGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, state, created_date, created_by_id, is_deleted, auto_tests_count, statistics, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, state, created_date, created_by_id, is_deleted, auto_tests_count, statistics, test_results_configurations, *args, **kwargs):  # noqa: E501
         """TestRunShortGetModel - a model defined in OpenAPI
 
         Args:
@@ -133,6 +137,7 @@ class TestRunShortGetModel(ModelNormal):
             is_deleted (bool): Is the test run is deleted
             auto_tests_count (int): Number of AutoTests run in the test run
             statistics (TestRunShortGetModelStatistics):
+            test_results_configurations ([ConfigurationShortModel]): Test results configurations
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -207,6 +212,7 @@ class TestRunShortGetModel(ModelNormal):
         self.is_deleted = is_deleted
         self.auto_tests_count = auto_tests_count
         self.statistics = statistics
+        self.test_results_configurations = test_results_configurations
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -227,7 +233,7 @@ class TestRunShortGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, state, created_date, created_by_id, is_deleted, auto_tests_count, statistics, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, state, created_date, created_by_id, is_deleted, auto_tests_count, statistics, test_results_configurations, *args, **kwargs):  # noqa: E501
         """TestRunShortGetModel - a model defined in OpenAPI
 
         Args:
@@ -239,6 +245,7 @@ class TestRunShortGetModel(ModelNormal):
             is_deleted (bool): Is the test run is deleted
             auto_tests_count (int): Number of AutoTests run in the test run
             statistics (TestRunShortGetModelStatistics):
+            test_results_configurations ([ConfigurationShortModel]): Test results configurations
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -311,6 +318,7 @@ class TestRunShortGetModel(ModelNormal):
         self.is_deleted = is_deleted
         self.auto_tests_count = auto_tests_count
         self.statistics = statistics
+        self.test_results_configurations = test_results_configurations
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

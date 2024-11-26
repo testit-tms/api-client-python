@@ -66,6 +66,12 @@ class CreateAndFillByWorkItemsRequest(ModelComposed):
     }
 
     validations = {
+        ('configuration_ids',): {
+            'min_items': 1,
+        },
+        ('work_item_ids',): {
+            'min_items': 1,
+        },
     }
 
     @cached_property

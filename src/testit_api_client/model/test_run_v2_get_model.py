@@ -98,6 +98,7 @@ class TestRunV2GetModel(ModelNormal):
             'attachments': ([AttachmentModel],),  # noqa: E501
             'links': ([LinkModel],),  # noqa: E501
             'webhooks': ([NamedEntityModel],),  # noqa: E501
+            'run_count': (int,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
@@ -125,6 +126,7 @@ class TestRunV2GetModel(ModelNormal):
         'attachments': 'attachments',  # noqa: E501
         'links': 'links',  # noqa: E501
         'webhooks': 'webhooks',  # noqa: E501
+        'run_count': 'runCount',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
@@ -146,7 +148,7 @@ class TestRunV2GetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, state_name, project_id, created_date, created_by_id, attachments, links, webhooks, id, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, state_name, project_id, created_date, created_by_id, attachments, links, webhooks, run_count, id, name, *args, **kwargs):  # noqa: E501
         """TestRunV2GetModel - a model defined in OpenAPI
 
         Args:
@@ -157,6 +159,7 @@ class TestRunV2GetModel(ModelNormal):
             attachments ([AttachmentModel]):
             links ([LinkModel]):
             webhooks ([NamedEntityModel]):
+            run_count (int):
             id (str):
             name (str):
 
@@ -239,6 +242,7 @@ class TestRunV2GetModel(ModelNormal):
         self.attachments = attachments
         self.links = links
         self.webhooks = webhooks
+        self.run_count = run_count
         self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():
@@ -261,7 +265,7 @@ class TestRunV2GetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, state_name, project_id, created_date, created_by_id, attachments, links, webhooks, id, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, state_name, project_id, created_date, created_by_id, attachments, links, webhooks, run_count, id, name, *args, **kwargs):  # noqa: E501
         """TestRunV2GetModel - a model defined in OpenAPI
 
         Args:
@@ -272,6 +276,7 @@ class TestRunV2GetModel(ModelNormal):
             attachments ([AttachmentModel]):
             links ([LinkModel]):
             webhooks ([NamedEntityModel]):
+            run_count (int):
             id (str):
             name (str):
 
@@ -352,6 +357,7 @@ class TestRunV2GetModel(ModelNormal):
         self.attachments = attachments
         self.links = links
         self.webhooks = webhooks
+        self.run_count = run_count
         self.id = id
         self.name = name
         for var_name, var_value in kwargs.items():

@@ -116,7 +116,7 @@ class TestPointFilterModel(ModelNormal):
             'modified_date': (TestPointFilterModelModifiedDate,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
-            'attributes': ({str: ([str],)}, none_type,),  # noqa: E501
+            'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
             'work_item_created_date': (TestPointFilterModelWorkItemCreatedDate,),  # noqa: E501
             'work_item_created_by_ids': ([str], none_type,),  # noqa: E501
             'work_item_modified_date': (TestPointFilterModelWorkItemModifiedDate,),  # noqa: E501
@@ -213,7 +213,7 @@ class TestPointFilterModel(ModelNormal):
             modified_date (TestPointFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
-            attributes ({str: ([str],)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
+            attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
             work_item_created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
             work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501
             work_item_modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
@@ -321,7 +321,7 @@ class TestPointFilterModel(ModelNormal):
             modified_date (TestPointFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
-            attributes ({str: ([str],)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
+            attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
             work_item_created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
             work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501
             work_item_modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501

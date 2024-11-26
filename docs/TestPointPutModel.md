@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **iteration_id** | **str** |  | 
 **test_suite_id** | **str** |  | 
+**status_model** | [**TestPointPutModelStatusModel**](TestPointPutModelStatusModel.md) |  | 
 **id** | **str** | Unique ID of the entity | 
 **is_deleted** | **bool** | Indicates if the entity is deleted | 
 **tester_id** | **str, none_type** |  | [optional] 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **duration** | **int** | Duration of the test point | 
 **section_id** | **str** | Unique ID of section where work item the test point represents is located | 
 **project_id** | **str** | Unique ID of the test point project | 
-**last_test_result** | [**TestPointShortGetModelLastTestResult**](TestPointShortGetModelLastTestResult.md) |  | 
+**last_test_result** | [**LastTestResultModel**](LastTestResultModel.md) |  | 
 **iteration_id** | **str** | Unique ID of work item iteration the test point represents | 
 **work_item_state** | [**WorkItemState**](WorkItemState.md) |  | 
 **work_item_created_by_id** | **str** | Unique ID of the work item creator | 

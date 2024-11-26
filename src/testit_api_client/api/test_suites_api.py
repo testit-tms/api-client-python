@@ -21,7 +21,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testit_api_client.model.add_test_points_with_sections_request import AddTestPointsWithSectionsRequest
 from testit_api_client.model.api_v2_test_suites_post_request import ApiV2TestSuitesPostRequest
 from testit_api_client.model.api_v2_test_suites_put_request import ApiV2TestSuitesPutRequest
 from testit_api_client.model.configuration_model import ConfigurationModel
@@ -60,7 +60,7 @@ class TestSuitesApi(object):
             params_map={
                 'all': [
                     'id',
-                    'api_v2_projects_project_id_work_items_search_post_request',
+                    'add_test_points_with_sections_request',
                 ],
                 'required': [
                     'id',
@@ -80,15 +80,15 @@ class TestSuitesApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'api_v2_projects_project_id_work_items_search_post_request':
-                        (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest,),
+                    'add_test_points_with_sections_request':
+                        (AddTestPointsWithSectionsRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'api_v2_projects_project_id_work_items_search_post_request': 'body',
+                    'add_test_points_with_sections_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -788,7 +788,7 @@ class TestSuitesApi(object):
             id (str): Test suite internal identifier
 
         Keyword Args:
-            api_v2_projects_project_id_work_items_search_post_request (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest): Filter object to retrieve work items for test-suite's project. [optional]
+            add_test_points_with_sections_request (AddTestPointsWithSectionsRequest): Filter object to retrieve work items for test-suite's project. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

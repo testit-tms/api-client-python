@@ -69,6 +69,9 @@ class CreateAndFillByAutoTestsRequest(ModelComposed):
         ('configuration_ids',): {
             'min_items': 1,
         },
+        ('auto_test_external_ids',): {
+            'min_items': 1,
+        },
     }
 
     @cached_property

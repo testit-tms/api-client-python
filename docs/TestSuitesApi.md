@@ -33,7 +33,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testit_api_client.model.add_test_points_with_sections_request import AddTestPointsWithSectionsRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -58,7 +58,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132" # str | Test suite internal identifier
-    api_v2_projects_project_id_work_items_search_post_request = ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(None) # ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
+    add_test_points_with_sections_request = AddTestPointsWithSectionsRequest(None) # AddTestPointsWithSectionsRequest | Filter object to retrieve work items for test-suite's project (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -71,7 +71,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Add test-points to test suite
-        api_instance.add_test_points_to_test_suite(id, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
+        api_instance.add_test_points_to_test_suite(id, add_test_points_with_sections_request=add_test_points_with_sections_request)
     except testit_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->add_test_points_to_test_suite: %s\n" % e)
 ```
@@ -82,7 +82,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal identifier |
- **api_v2_projects_project_id_work_items_search_post_request** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional]
+ **add_test_points_with_sections_request** | [**AddTestPointsWithSectionsRequest**](AddTestPointsWithSectionsRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional]
 
 ### Return type
 

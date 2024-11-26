@@ -21,12 +21,12 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_grouped_post_request import ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.tag_short_model import TagShortModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.work_item_group_get_model import WorkItemGroupGetModel
 from testit_api_client.model.work_item_group_model import WorkItemGroupModel
+from testit_api_client.model.work_item_select_model import WorkItemSelectModel
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 
 
@@ -60,7 +60,7 @@ class ProjectWorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'api_v2_projects_project_id_work_items_search_grouped_post_request',
+                    'work_item_group_get_model',
                 ],
                 'required': [
                     'project_id',
@@ -90,8 +90,8 @@ class ProjectWorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'api_v2_projects_project_id_work_items_search_grouped_post_request':
-                        (ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest,),
+                    'work_item_group_get_model':
+                        (WorkItemGroupGetModel,),
                 },
                 'attribute_map': {
                     'project_id': 'projectId',
@@ -108,7 +108,7 @@ class ProjectWorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'api_v2_projects_project_id_work_items_search_grouped_post_request': 'body',
+                    'work_item_group_get_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -142,7 +142,7 @@ class ProjectWorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'api_v2_projects_project_id_work_items_search_post_request',
+                    'work_item_select_model',
                 ],
                 'required': [
                     'project_id',
@@ -172,8 +172,8 @@ class ProjectWorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'api_v2_projects_project_id_work_items_search_post_request':
-                        (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest,),
+                    'work_item_select_model':
+                        (WorkItemSelectModel,),
                 },
                 'attribute_map': {
                     'project_id': 'projectId',
@@ -190,7 +190,7 @@ class ProjectWorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'api_v2_projects_project_id_work_items_search_post_request': 'body',
+                    'work_item_select_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -224,7 +224,7 @@ class ProjectWorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'api_v2_projects_project_id_work_items_search_post_request',
+                    'work_item_select_model',
                 ],
                 'required': [
                     'project_id',
@@ -254,8 +254,8 @@ class ProjectWorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'api_v2_projects_project_id_work_items_search_post_request':
-                        (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest,),
+                    'work_item_select_model':
+                        (WorkItemSelectModel,),
                 },
                 'attribute_map': {
                     'project_id': 'projectId',
@@ -272,7 +272,7 @@ class ProjectWorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'api_v2_projects_project_id_work_items_search_post_request': 'body',
+                    'work_item_select_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -458,7 +458,7 @@ class ProjectWorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            api_v2_projects_project_id_work_items_search_grouped_post_request (ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest): [optional]
+            work_item_group_get_model (WorkItemGroupGetModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -546,7 +546,7 @@ class ProjectWorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            api_v2_projects_project_id_work_items_search_post_request (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest): [optional]
+            work_item_select_model (WorkItemSelectModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -634,7 +634,7 @@ class ProjectWorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            api_v2_projects_project_id_work_items_search_post_request (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest): [optional]
+            work_item_select_model (WorkItemSelectModel): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

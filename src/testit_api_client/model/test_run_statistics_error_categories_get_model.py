@@ -75,8 +75,6 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'no_analytics': (int,),  # noqa: E501
-            'no_defect': (int,),  # noqa: E501
             'infrastructure_defect': (int,),  # noqa: E501
             'product_defect': (int,),  # noqa: E501
             'test_defect': (int,),  # noqa: E501
@@ -88,8 +86,6 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
 
 
     attribute_map = {
-        'no_analytics': 'noAnalytics',  # noqa: E501
-        'no_defect': 'noDefect',  # noqa: E501
         'infrastructure_defect': 'infrastructureDefect',  # noqa: E501
         'product_defect': 'productDefect',  # noqa: E501
         'test_defect': 'testDefect',  # noqa: E501
@@ -102,12 +98,10 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, no_analytics, no_defect, infrastructure_defect, product_defect, test_defect, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, infrastructure_defect, product_defect, test_defect, *args, **kwargs):  # noqa: E501
         """TestRunStatisticsErrorCategoriesGetModel - a model defined in OpenAPI
 
         Args:
-            no_analytics (int): Number of test results which outcomes were not analyzed
-            no_defect (int): Number of test results which outcomes were not caused by any defect
             infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect
             product_defect (int): Number of test results which outcomes were caused by some tested product defect
             test_defect (int): Number of test results which outcomes were caused by test itself
@@ -174,8 +168,6 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.no_analytics = no_analytics
-        self.no_defect = no_defect
         self.infrastructure_defect = infrastructure_defect
         self.product_defect = product_defect
         self.test_defect = test_defect
@@ -199,12 +191,10 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, no_analytics, no_defect, infrastructure_defect, product_defect, test_defect, *args, **kwargs):  # noqa: E501
+    def __init__(self, infrastructure_defect, product_defect, test_defect, *args, **kwargs):  # noqa: E501
         """TestRunStatisticsErrorCategoriesGetModel - a model defined in OpenAPI
 
         Args:
-            no_analytics (int): Number of test results which outcomes were not analyzed
-            no_defect (int): Number of test results which outcomes were not caused by any defect
             infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect
             product_defect (int): Number of test results which outcomes were caused by some tested product defect
             test_defect (int): Number of test results which outcomes were caused by test itself
@@ -269,8 +259,6 @@ class TestRunStatisticsErrorCategoriesGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.no_analytics = no_analytics
-        self.no_defect = no_defect
         self.infrastructure_defect = infrastructure_defect
         self.product_defect = product_defect
         self.test_defect = test_defect

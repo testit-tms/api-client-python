@@ -87,8 +87,6 @@ class TestResultsStatisticsGetModelFailureCategories(ModelComposed):
         """
         lazy_import()
         return {
-            'no_analytics': (int,),  # noqa: E501
-            'no_defect': (int,),  # noqa: E501
             'infrastructure_defect': (int,),  # noqa: E501
             'product_defect': (int,),  # noqa: E501
             'test_defect': (int,),  # noqa: E501
@@ -100,8 +98,6 @@ class TestResultsStatisticsGetModelFailureCategories(ModelComposed):
 
 
     attribute_map = {
-        'no_analytics': 'noAnalytics',  # noqa: E501
-        'no_defect': 'noDefect',  # noqa: E501
         'infrastructure_defect': 'infrastructureDefect',  # noqa: E501
         'product_defect': 'productDefect',  # noqa: E501
         'test_defect': 'testDefect',  # noqa: E501
@@ -116,8 +112,6 @@ class TestResultsStatisticsGetModelFailureCategories(ModelComposed):
         """TestResultsStatisticsGetModelFailureCategories - a model defined in OpenAPI
 
         Keyword Args:
-            no_analytics (int): Number of test results which outcomes were not analyzed
-            no_defect (int): Number of test results which outcomes were not caused by any defect
             infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect
             product_defect (int): Number of test results which outcomes were caused by some tested product defect
             test_defect (int): Number of test results which outcomes were caused by test itself
@@ -224,8 +218,6 @@ class TestResultsStatisticsGetModelFailureCategories(ModelComposed):
         """TestResultsStatisticsGetModelFailureCategories - a model defined in OpenAPI
 
         Keyword Args:
-            no_analytics (int): Number of test results which outcomes were not analyzed
-            no_defect (int): Number of test results which outcomes were not caused by any defect
             infrastructure_defect (int): Number of test results which outcomes were caused by some infrastructure defect
             product_defect (int): Number of test results which outcomes were caused by some tested product defect
             test_defect (int): Number of test results which outcomes were caused by test itself

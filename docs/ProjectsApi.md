@@ -21,9 +21,6 @@ Method | HTTP request | Description
 [**api_v2_projects_purge_bulk_post**](ProjectsApi.md#api_v2_projects_purge_bulk_post) | **POST** /api/v2/projects/purge/bulk | Purge multiple projects
 [**api_v2_projects_restore_bulk_post**](ProjectsApi.md#api_v2_projects_restore_bulk_post) | **POST** /api/v2/projects/restore/bulk | Restore multiple projects
 [**api_v2_projects_search_post**](ProjectsApi.md#api_v2_projects_search_post) | **POST** /api/v2/projects/search | Search for projects
-[**background_import_project**](ProjectsApi.md#background_import_project) | **POST** /api/v2/projects/import/json | Import project from JSON file in background job
-[**background_import_zip_project**](ProjectsApi.md#background_import_zip_project) | **POST** /api/v2/projects/import/zip | Import project from Zip file in background job
-[**call_import**](ProjectsApi.md#call_import) | **POST** /api/v2/projects/import | Import project from JSON file
 [**create_project**](ProjectsApi.md#create_project) | **POST** /api/v2/projects | Create project
 [**delete_project_auto_tests**](ProjectsApi.md#delete_project_auto_tests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete all autotests from project
 [**get_all_projects**](ProjectsApi.md#get_all_projects) | **GET** /api/v2/projects | Get all projects
@@ -1469,7 +1466,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_search_post**
-> [ProjectModel] api_v2_projects_search_post()
+> [ProjectShortModel] api_v2_projects_search_post()
 
 Search for projects
 
@@ -1481,9 +1478,9 @@ Search for projects
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.project_model import ProjectModel
 from testit_api_client.model.api_v2_projects_search_post_request import ApiV2ProjectsSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_short_model import ProjectShortModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1538,7 +1535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ProjectModel]**](ProjectModel.md)
+[**[ProjectShortModel]**](ProjectShortModel.md)
 
 ### Authorization
 
@@ -1560,262 +1557,6 @@ Name | Type | Description  | Notes
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **409** | Conflict |  -  |
-**422** | Unprocessable Entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **background_import_project**
-> str background_import_project()
-
-Import project from JSON file in background job
-
-### Example
-
-* Api Key Authentication (Bearer or PrivateToken):
-
-```python
-import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = projects_api.ProjectsApi(api_client)
-    file = open('/path/to/file', 'rb') # file_type |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Import project from JSON file in background job
-        api_response = api_instance.background_import_project(file=file)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling ProjectsApi->background_import_project: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **file_type**|  | [optional]
-
-### Return type
-
-**str**
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data, application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Update permission for project settings required |  -  |
-**404** | Not Found |  -  |
-**409** | Conflict |  -  |
-**422** | Unprocessable Entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **background_import_zip_project**
-> str background_import_zip_project()
-
-Import project from Zip file in background job
-
-### Example
-
-* Api Key Authentication (Bearer or PrivateToken):
-
-```python
-import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = projects_api.ProjectsApi(api_client)
-    file = open('/path/to/file', 'rb') # file_type |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Import project from Zip file in background job
-        api_response = api_instance.background_import_zip_project(file=file)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling ProjectsApi->background_import_zip_project: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **file_type**|  | [optional]
-
-### Return type
-
-**str**
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data, application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Update permission for project settings required |  -  |
-**404** | Not Found |  -  |
-**409** | Conflict |  -  |
-**422** | Unprocessable Entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **call_import**
-> call_import()
-
-Import project from JSON file
-
-     <b>A project can only be exported to another TMS instance, different from the one it was imported from.</b>     This method imports a `.json` file with a project to the test management system.   In the body of the request, send the `.json` file received by the `POST /api/v2/projects/export` method:       ```              curl -X POST \"http://{domain.com}/api/v2/projects/import\" \\              -H \"accept: /\" -H \"Authorization: PrivateToken {token}\" -H \"Content-Type: multipart/form-data\" \\              -F \"file=@import.txt;type=text/plain\"              ```                   In the second instance, a project with the name of the imported one is created.              User attributes and the test library (along with content and structure) are imported.                 Test plan execution history from the first instance of TMS cannot be transferred.
-
-### Example
-
-* Api Key Authentication (Bearer or PrivateToken):
-
-```python
-import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = projects_api.ProjectsApi(api_client)
-    include_attachments = False # bool | Enables attachment import. (optional) if omitted the server will use the default value of False
-    file = open('/path/to/file', 'rb') # file_type | Select file (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Import project from JSON file
-        api_instance.call_import(include_attachments=include_attachments, file=file)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling ProjectsApi->call_import: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **include_attachments** | **bool**| Enables attachment import. | [optional] if omitted the server will use the default value of False
- **file** | **file_type**| Select file | [optional]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | No Content |  -  |
-**413** | Multipart body length limit exceeded |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Project creator or admin system role is required |  -  |
-**404** | Not Found |  -  |
-**409** | Entity with the same ID was already imported in other project |  -  |
 **422** | Unprocessable Entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1991,7 +1732,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_projects**
-> [ProjectModel] get_all_projects()
+> [ProjectShortModel] get_all_projects()
 
 Get all projects
 
@@ -2005,8 +1746,8 @@ Get all projects
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.project_model import ProjectModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_short_model import ProjectShortModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -2063,7 +1804,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ProjectModel]**](ProjectModel.md)
+[**[ProjectShortModel]**](ProjectShortModel.md)
 
 ### Authorization
 

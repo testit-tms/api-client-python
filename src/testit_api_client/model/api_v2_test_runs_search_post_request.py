@@ -121,6 +121,7 @@ class ApiV2TestRunsSearchPostRequest(ModelComposed):
             'test_results_outcome': ([TestResultOutcome], none_type,),  # noqa: E501
             'failure_category': ([FailureCategoryModel], none_type,),  # noqa: E501
             'completed_date': (TestRunFilterModelCompletedDate,),  # noqa: E501
+            'test_results_configuration_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -141,6 +142,7 @@ class ApiV2TestRunsSearchPostRequest(ModelComposed):
         'test_results_outcome': 'testResultsOutcome',  # noqa: E501
         'failure_category': 'failureCategory',  # noqa: E501
         'completed_date': 'completedDate',  # noqa: E501
+        'test_results_configuration_ids': 'testResultsConfigurationIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -194,6 +196,7 @@ class ApiV2TestRunsSearchPostRequest(ModelComposed):
             test_results_outcome ([TestResultOutcome], none_type): Specifies test results outcomes. [optional]  # noqa: E501
             failure_category ([FailureCategoryModel], none_type): Specifies failure categories. [optional]  # noqa: E501
             completed_date (TestRunFilterModelCompletedDate): [optional]  # noqa: E501
+            test_results_configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -309,6 +312,7 @@ class ApiV2TestRunsSearchPostRequest(ModelComposed):
             test_results_outcome ([TestResultOutcome], none_type): Specifies test results outcomes. [optional]  # noqa: E501
             failure_category ([FailureCategoryModel], none_type): Specifies failure categories. [optional]  # noqa: E501
             completed_date (TestRunFilterModelCompletedDate): [optional]  # noqa: E501
+            test_results_configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

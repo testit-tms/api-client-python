@@ -529,7 +529,7 @@ void (empty response body)
 **204** | No Content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | Read permission for archive is required |  -  |
+**403** | Update permission for archive is required |  -  |
 **404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | Read permission for archive is required |  -  |
+**403** | Update permission for archive is required |  -  |
 **404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |

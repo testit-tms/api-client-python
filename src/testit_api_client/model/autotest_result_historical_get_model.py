@@ -31,7 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.autotest_result_outcome import AutotestResultOutcome
+    from testit_api_client.model.rerun_test_result_model import RerunTestResultModel
     globals()['AutotestResultOutcome'] = AutotestResultOutcome
+    globals()['RerunTestResultModel'] = RerunTestResultModel
 
 
 class AutotestResultHistoricalGetModel(ModelNormal):
@@ -88,14 +90,16 @@ class AutotestResultHistoricalGetModel(ModelNormal):
             'configuration_id': (str,),  # noqa: E501
             'configuration_name': (str,),  # noqa: E501
             'outcome': (AutotestResultOutcome,),  # noqa: E501
-            'test_run_name': (str, none_type,),  # noqa: E501
-            'launch_source': (str, none_type,),  # noqa: E501
+            'rerun_count': (int,),  # noqa: E501
+            'rerun_test_results': ([RerunTestResultModel],),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'test_plan_global_id': (int, none_type,),  # noqa: E501
             'test_plan_name': (str, none_type,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
+            'test_run_name': (str, none_type,),  # noqa: E501
+            'launch_source': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -112,14 +116,16 @@ class AutotestResultHistoricalGetModel(ModelNormal):
         'configuration_id': 'configurationId',  # noqa: E501
         'configuration_name': 'configurationName',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
-        'test_run_name': 'testRunName',  # noqa: E501
-        'launch_source': 'launchSource',  # noqa: E501
+        'rerun_count': 'rerunCount',  # noqa: E501
+        'rerun_test_results': 'rerunTestResults',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'test_plan_id': 'testPlanId',  # noqa: E501
         'test_plan_global_id': 'testPlanGlobalId',  # noqa: E501
         'test_plan_name': 'testPlanName',  # noqa: E501
         'duration': 'duration',  # noqa: E501
+        'test_run_name': 'testRunName',  # noqa: E501
+        'launch_source': 'launchSource',  # noqa: E501
     }
 
     read_only_vars = {
@@ -129,7 +135,7 @@ class AutotestResultHistoricalGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, created_date, created_by_id, created_by_name, test_run_id, configuration_id, configuration_name, outcome, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, created_date, created_by_id, created_by_name, test_run_id, configuration_id, configuration_name, outcome, rerun_count, rerun_test_results, *args, **kwargs):  # noqa: E501
         """AutotestResultHistoricalGetModel - a model defined in OpenAPI
 
         Args:
@@ -141,6 +147,8 @@ class AutotestResultHistoricalGetModel(ModelNormal):
             configuration_id (str):
             configuration_name (str):
             outcome (AutotestResultOutcome):
+            rerun_count (int):
+            rerun_test_results ([RerunTestResultModel]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -173,14 +181,14 @@ class AutotestResultHistoricalGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_run_name (str, none_type): [optional]  # noqa: E501
-            launch_source (str, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             test_plan_global_id (int, none_type): [optional]  # noqa: E501
             test_plan_name (str, none_type): [optional]  # noqa: E501
             duration (int, none_type): [optional]  # noqa: E501
+            test_run_name (str, none_type): [optional]  # noqa: E501
+            launch_source (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,6 +228,8 @@ class AutotestResultHistoricalGetModel(ModelNormal):
         self.configuration_id = configuration_id
         self.configuration_name = configuration_name
         self.outcome = outcome
+        self.rerun_count = rerun_count
+        self.rerun_test_results = rerun_test_results
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -240,7 +250,7 @@ class AutotestResultHistoricalGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, created_date, created_by_id, created_by_name, test_run_id, configuration_id, configuration_name, outcome, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, created_date, created_by_id, created_by_name, test_run_id, configuration_id, configuration_name, outcome, rerun_count, rerun_test_results, *args, **kwargs):  # noqa: E501
         """AutotestResultHistoricalGetModel - a model defined in OpenAPI
 
         Args:
@@ -252,6 +262,8 @@ class AutotestResultHistoricalGetModel(ModelNormal):
             configuration_id (str):
             configuration_name (str):
             outcome (AutotestResultOutcome):
+            rerun_count (int):
+            rerun_test_results ([RerunTestResultModel]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -284,14 +296,14 @@ class AutotestResultHistoricalGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            test_run_name (str, none_type): [optional]  # noqa: E501
-            launch_source (str, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             test_plan_global_id (int, none_type): [optional]  # noqa: E501
             test_plan_name (str, none_type): [optional]  # noqa: E501
             duration (int, none_type): [optional]  # noqa: E501
+            test_run_name (str, none_type): [optional]  # noqa: E501
+            launch_source (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -329,6 +341,8 @@ class AutotestResultHistoricalGetModel(ModelNormal):
         self.configuration_id = configuration_id
         self.configuration_name = configuration_name
         self.outcome = outcome
+        self.rerun_count = rerun_count
+        self.rerun_test_results = rerun_test_results
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
