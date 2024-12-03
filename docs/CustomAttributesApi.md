@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_custom_attributes_exists_get**
-> CustomAttributeValidationResult api_v2_custom_attributes_exists_get()
+> CustomAttributeValidationResult api_v2_custom_attributes_exists_get(name=name, is_global=is_global)
 
 
 
@@ -22,13 +22,11 @@ Method | HTTP request | Description
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import custom_attributes_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.custom_attribute_validation_result import CustomAttributeValidationResult
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.custom_attribute_validation_result import CustomAttributeValidationResult
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -41,7 +39,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -49,26 +47,27 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = custom_attributes_api.CustomAttributesApi(api_client)
-    name = "name_example" # str |  (optional)
+    api_instance = testit_api_client.CustomAttributesApi(api_client)
+    name = 'name_example' # str |  (optional)
     is_global = True # bool |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         api_response = api_instance.api_v2_custom_attributes_exists_get(name=name, is_global=is_global)
+        print("The response of CustomAttributesApi->api_v2_custom_attributes_exists_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_exists_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**|  | [optional]
- **is_global** | **bool**|  | [optional]
+ **name** | **str**|  | [optional] 
+ **is_global** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -82,7 +81,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -108,12 +106,10 @@ Delete global attribute
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import custom_attributes_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -126,7 +122,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -134,23 +130,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = custom_attributes_api.CustomAttributesApi(api_client)
-    id = "id_example" # str | Unique ID of attribute
+    api_instance = testit_api_client.CustomAttributesApi(api_client)
+    id = 'id_example' # str | Unique ID of attribute
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete global attribute
         api_instance.api_v2_custom_attributes_global_id_delete(id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_global_id_delete: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique ID of attribute |
+ **id** | **str**| Unique ID of attribute | 
 
 ### Return type
 
@@ -164,7 +161,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -181,7 +177,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_custom_attributes_global_id_put**
-> CustomAttributeModel api_v2_custom_attributes_global_id_put(id)
+> CustomAttributeModel api_v2_custom_attributes_global_id_put(id, global_custom_attribute_update_model=global_custom_attribute_update_model)
 
 Edit global attribute
 
@@ -190,14 +186,12 @@ Edit global attribute
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import custom_attributes_api
-from testit_api_client.model.api_v2_custom_attributes_global_id_put_request import ApiV2CustomAttributesGlobalIdPutRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.custom_attribute_model import CustomAttributeModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.custom_attribute_model import CustomAttributeModel
+from testit_api_client.models.global_custom_attribute_update_model import GlobalCustomAttributeUpdateModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -210,7 +204,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -218,35 +212,28 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = custom_attributes_api.CustomAttributesApi(api_client)
-    id = "id_example" # str | Unique ID of attribute
-    api_v2_custom_attributes_global_id_put_request = ApiV2CustomAttributesGlobalIdPutRequest(None) # ApiV2CustomAttributesGlobalIdPutRequest |  (optional)
+    api_instance = testit_api_client.CustomAttributesApi(api_client)
+    id = 'id_example' # str | Unique ID of attribute
+    global_custom_attribute_update_model = testit_api_client.GlobalCustomAttributeUpdateModel() # GlobalCustomAttributeUpdateModel |  (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Edit global attribute
-        api_response = api_instance.api_v2_custom_attributes_global_id_put(id)
+        api_response = api_instance.api_v2_custom_attributes_global_id_put(id, global_custom_attribute_update_model=global_custom_attribute_update_model)
+        print("The response of CustomAttributesApi->api_v2_custom_attributes_global_id_put:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_global_id_put: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Edit global attribute
-        api_response = api_instance.api_v2_custom_attributes_global_id_put(id, api_v2_custom_attributes_global_id_put_request=api_v2_custom_attributes_global_id_put_request)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_global_id_put: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique ID of attribute |
- **api_v2_custom_attributes_global_id_put_request** | [**ApiV2CustomAttributesGlobalIdPutRequest**](ApiV2CustomAttributesGlobalIdPutRequest.md)|  | [optional]
+ **id** | **str**| Unique ID of attribute | 
+ **global_custom_attribute_update_model** | [**GlobalCustomAttributeUpdateModel**](GlobalCustomAttributeUpdateModel.md)|  | [optional] 
 
 ### Return type
 
@@ -260,7 +247,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -277,7 +263,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_custom_attributes_global_post**
-> CustomAttributeModel api_v2_custom_attributes_global_post()
+> CustomAttributeModel api_v2_custom_attributes_global_post(global_custom_attribute_post_model=global_custom_attribute_post_model)
 
 Create global attribute
 
@@ -286,14 +272,12 @@ Create global attribute
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import custom_attributes_api
-from testit_api_client.model.api_v2_custom_attributes_global_post_request import ApiV2CustomAttributesGlobalPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.custom_attribute_model import CustomAttributeModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.custom_attribute_model import CustomAttributeModel
+from testit_api_client.models.global_custom_attribute_post_model import GlobalCustomAttributePostModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -306,7 +290,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -314,25 +298,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = custom_attributes_api.CustomAttributesApi(api_client)
-    api_v2_custom_attributes_global_post_request = ApiV2CustomAttributesGlobalPostRequest(None) # ApiV2CustomAttributesGlobalPostRequest |  (optional)
+    api_instance = testit_api_client.CustomAttributesApi(api_client)
+    global_custom_attribute_post_model = testit_api_client.GlobalCustomAttributePostModel() # GlobalCustomAttributePostModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create global attribute
-        api_response = api_instance.api_v2_custom_attributes_global_post(api_v2_custom_attributes_global_post_request=api_v2_custom_attributes_global_post_request)
+        api_response = api_instance.api_v2_custom_attributes_global_post(global_custom_attribute_post_model=global_custom_attribute_post_model)
+        print("The response of CustomAttributesApi->api_v2_custom_attributes_global_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_global_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_custom_attributes_global_post_request** | [**ApiV2CustomAttributesGlobalPostRequest**](ApiV2CustomAttributesGlobalPostRequest.md)|  | [optional]
+ **global_custom_attribute_post_model** | [**GlobalCustomAttributePostModel**](GlobalCustomAttributePostModel.md)|  | [optional] 
 
 ### Return type
 
@@ -346,7 +331,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -372,13 +356,11 @@ Get attribute
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import custom_attributes_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.custom_attribute_model import CustomAttributeModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.custom_attribute_model import CustomAttributeModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -391,7 +373,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -399,24 +381,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = custom_attributes_api.CustomAttributesApi(api_client)
-    id = "id_example" # str | Unique ID of attribute
+    api_instance = testit_api_client.CustomAttributesApi(api_client)
+    id = 'id_example' # str | Unique ID of attribute
 
-    # example passing only required values which don't have defaults set
     try:
         # Get attribute
         api_response = api_instance.api_v2_custom_attributes_id_get(id)
+        print("The response of CustomAttributesApi->api_v2_custom_attributes_id_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_id_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique ID of attribute |
+ **id** | **str**| Unique ID of attribute | 
 
 ### Return type
 
@@ -430,7 +414,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -447,7 +430,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_custom_attributes_search_post**
-> [CustomAttributeModel] api_v2_custom_attributes_search_post()
+> List[CustomAttributeModel] api_v2_custom_attributes_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, custom_attribute_search_query_model=custom_attribute_search_query_model)
 
 Search for attributes
 
@@ -456,14 +439,12 @@ Search for attributes
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import custom_attributes_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.custom_attribute_model import CustomAttributeModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.api_v2_custom_attributes_search_post_request import ApiV2CustomAttributesSearchPostRequest
+from testit_api_client.models.custom_attribute_model import CustomAttributeModel
+from testit_api_client.models.custom_attribute_search_query_model import CustomAttributeSearchQueryModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -476,7 +457,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -484,39 +465,40 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = custom_attributes_api.CustomAttributesApi(api_client)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_custom_attributes_search_post_request = ApiV2CustomAttributesSearchPostRequest(None) # ApiV2CustomAttributesSearchPostRequest |  (optional)
+    api_instance = testit_api_client.CustomAttributesApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
+    custom_attribute_search_query_model = testit_api_client.CustomAttributeSearchQueryModel() # CustomAttributeSearchQueryModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for attributes
-        api_response = api_instance.api_v2_custom_attributes_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_custom_attributes_search_post_request=api_v2_custom_attributes_search_post_request)
+        api_response = api_instance.api_v2_custom_attributes_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, custom_attribute_search_query_model=custom_attribute_search_query_model)
+        print("The response of CustomAttributesApi->api_v2_custom_attributes_search_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_search_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
- **api_v2_custom_attributes_search_post_request** | [**ApiV2CustomAttributesSearchPostRequest**](ApiV2CustomAttributesSearchPostRequest.md)|  | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
+ **custom_attribute_search_query_model** | [**CustomAttributeSearchQueryModel**](CustomAttributeSearchQueryModel.md)|  | [optional] 
 
 ### Return type
 
-[**[CustomAttributeModel]**](CustomAttributeModel.md)
+[**List[CustomAttributeModel]**](CustomAttributeModel.md)
 
 ### Authorization
 
@@ -526,7 +508,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

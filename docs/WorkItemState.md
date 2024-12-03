@@ -1,10 +1,13 @@
 # WorkItemState
 
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**value** | **str** |  |  must be one of ["NeedsWork", "NotReady", "Ready", ]
+## Enum
+
+* `NEEDSWORK` (value: `'NeedsWork'`)
+
+* `NOTREADY` (value: `'NotReady'`)
+
+* `READY` (value: `'Ready'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

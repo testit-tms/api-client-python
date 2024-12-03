@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_parameters_bulk_post**
-> [ParameterModel] api_v2_parameters_bulk_post()
+> List[ParameterModel] api_v2_parameters_bulk_post(parameter_post_model=parameter_post_model)
 
 Create multiple parameters
 
@@ -33,14 +33,12 @@ Create multiple parameters
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.parameter_post_model import ParameterPostModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_model import ParameterModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.parameter_model import ParameterModel
+from testit_api_client.models.parameter_post_model import ParameterPostModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -53,7 +51,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -61,34 +59,30 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    parameter_post_model = [
-        ParameterPostModel(
-            value="value_example",
-            name="name_example",
-        ),
-    ] # [ParameterPostModel] |  (optional)
+    api_instance = testit_api_client.ParametersApi(api_client)
+    parameter_post_model = [testit_api_client.ParameterPostModel()] # List[ParameterPostModel] |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create multiple parameters
         api_response = api_instance.api_v2_parameters_bulk_post(parameter_post_model=parameter_post_model)
+        print("The response of ParametersApi->api_v2_parameters_bulk_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->api_v2_parameters_bulk_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parameter_post_model** | [**[ParameterPostModel]**](ParameterPostModel.md)|  | [optional]
+ **parameter_post_model** | [**List[ParameterPostModel]**](ParameterPostModel.md)|  | [optional] 
 
 ### Return type
 
-[**[ParameterModel]**](ParameterModel.md)
+[**List[ParameterModel]**](ParameterModel.md)
 
 ### Authorization
 
@@ -98,7 +92,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -115,7 +108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_bulk_put**
-> api_v2_parameters_bulk_put()
+> api_v2_parameters_bulk_put(parameter_put_model=parameter_put_model)
 
 Update multiple parameters
 
@@ -126,13 +119,11 @@ Update multiple parameters
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_put_model import ParameterPutModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.parameter_put_model import ParameterPutModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -145,7 +136,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -153,30 +144,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    parameter_put_model = [
-        ParameterPutModel(
-            id="3e5a61f5-bb50-44f4-8898-6dda6d40fe23",
-            value="value_example",
-            name="name_example",
-        ),
-    ] # [ParameterPutModel] |  (optional)
+    api_instance = testit_api_client.ParametersApi(api_client)
+    parameter_put_model = [testit_api_client.ParameterPutModel()] # List[ParameterPutModel] |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update multiple parameters
         api_instance.api_v2_parameters_bulk_put(parameter_put_model=parameter_put_model)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->api_v2_parameters_bulk_put: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parameter_put_model** | [**[ParameterPutModel]**](ParameterPutModel.md)|  | [optional]
+ **parameter_put_model** | [**List[ParameterPutModel]**](ParameterPutModel.md)|  | [optional] 
 
 ### Return type
 
@@ -190,7 +175,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -207,7 +191,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_groups_get**
-> [ParameterGroupModel] api_v2_parameters_groups_get()
+> List[ParameterGroupModel] api_v2_parameters_groups_get(is_deleted=is_deleted, parameter_key_ids=parameter_key_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get parameters as group
 
@@ -218,13 +202,11 @@ Get parameters as group
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.parameter_group_model import ParameterGroupModel
+from testit_api_client.models.parameter_group_model import ParameterGroupModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -237,7 +219,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -245,43 +227,42 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
+    api_instance = testit_api_client.ParametersApi(api_client)
     is_deleted = True # bool |  (optional)
-    parameter_key_ids = [
-        "parameterKeyIds_example",
-    ] # [str] |  (optional)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
+    parameter_key_ids = ['parameter_key_ids_example'] # List[str] |  (optional)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get parameters as group
         api_response = api_instance.api_v2_parameters_groups_get(is_deleted=is_deleted, parameter_key_ids=parameter_key_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        print("The response of ParametersApi->api_v2_parameters_groups_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->api_v2_parameters_groups_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **is_deleted** | **bool**|  | [optional]
- **parameter_key_ids** | **[str]**|  | [optional]
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
+ **is_deleted** | **bool**|  | [optional] 
+ **parameter_key_ids** | [**List[str]**](str.md)|  | [optional] 
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
 
 ### Return type
 
-[**[ParameterGroupModel]**](ParameterGroupModel.md)
+[**List[ParameterGroupModel]**](ParameterGroupModel.md)
 
 ### Authorization
 
@@ -291,7 +272,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -319,12 +299,10 @@ Check existence parameter key in system
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -337,7 +315,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -345,24 +323,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    name = "name_example" # str | 
+    api_instance = testit_api_client.ParametersApi(api_client)
+    name = 'name_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Check existence parameter key in system
         api_response = api_instance.api_v2_parameters_key_name_name_exists_get(name)
+        print("The response of ParametersApi->api_v2_parameters_key_name_name_exists_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->api_v2_parameters_key_name_name_exists_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**|  |
+ **name** | **str**|  | 
 
 ### Return type
 
@@ -376,7 +356,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -393,7 +372,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_key_values_get**
-> [str] api_v2_parameters_key_values_get(key)
+> List[str] api_v2_parameters_key_values_get(key)
 
 Get all parameter key values
 
@@ -404,12 +383,10 @@ Get all parameter key values
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -422,7 +399,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -430,28 +407,30 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    key = "SomeKey" # str | Parameter key (string format)
+    api_instance = testit_api_client.ParametersApi(api_client)
+    key = 'SomeKey' # str | Parameter key (string format)
 
-    # example passing only required values which don't have defaults set
     try:
         # Get all parameter key values
         api_response = api_instance.api_v2_parameters_key_values_get(key)
+        print("The response of ParametersApi->api_v2_parameters_key_values_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->api_v2_parameters_key_values_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **str**| Parameter key (string format) |
+ **key** | **str**| Parameter key (string format) | 
 
 ### Return type
 
-**[str]**
+**List[str]**
 
 ### Authorization
 
@@ -461,7 +440,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -478,7 +456,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_keys_get**
-> [str] api_v2_parameters_keys_get()
+> List[str] api_v2_parameters_keys_get()
 
 Get all parameter keys
 
@@ -489,12 +467,10 @@ Get all parameter keys
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -507,7 +483,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -515,24 +491,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
+    api_instance = testit_api_client.ParametersApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
         # Get all parameter keys
         api_response = api_instance.api_v2_parameters_keys_get()
+        print("The response of ParametersApi->api_v2_parameters_keys_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->api_v2_parameters_keys_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-**[str]**
+**List[str]**
 
 ### Authorization
 
@@ -542,7 +520,6 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -559,7 +536,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_search_groups_post**
-> [ParameterGroupModel] api_v2_parameters_search_groups_post()
+> List[ParameterGroupModel] api_v2_parameters_search_groups_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, parameter_filter_model=parameter_filter_model)
 
 Search for parameters as group
 
@@ -568,14 +545,12 @@ Search for parameters as group
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.parameter_group_model import ParameterGroupModel
+from testit_api_client.models.parameter_filter_model import ParameterFilterModel
+from testit_api_client.models.parameter_group_model import ParameterGroupModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -588,7 +563,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -596,39 +571,40 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_parameters_search_post_request = ApiV2ParametersSearchPostRequest(None) # ApiV2ParametersSearchPostRequest |  (optional)
+    api_instance = testit_api_client.ParametersApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
+    parameter_filter_model = testit_api_client.ParameterFilterModel() # ParameterFilterModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for parameters as group
-        api_response = api_instance.api_v2_parameters_search_groups_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_parameters_search_post_request=api_v2_parameters_search_post_request)
+        api_response = api_instance.api_v2_parameters_search_groups_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, parameter_filter_model=parameter_filter_model)
+        print("The response of ParametersApi->api_v2_parameters_search_groups_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->api_v2_parameters_search_groups_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
- **api_v2_parameters_search_post_request** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md)|  | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
+ **parameter_filter_model** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] 
 
 ### Return type
 
-[**[ParameterGroupModel]**](ParameterGroupModel.md)
+[**List[ParameterGroupModel]**](ParameterGroupModel.md)
 
 ### Authorization
 
@@ -638,7 +614,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -655,7 +630,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_search_post**
-> [ParameterModel] api_v2_parameters_search_post()
+> List[ParameterModel] api_v2_parameters_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, parameter_filter_model=parameter_filter_model)
 
 Search for parameters
 
@@ -664,14 +639,12 @@ Search for parameters
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
-from testit_api_client.model.parameter_model import ParameterModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.parameter_filter_model import ParameterFilterModel
+from testit_api_client.models.parameter_model import ParameterModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -684,7 +657,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -692,39 +665,40 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_parameters_search_post_request = ApiV2ParametersSearchPostRequest(None) # ApiV2ParametersSearchPostRequest |  (optional)
+    api_instance = testit_api_client.ParametersApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
+    parameter_filter_model = testit_api_client.ParameterFilterModel() # ParameterFilterModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for parameters
-        api_response = api_instance.api_v2_parameters_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_parameters_search_post_request=api_v2_parameters_search_post_request)
+        api_response = api_instance.api_v2_parameters_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, parameter_filter_model=parameter_filter_model)
+        print("The response of ParametersApi->api_v2_parameters_search_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->api_v2_parameters_search_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
- **api_v2_parameters_search_post_request** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md)|  | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
+ **parameter_filter_model** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] 
 
 ### Return type
 
-[**[ParameterModel]**](ParameterModel.md)
+[**List[ParameterModel]**](ParameterModel.md)
 
 ### Authorization
 
@@ -734,7 +708,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -751,7 +724,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_parameter**
-> ParameterModel create_parameter()
+> ParameterModel create_parameter(parameter_post_model=parameter_post_model)
 
 Create parameter
 
@@ -762,14 +735,12 @@ Create parameter
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_model import ParameterModel
-from testit_api_client.model.create_parameter_request import CreateParameterRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.parameter_model import ParameterModel
+from testit_api_client.models.parameter_post_model import ParameterPostModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -782,7 +753,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -790,25 +761,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    create_parameter_request = CreateParameterRequest(None) # CreateParameterRequest |  (optional)
+    api_instance = testit_api_client.ParametersApi(api_client)
+    parameter_post_model = testit_api_client.ParameterPostModel() # ParameterPostModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create parameter
-        api_response = api_instance.create_parameter(create_parameter_request=create_parameter_request)
+        api_response = api_instance.create_parameter(parameter_post_model=parameter_post_model)
+        print("The response of ParametersApi->create_parameter:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->create_parameter: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_parameter_request** | [**CreateParameterRequest**](CreateParameterRequest.md)|  | [optional]
+ **parameter_post_model** | [**ParameterPostModel**](ParameterPostModel.md)|  | [optional] 
 
 ### Return type
 
@@ -822,7 +794,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -850,12 +821,10 @@ Deletes parameter and all it's values
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -868,7 +837,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -876,23 +845,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    name = "name_example" # str | Name of the parameter
+    api_instance = testit_api_client.ParametersApi(api_client)
+    name = 'name_example' # str | Name of the parameter
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete parameter by name
         api_instance.delete_by_name(name)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->delete_by_name: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Name of the parameter |
+ **name** | **str**| Name of the parameter | 
 
 ### Return type
 
@@ -906,7 +876,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -934,12 +903,10 @@ Deletes parameter and all it's values by parameter key identifier
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -952,7 +919,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -960,23 +927,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    key_id = "keyId_example" # str | Identifier of the parameter key
+    api_instance = testit_api_client.ParametersApi(api_client)
+    key_id = 'key_id_example' # str | Identifier of the parameter key
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete parameters by parameter key identifier
         api_instance.delete_by_parameter_key_id(key_id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->delete_by_parameter_key_id: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key_id** | **str**| Identifier of the parameter key |
+ **key_id** | **str**| Identifier of the parameter key | 
 
 ### Return type
 
@@ -990,7 +958,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1018,11 +985,10 @@ Delete parameter
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1035,7 +1001,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1043,23 +1009,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    id = "id_example" # str | Parameter internal (UUID) identifier
+    api_instance = testit_api_client.ParametersApi(api_client)
+    id = 'id_example' # str | Parameter internal (UUID) identifier
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete parameter
         api_instance.delete_parameter(id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->delete_parameter: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Parameter internal (UUID) identifier |
+ **id** | **str**| Parameter internal (UUID) identifier | 
 
 ### Return type
 
@@ -1073,7 +1040,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1091,7 +1057,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_parameters**
-> [ParameterModel] get_all_parameters()
+> List[ParameterModel] get_all_parameters(is_deleted=is_deleted, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get all parameters
 
@@ -1102,13 +1068,11 @@ Get all parameters
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_model import ParameterModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.parameter_model import ParameterModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1121,7 +1085,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1129,39 +1093,40 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
+    api_instance = testit_api_client.ParametersApi(api_client)
     is_deleted = True # bool | If result must consist of only actual/deleted parameters (optional)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get all parameters
         api_response = api_instance.get_all_parameters(is_deleted=is_deleted, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        print("The response of ParametersApi->get_all_parameters:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->get_all_parameters: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **is_deleted** | **bool**| If result must consist of only actual/deleted parameters | [optional]
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
+ **is_deleted** | **bool**| If result must consist of only actual/deleted parameters | [optional] 
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
 
 ### Return type
 
-[**[ParameterModel]**](ParameterModel.md)
+[**List[ParameterModel]**](ParameterModel.md)
 
 ### Authorization
 
@@ -1171,7 +1136,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1199,13 +1163,11 @@ Get parameter by ID
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_model import ParameterModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.parameter_model import ParameterModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1218,7 +1180,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1226,24 +1188,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    id = "id_example" # str | Parameter internal (UUID) identifier
+    api_instance = testit_api_client.ParametersApi(api_client)
+    id = 'id_example' # str | Parameter internal (UUID) identifier
 
-    # example passing only required values which don't have defaults set
     try:
         # Get parameter by ID
         api_response = api_instance.get_parameter_by_id(id)
+        print("The response of ParametersApi->get_parameter_by_id:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ParametersApi->get_parameter_by_id: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Parameter internal (UUID) identifier |
+ **id** | **str**| Parameter internal (UUID) identifier | 
 
 ### Return type
 
@@ -1257,7 +1221,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1274,7 +1237,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_parameter**
-> update_parameter()
+> update_parameter(parameter_put_model=parameter_put_model)
 
 Update parameter
 
@@ -1285,13 +1248,11 @@ Update parameter
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.update_parameter_request import UpdateParameterRequest
+from testit_api_client.models.parameter_put_model import ParameterPutModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1304,7 +1265,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1312,24 +1273,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = parameters_api.ParametersApi(api_client)
-    update_parameter_request = UpdateParameterRequest(None) # UpdateParameterRequest |  (optional)
+    api_instance = testit_api_client.ParametersApi(api_client)
+    parameter_put_model = testit_api_client.ParameterPutModel() # ParameterPutModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update parameter
-        api_instance.update_parameter(update_parameter_request=update_parameter_request)
-    except testit_api_client.ApiException as e:
+        api_instance.update_parameter(parameter_put_model=parameter_put_model)
+    except Exception as e:
         print("Exception when calling ParametersApi->update_parameter: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_parameter_request** | [**UpdateParameterRequest**](UpdateParameterRequest.md)|  | [optional]
+ **parameter_put_model** | [**ParameterPutModel**](ParameterPutModel.md)|  | [optional] 
 
 ### Return type
 
@@ -1343,7 +1304,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

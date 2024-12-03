@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_projects_project_id_settings_autotests_post**
-> api_v2_projects_project_id_settings_autotests_post(project_id)
+> api_v2_projects_project_id_settings_autotests_post(project_id, auto_test_project_settings_post_model=auto_test_project_settings_post_model)
 
 Set autotest project settings.
 
@@ -18,13 +18,11 @@ Set autotest project settings.
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import project_settings_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_project_id_settings_autotests_post_request import ApiV2ProjectsProjectIdSettingsAutotestsPostRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.auto_test_project_settings_post_model import AutoTestProjectSettingsPostModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -37,7 +35,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -45,33 +43,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_settings_api.ProjectSettingsApi(api_client)
-    project_id = "projectId_example" # str | 
-    api_v2_projects_project_id_settings_autotests_post_request = ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(None) # ApiV2ProjectsProjectIdSettingsAutotestsPostRequest |  (optional)
+    api_instance = testit_api_client.ProjectSettingsApi(api_client)
+    project_id = 'project_id_example' # str | 
+    auto_test_project_settings_post_model = testit_api_client.AutoTestProjectSettingsPostModel() # AutoTestProjectSettingsPostModel |  (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Set autotest project settings.
-        api_instance.api_v2_projects_project_id_settings_autotests_post(project_id)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling ProjectSettingsApi->api_v2_projects_project_id_settings_autotests_post: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Set autotest project settings.
-        api_instance.api_v2_projects_project_id_settings_autotests_post(project_id, api_v2_projects_project_id_settings_autotests_post_request=api_v2_projects_project_id_settings_autotests_post_request)
-    except testit_api_client.ApiException as e:
+        api_instance.api_v2_projects_project_id_settings_autotests_post(project_id, auto_test_project_settings_post_model=auto_test_project_settings_post_model)
+    except Exception as e:
         print("Exception when calling ProjectSettingsApi->api_v2_projects_project_id_settings_autotests_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**|  |
- **api_v2_projects_project_id_settings_autotests_post_request** | [**ApiV2ProjectsProjectIdSettingsAutotestsPostRequest**](ApiV2ProjectsProjectIdSettingsAutotestsPostRequest.md)|  | [optional]
+ **project_id** | **str**|  | 
+ **auto_test_project_settings_post_model** | [**AutoTestProjectSettingsPostModel**](AutoTestProjectSettingsPostModel.md)|  | [optional] 
 
 ### Return type
 
@@ -85,7 +76,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -111,13 +101,11 @@ Get autotest project settings.
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import project_settings_api
-from testit_api_client.model.auto_test_project_settings_get_model import AutoTestProjectSettingsGetModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.auto_test_project_settings_get_model import AutoTestProjectSettingsGetModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -130,7 +118,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -138,24 +126,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_settings_api.ProjectSettingsApi(api_client)
-    project_id = "projectId_example" # str | 
+    api_instance = testit_api_client.ProjectSettingsApi(api_client)
+    project_id = 'project_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get autotest project settings.
         api_response = api_instance.get_autotest_project_settings(project_id)
+        print("The response of ProjectSettingsApi->get_autotest_project_settings:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectSettingsApi->get_autotest_project_settings: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**|  |
+ **project_id** | **str**|  | 
 
 ### Return type
 
@@ -169,7 +159,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

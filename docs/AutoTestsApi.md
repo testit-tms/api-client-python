@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_auto_tests_flaky_bulk_post**
-> api_v2_auto_tests_flaky_bulk_post()
+> api_v2_auto_tests_flaky_bulk_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, flaky_bulk_model=flaky_bulk_model)
 
 Set \"Flaky\" status for multiple autotests
 
@@ -37,13 +37,11 @@ User permissions for project:  - Read only  - Execute  - Write  - Full control
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.flaky_bulk_model import FlakyBulkModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.flaky_bulk_model import FlakyBulkModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -56,7 +54,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -64,37 +62,34 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
-    flaky_bulk_model = FlakyBulkModel(
-        autotest_select=FlakyBulkModelAutotestSelect(None),
-        value=True,
-    ) # FlakyBulkModel |  (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
+    flaky_bulk_model = testit_api_client.FlakyBulkModel() # FlakyBulkModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Set \"Flaky\" status for multiple autotests
         api_instance.api_v2_auto_tests_flaky_bulk_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, flaky_bulk_model=flaky_bulk_model)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_flaky_bulk_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
- **flaky_bulk_model** | [**FlakyBulkModel**](FlakyBulkModel.md)|  | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
+ **flaky_bulk_model** | [**FlakyBulkModel**](FlakyBulkModel.md)|  | [optional] 
 
 ### Return type
 
@@ -108,7 +103,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -125,7 +119,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_auto_tests_id_patch**
-> api_v2_auto_tests_id_patch(id)
+> api_v2_auto_tests_id_patch(id, operation=operation)
 
 Patch auto test
 
@@ -136,13 +130,11 @@ See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 690
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.operation import Operation
+from testit_api_client.models.operation import Operation
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -155,7 +147,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -163,40 +155,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Global Id of auto test
-    operation = [
-        Operation(
-            value=None,
-            path="path_example",
-            op="op_example",
-            _from="_from_example",
-        ),
-    ] # [Operation] |  (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Global Id of auto test
+    operation = [testit_api_client.Operation()] # List[Operation] |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Patch auto test
-        api_instance.api_v2_auto_tests_id_patch(id)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_patch: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Patch auto test
         api_instance.api_v2_auto_tests_id_patch(id, operation=operation)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_patch: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Global Id of auto test |
- **operation** | [**[Operation]**](Operation.md)|  | [optional]
+ **id** | **str**| Global Id of auto test | 
+ **operation** | [**List[Operation]**](Operation.md)|  | [optional] 
 
 ### Return type
 
@@ -210,7 +188,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -227,7 +204,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_auto_tests_id_test_results_search_post**
-> [AutotestResultHistoricalGetModel] api_v2_auto_tests_id_test_results_search_post(id)
+> List[AutotestResultHistoricalGetModel] api_v2_auto_tests_id_test_results_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotest_historical_result_select_model=autotest_historical_result_select_model)
 
 Get test results history for autotest
 
@@ -238,14 +215,12 @@ Get test results history for autotest
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.autotest_historical_result_select_model import AutotestHistoricalResultSelectModel
-from testit_api_client.model.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
+from testit_api_client.models.autotest_historical_result_select_model import AutotestHistoricalResultSelectModel
+from testit_api_client.models.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -258,7 +233,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -266,67 +241,42 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Autotest identifier
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
-    autotest_historical_result_select_model = AutotestHistoricalResultSelectModel(
-        outcomes=[
-            AutotestResultOutcome("InProgress"),
-        ],
-        test_plan_ids=[
-            "test_plan_ids_example",
-        ],
-        test_run_ids=[
-            "test_run_ids_example",
-        ],
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        launch_source="launch_source_example",
-        user_ids=[
-            "user_ids_example",
-        ],
-        duration=None,
-    ) # AutotestHistoricalResultSelectModel |  (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Autotest identifier
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
+    autotest_historical_result_select_model = testit_api_client.AutotestHistoricalResultSelectModel() # AutotestHistoricalResultSelectModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get test results history for autotest
-        api_response = api_instance.api_v2_auto_tests_id_test_results_search_post(id)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_test_results_search_post: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get test results history for autotest
         api_response = api_instance.api_v2_auto_tests_id_test_results_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotest_historical_result_select_model=autotest_historical_result_select_model)
+        print("The response of AutoTestsApi->api_v2_auto_tests_id_test_results_search_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_test_results_search_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Autotest identifier |
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
- **autotest_historical_result_select_model** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md)|  | [optional]
+ **id** | **str**| Autotest identifier | 
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
+ **autotest_historical_result_select_model** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md)|  | [optional] 
 
 ### Return type
 
-[**[AutotestResultHistoricalGetModel]**](AutotestResultHistoricalGetModel.md)
+[**List[AutotestResultHistoricalGetModel]**](AutotestResultHistoricalGetModel.md)
 
 ### Authorization
 
@@ -336,7 +286,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -353,7 +302,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_auto_tests_id_work_items_changed_id_get**
-> [str] api_v2_auto_tests_id_work_items_changed_id_get(id)
+> List[str] api_v2_auto_tests_id_work_items_changed_id_get(id)
 
 Get identifiers of changed linked work items
 
@@ -364,12 +313,10 @@ User permissions for project:  - Read only  - Execute  - Write  - Full control
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -382,7 +329,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -390,28 +337,30 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | 
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get identifiers of changed linked work items
         api_response = api_instance.api_v2_auto_tests_id_work_items_changed_id_get(id)
+        print("The response of AutoTestsApi->api_v2_auto_tests_id_work_items_changed_id_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_work_items_changed_id_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **id** | **str**|  | 
 
 ### Return type
 
-**[str]**
+**List[str]**
 
 ### Authorization
 
@@ -421,7 +370,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -449,12 +397,10 @@ User permissions for project:  - Read only  - Execute  - Write  - Full control
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -467,7 +413,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -475,25 +421,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | 
-    work_item_id = "workItemId_example" # str | 
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | 
+    work_item_id = 'work_item_id_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Approve changes to work items linked to autotest
         api_instance.api_v2_auto_tests_id_work_items_changed_work_item_id_approve_post(id, work_item_id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_work_items_changed_work_item_id_approve_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
- **work_item_id** | **str**|  |
+ **id** | **str**|  | 
+ **work_item_id** | **str**|  | 
 
 ### Return type
 
@@ -507,7 +454,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -524,7 +470,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_auto_tests_search_post**
-> [AutoTestModel] api_v2_auto_tests_search_post()
+> List[AutoTestModel] api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotests_select_model=autotests_select_model)
 
 Search for autotests
 
@@ -533,14 +479,12 @@ Search for autotests
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.api_v2_auto_tests_search_post_request import ApiV2AutoTestsSearchPostRequest
+from testit_api_client.models.auto_test_model import AutoTestModel
+from testit_api_client.models.autotests_select_model import AutotestsSelectModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -553,7 +497,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -561,39 +505,40 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_auto_tests_search_post_request = ApiV2AutoTestsSearchPostRequest(None) # ApiV2AutoTestsSearchPostRequest |  (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
+    autotests_select_model = testit_api_client.AutotestsSelectModel() # AutotestsSelectModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for autotests
-        api_response = api_instance.api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_auto_tests_search_post_request=api_v2_auto_tests_search_post_request)
+        api_response = api_instance.api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotests_select_model=autotests_select_model)
+        print("The response of AutoTestsApi->api_v2_auto_tests_search_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_search_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
- **api_v2_auto_tests_search_post_request** | [**ApiV2AutoTestsSearchPostRequest**](ApiV2AutoTestsSearchPostRequest.md)|  | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
+ **autotests_select_model** | [**AutotestsSelectModel**](AutotestsSelectModel.md)|  | [optional] 
 
 ### Return type
 
-[**[AutoTestModel]**](AutoTestModel.md)
+[**List[AutoTestModel]**](AutoTestModel.md)
 
 ### Authorization
 
@@ -603,7 +548,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -620,7 +564,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_auto_test**
-> AutoTestModel create_auto_test()
+> AutoTestModel create_auto_test(auto_test_post_model=auto_test_post_model)
 
 Create autotest
 
@@ -631,14 +575,12 @@ Create autotest
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.auto_test_post_model import AutoTestPostModel
+from testit_api_client.models.auto_test_model import AutoTestModel
+from testit_api_client.models.auto_test_post_model import AutoTestPostModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -651,7 +593,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -659,83 +601,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    auto_test_post_model = AutoTestPostModel(
-        work_item_ids_for_link_with_auto_test=[
-            "work_item_ids_for_link_with_auto_test_example",
-        ],
-        should_create_work_item=True,
-        attributes={
-            "key": None,
-        },
-        external_id="external_id_example",
-        links=[
-            LinkPostModel(
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=None,
-                has_info=True,
-            ),
-        ],
-        project_id="project_id_example",
-        name="name_example",
-        namespace="namespace_example",
-        classname="classname_example",
-        steps=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        setup=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        teardown=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        title="title_example",
-        description="description_example",
-        labels=[
-            LabelPostModel(
-                name="name_example",
-            ),
-        ],
-        is_flaky=True,
-        external_key="external_key_example",
-    ) # AutoTestPostModel |  (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    auto_test_post_model = testit_api_client.AutoTestPostModel() # AutoTestPostModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create autotest
         api_response = api_instance.create_auto_test(auto_test_post_model=auto_test_post_model)
+        print("The response of AutoTestsApi->create_auto_test:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->create_auto_test: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_test_post_model** | [**AutoTestPostModel**](AutoTestPostModel.md)|  | [optional]
+ **auto_test_post_model** | [**AutoTestPostModel**](AutoTestPostModel.md)|  | [optional] 
 
 ### Return type
 
@@ -749,7 +634,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -766,7 +650,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_multiple**
-> [AutoTestModel] create_multiple()
+> List[AutoTestModel] create_multiple(auto_test_post_model=auto_test_post_model)
 
 Create multiple autotests
 
@@ -777,14 +661,12 @@ Create multiple autotests
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.auto_test_post_model import AutoTestPostModel
+from testit_api_client.models.auto_test_model import AutoTestModel
+from testit_api_client.models.auto_test_post_model import AutoTestPostModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -797,7 +679,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -805,89 +687,30 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    auto_test_post_model = [
-        AutoTestPostModel(
-            work_item_ids_for_link_with_auto_test=[
-                "work_item_ids_for_link_with_auto_test_example",
-            ],
-            should_create_work_item=True,
-            attributes={
-                "key": None,
-            },
-            external_id="external_id_example",
-            links=[
-                LinkPostModel(
-                    title="title_example",
-                    url="url_example",
-                    description="description_example",
-                    type=None,
-                    has_info=True,
-                ),
-            ],
-            project_id="project_id_example",
-            name="name_example",
-            namespace="namespace_example",
-            classname="classname_example",
-            steps=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            setup=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            teardown=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            title="title_example",
-            description="description_example",
-            labels=[
-                LabelPostModel(
-                    name="name_example",
-                ),
-            ],
-            is_flaky=True,
-            external_key="external_key_example",
-        ),
-    ] # [AutoTestPostModel] |  (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    auto_test_post_model = [testit_api_client.AutoTestPostModel()] # List[AutoTestPostModel] |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create multiple autotests
         api_response = api_instance.create_multiple(auto_test_post_model=auto_test_post_model)
+        print("The response of AutoTestsApi->create_multiple:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->create_multiple: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_test_post_model** | [**[AutoTestPostModel]**](AutoTestPostModel.md)|  | [optional]
+ **auto_test_post_model** | [**List[AutoTestPostModel]**](AutoTestPostModel.md)|  | [optional] 
 
 ### Return type
 
-[**[AutoTestModel]**](AutoTestModel.md)
+[**List[AutoTestModel]**](AutoTestModel.md)
 
 ### Authorization
 
@@ -897,7 +720,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -925,12 +747,10 @@ Delete autotest
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -943,7 +763,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -951,23 +771,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Autotest internal (UUID) or global (integer) identifier
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete autotest
         api_instance.delete_auto_test(id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->delete_auto_test: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Autotest internal (UUID) or global (integer) identifier |
+ **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
 
 ### Return type
 
@@ -981,7 +802,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -998,7 +818,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_auto_test_link_from_work_item**
-> delete_auto_test_link_from_work_item(id)
+> delete_auto_test_link_from_work_item(id, work_item_id=work_item_id)
 
 Unlink autotest from work item
 
@@ -1009,12 +829,10 @@ Unlink autotest from work item
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1027,7 +845,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1035,33 +853,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
-    work_item_id = "workItemId_example" # str | Work item internal (UUID) or global (integer) identifier (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Autotest internal (UUID) or global (integer) identifier
+    work_item_id = 'work_item_id_example' # str | Work item internal (UUID) or global (integer) identifier (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Unlink autotest from work item
-        api_instance.delete_auto_test_link_from_work_item(id)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling AutoTestsApi->delete_auto_test_link_from_work_item: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Unlink autotest from work item
         api_instance.delete_auto_test_link_from_work_item(id, work_item_id=work_item_id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->delete_auto_test_link_from_work_item: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Autotest internal (UUID) or global (integer) identifier |
- **work_item_id** | **str**| Work item internal (UUID) or global (integer) identifier | [optional]
+ **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
+ **work_item_id** | **str**| Work item internal (UUID) or global (integer) identifier | [optional] 
 
 ### Return type
 
@@ -1075,7 +886,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1092,7 +902,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_auto_tests**
-> [AutoTestModel] get_all_auto_tests()
+> List[AutoTestModel] get_all_auto_tests(project_id=project_id, external_id=external_id, global_id=global_id, namespace=namespace, is_namespace_null=is_namespace_null, include_empty_namespaces=include_empty_namespaces, class_name=class_name, is_classname_null=is_classname_null, include_empty_class_names=include_empty_class_names, is_deleted=is_deleted, deleted=deleted, labels=labels, stability_minimal=stability_minimal, min_stability=min_stability, stability_maximal=stability_maximal, max_stability=max_stability, is_flaky=is_flaky, flaky=flaky, include_steps=include_steps, include_labels=include_labels, external_key=external_key, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 
 
@@ -1101,13 +911,11 @@ void (empty response body)
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.auto_test_model import AutoTestModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1120,7 +928,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1128,80 +936,79 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    project_id = "projectId_example" # str | Project internal ID (optional)
-    external_id = "externalId_example" # str | Autotest external ID (optional)
-    global_id = 1 # int | Autotest global ID (optional)
-    namespace = "namespace_example" # str | Namespace in which autotest is located (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    project_id = 'project_id_example' # str | Project internal ID (optional)
+    external_id = 'external_id_example' # str | Autotest external ID (optional)
+    global_id = 56 # int | Autotest global ID (optional)
+    namespace = 'namespace_example' # str | Namespace in which autotest is located (optional)
     is_namespace_null = True # bool | OBSOLETE: Use `includeEmptyNamespaces` instead (optional)
     include_empty_namespaces = True # bool | If result must contain autotests without namespace (optional)
-    class_name = "className_example" # str | Name of class in which autotest is located (optional)
+    class_name = 'class_name_example' # str | Name of class in which autotest is located (optional)
     is_classname_null = True # bool | OBSOLETE: Use `includeEmptyClassNames` instead (optional)
     include_empty_class_names = True # bool | If result must contain autotests without class (optional)
     is_deleted = True # bool | OBSOLETE: Use `deleted` instead (optional)
     deleted = True # bool | Is autotest deleted (optional)
-    labels = [
-        "labels_example",
-    ] # [str] | Include only autotests with provided labels (optional)
-    stability_minimal = 1 # int | OBSOLETE: Use `minStability` instead (optional)
-    min_stability = 1 # int | Minimum stability value of autotest (optional)
-    stability_maximal = 1 # int | OBSOLETE: Use `maxStability` instead (optional)
-    max_stability = 1 # int | Maximum stability value of autotest (optional)
+    labels = ['labels_example'] # List[str] | Include only autotests with provided labels (optional)
+    stability_minimal = 56 # int | OBSOLETE: Use `minStability` instead (optional)
+    min_stability = 56 # int | Minimum stability value of autotest (optional)
+    stability_maximal = 56 # int | OBSOLETE: Use `maxStability` instead (optional)
+    max_stability = 56 # int | Maximum stability value of autotest (optional)
     is_flaky = True # bool | OBSOLETE: Use `flaky` instead (optional)
     flaky = True # bool | Is autotest marked as \"Flaky\" (optional)
     include_steps = True # bool | If result must also include autotest steps (optional)
     include_labels = True # bool | If result must also include autotest labels (optional)
-    external_key = "externalKey_example" # str | External key of autotest (optional)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
+    external_key = 'external_key_example' # str | External key of autotest (optional)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         api_response = api_instance.get_all_auto_tests(project_id=project_id, external_id=external_id, global_id=global_id, namespace=namespace, is_namespace_null=is_namespace_null, include_empty_namespaces=include_empty_namespaces, class_name=class_name, is_classname_null=is_classname_null, include_empty_class_names=include_empty_class_names, is_deleted=is_deleted, deleted=deleted, labels=labels, stability_minimal=stability_minimal, min_stability=min_stability, stability_maximal=stability_maximal, max_stability=max_stability, is_flaky=is_flaky, flaky=flaky, include_steps=include_steps, include_labels=include_labels, external_key=external_key, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        print("The response of AutoTestsApi->get_all_auto_tests:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->get_all_auto_tests: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project internal ID | [optional]
- **external_id** | **str**| Autotest external ID | [optional]
- **global_id** | **int**| Autotest global ID | [optional]
- **namespace** | **str**| Namespace in which autotest is located | [optional]
- **is_namespace_null** | **bool**| OBSOLETE: Use &#x60;includeEmptyNamespaces&#x60; instead | [optional]
- **include_empty_namespaces** | **bool**| If result must contain autotests without namespace | [optional]
- **class_name** | **str**| Name of class in which autotest is located | [optional]
- **is_classname_null** | **bool**| OBSOLETE: Use &#x60;includeEmptyClassNames&#x60; instead | [optional]
- **include_empty_class_names** | **bool**| If result must contain autotests without class | [optional]
- **is_deleted** | **bool**| OBSOLETE: Use &#x60;deleted&#x60; instead | [optional]
- **deleted** | **bool**| Is autotest deleted | [optional]
- **labels** | **[str]**| Include only autotests with provided labels | [optional]
- **stability_minimal** | **int**| OBSOLETE: Use &#x60;minStability&#x60; instead | [optional]
- **min_stability** | **int**| Minimum stability value of autotest | [optional]
- **stability_maximal** | **int**| OBSOLETE: Use &#x60;maxStability&#x60; instead | [optional]
- **max_stability** | **int**| Maximum stability value of autotest | [optional]
- **is_flaky** | **bool**| OBSOLETE: Use &#x60;flaky&#x60; instead | [optional]
- **flaky** | **bool**| Is autotest marked as \&quot;Flaky\&quot; | [optional]
- **include_steps** | **bool**| If result must also include autotest steps | [optional]
- **include_labels** | **bool**| If result must also include autotest labels | [optional]
- **external_key** | **str**| External key of autotest | [optional]
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
+ **project_id** | **str**| Project internal ID | [optional] 
+ **external_id** | **str**| Autotest external ID | [optional] 
+ **global_id** | **int**| Autotest global ID | [optional] 
+ **namespace** | **str**| Namespace in which autotest is located | [optional] 
+ **is_namespace_null** | **bool**| OBSOLETE: Use &#x60;includeEmptyNamespaces&#x60; instead | [optional] 
+ **include_empty_namespaces** | **bool**| If result must contain autotests without namespace | [optional] 
+ **class_name** | **str**| Name of class in which autotest is located | [optional] 
+ **is_classname_null** | **bool**| OBSOLETE: Use &#x60;includeEmptyClassNames&#x60; instead | [optional] 
+ **include_empty_class_names** | **bool**| If result must contain autotests without class | [optional] 
+ **is_deleted** | **bool**| OBSOLETE: Use &#x60;deleted&#x60; instead | [optional] 
+ **deleted** | **bool**| Is autotest deleted | [optional] 
+ **labels** | [**List[str]**](str.md)| Include only autotests with provided labels | [optional] 
+ **stability_minimal** | **int**| OBSOLETE: Use &#x60;minStability&#x60; instead | [optional] 
+ **min_stability** | **int**| Minimum stability value of autotest | [optional] 
+ **stability_maximal** | **int**| OBSOLETE: Use &#x60;maxStability&#x60; instead | [optional] 
+ **max_stability** | **int**| Maximum stability value of autotest | [optional] 
+ **is_flaky** | **bool**| OBSOLETE: Use &#x60;flaky&#x60; instead | [optional] 
+ **flaky** | **bool**| Is autotest marked as \&quot;Flaky\&quot; | [optional] 
+ **include_steps** | **bool**| If result must also include autotest steps | [optional] 
+ **include_labels** | **bool**| If result must also include autotest labels | [optional] 
+ **external_key** | **str**| External key of autotest | [optional] 
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
 
 ### Return type
 
-[**[AutoTestModel]**](AutoTestModel.md)
+[**List[AutoTestModel]**](AutoTestModel.md)
 
 ### Authorization
 
@@ -1211,7 +1018,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1239,13 +1045,11 @@ Get average autotest duration
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.auto_test_average_duration_model import AutoTestAverageDurationModel
+from testit_api_client.models.auto_test_average_duration_model import AutoTestAverageDurationModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1258,7 +1062,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1266,24 +1070,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Autotest internal (UUID) or global (integer) identifier
 
-    # example passing only required values which don't have defaults set
     try:
         # Get average autotest duration
         api_response = api_instance.get_auto_test_average_duration(id)
+        print("The response of AutoTestsApi->get_auto_test_average_duration:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->get_auto_test_average_duration: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Autotest internal (UUID) or global (integer) identifier |
+ **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
 
 ### Return type
 
@@ -1297,7 +1103,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1326,13 +1131,11 @@ Get autotest by internal or global ID
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.auto_test_model import AutoTestModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1345,7 +1148,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1353,24 +1156,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Autotest internal (UUID) or global (integer) identifier
 
-    # example passing only required values which don't have defaults set
     try:
         # Get autotest by internal or global ID
         api_response = api_instance.get_auto_test_by_id(id)
+        print("The response of AutoTestsApi->get_auto_test_by_id:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->get_auto_test_by_id: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Autotest internal (UUID) or global (integer) identifier |
+ **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
 
 ### Return type
 
@@ -1384,7 +1189,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1402,7 +1206,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_auto_test_chronology**
-> [TestResultChronologyModel] get_auto_test_chronology(id)
+> List[TestResultChronologyModel] get_auto_test_chronology(id)
 
 Get autotest chronology
 
@@ -1413,13 +1217,11 @@ Get autotest chronology
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.test_result_chronology_model import TestResultChronologyModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1432,7 +1234,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1440,28 +1242,30 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Autotest internal (UUID) or global (integer) identifier
 
-    # example passing only required values which don't have defaults set
     try:
         # Get autotest chronology
         api_response = api_instance.get_auto_test_chronology(id)
+        print("The response of AutoTestsApi->get_auto_test_chronology:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->get_auto_test_chronology: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Autotest internal (UUID) or global (integer) identifier |
+ **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
 
 ### Return type
 
-[**[TestResultChronologyModel]**](TestResultChronologyModel.md)
+[**List[TestResultChronologyModel]**](TestResultChronologyModel.md)
 
 ### Authorization
 
@@ -1471,7 +1275,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1488,7 +1291,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_test_runs**
-> [TestRunShortModel] get_test_runs(id)
+> List[TestRunShortModel] get_test_runs(id)
 
 Get completed tests runs for autotests
 
@@ -1499,13 +1302,11 @@ Get completed tests runs for autotests
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_run_short_model import TestRunShortModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.test_run_short_model import TestRunShortModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1518,7 +1319,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1526,28 +1327,30 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Autotest internal (UUID) or global (integer) identifier
 
-    # example passing only required values which don't have defaults set
     try:
         # Get completed tests runs for autotests
         api_response = api_instance.get_test_runs(id)
+        print("The response of AutoTestsApi->get_test_runs:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->get_test_runs: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Autotest internal (UUID) or global (integer) identifier |
+ **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
 
 ### Return type
 
-[**[TestRunShortModel]**](TestRunShortModel.md)
+[**List[TestRunShortModel]**](TestRunShortModel.md)
 
 ### Authorization
 
@@ -1557,7 +1360,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1574,7 +1376,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_work_items_linked_to_auto_test**
-> [WorkItemIdentifierModel] get_work_items_linked_to_auto_test(id)
+> List[WorkItemIdentifierModel] get_work_items_linked_to_auto_test(id, is_deleted=is_deleted, is_work_item_deleted=is_work_item_deleted)
 
 Get work items linked to autotest
 
@@ -1585,13 +1387,11 @@ Get work items linked to autotest
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_identifier_model import WorkItemIdentifierModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.work_item_identifier_model import WorkItemIdentifierModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1604,7 +1404,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1612,41 +1412,34 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID.
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID.
     is_deleted = True # bool | Specifies that a test is deleted or still relevant. (optional)
-    is_work_item_deleted = False # bool | OBSOLETE: Use `isDeleted` instead (optional) if omitted the server will use the default value of False
+    is_work_item_deleted = False # bool | OBSOLETE: Use `isDeleted` instead (optional) (default to False)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get work items linked to autotest
-        api_response = api_instance.get_work_items_linked_to_auto_test(id)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling AutoTestsApi->get_work_items_linked_to_auto_test: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get work items linked to autotest
         api_response = api_instance.get_work_items_linked_to_auto_test(id, is_deleted=is_deleted, is_work_item_deleted=is_work_item_deleted)
+        print("The response of AutoTestsApi->get_work_items_linked_to_auto_test:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->get_work_items_linked_to_auto_test: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID. |
- **is_deleted** | **bool**| Specifies that a test is deleted or still relevant. | [optional]
- **is_work_item_deleted** | **bool**| OBSOLETE: Use &#x60;isDeleted&#x60; instead | [optional] if omitted the server will use the default value of False
+ **id** | **str**| Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID. | 
+ **is_deleted** | **bool**| Specifies that a test is deleted or still relevant. | [optional] 
+ **is_work_item_deleted** | **bool**| OBSOLETE: Use &#x60;isDeleted&#x60; instead | [optional] [default to False]
 
 ### Return type
 
-[**[WorkItemIdentifierModel]**](WorkItemIdentifierModel.md)
+[**List[WorkItemIdentifierModel]**](WorkItemIdentifierModel.md)
 
 ### Authorization
 
@@ -1656,7 +1449,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1673,7 +1465,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **link_auto_test_to_work_item**
-> link_auto_test_to_work_item(id)
+> link_auto_test_to_work_item(id, work_item_id_model=work_item_id_model)
 
 Link autotest with work items
 
@@ -1684,13 +1476,11 @@ Link autotest with work items
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.work_item_id_model import WorkItemIdModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.work_item_id_model import WorkItemIdModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1703,7 +1493,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1711,35 +1501,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
-    work_item_id_model = WorkItemIdModel(
-        id="3e5a61f5-bb50-44f4-8898-6dda6d40fe23",
-    ) # WorkItemIdModel |  (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    id = 'id_example' # str | Autotest internal (UUID) or global (integer) identifier
+    work_item_id_model = testit_api_client.WorkItemIdModel() # WorkItemIdModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Link autotest with work items
-        api_instance.link_auto_test_to_work_item(id)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling AutoTestsApi->link_auto_test_to_work_item: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Link autotest with work items
         api_instance.link_auto_test_to_work_item(id, work_item_id_model=work_item_id_model)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->link_auto_test_to_work_item: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Autotest internal (UUID) or global (integer) identifier |
- **work_item_id_model** | [**WorkItemIdModel**](WorkItemIdModel.md)|  | [optional]
+ **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
+ **work_item_id_model** | [**WorkItemIdModel**](WorkItemIdModel.md)|  | [optional] 
 
 ### Return type
 
@@ -1753,7 +1534,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1770,7 +1550,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_auto_test**
-> update_auto_test()
+> update_auto_test(auto_test_put_model=auto_test_put_model)
 
 Update autotest
 
@@ -1781,13 +1561,11 @@ Update autotest
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.auto_test_put_model import AutoTestPutModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.auto_test_put_model import AutoTestPutModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1800,7 +1578,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1808,80 +1586,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    auto_test_put_model = AutoTestPutModel(
-        id="3e5a61f5-bb50-44f4-8898-6dda6d40fe23",
-        work_item_ids_for_link_with_auto_test=[
-            "work_item_ids_for_link_with_auto_test_example",
-        ],
-        external_id="external_id_example",
-        links=[
-            LinkPutModel(
-                id="3e5a61f5-bb50-44f4-8898-6dda6d40fe23",
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=None,
-                has_info=True,
-            ),
-        ],
-        project_id="project_id_example",
-        name="name_example",
-        namespace="namespace_example",
-        classname="classname_example",
-        steps=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        setup=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        teardown=[
-            AutoTestStepModel(
-                title="title_example",
-                description="description_example",
-                steps=[
-                    AutoTestStepModel(),
-                ],
-            ),
-        ],
-        title="title_example",
-        description="description_example",
-        labels=[
-            LabelPostModel(
-                name="name_example",
-            ),
-        ],
-        is_flaky=True,
-        external_key="external_key_example",
-    ) # AutoTestPutModel |  (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    auto_test_put_model = testit_api_client.AutoTestPutModel() # AutoTestPutModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update autotest
         api_instance.update_auto_test(auto_test_put_model=auto_test_put_model)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->update_auto_test: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_test_put_model** | [**AutoTestPutModel**](AutoTestPutModel.md)|  | [optional]
+ **auto_test_put_model** | [**AutoTestPutModel**](AutoTestPutModel.md)|  | [optional] 
 
 ### Return type
 
@@ -1895,7 +1617,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1913,7 +1634,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_multiple**
-> update_multiple()
+> update_multiple(auto_test_put_model=auto_test_put_model)
 
 Update multiple autotests
 
@@ -1924,13 +1645,11 @@ Update multiple autotests
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.auto_test_put_model import AutoTestPutModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.auto_test_put_model import AutoTestPutModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1943,7 +1662,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1951,82 +1670,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = auto_tests_api.AutoTestsApi(api_client)
-    auto_test_put_model = [
-        AutoTestPutModel(
-            id="3e5a61f5-bb50-44f4-8898-6dda6d40fe23",
-            work_item_ids_for_link_with_auto_test=[
-                "work_item_ids_for_link_with_auto_test_example",
-            ],
-            external_id="external_id_example",
-            links=[
-                LinkPutModel(
-                    id="3e5a61f5-bb50-44f4-8898-6dda6d40fe23",
-                    title="title_example",
-                    url="url_example",
-                    description="description_example",
-                    type=None,
-                    has_info=True,
-                ),
-            ],
-            project_id="project_id_example",
-            name="name_example",
-            namespace="namespace_example",
-            classname="classname_example",
-            steps=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            setup=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            teardown=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            title="title_example",
-            description="description_example",
-            labels=[
-                LabelPostModel(
-                    name="name_example",
-                ),
-            ],
-            is_flaky=True,
-            external_key="external_key_example",
-        ),
-    ] # [AutoTestPutModel] |  (optional)
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    auto_test_put_model = [testit_api_client.AutoTestPutModel()] # List[AutoTestPutModel] |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update multiple autotests
         api_instance.update_multiple(auto_test_put_model=auto_test_put_model)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling AutoTestsApi->update_multiple: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_test_put_model** | [**[AutoTestPutModel]**](AutoTestPutModel.md)|  | [optional]
+ **auto_test_put_model** | [**List[AutoTestPutModel]**](AutoTestPutModel.md)|  | [optional] 
 
 ### Return type
 
@@ -2040,7 +1701,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

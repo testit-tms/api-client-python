@@ -1,10 +1,13 @@
 # WebhookVariablesType
 
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**value** | **str** |  |  must be one of ["VariablesForUrl", "VariablesForHeaders", "VariablesForBody", ]
+## Enum
+
+* `VARIABLESFORURL` (value: `'VariablesForUrl'`)
+
+* `VARIABLESFORHEADERS` (value: `'VariablesForHeaders'`)
+
+* `VARIABLESFORBODY` (value: `'VariablesForBody'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
