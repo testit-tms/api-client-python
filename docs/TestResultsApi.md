@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_test_results_external_projects_external_project_id_defects_external_forms_post**
-> GetExternalFormApiResult api_v2_test_results_external_projects_external_project_id_defects_external_forms_post(external_project_id)
+> GetExternalFormApiResult api_v2_test_results_external_projects_external_project_id_defects_external_forms_post(external_project_id, test_results_select_api_model=test_results_select_api_model)
 
 
 
@@ -31,14 +31,12 @@ Method | HTTP request | Description
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_test_results_external_projects_external_project_id_defects_external_forms_post_request import ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest
-from testit_api_client.model.get_external_form_api_result import GetExternalFormApiResult
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.get_external_form_api_result import GetExternalFormApiResult
+from testit_api_client.models.test_results_select_api_model import TestResultsSelectApiModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -51,7 +49,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -59,33 +57,27 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    external_project_id = "externalProjectId_example" # str | 
-    api_v2_test_results_external_projects_external_project_id_defects_external_forms_post_request = ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest(None) # ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest |  (optional)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    external_project_id = 'external_project_id_example' # str | 
+    test_results_select_api_model = testit_api_client.TestResultsSelectApiModel() # TestResultsSelectApiModel |  (optional)
 
-    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.api_v2_test_results_external_projects_external_project_id_defects_external_forms_post(external_project_id)
+        api_response = api_instance.api_v2_test_results_external_projects_external_project_id_defects_external_forms_post(external_project_id, test_results_select_api_model=test_results_select_api_model)
+        print("The response of TestResultsApi->api_v2_test_results_external_projects_external_project_id_defects_external_forms_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling TestResultsApi->api_v2_test_results_external_projects_external_project_id_defects_external_forms_post: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_response = api_instance.api_v2_test_results_external_projects_external_project_id_defects_external_forms_post(external_project_id, api_v2_test_results_external_projects_external_project_id_defects_external_forms_post_request=api_v2_test_results_external_projects_external_project_id_defects_external_forms_post_request)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_external_projects_external_project_id_defects_external_forms_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **external_project_id** | **str**|  |
- **api_v2_test_results_external_projects_external_project_id_defects_external_forms_post_request** | [**ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest**](ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest.md)|  | [optional]
+ **external_project_id** | **str**|  | 
+ **test_results_select_api_model** | [**TestResultsSelectApiModel**](TestResultsSelectApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -99,7 +91,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -116,7 +107,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_results_external_projects_external_project_id_defects_post**
-> DefectApiModel api_v2_test_results_external_projects_external_project_id_defects_post(external_project_id)
+> DefectApiModel api_v2_test_results_external_projects_external_project_id_defects_post(external_project_id, create_defect_api_model=create_defect_api_model)
 
 
 
@@ -125,14 +116,12 @@ Name | Type | Description  | Notes
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.api_v2_test_results_external_projects_external_project_id_defects_post_request import ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.defect_api_model import DefectApiModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.create_defect_api_model import CreateDefectApiModel
+from testit_api_client.models.defect_api_model import DefectApiModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -145,7 +134,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -153,33 +142,27 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    external_project_id = "externalProjectId_example" # str | 
-    api_v2_test_results_external_projects_external_project_id_defects_post_request = ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest(None) # ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest |  (optional)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    external_project_id = 'external_project_id_example' # str | 
+    create_defect_api_model = testit_api_client.CreateDefectApiModel() # CreateDefectApiModel |  (optional)
 
-    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.api_v2_test_results_external_projects_external_project_id_defects_post(external_project_id)
+        api_response = api_instance.api_v2_test_results_external_projects_external_project_id_defects_post(external_project_id, create_defect_api_model=create_defect_api_model)
+        print("The response of TestResultsApi->api_v2_test_results_external_projects_external_project_id_defects_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling TestResultsApi->api_v2_test_results_external_projects_external_project_id_defects_post: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_response = api_instance.api_v2_test_results_external_projects_external_project_id_defects_post(external_project_id, api_v2_test_results_external_projects_external_project_id_defects_post_request=api_v2_test_results_external_projects_external_project_id_defects_post_request)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_external_projects_external_project_id_defects_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **external_project_id** | **str**|  |
- **api_v2_test_results_external_projects_external_project_id_defects_post_request** | [**ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest**](ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest.md)|  | [optional]
+ **external_project_id** | **str**|  | 
+ **create_defect_api_model** | [**CreateDefectApiModel**](CreateDefectApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -193,7 +176,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -219,13 +201,11 @@ Get test result by ID aggregated with previous results
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_result_response import TestResultResponse
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.test_result_response import TestResultResponse
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -238,7 +218,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -246,24 +226,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "id_example" # str | Test result unique ID
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = 'id_example' # str | Test result unique ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get test result by ID aggregated with previous results
         api_response = api_instance.api_v2_test_results_id_aggregated_get(id)
+        print("The response of TestResultsApi->api_v2_test_results_id_aggregated_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_aggregated_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result unique ID |
+ **id** | **str**| Test result unique ID | 
 
 ### Return type
 
@@ -277,7 +259,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -303,12 +284,10 @@ Attach file to the test result
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -321,7 +300,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -329,25 +308,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "id_example" # str | Test result unique ID
-    attachment_id = "attachmentId_example" # str | Attachment unique ID
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = 'id_example' # str | Test result unique ID
+    attachment_id = 'attachment_id_example' # str | Attachment unique ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Attach file to the test result
         api_instance.api_v2_test_results_id_attachments_attachment_id_put(id, attachment_id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_attachments_attachment_id_put: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result unique ID |
- **attachment_id** | **str**| Attachment unique ID |
+ **id** | **str**| Test result unique ID | 
+ **attachment_id** | **str**| Attachment unique ID | 
 
 ### Return type
 
@@ -361,7 +341,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -378,7 +357,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_results_id_attachments_info_get**
-> [AttachmentModel] api_v2_test_results_id_attachments_info_get(id)
+> List[AttachmentModel] api_v2_test_results_id_attachments_info_get(id)
 
 Get test result attachments meta-information
 
@@ -387,13 +366,11 @@ Get test result attachments meta-information
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.attachment_model import AttachmentModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.attachment_model import AttachmentModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -406,7 +383,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -414,28 +391,30 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "id_example" # str | Test result unique ID
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = 'id_example' # str | Test result unique ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get test result attachments meta-information
         api_response = api_instance.api_v2_test_results_id_attachments_info_get(id)
+        print("The response of TestResultsApi->api_v2_test_results_id_attachments_info_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_attachments_info_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result unique ID |
+ **id** | **str**| Test result unique ID | 
 
 ### Return type
 
-[**[AttachmentModel]**](AttachmentModel.md)
+[**List[AttachmentModel]**](AttachmentModel.md)
 
 ### Authorization
 
@@ -445,7 +424,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -471,13 +449,11 @@ Get test result by ID
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_result_response import TestResultResponse
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.test_result_response import TestResultResponse
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -490,7 +466,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -498,24 +474,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "id_example" # str | Test result unique ID
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = 'id_example' # str | Test result unique ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get test result by ID
         api_response = api_instance.api_v2_test_results_id_get(id)
+        print("The response of TestResultsApi->api_v2_test_results_id_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result unique ID |
+ **id** | **str**| Test result unique ID | 
 
 ### Return type
 
@@ -529,7 +507,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -546,7 +523,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_results_id_put**
-> api_v2_test_results_id_put(id)
+> api_v2_test_results_id_put(id, test_result_update_v2_request=test_result_update_v2_request)
 
 Edit test result by ID
 
@@ -555,13 +532,11 @@ Edit test result by ID
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.test_result_update_v2_request import TestResultUpdateV2Request
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.test_result_update_v2_request import TestResultUpdateV2Request
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -574,7 +549,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -582,130 +557,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "id_example" # str | Test result unique ID
-    test_result_update_v2_request = TestResultUpdateV2Request(
-        failure_class_ids=[
-            "failure_class_ids_example",
-        ],
-        outcome=TestResultOutcome("InProgress"),
-        status_code="status_code_example",
-        comment="comment_example",
-        links=[
-            Link(
-                id="id_example",
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=None,
-                has_info=True,
-            ),
-        ],
-        step_results=[
-            StepResult(
-                step_id="step_id_example",
-                outcome="outcome_example",
-                shared_step_version_id="shared_step_version_id_example",
-                shared_step_results=[
-                    SharedStepResult(
-                        step_id="step_id_example",
-                        outcome="outcome_example",
-                    ),
-                ],
-                comment=None,
-            ),
-        ],
-        attachments=[
-            AttachmentUpdateRequest(
-                id="id_example",
-            ),
-        ],
-        duration_in_ms=0,
-        duration=0,
-        step_comments=[
-            TestResultStepCommentUpdateRequest(
-                id="id_example",
-                text="text_example",
-                step_id="step_id_example",
-                parent_step_id="parent_step_id_example",
-                attachments=[
-                    AttachmentUpdateRequest(
-                        id="id_example",
-                    ),
-                ],
-            ),
-        ],
-        setup_results=[
-            AttachmentPutModelAutoTestStepResultsModel(
-                title="title_example",
-                description="description_example",
-                info="info_example",
-                started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                duration=0,
-                outcome=None,
-                step_results=[
-                    AttachmentPutModelAutoTestStepResultsModel(),
-                ],
-                attachments=[
-                    AttachmentPutModel(
-                        id="id_example",
-                    ),
-                ],
-                parameters={
-                    "key": "key_example",
-                },
-            ),
-        ],
-        teardown_results=[
-            AttachmentPutModelAutoTestStepResultsModel(
-                title="title_example",
-                description="description_example",
-                info="info_example",
-                started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                duration=0,
-                outcome=None,
-                step_results=[
-                    AttachmentPutModelAutoTestStepResultsModel(),
-                ],
-                attachments=[
-                    AttachmentPutModel(
-                        id="id_example",
-                    ),
-                ],
-                parameters={
-                    "key": "key_example",
-                },
-            ),
-        ],
-        message="message_example",
-        trace="trace_example",
-    ) # TestResultUpdateV2Request |  (optional)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = 'id_example' # str | Test result unique ID
+    test_result_update_v2_request = testit_api_client.TestResultUpdateV2Request() # TestResultUpdateV2Request |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit test result by ID
-        api_instance.api_v2_test_results_id_put(id)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling TestResultsApi->api_v2_test_results_id_put: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit test result by ID
         api_instance.api_v2_test_results_id_put(id, test_result_update_v2_request=test_result_update_v2_request)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_put: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result unique ID |
- **test_result_update_v2_request** | [**TestResultUpdateV2Request**](TestResultUpdateV2Request.md)|  | [optional]
+ **id** | **str**| Test result unique ID | 
+ **test_result_update_v2_request** | [**TestResultUpdateV2Request**](TestResultUpdateV2Request.md)|  | [optional] 
 
 ### Return type
 
@@ -719,7 +590,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -745,13 +615,11 @@ Get reruns
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.reruns_model import RerunsModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.reruns_model import RerunsModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -764,7 +632,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -772,24 +640,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "id_example" # str | Test result unique ID
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = 'id_example' # str | Test result unique ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get reruns
         api_response = api_instance.api_v2_test_results_id_reruns_get(id)
+        print("The response of TestResultsApi->api_v2_test_results_id_reruns_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_reruns_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result unique ID |
+ **id** | **str**| Test result unique ID | 
 
 ### Return type
 
@@ -803,7 +673,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -820,7 +689,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_results_search_post**
-> [TestResultShortResponse] api_v2_test_results_search_post()
+> List[TestResultShortResponse] api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_results_filter_request=test_results_filter_request)
 
 Search for test results
 
@@ -829,14 +698,12 @@ Search for test results
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.test_result_short_response import TestResultShortResponse
+from testit_api_client.models.test_result_short_response import TestResultShortResponse
+from testit_api_client.models.test_results_filter_request import TestResultsFilterRequest
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -849,7 +716,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -857,39 +724,40 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_test_results_search_post_request = ApiV2TestResultsSearchPostRequest(None) # ApiV2TestResultsSearchPostRequest |  (optional)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
+    test_results_filter_request = testit_api_client.TestResultsFilterRequest() # TestResultsFilterRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for test results
-        api_response = api_instance.api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_test_results_search_post_request=api_v2_test_results_search_post_request)
+        api_response = api_instance.api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_results_filter_request=test_results_filter_request)
+        print("The response of TestResultsApi->api_v2_test_results_search_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_search_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
- **api_v2_test_results_search_post_request** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
+ **test_results_filter_request** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md)|  | [optional] 
 
 ### Return type
 
-[**[TestResultShortResponse]**](TestResultShortResponse.md)
+[**List[TestResultShortResponse]**](TestResultShortResponse.md)
 
 ### Authorization
 
@@ -899,7 +767,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -916,7 +783,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_results_statistics_filter_post**
-> TestResultsStatisticsResponse api_v2_test_results_statistics_filter_post()
+> TestResultsStatisticsResponse api_v2_test_results_statistics_filter_post(test_results_filter_request=test_results_filter_request)
 
 Search for test results and extract statistics
 
@@ -925,14 +792,12 @@ Search for test results and extract statistics
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.test_results_statistics_response import TestResultsStatisticsResponse
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.test_results_filter_request import TestResultsFilterRequest
+from testit_api_client.models.test_results_statistics_response import TestResultsStatisticsResponse
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -945,7 +810,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -953,25 +818,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    api_v2_test_results_search_post_request = ApiV2TestResultsSearchPostRequest(None) # ApiV2TestResultsSearchPostRequest |  (optional)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    test_results_filter_request = testit_api_client.TestResultsFilterRequest() # TestResultsFilterRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for test results and extract statistics
-        api_response = api_instance.api_v2_test_results_statistics_filter_post(api_v2_test_results_search_post_request=api_v2_test_results_search_post_request)
+        api_response = api_instance.api_v2_test_results_statistics_filter_post(test_results_filter_request=test_results_filter_request)
+        print("The response of TestResultsApi->api_v2_test_results_statistics_filter_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_statistics_filter_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_test_results_search_post_request** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional]
+ **test_results_filter_request** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -985,7 +851,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1002,7 +867,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_attachment**
-> create_attachment(id)
+> create_attachment(id, file=file)
 
 Upload and link attachment to TestResult
 
@@ -1013,12 +878,10 @@ Upload and link attachment to TestResult
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1031,7 +894,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1039,33 +902,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
-    file = open('/path/to/file', 'rb') # file_type | Select file (optional)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | Test result internal identifier (guid format)
+    file = None # bytearray | Select file (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Upload and link attachment to TestResult
-        api_instance.create_attachment(id)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling TestResultsApi->create_attachment: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Upload and link attachment to TestResult
         api_instance.create_attachment(id, file=file)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->create_attachment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result internal identifier (guid format) |
- **file** | **file_type**| Select file | [optional]
+ **id** | **str**| Test result internal identifier (guid format) | 
+ **file** | **bytearray**| Select file | [optional] 
 
 ### Return type
 
@@ -1079,7 +935,6 @@ void (empty response body)
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1108,12 +963,10 @@ Remove attachment and unlink from TestResult
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1126,7 +979,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1134,25 +987,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
-    attachment_id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Attachment internal identifier (guid format)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | Test result internal identifier (guid format)
+    attachment_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | Attachment internal identifier (guid format)
 
-    # example passing only required values which don't have defaults set
     try:
         # Remove attachment and unlink from TestResult
         api_instance.delete_attachment(id, attachment_id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->delete_attachment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result internal identifier (guid format) |
- **attachment_id** | **str**| Attachment internal identifier (guid format) |
+ **id** | **str**| Test result internal identifier (guid format) | 
+ **attachment_id** | **str**| Attachment internal identifier (guid format) | 
 
 ### Return type
 
@@ -1166,7 +1020,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1183,7 +1036,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_attachment**
-> download_attachment(attachment_id, id)
+> download_attachment(attachment_id, id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
 
 Get attachment of TestResult
 
@@ -1194,13 +1047,10 @@ Get attachment of TestResult
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.image_resize_type import ImageResizeType
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1213,7 +1063,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1221,43 +1071,36 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    attachment_id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Attachment internal identifier (guid format)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
-    width = 1 # int | Width of the result image (optional)
-    height = 1 # int | Height of the result image (optional)
-    resize_type = None # ImageResizeType | Type of resizing to apply to the result image (optional)
-    background_color = "#62ECB0" # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    attachment_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | Attachment internal identifier (guid format)
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | Test result internal identifier (guid format)
+    width = 56 # int | Width of the result image (optional)
+    height = 56 # int | Height of the result image (optional)
+    resize_type = testit_api_client.ImageResizeType() # ImageResizeType | Type of resizing to apply to the result image (optional)
+    background_color = 'background_color_example' # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
     preview = True # bool | If image must be converted to a preview (lower quality, no animation) (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get attachment of TestResult
-        api_instance.download_attachment(attachment_id, id)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling TestResultsApi->download_attachment: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get attachment of TestResult
         api_instance.download_attachment(attachment_id, id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->download_attachment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attachment_id** | **str**| Attachment internal identifier (guid format) |
- **id** | **str**| Test result internal identifier (guid format) |
- **width** | **int**| Width of the result image | [optional]
- **height** | **int**| Height of the result image | [optional]
- **resize_type** | **ImageResizeType**| Type of resizing to apply to the result image | [optional]
- **background_color** | **str**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional]
- **preview** | **bool**| If image must be converted to a preview (lower quality, no animation) | [optional]
+ **attachment_id** | **str**| Attachment internal identifier (guid format) | 
+ **id** | **str**| Test result internal identifier (guid format) | 
+ **width** | **int**| Width of the result image | [optional] 
+ **height** | **int**| Height of the result image | [optional] 
+ **resize_type** | [**ImageResizeType**](.md)| Type of resizing to apply to the result image | [optional] 
+ **background_color** | **str**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional] 
+ **preview** | **bool**| If image must be converted to a preview (lower quality, no animation) | [optional] 
 
 ### Return type
 
@@ -1271,7 +1114,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1299,13 +1141,11 @@ Get Metadata of TestResult's attachment
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.attachment_model import AttachmentModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.attachment_model import AttachmentModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1318,7 +1158,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1326,26 +1166,28 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
-    attachment_id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Attachment internal identifier (guid format)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | Test result internal identifier (guid format)
+    attachment_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | Attachment internal identifier (guid format)
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Metadata of TestResult's attachment
         api_response = api_instance.get_attachment(id, attachment_id)
+        print("The response of TestResultsApi->get_attachment:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->get_attachment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result internal identifier (guid format) |
- **attachment_id** | **str**| Attachment internal identifier (guid format) |
+ **id** | **str**| Test result internal identifier (guid format) | 
+ **attachment_id** | **str**| Attachment internal identifier (guid format) | 
 
 ### Return type
 
@@ -1359,7 +1201,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1376,7 +1217,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_attachments**
-> [AttachmentModel] get_attachments(id)
+> List[AttachmentModel] get_attachments(id)
 
 Get all attachments of TestResult
 
@@ -1387,13 +1228,11 @@ Get all attachments of TestResult
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import test_results_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.attachment_model import AttachmentModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.attachment_model import AttachmentModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -1406,7 +1245,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -1414,28 +1253,30 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = test_results_api.TestResultsApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
+    api_instance = testit_api_client.TestResultsApi(api_client)
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | Test result internal identifier (guid format)
 
-    # example passing only required values which don't have defaults set
     try:
         # Get all attachments of TestResult
         api_response = api_instance.get_attachments(id)
+        print("The response of TestResultsApi->get_attachments:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TestResultsApi->get_attachments: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test result internal identifier (guid format) |
+ **id** | **str**| Test result internal identifier (guid format) | 
 
 ### Return type
 
-[**[AttachmentModel]**](AttachmentModel.md)
+[**List[AttachmentModel]**](AttachmentModel.md)
 
 ### Authorization
 
@@ -1445,7 +1286,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

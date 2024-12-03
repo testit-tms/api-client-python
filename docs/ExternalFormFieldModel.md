@@ -2,23 +2,41 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**field_id** | **str** |  | [optional] 
+**field_name** | **str** |  | [optional] 
+**help_text** | **str** |  | [optional] 
+**type** | **str** |  | [optional] 
+**array_values_type** | **str** |  | [optional] 
+**default_value** | **object** |  | [optional] 
 **is_custom_value_allowed** | **bool** |  | 
-**field_id** | **str, none_type** |  | [optional] 
-**field_name** | **str, none_type** |  | [optional] 
-**help_text** | **str, none_type** |  | [optional] 
-**type** | **str, none_type** |  | [optional] 
-**array_values_type** | **str, none_type** |  | [optional] 
-**default_value** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
-**auto_complete_url** | **str, none_type** |  | [optional] 
-**control_type** | **str, none_type** |  | [optional] 
-**min_length** | **int, none_type** |  | [optional] 
-**max_length** | **int, none_type** |  | [optional] 
-**is_required** | **bool, none_type** |  | [optional] 
-**min** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
-**max** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
+**auto_complete_url** | **str** |  | [optional] 
+**control_type** | **str** |  | [optional] 
+**min_length** | **int** |  | [optional] 
+**max_length** | **int** |  | [optional] 
+**is_required** | **bool** |  | [optional] 
+**min** | **object** |  | [optional] 
+**max** | **object** |  | [optional] 
 
+## Example
+
+```python
+from testit_api_client.models.external_form_field_model import ExternalFormFieldModel
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ExternalFormFieldModel from a JSON string
+external_form_field_model_instance = ExternalFormFieldModel.from_json(json)
+# print the JSON string representation of the object
+print(ExternalFormFieldModel.to_json())
+
+# convert the object into a dict
+external_form_field_model_dict = external_form_field_model_instance.to_dict()
+# create an instance of ExternalFormFieldModel from a dict
+external_form_field_model_from_dict = ExternalFormFieldModel.from_dict(external_form_field_model_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

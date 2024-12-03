@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_webhooks_delete**
-> api_v2_webhooks_delete()
+> api_v2_webhooks_delete(webhooks_delete_request=webhooks_delete_request)
 
 
 
@@ -26,13 +26,11 @@ Method | HTTP request | Description
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_webhooks_delete_request import ApiV2WebhooksDeleteRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.webhooks_delete_request import WebhooksDeleteRequest
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -45,7 +43,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -53,23 +51,23 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    api_v2_webhooks_delete_request = ApiV2WebhooksDeleteRequest(None) # ApiV2WebhooksDeleteRequest |  (optional)
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    webhooks_delete_request = testit_api_client.WebhooksDeleteRequest() # WebhooksDeleteRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
-        api_instance.api_v2_webhooks_delete(api_v2_webhooks_delete_request=api_v2_webhooks_delete_request)
-    except testit_api_client.ApiException as e:
+        api_instance.api_v2_webhooks_delete(webhooks_delete_request=webhooks_delete_request)
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_delete: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_webhooks_delete_request** | [**ApiV2WebhooksDeleteRequest**](ApiV2WebhooksDeleteRequest.md)|  | [optional]
+ **webhooks_delete_request** | [**WebhooksDeleteRequest**](WebhooksDeleteRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -83,7 +81,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -100,7 +97,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_get**
-> [WebHookModel] api_v2_webhooks_get()
+> List[WebHookModel] api_v2_webhooks_get(project_id=project_id)
 
 Get all webhooks
 
@@ -109,13 +106,11 @@ Get all webhooks
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.web_hook_model import WebHookModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -128,7 +123,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -136,29 +131,30 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    project_id = "projectId_example" # str | Project unique ID (optional)
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    project_id = 'project_id_example' # str | Project unique ID (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get all webhooks
         api_response = api_instance.api_v2_webhooks_get(project_id=project_id)
+        print("The response of WebhooksApi->api_v2_webhooks_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project unique ID | [optional]
+ **project_id** | **str**| Project unique ID | [optional] 
 
 ### Return type
 
-[**[WebHookModel]**](WebHookModel.md)
+[**List[WebHookModel]**](WebHookModel.md)
 
 ### Authorization
 
@@ -168,7 +164,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -195,12 +190,10 @@ Delete webhook by ID
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -213,7 +206,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -221,23 +214,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    id = "id_example" # str | Webhook unique ID
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    id = 'id_example' # str | Webhook unique ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete webhook by ID
         api_instance.api_v2_webhooks_id_delete(id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_id_delete: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Webhook unique ID |
+ **id** | **str**| Webhook unique ID | 
 
 ### Return type
 
@@ -251,7 +245,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -277,13 +270,11 @@ Get webhook by ID
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.web_hook_model import WebHookModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -296,7 +287,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -304,24 +295,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    id = "id_example" # str | Webhook unique ID
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    id = 'id_example' # str | Webhook unique ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get webhook by ID
         api_response = api_instance.api_v2_webhooks_id_get(id)
+        print("The response of WebhooksApi->api_v2_webhooks_id_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_id_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Webhook unique ID |
+ **id** | **str**| Webhook unique ID | 
 
 ### Return type
 
@@ -335,7 +328,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -352,7 +344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_id_put**
-> WebHookModel api_v2_webhooks_id_put(id)
+> WebHookModel api_v2_webhooks_id_put(id, web_hook_post_model=web_hook_post_model)
 
 Edit webhook by ID
 
@@ -361,14 +353,12 @@ Edit webhook by ID
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
+from testit_api_client.models.web_hook_model import WebHookModel
+from testit_api_client.models.web_hook_post_model import WebHookPostModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -381,7 +371,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -389,35 +379,28 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    id = "id_example" # str | Webhook unique ID
-    api_v2_webhooks_post_request = ApiV2WebhooksPostRequest(None) # ApiV2WebhooksPostRequest |  (optional)
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    id = 'id_example' # str | Webhook unique ID
+    web_hook_post_model = testit_api_client.WebHookPostModel() # WebHookPostModel |  (optional)
 
-    # example passing only required values which don't have defaults set
     try:
         # Edit webhook by ID
-        api_response = api_instance.api_v2_webhooks_id_put(id)
+        api_response = api_instance.api_v2_webhooks_id_put(id, web_hook_post_model=web_hook_post_model)
+        print("The response of WebhooksApi->api_v2_webhooks_id_put:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling WebhooksApi->api_v2_webhooks_id_put: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Edit webhook by ID
-        api_response = api_instance.api_v2_webhooks_id_put(id, api_v2_webhooks_post_request=api_v2_webhooks_post_request)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_id_put: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Webhook unique ID |
- **api_v2_webhooks_post_request** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md)|  | [optional]
+ **id** | **str**| Webhook unique ID | 
+ **web_hook_post_model** | [**WebHookPostModel**](WebHookPostModel.md)|  | [optional] 
 
 ### Return type
 
@@ -431,7 +414,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -448,7 +430,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_post**
-> WebHookModel api_v2_webhooks_post()
+> WebHookModel api_v2_webhooks_post(web_hook_post_model=web_hook_post_model)
 
 Create webhook
 
@@ -457,14 +439,12 @@ Create webhook
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
+from testit_api_client.models.web_hook_model import WebHookModel
+from testit_api_client.models.web_hook_post_model import WebHookPostModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -477,7 +457,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -485,25 +465,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    api_v2_webhooks_post_request = ApiV2WebhooksPostRequest(None) # ApiV2WebhooksPostRequest |  (optional)
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    web_hook_post_model = testit_api_client.WebHookPostModel() # WebHookPostModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create webhook
-        api_response = api_instance.api_v2_webhooks_post(api_v2_webhooks_post_request=api_v2_webhooks_post_request)
+        api_response = api_instance.api_v2_webhooks_post(web_hook_post_model=web_hook_post_model)
+        print("The response of WebhooksApi->api_v2_webhooks_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_webhooks_post_request** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md)|  | [optional]
+ **web_hook_post_model** | [**WebHookPostModel**](WebHookPostModel.md)|  | [optional] 
 
 ### Return type
 
@@ -517,7 +498,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -534,7 +514,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_put**
-> WebhooksUpdateResponse api_v2_webhooks_put()
+> WebhooksUpdateResponse api_v2_webhooks_put(webhooks_update_request=webhooks_update_request)
 
 
 
@@ -543,14 +523,12 @@ Name | Type | Description  | Notes
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_webhooks_put_request import ApiV2WebhooksPutRequest
-from testit_api_client.model.webhooks_update_response import WebhooksUpdateResponse
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.webhooks_update_request import WebhooksUpdateRequest
+from testit_api_client.models.webhooks_update_response import WebhooksUpdateResponse
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -563,7 +541,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -571,24 +549,25 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    api_v2_webhooks_put_request = ApiV2WebhooksPutRequest(None) # ApiV2WebhooksPutRequest |  (optional)
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    webhooks_update_request = testit_api_client.WebhooksUpdateRequest() # WebhooksUpdateRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
-        api_response = api_instance.api_v2_webhooks_put(api_v2_webhooks_put_request=api_v2_webhooks_put_request)
+        api_response = api_instance.api_v2_webhooks_put(webhooks_update_request=webhooks_update_request)
+        print("The response of WebhooksApi->api_v2_webhooks_put:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_put: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_webhooks_put_request** | [**ApiV2WebhooksPutRequest**](ApiV2WebhooksPutRequest.md)|  | [optional]
+ **webhooks_update_request** | [**WebhooksUpdateRequest**](WebhooksUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -602,7 +581,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -619,7 +597,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_search_post**
-> [WebHookModel] api_v2_webhooks_search_post()
+> List[WebHookModel] api_v2_webhooks_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, search_webhooks_query_model=search_webhooks_query_model)
 
 Search for webhooks
 
@@ -628,14 +606,12 @@ Search for webhooks
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_webhooks_search_post_request import ApiV2WebhooksSearchPostRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.search_webhooks_query_model import SearchWebhooksQueryModel
+from testit_api_client.models.web_hook_model import WebHookModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -648,7 +624,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -656,39 +632,40 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_webhooks_search_post_request = ApiV2WebhooksSearchPostRequest(None) # ApiV2WebhooksSearchPostRequest |  (optional)
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
+    search_webhooks_query_model = testit_api_client.SearchWebhooksQueryModel() # SearchWebhooksQueryModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for webhooks
-        api_response = api_instance.api_v2_webhooks_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_webhooks_search_post_request=api_v2_webhooks_search_post_request)
+        api_response = api_instance.api_v2_webhooks_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, search_webhooks_query_model=search_webhooks_query_model)
+        print("The response of WebhooksApi->api_v2_webhooks_search_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_search_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
- **api_v2_webhooks_search_post_request** | [**ApiV2WebhooksSearchPostRequest**](ApiV2WebhooksSearchPostRequest.md)|  | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
+ **search_webhooks_query_model** | [**SearchWebhooksQueryModel**](SearchWebhooksQueryModel.md)|  | [optional] 
 
 ### Return type
 
-[**[WebHookModel]**](WebHookModel.md)
+[**List[WebHookModel]**](WebHookModel.md)
 
 ### Authorization
 
@@ -698,7 +675,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -715,7 +691,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_special_variables_get**
-> [str] api_v2_webhooks_special_variables_get()
+> List[str] api_v2_webhooks_special_variables_get(event_type=event_type, variables_type=variables_type)
 
 Get special variables for webhook event type
 
@@ -724,14 +700,10 @@ Get special variables for webhook event type
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.webhook_variables_type import WebhookVariablesType
-from testit_api_client.model.web_hook_event_type import WebHookEventType
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -744,7 +716,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -752,31 +724,32 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    event_type = None # WebHookEventType | Webhook event type (optional)
-    variables_type = None # WebhookVariablesType |  (optional) if omitted the server will use the default value of VariablesForUrl
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    event_type = testit_api_client.WebHookEventType() # WebHookEventType | Webhook event type (optional)
+    variables_type = testit_api_client.WebhookVariablesType() # WebhookVariablesType |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get special variables for webhook event type
         api_response = api_instance.api_v2_webhooks_special_variables_get(event_type=event_type, variables_type=variables_type)
+        print("The response of WebhooksApi->api_v2_webhooks_special_variables_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_special_variables_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event_type** | **WebHookEventType**| Webhook event type | [optional]
- **variables_type** | **WebhookVariablesType**|  | [optional] if omitted the server will use the default value of VariablesForUrl
+ **event_type** | [**WebHookEventType**](.md)| Webhook event type | [optional] 
+ **variables_type** | [**WebhookVariablesType**](.md)|  | [optional] 
 
 ### Return type
 
-**[str]**
+**List[str]**
 
 ### Authorization
 
@@ -786,7 +759,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -803,7 +775,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_test_post**
-> WebhookResponse api_v2_webhooks_test_post()
+> WebhookResponse api_v2_webhooks_test_post(web_hook_test_model=web_hook_test_model)
 
 Test webhook's url
 
@@ -812,14 +784,12 @@ Test webhook's url
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.webhook_response import WebhookResponse
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.api_v2_webhooks_test_post_request import ApiV2WebhooksTestPostRequest
+from testit_api_client.models.web_hook_test_model import WebHookTestModel
+from testit_api_client.models.webhook_response import WebhookResponse
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -832,7 +802,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -840,25 +810,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhooks_api.WebhooksApi(api_client)
-    api_v2_webhooks_test_post_request = ApiV2WebhooksTestPostRequest(None) # ApiV2WebhooksTestPostRequest |  (optional)
+    api_instance = testit_api_client.WebhooksApi(api_client)
+    web_hook_test_model = testit_api_client.WebHookTestModel() # WebHookTestModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Test webhook's url
-        api_response = api_instance.api_v2_webhooks_test_post(api_v2_webhooks_test_post_request=api_v2_webhooks_test_post_request)
+        api_response = api_instance.api_v2_webhooks_test_post(web_hook_test_model=web_hook_test_model)
+        print("The response of WebhooksApi->api_v2_webhooks_test_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_test_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_webhooks_test_post_request** | [**ApiV2WebhooksTestPostRequest**](ApiV2WebhooksTestPostRequest.md)|  | [optional]
+ **web_hook_test_model** | [**WebHookTestModel**](WebHookTestModel.md)|  | [optional] 
 
 ### Return type
 
@@ -872,7 +843,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

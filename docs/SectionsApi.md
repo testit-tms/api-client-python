@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_sections_id_patch**
-> api_v2_sections_id_patch(id)
+> api_v2_sections_id_patch(id, operation=operation)
 
 Patch section
 
@@ -26,13 +26,11 @@ See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 690
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.operation import Operation
+from testit_api_client.models.operation import Operation
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -45,7 +43,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -53,40 +51,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sections_api.SectionsApi(api_client)
-    id = "id_example" # str | Section internal (UUID) identifier
-    operation = [
-        Operation(
-            value=None,
-            path="path_example",
-            op="op_example",
-            _from="_from_example",
-        ),
-    ] # [Operation] |  (optional)
+    api_instance = testit_api_client.SectionsApi(api_client)
+    id = 'id_example' # str | Section internal (UUID) identifier
+    operation = [testit_api_client.Operation()] # List[Operation] |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Patch section
-        api_instance.api_v2_sections_id_patch(id)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling SectionsApi->api_v2_sections_id_patch: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Patch section
         api_instance.api_v2_sections_id_patch(id, operation=operation)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling SectionsApi->api_v2_sections_id_patch: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Section internal (UUID) identifier |
- **operation** | [**[Operation]**](Operation.md)|  | [optional]
+ **id** | **str**| Section internal (UUID) identifier | 
+ **operation** | [**List[Operation]**](Operation.md)|  | [optional] 
 
 ### Return type
 
@@ -100,7 +84,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -117,7 +100,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_section**
-> SectionWithStepsModel create_section()
+> SectionWithStepsModel create_section(section_post_model=section_post_model)
 
 Create section
 
@@ -128,14 +111,12 @@ Create section
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.section_with_steps_model import SectionWithStepsModel
-from testit_api_client.model.create_section_request import CreateSectionRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.section_post_model import SectionPostModel
+from testit_api_client.models.section_with_steps_model import SectionWithStepsModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -148,7 +129,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -156,25 +137,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sections_api.SectionsApi(api_client)
-    create_section_request = CreateSectionRequest(None) # CreateSectionRequest |  (optional)
+    api_instance = testit_api_client.SectionsApi(api_client)
+    section_post_model = testit_api_client.SectionPostModel() # SectionPostModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create section
-        api_response = api_instance.create_section(create_section_request=create_section_request)
+        api_response = api_instance.create_section(section_post_model=section_post_model)
+        print("The response of SectionsApi->create_section:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling SectionsApi->create_section: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_section_request** | [**CreateSectionRequest**](CreateSectionRequest.md)|  | [optional]
+ **section_post_model** | [**SectionPostModel**](SectionPostModel.md)|  | [optional] 
 
 ### Return type
 
@@ -188,7 +170,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -216,12 +197,10 @@ Delete section
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -234,7 +213,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -242,23 +221,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sections_api.SectionsApi(api_client)
-    id = "id_example" # str | Section internal (UUID) identifier
+    api_instance = testit_api_client.SectionsApi(api_client)
+    id = 'id_example' # str | Section internal (UUID) identifier
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete section
         api_instance.delete_section(id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling SectionsApi->delete_section: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Section internal (UUID) identifier |
+ **id** | **str**| Section internal (UUID) identifier | 
 
 ### Return type
 
@@ -272,7 +252,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -289,7 +268,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_section_by_id**
-> SectionWithStepsModel get_section_by_id(id)
+> SectionWithStepsModel get_section_by_id(id, is_deleted=is_deleted)
 
 Get section
 
@@ -300,14 +279,11 @@ Get section
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.section_with_steps_model import SectionWithStepsModel
-from testit_api_client.model.deletion_state import DeletionState
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.section_with_steps_model import SectionWithStepsModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -320,7 +296,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -328,35 +304,28 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sections_api.SectionsApi(api_client)
-    id = "id_example" # str | Section internal (UUID) identifier
-    is_deleted = None # DeletionState |  (optional) if omitted the server will use the default value of NotDeleted
+    api_instance = testit_api_client.SectionsApi(api_client)
+    id = 'id_example' # str | Section internal (UUID) identifier
+    is_deleted = testit_api_client.DeletionState() # DeletionState |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get section
-        api_response = api_instance.get_section_by_id(id)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling SectionsApi->get_section_by_id: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get section
         api_response = api_instance.get_section_by_id(id, is_deleted=is_deleted)
+        print("The response of SectionsApi->get_section_by_id:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling SectionsApi->get_section_by_id: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Section internal (UUID) identifier |
- **is_deleted** | **DeletionState**|  | [optional] if omitted the server will use the default value of NotDeleted
+ **id** | **str**| Section internal (UUID) identifier | 
+ **is_deleted** | [**DeletionState**](.md)|  | [optional] 
 
 ### Return type
 
@@ -370,7 +339,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -387,7 +355,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_work_items_by_section_id**
-> [WorkItemShortModel] get_work_items_by_section_id(id)
+> List[WorkItemShortModel] get_work_items_by_section_id(id, is_deleted=is_deleted, tag_names=tag_names, include_iterations=include_iterations, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get section work items
 
@@ -398,13 +366,11 @@ Get section work items
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.work_item_short_model import WorkItemShortModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -417,7 +383,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -425,55 +391,46 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sections_api.SectionsApi(api_client)
-    id = "id_example" # str | Section internal (UUID) identifier
-    is_deleted = False # bool | Requested section is deleted (optional) if omitted the server will use the default value of False
-    tag_names = [
-        "tagNames_example",
-    ] # [str] | List of work item tags (optional)
-    include_iterations = True # bool |  (optional) if omitted the server will use the default value of True
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
+    api_instance = testit_api_client.SectionsApi(api_client)
+    id = 'id_example' # str | Section internal (UUID) identifier
+    is_deleted = False # bool | Requested section is deleted (optional) (default to False)
+    tag_names = ['tag_names_example'] # List[str] | List of work item tags (optional)
+    include_iterations = True # bool |  (optional) (default to True)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get section work items
-        api_response = api_instance.get_work_items_by_section_id(id)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling SectionsApi->get_work_items_by_section_id: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get section work items
         api_response = api_instance.get_work_items_by_section_id(id, is_deleted=is_deleted, tag_names=tag_names, include_iterations=include_iterations, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        print("The response of SectionsApi->get_work_items_by_section_id:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling SectionsApi->get_work_items_by_section_id: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Section internal (UUID) identifier |
- **is_deleted** | **bool**| Requested section is deleted | [optional] if omitted the server will use the default value of False
- **tag_names** | **[str]**| List of work item tags | [optional]
- **include_iterations** | **bool**|  | [optional] if omitted the server will use the default value of True
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
+ **id** | **str**| Section internal (UUID) identifier | 
+ **is_deleted** | **bool**| Requested section is deleted | [optional] [default to False]
+ **tag_names** | [**List[str]**](str.md)| List of work item tags | [optional] 
+ **include_iterations** | **bool**|  | [optional] [default to True]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
 
 ### Return type
 
-[**[WorkItemShortModel]**](WorkItemShortModel.md)
+[**List[WorkItemShortModel]**](WorkItemShortModel.md)
 
 ### Authorization
 
@@ -483,7 +440,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -500,7 +456,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **move**
-> move()
+> move(section_move_model=section_move_model)
 
 Move section with all work items into another section
 
@@ -509,13 +465,11 @@ Move section with all work items into another section
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.move_request import MoveRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.section_move_model import SectionMoveModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -528,7 +482,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -536,24 +490,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sections_api.SectionsApi(api_client)
-    move_request = MoveRequest(None) # MoveRequest |  (optional)
+    api_instance = testit_api_client.SectionsApi(api_client)
+    section_move_model = testit_api_client.SectionMoveModel() # SectionMoveModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Move section with all work items into another section
-        api_instance.move(move_request=move_request)
-    except testit_api_client.ApiException as e:
+        api_instance.move(section_move_model=section_move_model)
+    except Exception as e:
         print("Exception when calling SectionsApi->move: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **move_request** | [**MoveRequest**](MoveRequest.md)|  | [optional]
+ **section_move_model** | [**SectionMoveModel**](SectionMoveModel.md)|  | [optional] 
 
 ### Return type
 
@@ -567,7 +521,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -584,7 +537,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rename**
-> rename()
+> rename(section_rename_model=section_rename_model)
 
 Rename section
 
@@ -595,13 +548,11 @@ Rename section
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.rename_request import RenameRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.section_rename_model import SectionRenameModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -614,7 +565,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -622,24 +573,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sections_api.SectionsApi(api_client)
-    rename_request = RenameRequest(None) # RenameRequest |  (optional)
+    api_instance = testit_api_client.SectionsApi(api_client)
+    section_rename_model = testit_api_client.SectionRenameModel() # SectionRenameModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Rename section
-        api_instance.rename(rename_request=rename_request)
-    except testit_api_client.ApiException as e:
+        api_instance.rename(section_rename_model=section_rename_model)
+    except Exception as e:
         print("Exception when calling SectionsApi->rename: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rename_request** | [**RenameRequest**](RenameRequest.md)|  | [optional]
+ **section_rename_model** | [**SectionRenameModel**](SectionRenameModel.md)|  | [optional] 
 
 ### Return type
 
@@ -653,7 +604,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -670,7 +620,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_section**
-> update_section()
+> update_section(section_put_model=section_put_model)
 
 Update section
 
@@ -681,13 +631,11 @@ Update section
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.update_section_request import UpdateSectionRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.section_put_model import SectionPutModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -700,7 +648,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -708,24 +656,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sections_api.SectionsApi(api_client)
-    update_section_request = UpdateSectionRequest(None) # UpdateSectionRequest |  (optional)
+    api_instance = testit_api_client.SectionsApi(api_client)
+    section_put_model = testit_api_client.SectionPutModel() # SectionPutModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update section
-        api_instance.update_section(update_section_request=update_section_request)
-    except testit_api_client.ApiException as e:
+        api_instance.update_section(section_put_model=section_put_model)
+    except Exception as e:
         print("Exception when calling SectionsApi->update_section: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_section_request** | [**UpdateSectionRequest**](UpdateSectionRequest.md)|  | [optional]
+ **section_put_model** | [**SectionPutModel**](SectionPutModel.md)|  | [optional] 
 
 ### Return type
 
@@ -739,7 +687,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

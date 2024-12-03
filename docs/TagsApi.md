@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_tags_delete**
-> api_v2_tags_delete()
+> api_v2_tags_delete(tag_select_model=tag_select_model)
 
 Delete tags
 
@@ -25,13 +25,11 @@ Delete tags
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import tags_api
-from testit_api_client.model.api_v2_tags_delete_request import ApiV2TagsDeleteRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.tag_select_model import TagSelectModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -44,7 +42,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -52,24 +50,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tags_api.TagsApi(api_client)
-    api_v2_tags_delete_request = ApiV2TagsDeleteRequest(None) # ApiV2TagsDeleteRequest |  (optional)
+    api_instance = testit_api_client.TagsApi(api_client)
+    tag_select_model = testit_api_client.TagSelectModel() # TagSelectModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete tags
-        api_instance.api_v2_tags_delete(api_v2_tags_delete_request=api_v2_tags_delete_request)
-    except testit_api_client.ApiException as e:
+        api_instance.api_v2_tags_delete(tag_select_model=tag_select_model)
+    except Exception as e:
         print("Exception when calling TagsApi->api_v2_tags_delete: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_tags_delete_request** | [**ApiV2TagsDeleteRequest**](ApiV2TagsDeleteRequest.md)|  | [optional]
+ **tag_select_model** | [**TagSelectModel**](TagSelectModel.md)|  | [optional] 
 
 ### Return type
 
@@ -83,7 +81,6 @@ void (empty response body)
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -100,7 +97,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_tags_get**
-> [TagModel] api_v2_tags_get()
+> List[TagModel] api_v2_tags_get()
 
 Get all Tags
 
@@ -111,13 +108,11 @@ Get all Tags
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import tags_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.tag_model import TagModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.tag_model import TagModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -130,7 +125,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -138,24 +133,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tags_api.TagsApi(api_client)
+    api_instance = testit_api_client.TagsApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
         # Get all Tags
         api_response = api_instance.api_v2_tags_get()
+        print("The response of TagsApi->api_v2_tags_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagsApi->api_v2_tags_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**[TagModel]**](TagModel.md)
+[**List[TagModel]**](TagModel.md)
 
 ### Authorization
 
@@ -165,7 +162,6 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -193,12 +189,10 @@ Delete tag
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import tags_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -211,7 +205,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -219,23 +213,24 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tags_api.TagsApi(api_client)
-    id = "id_example" # str | Tag internal (UUID) identifier
+    api_instance = testit_api_client.TagsApi(api_client)
+    id = 'id_example' # str | Tag internal (UUID) identifier
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete tag
         api_instance.api_v2_tags_id_delete(id)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagsApi->api_v2_tags_id_delete: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Tag internal (UUID) identifier |
+ **id** | **str**| Tag internal (UUID) identifier | 
 
 ### Return type
 
@@ -249,7 +244,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -266,7 +260,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_tags_post**
-> TagModel api_v2_tags_post()
+> TagModel api_v2_tags_post(tag_post_model=tag_post_model)
 
 Create tag
 
@@ -277,14 +271,12 @@ Create tag
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import tags_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.tag_model import TagModel
-from testit_api_client.model.api_v2_tags_post_request import ApiV2TagsPostRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.tag_model import TagModel
+from testit_api_client.models.tag_post_model import TagPostModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -297,7 +289,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -305,25 +297,26 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tags_api.TagsApi(api_client)
-    api_v2_tags_post_request = ApiV2TagsPostRequest(None) # ApiV2TagsPostRequest |  (optional)
+    api_instance = testit_api_client.TagsApi(api_client)
+    tag_post_model = testit_api_client.TagPostModel() # TagPostModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create tag
-        api_response = api_instance.api_v2_tags_post(api_v2_tags_post_request=api_v2_tags_post_request)
+        api_response = api_instance.api_v2_tags_post(tag_post_model=tag_post_model)
+        print("The response of TagsApi->api_v2_tags_post:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagsApi->api_v2_tags_post: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_tags_post_request** | [**ApiV2TagsPostRequest**](ApiV2TagsPostRequest.md)|  | [optional]
+ **tag_post_model** | [**TagPostModel**](TagPostModel.md)|  | [optional] 
 
 ### Return type
 
@@ -337,7 +330,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -354,7 +346,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_tags_put**
-> TagModel api_v2_tags_put()
+> TagModel api_v2_tags_put(id=id, tag_put_model=tag_put_model)
 
 Update tag
 
@@ -365,14 +357,12 @@ Update tag
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import tags_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.tag_model import TagModel
-from testit_api_client.model.api_v2_tags_put_request import ApiV2TagsPutRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.tag_model import TagModel
+from testit_api_client.models.tag_put_model import TagPutModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -385,7 +375,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -393,27 +383,28 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tags_api.TagsApi(api_client)
-    id = "id_example" # str |  (optional)
-    api_v2_tags_put_request = ApiV2TagsPutRequest(None) # ApiV2TagsPutRequest |  (optional)
+    api_instance = testit_api_client.TagsApi(api_client)
+    id = 'id_example' # str |  (optional)
+    tag_put_model = testit_api_client.TagPutModel() # TagPutModel |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update tag
-        api_response = api_instance.api_v2_tags_put(id=id, api_v2_tags_put_request=api_v2_tags_put_request)
+        api_response = api_instance.api_v2_tags_put(id=id, tag_put_model=tag_put_model)
+        print("The response of TagsApi->api_v2_tags_put:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagsApi->api_v2_tags_put: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | [optional]
- **api_v2_tags_put_request** | [**ApiV2TagsPutRequest**](ApiV2TagsPutRequest.md)|  | [optional]
+ **id** | **str**|  | [optional] 
+ **tag_put_model** | [**TagPutModel**](TagPutModel.md)|  | [optional] 
 
 ### Return type
 
@@ -427,7 +418,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -444,7 +434,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_tags_search_get**
-> [TagModel] api_v2_tags_search_get()
+> List[TagModel] api_v2_tags_search_get(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Search tags
 
@@ -455,13 +445,11 @@ Search tags
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import tags_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.tag_model import TagModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.tag_model import TagModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -474,7 +462,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -482,37 +470,38 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tags_api.TagsApi(api_client)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
+    api_instance = testit_api_client.TagsApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search tags
         api_response = api_instance.api_v2_tags_search_get(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        print("The response of TagsApi->api_v2_tags_search_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagsApi->api_v2_tags_search_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
 
 ### Return type
 
-[**[TagModel]**](TagModel.md)
+[**List[TagModel]**](TagModel.md)
 
 ### Authorization
 
@@ -522,7 +511,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -539,7 +527,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_tags_test_plans_tags_get**
-> [TagModel] api_v2_tags_test_plans_tags_get()
+> List[TagModel] api_v2_tags_test_plans_tags_get(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get all Tags that are used in TestPlans
 
@@ -550,13 +538,11 @@ Get all Tags that are used in TestPlans
 * Api Key Authentication (Bearer or PrivateToken):
 
 ```python
-import time
 import testit_api_client
-from testit_api_client.api import tags_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.tag_model import TagModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.tag_model import TagModel
+from testit_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -569,7 +555,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -577,37 +563,38 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tags_api.TagsApi(api_client)
-    skip = 1 # int | Amount of items to be skipped (offset) (optional)
-    take = 1 # int | Amount of items to be taken (limit) (optional)
-    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = "SearchField_example" # str | Property name for searching (optional)
-    search_value = "SearchValue_example" # str | Value for searching (optional)
+    api_instance = testit_api_client.TagsApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get all Tags that are used in TestPlans
         api_response = api_instance.api_v2_tags_test_plans_tags_get(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        print("The response of TagsApi->api_v2_tags_test_plans_tags_get:\n")
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagsApi->api_v2_tags_test_plans_tags_get: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional]
- **take** | **int**| Amount of items to be taken (limit) | [optional]
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
- **search_field** | **str**| Property name for searching | [optional]
- **search_value** | **str**| Value for searching | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
 
 ### Return type
 
-[**[TagModel]**](TagModel.md)
+[**List[TagModel]**](TagModel.md)
 
 ### Authorization
 
@@ -617,7 +604,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
