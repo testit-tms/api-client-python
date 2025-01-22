@@ -42,10 +42,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 import testit_api_client
 from testit_api_client.api import attachments_api
-from testit_api_client.model.attachment_model import AttachmentModel
-from testit_api_client.model.image_resize_type import ImageResizeType
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.models.attachment_model import AttachmentModel
+from testit_api_client.models.image_resize_type import ImageResizeType
+from testit_api_client.models.problem_details import ProblemDetails
+from testit_api_client.models.validation_problem_details import ValidationProblemDetails
 
 configuration = testit_api_client.Configuration(
     host = "Your TMS address"
@@ -353,7 +353,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - You can see the documentation [here](docs/Readme.md).
+ - You can see the documentation [here](docs/README.md).
 
 
 # Contributing
