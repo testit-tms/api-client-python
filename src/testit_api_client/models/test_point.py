@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from testit_api_client.models.test_status import TestStatus
+from testit_api_client.models.test_status_api_result import TestStatusApiResult
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -35,7 +35,7 @@ class TestPoint(BaseModel):
     configuration_id: Optional[StrictStr] = Field(default=None, alias="configurationId")
     test_suite_id: StrictStr = Field(alias="testSuiteId")
     status: Optional[StrictStr] = None
-    status_model: Optional[TestStatus] = Field(default=None, alias="statusModel")
+    status_model: Optional[TestStatusApiResult] = Field(default=None, alias="statusModel")
     last_test_result_id: Optional[StrictStr] = Field(default=None, alias="lastTestResultId")
     __properties: ClassVar[List[str]] = ["id", "isDeleted", "testerId", "iterationId", "workItemId", "configurationId", "testSuiteId", "status", "statusModel", "lastTestResultId"]
 
@@ -131,7 +131,7 @@ class TestPoint(BaseModel):
             "configurationId": obj.get("configurationId"),
             "testSuiteId": obj.get("testSuiteId"),
             "status": obj.get("status"),
-            "statusModel": TestStatus.from_dict(obj["statusModel"]) if obj.get("statusModel") is not None else None,
+            "statusModel": TestStatusApiResult.from_dict(obj["statusModel"]) if obj.get("statusModel") is not None else None,
             "lastTestResultId": obj.get("lastTestResultId")
         })
         return _obj

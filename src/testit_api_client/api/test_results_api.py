@@ -27,9 +27,9 @@ from testit_api_client.models.reruns_model import RerunsModel
 from testit_api_client.models.test_result_response import TestResultResponse
 from testit_api_client.models.test_result_short_response import TestResultShortResponse
 from testit_api_client.models.test_result_update_v2_request import TestResultUpdateV2Request
-from testit_api_client.models.test_results_filter_request import TestResultsFilterRequest
+from testit_api_client.models.test_results_filter_api_model import TestResultsFilterApiModel
 from testit_api_client.models.test_results_select_api_model import TestResultsSelectApiModel
-from testit_api_client.models.test_results_statistics_response import TestResultsStatisticsResponse
+from testit_api_client.models.test_results_statistics_api_result import TestResultsStatisticsApiResult
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
 from testit_api_client.api_response import ApiResponse
@@ -2364,7 +2364,7 @@ class TestResultsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_results_filter_request: Optional[TestResultsFilterRequest] = None,
+        test_results_filter_api_model: Optional[TestResultsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2391,8 +2391,8 @@ class TestResultsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_results_filter_request:
-        :type test_results_filter_request: TestResultsFilterRequest
+        :param test_results_filter_api_model:
+        :type test_results_filter_api_model: TestResultsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2421,7 +2421,7 @@ class TestResultsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_results_filter_request=test_results_filter_request,
+            test_results_filter_api_model=test_results_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2456,7 +2456,7 @@ class TestResultsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_results_filter_request: Optional[TestResultsFilterRequest] = None,
+        test_results_filter_api_model: Optional[TestResultsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2483,8 +2483,8 @@ class TestResultsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_results_filter_request:
-        :type test_results_filter_request: TestResultsFilterRequest
+        :param test_results_filter_api_model:
+        :type test_results_filter_api_model: TestResultsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2513,7 +2513,7 @@ class TestResultsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_results_filter_request=test_results_filter_request,
+            test_results_filter_api_model=test_results_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2548,7 +2548,7 @@ class TestResultsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_results_filter_request: Optional[TestResultsFilterRequest] = None,
+        test_results_filter_api_model: Optional[TestResultsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2575,8 +2575,8 @@ class TestResultsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_results_filter_request:
-        :type test_results_filter_request: TestResultsFilterRequest
+        :param test_results_filter_api_model:
+        :type test_results_filter_api_model: TestResultsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2605,7 +2605,7 @@ class TestResultsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_results_filter_request=test_results_filter_request,
+            test_results_filter_api_model=test_results_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2635,7 +2635,7 @@ class TestResultsApi:
         order_by,
         search_field,
         search_value,
-        test_results_filter_request,
+        test_results_filter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -2681,8 +2681,8 @@ class TestResultsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_results_filter_request is not None:
-            _body_params = test_results_filter_request
+        if test_results_filter_api_model is not None:
+            _body_params = test_results_filter_api_model
 
 
         # set the HTTP header `Accept`
@@ -2733,7 +2733,7 @@ class TestResultsApi:
     @validate_call
     def api_v2_test_results_statistics_filter_post(
         self,
-        test_results_filter_request: Optional[TestResultsFilterRequest] = None,
+        test_results_filter_api_model: Optional[TestResultsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2746,12 +2746,12 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TestResultsStatisticsResponse:
+    ) -> TestResultsStatisticsApiResult:
         """Search for test results and extract statistics
 
 
-        :param test_results_filter_request:
-        :type test_results_filter_request: TestResultsFilterRequest
+        :param test_results_filter_api_model:
+        :type test_results_filter_api_model: TestResultsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2775,7 +2775,7 @@ class TestResultsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_results_statistics_filter_post_serialize(
-            test_results_filter_request=test_results_filter_request,
+            test_results_filter_api_model=test_results_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2783,7 +2783,7 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TestResultsStatisticsResponse",
+            '200': "TestResultsStatisticsApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2805,7 +2805,7 @@ class TestResultsApi:
     @validate_call
     def api_v2_test_results_statistics_filter_post_with_http_info(
         self,
-        test_results_filter_request: Optional[TestResultsFilterRequest] = None,
+        test_results_filter_api_model: Optional[TestResultsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2818,12 +2818,12 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TestResultsStatisticsResponse]:
+    ) -> ApiResponse[TestResultsStatisticsApiResult]:
         """Search for test results and extract statistics
 
 
-        :param test_results_filter_request:
-        :type test_results_filter_request: TestResultsFilterRequest
+        :param test_results_filter_api_model:
+        :type test_results_filter_api_model: TestResultsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2847,7 +2847,7 @@ class TestResultsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_results_statistics_filter_post_serialize(
-            test_results_filter_request=test_results_filter_request,
+            test_results_filter_api_model=test_results_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2855,7 +2855,7 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TestResultsStatisticsResponse",
+            '200': "TestResultsStatisticsApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2877,7 +2877,7 @@ class TestResultsApi:
     @validate_call
     def api_v2_test_results_statistics_filter_post_without_preload_content(
         self,
-        test_results_filter_request: Optional[TestResultsFilterRequest] = None,
+        test_results_filter_api_model: Optional[TestResultsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2894,8 +2894,8 @@ class TestResultsApi:
         """Search for test results and extract statistics
 
 
-        :param test_results_filter_request:
-        :type test_results_filter_request: TestResultsFilterRequest
+        :param test_results_filter_api_model:
+        :type test_results_filter_api_model: TestResultsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2919,7 +2919,7 @@ class TestResultsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_results_statistics_filter_post_serialize(
-            test_results_filter_request=test_results_filter_request,
+            test_results_filter_api_model=test_results_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2927,7 +2927,7 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TestResultsStatisticsResponse",
+            '200': "TestResultsStatisticsApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2944,7 +2944,7 @@ class TestResultsApi:
 
     def _api_v2_test_results_statistics_filter_post_serialize(
         self,
-        test_results_filter_request,
+        test_results_filter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -2970,8 +2970,8 @@ class TestResultsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_results_filter_request is not None:
-            _body_params = test_results_filter_request
+        if test_results_filter_api_model is not None:
+            _body_params = test_results_filter_api_model
 
 
         # set the HTTP header `Accept`

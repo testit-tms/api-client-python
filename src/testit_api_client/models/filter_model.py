@@ -32,7 +32,7 @@ class FilterModel(BaseModel):
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
     created_by_id: StrictStr = Field(alias="createdById")
     modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
-    data: WorkItemSearchQueryModel
+    data: Optional[WorkItemSearchQueryModel] = None
     project_id: StrictStr = Field(alias="projectId")
     fields_to_show: Optional[Any] = Field(default=None, alias="fieldsToShow")
     name: StrictStr
@@ -91,6 +91,11 @@ class FilterModel(BaseModel):
         # and model_fields_set contains the field
         if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
             _dict['modifiedById'] = None
+
+        # set to None if data (nullable) is None
+        # and model_fields_set contains the field
+        if self.data is None and "data" in self.model_fields_set:
+            _dict['data'] = None
 
         # set to None if fields_to_show (nullable) is None
         # and model_fields_set contains the field

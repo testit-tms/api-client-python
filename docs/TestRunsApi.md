@@ -31,7 +31,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_test_runs_delete**
-> int api_v2_test_runs_delete(test_run_select_model=test_run_select_model)
+> int api_v2_test_runs_delete(test_run_select_api_model=test_run_select_api_model)
 
 Delete multiple test runs
 
@@ -43,7 +43,7 @@ Delete multiple test runs
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_select_model import TestRunSelectModel
+from testit_api_client.models.test_run_select_api_model import TestRunSelectApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -68,11 +68,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
-    test_run_select_model = testit_api_client.TestRunSelectModel() # TestRunSelectModel |  (optional)
+    test_run_select_api_model = testit_api_client.TestRunSelectApiModel() # TestRunSelectApiModel |  (optional)
 
     try:
         # Delete multiple test runs
-        api_response = api_instance.api_v2_test_runs_delete(test_run_select_model=test_run_select_model)
+        api_response = api_instance.api_v2_test_runs_delete(test_run_select_api_model=test_run_select_api_model)
         print("The response of TestRunsApi->api_v2_test_runs_delete:\n")
         pprint(api_response)
     except Exception as e:
@@ -86,7 +86,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_select_model** | [**TestRunSelectModel**](TestRunSelectModel.md)|  | [optional] 
+ **test_run_select_api_model** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -363,7 +363,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_runs_id_reruns_post**
-> ManualRerunResultModel api_v2_test_runs_id_reruns_post(id, manual_rerun_select_model=manual_rerun_select_model)
+> ManualRerunApiResult api_v2_test_runs_id_reruns_post(id, manual_rerun_select_api_model=manual_rerun_select_api_model)
 
 Manual autotests rerun in test run
 
@@ -373,8 +373,8 @@ Manual autotests rerun in test run
 
 ```python
 import testit_api_client
-from testit_api_client.models.manual_rerun_result_model import ManualRerunResultModel
-from testit_api_client.models.manual_rerun_select_model import ManualRerunSelectModel
+from testit_api_client.models.manual_rerun_api_result import ManualRerunApiResult
+from testit_api_client.models.manual_rerun_select_api_model import ManualRerunSelectApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -400,11 +400,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
     id = 'id_example' # str | 
-    manual_rerun_select_model = testit_api_client.ManualRerunSelectModel() # ManualRerunSelectModel |  (optional)
+    manual_rerun_select_api_model = testit_api_client.ManualRerunSelectApiModel() # ManualRerunSelectApiModel |  (optional)
 
     try:
         # Manual autotests rerun in test run
-        api_response = api_instance.api_v2_test_runs_id_reruns_post(id, manual_rerun_select_model=manual_rerun_select_model)
+        api_response = api_instance.api_v2_test_runs_id_reruns_post(id, manual_rerun_select_api_model=manual_rerun_select_api_model)
         print("The response of TestRunsApi->api_v2_test_runs_id_reruns_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -419,11 +419,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **manual_rerun_select_model** | [**ManualRerunSelectModel**](ManualRerunSelectModel.md)|  | [optional] 
+ **manual_rerun_select_api_model** | [**ManualRerunSelectApiModel**](ManualRerunSelectApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**ManualRerunResultModel**](ManualRerunResultModel.md)
+[**ManualRerunApiResult**](ManualRerunApiResult.md)
 
 ### Authorization
 
@@ -531,7 +531,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_runs_id_statistics_filter_post**
-> TestResultsStatisticsGetModel api_v2_test_runs_id_statistics_filter_post(id, test_results_local_filter_model=test_results_local_filter_model)
+> TestResultsStatisticsApiResult api_v2_test_runs_id_statistics_filter_post(id, test_run_statistics_filter_api_model=test_run_statistics_filter_api_model)
 
 Search for the test run test results and build statistics
 
@@ -541,8 +541,8 @@ Search for the test run test results and build statistics
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_results_local_filter_model import TestResultsLocalFilterModel
-from testit_api_client.models.test_results_statistics_get_model import TestResultsStatisticsGetModel
+from testit_api_client.models.test_results_statistics_api_result import TestResultsStatisticsApiResult
+from testit_api_client.models.test_run_statistics_filter_api_model import TestRunStatisticsFilterApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -568,11 +568,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
     id = 'id_example' # str | Test run unique ID
-    test_results_local_filter_model = testit_api_client.TestResultsLocalFilterModel() # TestResultsLocalFilterModel |  (optional)
+    test_run_statistics_filter_api_model = testit_api_client.TestRunStatisticsFilterApiModel() # TestRunStatisticsFilterApiModel |  (optional)
 
     try:
         # Search for the test run test results and build statistics
-        api_response = api_instance.api_v2_test_runs_id_statistics_filter_post(id, test_results_local_filter_model=test_results_local_filter_model)
+        api_response = api_instance.api_v2_test_runs_id_statistics_filter_post(id, test_run_statistics_filter_api_model=test_run_statistics_filter_api_model)
         print("The response of TestRunsApi->api_v2_test_runs_id_statistics_filter_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -587,11 +587,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run unique ID | 
- **test_results_local_filter_model** | [**TestResultsLocalFilterModel**](TestResultsLocalFilterModel.md)|  | [optional] 
+ **test_run_statistics_filter_api_model** | [**TestRunStatisticsFilterApiModel**](TestRunStatisticsFilterApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md)
+[**TestResultsStatisticsApiResult**](TestResultsStatisticsApiResult.md)
 
 ### Authorization
 
@@ -865,7 +865,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_runs_purge_bulk_post**
-> int api_v2_test_runs_purge_bulk_post(test_run_select_model=test_run_select_model)
+> int api_v2_test_runs_purge_bulk_post(test_run_select_api_model=test_run_select_api_model)
 
 Permanently delete multiple test runs from archive
 
@@ -877,7 +877,7 @@ Permanently delete multiple test runs from archive
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_select_model import TestRunSelectModel
+from testit_api_client.models.test_run_select_api_model import TestRunSelectApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -902,11 +902,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
-    test_run_select_model = testit_api_client.TestRunSelectModel() # TestRunSelectModel |  (optional)
+    test_run_select_api_model = testit_api_client.TestRunSelectApiModel() # TestRunSelectApiModel |  (optional)
 
     try:
         # Permanently delete multiple test runs from archive
-        api_response = api_instance.api_v2_test_runs_purge_bulk_post(test_run_select_model=test_run_select_model)
+        api_response = api_instance.api_v2_test_runs_purge_bulk_post(test_run_select_api_model=test_run_select_api_model)
         print("The response of TestRunsApi->api_v2_test_runs_purge_bulk_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -920,7 +920,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_select_model** | [**TestRunSelectModel**](TestRunSelectModel.md)|  | [optional] 
+ **test_run_select_api_model** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -950,7 +950,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_runs_restore_bulk_post**
-> int api_v2_test_runs_restore_bulk_post(test_run_select_model=test_run_select_model)
+> int api_v2_test_runs_restore_bulk_post(test_run_select_api_model=test_run_select_api_model)
 
 Restore multiple test runs from the archive
 
@@ -962,7 +962,7 @@ Restore multiple test runs from the archive
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_select_model import TestRunSelectModel
+from testit_api_client.models.test_run_select_api_model import TestRunSelectApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -987,11 +987,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
-    test_run_select_model = testit_api_client.TestRunSelectModel() # TestRunSelectModel |  (optional)
+    test_run_select_api_model = testit_api_client.TestRunSelectApiModel() # TestRunSelectApiModel |  (optional)
 
     try:
         # Restore multiple test runs from the archive
-        api_response = api_instance.api_v2_test_runs_restore_bulk_post(test_run_select_model=test_run_select_model)
+        api_response = api_instance.api_v2_test_runs_restore_bulk_post(test_run_select_api_model=test_run_select_api_model)
         print("The response of TestRunsApi->api_v2_test_runs_restore_bulk_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -1005,7 +1005,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_select_model** | [**TestRunSelectModel**](TestRunSelectModel.md)|  | [optional] 
+ **test_run_select_api_model** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -1035,7 +1035,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_runs_search_post**
-> List[TestRunShortGetModel] api_v2_test_runs_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_run_filter_model=test_run_filter_model)
+> List[TestRunShortApiResult] api_v2_test_runs_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_run_filter_api_model=test_run_filter_api_model)
 
 Search for test runs
 
@@ -1045,8 +1045,8 @@ Search for test runs
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_filter_model import TestRunFilterModel
-from testit_api_client.models.test_run_short_get_model import TestRunShortGetModel
+from testit_api_client.models.test_run_filter_api_model import TestRunFilterApiModel
+from testit_api_client.models.test_run_short_api_result import TestRunShortApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1076,11 +1076,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    test_run_filter_model = testit_api_client.TestRunFilterModel() # TestRunFilterModel |  (optional)
+    test_run_filter_api_model = testit_api_client.TestRunFilterApiModel() # TestRunFilterApiModel |  (optional)
 
     try:
         # Search for test runs
-        api_response = api_instance.api_v2_test_runs_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_run_filter_model=test_run_filter_model)
+        api_response = api_instance.api_v2_test_runs_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_run_filter_api_model=test_run_filter_api_model)
         print("The response of TestRunsApi->api_v2_test_runs_search_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -1099,11 +1099,11 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **test_run_filter_model** | [**TestRunFilterModel**](TestRunFilterModel.md)|  | [optional] 
+ **test_run_filter_api_model** | [**TestRunFilterApiModel**](TestRunFilterApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**List[TestRunShortGetModel]**](TestRunShortGetModel.md)
+[**List[TestRunShortApiResult]**](TestRunShortApiResult.md)
 
 ### Authorization
 
@@ -1129,7 +1129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_runs_update_multiple_post**
-> api_v2_test_runs_update_multiple_post(test_run_update_multiple_model=test_run_update_multiple_model)
+> api_v2_test_runs_update_multiple_post(update_multiple_test_runs_api_model=update_multiple_test_runs_api_model)
 
 Update multiple test runs
 
@@ -1139,7 +1139,7 @@ Update multiple test runs
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_update_multiple_model import TestRunUpdateMultipleModel
+from testit_api_client.models.update_multiple_test_runs_api_model import UpdateMultipleTestRunsApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1164,11 +1164,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
-    test_run_update_multiple_model = testit_api_client.TestRunUpdateMultipleModel() # TestRunUpdateMultipleModel |  (optional)
+    update_multiple_test_runs_api_model = testit_api_client.UpdateMultipleTestRunsApiModel() # UpdateMultipleTestRunsApiModel |  (optional)
 
     try:
         # Update multiple test runs
-        api_instance.api_v2_test_runs_update_multiple_post(test_run_update_multiple_model=test_run_update_multiple_model)
+        api_instance.api_v2_test_runs_update_multiple_post(update_multiple_test_runs_api_model=update_multiple_test_runs_api_model)
     except Exception as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_update_multiple_post: %s\n" % e)
 ```
@@ -1180,7 +1180,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_update_multiple_model** | [**TestRunUpdateMultipleModel**](TestRunUpdateMultipleModel.md)|  | [optional] 
+ **update_multiple_test_runs_api_model** | [**UpdateMultipleTestRunsApiModel**](UpdateMultipleTestRunsApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -1292,7 +1292,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_and_fill_by_auto_tests**
-> TestRunV2GetModel create_and_fill_by_auto_tests(test_run_fill_by_auto_tests_post_model=test_run_fill_by_auto_tests_post_model)
+> TestRunV2ApiResult create_and_fill_by_auto_tests(create_test_run_and_fill_by_auto_tests_api_model=create_test_run_and_fill_by_auto_tests_api_model)
 
 Create test runs based on autotests and configurations
 
@@ -1304,8 +1304,8 @@ This method creates a test run based on an autotest and a configuration.  The di
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_fill_by_auto_tests_post_model import TestRunFillByAutoTestsPostModel
-from testit_api_client.models.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.models.create_test_run_and_fill_by_auto_tests_api_model import CreateTestRunAndFillByAutoTestsApiModel
+from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1330,11 +1330,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
-    test_run_fill_by_auto_tests_post_model = testit_api_client.TestRunFillByAutoTestsPostModel() # TestRunFillByAutoTestsPostModel |  (optional)
+    create_test_run_and_fill_by_auto_tests_api_model = testit_api_client.CreateTestRunAndFillByAutoTestsApiModel() # CreateTestRunAndFillByAutoTestsApiModel |  (optional)
 
     try:
         # Create test runs based on autotests and configurations
-        api_response = api_instance.create_and_fill_by_auto_tests(test_run_fill_by_auto_tests_post_model=test_run_fill_by_auto_tests_post_model)
+        api_response = api_instance.create_and_fill_by_auto_tests(create_test_run_and_fill_by_auto_tests_api_model=create_test_run_and_fill_by_auto_tests_api_model)
         print("The response of TestRunsApi->create_and_fill_by_auto_tests:\n")
         pprint(api_response)
     except Exception as e:
@@ -1348,11 +1348,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_fill_by_auto_tests_post_model** | [**TestRunFillByAutoTestsPostModel**](TestRunFillByAutoTestsPostModel.md)|  | [optional] 
+ **create_test_run_and_fill_by_auto_tests_api_model** | [**CreateTestRunAndFillByAutoTestsApiModel**](CreateTestRunAndFillByAutoTestsApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1378,7 +1378,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_and_fill_by_configurations**
-> TestRunV2GetModel create_and_fill_by_configurations(test_run_fill_by_configurations_post_model=test_run_fill_by_configurations_post_model)
+> TestRunV2ApiResult create_and_fill_by_configurations(create_test_run_and_fill_by_configurations_api_model=create_test_run_and_fill_by_configurations_api_model)
 
 Create test runs picking the needed test points
 
@@ -1390,8 +1390,8 @@ This method creates a test run based on a combination of a configuration and a w
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_fill_by_configurations_post_model import TestRunFillByConfigurationsPostModel
-from testit_api_client.models.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.models.create_test_run_and_fill_by_configurations_api_model import CreateTestRunAndFillByConfigurationsApiModel
+from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1416,11 +1416,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
-    test_run_fill_by_configurations_post_model = testit_api_client.TestRunFillByConfigurationsPostModel() # TestRunFillByConfigurationsPostModel |  (optional)
+    create_test_run_and_fill_by_configurations_api_model = testit_api_client.CreateTestRunAndFillByConfigurationsApiModel() # CreateTestRunAndFillByConfigurationsApiModel |  (optional)
 
     try:
         # Create test runs picking the needed test points
-        api_response = api_instance.create_and_fill_by_configurations(test_run_fill_by_configurations_post_model=test_run_fill_by_configurations_post_model)
+        api_response = api_instance.create_and_fill_by_configurations(create_test_run_and_fill_by_configurations_api_model=create_test_run_and_fill_by_configurations_api_model)
         print("The response of TestRunsApi->create_and_fill_by_configurations:\n")
         pprint(api_response)
     except Exception as e:
@@ -1434,11 +1434,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_fill_by_configurations_post_model** | [**TestRunFillByConfigurationsPostModel**](TestRunFillByConfigurationsPostModel.md)|  | [optional] 
+ **create_test_run_and_fill_by_configurations_api_model** | [**CreateTestRunAndFillByConfigurationsApiModel**](CreateTestRunAndFillByConfigurationsApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1464,7 +1464,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_and_fill_by_work_items**
-> TestRunV2GetModel create_and_fill_by_work_items(test_run_fill_by_work_items_post_model=test_run_fill_by_work_items_post_model)
+> TestRunV2ApiResult create_and_fill_by_work_items(create_test_run_and_fill_by_work_items_api_model=create_test_run_and_fill_by_work_items_api_model)
 
 Create test run based on configurations and work items
 
@@ -1476,8 +1476,8 @@ This method creates a test run based on a combination of configuration and work 
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_fill_by_work_items_post_model import TestRunFillByWorkItemsPostModel
-from testit_api_client.models.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.models.create_test_run_and_fill_by_work_items_api_model import CreateTestRunAndFillByWorkItemsApiModel
+from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1502,11 +1502,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
-    test_run_fill_by_work_items_post_model = testit_api_client.TestRunFillByWorkItemsPostModel() # TestRunFillByWorkItemsPostModel |  (optional)
+    create_test_run_and_fill_by_work_items_api_model = testit_api_client.CreateTestRunAndFillByWorkItemsApiModel() # CreateTestRunAndFillByWorkItemsApiModel |  (optional)
 
     try:
         # Create test run based on configurations and work items
-        api_response = api_instance.create_and_fill_by_work_items(test_run_fill_by_work_items_post_model=test_run_fill_by_work_items_post_model)
+        api_response = api_instance.create_and_fill_by_work_items(create_test_run_and_fill_by_work_items_api_model=create_test_run_and_fill_by_work_items_api_model)
         print("The response of TestRunsApi->create_and_fill_by_work_items:\n")
         pprint(api_response)
     except Exception as e:
@@ -1520,11 +1520,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_fill_by_work_items_post_model** | [**TestRunFillByWorkItemsPostModel**](TestRunFillByWorkItemsPostModel.md)|  | [optional] 
+ **create_test_run_and_fill_by_work_items_api_model** | [**CreateTestRunAndFillByWorkItemsApiModel**](CreateTestRunAndFillByWorkItemsApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1550,7 +1550,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_empty**
-> TestRunV2GetModel create_empty(test_run_v2_post_short_model=test_run_v2_post_short_model)
+> TestRunV2ApiResult create_empty(create_empty_test_run_api_model=create_empty_test_run_api_model)
 
 Create empty TestRun
 
@@ -1562,8 +1562,8 @@ Create empty TestRun
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_v2_get_model import TestRunV2GetModel
-from testit_api_client.models.test_run_v2_post_short_model import TestRunV2PostShortModel
+from testit_api_client.models.create_empty_test_run_api_model import CreateEmptyTestRunApiModel
+from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1588,11 +1588,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
-    test_run_v2_post_short_model = testit_api_client.TestRunV2PostShortModel() # TestRunV2PostShortModel |  (optional)
+    create_empty_test_run_api_model = testit_api_client.CreateEmptyTestRunApiModel() # CreateEmptyTestRunApiModel |  (optional)
 
     try:
         # Create empty TestRun
-        api_response = api_instance.create_empty(test_run_v2_post_short_model=test_run_v2_post_short_model)
+        api_response = api_instance.create_empty(create_empty_test_run_api_model=create_empty_test_run_api_model)
         print("The response of TestRunsApi->create_empty:\n")
         pprint(api_response)
     except Exception as e:
@@ -1606,11 +1606,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_v2_post_short_model** | [**TestRunV2PostShortModel**](TestRunV2PostShortModel.md)|  | [optional] 
+ **create_empty_test_run_api_model** | [**CreateEmptyTestRunApiModel**](CreateEmptyTestRunApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1636,7 +1636,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_test_run_by_id**
-> TestRunV2GetModel get_test_run_by_id(id)
+> TestRunV2ApiResult get_test_run_by_id(id)
 
 Get TestRun by Id
 
@@ -1648,7 +1648,7 @@ Get TestRun by Id
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1695,7 +1695,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1972,7 +1972,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_empty**
-> update_empty(test_run_v2_put_model=test_run_v2_put_model)
+> update_empty(update_empty_test_run_api_model=update_empty_test_run_api_model)
 
 Update empty TestRun
 
@@ -1984,7 +1984,7 @@ Update empty TestRun
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_v2_put_model import TestRunV2PutModel
+from testit_api_client.models.update_empty_test_run_api_model import UpdateEmptyTestRunApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -2009,11 +2009,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
-    test_run_v2_put_model = testit_api_client.TestRunV2PutModel() # TestRunV2PutModel |  (optional)
+    update_empty_test_run_api_model = testit_api_client.UpdateEmptyTestRunApiModel() # UpdateEmptyTestRunApiModel |  (optional)
 
     try:
         # Update empty TestRun
-        api_instance.update_empty(test_run_v2_put_model=test_run_v2_put_model)
+        api_instance.update_empty(update_empty_test_run_api_model=update_empty_test_run_api_model)
     except Exception as e:
         print("Exception when calling TestRunsApi->update_empty: %s\n" % e)
 ```
@@ -2025,7 +2025,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_v2_put_model** | [**TestRunV2PutModel**](TestRunV2PutModel.md)|  | [optional] 
+ **update_empty_test_run_api_model** | [**UpdateEmptyTestRunApiModel**](UpdateEmptyTestRunApiModel.md)|  | [optional] 
 
 ### Return type
 

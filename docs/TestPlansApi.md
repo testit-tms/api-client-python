@@ -993,7 +993,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_plans_id_test_points_last_results_get**
-> List[TestPointWithLastResultModel] api_v2_test_plans_id_test_points_last_results_get(id, tester_id=tester_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+> List[TestPointWithLastResultResponseModel] api_v2_test_plans_id_test_points_last_results_get(id, tester_id=tester_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get TestPoints with last result from TestPlan
 
@@ -1005,7 +1005,7 @@ Get TestPoints with last result from TestPlan
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_point_with_last_result_model import TestPointWithLastResultModel
+from testit_api_client.models.test_point_with_last_result_response_model import TestPointWithLastResultResponseModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1064,7 +1064,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TestPointWithLastResultModel]**](TestPointWithLastResultModel.md)
+[**List[TestPointWithLastResultResponseModel]**](TestPointWithLastResultResponseModel.md)
 
 ### Authorization
 
@@ -1346,7 +1346,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_plans_id_test_runs_get**
-> List[TestRunModel] api_v2_test_plans_id_test_runs_get(id, not_started=not_started, in_progress=in_progress, stopped=stopped, completed=completed, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+> List[TestRunApiResult] api_v2_test_plans_id_test_runs_get(id, not_started=not_started, in_progress=in_progress, stopped=stopped, completed=completed, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get TestRuns of TestPlan
 
@@ -1358,7 +1358,7 @@ Get TestRuns of TestPlan
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_model import TestRunModel
+from testit_api_client.models.test_run_api_result import TestRunApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1423,7 +1423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TestRunModel]**](TestRunModel.md)
+[**List[TestRunApiResult]**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -1449,7 +1449,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_plans_id_test_runs_search_post**
-> List[TestRunModel] api_v2_test_plans_id_test_runs_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_run_search_query_model=test_run_search_query_model)
+> List[TestRunApiResult] api_v2_test_plans_id_test_runs_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, search_test_runs_api_model=search_test_runs_api_model)
 
 Search TestRuns of TestPlan
 
@@ -1461,8 +1461,8 @@ Search TestRuns of TestPlan
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_model import TestRunModel
-from testit_api_client.models.test_run_search_query_model import TestRunSearchQueryModel
+from testit_api_client.models.search_test_runs_api_model import SearchTestRunsApiModel
+from testit_api_client.models.test_run_api_result import TestRunApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1493,11 +1493,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    test_run_search_query_model = testit_api_client.TestRunSearchQueryModel() # TestRunSearchQueryModel |  (optional)
+    search_test_runs_api_model = testit_api_client.SearchTestRunsApiModel() # SearchTestRunsApiModel |  (optional)
 
     try:
         # Search TestRuns of TestPlan
-        api_response = api_instance.api_v2_test_plans_id_test_runs_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_run_search_query_model=test_run_search_query_model)
+        api_response = api_instance.api_v2_test_plans_id_test_runs_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, search_test_runs_api_model=search_test_runs_api_model)
         print("The response of TestPlansApi->api_v2_test_plans_id_test_runs_search_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -1517,11 +1517,11 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **test_run_search_query_model** | [**TestRunSearchQueryModel**](TestRunSearchQueryModel.md)|  | [optional] 
+ **search_test_runs_api_model** | [**SearchTestRunsApiModel**](SearchTestRunsApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**List[TestRunModel]**](TestRunModel.md)
+[**List[TestRunApiResult]**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -1966,7 +1966,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_test_plan**
-> TestPlanModel create_test_plan(test_plan_post_model=test_plan_post_model)
+> TestPlanModel create_test_plan(create_test_plan_api_model=create_test_plan_api_model)
 
 Create TestPlan
 
@@ -1978,8 +1978,8 @@ Create TestPlan
 
 ```python
 import testit_api_client
+from testit_api_client.models.create_test_plan_api_model import CreateTestPlanApiModel
 from testit_api_client.models.test_plan_model import TestPlanModel
-from testit_api_client.models.test_plan_post_model import TestPlanPostModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -2004,11 +2004,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestPlansApi(api_client)
-    test_plan_post_model = testit_api_client.TestPlanPostModel() # TestPlanPostModel |  (optional)
+    create_test_plan_api_model = testit_api_client.CreateTestPlanApiModel() # CreateTestPlanApiModel |  (optional)
 
     try:
         # Create TestPlan
-        api_response = api_instance.create_test_plan(test_plan_post_model=test_plan_post_model)
+        api_response = api_instance.create_test_plan(create_test_plan_api_model=create_test_plan_api_model)
         print("The response of TestPlansApi->create_test_plan:\n")
         pprint(api_response)
     except Exception as e:
@@ -2022,7 +2022,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_plan_post_model** | [**TestPlanPostModel**](TestPlanPostModel.md)|  | [optional] 
+ **create_test_plan_api_model** | [**CreateTestPlanApiModel**](CreateTestPlanApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -2631,7 +2631,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_test_plan**
-> update_test_plan(test_plan_put_model=test_plan_put_model)
+> update_test_plan(update_test_plan_api_model=update_test_plan_api_model)
 
 Update TestPlan
 
@@ -2643,7 +2643,7 @@ Update TestPlan
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_plan_put_model import TestPlanPutModel
+from testit_api_client.models.update_test_plan_api_model import UpdateTestPlanApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -2668,11 +2668,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestPlansApi(api_client)
-    test_plan_put_model = testit_api_client.TestPlanPutModel() # TestPlanPutModel |  (optional)
+    update_test_plan_api_model = testit_api_client.UpdateTestPlanApiModel() # UpdateTestPlanApiModel |  (optional)
 
     try:
         # Update TestPlan
-        api_instance.update_test_plan(test_plan_put_model=test_plan_put_model)
+        api_instance.update_test_plan(update_test_plan_api_model=update_test_plan_api_model)
     except Exception as e:
         print("Exception when calling TestPlansApi->update_test_plan: %s\n" % e)
 ```
@@ -2684,7 +2684,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_plan_put_model** | [**TestPlanPutModel**](TestPlanPutModel.md)|  | [optional] 
+ **update_test_plan_api_model** | [**UpdateTestPlanApiModel**](UpdateTestPlanApiModel.md)|  | [optional] 
 
 ### Return type
 

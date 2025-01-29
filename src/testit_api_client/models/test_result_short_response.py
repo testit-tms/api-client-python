@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from testit_api_client.models.attachment import Attachment
 from testit_api_client.models.auto_test_result_reason_short import AutoTestResultReasonShort
 from testit_api_client.models.link_short import LinkShort
-from testit_api_client.models.test_status import TestStatus
+from testit_api_client.models.test_status_api_result import TestStatusApiResult
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -38,7 +38,7 @@ class TestResultShortResponse(BaseModel):
     configuration_id: StrictStr = Field(description="Unique ID of configuration which the test result uses", alias="configurationId")
     configuration_name: StrictStr = Field(description="Name of configuration which the test result uses", alias="configurationName")
     outcome: Optional[StrictStr] = Field(default=None, description="Outcome of the test result")
-    status: Optional[TestStatus] = None
+    status: Optional[TestStatusApiResult] = None
     result_reasons: List[AutoTestResultReasonShort] = Field(description="Collection of result reasons which the test result have", alias="resultReasons")
     comment: Optional[StrictStr] = Field(default=None, description="Comment to the test result")
     var_date: datetime = Field(description="Date when the test result was completed or started or created", alias="date")
@@ -169,7 +169,7 @@ class TestResultShortResponse(BaseModel):
             "configurationId": obj.get("configurationId"),
             "configurationName": obj.get("configurationName"),
             "outcome": obj.get("outcome"),
-            "status": TestStatus.from_dict(obj["status"]) if obj.get("status") is not None else None,
+            "status": TestStatusApiResult.from_dict(obj["status"]) if obj.get("status") is not None else None,
             "resultReasons": [AutoTestResultReasonShort.from_dict(_item) for _item in obj["resultReasons"]] if obj.get("resultReasons") is not None else None,
             "comment": obj.get("comment"),
             "date": obj.get("date"),

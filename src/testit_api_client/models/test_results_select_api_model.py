@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from testit_api_client.models.test_results_extraction_api_model import TestResultsExtractionApiModel
-from testit_api_client.models.test_results_filter_request import TestResultsFilterRequest
+from testit_api_client.models.test_results_filter_api_model import TestResultsFilterApiModel
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class TestResultsSelectApiModel(BaseModel):
     """
     TestResultsSelectApiModel
     """ # noqa: E501
-    filter: TestResultsFilterRequest = Field(description="Test result filters")
+    filter: TestResultsFilterApiModel = Field(description="Test result filters")
     extraction_model: TestResultsExtractionApiModel = Field(description="Test results extraction model", alias="extractionModel")
     __properties: ClassVar[List[str]] = ["filter", "extractionModel"]
 
@@ -89,7 +89,7 @@ class TestResultsSelectApiModel(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "filter": TestResultsFilterRequest.from_dict(obj["filter"]) if obj.get("filter") is not None else None,
+            "filter": TestResultsFilterApiModel.from_dict(obj["filter"]) if obj.get("filter") is not None else None,
             "extractionModel": TestResultsExtractionApiModel.from_dict(obj["extractionModel"]) if obj.get("extractionModel") is not None else None
         })
         return _obj

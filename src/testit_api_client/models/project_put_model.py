@@ -32,9 +32,8 @@ class ProjectPutModel(BaseModel):
     description: Optional[StrictStr] = Field(default=None, description="Description of the project")
     name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Name of the project")
     is_favorite: Optional[StrictBool] = Field(default=None, description="Indicates if the project is marked as favorite", alias="isFavorite")
-    is_flaky_auto: Optional[StrictBool] = Field(default=None, description="Indicates if the status \"Flaky/Stable\" sets automatically", alias="isFlakyAuto")
     type: ProjectTypeModel = Field(description="Type of the project")
-    __properties: ClassVar[List[str]] = ["id", "description", "name", "isFavorite", "isFlakyAuto", "type"]
+    __properties: ClassVar[List[str]] = ["id", "description", "name", "isFavorite", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,11 +84,6 @@ class ProjectPutModel(BaseModel):
         if self.is_favorite is None and "is_favorite" in self.model_fields_set:
             _dict['isFavorite'] = None
 
-        # set to None if is_flaky_auto (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_flaky_auto is None and "is_flaky_auto" in self.model_fields_set:
-            _dict['isFlakyAuto'] = None
-
         return _dict
 
     @classmethod
@@ -106,7 +100,6 @@ class ProjectPutModel(BaseModel):
             "description": obj.get("description"),
             "name": obj.get("name"),
             "isFavorite": obj.get("isFavorite"),
-            "isFlakyAuto": obj.get("isFlakyAuto"),
             "type": obj.get("type")
         })
         return _obj

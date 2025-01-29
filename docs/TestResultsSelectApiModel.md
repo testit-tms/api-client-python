@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filter** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md) | Test result filters | 
+**filter** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md) | Test result filters | 
 **extraction_model** | [**TestResultsExtractionApiModel**](TestResultsExtractionApiModel.md) | Test results extraction model | 
 
 ## Example

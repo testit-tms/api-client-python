@@ -7,7 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | 
+**type** | [**TestStatusType**](TestStatusType.md) |  | 
+**is_based** | **bool** |  | 
+**is_default** | **bool** |  | 
 **code** | **str** |  | 
+**description** | **str** |  | [optional] 
 
 ## Example
 

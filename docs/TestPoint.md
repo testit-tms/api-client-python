@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **configuration_id** | **str** |  | [optional] 
 **test_suite_id** | **str** |  | 
 **status** | **str** |  | [optional] 
-**status_model** | [**TestStatus**](TestStatus.md) |  | [optional] 
+**status_model** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **last_test_result_id** | **str** |  | [optional] 
 
 ## Example

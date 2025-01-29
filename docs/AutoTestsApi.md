@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**api_v2_auto_tests_delete**](AutoTestsApi.md#api_v2_auto_tests_delete) | **DELETE** /api/v2/autoTests | Delete autotests
 [**api_v2_auto_tests_flaky_bulk_post**](AutoTestsApi.md#api_v2_auto_tests_flaky_bulk_post) | **POST** /api/v2/autoTests/flaky/bulk | Set \&quot;Flaky\&quot; status for multiple autotests
 [**api_v2_auto_tests_id_patch**](AutoTestsApi.md#api_v2_auto_tests_id_patch) | **PATCH** /api/v2/autoTests/{id} | Patch auto test
 [**api_v2_auto_tests_id_test_results_search_post**](AutoTestsApi.md#api_v2_auto_tests_id_test_results_search_post) | **POST** /api/v2/autoTests/{id}/testResults/search | Get test results history for autotest
@@ -25,8 +26,92 @@ Method | HTTP request | Description
 [**update_multiple**](AutoTestsApi.md#update_multiple) | **PUT** /api/v2/autoTests/bulk | Update multiple autotests
 
 
+# **api_v2_auto_tests_delete**
+> AutoTestBulkDeleteApiResult api_v2_auto_tests_delete(auto_test_bulk_delete_api_model=auto_test_bulk_delete_api_model)
+
+Delete autotests
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import testit_api_client
+from testit_api_client.models.auto_test_bulk_delete_api_model import AutoTestBulkDeleteApiModel
+from testit_api_client.models.auto_test_bulk_delete_api_result import AutoTestBulkDeleteApiResult
+from testit_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = testit_api_client.AutoTestsApi(api_client)
+    auto_test_bulk_delete_api_model = testit_api_client.AutoTestBulkDeleteApiModel() # AutoTestBulkDeleteApiModel |  (optional)
+
+    try:
+        # Delete autotests
+        api_response = api_instance.api_v2_auto_tests_delete(auto_test_bulk_delete_api_model=auto_test_bulk_delete_api_model)
+        print("The response of AutoTestsApi->api_v2_auto_tests_delete:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AutoTestsApi->api_v2_auto_tests_delete: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_test_bulk_delete_api_model** | [**AutoTestBulkDeleteApiModel**](AutoTestBulkDeleteApiModel.md)|  | [optional] 
+
+### Return type
+
+[**AutoTestBulkDeleteApiResult**](AutoTestBulkDeleteApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **api_v2_auto_tests_flaky_bulk_post**
-> api_v2_auto_tests_flaky_bulk_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, flaky_bulk_model=flaky_bulk_model)
+> api_v2_auto_tests_flaky_bulk_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, auto_test_flaky_bulk_api_model=auto_test_flaky_bulk_api_model)
 
 Set \"Flaky\" status for multiple autotests
 
@@ -38,7 +123,7 @@ User permissions for project:  - Read only  - Execute  - Write  - Full control
 
 ```python
 import testit_api_client
-from testit_api_client.models.flaky_bulk_model import FlakyBulkModel
+from testit_api_client.models.auto_test_flaky_bulk_api_model import AutoTestFlakyBulkApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -68,11 +153,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    flaky_bulk_model = testit_api_client.FlakyBulkModel() # FlakyBulkModel |  (optional)
+    auto_test_flaky_bulk_api_model = testit_api_client.AutoTestFlakyBulkApiModel() # AutoTestFlakyBulkApiModel |  (optional)
 
     try:
         # Set \"Flaky\" status for multiple autotests
-        api_instance.api_v2_auto_tests_flaky_bulk_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, flaky_bulk_model=flaky_bulk_model)
+        api_instance.api_v2_auto_tests_flaky_bulk_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, auto_test_flaky_bulk_api_model=auto_test_flaky_bulk_api_model)
     except Exception as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_flaky_bulk_post: %s\n" % e)
 ```
@@ -89,7 +174,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **flaky_bulk_model** | [**FlakyBulkModel**](FlakyBulkModel.md)|  | [optional] 
+ **auto_test_flaky_bulk_api_model** | [**AutoTestFlakyBulkApiModel**](AutoTestFlakyBulkApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -470,7 +555,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_auto_tests_search_post**
-> List[AutoTestModel] api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotests_select_model=autotests_select_model)
+> List[AutoTestApiResult] api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, auto_test_search_api_model=auto_test_search_api_model)
 
 Search for autotests
 
@@ -480,8 +565,8 @@ Search for autotests
 
 ```python
 import testit_api_client
-from testit_api_client.models.auto_test_model import AutoTestModel
-from testit_api_client.models.autotests_select_model import AutotestsSelectModel
+from testit_api_client.models.auto_test_api_result import AutoTestApiResult
+from testit_api_client.models.auto_test_search_api_model import AutoTestSearchApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -511,11 +596,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    autotests_select_model = testit_api_client.AutotestsSelectModel() # AutotestsSelectModel |  (optional)
+    auto_test_search_api_model = testit_api_client.AutoTestSearchApiModel() # AutoTestSearchApiModel |  (optional)
 
     try:
         # Search for autotests
-        api_response = api_instance.api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotests_select_model=autotests_select_model)
+        api_response = api_instance.api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, auto_test_search_api_model=auto_test_search_api_model)
         print("The response of AutoTestsApi->api_v2_auto_tests_search_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -534,11 +619,11 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **autotests_select_model** | [**AutotestsSelectModel**](AutotestsSelectModel.md)|  | [optional] 
+ **auto_test_search_api_model** | [**AutoTestSearchApiModel**](AutoTestSearchApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**List[AutoTestModel]**](AutoTestModel.md)
+[**List[AutoTestApiResult]**](AutoTestApiResult.md)
 
 ### Authorization
 

@@ -43,8 +43,7 @@ class ProjectShortModel(BaseModel):
     modified_by_id: Optional[StrictStr] = Field(default=None, description="Unique ID of the project last editor", alias="modifiedById")
     global_id: StrictInt = Field(description="Global ID of the project", alias="globalId")
     type: ProjectTypeModel = Field(description="Type of the project")
-    is_flaky_auto: StrictBool = Field(description="Indicates if the status \"Flaky/Stable\" sets automatically", alias="isFlakyAuto")
-    __properties: ClassVar[List[str]] = ["id", "description", "name", "isFavorite", "testCasesCount", "sharedStepsCount", "checkListsCount", "autoTestsCount", "isDeleted", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "type", "isFlakyAuto"]
+    __properties: ClassVar[List[str]] = ["id", "description", "name", "isFavorite", "testCasesCount", "sharedStepsCount", "checkListsCount", "autoTestsCount", "isDeleted", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -146,8 +145,7 @@ class ProjectShortModel(BaseModel):
             "createdById": obj.get("createdById"),
             "modifiedById": obj.get("modifiedById"),
             "globalId": obj.get("globalId"),
-            "type": obj.get("type"),
-            "isFlakyAuto": obj.get("isFlakyAuto")
+            "type": obj.get("type")
         })
         return _obj
 

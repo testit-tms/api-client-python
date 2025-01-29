@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from testit_api_client.models.test_status_type import TestStatusType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +29,12 @@ class TestStatusModel(BaseModel):
     """ # noqa: E501
     id: StrictStr
     name: StrictStr
+    type: TestStatusType
+    is_based: StrictBool = Field(alias="isBased")
+    is_default: StrictBool = Field(alias="isDefault")
     code: StrictStr
-    __properties: ClassVar[List[str]] = ["id", "name", "code"]
+    description: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "type", "isBased", "isDefault", "code", "description"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +75,11 @@ class TestStatusModel(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if description (nullable) is None
+        # and model_fields_set contains the field
+        if self.description is None and "description" in self.model_fields_set:
+            _dict['description'] = None
+
         return _dict
 
     @classmethod
@@ -84,7 +94,11 @@ class TestStatusModel(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "code": obj.get("code")
+            "type": obj.get("type"),
+            "isBased": obj.get("isBased"),
+            "isDefault": obj.get("isDefault"),
+            "code": obj.get("code"),
+            "description": obj.get("description")
         })
         return _obj
 

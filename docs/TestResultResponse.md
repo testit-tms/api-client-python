@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **step_comments** | [**List[StepComment]**](StepComment.md) |  | [optional] 
 **failure_class_ids** | **List[str]** |  | 
 **outcome** | [**TestResultOutcome**](TestResultOutcome.md) |  | [optional] 
-**status** | [**TestStatus**](TestStatus.md) |  | [optional] 
+**status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **comment** | **str** |  | [optional] 
 **links** | [**List[Link]**](Link.md) |  | [optional] 
 **step_results** | [**List[StepResult]**](StepResult.md) |  | [optional] 

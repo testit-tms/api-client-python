@@ -22,22 +22,22 @@ from typing import List, Optional
 from typing_extensions import Annotated
 from testit_api_client.models.auto_test_namespaces_count_response import AutoTestNamespacesCountResponse
 from testit_api_client.models.auto_test_results_for_test_run_model import AutoTestResultsForTestRunModel
-from testit_api_client.models.manual_rerun_result_model import ManualRerunResultModel
-from testit_api_client.models.manual_rerun_select_model import ManualRerunSelectModel
+from testit_api_client.models.create_empty_test_run_api_model import CreateEmptyTestRunApiModel
+from testit_api_client.models.create_test_run_and_fill_by_auto_tests_api_model import CreateTestRunAndFillByAutoTestsApiModel
+from testit_api_client.models.create_test_run_and_fill_by_configurations_api_model import CreateTestRunAndFillByConfigurationsApiModel
+from testit_api_client.models.create_test_run_and_fill_by_work_items_api_model import CreateTestRunAndFillByWorkItemsApiModel
+from testit_api_client.models.manual_rerun_api_result import ManualRerunApiResult
+from testit_api_client.models.manual_rerun_select_api_model import ManualRerunSelectApiModel
 from testit_api_client.models.test_point_result_model import TestPointResultModel
-from testit_api_client.models.test_results_local_filter_model import TestResultsLocalFilterModel
-from testit_api_client.models.test_results_statistics_get_model import TestResultsStatisticsGetModel
-from testit_api_client.models.test_run_fill_by_auto_tests_post_model import TestRunFillByAutoTestsPostModel
-from testit_api_client.models.test_run_fill_by_configurations_post_model import TestRunFillByConfigurationsPostModel
-from testit_api_client.models.test_run_fill_by_work_items_post_model import TestRunFillByWorkItemsPostModel
-from testit_api_client.models.test_run_filter_model import TestRunFilterModel
-from testit_api_client.models.test_run_select_model import TestRunSelectModel
-from testit_api_client.models.test_run_short_get_model import TestRunShortGetModel
+from testit_api_client.models.test_results_statistics_api_result import TestResultsStatisticsApiResult
+from testit_api_client.models.test_run_filter_api_model import TestRunFilterApiModel
+from testit_api_client.models.test_run_select_api_model import TestRunSelectApiModel
+from testit_api_client.models.test_run_short_api_result import TestRunShortApiResult
+from testit_api_client.models.test_run_statistics_filter_api_model import TestRunStatisticsFilterApiModel
 from testit_api_client.models.test_run_test_results_partial_bulk_set_model import TestRunTestResultsPartialBulkSetModel
-from testit_api_client.models.test_run_update_multiple_model import TestRunUpdateMultipleModel
-from testit_api_client.models.test_run_v2_get_model import TestRunV2GetModel
-from testit_api_client.models.test_run_v2_post_short_model import TestRunV2PostShortModel
-from testit_api_client.models.test_run_v2_put_model import TestRunV2PutModel
+from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
+from testit_api_client.models.update_empty_test_run_api_model import UpdateEmptyTestRunApiModel
+from testit_api_client.models.update_multiple_test_runs_api_model import UpdateMultipleTestRunsApiModel
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
 from testit_api_client.api_response import ApiResponse
@@ -60,7 +60,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_delete(
         self,
-        test_run_select_model: Optional[TestRunSelectModel] = None,
+        test_run_select_api_model: Optional[TestRunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -78,8 +78,8 @@ class TestRunsApi:
 
          Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
 
-        :param test_run_select_model:
-        :type test_run_select_model: TestRunSelectModel
+        :param test_run_select_api_model:
+        :type test_run_select_api_model: TestRunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -103,7 +103,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_delete_serialize(
-            test_run_select_model=test_run_select_model,
+            test_run_select_api_model=test_run_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -133,7 +133,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_delete_with_http_info(
         self,
-        test_run_select_model: Optional[TestRunSelectModel] = None,
+        test_run_select_api_model: Optional[TestRunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -151,8 +151,8 @@ class TestRunsApi:
 
          Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
 
-        :param test_run_select_model:
-        :type test_run_select_model: TestRunSelectModel
+        :param test_run_select_api_model:
+        :type test_run_select_api_model: TestRunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -176,7 +176,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_delete_serialize(
-            test_run_select_model=test_run_select_model,
+            test_run_select_api_model=test_run_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -206,7 +206,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_delete_without_preload_content(
         self,
-        test_run_select_model: Optional[TestRunSelectModel] = None,
+        test_run_select_api_model: Optional[TestRunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -224,8 +224,8 @@ class TestRunsApi:
 
          Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
 
-        :param test_run_select_model:
-        :type test_run_select_model: TestRunSelectModel
+        :param test_run_select_api_model:
+        :type test_run_select_api_model: TestRunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -249,7 +249,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_delete_serialize(
-            test_run_select_model=test_run_select_model,
+            test_run_select_api_model=test_run_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -274,7 +274,7 @@ class TestRunsApi:
 
     def _api_v2_test_runs_delete_serialize(
         self,
-        test_run_select_model,
+        test_run_select_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -300,8 +300,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_select_model is not None:
-            _body_params = test_run_select_model
+        if test_run_select_api_model is not None:
+            _body_params = test_run_select_api_model
 
 
         # set the HTTP header `Accept`
@@ -1187,7 +1187,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_reruns_post(
         self,
         id: StrictStr,
-        manual_rerun_select_model: Optional[ManualRerunSelectModel] = None,
+        manual_rerun_select_api_model: Optional[ManualRerunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1200,14 +1200,14 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ManualRerunResultModel:
+    ) -> ManualRerunApiResult:
         """Manual autotests rerun in test run
 
 
         :param id: (required)
         :type id: str
-        :param manual_rerun_select_model:
-        :type manual_rerun_select_model: ManualRerunSelectModel
+        :param manual_rerun_select_api_model:
+        :type manual_rerun_select_api_model: ManualRerunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1232,7 +1232,7 @@ class TestRunsApi:
 
         _param = self._api_v2_test_runs_id_reruns_post_serialize(
             id=id,
-            manual_rerun_select_model=manual_rerun_select_model,
+            manual_rerun_select_api_model=manual_rerun_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1240,7 +1240,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ManualRerunResultModel",
+            '200': "ManualRerunApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1263,7 +1263,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_reruns_post_with_http_info(
         self,
         id: StrictStr,
-        manual_rerun_select_model: Optional[ManualRerunSelectModel] = None,
+        manual_rerun_select_api_model: Optional[ManualRerunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1276,14 +1276,14 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ManualRerunResultModel]:
+    ) -> ApiResponse[ManualRerunApiResult]:
         """Manual autotests rerun in test run
 
 
         :param id: (required)
         :type id: str
-        :param manual_rerun_select_model:
-        :type manual_rerun_select_model: ManualRerunSelectModel
+        :param manual_rerun_select_api_model:
+        :type manual_rerun_select_api_model: ManualRerunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1308,7 +1308,7 @@ class TestRunsApi:
 
         _param = self._api_v2_test_runs_id_reruns_post_serialize(
             id=id,
-            manual_rerun_select_model=manual_rerun_select_model,
+            manual_rerun_select_api_model=manual_rerun_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1316,7 +1316,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ManualRerunResultModel",
+            '200': "ManualRerunApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1339,7 +1339,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_reruns_post_without_preload_content(
         self,
         id: StrictStr,
-        manual_rerun_select_model: Optional[ManualRerunSelectModel] = None,
+        manual_rerun_select_api_model: Optional[ManualRerunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1358,8 +1358,8 @@ class TestRunsApi:
 
         :param id: (required)
         :type id: str
-        :param manual_rerun_select_model:
-        :type manual_rerun_select_model: ManualRerunSelectModel
+        :param manual_rerun_select_api_model:
+        :type manual_rerun_select_api_model: ManualRerunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1384,7 +1384,7 @@ class TestRunsApi:
 
         _param = self._api_v2_test_runs_id_reruns_post_serialize(
             id=id,
-            manual_rerun_select_model=manual_rerun_select_model,
+            manual_rerun_select_api_model=manual_rerun_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1392,7 +1392,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ManualRerunResultModel",
+            '200': "ManualRerunApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1410,7 +1410,7 @@ class TestRunsApi:
     def _api_v2_test_runs_id_reruns_post_serialize(
         self,
         id,
-        manual_rerun_select_model,
+        manual_rerun_select_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -1438,8 +1438,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if manual_rerun_select_model is not None:
-            _body_params = manual_rerun_select_model
+        if manual_rerun_select_api_model is not None:
+            _body_params = manual_rerun_select_api_model
 
 
         # set the HTTP header `Accept`
@@ -1770,7 +1770,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_statistics_filter_post(
         self,
         id: Annotated[StrictStr, Field(description="Test run unique ID")],
-        test_results_local_filter_model: Optional[TestResultsLocalFilterModel] = None,
+        test_run_statistics_filter_api_model: Optional[TestRunStatisticsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1783,14 +1783,14 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TestResultsStatisticsGetModel:
+    ) -> TestResultsStatisticsApiResult:
         """Search for the test run test results and build statistics
 
 
         :param id: Test run unique ID (required)
         :type id: str
-        :param test_results_local_filter_model:
-        :type test_results_local_filter_model: TestResultsLocalFilterModel
+        :param test_run_statistics_filter_api_model:
+        :type test_run_statistics_filter_api_model: TestRunStatisticsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1815,7 +1815,7 @@ class TestRunsApi:
 
         _param = self._api_v2_test_runs_id_statistics_filter_post_serialize(
             id=id,
-            test_results_local_filter_model=test_results_local_filter_model,
+            test_run_statistics_filter_api_model=test_run_statistics_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1823,7 +1823,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TestResultsStatisticsGetModel",
+            '200': "TestResultsStatisticsApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1846,7 +1846,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_statistics_filter_post_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="Test run unique ID")],
-        test_results_local_filter_model: Optional[TestResultsLocalFilterModel] = None,
+        test_run_statistics_filter_api_model: Optional[TestRunStatisticsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1859,14 +1859,14 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TestResultsStatisticsGetModel]:
+    ) -> ApiResponse[TestResultsStatisticsApiResult]:
         """Search for the test run test results and build statistics
 
 
         :param id: Test run unique ID (required)
         :type id: str
-        :param test_results_local_filter_model:
-        :type test_results_local_filter_model: TestResultsLocalFilterModel
+        :param test_run_statistics_filter_api_model:
+        :type test_run_statistics_filter_api_model: TestRunStatisticsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1891,7 +1891,7 @@ class TestRunsApi:
 
         _param = self._api_v2_test_runs_id_statistics_filter_post_serialize(
             id=id,
-            test_results_local_filter_model=test_results_local_filter_model,
+            test_run_statistics_filter_api_model=test_run_statistics_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1899,7 +1899,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TestResultsStatisticsGetModel",
+            '200': "TestResultsStatisticsApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1922,7 +1922,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_statistics_filter_post_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Test run unique ID")],
-        test_results_local_filter_model: Optional[TestResultsLocalFilterModel] = None,
+        test_run_statistics_filter_api_model: Optional[TestRunStatisticsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1941,8 +1941,8 @@ class TestRunsApi:
 
         :param id: Test run unique ID (required)
         :type id: str
-        :param test_results_local_filter_model:
-        :type test_results_local_filter_model: TestResultsLocalFilterModel
+        :param test_run_statistics_filter_api_model:
+        :type test_run_statistics_filter_api_model: TestRunStatisticsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1967,7 +1967,7 @@ class TestRunsApi:
 
         _param = self._api_v2_test_runs_id_statistics_filter_post_serialize(
             id=id,
-            test_results_local_filter_model=test_results_local_filter_model,
+            test_run_statistics_filter_api_model=test_run_statistics_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1975,7 +1975,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TestResultsStatisticsGetModel",
+            '200': "TestResultsStatisticsApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1993,7 +1993,7 @@ class TestRunsApi:
     def _api_v2_test_runs_id_statistics_filter_post_serialize(
         self,
         id,
-        test_results_local_filter_model,
+        test_run_statistics_filter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -2021,8 +2021,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_results_local_filter_model is not None:
-            _body_params = test_results_local_filter_model
+        if test_run_statistics_filter_api_model is not None:
+            _body_params = test_run_statistics_filter_api_model
 
 
         # set the HTTP header `Accept`
@@ -2929,7 +2929,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_purge_bulk_post(
         self,
-        test_run_select_model: Optional[TestRunSelectModel] = None,
+        test_run_select_api_model: Optional[TestRunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2947,8 +2947,8 @@ class TestRunsApi:
 
          Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
 
-        :param test_run_select_model:
-        :type test_run_select_model: TestRunSelectModel
+        :param test_run_select_api_model:
+        :type test_run_select_api_model: TestRunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2972,7 +2972,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_purge_bulk_post_serialize(
-            test_run_select_model=test_run_select_model,
+            test_run_select_api_model=test_run_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3002,7 +3002,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_purge_bulk_post_with_http_info(
         self,
-        test_run_select_model: Optional[TestRunSelectModel] = None,
+        test_run_select_api_model: Optional[TestRunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3020,8 +3020,8 @@ class TestRunsApi:
 
          Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
 
-        :param test_run_select_model:
-        :type test_run_select_model: TestRunSelectModel
+        :param test_run_select_api_model:
+        :type test_run_select_api_model: TestRunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3045,7 +3045,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_purge_bulk_post_serialize(
-            test_run_select_model=test_run_select_model,
+            test_run_select_api_model=test_run_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3075,7 +3075,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_purge_bulk_post_without_preload_content(
         self,
-        test_run_select_model: Optional[TestRunSelectModel] = None,
+        test_run_select_api_model: Optional[TestRunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3093,8 +3093,8 @@ class TestRunsApi:
 
          Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
 
-        :param test_run_select_model:
-        :type test_run_select_model: TestRunSelectModel
+        :param test_run_select_api_model:
+        :type test_run_select_api_model: TestRunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3118,7 +3118,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_purge_bulk_post_serialize(
-            test_run_select_model=test_run_select_model,
+            test_run_select_api_model=test_run_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3143,7 +3143,7 @@ class TestRunsApi:
 
     def _api_v2_test_runs_purge_bulk_post_serialize(
         self,
-        test_run_select_model,
+        test_run_select_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -3169,8 +3169,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_select_model is not None:
-            _body_params = test_run_select_model
+        if test_run_select_api_model is not None:
+            _body_params = test_run_select_api_model
 
 
         # set the HTTP header `Accept`
@@ -3221,7 +3221,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_restore_bulk_post(
         self,
-        test_run_select_model: Optional[TestRunSelectModel] = None,
+        test_run_select_api_model: Optional[TestRunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3239,8 +3239,8 @@ class TestRunsApi:
 
          Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
 
-        :param test_run_select_model:
-        :type test_run_select_model: TestRunSelectModel
+        :param test_run_select_api_model:
+        :type test_run_select_api_model: TestRunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3264,7 +3264,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_restore_bulk_post_serialize(
-            test_run_select_model=test_run_select_model,
+            test_run_select_api_model=test_run_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3294,7 +3294,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_restore_bulk_post_with_http_info(
         self,
-        test_run_select_model: Optional[TestRunSelectModel] = None,
+        test_run_select_api_model: Optional[TestRunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3312,8 +3312,8 @@ class TestRunsApi:
 
          Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
 
-        :param test_run_select_model:
-        :type test_run_select_model: TestRunSelectModel
+        :param test_run_select_api_model:
+        :type test_run_select_api_model: TestRunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3337,7 +3337,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_restore_bulk_post_serialize(
-            test_run_select_model=test_run_select_model,
+            test_run_select_api_model=test_run_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3367,7 +3367,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_restore_bulk_post_without_preload_content(
         self,
-        test_run_select_model: Optional[TestRunSelectModel] = None,
+        test_run_select_api_model: Optional[TestRunSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3385,8 +3385,8 @@ class TestRunsApi:
 
          Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
 
-        :param test_run_select_model:
-        :type test_run_select_model: TestRunSelectModel
+        :param test_run_select_api_model:
+        :type test_run_select_api_model: TestRunSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3410,7 +3410,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_restore_bulk_post_serialize(
-            test_run_select_model=test_run_select_model,
+            test_run_select_api_model=test_run_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3435,7 +3435,7 @@ class TestRunsApi:
 
     def _api_v2_test_runs_restore_bulk_post_serialize(
         self,
-        test_run_select_model,
+        test_run_select_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -3461,8 +3461,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_select_model is not None:
-            _body_params = test_run_select_model
+        if test_run_select_api_model is not None:
+            _body_params = test_run_select_api_model
 
 
         # set the HTTP header `Accept`
@@ -3518,7 +3518,7 @@ class TestRunsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_run_filter_model: Optional[TestRunFilterModel] = None,
+        test_run_filter_api_model: Optional[TestRunFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3531,7 +3531,7 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestRunShortGetModel]:
+    ) -> List[TestRunShortApiResult]:
         """Search for test runs
 
 
@@ -3545,8 +3545,8 @@ class TestRunsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_run_filter_model:
-        :type test_run_filter_model: TestRunFilterModel
+        :param test_run_filter_api_model:
+        :type test_run_filter_api_model: TestRunFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3575,7 +3575,7 @@ class TestRunsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_run_filter_model=test_run_filter_model,
+            test_run_filter_api_model=test_run_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3583,7 +3583,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunShortGetModel]",
+            '200': "List[TestRunShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3610,7 +3610,7 @@ class TestRunsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_run_filter_model: Optional[TestRunFilterModel] = None,
+        test_run_filter_api_model: Optional[TestRunFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3623,7 +3623,7 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestRunShortGetModel]]:
+    ) -> ApiResponse[List[TestRunShortApiResult]]:
         """Search for test runs
 
 
@@ -3637,8 +3637,8 @@ class TestRunsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_run_filter_model:
-        :type test_run_filter_model: TestRunFilterModel
+        :param test_run_filter_api_model:
+        :type test_run_filter_api_model: TestRunFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3667,7 +3667,7 @@ class TestRunsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_run_filter_model=test_run_filter_model,
+            test_run_filter_api_model=test_run_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3675,7 +3675,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunShortGetModel]",
+            '200': "List[TestRunShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3702,7 +3702,7 @@ class TestRunsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_run_filter_model: Optional[TestRunFilterModel] = None,
+        test_run_filter_api_model: Optional[TestRunFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3729,8 +3729,8 @@ class TestRunsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_run_filter_model:
-        :type test_run_filter_model: TestRunFilterModel
+        :param test_run_filter_api_model:
+        :type test_run_filter_api_model: TestRunFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3759,7 +3759,7 @@ class TestRunsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_run_filter_model=test_run_filter_model,
+            test_run_filter_api_model=test_run_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3767,7 +3767,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunShortGetModel]",
+            '200': "List[TestRunShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3789,7 +3789,7 @@ class TestRunsApi:
         order_by,
         search_field,
         search_value,
-        test_run_filter_model,
+        test_run_filter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -3835,8 +3835,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_filter_model is not None:
-            _body_params = test_run_filter_model
+        if test_run_filter_api_model is not None:
+            _body_params = test_run_filter_api_model
 
 
         # set the HTTP header `Accept`
@@ -3887,7 +3887,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_update_multiple_post(
         self,
-        test_run_update_multiple_model: Optional[TestRunUpdateMultipleModel] = None,
+        update_multiple_test_runs_api_model: Optional[UpdateMultipleTestRunsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3904,8 +3904,8 @@ class TestRunsApi:
         """Update multiple test runs
 
 
-        :param test_run_update_multiple_model:
-        :type test_run_update_multiple_model: TestRunUpdateMultipleModel
+        :param update_multiple_test_runs_api_model:
+        :type update_multiple_test_runs_api_model: UpdateMultipleTestRunsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3929,7 +3929,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_update_multiple_post_serialize(
-            test_run_update_multiple_model=test_run_update_multiple_model,
+            update_multiple_test_runs_api_model=update_multiple_test_runs_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3959,7 +3959,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_update_multiple_post_with_http_info(
         self,
-        test_run_update_multiple_model: Optional[TestRunUpdateMultipleModel] = None,
+        update_multiple_test_runs_api_model: Optional[UpdateMultipleTestRunsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3976,8 +3976,8 @@ class TestRunsApi:
         """Update multiple test runs
 
 
-        :param test_run_update_multiple_model:
-        :type test_run_update_multiple_model: TestRunUpdateMultipleModel
+        :param update_multiple_test_runs_api_model:
+        :type update_multiple_test_runs_api_model: UpdateMultipleTestRunsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4001,7 +4001,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_update_multiple_post_serialize(
-            test_run_update_multiple_model=test_run_update_multiple_model,
+            update_multiple_test_runs_api_model=update_multiple_test_runs_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4031,7 +4031,7 @@ class TestRunsApi:
     @validate_call
     def api_v2_test_runs_update_multiple_post_without_preload_content(
         self,
-        test_run_update_multiple_model: Optional[TestRunUpdateMultipleModel] = None,
+        update_multiple_test_runs_api_model: Optional[UpdateMultipleTestRunsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4048,8 +4048,8 @@ class TestRunsApi:
         """Update multiple test runs
 
 
-        :param test_run_update_multiple_model:
-        :type test_run_update_multiple_model: TestRunUpdateMultipleModel
+        :param update_multiple_test_runs_api_model:
+        :type update_multiple_test_runs_api_model: UpdateMultipleTestRunsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4073,7 +4073,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._api_v2_test_runs_update_multiple_post_serialize(
-            test_run_update_multiple_model=test_run_update_multiple_model,
+            update_multiple_test_runs_api_model=update_multiple_test_runs_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4098,7 +4098,7 @@ class TestRunsApi:
 
     def _api_v2_test_runs_update_multiple_post_serialize(
         self,
-        test_run_update_multiple_model,
+        update_multiple_test_runs_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -4124,8 +4124,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_update_multiple_model is not None:
-            _body_params = test_run_update_multiple_model
+        if update_multiple_test_runs_api_model is not None:
+            _body_params = update_multiple_test_runs_api_model
 
 
         # set the HTTP header `Accept`
@@ -4455,7 +4455,7 @@ class TestRunsApi:
     @validate_call
     def create_and_fill_by_auto_tests(
         self,
-        test_run_fill_by_auto_tests_post_model: Optional[TestRunFillByAutoTestsPostModel] = None,
+        create_test_run_and_fill_by_auto_tests_api_model: Optional[CreateTestRunAndFillByAutoTestsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4468,13 +4468,13 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TestRunV2GetModel:
+    ) -> TestRunV2ApiResult:
         """Create test runs based on autotests and configurations
 
         This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
 
-        :param test_run_fill_by_auto_tests_post_model:
-        :type test_run_fill_by_auto_tests_post_model: TestRunFillByAutoTestsPostModel
+        :param create_test_run_and_fill_by_auto_tests_api_model:
+        :type create_test_run_and_fill_by_auto_tests_api_model: CreateTestRunAndFillByAutoTestsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4498,7 +4498,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_and_fill_by_auto_tests_serialize(
-            test_run_fill_by_auto_tests_post_model=test_run_fill_by_auto_tests_post_model,
+            create_test_run_and_fill_by_auto_tests_api_model=create_test_run_and_fill_by_auto_tests_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4506,7 +4506,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4528,7 +4528,7 @@ class TestRunsApi:
     @validate_call
     def create_and_fill_by_auto_tests_with_http_info(
         self,
-        test_run_fill_by_auto_tests_post_model: Optional[TestRunFillByAutoTestsPostModel] = None,
+        create_test_run_and_fill_by_auto_tests_api_model: Optional[CreateTestRunAndFillByAutoTestsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4541,13 +4541,13 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TestRunV2GetModel]:
+    ) -> ApiResponse[TestRunV2ApiResult]:
         """Create test runs based on autotests and configurations
 
         This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
 
-        :param test_run_fill_by_auto_tests_post_model:
-        :type test_run_fill_by_auto_tests_post_model: TestRunFillByAutoTestsPostModel
+        :param create_test_run_and_fill_by_auto_tests_api_model:
+        :type create_test_run_and_fill_by_auto_tests_api_model: CreateTestRunAndFillByAutoTestsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4571,7 +4571,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_and_fill_by_auto_tests_serialize(
-            test_run_fill_by_auto_tests_post_model=test_run_fill_by_auto_tests_post_model,
+            create_test_run_and_fill_by_auto_tests_api_model=create_test_run_and_fill_by_auto_tests_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4579,7 +4579,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4601,7 +4601,7 @@ class TestRunsApi:
     @validate_call
     def create_and_fill_by_auto_tests_without_preload_content(
         self,
-        test_run_fill_by_auto_tests_post_model: Optional[TestRunFillByAutoTestsPostModel] = None,
+        create_test_run_and_fill_by_auto_tests_api_model: Optional[CreateTestRunAndFillByAutoTestsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4619,8 +4619,8 @@ class TestRunsApi:
 
         This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
 
-        :param test_run_fill_by_auto_tests_post_model:
-        :type test_run_fill_by_auto_tests_post_model: TestRunFillByAutoTestsPostModel
+        :param create_test_run_and_fill_by_auto_tests_api_model:
+        :type create_test_run_and_fill_by_auto_tests_api_model: CreateTestRunAndFillByAutoTestsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4644,7 +4644,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_and_fill_by_auto_tests_serialize(
-            test_run_fill_by_auto_tests_post_model=test_run_fill_by_auto_tests_post_model,
+            create_test_run_and_fill_by_auto_tests_api_model=create_test_run_and_fill_by_auto_tests_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4652,7 +4652,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4669,7 +4669,7 @@ class TestRunsApi:
 
     def _create_and_fill_by_auto_tests_serialize(
         self,
-        test_run_fill_by_auto_tests_post_model,
+        create_test_run_and_fill_by_auto_tests_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -4695,8 +4695,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_fill_by_auto_tests_post_model is not None:
-            _body_params = test_run_fill_by_auto_tests_post_model
+        if create_test_run_and_fill_by_auto_tests_api_model is not None:
+            _body_params = create_test_run_and_fill_by_auto_tests_api_model
 
 
         # set the HTTP header `Accept`
@@ -4747,7 +4747,7 @@ class TestRunsApi:
     @validate_call
     def create_and_fill_by_configurations(
         self,
-        test_run_fill_by_configurations_post_model: Optional[TestRunFillByConfigurationsPostModel] = None,
+        create_test_run_and_fill_by_configurations_api_model: Optional[CreateTestRunAndFillByConfigurationsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4760,13 +4760,13 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TestRunV2GetModel:
+    ) -> TestRunV2ApiResult:
         """Create test runs picking the needed test points
 
         This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.
 
-        :param test_run_fill_by_configurations_post_model:
-        :type test_run_fill_by_configurations_post_model: TestRunFillByConfigurationsPostModel
+        :param create_test_run_and_fill_by_configurations_api_model:
+        :type create_test_run_and_fill_by_configurations_api_model: CreateTestRunAndFillByConfigurationsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4790,7 +4790,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_and_fill_by_configurations_serialize(
-            test_run_fill_by_configurations_post_model=test_run_fill_by_configurations_post_model,
+            create_test_run_and_fill_by_configurations_api_model=create_test_run_and_fill_by_configurations_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4798,7 +4798,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4820,7 +4820,7 @@ class TestRunsApi:
     @validate_call
     def create_and_fill_by_configurations_with_http_info(
         self,
-        test_run_fill_by_configurations_post_model: Optional[TestRunFillByConfigurationsPostModel] = None,
+        create_test_run_and_fill_by_configurations_api_model: Optional[CreateTestRunAndFillByConfigurationsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4833,13 +4833,13 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TestRunV2GetModel]:
+    ) -> ApiResponse[TestRunV2ApiResult]:
         """Create test runs picking the needed test points
 
         This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.
 
-        :param test_run_fill_by_configurations_post_model:
-        :type test_run_fill_by_configurations_post_model: TestRunFillByConfigurationsPostModel
+        :param create_test_run_and_fill_by_configurations_api_model:
+        :type create_test_run_and_fill_by_configurations_api_model: CreateTestRunAndFillByConfigurationsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4863,7 +4863,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_and_fill_by_configurations_serialize(
-            test_run_fill_by_configurations_post_model=test_run_fill_by_configurations_post_model,
+            create_test_run_and_fill_by_configurations_api_model=create_test_run_and_fill_by_configurations_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4871,7 +4871,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4893,7 +4893,7 @@ class TestRunsApi:
     @validate_call
     def create_and_fill_by_configurations_without_preload_content(
         self,
-        test_run_fill_by_configurations_post_model: Optional[TestRunFillByConfigurationsPostModel] = None,
+        create_test_run_and_fill_by_configurations_api_model: Optional[CreateTestRunAndFillByConfigurationsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4911,8 +4911,8 @@ class TestRunsApi:
 
         This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.
 
-        :param test_run_fill_by_configurations_post_model:
-        :type test_run_fill_by_configurations_post_model: TestRunFillByConfigurationsPostModel
+        :param create_test_run_and_fill_by_configurations_api_model:
+        :type create_test_run_and_fill_by_configurations_api_model: CreateTestRunAndFillByConfigurationsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4936,7 +4936,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_and_fill_by_configurations_serialize(
-            test_run_fill_by_configurations_post_model=test_run_fill_by_configurations_post_model,
+            create_test_run_and_fill_by_configurations_api_model=create_test_run_and_fill_by_configurations_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4944,7 +4944,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4961,7 +4961,7 @@ class TestRunsApi:
 
     def _create_and_fill_by_configurations_serialize(
         self,
-        test_run_fill_by_configurations_post_model,
+        create_test_run_and_fill_by_configurations_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -4987,8 +4987,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_fill_by_configurations_post_model is not None:
-            _body_params = test_run_fill_by_configurations_post_model
+        if create_test_run_and_fill_by_configurations_api_model is not None:
+            _body_params = create_test_run_and_fill_by_configurations_api_model
 
 
         # set the HTTP header `Accept`
@@ -5039,7 +5039,7 @@ class TestRunsApi:
     @validate_call
     def create_and_fill_by_work_items(
         self,
-        test_run_fill_by_work_items_post_model: Optional[TestRunFillByWorkItemsPostModel] = None,
+        create_test_run_and_fill_by_work_items_api_model: Optional[CreateTestRunAndFillByWorkItemsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5052,13 +5052,13 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TestRunV2GetModel:
+    ) -> TestRunV2ApiResult:
         """Create test run based on configurations and work items
 
         This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
 
-        :param test_run_fill_by_work_items_post_model:
-        :type test_run_fill_by_work_items_post_model: TestRunFillByWorkItemsPostModel
+        :param create_test_run_and_fill_by_work_items_api_model:
+        :type create_test_run_and_fill_by_work_items_api_model: CreateTestRunAndFillByWorkItemsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5082,7 +5082,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_and_fill_by_work_items_serialize(
-            test_run_fill_by_work_items_post_model=test_run_fill_by_work_items_post_model,
+            create_test_run_and_fill_by_work_items_api_model=create_test_run_and_fill_by_work_items_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5090,7 +5090,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5112,7 +5112,7 @@ class TestRunsApi:
     @validate_call
     def create_and_fill_by_work_items_with_http_info(
         self,
-        test_run_fill_by_work_items_post_model: Optional[TestRunFillByWorkItemsPostModel] = None,
+        create_test_run_and_fill_by_work_items_api_model: Optional[CreateTestRunAndFillByWorkItemsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5125,13 +5125,13 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TestRunV2GetModel]:
+    ) -> ApiResponse[TestRunV2ApiResult]:
         """Create test run based on configurations and work items
 
         This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
 
-        :param test_run_fill_by_work_items_post_model:
-        :type test_run_fill_by_work_items_post_model: TestRunFillByWorkItemsPostModel
+        :param create_test_run_and_fill_by_work_items_api_model:
+        :type create_test_run_and_fill_by_work_items_api_model: CreateTestRunAndFillByWorkItemsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5155,7 +5155,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_and_fill_by_work_items_serialize(
-            test_run_fill_by_work_items_post_model=test_run_fill_by_work_items_post_model,
+            create_test_run_and_fill_by_work_items_api_model=create_test_run_and_fill_by_work_items_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5163,7 +5163,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5185,7 +5185,7 @@ class TestRunsApi:
     @validate_call
     def create_and_fill_by_work_items_without_preload_content(
         self,
-        test_run_fill_by_work_items_post_model: Optional[TestRunFillByWorkItemsPostModel] = None,
+        create_test_run_and_fill_by_work_items_api_model: Optional[CreateTestRunAndFillByWorkItemsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5203,8 +5203,8 @@ class TestRunsApi:
 
         This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
 
-        :param test_run_fill_by_work_items_post_model:
-        :type test_run_fill_by_work_items_post_model: TestRunFillByWorkItemsPostModel
+        :param create_test_run_and_fill_by_work_items_api_model:
+        :type create_test_run_and_fill_by_work_items_api_model: CreateTestRunAndFillByWorkItemsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5228,7 +5228,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_and_fill_by_work_items_serialize(
-            test_run_fill_by_work_items_post_model=test_run_fill_by_work_items_post_model,
+            create_test_run_and_fill_by_work_items_api_model=create_test_run_and_fill_by_work_items_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5236,7 +5236,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5253,7 +5253,7 @@ class TestRunsApi:
 
     def _create_and_fill_by_work_items_serialize(
         self,
-        test_run_fill_by_work_items_post_model,
+        create_test_run_and_fill_by_work_items_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -5279,8 +5279,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_fill_by_work_items_post_model is not None:
-            _body_params = test_run_fill_by_work_items_post_model
+        if create_test_run_and_fill_by_work_items_api_model is not None:
+            _body_params = create_test_run_and_fill_by_work_items_api_model
 
 
         # set the HTTP header `Accept`
@@ -5331,7 +5331,7 @@ class TestRunsApi:
     @validate_call
     def create_empty(
         self,
-        test_run_v2_post_short_model: Optional[TestRunV2PostShortModel] = None,
+        create_empty_test_run_api_model: Optional[CreateEmptyTestRunApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5344,13 +5344,13 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TestRunV2GetModel:
+    ) -> TestRunV2ApiResult:
         """Create empty TestRun
 
          Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
 
-        :param test_run_v2_post_short_model:
-        :type test_run_v2_post_short_model: TestRunV2PostShortModel
+        :param create_empty_test_run_api_model:
+        :type create_empty_test_run_api_model: CreateEmptyTestRunApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5374,7 +5374,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_empty_serialize(
-            test_run_v2_post_short_model=test_run_v2_post_short_model,
+            create_empty_test_run_api_model=create_empty_test_run_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5382,7 +5382,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5404,7 +5404,7 @@ class TestRunsApi:
     @validate_call
     def create_empty_with_http_info(
         self,
-        test_run_v2_post_short_model: Optional[TestRunV2PostShortModel] = None,
+        create_empty_test_run_api_model: Optional[CreateEmptyTestRunApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5417,13 +5417,13 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TestRunV2GetModel]:
+    ) -> ApiResponse[TestRunV2ApiResult]:
         """Create empty TestRun
 
          Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
 
-        :param test_run_v2_post_short_model:
-        :type test_run_v2_post_short_model: TestRunV2PostShortModel
+        :param create_empty_test_run_api_model:
+        :type create_empty_test_run_api_model: CreateEmptyTestRunApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5447,7 +5447,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_empty_serialize(
-            test_run_v2_post_short_model=test_run_v2_post_short_model,
+            create_empty_test_run_api_model=create_empty_test_run_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5455,7 +5455,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5477,7 +5477,7 @@ class TestRunsApi:
     @validate_call
     def create_empty_without_preload_content(
         self,
-        test_run_v2_post_short_model: Optional[TestRunV2PostShortModel] = None,
+        create_empty_test_run_api_model: Optional[CreateEmptyTestRunApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5495,8 +5495,8 @@ class TestRunsApi:
 
          Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
 
-        :param test_run_v2_post_short_model:
-        :type test_run_v2_post_short_model: TestRunV2PostShortModel
+        :param create_empty_test_run_api_model:
+        :type create_empty_test_run_api_model: CreateEmptyTestRunApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5520,7 +5520,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._create_empty_serialize(
-            test_run_v2_post_short_model=test_run_v2_post_short_model,
+            create_empty_test_run_api_model=create_empty_test_run_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5528,7 +5528,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TestRunV2GetModel",
+            '201': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5545,7 +5545,7 @@ class TestRunsApi:
 
     def _create_empty_serialize(
         self,
-        test_run_v2_post_short_model,
+        create_empty_test_run_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -5571,8 +5571,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_v2_post_short_model is not None:
-            _body_params = test_run_v2_post_short_model
+        if create_empty_test_run_api_model is not None:
+            _body_params = create_empty_test_run_api_model
 
 
         # set the HTTP header `Accept`
@@ -5636,7 +5636,7 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TestRunV2GetModel:
+    ) -> TestRunV2ApiResult:
         """Get TestRun by Id
 
          Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run
@@ -5674,7 +5674,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TestRunV2GetModel",
+            '200': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5709,7 +5709,7 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TestRunV2GetModel]:
+    ) -> ApiResponse[TestRunV2ApiResult]:
         """Get TestRun by Id
 
          Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run
@@ -5747,7 +5747,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TestRunV2GetModel",
+            '200': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5820,7 +5820,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TestRunV2GetModel",
+            '200': "TestRunV2ApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -6768,7 +6768,7 @@ class TestRunsApi:
     @validate_call
     def update_empty(
         self,
-        test_run_v2_put_model: Optional[TestRunV2PutModel] = None,
+        update_empty_test_run_api_model: Optional[UpdateEmptyTestRunApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6786,8 +6786,8 @@ class TestRunsApi:
 
          Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
 
-        :param test_run_v2_put_model:
-        :type test_run_v2_put_model: TestRunV2PutModel
+        :param update_empty_test_run_api_model:
+        :type update_empty_test_run_api_model: UpdateEmptyTestRunApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6811,7 +6811,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._update_empty_serialize(
-            test_run_v2_put_model=test_run_v2_put_model,
+            update_empty_test_run_api_model=update_empty_test_run_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6841,7 +6841,7 @@ class TestRunsApi:
     @validate_call
     def update_empty_with_http_info(
         self,
-        test_run_v2_put_model: Optional[TestRunV2PutModel] = None,
+        update_empty_test_run_api_model: Optional[UpdateEmptyTestRunApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6859,8 +6859,8 @@ class TestRunsApi:
 
          Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
 
-        :param test_run_v2_put_model:
-        :type test_run_v2_put_model: TestRunV2PutModel
+        :param update_empty_test_run_api_model:
+        :type update_empty_test_run_api_model: UpdateEmptyTestRunApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6884,7 +6884,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._update_empty_serialize(
-            test_run_v2_put_model=test_run_v2_put_model,
+            update_empty_test_run_api_model=update_empty_test_run_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6914,7 +6914,7 @@ class TestRunsApi:
     @validate_call
     def update_empty_without_preload_content(
         self,
-        test_run_v2_put_model: Optional[TestRunV2PutModel] = None,
+        update_empty_test_run_api_model: Optional[UpdateEmptyTestRunApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6932,8 +6932,8 @@ class TestRunsApi:
 
          Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
 
-        :param test_run_v2_put_model:
-        :type test_run_v2_put_model: TestRunV2PutModel
+        :param update_empty_test_run_api_model:
+        :type update_empty_test_run_api_model: UpdateEmptyTestRunApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6957,7 +6957,7 @@ class TestRunsApi:
         """ # noqa: E501
 
         _param = self._update_empty_serialize(
-            test_run_v2_put_model=test_run_v2_put_model,
+            update_empty_test_run_api_model=update_empty_test_run_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6982,7 +6982,7 @@ class TestRunsApi:
 
     def _update_empty_serialize(
         self,
-        test_run_v2_put_model,
+        update_empty_test_run_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -7008,8 +7008,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_v2_put_model is not None:
-            _body_params = test_run_v2_put_model
+        if update_empty_test_run_api_model is not None:
+            _body_params = update_empty_test_run_api_model
 
 
         # set the HTTP header `Accept`

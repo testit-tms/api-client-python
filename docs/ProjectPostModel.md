@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **description** | **str** | Description of the project | [optional] 
 **name** | **str** | Name of the project | 
 **is_favorite** | **bool** | Indicates if the project is marked as favorite | [optional] 
-**is_flaky_auto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | [optional] 
 
 ## Example
 
