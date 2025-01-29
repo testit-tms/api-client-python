@@ -20,7 +20,8 @@
 | 4.6     | 3.5.0      |
 | 5.0     | 4.0.0      |
 | 5.1     | 4.1.0      |
-| 5.2     | 4.2.0+     |
+| 5.2     | 4.2.0      |
+| Cloud   | 5.1.0      |
 
 ## Installation & Usage
 ### pip install
@@ -76,6 +77,7 @@ Class | Method | HTTP request | Description
 *AttachmentsApi* | [**api_v2_attachments_id_metadata_get**](docs/AttachmentsApi.md#api_v2_attachments_id_metadata_get) | **GET** /api/v2/attachments/{id}/metadata | Get attachment metadata
 *AttachmentsApi* | [**api_v2_attachments_occupied_file_storage_size_get**](docs/AttachmentsApi.md#api_v2_attachments_occupied_file_storage_size_get) | **GET** /api/v2/attachments/occupiedFileStorageSize | Get size of attachments storage in bytes
 *AttachmentsApi* | [**api_v2_attachments_post**](docs/AttachmentsApi.md#api_v2_attachments_post) | **POST** /api/v2/attachments | Upload new attachment file
+*AutoTestsApi* | [**api_v2_auto_tests_delete**](docs/AutoTestsApi.md#api_v2_auto_tests_delete) | **DELETE** /api/v2/autoTests | Delete autotests
 *AutoTestsApi* | [**api_v2_auto_tests_flaky_bulk_post**](docs/AutoTestsApi.md#api_v2_auto_tests_flaky_bulk_post) | **POST** /api/v2/autoTests/flaky/bulk | Set \&quot;Flaky\&quot; status for multiple autotests
 *AutoTestsApi* | [**api_v2_auto_tests_id_patch**](docs/AutoTestsApi.md#api_v2_auto_tests_id_patch) | **PATCH** /api/v2/autoTests/{id} | Patch auto test
 *AutoTestsApi* | [**api_v2_auto_tests_id_test_results_search_post**](docs/AutoTestsApi.md#api_v2_auto_tests_id_test_results_search_post) | **POST** /api/v2/autoTests/{id}/testResults/search | Get test results history for autotest

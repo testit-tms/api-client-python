@@ -30,8 +30,7 @@ class ProjectPostModel(BaseModel):
     description: Optional[StrictStr] = Field(default=None, description="Description of the project")
     name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Name of the project")
     is_favorite: Optional[StrictBool] = Field(default=None, description="Indicates if the project is marked as favorite", alias="isFavorite")
-    is_flaky_auto: Optional[StrictBool] = Field(default=None, description="Indicates if the status \"Flaky/Stable\" sets automatically", alias="isFlakyAuto")
-    __properties: ClassVar[List[str]] = ["description", "name", "isFavorite", "isFlakyAuto"]
+    __properties: ClassVar[List[str]] = ["description", "name", "isFavorite"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,11 +81,6 @@ class ProjectPostModel(BaseModel):
         if self.is_favorite is None and "is_favorite" in self.model_fields_set:
             _dict['isFavorite'] = None
 
-        # set to None if is_flaky_auto (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_flaky_auto is None and "is_flaky_auto" in self.model_fields_set:
-            _dict['isFlakyAuto'] = None
-
         return _dict
 
     @classmethod
@@ -101,8 +95,7 @@ class ProjectPostModel(BaseModel):
         _obj = cls.model_validate({
             "description": obj.get("description"),
             "name": obj.get("name"),
-            "isFavorite": obj.get("isFavorite"),
-            "isFlakyAuto": obj.get("isFlakyAuto")
+            "isFavorite": obj.get("isFavorite")
         })
         return _obj
 

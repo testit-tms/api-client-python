@@ -20,22 +20,22 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
 from testit_api_client.models.configuration_model import ConfigurationModel
+from testit_api_client.models.create_test_plan_api_model import CreateTestPlanApiModel
 from testit_api_client.models.get_xlsx_test_points_by_test_plan_model import GetXlsxTestPointsByTestPlanModel
 from testit_api_client.models.operation import Operation
+from testit_api_client.models.search_test_runs_api_model import SearchTestRunsApiModel
 from testit_api_client.models.test_plan_change_model import TestPlanChangeModel
 from testit_api_client.models.test_plan_link import TestPlanLink
 from testit_api_client.models.test_plan_model import TestPlanModel
-from testit_api_client.models.test_plan_post_model import TestPlanPostModel
-from testit_api_client.models.test_plan_put_model import TestPlanPutModel
 from testit_api_client.models.test_plan_short_model import TestPlanShortModel
 from testit_api_client.models.test_plan_summary_model import TestPlanSummaryModel
 from testit_api_client.models.test_plan_with_test_suite_tree_model import TestPlanWithTestSuiteTreeModel
 from testit_api_client.models.test_point_analytic_result import TestPointAnalyticResult
 from testit_api_client.models.test_point_select_model import TestPointSelectModel
-from testit_api_client.models.test_point_with_last_result_model import TestPointWithLastResultModel
-from testit_api_client.models.test_run_model import TestRunModel
-from testit_api_client.models.test_run_search_query_model import TestRunSearchQueryModel
+from testit_api_client.models.test_point_with_last_result_response_model import TestPointWithLastResultResponseModel
+from testit_api_client.models.test_run_api_result import TestRunApiResult
 from testit_api_client.models.test_suite_v2_tree_model import TestSuiteV2TreeModel
+from testit_api_client.models.update_test_plan_api_model import UpdateTestPlanApiModel
 from testit_api_client.models.work_item_select_model import WorkItemSelectModel
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
@@ -3490,7 +3490,7 @@ class TestPlansApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestPointWithLastResultModel]:
+    ) -> List[TestPointWithLastResultResponseModel]:
         """Get TestPoints with last result from TestPlan
 
          Use case   User sets test plan identifier   User sets filter (listed in request example)   User runs method execution   System return test points with last result from test plan
@@ -3546,7 +3546,7 @@ class TestPlansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestPointWithLastResultModel]",
+            '200': "List[TestPointWithLastResultResponseModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3587,7 +3587,7 @@ class TestPlansApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestPointWithLastResultModel]]:
+    ) -> ApiResponse[List[TestPointWithLastResultResponseModel]]:
         """Get TestPoints with last result from TestPlan
 
          Use case   User sets test plan identifier   User sets filter (listed in request example)   User runs method execution   System return test points with last result from test plan
@@ -3643,7 +3643,7 @@ class TestPlansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestPointWithLastResultModel]",
+            '200': "List[TestPointWithLastResultResponseModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3740,7 +3740,7 @@ class TestPlansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestPointWithLastResultModel]",
+            '200': "List[TestPointWithLastResultResponseModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4805,7 +4805,7 @@ class TestPlansApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestRunModel]:
+    ) -> List[TestRunApiResult]:
         """Get TestRuns of TestPlan
 
          Use case   User sets test plan identifier   User sets TestRun status filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
@@ -4870,7 +4870,7 @@ class TestPlansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4914,7 +4914,7 @@ class TestPlansApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestRunModel]]:
+    ) -> ApiResponse[List[TestRunApiResult]]:
         """Get TestRuns of TestPlan
 
          Use case   User sets test plan identifier   User sets TestRun status filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
@@ -4979,7 +4979,7 @@ class TestPlansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5088,7 +5088,7 @@ class TestPlansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5221,7 +5221,7 @@ class TestPlansApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_run_search_query_model: Optional[TestRunSearchQueryModel] = None,
+        search_test_runs_api_model: Optional[SearchTestRunsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5234,7 +5234,7 @@ class TestPlansApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestRunModel]:
+    ) -> List[TestRunApiResult]:
         """Search TestRuns of TestPlan
 
          Use case   User sets test plan identifier   User sets TestRuns filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
@@ -5251,8 +5251,8 @@ class TestPlansApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_run_search_query_model:
-        :type test_run_search_query_model: TestRunSearchQueryModel
+        :param search_test_runs_api_model:
+        :type search_test_runs_api_model: SearchTestRunsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5282,7 +5282,7 @@ class TestPlansApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_run_search_query_model=test_run_search_query_model,
+            search_test_runs_api_model=search_test_runs_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5290,7 +5290,7 @@ class TestPlansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5318,7 +5318,7 @@ class TestPlansApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_run_search_query_model: Optional[TestRunSearchQueryModel] = None,
+        search_test_runs_api_model: Optional[SearchTestRunsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5331,7 +5331,7 @@ class TestPlansApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestRunModel]]:
+    ) -> ApiResponse[List[TestRunApiResult]]:
         """Search TestRuns of TestPlan
 
          Use case   User sets test plan identifier   User sets TestRuns filter (listed in request example)   User runs method execution   System returns TestRuns for TestPlan
@@ -5348,8 +5348,8 @@ class TestPlansApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_run_search_query_model:
-        :type test_run_search_query_model: TestRunSearchQueryModel
+        :param search_test_runs_api_model:
+        :type search_test_runs_api_model: SearchTestRunsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5379,7 +5379,7 @@ class TestPlansApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_run_search_query_model=test_run_search_query_model,
+            search_test_runs_api_model=search_test_runs_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5387,7 +5387,7 @@ class TestPlansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5415,7 +5415,7 @@ class TestPlansApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_run_search_query_model: Optional[TestRunSearchQueryModel] = None,
+        search_test_runs_api_model: Optional[SearchTestRunsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5445,8 +5445,8 @@ class TestPlansApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_run_search_query_model:
-        :type test_run_search_query_model: TestRunSearchQueryModel
+        :param search_test_runs_api_model:
+        :type search_test_runs_api_model: SearchTestRunsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5476,7 +5476,7 @@ class TestPlansApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_run_search_query_model=test_run_search_query_model,
+            search_test_runs_api_model=search_test_runs_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5484,7 +5484,7 @@ class TestPlansApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5507,7 +5507,7 @@ class TestPlansApi:
         order_by,
         search_field,
         search_value,
-        test_run_search_query_model,
+        search_test_runs_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -5555,8 +5555,8 @@ class TestPlansApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_run_search_query_model is not None:
-            _body_params = test_run_search_query_model
+        if search_test_runs_api_model is not None:
+            _body_params = search_test_runs_api_model
 
 
         # set the HTTP header `Accept`
@@ -7036,7 +7036,7 @@ class TestPlansApi:
     @validate_call
     def create_test_plan(
         self,
-        test_plan_post_model: Optional[TestPlanPostModel] = None,
+        create_test_plan_api_model: Optional[CreateTestPlanApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7054,8 +7054,8 @@ class TestPlansApi:
 
          Use case   User sets test plan properties (listed in request example)   User runs method execution   System creates test plan   System returns test plan (listed in response example)
 
-        :param test_plan_post_model:
-        :type test_plan_post_model: TestPlanPostModel
+        :param create_test_plan_api_model:
+        :type create_test_plan_api_model: CreateTestPlanApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7079,7 +7079,7 @@ class TestPlansApi:
         """ # noqa: E501
 
         _param = self._create_test_plan_serialize(
-            test_plan_post_model=test_plan_post_model,
+            create_test_plan_api_model=create_test_plan_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7109,7 +7109,7 @@ class TestPlansApi:
     @validate_call
     def create_test_plan_with_http_info(
         self,
-        test_plan_post_model: Optional[TestPlanPostModel] = None,
+        create_test_plan_api_model: Optional[CreateTestPlanApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7127,8 +7127,8 @@ class TestPlansApi:
 
          Use case   User sets test plan properties (listed in request example)   User runs method execution   System creates test plan   System returns test plan (listed in response example)
 
-        :param test_plan_post_model:
-        :type test_plan_post_model: TestPlanPostModel
+        :param create_test_plan_api_model:
+        :type create_test_plan_api_model: CreateTestPlanApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7152,7 +7152,7 @@ class TestPlansApi:
         """ # noqa: E501
 
         _param = self._create_test_plan_serialize(
-            test_plan_post_model=test_plan_post_model,
+            create_test_plan_api_model=create_test_plan_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7182,7 +7182,7 @@ class TestPlansApi:
     @validate_call
     def create_test_plan_without_preload_content(
         self,
-        test_plan_post_model: Optional[TestPlanPostModel] = None,
+        create_test_plan_api_model: Optional[CreateTestPlanApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7200,8 +7200,8 @@ class TestPlansApi:
 
          Use case   User sets test plan properties (listed in request example)   User runs method execution   System creates test plan   System returns test plan (listed in response example)
 
-        :param test_plan_post_model:
-        :type test_plan_post_model: TestPlanPostModel
+        :param create_test_plan_api_model:
+        :type create_test_plan_api_model: CreateTestPlanApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7225,7 +7225,7 @@ class TestPlansApi:
         """ # noqa: E501
 
         _param = self._create_test_plan_serialize(
-            test_plan_post_model=test_plan_post_model,
+            create_test_plan_api_model=create_test_plan_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7250,7 +7250,7 @@ class TestPlansApi:
 
     def _create_test_plan_serialize(
         self,
-        test_plan_post_model,
+        create_test_plan_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -7276,8 +7276,8 @@ class TestPlansApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_plan_post_model is not None:
-            _body_params = test_plan_post_model
+        if create_test_plan_api_model is not None:
+            _body_params = create_test_plan_api_model
 
 
         # set the HTTP header `Accept`
@@ -9278,7 +9278,7 @@ class TestPlansApi:
     @validate_call
     def update_test_plan(
         self,
-        test_plan_put_model: Optional[TestPlanPutModel] = None,
+        update_test_plan_api_model: Optional[UpdateTestPlanApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9296,8 +9296,8 @@ class TestPlansApi:
 
          Use case   User sets test plan properties(listed in request example)   User runs method execution   System updates test plan   System returns no content response
 
-        :param test_plan_put_model:
-        :type test_plan_put_model: TestPlanPutModel
+        :param update_test_plan_api_model:
+        :type update_test_plan_api_model: UpdateTestPlanApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9321,7 +9321,7 @@ class TestPlansApi:
         """ # noqa: E501
 
         _param = self._update_test_plan_serialize(
-            test_plan_put_model=test_plan_put_model,
+            update_test_plan_api_model=update_test_plan_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9351,7 +9351,7 @@ class TestPlansApi:
     @validate_call
     def update_test_plan_with_http_info(
         self,
-        test_plan_put_model: Optional[TestPlanPutModel] = None,
+        update_test_plan_api_model: Optional[UpdateTestPlanApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9369,8 +9369,8 @@ class TestPlansApi:
 
          Use case   User sets test plan properties(listed in request example)   User runs method execution   System updates test plan   System returns no content response
 
-        :param test_plan_put_model:
-        :type test_plan_put_model: TestPlanPutModel
+        :param update_test_plan_api_model:
+        :type update_test_plan_api_model: UpdateTestPlanApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9394,7 +9394,7 @@ class TestPlansApi:
         """ # noqa: E501
 
         _param = self._update_test_plan_serialize(
-            test_plan_put_model=test_plan_put_model,
+            update_test_plan_api_model=update_test_plan_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9424,7 +9424,7 @@ class TestPlansApi:
     @validate_call
     def update_test_plan_without_preload_content(
         self,
-        test_plan_put_model: Optional[TestPlanPutModel] = None,
+        update_test_plan_api_model: Optional[UpdateTestPlanApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9442,8 +9442,8 @@ class TestPlansApi:
 
          Use case   User sets test plan properties(listed in request example)   User runs method execution   System updates test plan   System returns no content response
 
-        :param test_plan_put_model:
-        :type test_plan_put_model: TestPlanPutModel
+        :param update_test_plan_api_model:
+        :type update_test_plan_api_model: UpdateTestPlanApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9467,7 +9467,7 @@ class TestPlansApi:
         """ # noqa: E501
 
         _param = self._update_test_plan_serialize(
-            test_plan_put_model=test_plan_put_model,
+            update_test_plan_api_model=update_test_plan_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9492,7 +9492,7 @@ class TestPlansApi:
 
     def _update_test_plan_serialize(
         self,
-        test_plan_put_model,
+        update_test_plan_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -9518,8 +9518,8 @@ class TestPlansApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_plan_put_model is not None:
-            _body_params = test_plan_put_model
+        if update_test_plan_api_model is not None:
+            _body_params = update_test_plan_api_model
 
 
         # set the HTTP header `Accept`

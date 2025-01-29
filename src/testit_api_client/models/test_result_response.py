@@ -28,7 +28,7 @@ from testit_api_client.models.step_comment import StepComment
 from testit_api_client.models.step_result import StepResult
 from testit_api_client.models.test_point import TestPoint
 from testit_api_client.models.test_result_outcome import TestResultOutcome
-from testit_api_client.models.test_status import TestStatus
+from testit_api_client.models.test_status_api_result import TestStatusApiResult
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -44,7 +44,7 @@ class TestResultResponse(BaseModel):
     step_comments: Optional[List[StepComment]] = Field(default=None, alias="stepComments")
     failure_class_ids: List[StrictStr] = Field(alias="failureClassIds")
     outcome: Optional[TestResultOutcome] = None
-    status: Optional[TestStatus] = None
+    status: Optional[TestStatusApiResult] = None
     comment: Optional[StrictStr] = None
     links: Optional[List[Link]] = None
     step_results: Optional[List[StepResult]] = Field(default=None, alias="stepResults")
@@ -319,7 +319,7 @@ class TestResultResponse(BaseModel):
             "stepComments": [StepComment.from_dict(_item) for _item in obj["stepComments"]] if obj.get("stepComments") is not None else None,
             "failureClassIds": obj.get("failureClassIds"),
             "outcome": obj.get("outcome"),
-            "status": TestStatus.from_dict(obj["status"]) if obj.get("status") is not None else None,
+            "status": TestStatusApiResult.from_dict(obj["status"]) if obj.get("status") is not None else None,
             "comment": obj.get("comment"),
             "links": [Link.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
             "stepResults": [StepResult.from_dict(_item) for _item in obj["stepResults"]] if obj.get("stepResults") is not None else None,

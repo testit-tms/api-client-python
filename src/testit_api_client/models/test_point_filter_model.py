@@ -37,6 +37,7 @@ class TestPointFilterModel(BaseModel):
     work_item_median_duration: Optional[Int64RangeSelectorModel] = Field(default=None, description="Specifies a test point work item median duration range to search for", alias="workItemMedianDuration")
     work_item_is_deleted: Optional[StrictBool] = Field(default=None, description="Specifies a test point work item is deleted flag to search for", alias="workItemIsDeleted")
     statuses: Optional[List[TestPointStatus]] = Field(default=None, description="Specifies a test point statuses to search for")
+    status_codes: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test point status codes to search for", alias="statusCodes")
     priorities: Optional[List[WorkItemPriorityModel]] = Field(default=None, description="Specifies a test point priorities to search for")
     is_automated: Optional[StrictBool] = Field(default=None, description="Specifies a test point automation status to search for", alias="isAutomated")
     name: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=255)]] = Field(default=None, description="Specifies a test point name to search for")
@@ -54,7 +55,7 @@ class TestPointFilterModel(BaseModel):
     work_item_created_by_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a work item creator IDs to search for", alias="workItemCreatedByIds")
     work_item_modified_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, description="Specifies a work item range of last modification date to search for", alias="workItemModifiedDate")
     work_item_modified_by_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a work item last editor IDs to search for", alias="workItemModifiedByIds")
-    __properties: ClassVar[List[str]] = ["testPlanIds", "testSuiteIds", "workItemGlobalIds", "workItemMedianDuration", "workItemIsDeleted", "statuses", "priorities", "isAutomated", "name", "configurationIds", "testerIds", "duration", "sectionIds", "createdDate", "createdByIds", "modifiedDate", "modifiedByIds", "tags", "attributes", "workItemCreatedDate", "workItemCreatedByIds", "workItemModifiedDate", "workItemModifiedByIds"]
+    __properties: ClassVar[List[str]] = ["testPlanIds", "testSuiteIds", "workItemGlobalIds", "workItemMedianDuration", "workItemIsDeleted", "statuses", "statusCodes", "priorities", "isAutomated", "name", "configurationIds", "testerIds", "duration", "sectionIds", "createdDate", "createdByIds", "modifiedDate", "modifiedByIds", "tags", "attributes", "workItemCreatedDate", "workItemCreatedByIds", "workItemModifiedDate", "workItemModifiedByIds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -142,6 +143,11 @@ class TestPointFilterModel(BaseModel):
         # and model_fields_set contains the field
         if self.statuses is None and "statuses" in self.model_fields_set:
             _dict['statuses'] = None
+
+        # set to None if status_codes (nullable) is None
+        # and model_fields_set contains the field
+        if self.status_codes is None and "status_codes" in self.model_fields_set:
+            _dict['statusCodes'] = None
 
         # set to None if priorities (nullable) is None
         # and model_fields_set contains the field
@@ -246,6 +252,7 @@ class TestPointFilterModel(BaseModel):
             "workItemMedianDuration": Int64RangeSelectorModel.from_dict(obj["workItemMedianDuration"]) if obj.get("workItemMedianDuration") is not None else None,
             "workItemIsDeleted": obj.get("workItemIsDeleted"),
             "statuses": obj.get("statuses"),
+            "statusCodes": obj.get("statusCodes"),
             "priorities": obj.get("priorities"),
             "isAutomated": obj.get("isAutomated"),
             "name": obj.get("name"),

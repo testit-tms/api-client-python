@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **modified_date** | **datetime** |  | [optional] 
 **created_by_id** | **str** |  | 
 **modified_by_id** | **str** |  | [optional] 
-**data** | [**WorkItemSearchQueryModel**](WorkItemSearchQueryModel.md) |  | 
+**data** | [**WorkItemSearchQueryModel**](WorkItemSearchQueryModel.md) |  | [optional] 
 **project_id** | **str** |  | 
 **fields_to_show** | **object** |  | [optional] 
 **name** | **str** |  | 

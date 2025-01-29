@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from testit_api_client.models.attachment_put_model_auto_test_step_results_model import AttachmentPutModelAutoTestStepResultsModel
 from testit_api_client.models.attachment_update_request import AttachmentUpdateRequest
-from testit_api_client.models.auto_test_step_result_update_request import AutoTestStepResultUpdateRequest
 from testit_api_client.models.link import Link
 from testit_api_client.models.step_result import StepResult
 from testit_api_client.models.test_result_outcome import TestResultOutcome
@@ -43,8 +43,8 @@ class TestResultUpdateV2Request(BaseModel):
     duration_in_ms: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="durationInMs")
     duration: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     step_comments: Optional[List[TestResultStepCommentUpdateRequest]] = Field(default=None, alias="stepComments")
-    setup_results: Optional[List[AutoTestStepResultUpdateRequest]] = Field(default=None, alias="setupResults")
-    teardown_results: Optional[List[AutoTestStepResultUpdateRequest]] = Field(default=None, alias="teardownResults")
+    setup_results: Optional[List[AttachmentPutModelAutoTestStepResultsModel]] = Field(default=None, alias="setupResults")
+    teardown_results: Optional[List[AttachmentPutModelAutoTestStepResultsModel]] = Field(default=None, alias="teardownResults")
     message: Optional[StrictStr] = None
     trace: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["failureClassIds", "outcome", "statusCode", "comment", "links", "stepResults", "attachments", "durationInMs", "duration", "stepComments", "setupResults", "teardownResults", "message", "trace"]
@@ -222,8 +222,8 @@ class TestResultUpdateV2Request(BaseModel):
             "durationInMs": obj.get("durationInMs"),
             "duration": obj.get("duration"),
             "stepComments": [TestResultStepCommentUpdateRequest.from_dict(_item) for _item in obj["stepComments"]] if obj.get("stepComments") is not None else None,
-            "setupResults": [AutoTestStepResultUpdateRequest.from_dict(_item) for _item in obj["setupResults"]] if obj.get("setupResults") is not None else None,
-            "teardownResults": [AutoTestStepResultUpdateRequest.from_dict(_item) for _item in obj["teardownResults"]] if obj.get("teardownResults") is not None else None,
+            "setupResults": [AttachmentPutModelAutoTestStepResultsModel.from_dict(_item) for _item in obj["setupResults"]] if obj.get("setupResults") is not None else None,
+            "teardownResults": [AttachmentPutModelAutoTestStepResultsModel.from_dict(_item) for _item in obj["teardownResults"]] if obj.get("teardownResults") is not None else None,
             "message": obj.get("message"),
             "trace": obj.get("trace")
         })

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_test_points_id_test_runs_get**
-> List[TestRunModel] api_v2_test_points_id_test_runs_get(id)
+> List[TestRunApiResult] api_v2_test_points_id_test_runs_get(id)
 
 Get all test runs which use test point
 
@@ -21,7 +21,7 @@ Get all test runs which use test point
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_model import TestRunModel
+from testit_api_client.models.test_run_api_result import TestRunApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TestRunModel]**](TestRunModel.md)
+[**List[TestRunApiResult]**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_points_search_id_post**
-> List[str] api_v2_test_points_search_id_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_model=test_point_filter_model)
+> List[str] api_v2_test_points_search_id_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_request_model=test_point_filter_request_model)
 
 Search for test points and extract IDs only
 
@@ -187,7 +187,7 @@ Search for test points and extract IDs only
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_point_filter_model import TestPointFilterModel
+from testit_api_client.models.test_point_filter_request_model import TestPointFilterRequestModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -217,11 +217,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    test_point_filter_model = testit_api_client.TestPointFilterModel() # TestPointFilterModel |  (optional)
+    test_point_filter_request_model = testit_api_client.TestPointFilterRequestModel() # TestPointFilterRequestModel |  (optional)
 
     try:
         # Search for test points and extract IDs only
-        api_response = api_instance.api_v2_test_points_search_id_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_model=test_point_filter_model)
+        api_response = api_instance.api_v2_test_points_search_id_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_request_model=test_point_filter_request_model)
         print("The response of TestPointsApi->api_v2_test_points_search_id_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **test_point_filter_model** | [**TestPointFilterModel**](TestPointFilterModel.md)|  | [optional] 
+ **test_point_filter_request_model** | [**TestPointFilterRequestModel**](TestPointFilterRequestModel.md)|  | [optional] 
 
 ### Return type
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_points_search_post**
-> List[TestPointShortGetModel] api_v2_test_points_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_model=test_point_filter_model)
+> List[TestPointShortResponseModel] api_v2_test_points_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_request_model=test_point_filter_request_model)
 
 Search for test points
 
@@ -280,8 +280,8 @@ Search for test points
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_point_filter_model import TestPointFilterModel
-from testit_api_client.models.test_point_short_get_model import TestPointShortGetModel
+from testit_api_client.models.test_point_filter_request_model import TestPointFilterRequestModel
+from testit_api_client.models.test_point_short_response_model import TestPointShortResponseModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -311,11 +311,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    test_point_filter_model = testit_api_client.TestPointFilterModel() # TestPointFilterModel |  (optional)
+    test_point_filter_request_model = testit_api_client.TestPointFilterRequestModel() # TestPointFilterRequestModel |  (optional)
 
     try:
         # Search for test points
-        api_response = api_instance.api_v2_test_points_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_model=test_point_filter_model)
+        api_response = api_instance.api_v2_test_points_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_point_filter_request_model=test_point_filter_request_model)
         print("The response of TestPointsApi->api_v2_test_points_search_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -334,11 +334,11 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **test_point_filter_model** | [**TestPointFilterModel**](TestPointFilterModel.md)|  | [optional] 
+ **test_point_filter_request_model** | [**TestPointFilterRequestModel**](TestPointFilterRequestModel.md)|  | [optional] 
 
 ### Return type
 
-[**List[TestPointShortGetModel]**](TestPointShortGetModel.md)
+[**List[TestPointShortResponseModel]**](TestPointShortResponseModel.md)
 
 ### Authorization
 

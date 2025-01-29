@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **configuration_id** | **str** | Unique ID of configuration which the test result uses | 
 **configuration_name** | **str** | Name of configuration which the test result uses | 
 **outcome** | **str** | Outcome of the test result | [optional] 
-**status** | [**TestStatus**](TestStatus.md) |  | [optional] 
+**status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **result_reasons** | [**List[AutoTestResultReasonShort]**](AutoTestResultReasonShort.md) | Collection of result reasons which the test result have | 
 **comment** | **str** | Comment to the test result | [optional] 
 **var_date** | **datetime** | Date when the test result was completed or started or created | 

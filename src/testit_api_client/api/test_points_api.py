@@ -19,9 +19,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from testit_api_client.models.test_point_filter_model import TestPointFilterModel
-from testit_api_client.models.test_point_short_get_model import TestPointShortGetModel
-from testit_api_client.models.test_run_model import TestRunModel
+from testit_api_client.models.test_point_filter_request_model import TestPointFilterRequestModel
+from testit_api_client.models.test_point_short_response_model import TestPointShortResponseModel
+from testit_api_client.models.test_run_api_result import TestRunApiResult
 from testit_api_client.models.work_item_model import WorkItemModel
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
@@ -58,7 +58,7 @@ class TestPointsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestRunModel]:
+    ) -> List[TestRunApiResult]:
         """Get all test runs which use test point
 
 
@@ -95,7 +95,7 @@ class TestPointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -130,7 +130,7 @@ class TestPointsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestRunModel]]:
+    ) -> ApiResponse[List[TestRunApiResult]]:
         """Get all test runs which use test point
 
 
@@ -167,7 +167,7 @@ class TestPointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -239,7 +239,7 @@ class TestPointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -602,7 +602,7 @@ class TestPointsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_point_filter_model: Optional[TestPointFilterModel] = None,
+        test_point_filter_request_model: Optional[TestPointFilterRequestModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -629,8 +629,8 @@ class TestPointsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_point_filter_model:
-        :type test_point_filter_model: TestPointFilterModel
+        :param test_point_filter_request_model:
+        :type test_point_filter_request_model: TestPointFilterRequestModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -659,7 +659,7 @@ class TestPointsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_point_filter_model=test_point_filter_model,
+            test_point_filter_request_model=test_point_filter_request_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -694,7 +694,7 @@ class TestPointsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_point_filter_model: Optional[TestPointFilterModel] = None,
+        test_point_filter_request_model: Optional[TestPointFilterRequestModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -721,8 +721,8 @@ class TestPointsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_point_filter_model:
-        :type test_point_filter_model: TestPointFilterModel
+        :param test_point_filter_request_model:
+        :type test_point_filter_request_model: TestPointFilterRequestModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -751,7 +751,7 @@ class TestPointsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_point_filter_model=test_point_filter_model,
+            test_point_filter_request_model=test_point_filter_request_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -786,7 +786,7 @@ class TestPointsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_point_filter_model: Optional[TestPointFilterModel] = None,
+        test_point_filter_request_model: Optional[TestPointFilterRequestModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -813,8 +813,8 @@ class TestPointsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_point_filter_model:
-        :type test_point_filter_model: TestPointFilterModel
+        :param test_point_filter_request_model:
+        :type test_point_filter_request_model: TestPointFilterRequestModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -843,7 +843,7 @@ class TestPointsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_point_filter_model=test_point_filter_model,
+            test_point_filter_request_model=test_point_filter_request_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -873,7 +873,7 @@ class TestPointsApi:
         order_by,
         search_field,
         search_value,
-        test_point_filter_model,
+        test_point_filter_request_model,
         _request_auth,
         _content_type,
         _headers,
@@ -919,8 +919,8 @@ class TestPointsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_point_filter_model is not None:
-            _body_params = test_point_filter_model
+        if test_point_filter_request_model is not None:
+            _body_params = test_point_filter_request_model
 
 
         # set the HTTP header `Accept`
@@ -976,7 +976,7 @@ class TestPointsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_point_filter_model: Optional[TestPointFilterModel] = None,
+        test_point_filter_request_model: Optional[TestPointFilterRequestModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -989,7 +989,7 @@ class TestPointsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestPointShortGetModel]:
+    ) -> List[TestPointShortResponseModel]:
         """Search for test points
 
 
@@ -1003,8 +1003,8 @@ class TestPointsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_point_filter_model:
-        :type test_point_filter_model: TestPointFilterModel
+        :param test_point_filter_request_model:
+        :type test_point_filter_request_model: TestPointFilterRequestModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1033,7 +1033,7 @@ class TestPointsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_point_filter_model=test_point_filter_model,
+            test_point_filter_request_model=test_point_filter_request_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1041,7 +1041,7 @@ class TestPointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestPointShortGetModel]",
+            '200': "List[TestPointShortResponseModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1068,7 +1068,7 @@ class TestPointsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_point_filter_model: Optional[TestPointFilterModel] = None,
+        test_point_filter_request_model: Optional[TestPointFilterRequestModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1081,7 +1081,7 @@ class TestPointsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestPointShortGetModel]]:
+    ) -> ApiResponse[List[TestPointShortResponseModel]]:
         """Search for test points
 
 
@@ -1095,8 +1095,8 @@ class TestPointsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_point_filter_model:
-        :type test_point_filter_model: TestPointFilterModel
+        :param test_point_filter_request_model:
+        :type test_point_filter_request_model: TestPointFilterRequestModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1125,7 +1125,7 @@ class TestPointsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_point_filter_model=test_point_filter_model,
+            test_point_filter_request_model=test_point_filter_request_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1133,7 +1133,7 @@ class TestPointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestPointShortGetModel]",
+            '200': "List[TestPointShortResponseModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1160,7 +1160,7 @@ class TestPointsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        test_point_filter_model: Optional[TestPointFilterModel] = None,
+        test_point_filter_request_model: Optional[TestPointFilterRequestModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1187,8 +1187,8 @@ class TestPointsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param test_point_filter_model:
-        :type test_point_filter_model: TestPointFilterModel
+        :param test_point_filter_request_model:
+        :type test_point_filter_request_model: TestPointFilterRequestModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1217,7 +1217,7 @@ class TestPointsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            test_point_filter_model=test_point_filter_model,
+            test_point_filter_request_model=test_point_filter_request_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1225,7 +1225,7 @@ class TestPointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestPointShortGetModel]",
+            '200': "List[TestPointShortResponseModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1247,7 +1247,7 @@ class TestPointsApi:
         order_by,
         search_field,
         search_value,
-        test_point_filter_model,
+        test_point_filter_request_model,
         _request_auth,
         _content_type,
         _headers,
@@ -1293,8 +1293,8 @@ class TestPointsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if test_point_filter_model is not None:
-            _body_params = test_point_filter_model
+        if test_point_filter_request_model is not None:
+            _body_params = test_point_filter_request_model
 
 
         # set the HTTP header `Accept`

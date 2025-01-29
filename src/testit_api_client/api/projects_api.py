@@ -33,8 +33,8 @@ from testit_api_client.models.project_short_model import ProjectShortModel
 from testit_api_client.models.projects_filter_model import ProjectsFilterModel
 from testit_api_client.models.public_test_run_model import PublicTestRunModel
 from testit_api_client.models.test_plan_model import TestPlanModel
-from testit_api_client.models.test_run_model import TestRunModel
-from testit_api_client.models.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.models.test_run_api_result import TestRunApiResult
+from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
 from testit_api_client.api_response import ApiResponse
@@ -3551,7 +3551,7 @@ class ProjectsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestRunModel]:
+    ) -> List[TestRunApiResult]:
         """Get Project TestRuns full models
 
          Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
@@ -3631,7 +3631,7 @@ class ProjectsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3680,7 +3680,7 @@ class ProjectsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestRunModel]]:
+    ) -> ApiResponse[List[TestRunApiResult]]:
         """Get Project TestRuns full models
 
          Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
@@ -3760,7 +3760,7 @@ class ProjectsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3889,7 +3889,7 @@ class ProjectsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunModel]",
+            '200': "List[TestRunApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -7096,10 +7096,10 @@ class ProjectsApi:
     def get_test_runs_by_project_id(
         self,
         id: Annotated[StrictStr, Field(description="Project internal (UUID) or global (integer) identifier")],
-        not_started: Optional[StrictBool] = None,
-        in_progress: Optional[StrictBool] = None,
-        stopped: Optional[StrictBool] = None,
-        completed: Optional[StrictBool] = None,
+        not_started: StrictBool,
+        in_progress: StrictBool,
+        stopped: StrictBool,
+        completed: StrictBool,
         created_date_from: Optional[datetime] = None,
         created_date_to: Optional[datetime] = None,
         test_plan_id: Optional[StrictStr] = None,
@@ -7120,20 +7120,20 @@ class ProjectsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestRunV2GetModel]:
+    ) -> List[TestRunV2ApiResult]:
         """Get project test runs
 
          Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
-        :param not_started:
+        :param not_started: (required)
         :type not_started: bool
-        :param in_progress:
+        :param in_progress: (required)
         :type in_progress: bool
-        :param stopped:
+        :param stopped: (required)
         :type stopped: bool
-        :param completed:
+        :param completed: (required)
         :type completed: bool
         :param created_date_from:
         :type created_date_from: datetime
@@ -7194,7 +7194,7 @@ class ProjectsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunV2GetModel]",
+            '200': "List[TestRunV2ApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -7217,10 +7217,10 @@ class ProjectsApi:
     def get_test_runs_by_project_id_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="Project internal (UUID) or global (integer) identifier")],
-        not_started: Optional[StrictBool] = None,
-        in_progress: Optional[StrictBool] = None,
-        stopped: Optional[StrictBool] = None,
-        completed: Optional[StrictBool] = None,
+        not_started: StrictBool,
+        in_progress: StrictBool,
+        stopped: StrictBool,
+        completed: StrictBool,
         created_date_from: Optional[datetime] = None,
         created_date_to: Optional[datetime] = None,
         test_plan_id: Optional[StrictStr] = None,
@@ -7241,20 +7241,20 @@ class ProjectsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestRunV2GetModel]]:
+    ) -> ApiResponse[List[TestRunV2ApiResult]]:
         """Get project test runs
 
          Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
-        :param not_started:
+        :param not_started: (required)
         :type not_started: bool
-        :param in_progress:
+        :param in_progress: (required)
         :type in_progress: bool
-        :param stopped:
+        :param stopped: (required)
         :type stopped: bool
-        :param completed:
+        :param completed: (required)
         :type completed: bool
         :param created_date_from:
         :type created_date_from: datetime
@@ -7315,7 +7315,7 @@ class ProjectsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunV2GetModel]",
+            '200': "List[TestRunV2ApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -7338,10 +7338,10 @@ class ProjectsApi:
     def get_test_runs_by_project_id_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Project internal (UUID) or global (integer) identifier")],
-        not_started: Optional[StrictBool] = None,
-        in_progress: Optional[StrictBool] = None,
-        stopped: Optional[StrictBool] = None,
-        completed: Optional[StrictBool] = None,
+        not_started: StrictBool,
+        in_progress: StrictBool,
+        stopped: StrictBool,
+        completed: StrictBool,
         created_date_from: Optional[datetime] = None,
         created_date_to: Optional[datetime] = None,
         test_plan_id: Optional[StrictStr] = None,
@@ -7369,13 +7369,13 @@ class ProjectsApi:
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
-        :param not_started:
+        :param not_started: (required)
         :type not_started: bool
-        :param in_progress:
+        :param in_progress: (required)
         :type in_progress: bool
-        :param stopped:
+        :param stopped: (required)
         :type stopped: bool
-        :param completed:
+        :param completed: (required)
         :type completed: bool
         :param created_date_from:
         :type created_date_from: datetime
@@ -7436,7 +7436,7 @@ class ProjectsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunV2GetModel]",
+            '200': "List[TestRunV2ApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",

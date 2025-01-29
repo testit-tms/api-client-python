@@ -2,9 +2,9 @@ from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "testit-api-client"
 
-VERSION = "5.0.0"
+VERSION = "5.1.0"
 
-PYTHON_REQUIRES = ">=3.8"
+PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
     "urllib3 >= 1.25.3, < 3.0.0",
     "python-dateutil >= 2.8.2",

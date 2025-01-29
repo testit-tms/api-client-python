@@ -689,7 +689,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_results_search_post**
-> List[TestResultShortResponse] api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_results_filter_request=test_results_filter_request)
+> List[TestResultShortResponse] api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_results_filter_api_model=test_results_filter_api_model)
 
 Search for test results
 
@@ -700,7 +700,7 @@ Search for test results
 ```python
 import testit_api_client
 from testit_api_client.models.test_result_short_response import TestResultShortResponse
-from testit_api_client.models.test_results_filter_request import TestResultsFilterRequest
+from testit_api_client.models.test_results_filter_api_model import TestResultsFilterApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -730,11 +730,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    test_results_filter_request = testit_api_client.TestResultsFilterRequest() # TestResultsFilterRequest |  (optional)
+    test_results_filter_api_model = testit_api_client.TestResultsFilterApiModel() # TestResultsFilterApiModel |  (optional)
 
     try:
         # Search for test results
-        api_response = api_instance.api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_results_filter_request=test_results_filter_request)
+        api_response = api_instance.api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_results_filter_api_model=test_results_filter_api_model)
         print("The response of TestResultsApi->api_v2_test_results_search_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -753,7 +753,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **test_results_filter_request** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md)|  | [optional] 
+ **test_results_filter_api_model** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -783,7 +783,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_results_statistics_filter_post**
-> TestResultsStatisticsResponse api_v2_test_results_statistics_filter_post(test_results_filter_request=test_results_filter_request)
+> TestResultsStatisticsApiResult api_v2_test_results_statistics_filter_post(test_results_filter_api_model=test_results_filter_api_model)
 
 Search for test results and extract statistics
 
@@ -793,8 +793,8 @@ Search for test results and extract statistics
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_results_filter_request import TestResultsFilterRequest
-from testit_api_client.models.test_results_statistics_response import TestResultsStatisticsResponse
+from testit_api_client.models.test_results_filter_api_model import TestResultsFilterApiModel
+from testit_api_client.models.test_results_statistics_api_result import TestResultsStatisticsApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -819,11 +819,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestResultsApi(api_client)
-    test_results_filter_request = testit_api_client.TestResultsFilterRequest() # TestResultsFilterRequest |  (optional)
+    test_results_filter_api_model = testit_api_client.TestResultsFilterApiModel() # TestResultsFilterApiModel |  (optional)
 
     try:
         # Search for test results and extract statistics
-        api_response = api_instance.api_v2_test_results_statistics_filter_post(test_results_filter_request=test_results_filter_request)
+        api_response = api_instance.api_v2_test_results_statistics_filter_post(test_results_filter_api_model=test_results_filter_api_model)
         print("The response of TestResultsApi->api_v2_test_results_statistics_filter_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -837,11 +837,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_results_filter_request** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md)|  | [optional] 
+ **test_results_filter_api_model** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**TestResultsStatisticsResponse**](TestResultsStatisticsResponse.md)
+[**TestResultsStatisticsApiResult**](TestResultsStatisticsApiResult.md)
 
 ### Authorization
 

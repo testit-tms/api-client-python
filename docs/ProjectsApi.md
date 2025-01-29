@@ -1028,7 +1028,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_id_test_runs_full_get**
-> List[TestRunModel] api_v2_projects_id_test_runs_full_get(id, include_test_results=include_test_results, must_aggregate_test_results=must_aggregate_test_results, not_started=not_started, in_progress=in_progress, stopped=stopped, completed=completed, created_date_from=created_date_from, created_date_to=created_date_to, test_plan_id=test_plan_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+> List[TestRunApiResult] api_v2_projects_id_test_runs_full_get(id, include_test_results=include_test_results, must_aggregate_test_results=must_aggregate_test_results, not_started=not_started, in_progress=in_progress, stopped=stopped, completed=completed, created_date_from=created_date_from, created_date_to=created_date_to, test_plan_id=test_plan_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get Project TestRuns full models
 
@@ -1040,7 +1040,7 @@ Get Project TestRuns full models
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_model import TestRunModel
+from testit_api_client.models.test_run_api_result import TestRunApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1066,8 +1066,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.ProjectsApi(api_client)
     id = 'id_example' # str | Project internal (UUID) or global (integer) identifier
-    include_test_results = False # bool |  (optional) (default to False)
-    must_aggregate_test_results = True # bool |  (optional) (default to True)
+    include_test_results = True # bool |  (optional)
+    must_aggregate_test_results = True # bool |  (optional)
     not_started = True # bool |  (optional)
     in_progress = True # bool |  (optional)
     stopped = True # bool |  (optional)
@@ -1098,8 +1098,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
- **include_test_results** | **bool**|  | [optional] [default to False]
- **must_aggregate_test_results** | **bool**|  | [optional] [default to True]
+ **include_test_results** | **bool**|  | [optional] 
+ **must_aggregate_test_results** | **bool**|  | [optional] 
  **not_started** | **bool**|  | [optional] 
  **in_progress** | **bool**|  | [optional] 
  **stopped** | **bool**|  | [optional] 
@@ -1115,7 +1115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TestRunModel]**](TestRunModel.md)
+[**List[TestRunApiResult]**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -2003,7 +2003,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_test_runs_by_project_id**
-> List[TestRunV2GetModel] get_test_runs_by_project_id(id, not_started=not_started, in_progress=in_progress, stopped=stopped, completed=completed, created_date_from=created_date_from, created_date_to=created_date_to, test_plan_id=test_plan_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+> List[TestRunV2ApiResult] get_test_runs_by_project_id(id, not_started, in_progress, stopped, completed, created_date_from=created_date_from, created_date_to=created_date_to, test_plan_id=test_plan_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get project test runs
 
@@ -2015,7 +2015,7 @@ Get project test runs
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -2041,10 +2041,10 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.ProjectsApi(api_client)
     id = 'id_example' # str | Project internal (UUID) or global (integer) identifier
-    not_started = True # bool |  (optional)
-    in_progress = True # bool |  (optional)
-    stopped = True # bool |  (optional)
-    completed = True # bool |  (optional)
+    not_started = True # bool | 
+    in_progress = True # bool | 
+    stopped = True # bool | 
+    completed = True # bool | 
     created_date_from = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     created_date_to = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     test_plan_id = 'test_plan_id_example' # str |  (optional)
@@ -2056,7 +2056,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Get project test runs
-        api_response = api_instance.get_test_runs_by_project_id(id, not_started=not_started, in_progress=in_progress, stopped=stopped, completed=completed, created_date_from=created_date_from, created_date_to=created_date_to, test_plan_id=test_plan_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        api_response = api_instance.get_test_runs_by_project_id(id, not_started, in_progress, stopped, completed, created_date_from=created_date_from, created_date_to=created_date_to, test_plan_id=test_plan_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         print("The response of ProjectsApi->get_test_runs_by_project_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -2071,10 +2071,10 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
- **not_started** | **bool**|  | [optional] 
- **in_progress** | **bool**|  | [optional] 
- **stopped** | **bool**|  | [optional] 
- **completed** | **bool**|  | [optional] 
+ **not_started** | **bool**|  | 
+ **in_progress** | **bool**|  | 
+ **stopped** | **bool**|  | 
+ **completed** | **bool**|  | 
  **created_date_from** | **datetime**|  | [optional] 
  **created_date_to** | **datetime**|  | [optional] 
  **test_plan_id** | **str**|  | [optional] 
@@ -2086,7 +2086,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TestRunV2GetModel]**](TestRunV2GetModel.md)
+[**List[TestRunV2ApiResult]**](TestRunV2ApiResult.md)
 
 ### Authorization
 

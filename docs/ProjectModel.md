@@ -22,7 +22,6 @@ Name | Type | Description | Notes
 **modified_by_id** | **str** | Unique ID of the project last editor | [optional] 
 **global_id** | **int** | Global ID of the project | 
 **type** | [**ProjectTypeModel**](ProjectTypeModel.md) | Type of the project | 
-**is_flaky_auto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | 
 
 ## Example
 
