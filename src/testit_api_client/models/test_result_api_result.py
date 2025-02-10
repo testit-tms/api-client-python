@@ -21,7 +21,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from testit_api_client.models.attachment_api_result import AttachmentApiResult
-from testit_api_client.models.auto_test_model import AutoTestModel
+from testit_api_client.models.auto_test_api_result import AutoTestApiResult
 from testit_api_client.models.auto_test_step_results_api_result import AutoTestStepResultsApiResult
 from testit_api_client.models.link_api_result import LinkApiResult
 from testit_api_client.models.step_comment_api_result import StepCommentApiResult
@@ -51,7 +51,7 @@ class TestResultApiResult(BaseModel):
     configuration_id: StrictStr = Field(alias="configurationId")
     status: TestStatusApiResult
     test_point: Optional[TestPointShortApiResult] = Field(default=None, alias="testPoint")
-    auto_test: Optional[AutoTestModel] = Field(default=None, alias="autoTest")
+    auto_test: Optional[AutoTestApiResult] = Field(default=None, alias="autoTest")
     auto_test_step_results: Optional[List[AutoTestStepResultsApiResult]] = Field(default=None, alias="autoTestStepResults")
     setup_results: Optional[List[AutoTestStepResultsApiResult]] = Field(default=None, alias="setupResults")
     teardown_results: Optional[List[AutoTestStepResultsApiResult]] = Field(default=None, alias="teardownResults")
@@ -305,7 +305,7 @@ class TestResultApiResult(BaseModel):
             "configurationId": obj.get("configurationId"),
             "status": TestStatusApiResult.from_dict(obj["status"]) if obj.get("status") is not None else None,
             "testPoint": TestPointShortApiResult.from_dict(obj["testPoint"]) if obj.get("testPoint") is not None else None,
-            "autoTest": AutoTestModel.from_dict(obj["autoTest"]) if obj.get("autoTest") is not None else None,
+            "autoTest": AutoTestApiResult.from_dict(obj["autoTest"]) if obj.get("autoTest") is not None else None,
             "autoTestStepResults": [AutoTestStepResultsApiResult.from_dict(_item) for _item in obj["autoTestStepResults"]] if obj.get("autoTestStepResults") is not None else None,
             "setupResults": [AutoTestStepResultsApiResult.from_dict(_item) for _item in obj["setupResults"]] if obj.get("setupResults") is not None else None,
             "teardownResults": [AutoTestStepResultsApiResult.from_dict(_item) for _item in obj["teardownResults"]] if obj.get("teardownResults") is not None else None,
