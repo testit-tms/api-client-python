@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **configuration_id** | **str** |  | 
 **status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | 
 **test_point** | [**TestPointShortApiResult**](TestPointShortApiResult.md) |  | [optional] 
-**auto_test** | [**AutoTestModel**](AutoTestModel.md) |  | [optional] 
+**auto_test** | [**AutoTestApiResult**](AutoTestApiResult.md) |  | [optional] 
 **auto_test_step_results** | [**List[AutoTestStepResultsApiResult]**](AutoTestStepResultsApiResult.md) |  | [optional] 
 **setup_results** | [**List[AutoTestStepResultsApiResult]**](AutoTestStepResultsApiResult.md) |  | [optional] 
 **teardown_results** | [**List[AutoTestStepResultsApiResult]**](AutoTestStepResultsApiResult.md) |  | [optional] 
