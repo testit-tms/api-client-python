@@ -1,9 +1,8 @@
 from setuptools import setup, find_packages  # noqa: H301
-from check_version import check_version
 
 NAME = "testit-api-client"
 
-VERSION = "5.1.1.post522"
+VERSION = "5.1.2.post522"
 
 PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
@@ -12,7 +11,6 @@ REQUIRES = [
     "pydantic >= 2",
     "typing-extensions >= 4.7.1",
 ]
-check_version(VERSION)
 setup(
     name=NAME,
     version=VERSION,
