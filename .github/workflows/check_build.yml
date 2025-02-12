@@ -16,7 +16,12 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: '3.x'
-          
+      
+      - name: Check version
+        run: |
+          VERSION=$(grep -oP 'VERSION\s*=\s*"\K[^"]+' setup.py)
+          python .version_check/check.py $VERSION
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
