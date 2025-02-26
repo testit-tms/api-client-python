@@ -2,7 +2,7 @@ from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "testit-api-client"
 
-VERSION = "5.2.0.postCloud"
+VERSION = "5.2.0.post"
 
 PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
