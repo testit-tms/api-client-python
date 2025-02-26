@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **completed_on** | **datetime** | Date when the test result has been completed | [optional] 
 **duration** | **int** | Time which it took to run the test | [optional] 
 **links** | [**List[LinkShort]**](LinkShort.md) | Collection of links attached to the test result | 
-**attachments** | [**List[Attachment]**](Attachment.md) | Collection of files attached to the test result | 
+**attachments** | [**List[AttachmentApiResult]**](AttachmentApiResult.md) | Collection of files attached to the test result | 
 **rerun_completed_count** | **int** | Run count | 
 
 ## Example

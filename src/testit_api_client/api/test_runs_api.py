@@ -27,8 +27,8 @@ from testit_api_client.models.create_test_run_and_fill_by_auto_tests_api_model i
 from testit_api_client.models.create_test_run_and_fill_by_configurations_api_model import CreateTestRunAndFillByConfigurationsApiModel
 from testit_api_client.models.create_test_run_and_fill_by_work_items_api_model import CreateTestRunAndFillByWorkItemsApiModel
 from testit_api_client.models.manual_rerun_api_result import ManualRerunApiResult
-from testit_api_client.models.manual_rerun_select_api_model import ManualRerunSelectApiModel
-from testit_api_client.models.test_point_result_model import TestPointResultModel
+from testit_api_client.models.manual_rerun_select_test_results_api_model import ManualRerunSelectTestResultsApiModel
+from testit_api_client.models.test_point_result_api_result import TestPointResultApiResult
 from testit_api_client.models.test_results_statistics_api_result import TestResultsStatisticsApiResult
 from testit_api_client.models.test_run_filter_api_model import TestRunFilterApiModel
 from testit_api_client.models.test_run_select_api_model import TestRunSelectApiModel
@@ -1187,7 +1187,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_reruns_post(
         self,
         id: StrictStr,
-        manual_rerun_select_api_model: Optional[ManualRerunSelectApiModel] = None,
+        manual_rerun_select_test_results_api_model: Optional[ManualRerunSelectTestResultsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1206,8 +1206,8 @@ class TestRunsApi:
 
         :param id: (required)
         :type id: str
-        :param manual_rerun_select_api_model:
-        :type manual_rerun_select_api_model: ManualRerunSelectApiModel
+        :param manual_rerun_select_test_results_api_model:
+        :type manual_rerun_select_test_results_api_model: ManualRerunSelectTestResultsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1232,7 +1232,7 @@ class TestRunsApi:
 
         _param = self._api_v2_test_runs_id_reruns_post_serialize(
             id=id,
-            manual_rerun_select_api_model=manual_rerun_select_api_model,
+            manual_rerun_select_test_results_api_model=manual_rerun_select_test_results_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1263,7 +1263,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_reruns_post_with_http_info(
         self,
         id: StrictStr,
-        manual_rerun_select_api_model: Optional[ManualRerunSelectApiModel] = None,
+        manual_rerun_select_test_results_api_model: Optional[ManualRerunSelectTestResultsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1282,8 +1282,8 @@ class TestRunsApi:
 
         :param id: (required)
         :type id: str
-        :param manual_rerun_select_api_model:
-        :type manual_rerun_select_api_model: ManualRerunSelectApiModel
+        :param manual_rerun_select_test_results_api_model:
+        :type manual_rerun_select_test_results_api_model: ManualRerunSelectTestResultsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1308,7 +1308,7 @@ class TestRunsApi:
 
         _param = self._api_v2_test_runs_id_reruns_post_serialize(
             id=id,
-            manual_rerun_select_api_model=manual_rerun_select_api_model,
+            manual_rerun_select_test_results_api_model=manual_rerun_select_test_results_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1339,7 +1339,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_reruns_post_without_preload_content(
         self,
         id: StrictStr,
-        manual_rerun_select_api_model: Optional[ManualRerunSelectApiModel] = None,
+        manual_rerun_select_test_results_api_model: Optional[ManualRerunSelectTestResultsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1358,8 +1358,8 @@ class TestRunsApi:
 
         :param id: (required)
         :type id: str
-        :param manual_rerun_select_api_model:
-        :type manual_rerun_select_api_model: ManualRerunSelectApiModel
+        :param manual_rerun_select_test_results_api_model:
+        :type manual_rerun_select_test_results_api_model: ManualRerunSelectTestResultsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1384,7 +1384,7 @@ class TestRunsApi:
 
         _param = self._api_v2_test_runs_id_reruns_post_serialize(
             id=id,
-            manual_rerun_select_api_model=manual_rerun_select_api_model,
+            manual_rerun_select_test_results_api_model=manual_rerun_select_test_results_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1410,7 +1410,7 @@ class TestRunsApi:
     def _api_v2_test_runs_id_reruns_post_serialize(
         self,
         id,
-        manual_rerun_select_api_model,
+        manual_rerun_select_test_results_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -1438,8 +1438,8 @@ class TestRunsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if manual_rerun_select_api_model is not None:
-            _body_params = manual_rerun_select_api_model
+        if manual_rerun_select_test_results_api_model is not None:
+            _body_params = manual_rerun_select_test_results_api_model
 
 
         # set the HTTP header `Accept`
@@ -2086,7 +2086,7 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestPointResultModel]:
+    ) -> List[TestPointResultApiResult]:
         """Get test results from the test run grouped by test points
 
 
@@ -2123,7 +2123,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestPointResultModel]",
+            '200': "List[TestPointResultApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2158,7 +2158,7 @@ class TestRunsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestPointResultModel]]:
+    ) -> ApiResponse[List[TestPointResultApiResult]]:
         """Get test results from the test run grouped by test points
 
 
@@ -2195,7 +2195,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestPointResultModel]",
+            '200': "List[TestPointResultApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2267,7 +2267,7 @@ class TestRunsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestPointResultModel]",
+            '200': "List[TestPointResultApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",

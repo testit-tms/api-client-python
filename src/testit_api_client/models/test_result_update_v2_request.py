@@ -23,7 +23,7 @@ from typing_extensions import Annotated
 from testit_api_client.models.attachment_put_model_auto_test_step_results_model import AttachmentPutModelAutoTestStepResultsModel
 from testit_api_client.models.attachment_update_request import AttachmentUpdateRequest
 from testit_api_client.models.link import Link
-from testit_api_client.models.step_result import StepResult
+from testit_api_client.models.step_result_api_model import StepResultApiModel
 from testit_api_client.models.test_result_outcome import TestResultOutcome
 from testit_api_client.models.test_result_step_comment_update_request import TestResultStepCommentUpdateRequest
 from typing import Optional, Set
@@ -38,7 +38,7 @@ class TestResultUpdateV2Request(BaseModel):
     status_code: Optional[StrictStr] = Field(default=None, alias="statusCode")
     comment: Optional[StrictStr] = None
     links: Optional[List[Link]] = None
-    step_results: Optional[List[StepResult]] = Field(default=None, alias="stepResults")
+    step_results: Optional[List[StepResultApiModel]] = Field(default=None, alias="stepResults")
     attachments: Optional[List[AttachmentUpdateRequest]] = None
     duration_in_ms: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="durationInMs")
     duration: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
@@ -217,7 +217,7 @@ class TestResultUpdateV2Request(BaseModel):
             "statusCode": obj.get("statusCode"),
             "comment": obj.get("comment"),
             "links": [Link.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-            "stepResults": [StepResult.from_dict(_item) for _item in obj["stepResults"]] if obj.get("stepResults") is not None else None,
+            "stepResults": [StepResultApiModel.from_dict(_item) for _item in obj["stepResults"]] if obj.get("stepResults") is not None else None,
             "attachments": [AttachmentUpdateRequest.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
             "durationInMs": obj.get("durationInMs"),
             "duration": obj.get("duration"),

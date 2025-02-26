@@ -22,19 +22,22 @@ from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.models.iteration_model import IterationModel
+from testit_api_client.models.search_work_item_link_urls_api_result import SearchWorkItemLinkUrlsApiResult
 from testit_api_client.models.shared_step_reference_model import SharedStepReferenceModel
 from testit_api_client.models.shared_step_reference_section_model import SharedStepReferenceSectionModel
 from testit_api_client.models.shared_step_reference_sections_query_filter_model import SharedStepReferenceSectionsQueryFilterModel
 from testit_api_client.models.shared_step_references_query_filter_model import SharedStepReferencesQueryFilterModel
 from testit_api_client.models.test_result_chronology_model import TestResultChronologyModel
-from testit_api_client.models.test_result_history_response import TestResultHistoryResponse
+from testit_api_client.models.test_result_history_report_api_result import TestResultHistoryReportApiResult
 from testit_api_client.models.work_item_change_model import WorkItemChangeModel
 from testit_api_client.models.work_item_like_model import WorkItemLikeModel
+from testit_api_client.models.work_item_link_url_api_model import WorkItemLinkUrlApiModel
 from testit_api_client.models.work_item_model import WorkItemModel
 from testit_api_client.models.work_item_move_post_model import WorkItemMovePostModel
 from testit_api_client.models.work_item_post_model import WorkItemPostModel
 from testit_api_client.models.work_item_put_model import WorkItemPutModel
-from testit_api_client.models.work_item_select_model import WorkItemSelectModel
+from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
+from testit_api_client.models.work_item_short_api_result import WorkItemShortApiResult
 from testit_api_client.models.work_item_short_model import WorkItemShortModel
 from testit_api_client.models.work_item_version_model import WorkItemVersionModel
 
@@ -2135,6 +2138,7 @@ class WorkItemsApi:
         test_plan_ids: Annotated[Optional[List[StrictStr]], Field(description="Identifiers of test plans which contain test results")] = None,
         user_ids: Annotated[Optional[List[StrictStr]], Field(description="Identifiers of users who set test results")] = None,
         outcomes: Annotated[Optional[List[StrictStr]], Field(description="List of outcomes of test results")] = None,
+        status_codes: Annotated[Optional[List[StrictStr]], Field(description="List of status codes of test results")] = None,
         is_automated: Annotated[Optional[StrictBool], Field(description="OBSOLETE: Use `Automated` instead")] = None,
         automated: Annotated[Optional[StrictBool], Field(description="If result must consist of only manual/automated test results")] = None,
         test_run_ids: Annotated[Optional[List[StrictStr]], Field(description="Identifiers of test runs which contain test results")] = None,
@@ -2155,7 +2159,7 @@ class WorkItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestResultHistoryResponse]:
+    ) -> List[TestResultHistoryReportApiResult]:
         """Get test results history of WorkItem
 
          Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
@@ -2174,6 +2178,8 @@ class WorkItemsApi:
         :type user_ids: List[str]
         :param outcomes: List of outcomes of test results
         :type outcomes: List[str]
+        :param status_codes: List of status codes of test results
+        :type status_codes: List[str]
         :param is_automated: OBSOLETE: Use `Automated` instead
         :type is_automated: bool
         :param automated: If result must consist of only manual/automated test results
@@ -2220,6 +2226,7 @@ class WorkItemsApi:
             test_plan_ids=test_plan_ids,
             user_ids=user_ids,
             outcomes=outcomes,
+            status_codes=status_codes,
             is_automated=is_automated,
             automated=automated,
             test_run_ids=test_run_ids,
@@ -2235,7 +2242,7 @@ class WorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestResultHistoryResponse]",
+            '200': "List[TestResultHistoryReportApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2264,6 +2271,7 @@ class WorkItemsApi:
         test_plan_ids: Annotated[Optional[List[StrictStr]], Field(description="Identifiers of test plans which contain test results")] = None,
         user_ids: Annotated[Optional[List[StrictStr]], Field(description="Identifiers of users who set test results")] = None,
         outcomes: Annotated[Optional[List[StrictStr]], Field(description="List of outcomes of test results")] = None,
+        status_codes: Annotated[Optional[List[StrictStr]], Field(description="List of status codes of test results")] = None,
         is_automated: Annotated[Optional[StrictBool], Field(description="OBSOLETE: Use `Automated` instead")] = None,
         automated: Annotated[Optional[StrictBool], Field(description="If result must consist of only manual/automated test results")] = None,
         test_run_ids: Annotated[Optional[List[StrictStr]], Field(description="Identifiers of test runs which contain test results")] = None,
@@ -2284,7 +2292,7 @@ class WorkItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestResultHistoryResponse]]:
+    ) -> ApiResponse[List[TestResultHistoryReportApiResult]]:
         """Get test results history of WorkItem
 
          Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
@@ -2303,6 +2311,8 @@ class WorkItemsApi:
         :type user_ids: List[str]
         :param outcomes: List of outcomes of test results
         :type outcomes: List[str]
+        :param status_codes: List of status codes of test results
+        :type status_codes: List[str]
         :param is_automated: OBSOLETE: Use `Automated` instead
         :type is_automated: bool
         :param automated: If result must consist of only manual/automated test results
@@ -2349,6 +2359,7 @@ class WorkItemsApi:
             test_plan_ids=test_plan_ids,
             user_ids=user_ids,
             outcomes=outcomes,
+            status_codes=status_codes,
             is_automated=is_automated,
             automated=automated,
             test_run_ids=test_run_ids,
@@ -2364,7 +2375,7 @@ class WorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestResultHistoryResponse]",
+            '200': "List[TestResultHistoryReportApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2393,6 +2404,7 @@ class WorkItemsApi:
         test_plan_ids: Annotated[Optional[List[StrictStr]], Field(description="Identifiers of test plans which contain test results")] = None,
         user_ids: Annotated[Optional[List[StrictStr]], Field(description="Identifiers of users who set test results")] = None,
         outcomes: Annotated[Optional[List[StrictStr]], Field(description="List of outcomes of test results")] = None,
+        status_codes: Annotated[Optional[List[StrictStr]], Field(description="List of status codes of test results")] = None,
         is_automated: Annotated[Optional[StrictBool], Field(description="OBSOLETE: Use `Automated` instead")] = None,
         automated: Annotated[Optional[StrictBool], Field(description="If result must consist of only manual/automated test results")] = None,
         test_run_ids: Annotated[Optional[List[StrictStr]], Field(description="Identifiers of test runs which contain test results")] = None,
@@ -2432,6 +2444,8 @@ class WorkItemsApi:
         :type user_ids: List[str]
         :param outcomes: List of outcomes of test results
         :type outcomes: List[str]
+        :param status_codes: List of status codes of test results
+        :type status_codes: List[str]
         :param is_automated: OBSOLETE: Use `Automated` instead
         :type is_automated: bool
         :param automated: If result must consist of only manual/automated test results
@@ -2478,6 +2492,7 @@ class WorkItemsApi:
             test_plan_ids=test_plan_ids,
             user_ids=user_ids,
             outcomes=outcomes,
+            status_codes=status_codes,
             is_automated=is_automated,
             automated=automated,
             test_run_ids=test_run_ids,
@@ -2493,7 +2508,7 @@ class WorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestResultHistoryResponse]",
+            '200': "List[TestResultHistoryReportApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2517,6 +2532,7 @@ class WorkItemsApi:
         test_plan_ids,
         user_ids,
         outcomes,
+        status_codes,
         is_automated,
         automated,
         test_run_ids,
@@ -2538,6 +2554,7 @@ class WorkItemsApi:
             'testPlanIds': 'multi',
             'userIds': 'multi',
             'outcomes': 'multi',
+            'statusCodes': 'multi',
             'testRunIds': 'multi',
         }
 
@@ -2595,6 +2612,10 @@ class WorkItemsApi:
         if outcomes is not None:
             
             _query_params.append(('outcomes', outcomes))
+            
+        if status_codes is not None:
+            
+            _query_params.append(('statusCodes', status_codes))
             
         if is_automated is not None:
             
@@ -2960,6 +2981,380 @@ class WorkItemsApi:
 
 
     @validate_call
+    def api_v2_work_items_links_urls_search_post(
+        self,
+        skip: Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None,
+        take: Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None,
+        order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
+        search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
+        search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
+        work_item_link_url_api_model: Optional[WorkItemLinkUrlApiModel] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> SearchWorkItemLinkUrlsApiResult:
+        """api_v2_work_items_links_urls_search_post
+
+
+        :param skip: Amount of items to be skipped (offset)
+        :type skip: int
+        :param take: Amount of items to be taken (limit)
+        :type take: int
+        :param order_by: SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        :type order_by: str
+        :param search_field: Property name for searching
+        :type search_field: str
+        :param search_value: Value for searching
+        :type search_value: str
+        :param work_item_link_url_api_model:
+        :type work_item_link_url_api_model: WorkItemLinkUrlApiModel
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._api_v2_work_items_links_urls_search_post_serialize(
+            skip=skip,
+            take=take,
+            order_by=order_by,
+            search_field=search_field,
+            search_value=search_value,
+            work_item_link_url_api_model=work_item_link_url_api_model,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SearchWorkItemLinkUrlsApiResult",
+            '400': "ValidationProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def api_v2_work_items_links_urls_search_post_with_http_info(
+        self,
+        skip: Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None,
+        take: Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None,
+        order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
+        search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
+        search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
+        work_item_link_url_api_model: Optional[WorkItemLinkUrlApiModel] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[SearchWorkItemLinkUrlsApiResult]:
+        """api_v2_work_items_links_urls_search_post
+
+
+        :param skip: Amount of items to be skipped (offset)
+        :type skip: int
+        :param take: Amount of items to be taken (limit)
+        :type take: int
+        :param order_by: SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        :type order_by: str
+        :param search_field: Property name for searching
+        :type search_field: str
+        :param search_value: Value for searching
+        :type search_value: str
+        :param work_item_link_url_api_model:
+        :type work_item_link_url_api_model: WorkItemLinkUrlApiModel
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._api_v2_work_items_links_urls_search_post_serialize(
+            skip=skip,
+            take=take,
+            order_by=order_by,
+            search_field=search_field,
+            search_value=search_value,
+            work_item_link_url_api_model=work_item_link_url_api_model,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SearchWorkItemLinkUrlsApiResult",
+            '400': "ValidationProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def api_v2_work_items_links_urls_search_post_without_preload_content(
+        self,
+        skip: Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None,
+        take: Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None,
+        order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
+        search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
+        search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
+        work_item_link_url_api_model: Optional[WorkItemLinkUrlApiModel] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """api_v2_work_items_links_urls_search_post
+
+
+        :param skip: Amount of items to be skipped (offset)
+        :type skip: int
+        :param take: Amount of items to be taken (limit)
+        :type take: int
+        :param order_by: SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        :type order_by: str
+        :param search_field: Property name for searching
+        :type search_field: str
+        :param search_value: Value for searching
+        :type search_value: str
+        :param work_item_link_url_api_model:
+        :type work_item_link_url_api_model: WorkItemLinkUrlApiModel
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._api_v2_work_items_links_urls_search_post_serialize(
+            skip=skip,
+            take=take,
+            order_by=order_by,
+            search_field=search_field,
+            search_value=search_value,
+            work_item_link_url_api_model=work_item_link_url_api_model,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SearchWorkItemLinkUrlsApiResult",
+            '400': "ValidationProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _api_v2_work_items_links_urls_search_post_serialize(
+        self,
+        skip,
+        take,
+        order_by,
+        search_field,
+        search_value,
+        work_item_link_url_api_model,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if skip is not None:
+            
+            _query_params.append(('Skip', skip))
+            
+        if take is not None:
+            
+            _query_params.append(('Take', take))
+            
+        if order_by is not None:
+            
+            _query_params.append(('OrderBy', order_by))
+            
+        if search_field is not None:
+            
+            _query_params.append(('SearchField', search_field))
+            
+        if search_value is not None:
+            
+            _query_params.append(('SearchValue', search_value))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if work_item_link_url_api_model is not None:
+            _body_params = work_item_link_url_api_model
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Bearer or PrivateToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/workItems/links/urls/search',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def api_v2_work_items_move_post(
         self,
         work_item_move_post_model: Optional[WorkItemMovePostModel] = None,
@@ -3259,7 +3654,7 @@ class WorkItemsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        work_item_select_model: Optional[WorkItemSelectModel] = None,
+        work_item_select_api_model: Optional[WorkItemSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3272,7 +3667,7 @@ class WorkItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[WorkItemShortModel]:
+    ) -> List[WorkItemShortApiResult]:
         """Search for work items
 
 
@@ -3286,8 +3681,8 @@ class WorkItemsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param work_item_select_model:
-        :type work_item_select_model: WorkItemSelectModel
+        :param work_item_select_api_model:
+        :type work_item_select_api_model: WorkItemSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3316,7 +3711,7 @@ class WorkItemsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            work_item_select_model=work_item_select_model,
+            work_item_select_api_model=work_item_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3324,7 +3719,7 @@ class WorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[WorkItemShortModel]",
+            '200': "List[WorkItemShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3351,7 +3746,7 @@ class WorkItemsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        work_item_select_model: Optional[WorkItemSelectModel] = None,
+        work_item_select_api_model: Optional[WorkItemSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3364,7 +3759,7 @@ class WorkItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[WorkItemShortModel]]:
+    ) -> ApiResponse[List[WorkItemShortApiResult]]:
         """Search for work items
 
 
@@ -3378,8 +3773,8 @@ class WorkItemsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param work_item_select_model:
-        :type work_item_select_model: WorkItemSelectModel
+        :param work_item_select_api_model:
+        :type work_item_select_api_model: WorkItemSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3408,7 +3803,7 @@ class WorkItemsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            work_item_select_model=work_item_select_model,
+            work_item_select_api_model=work_item_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3416,7 +3811,7 @@ class WorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[WorkItemShortModel]",
+            '200': "List[WorkItemShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3443,7 +3838,7 @@ class WorkItemsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        work_item_select_model: Optional[WorkItemSelectModel] = None,
+        work_item_select_api_model: Optional[WorkItemSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3470,8 +3865,8 @@ class WorkItemsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param work_item_select_model:
-        :type work_item_select_model: WorkItemSelectModel
+        :param work_item_select_api_model:
+        :type work_item_select_api_model: WorkItemSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3500,7 +3895,7 @@ class WorkItemsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            work_item_select_model=work_item_select_model,
+            work_item_select_api_model=work_item_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3508,7 +3903,7 @@ class WorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[WorkItemShortModel]",
+            '200': "List[WorkItemShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3530,7 +3925,7 @@ class WorkItemsApi:
         order_by,
         search_field,
         search_value,
-        work_item_select_model,
+        work_item_select_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -3576,8 +3971,8 @@ class WorkItemsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if work_item_select_model is not None:
-            _body_params = work_item_select_model
+        if work_item_select_api_model is not None:
+            _body_params = work_item_select_api_model
 
 
         # set the HTTP header `Accept`

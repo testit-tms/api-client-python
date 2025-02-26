@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **status_code** | **str** |  | [optional] 
 **comment** | **str** |  | [optional] 
 **links** | [**List[Link]**](Link.md) |  | [optional] 
-**step_results** | [**List[StepResult]**](StepResult.md) |  | [optional] 
+**step_results** | [**List[StepResultApiModel]**](StepResultApiModel.md) |  | [optional] 
 **attachments** | [**List[AttachmentUpdateRequest]**](AttachmentUpdateRequest.md) |  | [optional] 
 **duration_in_ms** | **int** |  | [optional] 
 **duration** | **int** |  | [optional] 

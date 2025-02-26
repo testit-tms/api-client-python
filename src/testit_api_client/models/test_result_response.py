@@ -20,12 +20,12 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from testit_api_client.models.attachment import Attachment
+from testit_api_client.models.attachment_api_result import AttachmentApiResult
 from testit_api_client.models.auto_test import AutoTest
 from testit_api_client.models.auto_test_step_result import AutoTestStepResult
 from testit_api_client.models.link import Link
-from testit_api_client.models.step_comment import StepComment
-from testit_api_client.models.step_result import StepResult
+from testit_api_client.models.step_comment_api_model import StepCommentApiModel
+from testit_api_client.models.step_result_api_model import StepResultApiModel
 from testit_api_client.models.test_point import TestPoint
 from testit_api_client.models.test_result_outcome import TestResultOutcome
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
@@ -41,14 +41,14 @@ class TestResultResponse(BaseModel):
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
     created_by_id: StrictStr = Field(alias="createdById")
     modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
-    step_comments: Optional[List[StepComment]] = Field(default=None, alias="stepComments")
+    step_comments: Optional[List[StepCommentApiModel]] = Field(default=None, alias="stepComments")
     failure_class_ids: List[StrictStr] = Field(alias="failureClassIds")
     outcome: Optional[TestResultOutcome] = None
     status: Optional[TestStatusApiResult] = None
     comment: Optional[StrictStr] = None
     links: Optional[List[Link]] = None
-    step_results: Optional[List[StepResult]] = Field(default=None, alias="stepResults")
-    attachments: Optional[List[Attachment]] = None
+    step_results: Optional[List[StepResultApiModel]] = Field(default=None, alias="stepResults")
+    attachments: Optional[List[AttachmentApiResult]] = None
     auto_test_id: Optional[StrictStr] = Field(default=None, alias="autoTestId")
     configuration_id: StrictStr = Field(alias="configurationId")
     started_on: Optional[datetime] = Field(default=None, alias="startedOn")
@@ -316,14 +316,14 @@ class TestResultResponse(BaseModel):
             "modifiedDate": obj.get("modifiedDate"),
             "createdById": obj.get("createdById"),
             "modifiedById": obj.get("modifiedById"),
-            "stepComments": [StepComment.from_dict(_item) for _item in obj["stepComments"]] if obj.get("stepComments") is not None else None,
+            "stepComments": [StepCommentApiModel.from_dict(_item) for _item in obj["stepComments"]] if obj.get("stepComments") is not None else None,
             "failureClassIds": obj.get("failureClassIds"),
             "outcome": obj.get("outcome"),
             "status": TestStatusApiResult.from_dict(obj["status"]) if obj.get("status") is not None else None,
             "comment": obj.get("comment"),
             "links": [Link.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-            "stepResults": [StepResult.from_dict(_item) for _item in obj["stepResults"]] if obj.get("stepResults") is not None else None,
-            "attachments": [Attachment.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
+            "stepResults": [StepResultApiModel.from_dict(_item) for _item in obj["stepResults"]] if obj.get("stepResults") is not None else None,
+            "attachments": [AttachmentApiResult.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
             "autoTestId": obj.get("autoTestId"),
             "configurationId": obj.get("configurationId"),
             "startedOn": obj.get("startedOn"),

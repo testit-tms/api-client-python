@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Test point unique internal identifier | 
+**is_deleted** | **bool** | Indicates if the entity is deleted | 
 **tester_id** | **str** | Tester who is responded for the test unique internal identifier | [optional] 
 **work_item_id** | **str** | Workitem to which test point relates unique identifier | [optional] 
 **configuration_id** | **str** | Configuration to which test point relates unique identifier | [optional] 
