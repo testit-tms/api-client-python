@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_project_id_work_items_search_post**
-> List[WorkItemShortModel] api_v2_projects_project_id_work_items_search_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_model=work_item_select_model)
+> List[WorkItemShortApiResult] api_v2_projects_project_id_work_items_search_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_api_model=work_item_select_api_model)
 
 Search for work items
 
@@ -213,8 +213,8 @@ Search for work items
 
 ```python
 import testit_api_client
-from testit_api_client.models.work_item_select_model import WorkItemSelectModel
-from testit_api_client.models.work_item_short_model import WorkItemShortModel
+from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
+from testit_api_client.models.work_item_short_api_result import WorkItemShortApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -245,11 +245,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    work_item_select_model = testit_api_client.WorkItemSelectModel() # WorkItemSelectModel |  (optional)
+    work_item_select_api_model = testit_api_client.WorkItemSelectApiModel() # WorkItemSelectApiModel |  (optional)
 
     try:
         # Search for work items
-        api_response = api_instance.api_v2_projects_project_id_work_items_search_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_model=work_item_select_model)
+        api_response = api_instance.api_v2_projects_project_id_work_items_search_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_api_model=work_item_select_api_model)
         print("The response of ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -269,11 +269,11 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **work_item_select_model** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] 
+ **work_item_select_api_model** | [**WorkItemSelectApiModel**](WorkItemSelectApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**List[WorkItemShortModel]**](WorkItemShortModel.md)
+[**List[WorkItemShortApiResult]**](WorkItemShortApiResult.md)
 
 ### Authorization
 

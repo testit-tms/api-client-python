@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**api_v2_work_items_id_likes_get**](WorkItemsApi.md#api_v2_work_items_id_likes_get) | **GET** /api/v2/workItems/{id}/likes | Get likes of WorkItem
 [**api_v2_work_items_id_test_results_history_get**](WorkItemsApi.md#api_v2_work_items_id_test_results_history_get) | **GET** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem
 [**api_v2_work_items_id_version_version_id_actual_post**](WorkItemsApi.md#api_v2_work_items_id_version_version_id_actual_post) | **POST** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
+[**api_v2_work_items_links_urls_search_post**](WorkItemsApi.md#api_v2_work_items_links_urls_search_post) | **POST** /api/v2/workItems/links/urls/search | 
 [**api_v2_work_items_move_post**](WorkItemsApi.md#api_v2_work_items_move_post) | **POST** /api/v2/workItems/move | Move WorkItem to another section
 [**api_v2_work_items_search_post**](WorkItemsApi.md#api_v2_work_items_search_post) | **POST** /api/v2/workItems/search | Search for work items
 [**api_v2_work_items_shared_step_id_references_sections_post**](WorkItemsApi.md#api_v2_work_items_shared_step_id_references_sections_post) | **POST** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
@@ -630,7 +631,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_id_test_results_history_get**
-> List[TestResultHistoryResponse] api_v2_work_items_id_test_results_history_get(id, var_from=var_from, to=to, configuration_ids=configuration_ids, test_plan_ids=test_plan_ids, user_ids=user_ids, outcomes=outcomes, is_automated=is_automated, automated=automated, test_run_ids=test_run_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+> List[TestResultHistoryReportApiResult] api_v2_work_items_id_test_results_history_get(id, var_from=var_from, to=to, configuration_ids=configuration_ids, test_plan_ids=test_plan_ids, user_ids=user_ids, outcomes=outcomes, status_codes=status_codes, is_automated=is_automated, automated=automated, test_run_ids=test_run_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get test results history of WorkItem
 
@@ -642,7 +643,7 @@ Get test results history of WorkItem
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_result_history_response import TestResultHistoryResponse
+from testit_api_client.models.test_result_history_report_api_result import TestResultHistoryReportApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -674,6 +675,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     test_plan_ids = ['test_plan_ids_example'] # List[str] | Identifiers of test plans which contain test results (optional)
     user_ids = ['user_ids_example'] # List[str] | Identifiers of users who set test results (optional)
     outcomes = ['outcomes_example'] # List[str] | List of outcomes of test results (optional)
+    status_codes = ['status_codes_example'] # List[str] | List of status codes of test results (optional)
     is_automated = True # bool | OBSOLETE: Use `Automated` instead (optional)
     automated = True # bool | If result must consist of only manual/automated test results (optional)
     test_run_ids = ['test_run_ids_example'] # List[str] | Identifiers of test runs which contain test results (optional)
@@ -685,7 +687,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Get test results history of WorkItem
-        api_response = api_instance.api_v2_work_items_id_test_results_history_get(id, var_from=var_from, to=to, configuration_ids=configuration_ids, test_plan_ids=test_plan_ids, user_ids=user_ids, outcomes=outcomes, is_automated=is_automated, automated=automated, test_run_ids=test_run_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        api_response = api_instance.api_v2_work_items_id_test_results_history_get(id, var_from=var_from, to=to, configuration_ids=configuration_ids, test_plan_ids=test_plan_ids, user_ids=user_ids, outcomes=outcomes, status_codes=status_codes, is_automated=is_automated, automated=automated, test_run_ids=test_run_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         print("The response of WorkItemsApi->api_v2_work_items_id_test_results_history_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -706,6 +708,7 @@ Name | Type | Description  | Notes
  **test_plan_ids** | [**List[str]**](str.md)| Identifiers of test plans which contain test results | [optional] 
  **user_ids** | [**List[str]**](str.md)| Identifiers of users who set test results | [optional] 
  **outcomes** | [**List[str]**](str.md)| List of outcomes of test results | [optional] 
+ **status_codes** | [**List[str]**](str.md)| List of status codes of test results | [optional] 
  **is_automated** | **bool**| OBSOLETE: Use &#x60;Automated&#x60; instead | [optional] 
  **automated** | **bool**| If result must consist of only manual/automated test results | [optional] 
  **test_run_ids** | [**List[str]**](str.md)| Identifiers of test runs which contain test results | [optional] 
@@ -717,7 +720,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TestResultHistoryResponse]**](TestResultHistoryResponse.md)
+[**List[TestResultHistoryReportApiResult]**](TestResultHistoryReportApiResult.md)
 
 ### Authorization
 
@@ -829,6 +832,99 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **api_v2_work_items_links_urls_search_post**
+> SearchWorkItemLinkUrlsApiResult api_v2_work_items_links_urls_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_link_url_api_model=work_item_link_url_api_model)
+
+
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import testit_api_client
+from testit_api_client.models.search_work_item_link_urls_api_result import SearchWorkItemLinkUrlsApiResult
+from testit_api_client.models.work_item_link_url_api_model import WorkItemLinkUrlApiModel
+from testit_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = testit_api_client.WorkItemsApi(api_client)
+    skip = 56 # int | Amount of items to be skipped (offset) (optional)
+    take = 56 # int | Amount of items to be taken (limit) (optional)
+    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = 'search_field_example' # str | Property name for searching (optional)
+    search_value = 'search_value_example' # str | Value for searching (optional)
+    work_item_link_url_api_model = testit_api_client.WorkItemLinkUrlApiModel() # WorkItemLinkUrlApiModel |  (optional)
+
+    try:
+        api_response = api_instance.api_v2_work_items_links_urls_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_link_url_api_model=work_item_link_url_api_model)
+        print("The response of WorkItemsApi->api_v2_work_items_links_urls_search_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->api_v2_work_items_links_urls_search_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
+ **take** | **int**| Amount of items to be taken (limit) | [optional] 
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
+ **search_field** | **str**| Property name for searching | [optional] 
+ **search_value** | **str**| Value for searching | [optional] 
+ **work_item_link_url_api_model** | [**WorkItemLinkUrlApiModel**](WorkItemLinkUrlApiModel.md)|  | [optional] 
+
+### Return type
+
+[**SearchWorkItemLinkUrlsApiResult**](SearchWorkItemLinkUrlsApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **api_v2_work_items_move_post**
 > WorkItemShortModel api_v2_work_items_move_post(work_item_move_post_model=work_item_move_post_model)
 
@@ -916,7 +1012,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_search_post**
-> List[WorkItemShortModel] api_v2_work_items_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_model=work_item_select_model)
+> List[WorkItemShortApiResult] api_v2_work_items_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_api_model=work_item_select_api_model)
 
 Search for work items
 
@@ -926,8 +1022,8 @@ Search for work items
 
 ```python
 import testit_api_client
-from testit_api_client.models.work_item_select_model import WorkItemSelectModel
-from testit_api_client.models.work_item_short_model import WorkItemShortModel
+from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
+from testit_api_client.models.work_item_short_api_result import WorkItemShortApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -957,11 +1053,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    work_item_select_model = testit_api_client.WorkItemSelectModel() # WorkItemSelectModel |  (optional)
+    work_item_select_api_model = testit_api_client.WorkItemSelectApiModel() # WorkItemSelectApiModel |  (optional)
 
     try:
         # Search for work items
-        api_response = api_instance.api_v2_work_items_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_model=work_item_select_model)
+        api_response = api_instance.api_v2_work_items_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, work_item_select_api_model=work_item_select_api_model)
         print("The response of WorkItemsApi->api_v2_work_items_search_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -980,11 +1076,11 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **work_item_select_model** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] 
+ **work_item_select_api_model** | [**WorkItemSelectApiModel**](WorkItemSelectApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**List[WorkItemShortModel]**](WorkItemShortModel.md)
+[**List[WorkItemShortApiResult]**](WorkItemShortApiResult.md)
 
 ### Authorization
 

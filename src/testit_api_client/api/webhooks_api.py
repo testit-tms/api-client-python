@@ -24,9 +24,9 @@ from testit_api_client.models.web_hook_model import WebHookModel
 from testit_api_client.models.web_hook_post_model import WebHookPostModel
 from testit_api_client.models.web_hook_test_model import WebHookTestModel
 from testit_api_client.models.webhook_response import WebhookResponse
-from testit_api_client.models.webhooks_delete_request import WebhooksDeleteRequest
-from testit_api_client.models.webhooks_update_request import WebhooksUpdateRequest
-from testit_api_client.models.webhooks_update_response import WebhooksUpdateResponse
+from testit_api_client.models.webhooks_delete_api_model import WebhooksDeleteApiModel
+from testit_api_client.models.webhooks_update_api_model import WebhooksUpdateApiModel
+from testit_api_client.models.webhooks_update_api_result import WebhooksUpdateApiResult
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
 from testit_api_client.api_response import ApiResponse
@@ -49,7 +49,7 @@ class WebhooksApi:
     @validate_call
     def api_v2_webhooks_delete(
         self,
-        webhooks_delete_request: Optional[WebhooksDeleteRequest] = None,
+        webhooks_delete_api_model: Optional[WebhooksDeleteApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -66,8 +66,8 @@ class WebhooksApi:
         """api_v2_webhooks_delete
 
 
-        :param webhooks_delete_request:
-        :type webhooks_delete_request: WebhooksDeleteRequest
+        :param webhooks_delete_api_model:
+        :type webhooks_delete_api_model: WebhooksDeleteApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -91,7 +91,7 @@ class WebhooksApi:
         """ # noqa: E501
 
         _param = self._api_v2_webhooks_delete_serialize(
-            webhooks_delete_request=webhooks_delete_request,
+            webhooks_delete_api_model=webhooks_delete_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -121,7 +121,7 @@ class WebhooksApi:
     @validate_call
     def api_v2_webhooks_delete_with_http_info(
         self,
-        webhooks_delete_request: Optional[WebhooksDeleteRequest] = None,
+        webhooks_delete_api_model: Optional[WebhooksDeleteApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -138,8 +138,8 @@ class WebhooksApi:
         """api_v2_webhooks_delete
 
 
-        :param webhooks_delete_request:
-        :type webhooks_delete_request: WebhooksDeleteRequest
+        :param webhooks_delete_api_model:
+        :type webhooks_delete_api_model: WebhooksDeleteApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -163,7 +163,7 @@ class WebhooksApi:
         """ # noqa: E501
 
         _param = self._api_v2_webhooks_delete_serialize(
-            webhooks_delete_request=webhooks_delete_request,
+            webhooks_delete_api_model=webhooks_delete_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -193,7 +193,7 @@ class WebhooksApi:
     @validate_call
     def api_v2_webhooks_delete_without_preload_content(
         self,
-        webhooks_delete_request: Optional[WebhooksDeleteRequest] = None,
+        webhooks_delete_api_model: Optional[WebhooksDeleteApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -210,8 +210,8 @@ class WebhooksApi:
         """api_v2_webhooks_delete
 
 
-        :param webhooks_delete_request:
-        :type webhooks_delete_request: WebhooksDeleteRequest
+        :param webhooks_delete_api_model:
+        :type webhooks_delete_api_model: WebhooksDeleteApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -235,7 +235,7 @@ class WebhooksApi:
         """ # noqa: E501
 
         _param = self._api_v2_webhooks_delete_serialize(
-            webhooks_delete_request=webhooks_delete_request,
+            webhooks_delete_api_model=webhooks_delete_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -260,7 +260,7 @@ class WebhooksApi:
 
     def _api_v2_webhooks_delete_serialize(
         self,
-        webhooks_delete_request,
+        webhooks_delete_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -286,8 +286,8 @@ class WebhooksApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if webhooks_delete_request is not None:
-            _body_params = webhooks_delete_request
+        if webhooks_delete_api_model is not None:
+            _body_params = webhooks_delete_api_model
 
 
         # set the HTTP header `Accept`
@@ -1761,7 +1761,7 @@ class WebhooksApi:
     @validate_call
     def api_v2_webhooks_put(
         self,
-        webhooks_update_request: Optional[WebhooksUpdateRequest] = None,
+        webhooks_update_api_model: Optional[WebhooksUpdateApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1774,12 +1774,12 @@ class WebhooksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> WebhooksUpdateResponse:
+    ) -> WebhooksUpdateApiResult:
         """api_v2_webhooks_put
 
 
-        :param webhooks_update_request:
-        :type webhooks_update_request: WebhooksUpdateRequest
+        :param webhooks_update_api_model:
+        :type webhooks_update_api_model: WebhooksUpdateApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1803,7 +1803,7 @@ class WebhooksApi:
         """ # noqa: E501
 
         _param = self._api_v2_webhooks_put_serialize(
-            webhooks_update_request=webhooks_update_request,
+            webhooks_update_api_model=webhooks_update_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1811,7 +1811,7 @@ class WebhooksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "WebhooksUpdateResponse",
+            '200': "WebhooksUpdateApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1833,7 +1833,7 @@ class WebhooksApi:
     @validate_call
     def api_v2_webhooks_put_with_http_info(
         self,
-        webhooks_update_request: Optional[WebhooksUpdateRequest] = None,
+        webhooks_update_api_model: Optional[WebhooksUpdateApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1846,12 +1846,12 @@ class WebhooksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[WebhooksUpdateResponse]:
+    ) -> ApiResponse[WebhooksUpdateApiResult]:
         """api_v2_webhooks_put
 
 
-        :param webhooks_update_request:
-        :type webhooks_update_request: WebhooksUpdateRequest
+        :param webhooks_update_api_model:
+        :type webhooks_update_api_model: WebhooksUpdateApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1875,7 +1875,7 @@ class WebhooksApi:
         """ # noqa: E501
 
         _param = self._api_v2_webhooks_put_serialize(
-            webhooks_update_request=webhooks_update_request,
+            webhooks_update_api_model=webhooks_update_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1883,7 +1883,7 @@ class WebhooksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "WebhooksUpdateResponse",
+            '200': "WebhooksUpdateApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1905,7 +1905,7 @@ class WebhooksApi:
     @validate_call
     def api_v2_webhooks_put_without_preload_content(
         self,
-        webhooks_update_request: Optional[WebhooksUpdateRequest] = None,
+        webhooks_update_api_model: Optional[WebhooksUpdateApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1922,8 +1922,8 @@ class WebhooksApi:
         """api_v2_webhooks_put
 
 
-        :param webhooks_update_request:
-        :type webhooks_update_request: WebhooksUpdateRequest
+        :param webhooks_update_api_model:
+        :type webhooks_update_api_model: WebhooksUpdateApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1947,7 +1947,7 @@ class WebhooksApi:
         """ # noqa: E501
 
         _param = self._api_v2_webhooks_put_serialize(
-            webhooks_update_request=webhooks_update_request,
+            webhooks_update_api_model=webhooks_update_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1955,7 +1955,7 @@ class WebhooksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "WebhooksUpdateResponse",
+            '200': "WebhooksUpdateApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1972,7 +1972,7 @@ class WebhooksApi:
 
     def _api_v2_webhooks_put_serialize(
         self,
-        webhooks_update_request,
+        webhooks_update_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -1998,8 +1998,8 @@ class WebhooksApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if webhooks_update_request is not None:
-            _body_params = webhooks_update_request
+        if webhooks_update_api_model is not None:
+            _body_params = webhooks_update_api_model
 
 
         # set the HTTP header `Accept`

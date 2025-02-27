@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_webhooks_delete**
-> api_v2_webhooks_delete(webhooks_delete_request=webhooks_delete_request)
+> api_v2_webhooks_delete(webhooks_delete_api_model=webhooks_delete_api_model)
 
 
 
@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 ```python
 import testit_api_client
-from testit_api_client.models.webhooks_delete_request import WebhooksDeleteRequest
+from testit_api_client.models.webhooks_delete_api_model import WebhooksDeleteApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -52,10 +52,10 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WebhooksApi(api_client)
-    webhooks_delete_request = testit_api_client.WebhooksDeleteRequest() # WebhooksDeleteRequest |  (optional)
+    webhooks_delete_api_model = testit_api_client.WebhooksDeleteApiModel() # WebhooksDeleteApiModel |  (optional)
 
     try:
-        api_instance.api_v2_webhooks_delete(webhooks_delete_request=webhooks_delete_request)
+        api_instance.api_v2_webhooks_delete(webhooks_delete_api_model=webhooks_delete_api_model)
     except Exception as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_delete: %s\n" % e)
 ```
@@ -67,7 +67,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhooks_delete_request** | [**WebhooksDeleteRequest**](WebhooksDeleteRequest.md)|  | [optional] 
+ **webhooks_delete_api_model** | [**WebhooksDeleteApiModel**](WebhooksDeleteApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -514,7 +514,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_put**
-> WebhooksUpdateResponse api_v2_webhooks_put(webhooks_update_request=webhooks_update_request)
+> WebhooksUpdateApiResult api_v2_webhooks_put(webhooks_update_api_model=webhooks_update_api_model)
 
 
 
@@ -524,8 +524,8 @@ Name | Type | Description  | Notes
 
 ```python
 import testit_api_client
-from testit_api_client.models.webhooks_update_request import WebhooksUpdateRequest
-from testit_api_client.models.webhooks_update_response import WebhooksUpdateResponse
+from testit_api_client.models.webhooks_update_api_model import WebhooksUpdateApiModel
+from testit_api_client.models.webhooks_update_api_result import WebhooksUpdateApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -550,10 +550,10 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WebhooksApi(api_client)
-    webhooks_update_request = testit_api_client.WebhooksUpdateRequest() # WebhooksUpdateRequest |  (optional)
+    webhooks_update_api_model = testit_api_client.WebhooksUpdateApiModel() # WebhooksUpdateApiModel |  (optional)
 
     try:
-        api_response = api_instance.api_v2_webhooks_put(webhooks_update_request=webhooks_update_request)
+        api_response = api_instance.api_v2_webhooks_put(webhooks_update_api_model=webhooks_update_api_model)
         print("The response of WebhooksApi->api_v2_webhooks_put:\n")
         pprint(api_response)
     except Exception as e:
@@ -567,11 +567,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhooks_update_request** | [**WebhooksUpdateRequest**](WebhooksUpdateRequest.md)|  | [optional] 
+ **webhooks_update_api_model** | [**WebhooksUpdateApiModel**](WebhooksUpdateApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**WebhooksUpdateResponse**](WebhooksUpdateResponse.md)
+[**WebhooksUpdateApiResult**](WebhooksUpdateApiResult.md)
 
 ### Authorization
 

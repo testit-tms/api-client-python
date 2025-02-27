@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
 from typing import Optional, Set
@@ -28,6 +28,7 @@ class TestPointShortApiResult(BaseModel):
     TestPointShortApiResult
     """ # noqa: E501
     id: StrictStr = Field(description="Test point unique internal identifier")
+    is_deleted: StrictBool = Field(description="Indicates if the entity is deleted", alias="isDeleted")
     tester_id: Optional[StrictStr] = Field(default=None, description="Tester who is responded for the test unique internal identifier", alias="testerId")
     work_item_id: Optional[StrictStr] = Field(default=None, description="Workitem to which test point relates unique identifier", alias="workItemId")
     configuration_id: Optional[StrictStr] = Field(default=None, description="Configuration to which test point relates unique identifier", alias="configurationId")
@@ -37,7 +38,7 @@ class TestPointShortApiResult(BaseModel):
     iteration_id: StrictStr = Field(description="Iteration unique identifier", alias="iterationId")
     work_item_median_duration: Optional[StrictInt] = Field(default=None, description="Median duration of work item the test point represents", alias="workItemMedianDuration")
     test_suite_id: StrictStr = Field(description="Test suite to which test point relates unique identifier", alias="testSuiteId")
-    __properties: ClassVar[List[str]] = ["id", "testerId", "workItemId", "configurationId", "status", "statusModel", "lastTestResultId", "iterationId", "workItemMedianDuration", "testSuiteId"]
+    __properties: ClassVar[List[str]] = ["id", "isDeleted", "testerId", "workItemId", "configurationId", "status", "statusModel", "lastTestResultId", "iterationId", "workItemMedianDuration", "testSuiteId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -124,6 +125,7 @@ class TestPointShortApiResult(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
+            "isDeleted": obj.get("isDeleted"),
             "testerId": obj.get("testerId"),
             "workItemId": obj.get("workItemId"),
             "configurationId": obj.get("configurationId"),

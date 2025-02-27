@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **include_ids** | **List[str]** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **exclude_ids** | **List[str]** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
 **project_ids** | **List[str]** | Collection of project identifiers | [optional] 
+**links** | [**WorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links | [optional] 
 **name** | **str** | Name of work item | [optional] 
 **ids** | **List[str]** | Specifies a work item unique IDs to search for | [optional] 
 **global_ids** | **List[int]** | Collection of global (integer) identifiers | [optional] 

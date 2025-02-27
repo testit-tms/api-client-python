@@ -24,7 +24,7 @@ from testit_api_client.models.attachment_api_result import AttachmentApiResult
 from testit_api_client.models.auto_test_api_result import AutoTestApiResult
 from testit_api_client.models.auto_test_step_results_api_result import AutoTestStepResultsApiResult
 from testit_api_client.models.link_api_result import LinkApiResult
-from testit_api_client.models.step_comment_api_result import StepCommentApiResult
+from testit_api_client.models.step_comment_api_model import StepCommentApiModel
 from testit_api_client.models.test_point_short_api_result import TestPointShortApiResult
 from testit_api_client.models.test_result_failure_class_api_result import TestResultFailureClassApiResult
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
@@ -60,7 +60,7 @@ class TestResultApiResult(BaseModel):
     attachments: List[AttachmentApiResult]
     links: List[LinkApiResult]
     failure_classes: List[TestResultFailureClassApiResult] = Field(alias="failureClasses")
-    step_comments: Optional[List[StepCommentApiResult]] = Field(default=None, alias="stepComments")
+    step_comments: Optional[List[StepCommentApiModel]] = Field(default=None, alias="stepComments")
     parameters: Optional[Dict[str, StrictStr]] = None
     properties: Optional[Dict[str, StrictStr]] = None
     created_date: datetime = Field(alias="createdDate")
@@ -314,7 +314,7 @@ class TestResultApiResult(BaseModel):
             "attachments": [AttachmentApiResult.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
             "links": [LinkApiResult.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
             "failureClasses": [TestResultFailureClassApiResult.from_dict(_item) for _item in obj["failureClasses"]] if obj.get("failureClasses") is not None else None,
-            "stepComments": [StepCommentApiResult.from_dict(_item) for _item in obj["stepComments"]] if obj.get("stepComments") is not None else None,
+            "stepComments": [StepCommentApiModel.from_dict(_item) for _item in obj["stepComments"]] if obj.get("stepComments") is not None else None,
             "parameters": obj.get("parameters"),
             "properties": obj.get("properties"),
             "createdDate": obj.get("createdDate"),

@@ -20,7 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from testit_api_client.models.attachment import Attachment
+from testit_api_client.models.attachment_api_result import AttachmentApiResult
 from testit_api_client.models.auto_test_result_reason_short import AutoTestResultReasonShort
 from testit_api_client.models.link_short import LinkShort
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
@@ -48,7 +48,7 @@ class TestResultShortResponse(BaseModel):
     completed_on: Optional[datetime] = Field(default=None, description="Date when the test result has been completed", alias="completedOn")
     duration: Optional[StrictInt] = Field(default=None, description="Time which it took to run the test")
     links: List[LinkShort] = Field(description="Collection of links attached to the test result")
-    attachments: List[Attachment] = Field(description="Collection of files attached to the test result")
+    attachments: List[AttachmentApiResult] = Field(description="Collection of files attached to the test result")
     rerun_completed_count: StrictInt = Field(description="Run count", alias="rerunCompletedCount")
     __properties: ClassVar[List[str]] = ["id", "name", "autotestGlobalId", "testRunId", "configurationId", "configurationName", "outcome", "status", "resultReasons", "comment", "date", "createdDate", "modifiedDate", "startedOn", "completedOn", "duration", "links", "attachments", "rerunCompletedCount"]
 
@@ -179,7 +179,7 @@ class TestResultShortResponse(BaseModel):
             "completedOn": obj.get("completedOn"),
             "duration": obj.get("duration"),
             "links": [LinkShort.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-            "attachments": [Attachment.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
+            "attachments": [AttachmentApiResult.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
             "rerunCompletedCount": obj.get("rerunCompletedCount")
         })
         return _obj

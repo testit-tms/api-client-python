@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **modified_date** | **datetime** |  | [optional] 
 **created_by_id** | **str** |  | 
 **modified_by_id** | **str** |  | [optional] 
-**step_comments** | [**List[StepComment]**](StepComment.md) |  | [optional] 
+**step_comments** | [**List[StepCommentApiModel]**](StepCommentApiModel.md) |  | [optional] 
 **failure_class_ids** | **List[str]** |  | 
 **outcome** | [**TestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **comment** | **str** |  | [optional] 
 **links** | [**List[Link]**](Link.md) |  | [optional] 
-**step_results** | [**List[StepResult]**](StepResult.md) |  | [optional] 
-**attachments** | [**List[Attachment]**](Attachment.md) |  | [optional] 
+**step_results** | [**List[StepResultApiModel]**](StepResultApiModel.md) |  | [optional] 
+**attachments** | [**List[AttachmentApiResult]**](AttachmentApiResult.md) |  | [optional] 
 **auto_test_id** | **str** |  | [optional] 
 **configuration_id** | **str** |  | 
 **started_on** | **datetime** |  | [optional] 

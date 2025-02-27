@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **attachments** | [**List[AttachmentApiResult]**](AttachmentApiResult.md) |  | 
 **links** | [**List[LinkApiResult]**](LinkApiResult.md) |  | 
 **failure_classes** | [**List[TestResultFailureClassApiResult]**](TestResultFailureClassApiResult.md) |  | 
-**step_comments** | [**List[StepCommentApiResult]**](StepCommentApiResult.md) |  | [optional] 
+**step_comments** | [**List[StepCommentApiModel]**](StepCommentApiModel.md) |  | [optional] 
 **parameters** | **Dict[str, str]** |  | [optional] 
 **properties** | **Dict[str, str]** |  | [optional] 
 **created_date** | **datetime** |  | 

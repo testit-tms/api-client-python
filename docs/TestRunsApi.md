@@ -363,7 +363,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_runs_id_reruns_post**
-> ManualRerunApiResult api_v2_test_runs_id_reruns_post(id, manual_rerun_select_api_model=manual_rerun_select_api_model)
+> ManualRerunApiResult api_v2_test_runs_id_reruns_post(id, manual_rerun_select_test_results_api_model=manual_rerun_select_test_results_api_model)
 
 Manual autotests rerun in test run
 
@@ -374,7 +374,7 @@ Manual autotests rerun in test run
 ```python
 import testit_api_client
 from testit_api_client.models.manual_rerun_api_result import ManualRerunApiResult
-from testit_api_client.models.manual_rerun_select_api_model import ManualRerunSelectApiModel
+from testit_api_client.models.manual_rerun_select_test_results_api_model import ManualRerunSelectTestResultsApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -400,11 +400,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.TestRunsApi(api_client)
     id = 'id_example' # str | 
-    manual_rerun_select_api_model = testit_api_client.ManualRerunSelectApiModel() # ManualRerunSelectApiModel |  (optional)
+    manual_rerun_select_test_results_api_model = testit_api_client.ManualRerunSelectTestResultsApiModel() # ManualRerunSelectTestResultsApiModel |  (optional)
 
     try:
         # Manual autotests rerun in test run
-        api_response = api_instance.api_v2_test_runs_id_reruns_post(id, manual_rerun_select_api_model=manual_rerun_select_api_model)
+        api_response = api_instance.api_v2_test_runs_id_reruns_post(id, manual_rerun_select_test_results_api_model=manual_rerun_select_test_results_api_model)
         print("The response of TestRunsApi->api_v2_test_runs_id_reruns_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -419,7 +419,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **manual_rerun_select_api_model** | [**ManualRerunSelectApiModel**](ManualRerunSelectApiModel.md)|  | [optional] 
+ **manual_rerun_select_test_results_api_model** | [**ManualRerunSelectTestResultsApiModel**](ManualRerunSelectTestResultsApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_runs_id_test_points_results_get**
-> List[TestPointResultModel] api_v2_test_runs_id_test_points_results_get(id)
+> List[TestPointResultApiResult] api_v2_test_runs_id_test_points_results_get(id)
 
 Get test results from the test run grouped by test points
 
@@ -627,7 +627,7 @@ Get test results from the test run grouped by test points
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_point_result_model import TestPointResultModel
+from testit_api_client.models.test_point_result_api_result import TestPointResultApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TestPointResultModel]**](TestPointResultModel.md)
+[**List[TestPointResultApiResult]**](TestPointResultApiResult.md)
 
 ### Authorization
 

@@ -27,12 +27,12 @@ from testit_api_client.models.auto_test_flaky_bulk_api_model import AutoTestFlak
 from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.models.auto_test_post_model import AutoTestPostModel
 from testit_api_client.models.auto_test_put_model import AutoTestPutModel
+from testit_api_client.models.auto_test_result_history_api_result import AutoTestResultHistoryApiResult
+from testit_api_client.models.auto_test_result_history_select_api_model import AutoTestResultHistorySelectApiModel
 from testit_api_client.models.auto_test_search_api_model import AutoTestSearchApiModel
-from testit_api_client.models.autotest_historical_result_select_model import AutotestHistoricalResultSelectModel
-from testit_api_client.models.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
 from testit_api_client.models.operation import Operation
 from testit_api_client.models.test_result_chronology_model import TestResultChronologyModel
-from testit_api_client.models.test_run_short_model import TestRunShortModel
+from testit_api_client.models.test_run_by_auto_test_api_result import TestRunByAutoTestApiResult
 from testit_api_client.models.work_item_id_model import WorkItemIdModel
 from testit_api_client.models.work_item_identifier_model import WorkItemIdentifierModel
 
@@ -1037,7 +1037,7 @@ class AutoTestsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        autotest_historical_result_select_model: Optional[AutotestHistoricalResultSelectModel] = None,
+        auto_test_result_history_select_api_model: Optional[AutoTestResultHistorySelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1050,7 +1050,7 @@ class AutoTestsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[AutotestResultHistoricalGetModel]:
+    ) -> List[AutoTestResultHistoryApiResult]:
         """Get test results history for autotest
 
          Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets getTestResultHistoryReportQuery (listed in the example)   User runs method execution   System search for test results using filters set by user in getTestResultHistoryReportQuery and id   System returns the enumeration of test results
@@ -1067,8 +1067,8 @@ class AutoTestsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param autotest_historical_result_select_model:
-        :type autotest_historical_result_select_model: AutotestHistoricalResultSelectModel
+        :param auto_test_result_history_select_api_model:
+        :type auto_test_result_history_select_api_model: AutoTestResultHistorySelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1098,7 +1098,7 @@ class AutoTestsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            autotest_historical_result_select_model=autotest_historical_result_select_model,
+            auto_test_result_history_select_api_model=auto_test_result_history_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1106,7 +1106,7 @@ class AutoTestsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AutotestResultHistoricalGetModel]",
+            '200': "List[AutoTestResultHistoryApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1134,7 +1134,7 @@ class AutoTestsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        autotest_historical_result_select_model: Optional[AutotestHistoricalResultSelectModel] = None,
+        auto_test_result_history_select_api_model: Optional[AutoTestResultHistorySelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1147,7 +1147,7 @@ class AutoTestsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[AutotestResultHistoricalGetModel]]:
+    ) -> ApiResponse[List[AutoTestResultHistoryApiResult]]:
         """Get test results history for autotest
 
          Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets getTestResultHistoryReportQuery (listed in the example)   User runs method execution   System search for test results using filters set by user in getTestResultHistoryReportQuery and id   System returns the enumeration of test results
@@ -1164,8 +1164,8 @@ class AutoTestsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param autotest_historical_result_select_model:
-        :type autotest_historical_result_select_model: AutotestHistoricalResultSelectModel
+        :param auto_test_result_history_select_api_model:
+        :type auto_test_result_history_select_api_model: AutoTestResultHistorySelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1195,7 +1195,7 @@ class AutoTestsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            autotest_historical_result_select_model=autotest_historical_result_select_model,
+            auto_test_result_history_select_api_model=auto_test_result_history_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1203,7 +1203,7 @@ class AutoTestsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AutotestResultHistoricalGetModel]",
+            '200': "List[AutoTestResultHistoryApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1231,7 +1231,7 @@ class AutoTestsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        autotest_historical_result_select_model: Optional[AutotestHistoricalResultSelectModel] = None,
+        auto_test_result_history_select_api_model: Optional[AutoTestResultHistorySelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1261,8 +1261,8 @@ class AutoTestsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param autotest_historical_result_select_model:
-        :type autotest_historical_result_select_model: AutotestHistoricalResultSelectModel
+        :param auto_test_result_history_select_api_model:
+        :type auto_test_result_history_select_api_model: AutoTestResultHistorySelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1292,7 +1292,7 @@ class AutoTestsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            autotest_historical_result_select_model=autotest_historical_result_select_model,
+            auto_test_result_history_select_api_model=auto_test_result_history_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1300,7 +1300,7 @@ class AutoTestsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AutotestResultHistoricalGetModel]",
+            '200': "List[AutoTestResultHistoryApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1323,7 +1323,7 @@ class AutoTestsApi:
         order_by,
         search_field,
         search_value,
-        autotest_historical_result_select_model,
+        auto_test_result_history_select_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -1371,8 +1371,8 @@ class AutoTestsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if autotest_historical_result_select_model is not None:
-            _body_params = autotest_historical_result_select_model
+        if auto_test_result_history_select_api_model is not None:
+            _body_params = auto_test_result_history_select_api_model
 
 
         # set the HTTP header `Accept`
@@ -5087,7 +5087,7 @@ class AutoTestsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TestRunShortModel]:
+    ) -> List[TestRunByAutoTestApiResult]:
         """Get completed tests runs for autotests
 
          Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search for all test runs related to the autotest   System returns the enumeration of test runs
@@ -5125,7 +5125,7 @@ class AutoTestsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunShortModel]",
+            '200': "List[TestRunByAutoTestApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5160,7 +5160,7 @@ class AutoTestsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TestRunShortModel]]:
+    ) -> ApiResponse[List[TestRunByAutoTestApiResult]]:
         """Get completed tests runs for autotests
 
          Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search for all test runs related to the autotest   System returns the enumeration of test runs
@@ -5198,7 +5198,7 @@ class AutoTestsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunShortModel]",
+            '200': "List[TestRunByAutoTestApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -5271,7 +5271,7 @@ class AutoTestsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TestRunShortModel]",
+            '200': "List[TestRunByAutoTestApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",

@@ -289,7 +289,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_auto_tests_id_test_results_search_post**
-> List[AutotestResultHistoricalGetModel] api_v2_auto_tests_id_test_results_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotest_historical_result_select_model=autotest_historical_result_select_model)
+> List[AutoTestResultHistoryApiResult] api_v2_auto_tests_id_test_results_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, auto_test_result_history_select_api_model=auto_test_result_history_select_api_model)
 
 Get test results history for autotest
 
@@ -301,8 +301,8 @@ Get test results history for autotest
 
 ```python
 import testit_api_client
-from testit_api_client.models.autotest_historical_result_select_model import AutotestHistoricalResultSelectModel
-from testit_api_client.models.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
+from testit_api_client.models.auto_test_result_history_api_result import AutoTestResultHistoryApiResult
+from testit_api_client.models.auto_test_result_history_select_api_model import AutoTestResultHistorySelectApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -333,11 +333,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = 'search_field_example' # str | Property name for searching (optional)
     search_value = 'search_value_example' # str | Value for searching (optional)
-    autotest_historical_result_select_model = testit_api_client.AutotestHistoricalResultSelectModel() # AutotestHistoricalResultSelectModel |  (optional)
+    auto_test_result_history_select_api_model = testit_api_client.AutoTestResultHistorySelectApiModel() # AutoTestResultHistorySelectApiModel |  (optional)
 
     try:
         # Get test results history for autotest
-        api_response = api_instance.api_v2_auto_tests_id_test_results_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, autotest_historical_result_select_model=autotest_historical_result_select_model)
+        api_response = api_instance.api_v2_auto_tests_id_test_results_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, auto_test_result_history_select_api_model=auto_test_result_history_select_api_model)
         print("The response of AutoTestsApi->api_v2_auto_tests_id_test_results_search_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -357,11 +357,11 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
  **search_field** | **str**| Property name for searching | [optional] 
  **search_value** | **str**| Value for searching | [optional] 
- **autotest_historical_result_select_model** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md)|  | [optional] 
+ **auto_test_result_history_select_api_model** | [**AutoTestResultHistorySelectApiModel**](AutoTestResultHistorySelectApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**List[AutotestResultHistoricalGetModel]**](AutotestResultHistoricalGetModel.md)
+[**List[AutoTestResultHistoryApiResult]**](AutoTestResultHistoryApiResult.md)
 
 ### Authorization
 
@@ -1376,7 +1376,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_test_runs**
-> List[TestRunShortModel] get_test_runs(id)
+> List[TestRunByAutoTestApiResult] get_test_runs(id)
 
 Get completed tests runs for autotests
 
@@ -1388,7 +1388,7 @@ Get completed tests runs for autotests
 
 ```python
 import testit_api_client
-from testit_api_client.models.test_run_short_model import TestRunShortModel
+from testit_api_client.models.test_run_by_auto_test_api_result import TestRunByAutoTestApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1435,7 +1435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TestRunShortModel]**](TestRunShortModel.md)
+[**List[TestRunByAutoTestApiResult]**](TestRunByAutoTestApiResult.md)
 
 ### Authorization
 

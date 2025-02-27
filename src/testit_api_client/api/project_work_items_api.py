@@ -22,7 +22,9 @@ from typing_extensions import Annotated
 from testit_api_client.models.tag_short_model import TagShortModel
 from testit_api_client.models.work_item_group_get_model import WorkItemGroupGetModel
 from testit_api_client.models.work_item_group_model import WorkItemGroupModel
+from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
 from testit_api_client.models.work_item_select_model import WorkItemSelectModel
+from testit_api_client.models.work_item_short_api_result import WorkItemShortApiResult
 from testit_api_client.models.work_item_short_model import WorkItemShortModel
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
@@ -830,7 +832,7 @@ class ProjectWorkItemsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        work_item_select_model: Optional[WorkItemSelectModel] = None,
+        work_item_select_api_model: Optional[WorkItemSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -843,7 +845,7 @@ class ProjectWorkItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[WorkItemShortModel]:
+    ) -> List[WorkItemShortApiResult]:
         """Search for work items
 
 
@@ -859,8 +861,8 @@ class ProjectWorkItemsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param work_item_select_model:
-        :type work_item_select_model: WorkItemSelectModel
+        :param work_item_select_api_model:
+        :type work_item_select_api_model: WorkItemSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -890,7 +892,7 @@ class ProjectWorkItemsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            work_item_select_model=work_item_select_model,
+            work_item_select_api_model=work_item_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -898,7 +900,7 @@ class ProjectWorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[WorkItemShortModel]",
+            '200': "List[WorkItemShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -926,7 +928,7 @@ class ProjectWorkItemsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        work_item_select_model: Optional[WorkItemSelectModel] = None,
+        work_item_select_api_model: Optional[WorkItemSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -939,7 +941,7 @@ class ProjectWorkItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[WorkItemShortModel]]:
+    ) -> ApiResponse[List[WorkItemShortApiResult]]:
         """Search for work items
 
 
@@ -955,8 +957,8 @@ class ProjectWorkItemsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param work_item_select_model:
-        :type work_item_select_model: WorkItemSelectModel
+        :param work_item_select_api_model:
+        :type work_item_select_api_model: WorkItemSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -986,7 +988,7 @@ class ProjectWorkItemsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            work_item_select_model=work_item_select_model,
+            work_item_select_api_model=work_item_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -994,7 +996,7 @@ class ProjectWorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[WorkItemShortModel]",
+            '200': "List[WorkItemShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1022,7 +1024,7 @@ class ProjectWorkItemsApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        work_item_select_model: Optional[WorkItemSelectModel] = None,
+        work_item_select_api_model: Optional[WorkItemSelectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1051,8 +1053,8 @@ class ProjectWorkItemsApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param work_item_select_model:
-        :type work_item_select_model: WorkItemSelectModel
+        :param work_item_select_api_model:
+        :type work_item_select_api_model: WorkItemSelectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1082,7 +1084,7 @@ class ProjectWorkItemsApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            work_item_select_model=work_item_select_model,
+            work_item_select_api_model=work_item_select_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1090,7 +1092,7 @@ class ProjectWorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[WorkItemShortModel]",
+            '200': "List[WorkItemShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1113,7 +1115,7 @@ class ProjectWorkItemsApi:
         order_by,
         search_field,
         search_value,
-        work_item_select_model,
+        work_item_select_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -1161,8 +1163,8 @@ class ProjectWorkItemsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if work_item_select_model is not None:
-            _body_params = work_item_select_model
+        if work_item_select_api_model is not None:
+            _body_params = work_item_select_api_model
 
 
         # set the HTTP header `Accept`

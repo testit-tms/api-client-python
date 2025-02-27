@@ -24,6 +24,7 @@ from testit_api_client.models.date_time_range_selector_model import DateTimeRang
 from testit_api_client.models.int32_range_selector_model import Int32RangeSelectorModel
 from testit_api_client.models.int64_range_selector_model import Int64RangeSelectorModel
 from testit_api_client.models.work_item_entity_types import WorkItemEntityTypes
+from testit_api_client.models.work_item_link_filter_model import WorkItemLinkFilterModel
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
 from testit_api_client.models.work_item_states import WorkItemStates
 from typing import Optional, Set
@@ -37,6 +38,7 @@ class WorkItemFilterModel(BaseModel):
     include_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of identifiers of work items which need to be included in result regardless of filtering", alias="includeIds")
     exclude_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of identifiers of work items which need to be excluded from result regardless of filtering", alias="excludeIds")
     project_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of project identifiers", alias="projectIds")
+    links: Optional[WorkItemLinkFilterModel] = Field(default=None, description="Specifies a work item filter by its links")
     name: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=255)]] = Field(default=None, description="Name of work item")
     ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a work item unique IDs to search for")
     global_ids: Optional[List[StrictInt]] = Field(default=None, description="Collection of global (integer) identifiers", alias="globalIds")
@@ -56,7 +58,7 @@ class WorkItemFilterModel(BaseModel):
     tags: Optional[List[StrictStr]] = Field(default=None, description="Collection of tags")
     auto_test_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of identifiers of linked autotests", alias="autoTestIds")
     work_item_version_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of identifiers work items versions.", alias="workItemVersionIds")
-    __properties: ClassVar[List[str]] = ["nameOrId", "includeIds", "excludeIds", "projectIds", "name", "ids", "globalIds", "attributes", "isDeleted", "sectionIds", "createdByIds", "modifiedByIds", "states", "priorities", "types", "createdDate", "modifiedDate", "duration", "medianDuration", "isAutomated", "tags", "autoTestIds", "workItemVersionIds"]
+    __properties: ClassVar[List[str]] = ["nameOrId", "includeIds", "excludeIds", "projectIds", "links", "name", "ids", "globalIds", "attributes", "isDeleted", "sectionIds", "createdByIds", "modifiedByIds", "states", "priorities", "types", "createdDate", "modifiedDate", "duration", "medianDuration", "isAutomated", "tags", "autoTestIds", "workItemVersionIds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +99,9 @@ class WorkItemFilterModel(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['links'] = self.links.to_dict()
         # override the default output from pydantic by calling `to_dict()` of created_date
         if self.created_date:
             _dict['createdDate'] = self.created_date.to_dict()
@@ -128,6 +133,11 @@ class WorkItemFilterModel(BaseModel):
         # and model_fields_set contains the field
         if self.project_ids is None and "project_ids" in self.model_fields_set:
             _dict['projectIds'] = None
+
+        # set to None if links (nullable) is None
+        # and model_fields_set contains the field
+        if self.links is None and "links" in self.model_fields_set:
+            _dict['links'] = None
 
         # set to None if name (nullable) is None
         # and model_fields_set contains the field
@@ -240,6 +250,7 @@ class WorkItemFilterModel(BaseModel):
             "includeIds": obj.get("includeIds"),
             "excludeIds": obj.get("excludeIds"),
             "projectIds": obj.get("projectIds"),
+            "links": WorkItemLinkFilterModel.from_dict(obj["links"]) if obj.get("links") is not None else None,
             "name": obj.get("name"),
             "ids": obj.get("ids"),
             "globalIds": obj.get("globalIds"),
