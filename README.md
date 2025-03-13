@@ -22,7 +22,7 @@
 | 5.1     | 4.1.0         |
 | 5.2     | 4.2.0         |
 | 5.2.2   | 5.1.2.post522 |
-| Cloud   | 5.2.0         |
+| Cloud   | 5.3.0         |
 
 ## Installation & Usage
 ### pip install

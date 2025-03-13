@@ -674,7 +674,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> TestResultResponse:
-        """Get test result by ID aggregated with previous results
+        """(Deprecated) Get test result by ID aggregated with previous results
 
 
         :param id: Test result unique ID (required)
@@ -700,6 +700,7 @@ class TestResultsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v2/testResults/{id}/aggregated is deprecated.", DeprecationWarning)
 
         _param = self._api_v2_test_results_id_aggregated_get_serialize(
             id=id,
@@ -746,7 +747,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[TestResultResponse]:
-        """Get test result by ID aggregated with previous results
+        """(Deprecated) Get test result by ID aggregated with previous results
 
 
         :param id: Test result unique ID (required)
@@ -772,6 +773,7 @@ class TestResultsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v2/testResults/{id}/aggregated is deprecated.", DeprecationWarning)
 
         _param = self._api_v2_test_results_id_aggregated_get_serialize(
             id=id,
@@ -818,7 +820,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get test result by ID aggregated with previous results
+        """(Deprecated) Get test result by ID aggregated with previous results
 
 
         :param id: Test result unique ID (required)
@@ -844,6 +846,7 @@ class TestResultsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v2/testResults/{id}/aggregated is deprecated.", DeprecationWarning)
 
         _param = self._api_v2_test_results_id_aggregated_get_serialize(
             id=id,

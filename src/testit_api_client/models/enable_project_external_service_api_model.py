@@ -17,23 +17,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from testit_api_client.models.test_status_type import TestStatusType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TestStatusApiResult(BaseModel):
+class EnableProjectExternalServiceApiModel(BaseModel):
     """
-    TestStatusApiResult
+    EnableProjectExternalServiceApiModel
     """ # noqa: E501
-    id: StrictStr
-    name: StrictStr
-    type: TestStatusType
-    is_system: StrictBool = Field(alias="isSystem")
-    code: StrictStr
-    description: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "type", "isSystem", "code", "description"]
+    settings: Optional[Any] = Field(default=None, description="External service settings")
+    __properties: ClassVar[List[str]] = ["settings"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +47,7 @@ class TestStatusApiResult(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TestStatusApiResult from a JSON string"""
+        """Create an instance of EnableProjectExternalServiceApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,16 +68,16 @@ class TestStatusApiResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if description (nullable) is None
+        # set to None if settings (nullable) is None
         # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
+        if self.settings is None and "settings" in self.model_fields_set:
+            _dict['settings'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TestStatusApiResult from a dict"""
+        """Create an instance of EnableProjectExternalServiceApiModel from a dict"""
         if obj is None:
             return None
 
@@ -91,12 +85,7 @@ class TestStatusApiResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "type": obj.get("type"),
-            "isSystem": obj.get("isSystem"),
-            "code": obj.get("code"),
-            "description": obj.get("description")
+            "settings": obj.get("settings")
         })
         return _obj
 
