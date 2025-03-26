@@ -17,21 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CustomAttributeOptionModel(BaseModel):
+class GenerateWorkItemPreviewsApiModel(BaseModel):
     """
-    CustomAttributeOptionModel
+    GenerateWorkItemPreviewsApiModel
     """ # noqa: E501
-    id: StrictStr = Field(description="Unique ID of the attribute option")
-    is_deleted: StrictBool = Field(description="Indicates if the attributes option is deleted", alias="isDeleted")
-    value: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=1024)]] = Field(default=None, description="Value of the attribute option")
-    is_default: StrictBool = Field(description="Indicates if the attribute option is used by default", alias="isDefault")
-    __properties: ClassVar[List[str]] = ["id", "isDeleted", "value", "isDefault"]
+    external_service_id: StrictStr = Field(alias="externalServiceId")
+    task_key: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="taskKey")
+    section_id: StrictStr = Field(alias="sectionId")
+    __properties: ClassVar[List[str]] = ["externalServiceId", "taskKey", "sectionId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +50,7 @@ class CustomAttributeOptionModel(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CustomAttributeOptionModel from a JSON string"""
+        """Create an instance of GenerateWorkItemPreviewsApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,16 +71,11 @@ class CustomAttributeOptionModel(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if value (nullable) is None
-        # and model_fields_set contains the field
-        if self.value is None and "value" in self.model_fields_set:
-            _dict['value'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CustomAttributeOptionModel from a dict"""
+        """Create an instance of GenerateWorkItemPreviewsApiModel from a dict"""
         if obj is None:
             return None
 
@@ -89,10 +83,9 @@ class CustomAttributeOptionModel(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "isDeleted": obj.get("isDeleted"),
-            "value": obj.get("value"),
-            "isDefault": obj.get("isDefault")
+            "externalServiceId": obj.get("externalServiceId"),
+            "taskKey": obj.get("taskKey"),
+            "sectionId": obj.get("sectionId")
         })
         return _obj
 

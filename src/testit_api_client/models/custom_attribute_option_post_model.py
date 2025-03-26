@@ -27,7 +27,7 @@ class CustomAttributeOptionPostModel(BaseModel):
     """
     CustomAttributeOptionPostModel
     """ # noqa: E501
-    value: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=255)]] = Field(default=None, description="Value of the attribute option")
+    value: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=1024)]] = Field(default=None, description="Value of the attribute option")
     is_default: StrictBool = Field(description="Indicates if the attribute option is used by default", alias="isDefault")
     __properties: ClassVar[List[str]] = ["value", "isDefault"]
 

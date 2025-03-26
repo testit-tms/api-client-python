@@ -116,7 +116,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_demo_post**
-> ProjectModel api_v2_projects_demo_post(project_post_model=project_post_model)
+> DemoProjectApiResult api_v2_projects_demo_post(create_project_api_model=create_project_api_model)
 
 
 
@@ -126,8 +126,8 @@ void (empty response body)
 
 ```python
 import testit_api_client
-from testit_api_client.models.project_model import ProjectModel
-from testit_api_client.models.project_post_model import ProjectPostModel
+from testit_api_client.models.create_project_api_model import CreateProjectApiModel
+from testit_api_client.models.demo_project_api_result import DemoProjectApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -152,10 +152,10 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.ProjectsApi(api_client)
-    project_post_model = testit_api_client.ProjectPostModel() # ProjectPostModel |  (optional)
+    create_project_api_model = testit_api_client.CreateProjectApiModel() # CreateProjectApiModel |  (optional)
 
     try:
-        api_response = api_instance.api_v2_projects_demo_post(project_post_model=project_post_model)
+        api_response = api_instance.api_v2_projects_demo_post(create_project_api_model=create_project_api_model)
         print("The response of ProjectsApi->api_v2_projects_demo_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -169,11 +169,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_post_model** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] 
+ **create_project_api_model** | [**CreateProjectApiModel**](CreateProjectApiModel.md)|  | [optional] 
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**DemoProjectApiResult**](DemoProjectApiResult.md)
 
 ### Authorization
 
@@ -1482,7 +1482,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_project**
-> ProjectModel create_project(project_post_model=project_post_model)
+> ProjectModel create_project(create_project_api_model=create_project_api_model)
 
 Create project
 
@@ -1494,8 +1494,8 @@ Create project
 
 ```python
 import testit_api_client
+from testit_api_client.models.create_project_api_model import CreateProjectApiModel
 from testit_api_client.models.project_model import ProjectModel
-from testit_api_client.models.project_post_model import ProjectPostModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1520,11 +1520,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.ProjectsApi(api_client)
-    project_post_model = testit_api_client.ProjectPostModel() # ProjectPostModel |  (optional)
+    create_project_api_model = testit_api_client.CreateProjectApiModel() # CreateProjectApiModel |  (optional)
 
     try:
         # Create project
-        api_response = api_instance.create_project(project_post_model=project_post_model)
+        api_response = api_instance.create_project(create_project_api_model=create_project_api_model)
         print("The response of ProjectsApi->create_project:\n")
         pprint(api_response)
     except Exception as e:
@@ -1538,7 +1538,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_post_model** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] 
+ **create_project_api_model** | [**CreateProjectApiModel**](CreateProjectApiModel.md)|  | [optional] 
 
 ### Return type
 
@@ -2112,7 +2112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_project**
-> update_project(project_put_model=project_put_model)
+> update_project(update_project_api_model=update_project_api_model)
 
 Update project
 
@@ -2124,7 +2124,7 @@ Update project
 
 ```python
 import testit_api_client
-from testit_api_client.models.project_put_model import ProjectPutModel
+from testit_api_client.models.update_project_api_model import UpdateProjectApiModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -2149,11 +2149,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.ProjectsApi(api_client)
-    project_put_model = testit_api_client.ProjectPutModel() # ProjectPutModel |  (optional)
+    update_project_api_model = testit_api_client.UpdateProjectApiModel() # UpdateProjectApiModel |  (optional)
 
     try:
         # Update project
-        api_instance.update_project(project_put_model=project_put_model)
+        api_instance.update_project(update_project_api_model=update_project_api_model)
     except Exception as e:
         print("Exception when calling ProjectsApi->update_project: %s\n" % e)
 ```
@@ -2165,7 +2165,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_put_model** | [**ProjectPutModel**](ProjectPutModel.md)|  | [optional] 
+ **update_project_api_model** | [**UpdateProjectApiModel**](UpdateProjectApiModel.md)|  | [optional] 
 
 ### Return type
 
