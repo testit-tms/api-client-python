@@ -22,7 +22,7 @@
 | 5.1     | 4.1.0         |
 | 5.2     | 4.2.0         |
 | 5.2.2   | 5.1.2.post522 |
-| Cloud   | 5.3.0         |
+| Cloud   | 6.0.0         |
 
 ## Installation & Usage
 ### pip install
@@ -295,6 +295,13 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**start_test_run**](docs/TestRunsApi.md#start_test_run) | **POST** /api/v2/testRuns/{id}/start | Start TestRun
 *TestRunsApi* | [**stop_test_run**](docs/TestRunsApi.md#stop_test_run) | **POST** /api/v2/testRuns/{id}/stop | Stop TestRun
 *TestRunsApi* | [**update_empty**](docs/TestRunsApi.md#update_empty) | **PUT** /api/v2/testRuns | Update empty TestRun
+*TestStatusesApi* | [**api_v2_test_statuses_code_code_exists_get**](docs/TestStatusesApi.md#api_v2_test_statuses_code_code_exists_get) | **GET** /api/v2/testStatuses/code/{code}/exists | 
+*TestStatusesApi* | [**api_v2_test_statuses_get**](docs/TestStatusesApi.md#api_v2_test_statuses_get) | **GET** /api/v2/testStatuses | 
+*TestStatusesApi* | [**api_v2_test_statuses_id_delete**](docs/TestStatusesApi.md#api_v2_test_statuses_id_delete) | **DELETE** /api/v2/testStatuses/{id} | 
+*TestStatusesApi* | [**api_v2_test_statuses_id_get**](docs/TestStatusesApi.md#api_v2_test_statuses_id_get) | **GET** /api/v2/testStatuses/{id} | 
+*TestStatusesApi* | [**api_v2_test_statuses_name_name_exists_get**](docs/TestStatusesApi.md#api_v2_test_statuses_name_name_exists_get) | **GET** /api/v2/testStatuses/name/{name}/exists | 
+*TestStatusesApi* | [**api_v2_test_statuses_post**](docs/TestStatusesApi.md#api_v2_test_statuses_post) | **POST** /api/v2/testStatuses | 
+*TestStatusesApi* | [**api_v2_test_statuses_put**](docs/TestStatusesApi.md#api_v2_test_statuses_put) | **PUT** /api/v2/testStatuses | 
 *TestSuitesApi* | [**add_test_points_to_test_suite**](docs/TestSuitesApi.md#add_test_points_to_test_suite) | **POST** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_patch**](docs/TestSuitesApi.md#api_v2_test_suites_id_patch) | **PATCH** /api/v2/testSuites/{id} | Patch test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_refresh_post**](docs/TestSuitesApi.md#api_v2_test_suites_id_refresh_post) | **POST** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method

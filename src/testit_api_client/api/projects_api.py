@@ -21,13 +21,13 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
 from testit_api_client.models.auto_test_namespace_model import AutoTestNamespaceModel
+from testit_api_client.models.create_project_api_model import CreateProjectApiModel
 from testit_api_client.models.custom_attribute_test_plan_project_relation_put_model import CustomAttributeTestPlanProjectRelationPutModel
+from testit_api_client.models.demo_project_api_result import DemoProjectApiResult
 from testit_api_client.models.failure_class_model import FailureClassModel
 from testit_api_client.models.filter_model import FilterModel
 from testit_api_client.models.operation import Operation
 from testit_api_client.models.project_model import ProjectModel
-from testit_api_client.models.project_post_model import ProjectPostModel
-from testit_api_client.models.project_put_model import ProjectPutModel
 from testit_api_client.models.project_select_model import ProjectSelectModel
 from testit_api_client.models.project_short_model import ProjectShortModel
 from testit_api_client.models.projects_filter_model import ProjectsFilterModel
@@ -35,6 +35,7 @@ from testit_api_client.models.public_test_run_model import PublicTestRunModel
 from testit_api_client.models.test_plan_model import TestPlanModel
 from testit_api_client.models.test_run_api_result import TestRunApiResult
 from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
+from testit_api_client.models.update_project_api_model import UpdateProjectApiModel
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
 from testit_api_client.api_response import ApiResponse
@@ -365,7 +366,7 @@ class ProjectsApi:
     @validate_call
     def api_v2_projects_demo_post(
         self,
-        project_post_model: Optional[ProjectPostModel] = None,
+        create_project_api_model: Optional[CreateProjectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -378,12 +379,12 @@ class ProjectsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ProjectModel:
+    ) -> DemoProjectApiResult:
         """api_v2_projects_demo_post
 
 
-        :param project_post_model:
-        :type project_post_model: ProjectPostModel
+        :param create_project_api_model:
+        :type create_project_api_model: CreateProjectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -407,7 +408,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._api_v2_projects_demo_post_serialize(
-            project_post_model=project_post_model,
+            create_project_api_model=create_project_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -415,7 +416,7 @@ class ProjectsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ProjectModel",
+            '201': "DemoProjectApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -437,7 +438,7 @@ class ProjectsApi:
     @validate_call
     def api_v2_projects_demo_post_with_http_info(
         self,
-        project_post_model: Optional[ProjectPostModel] = None,
+        create_project_api_model: Optional[CreateProjectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -450,12 +451,12 @@ class ProjectsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ProjectModel]:
+    ) -> ApiResponse[DemoProjectApiResult]:
         """api_v2_projects_demo_post
 
 
-        :param project_post_model:
-        :type project_post_model: ProjectPostModel
+        :param create_project_api_model:
+        :type create_project_api_model: CreateProjectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -479,7 +480,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._api_v2_projects_demo_post_serialize(
-            project_post_model=project_post_model,
+            create_project_api_model=create_project_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -487,7 +488,7 @@ class ProjectsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ProjectModel",
+            '201': "DemoProjectApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -509,7 +510,7 @@ class ProjectsApi:
     @validate_call
     def api_v2_projects_demo_post_without_preload_content(
         self,
-        project_post_model: Optional[ProjectPostModel] = None,
+        create_project_api_model: Optional[CreateProjectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -526,8 +527,8 @@ class ProjectsApi:
         """api_v2_projects_demo_post
 
 
-        :param project_post_model:
-        :type project_post_model: ProjectPostModel
+        :param create_project_api_model:
+        :type create_project_api_model: CreateProjectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -551,7 +552,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._api_v2_projects_demo_post_serialize(
-            project_post_model=project_post_model,
+            create_project_api_model=create_project_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -559,7 +560,7 @@ class ProjectsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ProjectModel",
+            '201': "DemoProjectApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -576,7 +577,7 @@ class ProjectsApi:
 
     def _api_v2_projects_demo_post_serialize(
         self,
-        project_post_model,
+        create_project_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -602,8 +603,8 @@ class ProjectsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if project_post_model is not None:
-            _body_params = project_post_model
+        if create_project_api_model is not None:
+            _body_params = create_project_api_model
 
 
         # set the HTTP header `Accept`
@@ -5287,7 +5288,7 @@ class ProjectsApi:
     @validate_call
     def create_project(
         self,
-        project_post_model: Optional[ProjectPostModel] = None,
+        create_project_api_model: Optional[CreateProjectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5305,8 +5306,8 @@ class ProjectsApi:
 
          Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
 
-        :param project_post_model:
-        :type project_post_model: ProjectPostModel
+        :param create_project_api_model:
+        :type create_project_api_model: CreateProjectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5330,7 +5331,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._create_project_serialize(
-            project_post_model=project_post_model,
+            create_project_api_model=create_project_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5360,7 +5361,7 @@ class ProjectsApi:
     @validate_call
     def create_project_with_http_info(
         self,
-        project_post_model: Optional[ProjectPostModel] = None,
+        create_project_api_model: Optional[CreateProjectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5378,8 +5379,8 @@ class ProjectsApi:
 
          Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
 
-        :param project_post_model:
-        :type project_post_model: ProjectPostModel
+        :param create_project_api_model:
+        :type create_project_api_model: CreateProjectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5403,7 +5404,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._create_project_serialize(
-            project_post_model=project_post_model,
+            create_project_api_model=create_project_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5433,7 +5434,7 @@ class ProjectsApi:
     @validate_call
     def create_project_without_preload_content(
         self,
-        project_post_model: Optional[ProjectPostModel] = None,
+        create_project_api_model: Optional[CreateProjectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5451,8 +5452,8 @@ class ProjectsApi:
 
          Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
 
-        :param project_post_model:
-        :type project_post_model: ProjectPostModel
+        :param create_project_api_model:
+        :type create_project_api_model: CreateProjectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5476,7 +5477,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._create_project_serialize(
-            project_post_model=project_post_model,
+            create_project_api_model=create_project_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5501,7 +5502,7 @@ class ProjectsApi:
 
     def _create_project_serialize(
         self,
-        project_post_model,
+        create_project_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -5527,8 +5528,8 @@ class ProjectsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if project_post_model is not None:
-            _body_params = project_post_model
+        if create_project_api_model is not None:
+            _body_params = create_project_api_model
 
 
         # set the HTTP header `Accept`
@@ -7596,7 +7597,7 @@ class ProjectsApi:
     @validate_call
     def update_project(
         self,
-        project_put_model: Optional[ProjectPutModel] = None,
+        update_project_api_model: Optional[UpdateProjectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7614,8 +7615,8 @@ class ProjectsApi:
 
          Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
 
-        :param project_put_model:
-        :type project_put_model: ProjectPutModel
+        :param update_project_api_model:
+        :type update_project_api_model: UpdateProjectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7639,7 +7640,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._update_project_serialize(
-            project_put_model=project_put_model,
+            update_project_api_model=update_project_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7669,7 +7670,7 @@ class ProjectsApi:
     @validate_call
     def update_project_with_http_info(
         self,
-        project_put_model: Optional[ProjectPutModel] = None,
+        update_project_api_model: Optional[UpdateProjectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7687,8 +7688,8 @@ class ProjectsApi:
 
          Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
 
-        :param project_put_model:
-        :type project_put_model: ProjectPutModel
+        :param update_project_api_model:
+        :type update_project_api_model: UpdateProjectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7712,7 +7713,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._update_project_serialize(
-            project_put_model=project_put_model,
+            update_project_api_model=update_project_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7742,7 +7743,7 @@ class ProjectsApi:
     @validate_call
     def update_project_without_preload_content(
         self,
-        project_put_model: Optional[ProjectPutModel] = None,
+        update_project_api_model: Optional[UpdateProjectApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7760,8 +7761,8 @@ class ProjectsApi:
 
          Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
 
-        :param project_put_model:
-        :type project_put_model: ProjectPutModel
+        :param update_project_api_model:
+        :type update_project_api_model: UpdateProjectApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7785,7 +7786,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._update_project_serialize(
-            project_put_model=project_put_model,
+            update_project_api_model=update_project_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7810,7 +7811,7 @@ class ProjectsApi:
 
     def _update_project_serialize(
         self,
-        project_put_model,
+        update_project_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -7836,8 +7837,8 @@ class ProjectsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if project_put_model is not None:
-            _body_params = project_put_model
+        if update_project_api_model is not None:
+            _body_params = update_project_api_model
 
 
         # set the HTTP header `Accept`
