@@ -17,20 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from testit_api_client.models.work_item_preview_api_model import WorkItemPreviewApiModel
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ProjectPostModel(BaseModel):
+class CreateWorkItemPreviewsApiModel(BaseModel):
     """
-    ProjectPostModel
+    CreateWorkItemPreviewsApiModel
     """ # noqa: E501
-    description: Optional[StrictStr] = Field(default=None, description="Description of the project")
-    name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Name of the project")
-    is_favorite: Optional[StrictBool] = Field(default=None, description="Indicates if the project is marked as favorite", alias="isFavorite")
-    __properties: ClassVar[List[str]] = ["description", "name", "isFavorite"]
+    section_id: StrictStr = Field(alias="sectionId")
+    previews: List[WorkItemPreviewApiModel]
+    attributes: Optional[Dict[str, Any]] = None
+    __properties: ClassVar[List[str]] = ["sectionId", "previews", "attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +50,7 @@ class ProjectPostModel(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProjectPostModel from a JSON string"""
+        """Create an instance of CreateWorkItemPreviewsApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,21 +71,23 @@ class ProjectPostModel(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if description (nullable) is None
+        # override the default output from pydantic by calling `to_dict()` of each item in previews (list)
+        _items = []
+        if self.previews:
+            for _item_previews in self.previews:
+                if _item_previews:
+                    _items.append(_item_previews.to_dict())
+            _dict['previews'] = _items
+        # set to None if attributes (nullable) is None
         # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
-
-        # set to None if is_favorite (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_favorite is None and "is_favorite" in self.model_fields_set:
-            _dict['isFavorite'] = None
+        if self.attributes is None and "attributes" in self.model_fields_set:
+            _dict['attributes'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProjectPostModel from a dict"""
+        """Create an instance of CreateWorkItemPreviewsApiModel from a dict"""
         if obj is None:
             return None
 
@@ -93,9 +95,9 @@ class ProjectPostModel(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "description": obj.get("description"),
-            "name": obj.get("name"),
-            "isFavorite": obj.get("isFavorite")
+            "sectionId": obj.get("sectionId"),
+            "previews": [WorkItemPreviewApiModel.from_dict(_item) for _item in obj["previews"]] if obj.get("previews") is not None else None,
+            "attributes": obj.get("attributes")
         })
         return _obj
 

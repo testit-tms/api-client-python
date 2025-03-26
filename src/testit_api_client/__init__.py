@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "5.3.0"
+__version__ = "6.0.0"
 
 # import apis into sdk package
 from testit_api_client.api.attachments_api import AttachmentsApi
@@ -41,6 +41,7 @@ from testit_api_client.api.test_plans_api import TestPlansApi
 from testit_api_client.api.test_points_api import TestPointsApi
 from testit_api_client.api.test_results_api import TestResultsApi
 from testit_api_client.api.test_runs_api import TestRunsApi
+from testit_api_client.api.test_statuses_api import TestStatusesApi
 from testit_api_client.api.test_suites_api import TestSuitesApi
 from testit_api_client.api.users_api import UsersApi
 from testit_api_client.api.webhooks_api import WebhooksApi
@@ -130,10 +131,12 @@ from testit_api_client.models.configuration_short_model import ConfigurationShor
 from testit_api_client.models.create_defect_api_model import CreateDefectApiModel
 from testit_api_client.models.create_empty_test_run_api_model import CreateEmptyTestRunApiModel
 from testit_api_client.models.create_link_api_model import CreateLinkApiModel
+from testit_api_client.models.create_project_api_model import CreateProjectApiModel
 from testit_api_client.models.create_test_plan_api_model import CreateTestPlanApiModel
 from testit_api_client.models.create_test_run_and_fill_by_auto_tests_api_model import CreateTestRunAndFillByAutoTestsApiModel
 from testit_api_client.models.create_test_run_and_fill_by_configurations_api_model import CreateTestRunAndFillByConfigurationsApiModel
 from testit_api_client.models.create_test_run_and_fill_by_work_items_api_model import CreateTestRunAndFillByWorkItemsApiModel
+from testit_api_client.models.create_work_item_previews_api_model import CreateWorkItemPreviewsApiModel
 from testit_api_client.models.custom_attribute_change_model import CustomAttributeChangeModel
 from testit_api_client.models.custom_attribute_get_model import CustomAttributeGetModel
 from testit_api_client.models.custom_attribute_model import CustomAttributeModel
@@ -153,6 +156,7 @@ from testit_api_client.models.custom_attribute_validation_result import CustomAt
 from testit_api_client.models.date_time_range_selector_model import DateTimeRangeSelectorModel
 from testit_api_client.models.defect_api_model import DefectApiModel
 from testit_api_client.models.deletion_state import DeletionState
+from testit_api_client.models.demo_project_api_result import DemoProjectApiResult
 from testit_api_client.models.enable_project_external_service_api_model import EnableProjectExternalServiceApiModel
 from testit_api_client.models.external_form_allowed_value_model import ExternalFormAllowedValueModel
 from testit_api_client.models.external_form_create_model import ExternalFormCreateModel
@@ -168,6 +172,8 @@ from testit_api_client.models.failure_category_model import FailureCategoryModel
 from testit_api_client.models.failure_class_model import FailureClassModel
 from testit_api_client.models.failure_class_regex_model import FailureClassRegexModel
 from testit_api_client.models.filter_model import FilterModel
+from testit_api_client.models.generate_work_item_previews_api_model import GenerateWorkItemPreviewsApiModel
+from testit_api_client.models.generate_work_item_previews_api_result import GenerateWorkItemPreviewsApiResult
 from testit_api_client.models.get_external_form_api_result import GetExternalFormApiResult
 from testit_api_client.models.get_xlsx_test_points_by_test_plan_model import GetXlsxTestPointsByTestPlanModel
 from testit_api_client.models.global_custom_attribute_post_model import GlobalCustomAttributePostModel
@@ -226,8 +232,6 @@ from testit_api_client.models.project_external_service_settings_api_result impor
 from testit_api_client.models.project_external_services_api_result import ProjectExternalServicesApiResult
 from testit_api_client.models.project_extraction_model import ProjectExtractionModel
 from testit_api_client.models.project_model import ProjectModel
-from testit_api_client.models.project_post_model import ProjectPostModel
-from testit_api_client.models.project_put_model import ProjectPutModel
 from testit_api_client.models.project_select_model import ProjectSelectModel
 from testit_api_client.models.project_short_model import ProjectShortModel
 from testit_api_client.models.project_shortest_model import ProjectShortestModel
@@ -365,6 +369,7 @@ from testit_api_client.models.update_link_api_model import UpdateLinkApiModel
 from testit_api_client.models.update_multiple_attachments_api_model import UpdateMultipleAttachmentsApiModel
 from testit_api_client.models.update_multiple_links_api_model import UpdateMultipleLinksApiModel
 from testit_api_client.models.update_multiple_test_runs_api_model import UpdateMultipleTestRunsApiModel
+from testit_api_client.models.update_project_api_model import UpdateProjectApiModel
 from testit_api_client.models.update_test_plan_api_model import UpdateTestPlanApiModel
 from testit_api_client.models.user_custom_name_validation_response import UserCustomNameValidationResponse
 from testit_api_client.models.user_rank_model import UserRankModel
@@ -416,6 +421,7 @@ from testit_api_client.models.work_item_local_select_model import WorkItemLocalS
 from testit_api_client.models.work_item_model import WorkItemModel
 from testit_api_client.models.work_item_move_post_model import WorkItemMovePostModel
 from testit_api_client.models.work_item_post_model import WorkItemPostModel
+from testit_api_client.models.work_item_preview_api_model import WorkItemPreviewApiModel
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
 from testit_api_client.models.work_item_put_model import WorkItemPutModel
 from testit_api_client.models.work_item_search_query_model import WorkItemSearchQueryModel
