@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "6.0.0"
+__version__ = "6.0.1"
 
 # import apis into sdk package
 from testit_api_client.api.attachments_api import AttachmentsApi
