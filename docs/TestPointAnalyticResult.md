@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **count_group_by_tester** | [**List[TestPlanGroupByTester]**](TestPlanGroupByTester.md) |  | 
 **count_group_by_test_suite** | [**List[TestPlanGroupByTestSuite]**](TestPlanGroupByTestSuite.md) |  | 
 **count_group_by_tester_and_status** | [**List[TestPlanGroupByTesterAndStatus]**](TestPlanGroupByTesterAndStatus.md) |  | 
+**count_group_by_status_code** | [**List[TestPlanGroupByStatusCode]**](TestPlanGroupByStatusCode.md) |  | 
+**count_group_by_tester_and_status_code** | [**List[TestPlanGroupByTesterAndStatusCode]**](TestPlanGroupByTesterAndStatusCode.md) |  | 
 
 ## Example
 

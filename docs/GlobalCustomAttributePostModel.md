@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **str** | Name of attribute | 
 **is_enabled** | **bool** | Indicates whether the attribute is available | [optional] 
 **is_required** | **bool** | Indicates whether the attribute value is mandatory to specify | [optional] 
-**options** | [**List[CustomAttributeOptionPostModel]**](CustomAttributeOptionPostModel.md) | Collection of attribute options     Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
+**options** | [**List[CustomAttributeOptionPostModel]**](CustomAttributeOptionPostModel.md) | Collection of attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
 **type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of attribute | 
 
 ## Example

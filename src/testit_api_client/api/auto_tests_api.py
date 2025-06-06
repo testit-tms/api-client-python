@@ -367,7 +367,7 @@ class AutoTestsApi:
     ) -> None:
         """Set \"Flaky\" status for multiple autotests
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control
+        User permissions for project: - Read only - Execute - Write - Full control
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -460,7 +460,7 @@ class AutoTestsApi:
     ) -> ApiResponse[None]:
         """Set \"Flaky\" status for multiple autotests
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control
+        User permissions for project: - Read only - Execute - Write - Full control
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -553,7 +553,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Set \"Flaky\" status for multiple autotests
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control
+        User permissions for project: - Read only - Execute - Write - Full control
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -1053,7 +1053,7 @@ class AutoTestsApi:
     ) -> List[AutoTestResultHistoryApiResult]:
         """Get test results history for autotest
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets getTestResultHistoryReportQuery (listed in the example)   User runs method execution   System search for test results using filters set by user in getTestResultHistoryReportQuery and id   System returns the enumeration of test results
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets getTestResultHistoryReportQuery (listed in the example)  User runs method execution  System search for test results using filters set by user in getTestResultHistoryReportQuery and id  System returns the enumeration of test results
 
         :param id: Autotest identifier (required)
         :type id: str
@@ -1150,7 +1150,7 @@ class AutoTestsApi:
     ) -> ApiResponse[List[AutoTestResultHistoryApiResult]]:
         """Get test results history for autotest
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets getTestResultHistoryReportQuery (listed in the example)   User runs method execution   System search for test results using filters set by user in getTestResultHistoryReportQuery and id   System returns the enumeration of test results
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets getTestResultHistoryReportQuery (listed in the example)  User runs method execution  System search for test results using filters set by user in getTestResultHistoryReportQuery and id  System returns the enumeration of test results
 
         :param id: Autotest identifier (required)
         :type id: str
@@ -1247,7 +1247,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Get test results history for autotest
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets getTestResultHistoryReportQuery (listed in the example)   User runs method execution   System search for test results using filters set by user in getTestResultHistoryReportQuery and id   System returns the enumeration of test results
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets getTestResultHistoryReportQuery (listed in the example)  User runs method execution  System search for test results using filters set by user in getTestResultHistoryReportQuery and id  System returns the enumeration of test results
 
         :param id: Autotest identifier (required)
         :type id: str
@@ -1439,7 +1439,7 @@ class AutoTestsApi:
     ) -> List[str]:
         """Get identifiers of changed linked work items
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control
+        User permissions for project: - Read only - Execute - Write - Full control
 
         :param id: (required)
         :type id: str
@@ -1512,7 +1512,7 @@ class AutoTestsApi:
     ) -> ApiResponse[List[str]]:
         """Get identifiers of changed linked work items
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control
+        User permissions for project: - Read only - Execute - Write - Full control
 
         :param id: (required)
         :type id: str
@@ -1585,7 +1585,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Get identifiers of changed linked work items
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control
+        User permissions for project: - Read only - Execute - Write - Full control
 
         :param id: (required)
         :type id: str
@@ -1719,7 +1719,7 @@ class AutoTestsApi:
     ) -> None:
         """Approve changes to work items linked to autotest
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control
+        User permissions for project: - Read only - Execute - Write - Full control
 
         :param id: (required)
         :type id: str
@@ -1796,7 +1796,7 @@ class AutoTestsApi:
     ) -> ApiResponse[None]:
         """Approve changes to work items linked to autotest
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control
+        User permissions for project: - Read only - Execute - Write - Full control
 
         :param id: (required)
         :type id: str
@@ -1873,7 +1873,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Approve changes to work items linked to autotest
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control
+        User permissions for project: - Read only - Execute - Write - Full control
 
         :param id: (required)
         :type id: str
@@ -2386,7 +2386,7 @@ class AutoTestsApi:
     ) -> AutoTestModel:
         """Create autotest
 
-         This method creates a new autotest.   To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.   Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
+         This method creates a new autotest.  To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.  Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
 
         :param auto_test_post_model:
         :type auto_test_post_model: AutoTestPostModel
@@ -2459,7 +2459,7 @@ class AutoTestsApi:
     ) -> ApiResponse[AutoTestModel]:
         """Create autotest
 
-         This method creates a new autotest.   To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.   Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
+         This method creates a new autotest.  To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.  Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
 
         :param auto_test_post_model:
         :type auto_test_post_model: AutoTestPostModel
@@ -2532,7 +2532,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Create autotest
 
-         This method creates a new autotest.   To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.   Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
+         This method creates a new autotest.  To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.  Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
 
         :param auto_test_post_model:
         :type auto_test_post_model: AutoTestPostModel
@@ -2678,7 +2678,7 @@ class AutoTestsApi:
     ) -> List[AutoTestModel]:
         """Create multiple autotests
 
-         Use case   User sets autotest parameters (listed in the example) and runs method execution   System creates autotest   [Optional] If steps enumeration is set, system creates step items and relates them to autotest   [Optional] If setup enumeration is set, system creates setup items and relates them to autotest   [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest   [Optional] If label enumeration is set, system creates labels and relates them to autotest   [Optional] If link enumeration is set, system creates links and relates them to autotest   System returns autotest model (example listed in response parameters)
+         Use case  User sets autotest parameters (listed in the example) and runs method execution  System creates autotest  [Optional] If steps enumeration is set, system creates step items and relates them to autotest  [Optional] If setup enumeration is set, system creates setup items and relates them to autotest  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  [Optional] If label enumeration is set, system creates labels and relates them to autotest  [Optional] If link enumeration is set, system creates links and relates them to autotest  System returns autotest model (example listed in response parameters)
 
         :param auto_test_post_model:
         :type auto_test_post_model: List[AutoTestPostModel]
@@ -2751,7 +2751,7 @@ class AutoTestsApi:
     ) -> ApiResponse[List[AutoTestModel]]:
         """Create multiple autotests
 
-         Use case   User sets autotest parameters (listed in the example) and runs method execution   System creates autotest   [Optional] If steps enumeration is set, system creates step items and relates them to autotest   [Optional] If setup enumeration is set, system creates setup items and relates them to autotest   [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest   [Optional] If label enumeration is set, system creates labels and relates them to autotest   [Optional] If link enumeration is set, system creates links and relates them to autotest   System returns autotest model (example listed in response parameters)
+         Use case  User sets autotest parameters (listed in the example) and runs method execution  System creates autotest  [Optional] If steps enumeration is set, system creates step items and relates them to autotest  [Optional] If setup enumeration is set, system creates setup items and relates them to autotest  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  [Optional] If label enumeration is set, system creates labels and relates them to autotest  [Optional] If link enumeration is set, system creates links and relates them to autotest  System returns autotest model (example listed in response parameters)
 
         :param auto_test_post_model:
         :type auto_test_post_model: List[AutoTestPostModel]
@@ -2824,7 +2824,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Create multiple autotests
 
-         Use case   User sets autotest parameters (listed in the example) and runs method execution   System creates autotest   [Optional] If steps enumeration is set, system creates step items and relates them to autotest   [Optional] If setup enumeration is set, system creates setup items and relates them to autotest   [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest   [Optional] If label enumeration is set, system creates labels and relates them to autotest   [Optional] If link enumeration is set, system creates links and relates them to autotest   System returns autotest model (example listed in response parameters)
+         Use case  User sets autotest parameters (listed in the example) and runs method execution  System creates autotest  [Optional] If steps enumeration is set, system creates step items and relates them to autotest  [Optional] If setup enumeration is set, system creates setup items and relates them to autotest  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  [Optional] If label enumeration is set, system creates labels and relates them to autotest  [Optional] If link enumeration is set, system creates links and relates them to autotest  System returns autotest model (example listed in response parameters)
 
         :param auto_test_post_model:
         :type auto_test_post_model: List[AutoTestPostModel]
@@ -2971,7 +2971,7 @@ class AutoTestsApi:
     ) -> None:
         """Delete autotest
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier and runs method execution   System finds the autotest by the identifier   System deletes autotest and returns no content response
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  System finds the autotest by the identifier  System deletes autotest and returns no content response
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3044,7 +3044,7 @@ class AutoTestsApi:
     ) -> ApiResponse[None]:
         """Delete autotest
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier and runs method execution   System finds the autotest by the identifier   System deletes autotest and returns no content response
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  System finds the autotest by the identifier  System deletes autotest and returns no content response
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3117,7 +3117,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Delete autotest
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier and runs method execution   System finds the autotest by the identifier   System deletes autotest and returns no content response
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  System finds the autotest by the identifier  System deletes autotest and returns no content response
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3251,7 +3251,7 @@ class AutoTestsApi:
     ) -> None:
         """Unlink autotest from work item
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   [Optional] User sets workitem internal (guid format) or global (integer format) identifier   User runs method execution   System finds the autotest by the autotest identifier                 [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.                 [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.   System returns no content response
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  [Optional] User sets workitem internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it             from autotest.  [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  System returns no content response
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3328,7 +3328,7 @@ class AutoTestsApi:
     ) -> ApiResponse[None]:
         """Unlink autotest from work item
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   [Optional] User sets workitem internal (guid format) or global (integer format) identifier   User runs method execution   System finds the autotest by the autotest identifier                 [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.                 [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.   System returns no content response
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  [Optional] User sets workitem internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it             from autotest.  [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  System returns no content response
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3405,7 +3405,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Unlink autotest from work item
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   [Optional] User sets workitem internal (guid format) or global (integer format) identifier   User runs method execution   System finds the autotest by the autotest identifier                 [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.                 [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.   System returns no content response
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  [Optional] User sets workitem internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it             from autotest.  [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  System returns no content response
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4253,7 +4253,7 @@ class AutoTestsApi:
     ) -> AutoTestAverageDurationModel:
         """Get average autotest duration
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System calculates pass average duration and fail average duration of autotest from all related test results   System returns pass average duration and fail average duration for autotest
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System calculates pass average duration and fail average duration of autotest from all related test results  System returns pass average duration and fail average duration for autotest
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4326,7 +4326,7 @@ class AutoTestsApi:
     ) -> ApiResponse[AutoTestAverageDurationModel]:
         """Get average autotest duration
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System calculates pass average duration and fail average duration of autotest from all related test results   System returns pass average duration and fail average duration for autotest
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System calculates pass average duration and fail average duration of autotest from all related test results  System returns pass average duration and fail average duration for autotest
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4399,7 +4399,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Get average autotest duration
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System calculates pass average duration and fail average duration of autotest from all related test results   System returns pass average duration and fail average duration for autotest
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System calculates pass average duration and fail average duration of autotest from all related test results  System returns pass average duration and fail average duration for autotest
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4532,7 +4532,7 @@ class AutoTestsApi:
     ) -> AutoTestModel:
         """Get autotest by internal or global ID
 
-         Use case   User sets autotest internal or global identifier and runs method execution   System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+         Use case  User sets autotest internal or global identifier and runs method execution  System returns autotest, which internal or global identifier equals the identifier value set in the previous action
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4568,10 +4568,10 @@ class AutoTestsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AutoTestModel",
-            '404': "ProblemDetails",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
+            '404': "ProblemDetails",
             '409': "ProblemDetails",
             '422': "ProblemDetails",
         }
@@ -4605,7 +4605,7 @@ class AutoTestsApi:
     ) -> ApiResponse[AutoTestModel]:
         """Get autotest by internal or global ID
 
-         Use case   User sets autotest internal or global identifier and runs method execution   System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+         Use case  User sets autotest internal or global identifier and runs method execution  System returns autotest, which internal or global identifier equals the identifier value set in the previous action
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4641,10 +4641,10 @@ class AutoTestsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AutoTestModel",
-            '404': "ProblemDetails",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
+            '404': "ProblemDetails",
             '409': "ProblemDetails",
             '422': "ProblemDetails",
         }
@@ -4678,7 +4678,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Get autotest by internal or global ID
 
-         Use case   User sets autotest internal or global identifier and runs method execution   System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+         Use case  User sets autotest internal or global identifier and runs method execution  System returns autotest, which internal or global identifier equals the identifier value set in the previous action
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4714,10 +4714,10 @@ class AutoTestsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AutoTestModel",
-            '404': "ProblemDetails",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
+            '404': "ProblemDetails",
             '409': "ProblemDetails",
             '422': "ProblemDetails",
         }
@@ -4809,9 +4809,9 @@ class AutoTestsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[TestResultChronologyModel]:
-        """Get autotest chronology
+        """(Deprecated) Get autotest chronology
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search all test results related to autotest (with default limit equal 100)   System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending   System returns test result chronology for autotest
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search all test results related to autotest (with default limit equal 100)  System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  System returns test result chronology for autotest
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4836,6 +4836,7 @@ class AutoTestsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v2/autoTests/{id}/chronology is deprecated.", DeprecationWarning)
 
         _param = self._get_auto_test_chronology_serialize(
             id=id,
@@ -4882,9 +4883,9 @@ class AutoTestsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[TestResultChronologyModel]]:
-        """Get autotest chronology
+        """(Deprecated) Get autotest chronology
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search all test results related to autotest (with default limit equal 100)   System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending   System returns test result chronology for autotest
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search all test results related to autotest (with default limit equal 100)  System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  System returns test result chronology for autotest
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4909,6 +4910,7 @@ class AutoTestsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v2/autoTests/{id}/chronology is deprecated.", DeprecationWarning)
 
         _param = self._get_auto_test_chronology_serialize(
             id=id,
@@ -4955,9 +4957,9 @@ class AutoTestsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get autotest chronology
+        """(Deprecated) Get autotest chronology
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search all test results related to autotest (with default limit equal 100)   System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending   System returns test result chronology for autotest
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search all test results related to autotest (with default limit equal 100)  System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  System returns test result chronology for autotest
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -4982,6 +4984,7 @@ class AutoTestsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v2/autoTests/{id}/chronology is deprecated.", DeprecationWarning)
 
         _param = self._get_auto_test_chronology_serialize(
             id=id,
@@ -5090,7 +5093,7 @@ class AutoTestsApi:
     ) -> List[TestRunByAutoTestApiResult]:
         """Get completed tests runs for autotests
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search for all test runs related to the autotest   System returns the enumeration of test runs
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search for all test runs related to the autotest  System returns the enumeration of test runs
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -5163,7 +5166,7 @@ class AutoTestsApi:
     ) -> ApiResponse[List[TestRunByAutoTestApiResult]]:
         """Get completed tests runs for autotests
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search for all test runs related to the autotest   System returns the enumeration of test runs
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search for all test runs related to the autotest  System returns the enumeration of test runs
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -5236,7 +5239,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Get completed tests runs for autotests
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search for all test runs related to the autotest   System returns the enumeration of test runs
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search for all test runs related to the autotest  System returns the enumeration of test runs
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -5353,7 +5356,7 @@ class AutoTestsApi:
     @validate_call
     def get_work_items_linked_to_auto_test(
         self,
-        id: Annotated[StrictStr, Field(description="Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID.")],
+        id: Annotated[StrictStr, Field(description="Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.")],
         is_deleted: Annotated[Optional[StrictBool], Field(description="Specifies that a test is deleted or still relevant.")] = None,
         is_work_item_deleted: Annotated[Optional[StrictBool], Field(description="OBSOLETE: Use `isDeleted` instead")] = None,
         _request_timeout: Union[
@@ -5371,9 +5374,9 @@ class AutoTestsApi:
     ) -> List[WorkItemIdentifierModel]:
         """Get work items linked to autotest
 
-                       This method links an autotest to a test case or a checklist.              A manual test case with a linked automated work item is marked in the test management system as an autotest.              You can run it from graphical user interface (GUI). To do that:                               1. Open the project in GUI.               2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.               3. Select the autotest(s) you want to run using checkboxes.               4. In the toolbar above the test list, click <b>Run autotests</b>.              
+         This method links an autotest to a test case or a checklist.             A manual test case with a linked automated work item is marked in the test management system as an autotest.             You can run it from graphical user interface (GUI). To do that:  1. Open the project in GUI.              2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.              3. Select the autotest(s) you want to run using checkboxes.              4. In the toolbar above the test list, click <b>Run autotests</b>.
 
-        :param id: Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID. (required)
+        :param id: Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. (required)
         :type id: str
         :param is_deleted: Specifies that a test is deleted or still relevant.
         :type is_deleted: bool
@@ -5434,7 +5437,7 @@ class AutoTestsApi:
     @validate_call
     def get_work_items_linked_to_auto_test_with_http_info(
         self,
-        id: Annotated[StrictStr, Field(description="Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID.")],
+        id: Annotated[StrictStr, Field(description="Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.")],
         is_deleted: Annotated[Optional[StrictBool], Field(description="Specifies that a test is deleted or still relevant.")] = None,
         is_work_item_deleted: Annotated[Optional[StrictBool], Field(description="OBSOLETE: Use `isDeleted` instead")] = None,
         _request_timeout: Union[
@@ -5452,9 +5455,9 @@ class AutoTestsApi:
     ) -> ApiResponse[List[WorkItemIdentifierModel]]:
         """Get work items linked to autotest
 
-                       This method links an autotest to a test case or a checklist.              A manual test case with a linked automated work item is marked in the test management system as an autotest.              You can run it from graphical user interface (GUI). To do that:                               1. Open the project in GUI.               2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.               3. Select the autotest(s) you want to run using checkboxes.               4. In the toolbar above the test list, click <b>Run autotests</b>.              
+         This method links an autotest to a test case or a checklist.             A manual test case with a linked automated work item is marked in the test management system as an autotest.             You can run it from graphical user interface (GUI). To do that:  1. Open the project in GUI.              2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.              3. Select the autotest(s) you want to run using checkboxes.              4. In the toolbar above the test list, click <b>Run autotests</b>.
 
-        :param id: Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID. (required)
+        :param id: Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. (required)
         :type id: str
         :param is_deleted: Specifies that a test is deleted or still relevant.
         :type is_deleted: bool
@@ -5515,7 +5518,7 @@ class AutoTestsApi:
     @validate_call
     def get_work_items_linked_to_auto_test_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID.")],
+        id: Annotated[StrictStr, Field(description="Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.")],
         is_deleted: Annotated[Optional[StrictBool], Field(description="Specifies that a test is deleted or still relevant.")] = None,
         is_work_item_deleted: Annotated[Optional[StrictBool], Field(description="OBSOLETE: Use `isDeleted` instead")] = None,
         _request_timeout: Union[
@@ -5533,9 +5536,9 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Get work items linked to autotest
 
-                       This method links an autotest to a test case or a checklist.              A manual test case with a linked automated work item is marked in the test management system as an autotest.              You can run it from graphical user interface (GUI). To do that:                               1. Open the project in GUI.               2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.               3. Select the autotest(s) you want to run using checkboxes.               4. In the toolbar above the test list, click <b>Run autotests</b>.              
+         This method links an autotest to a test case or a checklist.             A manual test case with a linked automated work item is marked in the test management system as an autotest.             You can run it from graphical user interface (GUI). To do that:  1. Open the project in GUI.              2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.              3. Select the autotest(s) you want to run using checkboxes.              4. In the toolbar above the test list, click <b>Run autotests</b>.
 
-        :param id: Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID. (required)
+        :param id: Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. (required)
         :type id: str
         :param is_deleted: Specifies that a test is deleted or still relevant.
         :type is_deleted: bool
@@ -5683,7 +5686,7 @@ class AutoTestsApi:
     ) -> None:
         """Link autotest with work items
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets work item internal (guid format) or global (integer format) identifier   User runs method execution   System finds the autotest by the autotest identifier   System finds the work item by the work item identifier   System relates the work item with the autotest and returns no content response
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets work item internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  System finds the work item by the work item identifier  System relates the work item with the autotest and returns no content response
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -5760,7 +5763,7 @@ class AutoTestsApi:
     ) -> ApiResponse[None]:
         """Link autotest with work items
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets work item internal (guid format) or global (integer format) identifier   User runs method execution   System finds the autotest by the autotest identifier   System finds the work item by the work item identifier   System relates the work item with the autotest and returns no content response
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets work item internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  System finds the work item by the work item identifier  System relates the work item with the autotest and returns no content response
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -5837,7 +5840,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Link autotest with work items
 
-         Use case   User sets autotest internal (guid format) or global (integer format) identifier   User sets work item internal (guid format) or global (integer format) identifier   User runs method execution   System finds the autotest by the autotest identifier   System finds the work item by the work item identifier   System relates the work item with the autotest and returns no content response
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets work item internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  System finds the work item by the work item identifier  System relates the work item with the autotest and returns no content response
 
         :param id: Autotest internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -5989,7 +5992,7 @@ class AutoTestsApi:
     ) -> None:
         """Update autotest
 
-         Use case   User sets autotest updated parameters values (listed in the example) and runs method execution   System finds the autotest by the identifier   System updates autotest parameters                  [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                               [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                               [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                               [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                               [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                 System updates autotest and returns no content response
+         Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
         :param auto_test_put_model:
         :type auto_test_put_model: AutoTestPutModel
@@ -6063,7 +6066,7 @@ class AutoTestsApi:
     ) -> ApiResponse[None]:
         """Update autotest
 
-         Use case   User sets autotest updated parameters values (listed in the example) and runs method execution   System finds the autotest by the identifier   System updates autotest parameters                  [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                               [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                               [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                               [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                               [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                 System updates autotest and returns no content response
+         Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
         :param auto_test_put_model:
         :type auto_test_put_model: AutoTestPutModel
@@ -6137,7 +6140,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Update autotest
 
-         Use case   User sets autotest updated parameters values (listed in the example) and runs method execution   System finds the autotest by the identifier   System updates autotest parameters                  [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                               [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                               [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                               [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                               [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                 System updates autotest and returns no content response
+         Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
         :param auto_test_put_model:
         :type auto_test_put_model: AutoTestPutModel
@@ -6284,7 +6287,7 @@ class AutoTestsApi:
     ) -> None:
         """Update multiple autotests
 
-         Use case   User sets autotest updated parameters values (listed in the example) and runs method execution   System finds the autotest by the identifier   System updates autotest parameters                  [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                               [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                               [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                               [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                               [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                 System updates autotest and returns no content response
+         Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
         :param auto_test_put_model:
         :type auto_test_put_model: List[AutoTestPutModel]
@@ -6357,7 +6360,7 @@ class AutoTestsApi:
     ) -> ApiResponse[None]:
         """Update multiple autotests
 
-         Use case   User sets autotest updated parameters values (listed in the example) and runs method execution   System finds the autotest by the identifier   System updates autotest parameters                  [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                               [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                               [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                               [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                               [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                 System updates autotest and returns no content response
+         Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
         :param auto_test_put_model:
         :type auto_test_put_model: List[AutoTestPutModel]
@@ -6430,7 +6433,7 @@ class AutoTestsApi:
     ) -> RESTResponseType:
         """Update multiple autotests
 
-         Use case   User sets autotest updated parameters values (listed in the example) and runs method execution   System finds the autotest by the identifier   System updates autotest parameters                  [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)                               [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)                               [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)                               [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)                               [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)                 System updates autotest and returns no content response
+         Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
         :param auto_test_put_model:
         :type auto_test_put_model: List[AutoTestPutModel]

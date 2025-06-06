@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **modified_by_ids** | **List[str]** | Collection of identifiers of users who applied last modification to work item | [optional] 
 **states** | [**List[WorkItemStates]**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **priorities** | [**List[WorkItemPriorityModel]**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
+**source_types** | [**List[WorkItemSourceTypeModel]**](WorkItemSourceTypeModel.md) | Collection of priorities of work item | [optional] 
 **types** | [**List[WorkItemEntityTypes]**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
 **created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 

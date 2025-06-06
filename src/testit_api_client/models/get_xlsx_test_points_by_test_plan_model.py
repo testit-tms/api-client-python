@@ -29,6 +29,7 @@ class GetXlsxTestPointsByTestPlanModel(BaseModel):
     include_name: StrictBool = Field(alias="includeName")
     include_section: StrictBool = Field(alias="includeSection")
     include_priority: StrictBool = Field(alias="includePriority")
+    include_source_type: StrictBool = Field(alias="includeSourceType")
     include_automated: StrictBool = Field(alias="includeAutomated")
     include_status: StrictBool = Field(alias="includeStatus")
     include_duration: StrictBool = Field(alias="includeDuration")
@@ -40,7 +41,7 @@ class GetXlsxTestPointsByTestPlanModel(BaseModel):
     include_iterations: StrictBool = Field(alias="includeIterations")
     custom_attributes_ids: Optional[List[StrictStr]] = Field(default=None, alias="customAttributesIds")
     configuration_ids: Optional[List[StrictStr]] = Field(default=None, alias="configurationIds")
-    __properties: ClassVar[List[str]] = ["includeName", "includeSection", "includePriority", "includeAutomated", "includeStatus", "includeDuration", "includeCreationDate", "includeAuthor", "includeModificationDate", "includeModifiedBy", "includeTags", "includeIterations", "customAttributesIds", "configurationIds"]
+    __properties: ClassVar[List[str]] = ["includeName", "includeSection", "includePriority", "includeSourceType", "includeAutomated", "includeStatus", "includeDuration", "includeCreationDate", "includeAuthor", "includeModificationDate", "includeModifiedBy", "includeTags", "includeIterations", "customAttributesIds", "configurationIds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -106,6 +107,7 @@ class GetXlsxTestPointsByTestPlanModel(BaseModel):
             "includeName": obj.get("includeName"),
             "includeSection": obj.get("includeSection"),
             "includePriority": obj.get("includePriority"),
+            "includeSourceType": obj.get("includeSourceType"),
             "includeAutomated": obj.get("includeAutomated"),
             "includeStatus": obj.get("includeStatus"),
             "includeDuration": obj.get("includeDuration"),

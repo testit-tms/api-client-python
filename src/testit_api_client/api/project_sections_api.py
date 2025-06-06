@@ -63,7 +63,7 @@ class ProjectSectionsApi:
     ) -> List[SectionModel]:
         """Get project sections
 
-         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all sections related to the project   System returns array of sections (listed in response)
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -156,7 +156,7 @@ class ProjectSectionsApi:
     ) -> ApiResponse[List[SectionModel]]:
         """Get project sections
 
-         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all sections related to the project   System returns array of sections (listed in response)
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -249,7 +249,7 @@ class ProjectSectionsApi:
     ) -> RESTResponseType:
         """Get project sections
 
-         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all sections related to the project   System returns array of sections (listed in response)
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from testit_api_client.models.test_status_type import TestStatusType
+from testit_api_client.models.test_status_api_type import TestStatusApiType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class TestStatusApiResult(BaseModel):
     """ # noqa: E501
     id: StrictStr
     name: StrictStr
-    type: TestStatusType
+    type: TestStatusApiType = Field(description="Collection of possible status types")
     is_system: StrictBool = Field(alias="isSystem")
     code: StrictStr
     description: Optional[StrictStr] = None

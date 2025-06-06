@@ -21,6 +21,7 @@ from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
 from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from testit_api_client.models.auto_test_model import AutoTestModel
+from testit_api_client.models.create_work_item_api_model import CreateWorkItemApiModel
 from testit_api_client.models.iteration_model import IterationModel
 from testit_api_client.models.search_work_item_link_urls_api_result import SearchWorkItemLinkUrlsApiResult
 from testit_api_client.models.shared_step_reference_model import SharedStepReferenceModel
@@ -29,13 +30,12 @@ from testit_api_client.models.shared_step_reference_sections_query_filter_model 
 from testit_api_client.models.shared_step_references_query_filter_model import SharedStepReferencesQueryFilterModel
 from testit_api_client.models.test_result_chronology_model import TestResultChronologyModel
 from testit_api_client.models.test_result_history_report_api_result import TestResultHistoryReportApiResult
+from testit_api_client.models.update_work_item_api_model import UpdateWorkItemApiModel
 from testit_api_client.models.work_item_change_model import WorkItemChangeModel
 from testit_api_client.models.work_item_like_model import WorkItemLikeModel
 from testit_api_client.models.work_item_link_url_api_model import WorkItemLinkUrlApiModel
 from testit_api_client.models.work_item_model import WorkItemModel
 from testit_api_client.models.work_item_move_post_model import WorkItemMovePostModel
-from testit_api_client.models.work_item_post_model import WorkItemPostModel
-from testit_api_client.models.work_item_put_model import WorkItemPutModel
 from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
 from testit_api_client.models.work_item_short_api_result import WorkItemShortApiResult
 from testit_api_client.models.work_item_short_model import WorkItemShortModel
@@ -79,7 +79,7 @@ class WorkItemsApi:
     ) -> None:
         """Upload and link attachment to WorkItem
 
-         Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier
+         Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
 
         :param id: Work item internal identifier (guid format) (required)
         :type id: str
@@ -157,7 +157,7 @@ class WorkItemsApi:
     ) -> ApiResponse[None]:
         """Upload and link attachment to WorkItem
 
-         Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier
+         Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
 
         :param id: Work item internal identifier (guid format) (required)
         :type id: str
@@ -235,7 +235,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Upload and link attachment to WorkItem
 
-         Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier
+         Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
 
         :param id: Work item internal identifier (guid format) (required)
         :type id: str
@@ -388,7 +388,7 @@ class WorkItemsApi:
     ) -> WorkItemModel:
         """Transform CheckList to TestCase
 
-         Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase
+         Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
 
         :param id: (required)
         :type id: str
@@ -461,7 +461,7 @@ class WorkItemsApi:
     ) -> ApiResponse[WorkItemModel]:
         """Transform CheckList to TestCase
 
-         Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase
+         Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
 
         :param id: (required)
         :type id: str
@@ -534,7 +534,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Transform CheckList to TestCase
 
-         Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase
+         Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
 
         :param id: (required)
         :type id: str
@@ -672,7 +672,7 @@ class WorkItemsApi:
     ) -> List[WorkItemChangeModel]:
         """Get change history of WorkItem
 
-         Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem
+         Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
 
         :param id: (required)
         :type id: str
@@ -765,7 +765,7 @@ class WorkItemsApi:
     ) -> ApiResponse[List[WorkItemChangeModel]]:
         """Get change history of WorkItem
 
-         Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem
+         Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
 
         :param id: (required)
         :type id: str
@@ -858,7 +858,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Get change history of WorkItem
 
-         Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem
+         Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
 
         :param id: (required)
         :type id: str
@@ -1031,7 +1031,7 @@ class WorkItemsApi:
     ) -> None:
         """Delete like from WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
 
         :param id: (required)
         :type id: str
@@ -1104,7 +1104,7 @@ class WorkItemsApi:
     ) -> ApiResponse[None]:
         """Delete like from WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
 
         :param id: (required)
         :type id: str
@@ -1177,7 +1177,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Delete like from WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
 
         :param id: (required)
         :type id: str
@@ -1310,7 +1310,7 @@ class WorkItemsApi:
     ) -> None:
         """Set like to WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
 
         :param id: (required)
         :type id: str
@@ -1383,7 +1383,7 @@ class WorkItemsApi:
     ) -> ApiResponse[None]:
         """Set like to WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
 
         :param id: (required)
         :type id: str
@@ -1456,7 +1456,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Set like to WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
 
         :param id: (required)
         :type id: str
@@ -1589,7 +1589,7 @@ class WorkItemsApi:
     ) -> int:
         """Get likes count of WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
 
         :param id: (required)
         :type id: str
@@ -1662,7 +1662,7 @@ class WorkItemsApi:
     ) -> ApiResponse[int]:
         """Get likes count of WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
 
         :param id: (required)
         :type id: str
@@ -1735,7 +1735,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Get likes count of WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
 
         :param id: (required)
         :type id: str
@@ -1868,7 +1868,7 @@ class WorkItemsApi:
     ) -> List[WorkItemLikeModel]:
         """Get likes of WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
 
         :param id: (required)
         :type id: str
@@ -1941,7 +1941,7 @@ class WorkItemsApi:
     ) -> ApiResponse[List[WorkItemLikeModel]]:
         """Get likes of WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
 
         :param id: (required)
         :type id: str
@@ -2014,7 +2014,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Get likes of WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
 
         :param id: (required)
         :type id: str
@@ -2162,7 +2162,7 @@ class WorkItemsApi:
     ) -> List[TestResultHistoryReportApiResult]:
         """Get test results history of WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
 
         :param id: (required)
         :type id: str
@@ -2295,7 +2295,7 @@ class WorkItemsApi:
     ) -> ApiResponse[List[TestResultHistoryReportApiResult]]:
         """Get test results history of WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
 
         :param id: (required)
         :type id: str
@@ -2428,7 +2428,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Get test results history of WorkItem
 
-         Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
+         Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
 
         :param id: (required)
         :type id: str
@@ -2706,7 +2706,7 @@ class WorkItemsApi:
     ) -> WorkItemModel:
         """Set WorkItem as actual
 
-         Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual
+         Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
 
         :param id: (required)
         :type id: str
@@ -2783,7 +2783,7 @@ class WorkItemsApi:
     ) -> ApiResponse[WorkItemModel]:
         """Set WorkItem as actual
 
-         Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual
+         Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
 
         :param id: (required)
         :type id: str
@@ -2860,7 +2860,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Set WorkItem as actual
 
-         Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual
+         Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
 
         :param id: (required)
         :type id: str
@@ -3373,7 +3373,7 @@ class WorkItemsApi:
     ) -> WorkItemShortModel:
         """Move WorkItem to another section
 
-         Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section
+         Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
 
         :param work_item_move_post_model:
         :type work_item_move_post_model: WorkItemMovePostModel
@@ -3446,7 +3446,7 @@ class WorkItemsApi:
     ) -> ApiResponse[WorkItemShortModel]:
         """Move WorkItem to another section
 
-         Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section
+         Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
 
         :param work_item_move_post_model:
         :type work_item_move_post_model: WorkItemMovePostModel
@@ -3519,7 +3519,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Move WorkItem to another section
 
-         Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section
+         Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
 
         :param work_item_move_post_model:
         :type work_item_move_post_model: WorkItemMovePostModel
@@ -4045,7 +4045,7 @@ class WorkItemsApi:
     ) -> List[SharedStepReferenceSectionModel]:
         """Get SharedStep references in sections
 
-         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
 
         :param shared_step_id: (required)
         :type shared_step_id: str
@@ -4142,7 +4142,7 @@ class WorkItemsApi:
     ) -> ApiResponse[List[SharedStepReferenceSectionModel]]:
         """Get SharedStep references in sections
 
-         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
 
         :param shared_step_id: (required)
         :type shared_step_id: str
@@ -4239,7 +4239,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Get SharedStep references in sections
 
-         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
 
         :param shared_step_id: (required)
         :type shared_step_id: str
@@ -4437,7 +4437,7 @@ class WorkItemsApi:
     ) -> List[SharedStepReferenceModel]:
         """Get SharedStep references in work items
 
-         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
 
         :param shared_step_id: (required)
         :type shared_step_id: str
@@ -4534,7 +4534,7 @@ class WorkItemsApi:
     ) -> ApiResponse[List[SharedStepReferenceModel]]:
         """Get SharedStep references in work items
 
-         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
 
         :param shared_step_id: (required)
         :type shared_step_id: str
@@ -4631,7 +4631,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Get SharedStep references in work items
 
-         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
 
         :param shared_step_id: (required)
         :type shared_step_id: str
@@ -4823,7 +4823,7 @@ class WorkItemsApi:
     ) -> List[SharedStepReferenceModel]:
         """(Deprecated) Get SharedStep references
 
-         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
 
         :param shared_step_id: (required)
         :type shared_step_id: str
@@ -4897,7 +4897,7 @@ class WorkItemsApi:
     ) -> ApiResponse[List[SharedStepReferenceModel]]:
         """(Deprecated) Get SharedStep references
 
-         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
 
         :param shared_step_id: (required)
         :type shared_step_id: str
@@ -4971,7 +4971,7 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """(Deprecated) Get SharedStep references
 
-         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
 
         :param shared_step_id: (required)
         :type shared_step_id: str
@@ -5089,7 +5089,7 @@ class WorkItemsApi:
     @validate_call
     def create_work_item(
         self,
-        work_item_post_model: Optional[WorkItemPostModel] = None,
+        create_work_item_api_model: Optional[CreateWorkItemApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5105,10 +5105,10 @@ class WorkItemsApi:
     ) -> WorkItemModel:
         """Create Test Case, Checklist or Shared Step
 
-         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)
+         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)
 
-        :param work_item_post_model:
-        :type work_item_post_model: WorkItemPostModel
+        :param create_work_item_api_model:
+        :type create_work_item_api_model: CreateWorkItemApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5132,7 +5132,7 @@ class WorkItemsApi:
         """ # noqa: E501
 
         _param = self._create_work_item_serialize(
-            work_item_post_model=work_item_post_model,
+            create_work_item_api_model=create_work_item_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5162,7 +5162,7 @@ class WorkItemsApi:
     @validate_call
     def create_work_item_with_http_info(
         self,
-        work_item_post_model: Optional[WorkItemPostModel] = None,
+        create_work_item_api_model: Optional[CreateWorkItemApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5178,10 +5178,10 @@ class WorkItemsApi:
     ) -> ApiResponse[WorkItemModel]:
         """Create Test Case, Checklist or Shared Step
 
-         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)
+         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)
 
-        :param work_item_post_model:
-        :type work_item_post_model: WorkItemPostModel
+        :param create_work_item_api_model:
+        :type create_work_item_api_model: CreateWorkItemApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5205,7 +5205,7 @@ class WorkItemsApi:
         """ # noqa: E501
 
         _param = self._create_work_item_serialize(
-            work_item_post_model=work_item_post_model,
+            create_work_item_api_model=create_work_item_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5235,7 +5235,7 @@ class WorkItemsApi:
     @validate_call
     def create_work_item_without_preload_content(
         self,
-        work_item_post_model: Optional[WorkItemPostModel] = None,
+        create_work_item_api_model: Optional[CreateWorkItemApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5251,10 +5251,10 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Create Test Case, Checklist or Shared Step
 
-         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)
+         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)
 
-        :param work_item_post_model:
-        :type work_item_post_model: WorkItemPostModel
+        :param create_work_item_api_model:
+        :type create_work_item_api_model: CreateWorkItemApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5278,7 +5278,7 @@ class WorkItemsApi:
         """ # noqa: E501
 
         _param = self._create_work_item_serialize(
-            work_item_post_model=work_item_post_model,
+            create_work_item_api_model=create_work_item_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5303,7 +5303,7 @@ class WorkItemsApi:
 
     def _create_work_item_serialize(
         self,
-        work_item_post_model,
+        create_work_item_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -5329,8 +5329,8 @@ class WorkItemsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if work_item_post_model is not None:
-            _body_params = work_item_post_model
+        if create_work_item_api_model is not None:
+            _body_params = create_work_item_api_model
 
 
         # set the HTTP header `Accept`
@@ -5381,7 +5381,7 @@ class WorkItemsApi:
     @validate_call
     def delete_all_work_items_from_auto_test(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5397,9 +5397,9 @@ class WorkItemsApi:
     ) -> None:
         """Delete all links AutoTests from WorkItem by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5455,7 +5455,7 @@ class WorkItemsApi:
     @validate_call
     def delete_all_work_items_from_auto_test_with_http_info(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5471,9 +5471,9 @@ class WorkItemsApi:
     ) -> ApiResponse[None]:
         """Delete all links AutoTests from WorkItem by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5529,7 +5529,7 @@ class WorkItemsApi:
     @validate_call
     def delete_all_work_items_from_auto_test_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5545,9 +5545,9 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Delete all links AutoTests from WorkItem by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5663,7 +5663,7 @@ class WorkItemsApi:
     @validate_call
     def delete_work_item(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5679,9 +5679,9 @@ class WorkItemsApi:
     ) -> None:
         """Delete Test Case, Checklist or Shared Step by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response
+         Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5736,7 +5736,7 @@ class WorkItemsApi:
     @validate_call
     def delete_work_item_with_http_info(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5752,9 +5752,9 @@ class WorkItemsApi:
     ) -> ApiResponse[None]:
         """Delete Test Case, Checklist or Shared Step by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response
+         Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5809,7 +5809,7 @@ class WorkItemsApi:
     @validate_call
     def delete_work_item_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5825,9 +5825,9 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Delete Test Case, Checklist or Shared Step by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response
+         Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5942,7 +5942,7 @@ class WorkItemsApi:
     @validate_call
     def get_auto_tests_for_work_item(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5958,9 +5958,9 @@ class WorkItemsApi:
     ) -> List[AutoTestModel]:
         """Get all AutoTests linked to WorkItem by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6015,7 +6015,7 @@ class WorkItemsApi:
     @validate_call
     def get_auto_tests_for_work_item_with_http_info(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6031,9 +6031,9 @@ class WorkItemsApi:
     ) -> ApiResponse[List[AutoTestModel]]:
         """Get all AutoTests linked to WorkItem by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6088,7 +6088,7 @@ class WorkItemsApi:
     @validate_call
     def get_auto_tests_for_work_item_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6104,9 +6104,9 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Get all AutoTests linked to WorkItem by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6221,7 +6221,7 @@ class WorkItemsApi:
     @validate_call
     def get_iterations(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier")] = None,
         version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None,
         _request_timeout: Union[
@@ -6240,7 +6240,7 @@ class WorkItemsApi:
         """Get iterations by work item Id or GlobalId
 
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier
         :type version_id: str
@@ -6301,7 +6301,7 @@ class WorkItemsApi:
     @validate_call
     def get_iterations_with_http_info(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier")] = None,
         version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None,
         _request_timeout: Union[
@@ -6320,7 +6320,7 @@ class WorkItemsApi:
         """Get iterations by work item Id or GlobalId
 
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier
         :type version_id: str
@@ -6381,7 +6381,7 @@ class WorkItemsApi:
     @validate_call
     def get_iterations_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier")] = None,
         version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None,
         _request_timeout: Union[
@@ -6400,7 +6400,7 @@ class WorkItemsApi:
         """Get iterations by work item Id or GlobalId
 
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier
         :type version_id: str
@@ -6531,7 +6531,7 @@ class WorkItemsApi:
     @validate_call
     def get_work_item_by_id(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None,
         version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None,
         _request_timeout: Union[
@@ -6549,9 +6549,9 @@ class WorkItemsApi:
     ) -> WorkItemModel:
         """Get Test Case, Checklist or Shared Step by Id or GlobalId
 
-         Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item 
+         Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier\"
         :type version_id: str
@@ -6612,7 +6612,7 @@ class WorkItemsApi:
     @validate_call
     def get_work_item_by_id_with_http_info(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None,
         version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None,
         _request_timeout: Union[
@@ -6630,9 +6630,9 @@ class WorkItemsApi:
     ) -> ApiResponse[WorkItemModel]:
         """Get Test Case, Checklist or Shared Step by Id or GlobalId
 
-         Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item 
+         Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier\"
         :type version_id: str
@@ -6693,7 +6693,7 @@ class WorkItemsApi:
     @validate_call
     def get_work_item_by_id_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
         version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None,
         version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None,
         _request_timeout: Union[
@@ -6711,9 +6711,9 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Get Test Case, Checklist or Shared Step by Id or GlobalId
 
-         Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item 
+         Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier\"
         :type version_id: str
@@ -6858,9 +6858,9 @@ class WorkItemsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[TestResultChronologyModel]:
-        """Get WorkItem chronology by Id or GlobalId
+        """(Deprecated) Get WorkItem chronology by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
 
         :param id: (required)
         :type id: str
@@ -6885,6 +6885,7 @@ class WorkItemsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v2/workItems/{id}/chronology is deprecated.", DeprecationWarning)
 
         _param = self._get_work_item_chronology_serialize(
             id=id,
@@ -6931,9 +6932,9 @@ class WorkItemsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[TestResultChronologyModel]]:
-        """Get WorkItem chronology by Id or GlobalId
+        """(Deprecated) Get WorkItem chronology by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
 
         :param id: (required)
         :type id: str
@@ -6958,6 +6959,7 @@ class WorkItemsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v2/workItems/{id}/chronology is deprecated.", DeprecationWarning)
 
         _param = self._get_work_item_chronology_serialize(
             id=id,
@@ -7004,9 +7006,9 @@ class WorkItemsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get WorkItem chronology by Id or GlobalId
+        """(Deprecated) Get WorkItem chronology by Id or GlobalId
 
-         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
 
         :param id: (required)
         :type id: str
@@ -7031,6 +7033,7 @@ class WorkItemsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v2/workItems/{id}/chronology is deprecated.", DeprecationWarning)
 
         _param = self._get_work_item_chronology_serialize(
             id=id,
@@ -7123,9 +7126,9 @@ class WorkItemsApi:
     @validate_call
     def get_work_item_versions(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
-        work_item_version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format)  identifier\"")] = None,
-        version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format)  number\"")] = None,
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
+        work_item_version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None,
+        version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format) number\"")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7141,13 +7144,13 @@ class WorkItemsApi:
     ) -> List[WorkItemVersionModel]:
         """Get WorkItem versions
 
-         Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)
+         Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
-        :param work_item_version_id: WorkItem version (guid format)  identifier\"
+        :param work_item_version_id: WorkItem version (guid format) identifier\"
         :type work_item_version_id: str
-        :param version_number: WorkItem version (integer format)  number\"
+        :param version_number: WorkItem version (integer format) number\"
         :type version_number: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7204,9 +7207,9 @@ class WorkItemsApi:
     @validate_call
     def get_work_item_versions_with_http_info(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
-        work_item_version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format)  identifier\"")] = None,
-        version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format)  number\"")] = None,
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
+        work_item_version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None,
+        version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format) number\"")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7222,13 +7225,13 @@ class WorkItemsApi:
     ) -> ApiResponse[List[WorkItemVersionModel]]:
         """Get WorkItem versions
 
-         Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)
+         Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
-        :param work_item_version_id: WorkItem version (guid format)  identifier\"
+        :param work_item_version_id: WorkItem version (guid format) identifier\"
         :type work_item_version_id: str
-        :param version_number: WorkItem version (integer format)  number\"
+        :param version_number: WorkItem version (integer format) number\"
         :type version_number: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7285,9 +7288,9 @@ class WorkItemsApi:
     @validate_call
     def get_work_item_versions_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or  global(integer format) identifier\"")],
-        work_item_version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format)  identifier\"")] = None,
-        version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format)  number\"")] = None,
+        id: Annotated[StrictStr, Field(description="WorkItem internal (guid format) or global(integer format) identifier\"")],
+        work_item_version_id: Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None,
+        version_number: Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format) number\"")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7303,13 +7306,13 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Get WorkItem versions
 
-         Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)
+         Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
 
-        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
         :type id: str
-        :param work_item_version_id: WorkItem version (guid format)  identifier\"
+        :param work_item_version_id: WorkItem version (guid format) identifier\"
         :type work_item_version_id: str
-        :param version_number: WorkItem version (integer format)  number\"
+        :param version_number: WorkItem version (integer format) number\"
         :type version_number: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7988,7 +7991,7 @@ class WorkItemsApi:
     @validate_call
     def update_work_item(
         self,
-        work_item_put_model: Optional[WorkItemPutModel] = None,
+        update_work_item_api_model: Optional[UpdateWorkItemApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8004,10 +8007,10 @@ class WorkItemsApi:
     ) -> None:
         """Update Test Case, Checklist or Shared Step
 
-         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)
+         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
 
-        :param work_item_put_model:
-        :type work_item_put_model: WorkItemPutModel
+        :param update_work_item_api_model:
+        :type update_work_item_api_model: UpdateWorkItemApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8031,7 +8034,7 @@ class WorkItemsApi:
         """ # noqa: E501
 
         _param = self._update_work_item_serialize(
-            work_item_put_model=work_item_put_model,
+            update_work_item_api_model=update_work_item_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8061,7 +8064,7 @@ class WorkItemsApi:
     @validate_call
     def update_work_item_with_http_info(
         self,
-        work_item_put_model: Optional[WorkItemPutModel] = None,
+        update_work_item_api_model: Optional[UpdateWorkItemApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8077,10 +8080,10 @@ class WorkItemsApi:
     ) -> ApiResponse[None]:
         """Update Test Case, Checklist or Shared Step
 
-         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)
+         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
 
-        :param work_item_put_model:
-        :type work_item_put_model: WorkItemPutModel
+        :param update_work_item_api_model:
+        :type update_work_item_api_model: UpdateWorkItemApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8104,7 +8107,7 @@ class WorkItemsApi:
         """ # noqa: E501
 
         _param = self._update_work_item_serialize(
-            work_item_put_model=work_item_put_model,
+            update_work_item_api_model=update_work_item_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8134,7 +8137,7 @@ class WorkItemsApi:
     @validate_call
     def update_work_item_without_preload_content(
         self,
-        work_item_put_model: Optional[WorkItemPutModel] = None,
+        update_work_item_api_model: Optional[UpdateWorkItemApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8150,10 +8153,10 @@ class WorkItemsApi:
     ) -> RESTResponseType:
         """Update Test Case, Checklist or Shared Step
 
-         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)
+         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
 
-        :param work_item_put_model:
-        :type work_item_put_model: WorkItemPutModel
+        :param update_work_item_api_model:
+        :type update_work_item_api_model: UpdateWorkItemApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8177,7 +8180,7 @@ class WorkItemsApi:
         """ # noqa: E501
 
         _param = self._update_work_item_serialize(
-            work_item_put_model=work_item_put_model,
+            update_work_item_api_model=update_work_item_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8202,7 +8205,7 @@ class WorkItemsApi:
 
     def _update_work_item_serialize(
         self,
-        work_item_put_model,
+        update_work_item_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -8228,8 +8231,8 @@ class WorkItemsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if work_item_put_model is not None:
-            _body_params = work_item_put_model
+        if update_work_item_api_model is not None:
+            _body_params = update_work_item_api_model
 
 
         # set the HTTP header `Accept`

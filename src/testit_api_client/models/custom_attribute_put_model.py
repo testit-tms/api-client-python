@@ -30,7 +30,7 @@ class CustomAttributePutModel(BaseModel):
     CustomAttributePutModel
     """ # noqa: E501
     id: StrictStr = Field(description="Unique ID of the attribute")
-    options: Optional[List[CustomAttributeOptionModel]] = Field(default=None, description="Collection of the attribute options     Available for attributes of type `options` and `multiple options` only")
+    options: Optional[List[CustomAttributeOptionModel]] = Field(default=None, description="Collection of the attribute options   Available for attributes of type `options` and `multiple options` only")
     type: CustomAttributeTypesEnum = Field(description="Type of the attribute")
     is_deleted: StrictBool = Field(description="Indicates if the entity is deleted", alias="isDeleted")
     name: Annotated[str, Field(min_length=0, strict=True, max_length=255)] = Field(description="Name of the attribute")

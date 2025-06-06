@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **duration_in_ms** | **int** |  | [optional] 
 **duration** | **int** |  | [optional] 
 **step_comments** | [**List[TestResultStepCommentUpdateRequest]**](TestResultStepCommentUpdateRequest.md) |  | [optional] 
-**setup_results** | [**List[AttachmentPutModelAutoTestStepResultsModel]**](AttachmentPutModelAutoTestStepResultsModel.md) |  | [optional] 
-**teardown_results** | [**List[AttachmentPutModelAutoTestStepResultsModel]**](AttachmentPutModelAutoTestStepResultsModel.md) |  | [optional] 
+**setup_results** | [**List[AutoTestStepResultUpdateRequest]**](AutoTestStepResultUpdateRequest.md) |  | [optional] 
+**teardown_results** | [**List[AutoTestStepResultUpdateRequest]**](AutoTestStepResultUpdateRequest.md) |  | [optional] 
 **message** | **str** |  | [optional] 
 **trace** | **str** |  | [optional] 
 

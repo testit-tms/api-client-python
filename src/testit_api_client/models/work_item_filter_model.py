@@ -26,6 +26,7 @@ from testit_api_client.models.int64_range_selector_model import Int64RangeSelect
 from testit_api_client.models.work_item_entity_types import WorkItemEntityTypes
 from testit_api_client.models.work_item_link_filter_model import WorkItemLinkFilterModel
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
+from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_states import WorkItemStates
 from typing import Optional, Set
 from typing_extensions import Self
@@ -49,6 +50,7 @@ class WorkItemFilterModel(BaseModel):
     modified_by_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of identifiers of users who applied last modification to work item", alias="modifiedByIds")
     states: Optional[List[WorkItemStates]] = Field(default=None, description="Collection of states of work item")
     priorities: Optional[List[WorkItemPriorityModel]] = Field(default=None, description="Collection of priorities of work item")
+    source_types: Optional[List[WorkItemSourceTypeModel]] = Field(default=None, description="Collection of priorities of work item", alias="sourceTypes")
     types: Optional[List[WorkItemEntityTypes]] = Field(default=None, description="Collection of types of work item")
     created_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, description="Specifies a work item range of creation date to search for", alias="createdDate")
     modified_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, description="Specifies a work item range of last modification date to search for", alias="modifiedDate")
@@ -58,7 +60,7 @@ class WorkItemFilterModel(BaseModel):
     tags: Optional[List[StrictStr]] = Field(default=None, description="Collection of tags")
     auto_test_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of identifiers of linked autotests", alias="autoTestIds")
     work_item_version_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of identifiers work items versions.", alias="workItemVersionIds")
-    __properties: ClassVar[List[str]] = ["nameOrId", "includeIds", "excludeIds", "projectIds", "links", "name", "ids", "globalIds", "attributes", "isDeleted", "sectionIds", "createdByIds", "modifiedByIds", "states", "priorities", "types", "createdDate", "modifiedDate", "duration", "medianDuration", "isAutomated", "tags", "autoTestIds", "workItemVersionIds"]
+    __properties: ClassVar[List[str]] = ["nameOrId", "includeIds", "excludeIds", "projectIds", "links", "name", "ids", "globalIds", "attributes", "isDeleted", "sectionIds", "createdByIds", "modifiedByIds", "states", "priorities", "sourceTypes", "types", "createdDate", "modifiedDate", "duration", "medianDuration", "isAutomated", "tags", "autoTestIds", "workItemVersionIds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -189,6 +191,11 @@ class WorkItemFilterModel(BaseModel):
         if self.priorities is None and "priorities" in self.model_fields_set:
             _dict['priorities'] = None
 
+        # set to None if source_types (nullable) is None
+        # and model_fields_set contains the field
+        if self.source_types is None and "source_types" in self.model_fields_set:
+            _dict['sourceTypes'] = None
+
         # set to None if types (nullable) is None
         # and model_fields_set contains the field
         if self.types is None and "types" in self.model_fields_set:
@@ -261,6 +268,7 @@ class WorkItemFilterModel(BaseModel):
             "modifiedByIds": obj.get("modifiedByIds"),
             "states": obj.get("states"),
             "priorities": obj.get("priorities"),
+            "sourceTypes": obj.get("sourceTypes"),
             "types": obj.get("types"),
             "createdDate": DateTimeRangeSelectorModel.from_dict(obj["createdDate"]) if obj.get("createdDate") is not None else None,
             "modifiedDate": DateTimeRangeSelectorModel.from_dict(obj["modifiedDate"]) if obj.get("modifiedDate") is not None else None,

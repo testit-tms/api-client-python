@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **auto_tests** | [**List[AutoTestModel]**](AutoTestModel.md) |  | 
 **test_points** | [**List[PublicTestPointModel]**](PublicTestPointModel.md) |  | 
 **status** | **str** |  | 
+**status_model** | [**TestStatusModel**](TestStatusModel.md) |  | 
 **custom_parameters** | **Dict[str, str]** |  | [optional] 
 **test_run_description** | **str** |  | [optional] 
 

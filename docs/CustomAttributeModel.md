@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the attribute | 
-**options** | [**List[CustomAttributeOptionModel]**](CustomAttributeOptionModel.md) | Collection of the attribute options     Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
+**options** | [**List[CustomAttributeOptionModel]**](CustomAttributeOptionModel.md) | Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
 **type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of the attribute | 
 **is_deleted** | **bool** | Indicates if the attribute is deleted | 
 **name** | **str** | Name of the attribute | 

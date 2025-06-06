@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **id** | **str** | Test run unique identifier | 
 **name** | **str** | Test run name | 
 **description** | **str** | Test run description | [optional] 
-**launch_source** | **str** | Test run launch source                Once launch source is specified it cannot be updated. | [optional] 
+**launch_source** | **str** | Test run launch source              Once launch source is specified it cannot be updated. | [optional] 
 **started_on** | **datetime** | Date and time of test run start | [optional] 
 **completed_on** | **datetime** | Date and time of test run end | [optional] 
 **state_name** | [**TestRunState**](TestRunState.md) | Test run state | 
 **status** | [**TestStatusApiResult**](TestStatusApiResult.md) | Test run status | 
-**project_id** | **str** | Project unique identifier                This property is used to link test run with project. | 
-**test_plan_id** | **str** | Test plan unique identifier                This property is used to link test run with test plan. | [optional] 
+**project_id** | **str** | Project unique identifier              This property is used to link test run with project. | 
+**test_plan_id** | **str** | Test plan unique identifier              This property is used to link test run with test plan. | [optional] 
 **test_results** | [**List[TestResultV2GetModel]**](TestResultV2GetModel.md) | Enumeration of test results related to test run | [optional] 
 **created_date** | **datetime** | Date and time of test run creation | 
 **modified_date** | **datetime** | Date and time of last test run  modification | [optional] 

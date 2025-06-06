@@ -19,10 +19,10 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from testit_api_client.models.tag_model import TagModel
-from testit_api_client.models.tag_post_model import TagPostModel
-from testit_api_client.models.tag_put_model import TagPutModel
-from testit_api_client.models.tag_select_model import TagSelectModel
+from testit_api_client.models.create_tag_api_model import CreateTagApiModel
+from testit_api_client.models.select_tags_api_model import SelectTagsApiModel
+from testit_api_client.models.tag_api_result import TagApiResult
+from testit_api_client.models.update_tag_api_model import UpdateTagApiModel
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
 from testit_api_client.api_response import ApiResponse
@@ -45,7 +45,7 @@ class TagsApi:
     @validate_call
     def api_v2_tags_delete(
         self,
-        tag_select_model: Optional[TagSelectModel] = None,
+        select_tags_api_model: Optional[SelectTagsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -61,10 +61,10 @@ class TagsApi:
     ) -> None:
         """Delete tags
 
-         Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags
+         Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags
 
-        :param tag_select_model:
-        :type tag_select_model: TagSelectModel
+        :param select_tags_api_model:
+        :type select_tags_api_model: SelectTagsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -88,7 +88,7 @@ class TagsApi:
         """ # noqa: E501
 
         _param = self._api_v2_tags_delete_serialize(
-            tag_select_model=tag_select_model,
+            select_tags_api_model=select_tags_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -118,7 +118,7 @@ class TagsApi:
     @validate_call
     def api_v2_tags_delete_with_http_info(
         self,
-        tag_select_model: Optional[TagSelectModel] = None,
+        select_tags_api_model: Optional[SelectTagsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -134,10 +134,10 @@ class TagsApi:
     ) -> ApiResponse[None]:
         """Delete tags
 
-         Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags
+         Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags
 
-        :param tag_select_model:
-        :type tag_select_model: TagSelectModel
+        :param select_tags_api_model:
+        :type select_tags_api_model: SelectTagsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -161,7 +161,7 @@ class TagsApi:
         """ # noqa: E501
 
         _param = self._api_v2_tags_delete_serialize(
-            tag_select_model=tag_select_model,
+            select_tags_api_model=select_tags_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -191,7 +191,7 @@ class TagsApi:
     @validate_call
     def api_v2_tags_delete_without_preload_content(
         self,
-        tag_select_model: Optional[TagSelectModel] = None,
+        select_tags_api_model: Optional[SelectTagsApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -207,10 +207,10 @@ class TagsApi:
     ) -> RESTResponseType:
         """Delete tags
 
-         Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags
+         Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags
 
-        :param tag_select_model:
-        :type tag_select_model: TagSelectModel
+        :param select_tags_api_model:
+        :type select_tags_api_model: SelectTagsApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -234,7 +234,7 @@ class TagsApi:
         """ # noqa: E501
 
         _param = self._api_v2_tags_delete_serialize(
-            tag_select_model=tag_select_model,
+            select_tags_api_model=select_tags_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -259,7 +259,7 @@ class TagsApi:
 
     def _api_v2_tags_delete_serialize(
         self,
-        tag_select_model,
+        select_tags_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -285,8 +285,8 @@ class TagsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if tag_select_model is not None:
-            _body_params = tag_select_model
+        if select_tags_api_model is not None:
+            _body_params = select_tags_api_model
 
 
         # set the HTTP header `Accept`
@@ -338,273 +338,6 @@ class TagsApi:
 
 
     @validate_call
-    def api_v2_tags_get(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TagModel]:
-        """(Deprecated) Get all Tags
-
-         Use case   User runs method execution   System returns tags (listed in the response example)
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("GET /api/v2/tags is deprecated.", DeprecationWarning)
-
-        _param = self._api_v2_tags_get_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagModel]",
-            '400': "ValidationProblemDetails",
-            '401': "ProblemDetails",
-            '403': "ProblemDetails",
-            '404': "ProblemDetails",
-            '409': "ProblemDetails",
-            '422': "ProblemDetails",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def api_v2_tags_get_with_http_info(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TagModel]]:
-        """(Deprecated) Get all Tags
-
-         Use case   User runs method execution   System returns tags (listed in the response example)
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("GET /api/v2/tags is deprecated.", DeprecationWarning)
-
-        _param = self._api_v2_tags_get_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagModel]",
-            '400': "ValidationProblemDetails",
-            '401': "ProblemDetails",
-            '403': "ProblemDetails",
-            '404': "ProblemDetails",
-            '409': "ProblemDetails",
-            '422': "ProblemDetails",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def api_v2_tags_get_without_preload_content(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """(Deprecated) Get all Tags
-
-         Use case   User runs method execution   System returns tags (listed in the response example)
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("GET /api/v2/tags is deprecated.", DeprecationWarning)
-
-        _param = self._api_v2_tags_get_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagModel]",
-            '400': "ValidationProblemDetails",
-            '401': "ProblemDetails",
-            '403': "ProblemDetails",
-            '404': "ProblemDetails",
-            '409': "ProblemDetails",
-            '422': "ProblemDetails",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _api_v2_tags_get_serialize(
-        self,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Bearer or PrivateToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/tags',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def api_v2_tags_id_delete(
         self,
         id: Annotated[StrictStr, Field(description="Tag internal (UUID) identifier")],
@@ -623,7 +356,7 @@ class TagsApi:
     ) -> None:
         """Delete tag
 
-         Use case   User sets tag internal (guid format) identifier   System search and delete tag
+         Use case  User sets tag internal (guid format) identifier  System search and delete tag
 
         :param id: Tag internal (UUID) identifier (required)
         :type id: str
@@ -696,7 +429,7 @@ class TagsApi:
     ) -> ApiResponse[None]:
         """Delete tag
 
-         Use case   User sets tag internal (guid format) identifier   System search and delete tag
+         Use case  User sets tag internal (guid format) identifier  System search and delete tag
 
         :param id: Tag internal (UUID) identifier (required)
         :type id: str
@@ -769,7 +502,7 @@ class TagsApi:
     ) -> RESTResponseType:
         """Delete tag
 
-         Use case   User sets tag internal (guid format) identifier   System search and delete tag
+         Use case  User sets tag internal (guid format) identifier  System search and delete tag
 
         :param id: Tag internal (UUID) identifier (required)
         :type id: str
@@ -886,7 +619,7 @@ class TagsApi:
     @validate_call
     def api_v2_tags_post(
         self,
-        tag_post_model: Optional[TagPostModel] = None,
+        create_tag_api_model: Optional[CreateTagApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -899,13 +632,13 @@ class TagsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TagModel:
+    ) -> TagApiResult:
         """Create tag
 
-         Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)
+         Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)
 
-        :param tag_post_model:
-        :type tag_post_model: TagPostModel
+        :param create_tag_api_model:
+        :type create_tag_api_model: CreateTagApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -929,7 +662,7 @@ class TagsApi:
         """ # noqa: E501
 
         _param = self._api_v2_tags_post_serialize(
-            tag_post_model=tag_post_model,
+            create_tag_api_model=create_tag_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -937,7 +670,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TagModel",
+            '201': "TagApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -959,7 +692,7 @@ class TagsApi:
     @validate_call
     def api_v2_tags_post_with_http_info(
         self,
-        tag_post_model: Optional[TagPostModel] = None,
+        create_tag_api_model: Optional[CreateTagApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -972,13 +705,13 @@ class TagsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TagModel]:
+    ) -> ApiResponse[TagApiResult]:
         """Create tag
 
-         Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)
+         Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)
 
-        :param tag_post_model:
-        :type tag_post_model: TagPostModel
+        :param create_tag_api_model:
+        :type create_tag_api_model: CreateTagApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1002,7 +735,7 @@ class TagsApi:
         """ # noqa: E501
 
         _param = self._api_v2_tags_post_serialize(
-            tag_post_model=tag_post_model,
+            create_tag_api_model=create_tag_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1010,7 +743,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TagModel",
+            '201': "TagApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1032,7 +765,7 @@ class TagsApi:
     @validate_call
     def api_v2_tags_post_without_preload_content(
         self,
-        tag_post_model: Optional[TagPostModel] = None,
+        create_tag_api_model: Optional[CreateTagApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1048,10 +781,10 @@ class TagsApi:
     ) -> RESTResponseType:
         """Create tag
 
-         Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)
+         Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)
 
-        :param tag_post_model:
-        :type tag_post_model: TagPostModel
+        :param create_tag_api_model:
+        :type create_tag_api_model: CreateTagApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1075,7 +808,7 @@ class TagsApi:
         """ # noqa: E501
 
         _param = self._api_v2_tags_post_serialize(
-            tag_post_model=tag_post_model,
+            create_tag_api_model=create_tag_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1083,7 +816,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "TagModel",
+            '201': "TagApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1100,7 +833,7 @@ class TagsApi:
 
     def _api_v2_tags_post_serialize(
         self,
-        tag_post_model,
+        create_tag_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -1126,8 +859,8 @@ class TagsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if tag_post_model is not None:
-            _body_params = tag_post_model
+        if create_tag_api_model is not None:
+            _body_params = create_tag_api_model
 
 
         # set the HTTP header `Accept`
@@ -1182,7 +915,7 @@ class TagsApi:
     def api_v2_tags_put(
         self,
         id: Optional[StrictStr] = None,
-        tag_put_model: Optional[TagPutModel] = None,
+        update_tag_api_model: Optional[UpdateTagApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1195,15 +928,15 @@ class TagsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TagModel:
+    ) -> TagApiResult:
         """Update tag
 
-         Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)
+         Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)
 
         :param id:
         :type id: str
-        :param tag_put_model:
-        :type tag_put_model: TagPutModel
+        :param update_tag_api_model:
+        :type update_tag_api_model: UpdateTagApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1228,7 +961,7 @@ class TagsApi:
 
         _param = self._api_v2_tags_put_serialize(
             id=id,
-            tag_put_model=tag_put_model,
+            update_tag_api_model=update_tag_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1236,7 +969,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TagModel",
+            '200': "TagApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1259,7 +992,7 @@ class TagsApi:
     def api_v2_tags_put_with_http_info(
         self,
         id: Optional[StrictStr] = None,
-        tag_put_model: Optional[TagPutModel] = None,
+        update_tag_api_model: Optional[UpdateTagApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1272,15 +1005,15 @@ class TagsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TagModel]:
+    ) -> ApiResponse[TagApiResult]:
         """Update tag
 
-         Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)
+         Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)
 
         :param id:
         :type id: str
-        :param tag_put_model:
-        :type tag_put_model: TagPutModel
+        :param update_tag_api_model:
+        :type update_tag_api_model: UpdateTagApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1305,7 +1038,7 @@ class TagsApi:
 
         _param = self._api_v2_tags_put_serialize(
             id=id,
-            tag_put_model=tag_put_model,
+            update_tag_api_model=update_tag_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1313,7 +1046,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TagModel",
+            '200': "TagApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1336,7 +1069,7 @@ class TagsApi:
     def api_v2_tags_put_without_preload_content(
         self,
         id: Optional[StrictStr] = None,
-        tag_put_model: Optional[TagPutModel] = None,
+        update_tag_api_model: Optional[UpdateTagApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1352,12 +1085,12 @@ class TagsApi:
     ) -> RESTResponseType:
         """Update tag
 
-         Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)
+         Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)
 
         :param id:
         :type id: str
-        :param tag_put_model:
-        :type tag_put_model: TagPutModel
+        :param update_tag_api_model:
+        :type update_tag_api_model: UpdateTagApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1382,7 +1115,7 @@ class TagsApi:
 
         _param = self._api_v2_tags_put_serialize(
             id=id,
-            tag_put_model=tag_put_model,
+            update_tag_api_model=update_tag_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1390,7 +1123,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TagModel",
+            '200': "TagApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1408,7 +1141,7 @@ class TagsApi:
     def _api_v2_tags_put_serialize(
         self,
         id,
-        tag_put_model,
+        update_tag_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -1438,8 +1171,8 @@ class TagsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if tag_put_model is not None:
-            _body_params = tag_put_model
+        if update_tag_api_model is not None:
+            _body_params = update_tag_api_model
 
 
         # set the HTTP header `Accept`
@@ -1510,10 +1243,10 @@ class TagsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TagModel]:
+    ) -> List[TagApiResult]:
         """Search tags
 
-         Use case   User runs method execution   System returns collection of tags (listed in the response example)
+         Use case  User runs method execution  System returns collection of tags (listed in the response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -1560,7 +1293,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagModel]",
+            '200': "List[TagApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1599,10 +1332,10 @@ class TagsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TagModel]]:
+    ) -> ApiResponse[List[TagApiResult]]:
         """Search tags
 
-         Use case   User runs method execution   System returns collection of tags (listed in the response example)
+         Use case  User runs method execution  System returns collection of tags (listed in the response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -1649,7 +1382,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagModel]",
+            '200': "List[TagApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1691,7 +1424,7 @@ class TagsApi:
     ) -> RESTResponseType:
         """Search tags
 
-         Use case   User runs method execution   System returns collection of tags (listed in the response example)
+         Use case  User runs method execution  System returns collection of tags (listed in the response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -1738,7 +1471,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagModel]",
+            '200': "List[TagApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1859,10 +1592,10 @@ class TagsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TagModel]:
+    ) -> List[TagApiResult]:
         """Get all Tags that are used in TestPlans
 
-         Use case   User runs method execution   System returns tags (listed in the response example)
+         Use case  User runs method execution  System returns tags (listed in the response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -1909,7 +1642,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagModel]",
+            '200': "List[TagApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1948,10 +1681,10 @@ class TagsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TagModel]]:
+    ) -> ApiResponse[List[TagApiResult]]:
         """Get all Tags that are used in TestPlans
 
-         Use case   User runs method execution   System returns tags (listed in the response example)
+         Use case  User runs method execution  System returns tags (listed in the response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -1998,7 +1731,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagModel]",
+            '200': "List[TagApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2040,7 +1773,7 @@ class TagsApi:
     ) -> RESTResponseType:
         """Get all Tags that are used in TestPlans
 
-         Use case   User runs method execution   System returns tags (listed in the response example)
+         Use case  User runs method execution  System returns tags (listed in the response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -2087,7 +1820,7 @@ class TagsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagModel]",
+            '200': "List[TagApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",

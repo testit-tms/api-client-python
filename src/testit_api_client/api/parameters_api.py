@@ -19,11 +19,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from testit_api_client.models.parameter_filter_model import ParameterFilterModel
-from testit_api_client.models.parameter_group_model import ParameterGroupModel
-from testit_api_client.models.parameter_model import ParameterModel
-from testit_api_client.models.parameter_post_model import ParameterPostModel
-from testit_api_client.models.parameter_put_model import ParameterPutModel
+from testit_api_client.models.create_parameter_api_model import CreateParameterApiModel
+from testit_api_client.models.parameter_api_result import ParameterApiResult
+from testit_api_client.models.parameter_group_api_result import ParameterGroupApiResult
+from testit_api_client.models.parameter_groups_filter_api_model import ParameterGroupsFilterApiModel
+from testit_api_client.models.parameters_filter_api_model import ParametersFilterApiModel
+from testit_api_client.models.update_parameter_api_model import UpdateParameterApiModel
 
 from testit_api_client.api_client import ApiClient, RequestSerialized
 from testit_api_client.api_response import ApiResponse
@@ -46,7 +47,7 @@ class ParametersApi:
     @validate_call
     def api_v2_parameters_bulk_post(
         self,
-        parameter_post_model: Optional[List[ParameterPostModel]] = None,
+        create_parameter_api_model: Optional[List[CreateParameterApiModel]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -59,13 +60,13 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ParameterModel]:
+    ) -> List[ParameterApiResult]:
         """Create multiple parameters
 
-         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
+         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
 
-        :param parameter_post_model:
-        :type parameter_post_model: List[ParameterPostModel]
+        :param create_parameter_api_model:
+        :type create_parameter_api_model: List[CreateParameterApiModel]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -89,7 +90,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._api_v2_parameters_bulk_post_serialize(
-            parameter_post_model=parameter_post_model,
+            create_parameter_api_model=create_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -97,7 +98,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "List[ParameterModel]",
+            '201': "List[ParameterApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -119,7 +120,7 @@ class ParametersApi:
     @validate_call
     def api_v2_parameters_bulk_post_with_http_info(
         self,
-        parameter_post_model: Optional[List[ParameterPostModel]] = None,
+        create_parameter_api_model: Optional[List[CreateParameterApiModel]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -132,13 +133,13 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ParameterModel]]:
+    ) -> ApiResponse[List[ParameterApiResult]]:
         """Create multiple parameters
 
-         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
+         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
 
-        :param parameter_post_model:
-        :type parameter_post_model: List[ParameterPostModel]
+        :param create_parameter_api_model:
+        :type create_parameter_api_model: List[CreateParameterApiModel]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -162,7 +163,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._api_v2_parameters_bulk_post_serialize(
-            parameter_post_model=parameter_post_model,
+            create_parameter_api_model=create_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -170,7 +171,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "List[ParameterModel]",
+            '201': "List[ParameterApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -192,7 +193,7 @@ class ParametersApi:
     @validate_call
     def api_v2_parameters_bulk_post_without_preload_content(
         self,
-        parameter_post_model: Optional[List[ParameterPostModel]] = None,
+        create_parameter_api_model: Optional[List[CreateParameterApiModel]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -208,10 +209,10 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Create multiple parameters
 
-         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
+         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
 
-        :param parameter_post_model:
-        :type parameter_post_model: List[ParameterPostModel]
+        :param create_parameter_api_model:
+        :type create_parameter_api_model: List[CreateParameterApiModel]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -235,7 +236,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._api_v2_parameters_bulk_post_serialize(
-            parameter_post_model=parameter_post_model,
+            create_parameter_api_model=create_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -243,7 +244,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "List[ParameterModel]",
+            '201': "List[ParameterApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -260,7 +261,7 @@ class ParametersApi:
 
     def _api_v2_parameters_bulk_post_serialize(
         self,
-        parameter_post_model,
+        create_parameter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -270,7 +271,7 @@ class ParametersApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'ParameterPostModel': '',
+            'CreateParameterApiModel': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -287,8 +288,8 @@ class ParametersApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if parameter_post_model is not None:
-            _body_params = parameter_post_model
+        if create_parameter_api_model is not None:
+            _body_params = create_parameter_api_model
 
 
         # set the HTTP header `Accept`
@@ -339,7 +340,7 @@ class ParametersApi:
     @validate_call
     def api_v2_parameters_bulk_put(
         self,
-        parameter_put_model: Optional[List[ParameterPutModel]] = None,
+        update_parameter_api_model: Optional[List[UpdateParameterApiModel]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -355,10 +356,10 @@ class ParametersApi:
     ) -> None:
         """Update multiple parameters
 
-         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
+         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
 
-        :param parameter_put_model:
-        :type parameter_put_model: List[ParameterPutModel]
+        :param update_parameter_api_model:
+        :type update_parameter_api_model: List[UpdateParameterApiModel]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -382,7 +383,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._api_v2_parameters_bulk_put_serialize(
-            parameter_put_model=parameter_put_model,
+            update_parameter_api_model=update_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -412,7 +413,7 @@ class ParametersApi:
     @validate_call
     def api_v2_parameters_bulk_put_with_http_info(
         self,
-        parameter_put_model: Optional[List[ParameterPutModel]] = None,
+        update_parameter_api_model: Optional[List[UpdateParameterApiModel]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -428,10 +429,10 @@ class ParametersApi:
     ) -> ApiResponse[None]:
         """Update multiple parameters
 
-         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
+         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
 
-        :param parameter_put_model:
-        :type parameter_put_model: List[ParameterPutModel]
+        :param update_parameter_api_model:
+        :type update_parameter_api_model: List[UpdateParameterApiModel]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -455,7 +456,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._api_v2_parameters_bulk_put_serialize(
-            parameter_put_model=parameter_put_model,
+            update_parameter_api_model=update_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -485,7 +486,7 @@ class ParametersApi:
     @validate_call
     def api_v2_parameters_bulk_put_without_preload_content(
         self,
-        parameter_put_model: Optional[List[ParameterPutModel]] = None,
+        update_parameter_api_model: Optional[List[UpdateParameterApiModel]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -501,10 +502,10 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Update multiple parameters
 
-         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
+         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
 
-        :param parameter_put_model:
-        :type parameter_put_model: List[ParameterPutModel]
+        :param update_parameter_api_model:
+        :type update_parameter_api_model: List[UpdateParameterApiModel]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -528,7 +529,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._api_v2_parameters_bulk_put_serialize(
-            parameter_put_model=parameter_put_model,
+            update_parameter_api_model=update_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -553,7 +554,7 @@ class ParametersApi:
 
     def _api_v2_parameters_bulk_put_serialize(
         self,
-        parameter_put_model,
+        update_parameter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -563,7 +564,7 @@ class ParametersApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'ParameterPutModel': '',
+            'UpdateParameterApiModel': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -580,8 +581,8 @@ class ParametersApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if parameter_put_model is not None:
-            _body_params = parameter_put_model
+        if update_parameter_api_model is not None:
+            _body_params = update_parameter_api_model
 
 
         # set the HTTP header `Accept`
@@ -632,8 +633,9 @@ class ParametersApi:
     @validate_call
     def api_v2_parameters_groups_get(
         self,
-        is_deleted: Optional[StrictBool] = None,
         parameter_key_ids: Optional[List[StrictStr]] = None,
+        name: Optional[StrictStr] = None,
+        is_deleted: Optional[StrictBool] = None,
         skip: Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None,
         take: Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
@@ -651,15 +653,17 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ParameterGroupModel]:
+    ) -> List[ParameterGroupApiResult]:
         """Get parameters as group
 
-         Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
+         Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
 
-        :param is_deleted:
-        :type is_deleted: bool
         :param parameter_key_ids:
         :type parameter_key_ids: List[str]
+        :param name:
+        :type name: str
+        :param is_deleted:
+        :type is_deleted: bool
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
         :param take: Amount of items to be taken (limit)
@@ -693,8 +697,9 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._api_v2_parameters_groups_get_serialize(
-            is_deleted=is_deleted,
             parameter_key_ids=parameter_key_ids,
+            name=name,
+            is_deleted=is_deleted,
             skip=skip,
             take=take,
             order_by=order_by,
@@ -707,7 +712,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterGroupModel]",
+            '200': "List[ParameterGroupApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -729,8 +734,9 @@ class ParametersApi:
     @validate_call
     def api_v2_parameters_groups_get_with_http_info(
         self,
-        is_deleted: Optional[StrictBool] = None,
         parameter_key_ids: Optional[List[StrictStr]] = None,
+        name: Optional[StrictStr] = None,
+        is_deleted: Optional[StrictBool] = None,
         skip: Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None,
         take: Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
@@ -748,15 +754,17 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ParameterGroupModel]]:
+    ) -> ApiResponse[List[ParameterGroupApiResult]]:
         """Get parameters as group
 
-         Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
+         Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
 
-        :param is_deleted:
-        :type is_deleted: bool
         :param parameter_key_ids:
         :type parameter_key_ids: List[str]
+        :param name:
+        :type name: str
+        :param is_deleted:
+        :type is_deleted: bool
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
         :param take: Amount of items to be taken (limit)
@@ -790,8 +798,9 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._api_v2_parameters_groups_get_serialize(
-            is_deleted=is_deleted,
             parameter_key_ids=parameter_key_ids,
+            name=name,
+            is_deleted=is_deleted,
             skip=skip,
             take=take,
             order_by=order_by,
@@ -804,7 +813,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterGroupModel]",
+            '200': "List[ParameterGroupApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -826,8 +835,9 @@ class ParametersApi:
     @validate_call
     def api_v2_parameters_groups_get_without_preload_content(
         self,
-        is_deleted: Optional[StrictBool] = None,
         parameter_key_ids: Optional[List[StrictStr]] = None,
+        name: Optional[StrictStr] = None,
+        is_deleted: Optional[StrictBool] = None,
         skip: Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None,
         take: Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
@@ -848,12 +858,14 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Get parameters as group
 
-         Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
+         Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
 
-        :param is_deleted:
-        :type is_deleted: bool
         :param parameter_key_ids:
         :type parameter_key_ids: List[str]
+        :param name:
+        :type name: str
+        :param is_deleted:
+        :type is_deleted: bool
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
         :param take: Amount of items to be taken (limit)
@@ -887,8 +899,9 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._api_v2_parameters_groups_get_serialize(
-            is_deleted=is_deleted,
             parameter_key_ids=parameter_key_ids,
+            name=name,
+            is_deleted=is_deleted,
             skip=skip,
             take=take,
             order_by=order_by,
@@ -901,7 +914,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterGroupModel]",
+            '200': "List[ParameterGroupApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -918,8 +931,9 @@ class ParametersApi:
 
     def _api_v2_parameters_groups_get_serialize(
         self,
-        is_deleted,
         parameter_key_ids,
+        name,
+        is_deleted,
         skip,
         take,
         order_by,
@@ -948,13 +962,17 @@ class ParametersApi:
 
         # process the path parameters
         # process the query parameters
-        if is_deleted is not None:
-            
-            _query_params.append(('isDeleted', is_deleted))
-            
         if parameter_key_ids is not None:
             
             _query_params.append(('parameterKeyIds', parameter_key_ids))
+            
+        if name is not None:
+            
+            _query_params.append(('name', name))
+            
+        if is_deleted is not None:
+            
+            _query_params.append(('isDeleted', is_deleted))
             
         if skip is not None:
             
@@ -1032,7 +1050,7 @@ class ParametersApi:
     ) -> bool:
         """Check existence parameter key in system
 
-         Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
+         Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
 
         :param name: (required)
         :type name: str
@@ -1105,7 +1123,7 @@ class ParametersApi:
     ) -> ApiResponse[bool]:
         """Check existence parameter key in system
 
-         Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
+         Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
 
         :param name: (required)
         :type name: str
@@ -1178,7 +1196,7 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Check existence parameter key in system
 
-         Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
+         Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
 
         :param name: (required)
         :type name: str
@@ -1311,7 +1329,7 @@ class ParametersApi:
     ) -> List[str]:
         """Get all parameter key values
 
-         Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
+         Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
 
         :param key: Parameter key (string format) (required)
         :type key: str
@@ -1384,7 +1402,7 @@ class ParametersApi:
     ) -> ApiResponse[List[str]]:
         """Get all parameter key values
 
-         Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
+         Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
 
         :param key: Parameter key (string format) (required)
         :type key: str
@@ -1457,7 +1475,7 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Get all parameter key values
 
-         Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
+         Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
 
         :param key: Parameter key (string format) (required)
         :type key: str
@@ -1589,7 +1607,7 @@ class ParametersApi:
     ) -> List[str]:
         """Get all parameter keys
 
-         Use case   User runs method execution   System search all parameter keys   System returns parameter keys
+         Use case  User runs method execution  System search all parameter keys  System returns parameter keys
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1658,7 +1676,7 @@ class ParametersApi:
     ) -> ApiResponse[List[str]]:
         """Get all parameter keys
 
-         Use case   User runs method execution   System search all parameter keys   System returns parameter keys
+         Use case  User runs method execution  System search all parameter keys  System returns parameter keys
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1727,7 +1745,7 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Get all parameter keys
 
-         Use case   User runs method execution   System search all parameter keys   System returns parameter keys
+         Use case  User runs method execution  System search all parameter keys  System returns parameter keys
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1843,7 +1861,7 @@ class ParametersApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        parameter_filter_model: Optional[ParameterFilterModel] = None,
+        parameter_groups_filter_api_model: Optional[ParameterGroupsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1856,7 +1874,7 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ParameterGroupModel]:
+    ) -> List[ParameterGroupApiResult]:
         """Search for parameters as group
 
 
@@ -1870,8 +1888,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameter_filter_model:
-        :type parameter_filter_model: ParameterFilterModel
+        :param parameter_groups_filter_api_model:
+        :type parameter_groups_filter_api_model: ParameterGroupsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1900,7 +1918,7 @@ class ParametersApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            parameter_filter_model=parameter_filter_model,
+            parameter_groups_filter_api_model=parameter_groups_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1908,7 +1926,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterGroupModel]",
+            '200': "List[ParameterGroupApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1935,7 +1953,7 @@ class ParametersApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        parameter_filter_model: Optional[ParameterFilterModel] = None,
+        parameter_groups_filter_api_model: Optional[ParameterGroupsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1948,7 +1966,7 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ParameterGroupModel]]:
+    ) -> ApiResponse[List[ParameterGroupApiResult]]:
         """Search for parameters as group
 
 
@@ -1962,8 +1980,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameter_filter_model:
-        :type parameter_filter_model: ParameterFilterModel
+        :param parameter_groups_filter_api_model:
+        :type parameter_groups_filter_api_model: ParameterGroupsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1992,7 +2010,7 @@ class ParametersApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            parameter_filter_model=parameter_filter_model,
+            parameter_groups_filter_api_model=parameter_groups_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2000,7 +2018,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterGroupModel]",
+            '200': "List[ParameterGroupApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2027,7 +2045,7 @@ class ParametersApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        parameter_filter_model: Optional[ParameterFilterModel] = None,
+        parameter_groups_filter_api_model: Optional[ParameterGroupsFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2054,8 +2072,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameter_filter_model:
-        :type parameter_filter_model: ParameterFilterModel
+        :param parameter_groups_filter_api_model:
+        :type parameter_groups_filter_api_model: ParameterGroupsFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2084,7 +2102,7 @@ class ParametersApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            parameter_filter_model=parameter_filter_model,
+            parameter_groups_filter_api_model=parameter_groups_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2092,7 +2110,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterGroupModel]",
+            '200': "List[ParameterGroupApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2114,7 +2132,7 @@ class ParametersApi:
         order_by,
         search_field,
         search_value,
-        parameter_filter_model,
+        parameter_groups_filter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -2160,8 +2178,8 @@ class ParametersApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if parameter_filter_model is not None:
-            _body_params = parameter_filter_model
+        if parameter_groups_filter_api_model is not None:
+            _body_params = parameter_groups_filter_api_model
 
 
         # set the HTTP header `Accept`
@@ -2217,7 +2235,7 @@ class ParametersApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        parameter_filter_model: Optional[ParameterFilterModel] = None,
+        parameters_filter_api_model: Optional[ParametersFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2230,7 +2248,7 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ParameterModel]:
+    ) -> List[ParameterApiResult]:
         """Search for parameters
 
 
@@ -2244,8 +2262,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameter_filter_model:
-        :type parameter_filter_model: ParameterFilterModel
+        :param parameters_filter_api_model:
+        :type parameters_filter_api_model: ParametersFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2274,7 +2292,7 @@ class ParametersApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            parameter_filter_model=parameter_filter_model,
+            parameters_filter_api_model=parameters_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2282,7 +2300,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterModel]",
+            '200': "List[ParameterApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2309,7 +2327,7 @@ class ParametersApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        parameter_filter_model: Optional[ParameterFilterModel] = None,
+        parameters_filter_api_model: Optional[ParametersFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2322,7 +2340,7 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ParameterModel]]:
+    ) -> ApiResponse[List[ParameterApiResult]]:
         """Search for parameters
 
 
@@ -2336,8 +2354,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameter_filter_model:
-        :type parameter_filter_model: ParameterFilterModel
+        :param parameters_filter_api_model:
+        :type parameters_filter_api_model: ParametersFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2366,7 +2384,7 @@ class ParametersApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            parameter_filter_model=parameter_filter_model,
+            parameters_filter_api_model=parameters_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2374,7 +2392,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterModel]",
+            '200': "List[ParameterApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2401,7 +2419,7 @@ class ParametersApi:
         order_by: Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None,
         search_field: Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None,
         search_value: Annotated[Optional[StrictStr], Field(description="Value for searching")] = None,
-        parameter_filter_model: Optional[ParameterFilterModel] = None,
+        parameters_filter_api_model: Optional[ParametersFilterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2428,8 +2446,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameter_filter_model:
-        :type parameter_filter_model: ParameterFilterModel
+        :param parameters_filter_api_model:
+        :type parameters_filter_api_model: ParametersFilterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2458,7 +2476,7 @@ class ParametersApi:
             order_by=order_by,
             search_field=search_field,
             search_value=search_value,
-            parameter_filter_model=parameter_filter_model,
+            parameters_filter_api_model=parameters_filter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2466,7 +2484,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterModel]",
+            '200': "List[ParameterApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2488,7 +2506,7 @@ class ParametersApi:
         order_by,
         search_field,
         search_value,
-        parameter_filter_model,
+        parameters_filter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -2534,8 +2552,8 @@ class ParametersApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if parameter_filter_model is not None:
-            _body_params = parameter_filter_model
+        if parameters_filter_api_model is not None:
+            _body_params = parameters_filter_api_model
 
 
         # set the HTTP header `Accept`
@@ -2586,7 +2604,7 @@ class ParametersApi:
     @validate_call
     def create_parameter(
         self,
-        parameter_post_model: Optional[ParameterPostModel] = None,
+        create_parameter_api_model: Optional[CreateParameterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2599,13 +2617,13 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ParameterModel:
+    ) -> ParameterApiResult:
         """Create parameter
 
-         Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
+         Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
 
-        :param parameter_post_model:
-        :type parameter_post_model: ParameterPostModel
+        :param create_parameter_api_model:
+        :type create_parameter_api_model: CreateParameterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2629,7 +2647,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._create_parameter_serialize(
-            parameter_post_model=parameter_post_model,
+            create_parameter_api_model=create_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2637,7 +2655,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ParameterModel",
+            '201': "ParameterApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2659,7 +2677,7 @@ class ParametersApi:
     @validate_call
     def create_parameter_with_http_info(
         self,
-        parameter_post_model: Optional[ParameterPostModel] = None,
+        create_parameter_api_model: Optional[CreateParameterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2672,13 +2690,13 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ParameterModel]:
+    ) -> ApiResponse[ParameterApiResult]:
         """Create parameter
 
-         Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
+         Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
 
-        :param parameter_post_model:
-        :type parameter_post_model: ParameterPostModel
+        :param create_parameter_api_model:
+        :type create_parameter_api_model: CreateParameterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2702,7 +2720,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._create_parameter_serialize(
-            parameter_post_model=parameter_post_model,
+            create_parameter_api_model=create_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2710,7 +2728,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ParameterModel",
+            '201': "ParameterApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2732,7 +2750,7 @@ class ParametersApi:
     @validate_call
     def create_parameter_without_preload_content(
         self,
-        parameter_post_model: Optional[ParameterPostModel] = None,
+        create_parameter_api_model: Optional[CreateParameterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2748,10 +2766,10 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Create parameter
 
-         Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
+         Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
 
-        :param parameter_post_model:
-        :type parameter_post_model: ParameterPostModel
+        :param create_parameter_api_model:
+        :type create_parameter_api_model: CreateParameterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2775,7 +2793,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._create_parameter_serialize(
-            parameter_post_model=parameter_post_model,
+            create_parameter_api_model=create_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2783,7 +2801,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ParameterModel",
+            '201': "ParameterApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2800,7 +2818,7 @@ class ParametersApi:
 
     def _create_parameter_serialize(
         self,
-        parameter_post_model,
+        create_parameter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -2826,8 +2844,8 @@ class ParametersApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if parameter_post_model is not None:
-            _body_params = parameter_post_model
+        if create_parameter_api_model is not None:
+            _body_params = create_parameter_api_model
 
 
         # set the HTTP header `Accept`
@@ -3452,7 +3470,7 @@ class ParametersApi:
     ) -> None:
         """Delete parameter
 
-         Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
+         Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
 
         :param id: Parameter internal (UUID) identifier (required)
         :type id: str
@@ -3488,10 +3506,10 @@ class ParametersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '404': "ProblemDetails",
-            '400': "ProblemDetails",
+            '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
+            '404': "ProblemDetails",
             '409': "ProblemDetails",
             '422': "ProblemDetails",
         }
@@ -3525,7 +3543,7 @@ class ParametersApi:
     ) -> ApiResponse[None]:
         """Delete parameter
 
-         Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
+         Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
 
         :param id: Parameter internal (UUID) identifier (required)
         :type id: str
@@ -3561,10 +3579,10 @@ class ParametersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '404': "ProblemDetails",
-            '400': "ProblemDetails",
+            '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
+            '404': "ProblemDetails",
             '409': "ProblemDetails",
             '422': "ProblemDetails",
         }
@@ -3598,7 +3616,7 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Delete parameter
 
-         Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
+         Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
 
         :param id: Parameter internal (UUID) identifier (required)
         :type id: str
@@ -3634,10 +3652,10 @@ class ParametersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '404': "ProblemDetails",
-            '400': "ProblemDetails",
+            '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
+            '404': "ProblemDetails",
             '409': "ProblemDetails",
             '422': "ProblemDetails",
         }
@@ -3733,10 +3751,10 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ParameterModel]:
+    ) -> List[ParameterApiResult]:
         """Get all parameters
 
-         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
+         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
 
         :param is_deleted: If result must consist of only actual/deleted parameters
         :type is_deleted: bool
@@ -3786,7 +3804,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterModel]",
+            '200': "List[ParameterApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3826,10 +3844,10 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ParameterModel]]:
+    ) -> ApiResponse[List[ParameterApiResult]]:
         """Get all parameters
 
-         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
+         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
 
         :param is_deleted: If result must consist of only actual/deleted parameters
         :type is_deleted: bool
@@ -3879,7 +3897,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterModel]",
+            '200': "List[ParameterApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -3922,7 +3940,7 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Get all parameters
 
-         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
+         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
 
         :param is_deleted: If result must consist of only actual/deleted parameters
         :type is_deleted: bool
@@ -3972,7 +3990,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParameterModel]",
+            '200': "List[ParameterApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4094,10 +4112,10 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ParameterModel:
+    ) -> ParameterApiResult:
         """Get parameter by ID
 
-         Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
+         Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
 
         :param id: Parameter internal (UUID) identifier (required)
         :type id: str
@@ -4132,7 +4150,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ParameterModel",
+            '200': "ParameterApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4167,10 +4185,10 @@ class ParametersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ParameterModel]:
+    ) -> ApiResponse[ParameterApiResult]:
         """Get parameter by ID
 
-         Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
+         Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
 
         :param id: Parameter internal (UUID) identifier (required)
         :type id: str
@@ -4205,7 +4223,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ParameterModel",
+            '200': "ParameterApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4243,7 +4261,7 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Get parameter by ID
 
-         Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
+         Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
 
         :param id: Parameter internal (UUID) identifier (required)
         :type id: str
@@ -4278,7 +4296,7 @@ class ParametersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ParameterModel",
+            '200': "ParameterApiResult",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -4360,7 +4378,7 @@ class ParametersApi:
     @validate_call
     def update_parameter(
         self,
-        parameter_put_model: Optional[ParameterPutModel] = None,
+        update_parameter_api_model: Optional[UpdateParameterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4376,10 +4394,10 @@ class ParametersApi:
     ) -> None:
         """Update parameter
 
-         Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
+         Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
 
-        :param parameter_put_model:
-        :type parameter_put_model: ParameterPutModel
+        :param update_parameter_api_model:
+        :type update_parameter_api_model: UpdateParameterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4403,7 +4421,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._update_parameter_serialize(
-            parameter_put_model=parameter_put_model,
+            update_parameter_api_model=update_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4433,7 +4451,7 @@ class ParametersApi:
     @validate_call
     def update_parameter_with_http_info(
         self,
-        parameter_put_model: Optional[ParameterPutModel] = None,
+        update_parameter_api_model: Optional[UpdateParameterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4449,10 +4467,10 @@ class ParametersApi:
     ) -> ApiResponse[None]:
         """Update parameter
 
-         Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
+         Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
 
-        :param parameter_put_model:
-        :type parameter_put_model: ParameterPutModel
+        :param update_parameter_api_model:
+        :type update_parameter_api_model: UpdateParameterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4476,7 +4494,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._update_parameter_serialize(
-            parameter_put_model=parameter_put_model,
+            update_parameter_api_model=update_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4506,7 +4524,7 @@ class ParametersApi:
     @validate_call
     def update_parameter_without_preload_content(
         self,
-        parameter_put_model: Optional[ParameterPutModel] = None,
+        update_parameter_api_model: Optional[UpdateParameterApiModel] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4522,10 +4540,10 @@ class ParametersApi:
     ) -> RESTResponseType:
         """Update parameter
 
-         Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
+         Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
 
-        :param parameter_put_model:
-        :type parameter_put_model: ParameterPutModel
+        :param update_parameter_api_model:
+        :type update_parameter_api_model: UpdateParameterApiModel
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4549,7 +4567,7 @@ class ParametersApi:
         """ # noqa: E501
 
         _param = self._update_parameter_serialize(
-            parameter_put_model=parameter_put_model,
+            update_parameter_api_model=update_parameter_api_model,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4574,7 +4592,7 @@ class ParametersApi:
 
     def _update_parameter_serialize(
         self,
-        parameter_put_model,
+        update_parameter_api_model,
         _request_auth,
         _content_type,
         _headers,
@@ -4600,8 +4618,8 @@ class ParametersApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if parameter_put_model is not None:
-            _body_params = parameter_put_model
+        if update_parameter_api_model is not None:
+            _body_params = update_parameter_api_model
 
 
         # set the HTTP header `Accept`

@@ -32,7 +32,7 @@ class TestPointShortApiResult(BaseModel):
     tester_id: Optional[StrictStr] = Field(default=None, description="Tester who is responded for the test unique internal identifier", alias="testerId")
     work_item_id: Optional[StrictStr] = Field(default=None, description="Workitem to which test point relates unique identifier", alias="workItemId")
     configuration_id: Optional[StrictStr] = Field(default=None, description="Configuration to which test point relates unique identifier", alias="configurationId")
-    status: Optional[StrictStr] = Field(default=None, description="Test point status   Applies one of these values: Blocked, NoResults, Failed, Passed")
+    status: Optional[StrictStr] = Field(default=None, description="Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed")
     status_model: TestStatusApiResult = Field(description="Test point status", alias="statusModel")
     last_test_result_id: Optional[StrictStr] = Field(default=None, description="Last test result unique identifier", alias="lastTestResultId")
     iteration_id: StrictStr = Field(description="Iteration unique identifier", alias="iterationId")

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **tester_id** | **str** | Tester who is responded for the test unique internal identifier | [optional] 
 **work_item_id** | **str** | Workitem to which test point relates unique identifier | [optional] 
 **configuration_id** | **str** | Configuration to which test point relates unique identifier | [optional] 
-**status** | **str** | Test point status   Applies one of these values: Blocked, NoResults, Failed, Passed | [optional] 
+**status** | **str** | Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed | [optional] 
 **last_test_result_id** | **str** | Last test result unique identifier | [optional] 
 **iteration_id** | **str** | Iteration unique identifier | 
 **work_item_median_duration** | **int** | Median duration of work item the test point represents | [optional] 

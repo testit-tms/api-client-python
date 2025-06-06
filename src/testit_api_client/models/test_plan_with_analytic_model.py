@@ -21,7 +21,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from testit_api_client.models.tag_post_model import TagPostModel
+from testit_api_client.models.tag_model import TagModel
 from testit_api_client.models.test_plan_status_model import TestPlanStatusModel
 from testit_api_client.models.test_point_analytic_result import TestPointAnalyticResult
 from typing import Optional, Set
@@ -44,7 +44,7 @@ class TestPlanWithAnalyticModel(BaseModel):
     locked_date: Optional[datetime] = Field(default=None, alias="lockedDate")
     id: StrictStr
     locked_by_id: Optional[StrictStr] = Field(default=None, alias="lockedById")
-    tags: Optional[List[TagPostModel]] = None
+    tags: Optional[List[TagModel]] = None
     name: Annotated[str, Field(min_length=0, strict=True, max_length=450)]
     start_date: Optional[datetime] = Field(default=None, description="Used for analytics", alias="startDate")
     end_date: Optional[datetime] = Field(default=None, description="Used for analytics", alias="endDate")
@@ -200,7 +200,7 @@ class TestPlanWithAnalyticModel(BaseModel):
             "lockedDate": obj.get("lockedDate"),
             "id": obj.get("id"),
             "lockedById": obj.get("lockedById"),
-            "tags": [TagPostModel.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
+            "tags": [TagModel.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
             "name": obj.get("name"),
             "startDate": obj.get("startDate"),
             "endDate": obj.get("endDate"),

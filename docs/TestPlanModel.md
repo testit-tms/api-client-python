@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **locked_date** | **datetime** |  | [optional] 
 **id** | **str** |  | 
 **locked_by_id** | **str** |  | [optional] 
-**tags** | [**List[TagPostModel]**](TagPostModel.md) |  | [optional] 
+**tags** | [**List[TagModel]**](TagModel.md) |  | [optional] 
 **name** | **str** |  | 
 **start_date** | **datetime** | Used for analytics | [optional] 
 **end_date** | **datetime** | Used for analytics | [optional] 

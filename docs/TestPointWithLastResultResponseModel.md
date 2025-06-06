@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **tag_names** | **List[str]** |  | [optional] 
 **duration** | **int** |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **test_suite_name_bread_crumbs** | **List[str]** |  | [optional] 
 **group_count** | **int** |  | [optional] 
 **iteration** | [**IterationModel**](IterationModel.md) |  | [optional] 

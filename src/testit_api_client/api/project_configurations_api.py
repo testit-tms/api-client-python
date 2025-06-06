@@ -58,7 +58,7 @@ class ProjectConfigurationsApi:
     ) -> List[ConfigurationModel]:
         """Get project configurations
 
-         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all configurations related to project   System returns array of found configurations (listed in response model)
+         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -131,7 +131,7 @@ class ProjectConfigurationsApi:
     ) -> ApiResponse[List[ConfigurationModel]]:
         """Get project configurations
 
-         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all configurations related to project   System returns array of found configurations (listed in response model)
+         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -204,7 +204,7 @@ class ProjectConfigurationsApi:
     ) -> RESTResponseType:
         """Get project configurations
 
-         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all configurations related to project   System returns array of found configurations (listed in response model)
+         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str

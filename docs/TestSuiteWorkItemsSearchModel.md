@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tag_names** | **List[str]** | Collection of tags | [optional] 
-**entity_types** | [**List[WorkItemEntityTypes]**](WorkItemEntityTypes.md) | Collection of types of work item   Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
+**entity_types** | [**List[WorkItemEntityTypes]**](WorkItemEntityTypes.md) | Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
 **name_or_id** | **str** | Name or identifier (UUID) of work item | [optional] 
 **include_ids** | **List[str]** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **exclude_ids** | **List[str]** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **modified_by_ids** | **List[str]** | Collection of identifiers of users who applied last modification to work item | [optional] 
 **states** | [**List[WorkItemStates]**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **priorities** | [**List[WorkItemPriorityModel]**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
+**source_types** | [**List[WorkItemSourceTypeModel]**](WorkItemSourceTypeModel.md) | Collection of priorities of work item | [optional] 
 **types** | [**List[WorkItemEntityTypes]**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
 **created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 

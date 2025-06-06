@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **str** | Test run unique identifier | 
 **name** | **str** | Test run name | 
 **description** | **str** | Test run description | [optional] 
-**launch_source** | **str** | Test run launch source                Once launch source is specified it cannot be updated | [optional] 
+**launch_source** | **str** | Test run launch source              Once launch source is specified it cannot be updated | [optional] 
 **attachments** | [**List[AssignAttachmentApiModel]**](AssignAttachmentApiModel.md) | Collection of attachments related to the test run | [optional] 
 **links** | [**List[UpdateLinkApiModel]**](UpdateLinkApiModel.md) | Collection of links related to the test run | [optional] 
 

@@ -20,9 +20,11 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from testit_api_client.models.test_plan_group_by_status import TestPlanGroupByStatus
+from testit_api_client.models.test_plan_group_by_status_code import TestPlanGroupByStatusCode
 from testit_api_client.models.test_plan_group_by_test_suite import TestPlanGroupByTestSuite
 from testit_api_client.models.test_plan_group_by_tester import TestPlanGroupByTester
 from testit_api_client.models.test_plan_group_by_tester_and_status import TestPlanGroupByTesterAndStatus
+from testit_api_client.models.test_plan_group_by_tester_and_status_code import TestPlanGroupByTesterAndStatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -35,7 +37,9 @@ class TestPointAnalyticResult(BaseModel):
     count_group_by_tester: List[TestPlanGroupByTester] = Field(alias="countGroupByTester")
     count_group_by_test_suite: List[TestPlanGroupByTestSuite] = Field(alias="countGroupByTestSuite")
     count_group_by_tester_and_status: List[TestPlanGroupByTesterAndStatus] = Field(alias="countGroupByTesterAndStatus")
-    __properties: ClassVar[List[str]] = ["countGroupByStatus", "sumGroupByTester", "countGroupByTester", "countGroupByTestSuite", "countGroupByTesterAndStatus"]
+    count_group_by_status_code: List[TestPlanGroupByStatusCode] = Field(alias="countGroupByStatusCode")
+    count_group_by_tester_and_status_code: List[TestPlanGroupByTesterAndStatusCode] = Field(alias="countGroupByTesterAndStatusCode")
+    __properties: ClassVar[List[str]] = ["countGroupByStatus", "sumGroupByTester", "countGroupByTester", "countGroupByTestSuite", "countGroupByTesterAndStatus", "countGroupByStatusCode", "countGroupByTesterAndStatusCode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -111,6 +115,20 @@ class TestPointAnalyticResult(BaseModel):
                 if _item_count_group_by_tester_and_status:
                     _items.append(_item_count_group_by_tester_and_status.to_dict())
             _dict['countGroupByTesterAndStatus'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_status_code (list)
+        _items = []
+        if self.count_group_by_status_code:
+            for _item_count_group_by_status_code in self.count_group_by_status_code:
+                if _item_count_group_by_status_code:
+                    _items.append(_item_count_group_by_status_code.to_dict())
+            _dict['countGroupByStatusCode'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_tester_and_status_code (list)
+        _items = []
+        if self.count_group_by_tester_and_status_code:
+            for _item_count_group_by_tester_and_status_code in self.count_group_by_tester_and_status_code:
+                if _item_count_group_by_tester_and_status_code:
+                    _items.append(_item_count_group_by_tester_and_status_code.to_dict())
+            _dict['countGroupByTesterAndStatusCode'] = _items
         return _dict
 
     @classmethod
@@ -127,7 +145,9 @@ class TestPointAnalyticResult(BaseModel):
             "sumGroupByTester": [TestPlanGroupByTester.from_dict(_item) for _item in obj["sumGroupByTester"]] if obj.get("sumGroupByTester") is not None else None,
             "countGroupByTester": [TestPlanGroupByTester.from_dict(_item) for _item in obj["countGroupByTester"]] if obj.get("countGroupByTester") is not None else None,
             "countGroupByTestSuite": [TestPlanGroupByTestSuite.from_dict(_item) for _item in obj["countGroupByTestSuite"]] if obj.get("countGroupByTestSuite") is not None else None,
-            "countGroupByTesterAndStatus": [TestPlanGroupByTesterAndStatus.from_dict(_item) for _item in obj["countGroupByTesterAndStatus"]] if obj.get("countGroupByTesterAndStatus") is not None else None
+            "countGroupByTesterAndStatus": [TestPlanGroupByTesterAndStatus.from_dict(_item) for _item in obj["countGroupByTesterAndStatus"]] if obj.get("countGroupByTesterAndStatus") is not None else None,
+            "countGroupByStatusCode": [TestPlanGroupByStatusCode.from_dict(_item) for _item in obj["countGroupByStatusCode"]] if obj.get("countGroupByStatusCode") is not None else None,
+            "countGroupByTesterAndStatusCode": [TestPlanGroupByTesterAndStatusCode.from_dict(_item) for _item in obj["countGroupByTesterAndStatusCode"]] if obj.get("countGroupByTesterAndStatusCode") is not None else None
         })
         return _obj
 

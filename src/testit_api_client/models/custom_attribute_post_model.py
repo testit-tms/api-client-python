@@ -29,7 +29,7 @@ class CustomAttributePostModel(BaseModel):
     """
     CustomAttributePostModel
     """ # noqa: E501
-    options: Optional[List[CustomAttributeOptionPostModel]] = Field(default=None, description="Collection of attribute options     Available for attributes of type `options` and `multiple options` only")
+    options: Optional[List[CustomAttributeOptionPostModel]] = Field(default=None, description="Collection of attribute options   Available for attributes of type `options` and `multiple options` only")
     type: CustomAttributeTypesEnum = Field(description="Type of attribute")
     name: Annotated[str, Field(min_length=0, strict=True, max_length=255)] = Field(description="Name of the attribute")
     is_enabled: StrictBool = Field(description="Indicates if the attribute is enabled", alias="isEnabled")

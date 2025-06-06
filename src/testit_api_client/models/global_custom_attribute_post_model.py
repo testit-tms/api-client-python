@@ -32,7 +32,7 @@ class GlobalCustomAttributePostModel(BaseModel):
     name: Annotated[str, Field(min_length=0, strict=True, max_length=255)] = Field(description="Name of attribute")
     is_enabled: Optional[StrictBool] = Field(default=None, description="Indicates whether the attribute is available", alias="isEnabled")
     is_required: Optional[StrictBool] = Field(default=None, description="Indicates whether the attribute value is mandatory to specify", alias="isRequired")
-    options: Optional[List[CustomAttributeOptionPostModel]] = Field(default=None, description="Collection of attribute options     Available for attributes of type `options` and `multiple options` only")
+    options: Optional[List[CustomAttributeOptionPostModel]] = Field(default=None, description="Collection of attribute options   Available for attributes of type `options` and `multiple options` only")
     type: CustomAttributeTypesEnum = Field(description="Type of attribute")
     __properties: ClassVar[List[str]] = ["name", "isEnabled", "isRequired", "options", "type"]
 

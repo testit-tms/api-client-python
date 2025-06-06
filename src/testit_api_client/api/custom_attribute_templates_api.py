@@ -342,7 +342,7 @@ class CustomAttributeTemplatesApi:
     ) -> None:
         """Exclude CustomAttributes from CustomAttributeTemplate
 
-         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System delete attributes from attributes tempalte
+         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte
 
         :param id: Attribute template internal (UUID) identifier (required)
         :type id: str
@@ -419,7 +419,7 @@ class CustomAttributeTemplatesApi:
     ) -> ApiResponse[None]:
         """Exclude CustomAttributes from CustomAttributeTemplate
 
-         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System delete attributes from attributes tempalte
+         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte
 
         :param id: Attribute template internal (UUID) identifier (required)
         :type id: str
@@ -496,7 +496,7 @@ class CustomAttributeTemplatesApi:
     ) -> RESTResponseType:
         """Exclude CustomAttributes from CustomAttributeTemplate
 
-         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System delete attributes from attributes tempalte
+         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte
 
         :param id: Attribute template internal (UUID) identifier (required)
         :type id: str
@@ -650,7 +650,7 @@ class CustomAttributeTemplatesApi:
     ) -> None:
         """Include CustomAttributes to CustomAttributeTemplate
 
-         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System add attributes to attributes tempalte
+         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte
 
         :param id: Attribute template internal (UUID) identifier (required)
         :type id: str
@@ -727,7 +727,7 @@ class CustomAttributeTemplatesApi:
     ) -> ApiResponse[None]:
         """Include CustomAttributes to CustomAttributeTemplate
 
-         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System add attributes to attributes tempalte
+         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte
 
         :param id: Attribute template internal (UUID) identifier (required)
         :type id: str
@@ -804,7 +804,7 @@ class CustomAttributeTemplatesApi:
     ) -> RESTResponseType:
         """Include CustomAttributes to CustomAttributeTemplate
 
-         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System add attributes to attributes tempalte
+         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte
 
         :param id: Attribute template internal (UUID) identifier (required)
         :type id: str
@@ -957,7 +957,7 @@ class CustomAttributeTemplatesApi:
     ) -> None:
         """Delete CustomAttributeTemplate
 
-         Use case   User sets attribute template internal identifier   User runs method execution   System search and delete attribute template   System returns no content response
+         Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response
 
         :param id: Attribute template internal (UUID) identifier (required)
         :type id: str
@@ -1030,7 +1030,7 @@ class CustomAttributeTemplatesApi:
     ) -> ApiResponse[None]:
         """Delete CustomAttributeTemplate
 
-         Use case   User sets attribute template internal identifier   User runs method execution   System search and delete attribute template   System returns no content response
+         Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response
 
         :param id: Attribute template internal (UUID) identifier (required)
         :type id: str
@@ -1103,7 +1103,7 @@ class CustomAttributeTemplatesApi:
     ) -> RESTResponseType:
         """Delete CustomAttributeTemplate
 
-         Use case   User sets attribute template internal identifier   User runs method execution   System search and delete attribute template   System returns no content response
+         Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response
 
         :param id: Attribute template internal (UUID) identifier (required)
         :type id: str
@@ -1236,7 +1236,7 @@ class CustomAttributeTemplatesApi:
     ) -> CustomAttributeTemplateModel:
         """Get CustomAttributeTemplate by ID
 
-         Use case   User sets attribute template internal identifier    User runs method execution   System return attribute template (listed in response example)
+         Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)
 
         :param id: CustomAttributeTemplate internal (UUID) identifier (required)
         :type id: str
@@ -1309,7 +1309,7 @@ class CustomAttributeTemplatesApi:
     ) -> ApiResponse[CustomAttributeTemplateModel]:
         """Get CustomAttributeTemplate by ID
 
-         Use case   User sets attribute template internal identifier    User runs method execution   System return attribute template (listed in response example)
+         Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)
 
         :param id: CustomAttributeTemplate internal (UUID) identifier (required)
         :type id: str
@@ -1382,7 +1382,7 @@ class CustomAttributeTemplatesApi:
     ) -> RESTResponseType:
         """Get CustomAttributeTemplate by ID
 
-         Use case   User sets attribute template internal identifier    User runs method execution   System return attribute template (listed in response example)
+         Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)
 
         :param id: CustomAttributeTemplate internal (UUID) identifier (required)
         :type id: str
@@ -1515,7 +1515,7 @@ class CustomAttributeTemplatesApi:
     ) -> CustomAttributeTemplateModel:
         """Get CustomAttributeTemplate by name
 
-         Use case   User sets attribute template name   User runs method execution   System search and return list of attribute templates (listed in response example)
+         Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)
 
         :param name: CustomAttributeTemplate name for search (required)
         :type name: str
@@ -1588,7 +1588,7 @@ class CustomAttributeTemplatesApi:
     ) -> ApiResponse[CustomAttributeTemplateModel]:
         """Get CustomAttributeTemplate by name
 
-         Use case   User sets attribute template name   User runs method execution   System search and return list of attribute templates (listed in response example)
+         Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)
 
         :param name: CustomAttributeTemplate name for search (required)
         :type name: str
@@ -1661,7 +1661,7 @@ class CustomAttributeTemplatesApi:
     ) -> RESTResponseType:
         """Get CustomAttributeTemplate by name
 
-         Use case   User sets attribute template name   User runs method execution   System search and return list of attribute templates (listed in response example)
+         Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)
 
         :param name: CustomAttributeTemplate name for search (required)
         :type name: str
@@ -1794,7 +1794,7 @@ class CustomAttributeTemplatesApi:
     ) -> CustomAttributeTemplateModel:
         """Create CustomAttributeTemplate
 
-         Use case   User sets attribute template parameters (listed in request example)   User runs method execution   System creates attribute template   System returns attribute template model (example listed in response parameters)
+         Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)
 
         :param custom_attribute_template_post_model:
         :type custom_attribute_template_post_model: CustomAttributeTemplatePostModel
@@ -1867,7 +1867,7 @@ class CustomAttributeTemplatesApi:
     ) -> ApiResponse[CustomAttributeTemplateModel]:
         """Create CustomAttributeTemplate
 
-         Use case   User sets attribute template parameters (listed in request example)   User runs method execution   System creates attribute template   System returns attribute template model (example listed in response parameters)
+         Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)
 
         :param custom_attribute_template_post_model:
         :type custom_attribute_template_post_model: CustomAttributeTemplatePostModel
@@ -1940,7 +1940,7 @@ class CustomAttributeTemplatesApi:
     ) -> RESTResponseType:
         """Create CustomAttributeTemplate
 
-         Use case   User sets attribute template parameters (listed in request example)   User runs method execution   System creates attribute template   System returns attribute template model (example listed in response parameters)
+         Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)
 
         :param custom_attribute_template_post_model:
         :type custom_attribute_template_post_model: CustomAttributeTemplatePostModel
@@ -2380,7 +2380,7 @@ class CustomAttributeTemplatesApi:
     ) -> List[SearchCustomAttributeTemplateGetModel]:
         """Search CustomAttributeTemplates
 
-         Use case   User sets search params model (listed in request example)   User runs method execution   System return attribute templates (listed in response example)
+         Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -2473,7 +2473,7 @@ class CustomAttributeTemplatesApi:
     ) -> ApiResponse[List[SearchCustomAttributeTemplateGetModel]]:
         """Search CustomAttributeTemplates
 
-         Use case   User sets search params model (listed in request example)   User runs method execution   System return attribute templates (listed in response example)
+         Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -2566,7 +2566,7 @@ class CustomAttributeTemplatesApi:
     ) -> RESTResponseType:
         """Search CustomAttributeTemplates
 
-         Use case   User sets search params model (listed in request example)   User runs method execution   System return attribute templates (listed in response example)
+         Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int

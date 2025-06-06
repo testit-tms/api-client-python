@@ -32,7 +32,7 @@ class UpdateEmptyTestRunApiModel(BaseModel):
     id: StrictStr = Field(description="Test run unique identifier")
     name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Test run name")
     description: Optional[StrictStr] = Field(default=None, description="Test run description")
-    launch_source: Optional[StrictStr] = Field(default=None, description="Test run launch source                Once launch source is specified it cannot be updated", alias="launchSource")
+    launch_source: Optional[StrictStr] = Field(default=None, description="Test run launch source              Once launch source is specified it cannot be updated", alias="launchSource")
     attachments: Optional[List[AssignAttachmentApiModel]] = Field(default=None, description="Collection of attachments related to the test run")
     links: Optional[List[UpdateLinkApiModel]] = Field(default=None, description="Collection of links related to the test run")
     __properties: ClassVar[List[str]] = ["id", "name", "description", "launchSource", "attachments", "links"]

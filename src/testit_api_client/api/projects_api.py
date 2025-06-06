@@ -26,9 +26,11 @@ from testit_api_client.models.custom_attribute_test_plan_project_relation_put_mo
 from testit_api_client.models.demo_project_api_result import DemoProjectApiResult
 from testit_api_client.models.failure_class_model import FailureClassModel
 from testit_api_client.models.filter_model import FilterModel
+from testit_api_client.models.get_short_projects_api_model import GetShortProjectsApiModel
 from testit_api_client.models.operation import Operation
 from testit_api_client.models.project_model import ProjectModel
 from testit_api_client.models.project_select_model import ProjectSelectModel
+from testit_api_client.models.project_short_api_result_reply import ProjectShortApiResultReply
 from testit_api_client.models.project_short_model import ProjectShortModel
 from testit_api_client.models.projects_filter_model import ProjectsFilterModel
 from testit_api_client.models.public_test_run_model import PublicTestRunModel
@@ -75,7 +77,7 @@ class ProjectsApi:
     ) -> None:
         """Add global attributes to project
 
-         Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
+         Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -152,7 +154,7 @@ class ProjectsApi:
     ) -> ApiResponse[None]:
         """Add global attributes to project
 
-         Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
+         Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -229,7 +231,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Add global attributes to project
 
-         Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
+         Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -1516,7 +1518,7 @@ class ProjectsApi:
     ) -> List[FilterModel]:
         """Get Project filters
 
-         Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
+         Use case  User sets project internal or global identifier  User runs method execution  System returns project filters
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -1589,7 +1591,7 @@ class ProjectsApi:
     ) -> ApiResponse[List[FilterModel]]:
         """Get Project filters
 
-         Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
+         Use case  User sets project internal or global identifier  User runs method execution  System returns project filters
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -1662,7 +1664,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Get Project filters
 
-         Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
+         Use case  User sets project internal or global identifier  User runs method execution  System returns project filters
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -2656,7 +2658,7 @@ class ProjectsApi:
     ) -> None:
         """(Deprecated) Delete attribute from project's test plans
 
-         Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -2734,7 +2736,7 @@ class ProjectsApi:
     ) -> ApiResponse[None]:
         """(Deprecated) Delete attribute from project's test plans
 
-         Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -2812,7 +2814,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """(Deprecated) Delete attribute from project's test plans
 
-         Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -2953,7 +2955,7 @@ class ProjectsApi:
     ) -> None:
         """(Deprecated) Update attribute of project's test plans
 
-         Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3031,7 +3033,7 @@ class ProjectsApi:
     ) -> ApiResponse[None]:
         """(Deprecated) Update attribute of project's test plans
 
-         Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3109,7 +3111,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """(Deprecated) Update attribute of project's test plans
 
-         Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3262,7 +3264,7 @@ class ProjectsApi:
     ) -> List[PublicTestRunModel]:
         """Get active Project TestRuns
 
-         Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
+         Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3335,7 +3337,7 @@ class ProjectsApi:
     ) -> ApiResponse[List[PublicTestRunModel]]:
         """Get active Project TestRuns
 
-         Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
+         Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3408,7 +3410,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Get active Project TestRuns
 
-         Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
+         Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3555,7 +3557,7 @@ class ProjectsApi:
     ) -> List[TestRunApiResult]:
         """Get Project TestRuns full models
 
-         Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
+         Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3684,7 +3686,7 @@ class ProjectsApi:
     ) -> ApiResponse[List[TestRunApiResult]]:
         """Get Project TestRuns full models
 
-         Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
+         Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -3813,7 +3815,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Get Project TestRuns full models
 
-         Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
+         Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -5286,6 +5288,298 @@ class ProjectsApi:
 
 
     @validate_call
+    def api_v2_projects_shorts_post(
+        self,
+        get_short_projects_api_model: Optional[GetShortProjectsApiModel] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ProjectShortApiResultReply:
+        """Get projects short models
+
+         Use case  User sets query params  User runs method execution  System return projects short models
+
+        :param get_short_projects_api_model:
+        :type get_short_projects_api_model: GetShortProjectsApiModel
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._api_v2_projects_shorts_post_serialize(
+            get_short_projects_api_model=get_short_projects_api_model,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ProjectShortApiResultReply",
+            '400': "ValidationProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def api_v2_projects_shorts_post_with_http_info(
+        self,
+        get_short_projects_api_model: Optional[GetShortProjectsApiModel] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ProjectShortApiResultReply]:
+        """Get projects short models
+
+         Use case  User sets query params  User runs method execution  System return projects short models
+
+        :param get_short_projects_api_model:
+        :type get_short_projects_api_model: GetShortProjectsApiModel
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._api_v2_projects_shorts_post_serialize(
+            get_short_projects_api_model=get_short_projects_api_model,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ProjectShortApiResultReply",
+            '400': "ValidationProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def api_v2_projects_shorts_post_without_preload_content(
+        self,
+        get_short_projects_api_model: Optional[GetShortProjectsApiModel] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get projects short models
+
+         Use case  User sets query params  User runs method execution  System return projects short models
+
+        :param get_short_projects_api_model:
+        :type get_short_projects_api_model: GetShortProjectsApiModel
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._api_v2_projects_shorts_post_serialize(
+            get_short_projects_api_model=get_short_projects_api_model,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ProjectShortApiResultReply",
+            '400': "ValidationProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _api_v2_projects_shorts_post_serialize(
+        self,
+        get_short_projects_api_model,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if get_short_projects_api_model is not None:
+            _body_params = get_short_projects_api_model
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Bearer or PrivateToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/projects/shorts',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def create_project(
         self,
         create_project_api_model: Optional[CreateProjectApiModel] = None,
@@ -5304,7 +5598,7 @@ class ProjectsApi:
     ) -> ProjectModel:
         """Create project
 
-         Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
+         Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
 
         :param create_project_api_model:
         :type create_project_api_model: CreateProjectApiModel
@@ -5377,7 +5671,7 @@ class ProjectsApi:
     ) -> ApiResponse[ProjectModel]:
         """Create project
 
-         Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
+         Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
 
         :param create_project_api_model:
         :type create_project_api_model: CreateProjectApiModel
@@ -5450,7 +5744,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Create project
 
-         Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
+         Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
 
         :param create_project_api_model:
         :type create_project_api_model: CreateProjectApiModel
@@ -5878,7 +6172,7 @@ class ProjectsApi:
     ) -> List[ProjectShortModel]:
         """(Deprecated) Get all projects
 
-         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
+         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)
 
         :param is_deleted: If result must consist of only actual/deleted parameters
         :type is_deleted: bool
@@ -5976,7 +6270,7 @@ class ProjectsApi:
     ) -> ApiResponse[List[ProjectShortModel]]:
         """(Deprecated) Get all projects
 
-         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
+         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)
 
         :param is_deleted: If result must consist of only actual/deleted parameters
         :type is_deleted: bool
@@ -6074,7 +6368,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """(Deprecated) Get all projects
 
-         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
+         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)
 
         :param is_deleted: If result must consist of only actual/deleted parameters
         :type is_deleted: bool
@@ -6258,7 +6552,7 @@ class ProjectsApi:
     ) -> List[AutoTestNamespaceModel]:
         """Get namespaces of autotests in project
 
-         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -6331,7 +6625,7 @@ class ProjectsApi:
     ) -> ApiResponse[List[AutoTestNamespaceModel]]:
         """Get namespaces of autotests in project
 
-         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -6404,7 +6698,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Get namespaces of autotests in project
 
-         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -6537,7 +6831,7 @@ class ProjectsApi:
     ) -> ProjectModel:
         """Get project by ID
 
-         Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -6610,7 +6904,7 @@ class ProjectsApi:
     ) -> ApiResponse[ProjectModel]:
         """Get project by ID
 
-         Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -6683,7 +6977,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Get project by ID
 
-         Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -6817,7 +7111,7 @@ class ProjectsApi:
     ) -> List[TestPlanModel]:
         """Get project test plans
 
-         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
+         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -6894,7 +7188,7 @@ class ProjectsApi:
     ) -> ApiResponse[List[TestPlanModel]]:
         """Get project test plans
 
-         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
+         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -6971,7 +7265,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Get project test plans
 
-         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
+         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -7124,7 +7418,7 @@ class ProjectsApi:
     ) -> List[TestRunV2ApiResult]:
         """Get project test runs
 
-         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
+         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -7245,7 +7539,7 @@ class ProjectsApi:
     ) -> ApiResponse[List[TestRunV2ApiResult]]:
         """Get project test runs
 
-         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
+         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -7366,7 +7660,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Get project test runs
 
-         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
+         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)
 
         :param id: Project internal (UUID) or global (integer) identifier (required)
         :type id: str
@@ -7613,7 +7907,7 @@ class ProjectsApi:
     ) -> None:
         """Update project
 
-         Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
+         Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)
 
         :param update_project_api_model:
         :type update_project_api_model: UpdateProjectApiModel
@@ -7686,7 +7980,7 @@ class ProjectsApi:
     ) -> ApiResponse[None]:
         """Update project
 
-         Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
+         Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)
 
         :param update_project_api_model:
         :type update_project_api_model: UpdateProjectApiModel
@@ -7759,7 +8053,7 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """Update project
 
-         Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
+         Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)
 
         :param update_project_api_model:
         :type update_project_api_model: UpdateProjectApiModel
