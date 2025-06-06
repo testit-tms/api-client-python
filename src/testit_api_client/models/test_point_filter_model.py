@@ -24,6 +24,7 @@ from testit_api_client.models.date_time_range_selector_model import DateTimeRang
 from testit_api_client.models.int64_range_selector_model import Int64RangeSelectorModel
 from testit_api_client.models.test_point_status import TestPointStatus
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
+from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -39,6 +40,7 @@ class TestPointFilterModel(BaseModel):
     statuses: Optional[List[TestPointStatus]] = Field(default=None, description="Specifies a test point statuses to search for")
     status_codes: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test point status codes to search for", alias="statusCodes")
     priorities: Optional[List[WorkItemPriorityModel]] = Field(default=None, description="Specifies a test point priorities to search for")
+    source_types: Optional[List[WorkItemSourceTypeModel]] = Field(default=None, description="Specifies a test point source types to search for", alias="sourceTypes")
     is_automated: Optional[StrictBool] = Field(default=None, description="Specifies a test point automation status to search for", alias="isAutomated")
     name: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=255)]] = Field(default=None, description="Specifies a test point name to search for")
     configuration_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test point configuration IDs to search for", alias="configurationIds")
@@ -55,7 +57,7 @@ class TestPointFilterModel(BaseModel):
     work_item_created_by_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a work item creator IDs to search for", alias="workItemCreatedByIds")
     work_item_modified_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, description="Specifies a work item range of last modification date to search for", alias="workItemModifiedDate")
     work_item_modified_by_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a work item last editor IDs to search for", alias="workItemModifiedByIds")
-    __properties: ClassVar[List[str]] = ["testPlanIds", "testSuiteIds", "workItemGlobalIds", "workItemMedianDuration", "workItemIsDeleted", "statuses", "statusCodes", "priorities", "isAutomated", "name", "configurationIds", "testerIds", "duration", "sectionIds", "createdDate", "createdByIds", "modifiedDate", "modifiedByIds", "tags", "attributes", "workItemCreatedDate", "workItemCreatedByIds", "workItemModifiedDate", "workItemModifiedByIds"]
+    __properties: ClassVar[List[str]] = ["testPlanIds", "testSuiteIds", "workItemGlobalIds", "workItemMedianDuration", "workItemIsDeleted", "statuses", "statusCodes", "priorities", "sourceTypes", "isAutomated", "name", "configurationIds", "testerIds", "duration", "sectionIds", "createdDate", "createdByIds", "modifiedDate", "modifiedByIds", "tags", "attributes", "workItemCreatedDate", "workItemCreatedByIds", "workItemModifiedDate", "workItemModifiedByIds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -153,6 +155,11 @@ class TestPointFilterModel(BaseModel):
         # and model_fields_set contains the field
         if self.priorities is None and "priorities" in self.model_fields_set:
             _dict['priorities'] = None
+
+        # set to None if source_types (nullable) is None
+        # and model_fields_set contains the field
+        if self.source_types is None and "source_types" in self.model_fields_set:
+            _dict['sourceTypes'] = None
 
         # set to None if is_automated (nullable) is None
         # and model_fields_set contains the field
@@ -254,6 +261,7 @@ class TestPointFilterModel(BaseModel):
             "statuses": obj.get("statuses"),
             "statusCodes": obj.get("statusCodes"),
             "priorities": obj.get("priorities"),
+            "sourceTypes": obj.get("sourceTypes"),
             "isAutomated": obj.get("isAutomated"),
             "name": obj.get("name"),
             "configurationIds": obj.get("configurationIds"),

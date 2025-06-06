@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | 
-**type** | [**TestStatusType**](TestStatusType.md) |  | 
+**type** | [**TestStatusApiType**](TestStatusApiType.md) | Collection of possible status types | 
 **is_system** | **bool** |  | 
 **code** | **str** |  | 
 **description** | **str** |  | [optional] 

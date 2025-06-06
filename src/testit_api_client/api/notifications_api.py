@@ -59,7 +59,7 @@ class NotificationsApi:
     ) -> int:
         """Get unread Notifications total in last 7 days
 
-         Use case   User runs method execution   System returns unread notifications total (listed in the response example)
+         Use case  User runs method execution  System returns unread notifications total (listed in the response example)
 
         :param is_read:
         :type is_read: bool
@@ -132,7 +132,7 @@ class NotificationsApi:
     ) -> ApiResponse[int]:
         """Get unread Notifications total in last 7 days
 
-         Use case   User runs method execution   System returns unread notifications total (listed in the response example)
+         Use case  User runs method execution  System returns unread notifications total (listed in the response example)
 
         :param is_read:
         :type is_read: bool
@@ -205,7 +205,7 @@ class NotificationsApi:
     ) -> RESTResponseType:
         """Get unread Notifications total in last 7 days
 
-         Use case   User runs method execution   System returns unread notifications total (listed in the response example)
+         Use case  User runs method execution  System returns unread notifications total (listed in the response example)
 
         :param is_read:
         :type is_read: bool
@@ -345,7 +345,7 @@ class NotificationsApi:
     ) -> List[NotificationModel]:
         """Get all Notifications for current User
 
-         Use case   User runs method execution   System returns notifications (listed in the response example)
+         Use case  User runs method execution  System returns notifications (listed in the response example)
 
         :param notification_type:
         :type notification_type: NotificationTypeModel
@@ -438,7 +438,7 @@ class NotificationsApi:
     ) -> ApiResponse[List[NotificationModel]]:
         """Get all Notifications for current User
 
-         Use case   User runs method execution   System returns notifications (listed in the response example)
+         Use case  User runs method execution  System returns notifications (listed in the response example)
 
         :param notification_type:
         :type notification_type: NotificationTypeModel
@@ -531,7 +531,7 @@ class NotificationsApi:
     ) -> RESTResponseType:
         """Get all Notifications for current User
 
-         Use case   User runs method execution   System returns notifications (listed in the response example)
+         Use case  User runs method execution  System returns notifications (listed in the response example)
 
         :param notification_type:
         :type notification_type: NotificationTypeModel
@@ -706,7 +706,7 @@ class NotificationsApi:
     ) -> None:
         """Set Notification as read
 
-         Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
+         Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
 
         :param id: (required)
         :type id: str
@@ -780,7 +780,7 @@ class NotificationsApi:
     ) -> ApiResponse[None]:
         """Set Notification as read
 
-         Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
+         Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
 
         :param id: (required)
         :type id: str
@@ -854,7 +854,7 @@ class NotificationsApi:
     ) -> RESTResponseType:
         """Set Notification as read
 
-         Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
+         Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
 
         :param id: (required)
         :type id: str
@@ -987,7 +987,7 @@ class NotificationsApi:
     ) -> None:
         """Set all Notifications as read
 
-         Use case   User runs method execution   System set all notifications as read
+         Use case  User runs method execution  System set all notifications as read
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1057,7 +1057,7 @@ class NotificationsApi:
     ) -> ApiResponse[None]:
         """Set all Notifications as read
 
-         Use case   User runs method execution   System set all notifications as read
+         Use case  User runs method execution  System set all notifications as read
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1127,7 +1127,7 @@ class NotificationsApi:
     ) -> RESTResponseType:
         """Set all Notifications as read
 
-         Use case   User runs method execution   System set all notifications as read
+         Use case  User runs method execution  System set all notifications as read
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1260,7 +1260,7 @@ class NotificationsApi:
     ) -> List[NotificationModel]:
         """Search Notifications for current User
 
-         Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
+         Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -1353,7 +1353,7 @@ class NotificationsApi:
     ) -> ApiResponse[List[NotificationModel]]:
         """Search Notifications for current User
 
-         Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
+         Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
@@ -1446,7 +1446,7 @@ class NotificationsApi:
     ) -> RESTResponseType:
         """Search Notifications for current User
 
-         Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
+         Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
 
         :param skip: Amount of items to be skipped (offset)
         :type skip: int

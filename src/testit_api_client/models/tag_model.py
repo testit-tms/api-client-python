@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,13 +27,8 @@ class TagModel(BaseModel):
     """
     TagModel
     """ # noqa: E501
-    id: StrictStr
-    name: Annotated[str, Field(min_length=1, strict=True)]
-    created_date: datetime = Field(alias="createdDate")
-    modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
-    created_by_id: StrictStr = Field(alias="createdById")
-    modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
-    __properties: ClassVar[List[str]] = ["id", "name", "createdDate", "modifiedDate", "createdById", "modifiedById"]
+    name: Annotated[str, Field(min_length=0, strict=True, max_length=255)]
+    __properties: ClassVar[List[str]] = ["name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,16 +69,6 @@ class TagModel(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
-            _dict['modifiedDate'] = None
-
-        # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
-            _dict['modifiedById'] = None
-
         return _dict
 
     @classmethod
@@ -97,12 +81,7 @@ class TagModel(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "createdDate": obj.get("createdDate"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedById": obj.get("modifiedById")
+            "name": obj.get("name")
         })
         return _obj
 

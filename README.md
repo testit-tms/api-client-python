@@ -23,7 +23,7 @@
 | 5.2     | 4.2.0         |
 | 5.2.2   | 5.1.2.post522 |
 | 5.3.0   | 6.0.1.post530 |
-| Cloud   | 6.0.0         |
+| Cloud   | 6.1.0         |
 
 ## Installation & Usage
 ### pip install
@@ -198,6 +198,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**api_v2_projects_purge_bulk_post**](docs/ProjectsApi.md#api_v2_projects_purge_bulk_post) | **POST** /api/v2/projects/purge/bulk | Purge multiple projects
 *ProjectsApi* | [**api_v2_projects_restore_bulk_post**](docs/ProjectsApi.md#api_v2_projects_restore_bulk_post) | **POST** /api/v2/projects/restore/bulk | Restore multiple projects
 *ProjectsApi* | [**api_v2_projects_search_post**](docs/ProjectsApi.md#api_v2_projects_search_post) | **POST** /api/v2/projects/search | Search for projects
+*ProjectsApi* | [**api_v2_projects_shorts_post**](docs/ProjectsApi.md#api_v2_projects_shorts_post) | **POST** /api/v2/projects/shorts | Get projects short models
 *ProjectsApi* | [**create_project**](docs/ProjectsApi.md#create_project) | **POST** /api/v2/projects | Create project
 *ProjectsApi* | [**delete_project_auto_tests**](docs/ProjectsApi.md#delete_project_auto_tests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete all autotests from project
 *ProjectsApi* | [**get_all_projects**](docs/ProjectsApi.md#get_all_projects) | **GET** /api/v2/projects | Get all projects
@@ -216,7 +217,6 @@ Class | Method | HTTP request | Description
 *SectionsApi* | [**rename**](docs/SectionsApi.md#rename) | **POST** /api/v2/sections/rename | Rename section
 *SectionsApi* | [**update_section**](docs/SectionsApi.md#update_section) | **PUT** /api/v2/sections | Update section
 *TagsApi* | [**api_v2_tags_delete**](docs/TagsApi.md#api_v2_tags_delete) | **DELETE** /api/v2/tags | Delete tags
-*TagsApi* | [**api_v2_tags_get**](docs/TagsApi.md#api_v2_tags_get) | **GET** /api/v2/tags | Get all Tags
 *TagsApi* | [**api_v2_tags_id_delete**](docs/TagsApi.md#api_v2_tags_id_delete) | **DELETE** /api/v2/tags/{id} | Delete tag
 *TagsApi* | [**api_v2_tags_post**](docs/TagsApi.md#api_v2_tags_post) | **POST** /api/v2/tags | Create tag
 *TagsApi* | [**api_v2_tags_put**](docs/TagsApi.md#api_v2_tags_put) | **PUT** /api/v2/tags | Update tag
@@ -296,13 +296,6 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**start_test_run**](docs/TestRunsApi.md#start_test_run) | **POST** /api/v2/testRuns/{id}/start | Start TestRun
 *TestRunsApi* | [**stop_test_run**](docs/TestRunsApi.md#stop_test_run) | **POST** /api/v2/testRuns/{id}/stop | Stop TestRun
 *TestRunsApi* | [**update_empty**](docs/TestRunsApi.md#update_empty) | **PUT** /api/v2/testRuns | Update empty TestRun
-*TestStatusesApi* | [**api_v2_test_statuses_code_code_exists_get**](docs/TestStatusesApi.md#api_v2_test_statuses_code_code_exists_get) | **GET** /api/v2/testStatuses/code/{code}/exists | 
-*TestStatusesApi* | [**api_v2_test_statuses_get**](docs/TestStatusesApi.md#api_v2_test_statuses_get) | **GET** /api/v2/testStatuses | 
-*TestStatusesApi* | [**api_v2_test_statuses_id_delete**](docs/TestStatusesApi.md#api_v2_test_statuses_id_delete) | **DELETE** /api/v2/testStatuses/{id} | 
-*TestStatusesApi* | [**api_v2_test_statuses_id_get**](docs/TestStatusesApi.md#api_v2_test_statuses_id_get) | **GET** /api/v2/testStatuses/{id} | 
-*TestStatusesApi* | [**api_v2_test_statuses_name_name_exists_get**](docs/TestStatusesApi.md#api_v2_test_statuses_name_name_exists_get) | **GET** /api/v2/testStatuses/name/{name}/exists | 
-*TestStatusesApi* | [**api_v2_test_statuses_post**](docs/TestStatusesApi.md#api_v2_test_statuses_post) | **POST** /api/v2/testStatuses | 
-*TestStatusesApi* | [**api_v2_test_statuses_put**](docs/TestStatusesApi.md#api_v2_test_statuses_put) | **PUT** /api/v2/testStatuses | 
 *TestSuitesApi* | [**add_test_points_to_test_suite**](docs/TestSuitesApi.md#add_test_points_to_test_suite) | **POST** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_patch**](docs/TestSuitesApi.md#api_v2_test_suites_id_patch) | **PATCH** /api/v2/testSuites/{id} | Patch test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_refresh_post**](docs/TestSuitesApi.md#api_v2_test_suites_id_refresh_post) | **POST** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method

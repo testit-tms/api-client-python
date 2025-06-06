@@ -3019,7 +3019,7 @@ class ConfigurationsApi:
     ) -> ConfigurationModel:
         """Create Configuration
 
-         Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)
+         Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
 
         :param configuration_post_model:
         :type configuration_post_model: ConfigurationPostModel
@@ -3092,7 +3092,7 @@ class ConfigurationsApi:
     ) -> ApiResponse[ConfigurationModel]:
         """Create Configuration
 
-         Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)
+         Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
 
         :param configuration_post_model:
         :type configuration_post_model: ConfigurationPostModel
@@ -3165,7 +3165,7 @@ class ConfigurationsApi:
     ) -> RESTResponseType:
         """Create Configuration
 
-         Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)
+         Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
 
         :param configuration_post_model:
         :type configuration_post_model: ConfigurationPostModel
@@ -3311,7 +3311,7 @@ class ConfigurationsApi:
     ) -> ConfigurationModel:
         """Get configuration by internal or global ID
 
-         Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration
+         Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
 
         :param id: Configuration internal (guid format) or global (integer format) identifier (required)
         :type id: str
@@ -3384,7 +3384,7 @@ class ConfigurationsApi:
     ) -> ApiResponse[ConfigurationModel]:
         """Get configuration by internal or global ID
 
-         Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration
+         Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
 
         :param id: Configuration internal (guid format) or global (integer format) identifier (required)
         :type id: str
@@ -3457,7 +3457,7 @@ class ConfigurationsApi:
     ) -> RESTResponseType:
         """Get configuration by internal or global ID
 
-         Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration
+         Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
 
         :param id: Configuration internal (guid format) or global (integer format) identifier (required)
         :type id: str

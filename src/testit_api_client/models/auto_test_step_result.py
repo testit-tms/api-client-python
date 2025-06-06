@@ -38,7 +38,7 @@ class AutoTestStepResult(BaseModel):
     duration: Optional[Annotated[int, Field(le=43200000000, strict=True, ge=0)]] = Field(default=None, description="Expected or actual duration of the test run execution in milliseconds.")
     outcome: Optional[AvailableTestResultOutcome] = Field(default=None, description="Specifies the result of the autotest execution.")
     step_results: Optional[List[AutoTestStepResult]] = Field(default=None, description="Nested step results. The maximum nesting level is 15.", alias="stepResults")
-    attachments: Optional[List[AttachmentApiResult]] = Field(default=None, description="/// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>")
+    attachments: Optional[List[AttachmentApiResult]] = Field(default=None, description="/// <summary> Specifies an attachment GUID. Multiple values can be sent. </summary>")
     parameters: Optional[Dict[str, StrictStr]] = Field(default=None, description="\"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.")
     __properties: ClassVar[List[str]] = ["title", "description", "info", "startedOn", "completedOn", "duration", "outcome", "stepResults", "attachments", "parameters"]
 

@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from testit_api_client.models.tag_model import TagModel
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
+from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -42,12 +43,13 @@ class SharedStepReferenceModel(BaseModel):
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
     state: StrictStr
     priority: WorkItemPriorityModel
+    source_type: WorkItemSourceTypeModel = Field(alias="sourceType")
     is_deleted: StrictBool = Field(alias="isDeleted")
     version_id: StrictStr = Field(description="used for versioning changes in workitem", alias="versionId")
     is_automated: StrictBool = Field(alias="isAutomated")
     section_id: StrictStr = Field(alias="sectionId")
     tags: Optional[List[TagModel]] = None
-    __properties: ClassVar[List[str]] = ["id", "globalId", "name", "entityTypeName", "hasThisSharedStepAsStep", "hasThisSharedStepAsPrecondition", "hasThisSharedStepAsPostcondition", "createdById", "modifiedById", "createdDate", "modifiedDate", "state", "priority", "isDeleted", "versionId", "isAutomated", "sectionId", "tags"]
+    __properties: ClassVar[List[str]] = ["id", "globalId", "name", "entityTypeName", "hasThisSharedStepAsStep", "hasThisSharedStepAsPrecondition", "hasThisSharedStepAsPostcondition", "createdById", "modifiedById", "createdDate", "modifiedDate", "state", "priority", "sourceType", "isDeleted", "versionId", "isAutomated", "sectionId", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -140,6 +142,7 @@ class SharedStepReferenceModel(BaseModel):
             "modifiedDate": obj.get("modifiedDate"),
             "state": obj.get("state"),
             "priority": obj.get("priority"),
+            "sourceType": obj.get("sourceType"),
             "isDeleted": obj.get("isDeleted"),
             "versionId": obj.get("versionId"),
             "isAutomated": obj.get("isAutomated"),

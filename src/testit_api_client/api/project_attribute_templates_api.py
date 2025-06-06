@@ -449,7 +449,7 @@ class ProjectAttributeTemplatesApi:
     ) -> None:
         """Delete CustomAttributeTemplate from Project
 
-         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System delete attribute template from project
+         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -526,7 +526,7 @@ class ProjectAttributeTemplatesApi:
     ) -> ApiResponse[None]:
         """Delete CustomAttributeTemplate from Project
 
-         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System delete attribute template from project
+         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -603,7 +603,7 @@ class ProjectAttributeTemplatesApi:
     ) -> RESTResponseType:
         """Delete CustomAttributeTemplate from Project
 
-         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System delete attribute template from project
+         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -743,7 +743,7 @@ class ProjectAttributeTemplatesApi:
     ) -> None:
         """Add CustomAttributeTemplate to Project
 
-         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System add attribute template to project
+         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -820,7 +820,7 @@ class ProjectAttributeTemplatesApi:
     ) -> ApiResponse[None]:
         """Add CustomAttributeTemplate to Project
 
-         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System add attribute template to project
+         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -897,7 +897,7 @@ class ProjectAttributeTemplatesApi:
     ) -> RESTResponseType:
         """Add CustomAttributeTemplate to Project
 
-         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System add attribute template to project
+         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str

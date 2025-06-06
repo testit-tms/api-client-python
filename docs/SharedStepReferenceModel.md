@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **modified_date** | **datetime** |  | [optional] 
 **state** | **str** |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **is_deleted** | **bool** |  | 
 **version_id** | **str** | used for versioning changes in workitem | 
 **is_automated** | **bool** |  | 

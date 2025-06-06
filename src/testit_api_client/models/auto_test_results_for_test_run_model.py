@@ -37,7 +37,8 @@ class AutoTestResultsForTestRunModel(BaseModel):
     links: Optional[List[LinkPostModel]] = Field(default=None, description="Specifies the links in the autotest.")
     failure_reason_names: Optional[List[FailureCategoryModel]] = Field(default=None, description="Specifies the cause of autotest failure.", alias="failureReasonNames")
     auto_test_external_id: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Specifies the external ID of the autotest, which was specified when the test run was created.", alias="autoTestExternalId")
-    outcome: AvailableTestResultOutcome = Field(description="Specifies the result of the autotest execution.")
+    outcome: Optional[AvailableTestResultOutcome] = Field(default=None, description="Specifies the result of the autotest execution.")
+    status_code: Optional[StrictStr] = Field(default=None, description="Specifies the result of the autotest execution.", alias="statusCode")
     message: Optional[StrictStr] = Field(default=None, description="A comment for the result.")
     traces: Optional[StrictStr] = Field(default=None, description="An extended comment or a stack trace.")
     started_on: Optional[datetime] = Field(default=None, description="Test run start date.", alias="startedOn")
@@ -49,7 +50,7 @@ class AutoTestResultsForTestRunModel(BaseModel):
     step_results: Optional[List[AttachmentPutModelAutoTestStepResultsModel]] = Field(default=None, description="Specifies the results of individual steps.", alias="stepResults")
     setup_results: Optional[List[AttachmentPutModelAutoTestStepResultsModel]] = Field(default=None, description="Specifies the results of setup steps. For information on supported values, see the `stepResults` parameter above.", alias="setupResults")
     teardown_results: Optional[List[AttachmentPutModelAutoTestStepResultsModel]] = Field(default=None, description="Specifies the results of the teardown steps. For information on supported values, see the `stepResults` parameter above.", alias="teardownResults")
-    __properties: ClassVar[List[str]] = ["configurationId", "links", "failureReasonNames", "autoTestExternalId", "outcome", "message", "traces", "startedOn", "completedOn", "duration", "attachments", "parameters", "properties", "stepResults", "setupResults", "teardownResults"]
+    __properties: ClassVar[List[str]] = ["configurationId", "links", "failureReasonNames", "autoTestExternalId", "outcome", "statusCode", "message", "traces", "startedOn", "completedOn", "duration", "attachments", "parameters", "properties", "stepResults", "setupResults", "teardownResults"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -135,6 +136,16 @@ class AutoTestResultsForTestRunModel(BaseModel):
         if self.failure_reason_names is None and "failure_reason_names" in self.model_fields_set:
             _dict['failureReasonNames'] = None
 
+        # set to None if outcome (nullable) is None
+        # and model_fields_set contains the field
+        if self.outcome is None and "outcome" in self.model_fields_set:
+            _dict['outcome'] = None
+
+        # set to None if status_code (nullable) is None
+        # and model_fields_set contains the field
+        if self.status_code is None and "status_code" in self.model_fields_set:
+            _dict['statusCode'] = None
+
         # set to None if message (nullable) is None
         # and model_fields_set contains the field
         if self.message is None and "message" in self.model_fields_set:
@@ -207,6 +218,7 @@ class AutoTestResultsForTestRunModel(BaseModel):
             "failureReasonNames": obj.get("failureReasonNames"),
             "autoTestExternalId": obj.get("autoTestExternalId"),
             "outcome": obj.get("outcome"),
+            "statusCode": obj.get("statusCode"),
             "message": obj.get("message"),
             "traces": obj.get("traces"),
             "startedOn": obj.get("startedOn"),

@@ -1838,7 +1838,7 @@ class TestSuitesApi:
     ) -> None:
         """Delete TestSuite
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -1911,7 +1911,7 @@ class TestSuitesApi:
     ) -> ApiResponse[None]:
         """Delete TestSuite
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -1984,7 +1984,7 @@ class TestSuitesApi:
     ) -> RESTResponseType:
         """Delete TestSuite
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2117,7 +2117,7 @@ class TestSuitesApi:
     ) -> List[ConfigurationModel]:
         """Get Configurations By Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2190,7 +2190,7 @@ class TestSuitesApi:
     ) -> ApiResponse[List[ConfigurationModel]]:
         """Get Configurations By Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2263,7 +2263,7 @@ class TestSuitesApi:
     ) -> RESTResponseType:
         """Get Configurations By Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2396,7 +2396,7 @@ class TestSuitesApi:
     ) -> List[TestPointByTestSuiteModel]:
         """Get TestPoints By Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2469,7 +2469,7 @@ class TestSuitesApi:
     ) -> ApiResponse[List[TestPointByTestSuiteModel]]:
         """Get TestPoints By Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2542,7 +2542,7 @@ class TestSuitesApi:
     ) -> RESTResponseType:
         """Get TestPoints By Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2675,7 +2675,7 @@ class TestSuitesApi:
     ) -> List[TestResultV2ShortModel]:
         """Get TestResults By Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2748,7 +2748,7 @@ class TestSuitesApi:
     ) -> ApiResponse[List[TestResultV2ShortModel]]:
         """Get TestResults By Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2821,7 +2821,7 @@ class TestSuitesApi:
     ) -> RESTResponseType:
         """Get TestResults By Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -2954,7 +2954,7 @@ class TestSuitesApi:
     ) -> TestSuiteV2GetModel:
         """Get TestSuite by Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -3027,7 +3027,7 @@ class TestSuitesApi:
     ) -> ApiResponse[TestSuiteV2GetModel]:
         """Get TestSuite by Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -3100,7 +3100,7 @@ class TestSuitesApi:
     ) -> RESTResponseType:
         """Get TestSuite by Id
 
-         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
+         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -3239,7 +3239,7 @@ class TestSuitesApi:
     ) -> List[WorkItemShortModel]:
         """(Deprecated) Search WorkItems
 
-         Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
+         Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -3337,7 +3337,7 @@ class TestSuitesApi:
     ) -> ApiResponse[List[WorkItemShortModel]]:
         """(Deprecated) Search WorkItems
 
-         Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
+         Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -3435,7 +3435,7 @@ class TestSuitesApi:
     ) -> RESTResponseType:
         """(Deprecated) Search WorkItems
 
-         Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
+         Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -3629,7 +3629,7 @@ class TestSuitesApi:
     ) -> None:
         """Set Configurations By TestSuite Id
 
-         Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
+         Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -3706,7 +3706,7 @@ class TestSuitesApi:
     ) -> ApiResponse[None]:
         """Set Configurations By TestSuite Id
 
-         Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
+         Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str
@@ -3783,7 +3783,7 @@ class TestSuitesApi:
     ) -> RESTResponseType:
         """Set Configurations By TestSuite Id
 
-         Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
+         Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
 
         :param id: Test suite internal (guid format) identifier\" (required)
         :type id: str

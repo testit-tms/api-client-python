@@ -21,7 +21,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from testit_api_client.models.tag_post_model import TagPostModel
+from testit_api_client.models.tag_api_model import TagApiModel
 from testit_api_client.models.test_suite_test_plan_api_model import TestSuiteTestPlanApiModel
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,7 @@ class CreateTestPlanApiModel(BaseModel):
     """
     CreateTestPlanApiModel
     """ # noqa: E501
-    tags: Optional[List[TagPostModel]] = Field(default=None, description="Test plan tag names collection")
+    tags: Optional[List[TagApiModel]] = Field(default=None, description="Test plan tag names collection")
     name: Annotated[str, Field(min_length=0, strict=True, max_length=450)] = Field(description="Test plan name")
     start_date: Optional[datetime] = Field(default=None, description="Date and time of test plan start", alias="startDate")
     end_date: Optional[datetime] = Field(default=None, description="Date and time of test plan end", alias="endDate")
@@ -144,7 +144,7 @@ class CreateTestPlanApiModel(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "tags": [TagPostModel.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
+            "tags": [TagApiModel.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
             "name": obj.get("name"),
             "startDate": obj.get("startDate"),
             "endDate": obj.get("endDate"),

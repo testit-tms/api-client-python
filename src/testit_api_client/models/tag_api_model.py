@@ -27,7 +27,7 @@ class TagApiModel(BaseModel):
     """
     TagApiModel
     """ # noqa: E501
-    name: Annotated[str, Field(min_length=0, strict=True, max_length=30)] = Field(description="Tag name")
+    name: Annotated[str, Field(min_length=0, strict=True, max_length=255)] = Field(description="Tag name")
     __properties: ClassVar[List[str]] = ["name"]
 
     model_config = ConfigDict(

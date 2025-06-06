@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from testit_api_client.models.iteration_model import IterationModel
 from testit_api_client.models.link_short_model import LinkShortModel
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
+from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_states import WorkItemStates
 from typing import Optional, Set
 from typing_extensions import Self
@@ -51,11 +52,12 @@ class WorkItemShortModel(BaseModel):
     modified_date: Optional[datetime] = Field(default=None, description="Date and time of the latest modification of Work Item", alias="modifiedDate")
     state: WorkItemStates = Field(description="The current state of Work Item")
     priority: WorkItemPriorityModel = Field(description="Work Item priority level")
+    source_type: WorkItemSourceTypeModel = Field(description="Work Item source type", alias="sourceType")
     is_deleted: StrictBool = Field(description="Flag determining whether Work Item is deleted", alias="isDeleted")
     tag_names: Optional[List[StrictStr]] = Field(default=None, description="Array of tag names of Work Item", alias="tagNames")
     iterations: List[IterationModel] = Field(description="Set of iterations related to Work Item")
     links: List[LinkShortModel] = Field(description="Set of links related to Work Item")
-    __properties: ClassVar[List[str]] = ["id", "versionId", "versionNumber", "name", "entityTypeName", "projectId", "sectionId", "sectionName", "isAutomated", "globalId", "duration", "medianDuration", "attributes", "createdById", "modifiedById", "createdDate", "modifiedDate", "state", "priority", "isDeleted", "tagNames", "iterations", "links"]
+    __properties: ClassVar[List[str]] = ["id", "versionId", "versionNumber", "name", "entityTypeName", "projectId", "sectionId", "sectionName", "isAutomated", "globalId", "duration", "medianDuration", "attributes", "createdById", "modifiedById", "createdDate", "modifiedDate", "state", "priority", "sourceType", "isDeleted", "tagNames", "iterations", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -171,6 +173,7 @@ class WorkItemShortModel(BaseModel):
             "modifiedDate": obj.get("modifiedDate"),
             "state": obj.get("state"),
             "priority": obj.get("priority"),
+            "sourceType": obj.get("sourceType"),
             "isDeleted": obj.get("isDeleted"),
             "tagNames": obj.get("tagNames"),
             "iterations": [IterationModel.from_dict(_item) for _item in obj["iterations"]] if obj.get("iterations") is not None else None,

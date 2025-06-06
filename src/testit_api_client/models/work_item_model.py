@@ -26,9 +26,10 @@ from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.models.iteration_model import IterationModel
 from testit_api_client.models.link_model import LinkModel
 from testit_api_client.models.step_model import StepModel
-from testit_api_client.models.tag_put_model import TagPutModel
+from testit_api_client.models.tag_model import TagModel
 from testit_api_client.models.work_item_entity_types import WorkItemEntityTypes
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
+from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_states import WorkItemStates
 from typing import Optional, Set
 from typing_extensions import Self
@@ -59,15 +60,16 @@ class WorkItemModel(BaseModel):
     description: Optional[StrictStr] = None
     state: WorkItemStates
     priority: WorkItemPriorityModel
+    source_type: WorkItemSourceTypeModel = Field(alias="sourceType")
     steps: List[StepModel]
     precondition_steps: List[StepModel] = Field(alias="preconditionSteps")
     postcondition_steps: List[StepModel] = Field(alias="postconditionSteps")
     duration: Annotated[int, Field(le=86400000, strict=True, ge=0)]
     attributes: Dict[str, Any]
-    tags: List[TagPutModel]
+    tags: List[TagModel]
     links: List[LinkModel]
     name: Annotated[str, Field(min_length=1, strict=True)]
-    __properties: ClassVar[List[str]] = ["versionId", "medianDuration", "isDeleted", "projectId", "entityTypeName", "isAutomated", "autoTests", "attachments", "sectionPreconditionSteps", "sectionPostconditionSteps", "versionNumber", "iterations", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "id", "sectionId", "description", "state", "priority", "steps", "preconditionSteps", "postconditionSteps", "duration", "attributes", "tags", "links", "name"]
+    __properties: ClassVar[List[str]] = ["versionId", "medianDuration", "isDeleted", "projectId", "entityTypeName", "isAutomated", "autoTests", "attachments", "sectionPreconditionSteps", "sectionPostconditionSteps", "versionNumber", "iterations", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "id", "sectionId", "description", "state", "priority", "sourceType", "steps", "preconditionSteps", "postconditionSteps", "duration", "attributes", "tags", "links", "name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -252,12 +254,13 @@ class WorkItemModel(BaseModel):
             "description": obj.get("description"),
             "state": obj.get("state"),
             "priority": obj.get("priority"),
+            "sourceType": obj.get("sourceType"),
             "steps": [StepModel.from_dict(_item) for _item in obj["steps"]] if obj.get("steps") is not None else None,
             "preconditionSteps": [StepModel.from_dict(_item) for _item in obj["preconditionSteps"]] if obj.get("preconditionSteps") is not None else None,
             "postconditionSteps": [StepModel.from_dict(_item) for _item in obj["postconditionSteps"]] if obj.get("postconditionSteps") is not None else None,
             "duration": obj.get("duration"),
             "attributes": obj.get("attributes"),
-            "tags": [TagPutModel.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
+            "tags": [TagModel.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
             "links": [LinkModel.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
             "name": obj.get("name")
         })

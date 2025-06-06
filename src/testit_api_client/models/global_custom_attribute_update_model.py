@@ -29,7 +29,7 @@ class GlobalCustomAttributeUpdateModel(BaseModel):
     GlobalCustomAttributeUpdateModel
     """ # noqa: E501
     name: Annotated[str, Field(min_length=0, strict=True, max_length=255)] = Field(description="Name of attribute")
-    options: Optional[List[CustomAttributeOptionModel]] = Field(default=None, description="Collection of attribute options     Available for attributes of type `options` and `multiple options` only")
+    options: Optional[List[CustomAttributeOptionModel]] = Field(default=None, description="Collection of attribute options   Available for attributes of type `options` and `multiple options` only")
     is_enabled: Optional[StrictBool] = Field(default=None, description="Indicates whether the attribute is available", alias="isEnabled")
     is_required: Optional[StrictBool] = Field(default=None, description="Indicates whether the attribute value is mandatory to specify", alias="isRequired")
     __properties: ClassVar[List[str]] = ["name", "options", "isEnabled", "isRequired"]

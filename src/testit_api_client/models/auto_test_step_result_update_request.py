@@ -21,7 +21,6 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from testit_api_client.models.attachment_put_model_auto_test_step_results_model import AttachmentPutModelAutoTestStepResultsModel
 from testit_api_client.models.attachment_update_request import AttachmentUpdateRequest
 from testit_api_client.models.available_test_result_outcome import AvailableTestResultOutcome
 from typing import Optional, Set
@@ -38,8 +37,8 @@ class AutoTestStepResultUpdateRequest(BaseModel):
     completed_on: Optional[datetime] = Field(default=None, description="Step end date.", alias="completedOn")
     duration: Optional[Annotated[int, Field(le=43200000000, strict=True, ge=0)]] = Field(default=None, description="Expected or actual duration of the test run execution in milliseconds.")
     outcome: Optional[AvailableTestResultOutcome] = Field(default=None, description="Specifies the result of the autotest execution.")
-    step_results: Optional[List[AttachmentPutModelAutoTestStepResultsModel]] = Field(default=None, description="Nested step results. The maximum nesting level is 15.", alias="stepResults")
-    attachments: Optional[List[AttachmentUpdateRequest]] = Field(default=None, description="/// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>")
+    step_results: Optional[List[AutoTestStepResultUpdateRequest]] = Field(default=None, description="Nested step results. The maximum nesting level is 15.", alias="stepResults")
+    attachments: Optional[List[AttachmentUpdateRequest]] = Field(default=None, description="/// <summary> Specifies an attachment GUID. Multiple values can be sent. </summary>")
     parameters: Optional[Dict[str, StrictStr]] = Field(default=None, description="\"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.")
     __properties: ClassVar[List[str]] = ["title", "description", "info", "startedOn", "completedOn", "duration", "outcome", "stepResults", "attachments", "parameters"]
 
@@ -165,10 +164,12 @@ class AutoTestStepResultUpdateRequest(BaseModel):
             "completedOn": obj.get("completedOn"),
             "duration": obj.get("duration"),
             "outcome": obj.get("outcome"),
-            "stepResults": [AttachmentPutModelAutoTestStepResultsModel.from_dict(_item) for _item in obj["stepResults"]] if obj.get("stepResults") is not None else None,
+            "stepResults": [AutoTestStepResultUpdateRequest.from_dict(_item) for _item in obj["stepResults"]] if obj.get("stepResults") is not None else None,
             "attachments": [AttachmentUpdateRequest.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
             "parameters": obj.get("parameters")
         })
         return _obj
 
+# TODO: Rewrite to not use raise_errors
+AutoTestStepResultUpdateRequest.model_rebuild(raise_errors=False)
 

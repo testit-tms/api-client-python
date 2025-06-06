@@ -299,11 +299,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_project_id_work_items_tags_get**
-> List[TagShortModel] api_v2_projects_project_id_work_items_tags_get(project_id, is_deleted=is_deleted)
+> List[TagShortApiResult] api_v2_projects_project_id_work_items_tags_get(project_id, is_deleted=is_deleted)
 
 Get WorkItems Tags
 
- Use case   User sets project internal identifier    User runs method execution   System returns work items tags
+ Use case  User sets project internal identifier  User runs method execution  System returns work items tags
 
 ### Example
 
@@ -311,7 +311,7 @@ Get WorkItems Tags
 
 ```python
 import testit_api_client
-from testit_api_client.models.tag_short_model import TagShortModel
+from testit_api_client.models.tag_short_api_result import TagShortApiResult
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[TagShortModel]**](TagShortModel.md)
+[**List[TagShortApiResult]**](TagShortApiResult.md)
 
 ### Authorization
 
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 
 Get project work items
 
- Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)
+ Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
 
 ### Example
 
@@ -477,7 +477,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** |  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found |  -  |
+**400** |  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test library is required |  -  |
 **404** | Project with provided ID was not found |  -  |

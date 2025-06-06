@@ -1,0 +1,12 @@
+# WorkItemSourceTypeModel
+
+
+## Enum
+
+* `MANUAL` (value: `'Manual'`)
+
+* `AI` (value: `'AI'`)
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

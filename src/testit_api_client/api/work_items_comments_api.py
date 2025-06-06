@@ -60,7 +60,7 @@ class WorkItemsCommentsApi:
     ) -> None:
         """Delete WorkItem comment
 
-         Use case   User sets comment identifier   User runs method execution   System delete comment    System returns success status code
+         Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
 
         :param comment_id: Comment internal (guid format) identifier (required)
         :type comment_id: str
@@ -133,7 +133,7 @@ class WorkItemsCommentsApi:
     ) -> ApiResponse[None]:
         """Delete WorkItem comment
 
-         Use case   User sets comment identifier   User runs method execution   System delete comment    System returns success status code
+         Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
 
         :param comment_id: Comment internal (guid format) identifier (required)
         :type comment_id: str
@@ -206,7 +206,7 @@ class WorkItemsCommentsApi:
     ) -> RESTResponseType:
         """Delete WorkItem comment
 
-         Use case   User sets comment identifier   User runs method execution   System delete comment    System returns success status code
+         Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
 
         :param comment_id: Comment internal (guid format) identifier (required)
         :type comment_id: str
@@ -339,7 +339,7 @@ class WorkItemsCommentsApi:
     ) -> WorkItemCommentModel:
         """Create WorkItem comment
 
-         Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
+         Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
 
         :param work_item_comment_post_model:
         :type work_item_comment_post_model: WorkItemCommentPostModel
@@ -412,7 +412,7 @@ class WorkItemsCommentsApi:
     ) -> ApiResponse[WorkItemCommentModel]:
         """Create WorkItem comment
 
-         Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
+         Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
 
         :param work_item_comment_post_model:
         :type work_item_comment_post_model: WorkItemCommentPostModel
@@ -485,7 +485,7 @@ class WorkItemsCommentsApi:
     ) -> RESTResponseType:
         """Create WorkItem comment
 
-         Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
+         Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
 
         :param work_item_comment_post_model:
         :type work_item_comment_post_model: WorkItemCommentPostModel

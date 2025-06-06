@@ -62,7 +62,7 @@ class ProjectTestPlanAttributesApi:
     ) -> None:
         """Add attributes to project's test plans
 
-         Use case   User sets project internal or global identifier and attributes identifiers   User runs method execution   System updates project and add attributes to project for test plans   System returns no content response
+         Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -139,7 +139,7 @@ class ProjectTestPlanAttributesApi:
     ) -> ApiResponse[None]:
         """Add attributes to project's test plans
 
-         Use case   User sets project internal or global identifier and attributes identifiers   User runs method execution   System updates project and add attributes to project for test plans   System returns no content response
+         Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -216,7 +216,7 @@ class ProjectTestPlanAttributesApi:
     ) -> RESTResponseType:
         """Add attributes to project's test plans
 
-         Use case   User sets project internal or global identifier and attributes identifiers   User runs method execution   System updates project and add attributes to project for test plans   System returns no content response
+         Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -370,7 +370,7 @@ class ProjectTestPlanAttributesApi:
     ) -> None:
         """Delete attribute from project's test plans
 
-         Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -447,7 +447,7 @@ class ProjectTestPlanAttributesApi:
     ) -> ApiResponse[None]:
         """Delete attribute from project's test plans
 
-         Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -524,7 +524,7 @@ class ProjectTestPlanAttributesApi:
     ) -> RESTResponseType:
         """Delete attribute from project's test plans
 
-         Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -663,7 +663,7 @@ class ProjectTestPlanAttributesApi:
     ) -> List[CustomAttributeModel]:
         """Get project's test plan attributes
 
-         Use case   User runs method execution   System returns project for test plans attributes by project identifier
+         Use case  User runs method execution  System returns project for test plans attributes by project identifier
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -736,7 +736,7 @@ class ProjectTestPlanAttributesApi:
     ) -> ApiResponse[List[CustomAttributeModel]]:
         """Get project's test plan attributes
 
-         Use case   User runs method execution   System returns project for test plans attributes by project identifier
+         Use case  User runs method execution  System returns project for test plans attributes by project identifier
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -809,7 +809,7 @@ class ProjectTestPlanAttributesApi:
     ) -> RESTResponseType:
         """Get project's test plan attributes
 
-         Use case   User runs method execution   System returns project for test plans attributes by project identifier
+         Use case  User runs method execution  System returns project for test plans attributes by project identifier
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -1332,7 +1332,7 @@ class ProjectTestPlanAttributesApi:
     ) -> None:
         """Update attribute of project's test plans
 
-         Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -1409,7 +1409,7 @@ class ProjectTestPlanAttributesApi:
     ) -> ApiResponse[None]:
         """Update attribute of project's test plans
 
-         Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -1486,7 +1486,7 @@ class ProjectTestPlanAttributesApi:
     ) -> RESTResponseType:
         """Update attribute of project's test plans
 
-         Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str

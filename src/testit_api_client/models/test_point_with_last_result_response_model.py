@@ -24,6 +24,7 @@ from testit_api_client.models.iteration_model import IterationModel
 from testit_api_client.models.last_test_result_model import LastTestResultModel
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
+from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -53,10 +54,11 @@ class TestPointWithLastResultResponseModel(BaseModel):
     tag_names: Optional[List[StrictStr]] = Field(default=None, alias="tagNames")
     duration: StrictInt
     priority: WorkItemPriorityModel
+    source_type: WorkItemSourceTypeModel = Field(alias="sourceType")
     test_suite_name_bread_crumbs: Optional[List[StrictStr]] = Field(default=None, alias="testSuiteNameBreadCrumbs")
     group_count: Optional[StrictInt] = Field(default=None, alias="groupCount")
     iteration: Optional[IterationModel] = None
-    __properties: ClassVar[List[str]] = ["id", "workItemName", "isAutomated", "testerId", "workItemId", "configurationId", "testSuiteId", "lastTestResult", "status", "statusModel", "workItemGlobalId", "workItemEntityTypeName", "sectionId", "sectionName", "createdDate", "modifiedDate", "createdById", "modifiedById", "attributes", "tagNames", "duration", "priority", "testSuiteNameBreadCrumbs", "groupCount", "iteration"]
+    __properties: ClassVar[List[str]] = ["id", "workItemName", "isAutomated", "testerId", "workItemId", "configurationId", "testSuiteId", "lastTestResult", "status", "statusModel", "workItemGlobalId", "workItemEntityTypeName", "sectionId", "sectionName", "createdDate", "modifiedDate", "createdById", "modifiedById", "attributes", "tagNames", "duration", "priority", "sourceType", "testSuiteNameBreadCrumbs", "groupCount", "iteration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -225,6 +227,7 @@ class TestPointWithLastResultResponseModel(BaseModel):
             "tagNames": obj.get("tagNames"),
             "duration": obj.get("duration"),
             "priority": obj.get("priority"),
+            "sourceType": obj.get("sourceType"),
             "testSuiteNameBreadCrumbs": obj.get("testSuiteNameBreadCrumbs"),
             "groupCount": obj.get("groupCount"),
             "iteration": IterationModel.from_dict(obj["iteration"]) if obj.get("iteration") is not None else None

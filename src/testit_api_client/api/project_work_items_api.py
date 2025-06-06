@@ -19,7 +19,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from testit_api_client.models.tag_short_model import TagShortModel
+from testit_api_client.models.tag_short_api_result import TagShortApiResult
 from testit_api_client.models.work_item_group_get_model import WorkItemGroupGetModel
 from testit_api_client.models.work_item_group_model import WorkItemGroupModel
 from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
@@ -1229,10 +1229,10 @@ class ProjectWorkItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[TagShortModel]:
+    ) -> List[TagShortApiResult]:
         """Get WorkItems Tags
 
-         Use case   User sets project internal identifier    User runs method execution   System returns work items tags
+         Use case  User sets project internal identifier  User runs method execution  System returns work items tags
 
         :param project_id: Project internal (UUID) identifier (required)
         :type project_id: str
@@ -1270,7 +1270,7 @@ class ProjectWorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagShortModel]",
+            '200': "List[TagShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1306,10 +1306,10 @@ class ProjectWorkItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[TagShortModel]]:
+    ) -> ApiResponse[List[TagShortApiResult]]:
         """Get WorkItems Tags
 
-         Use case   User sets project internal identifier    User runs method execution   System returns work items tags
+         Use case  User sets project internal identifier  User runs method execution  System returns work items tags
 
         :param project_id: Project internal (UUID) identifier (required)
         :type project_id: str
@@ -1347,7 +1347,7 @@ class ProjectWorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagShortModel]",
+            '200': "List[TagShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1386,7 +1386,7 @@ class ProjectWorkItemsApi:
     ) -> RESTResponseType:
         """Get WorkItems Tags
 
-         Use case   User sets project internal identifier    User runs method execution   System returns work items tags
+         Use case  User sets project internal identifier  User runs method execution  System returns work items tags
 
         :param project_id: Project internal (UUID) identifier (required)
         :type project_id: str
@@ -1424,7 +1424,7 @@ class ProjectWorkItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[TagShortModel]",
+            '200': "List[TagShortApiResult]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1535,7 +1535,7 @@ class ProjectWorkItemsApi:
     ) -> List[WorkItemShortModel]:
         """(Deprecated) Get project work items
 
-         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)
+         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -1641,7 +1641,7 @@ class ProjectWorkItemsApi:
     ) -> ApiResponse[List[WorkItemShortModel]]:
         """(Deprecated) Get project work items
 
-         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)
+         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str
@@ -1747,7 +1747,7 @@ class ProjectWorkItemsApi:
     ) -> RESTResponseType:
         """(Deprecated) Get project work items
 
-         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)
+         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
 
         :param project_id: Project internal (UUID) or global (integer) identifier (required)
         :type project_id: str

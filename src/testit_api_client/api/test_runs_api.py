@@ -76,7 +76,7 @@ class TestRunsApi:
     ) -> int:
         """Delete multiple test runs
 
-         Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
+         Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs
 
         :param test_run_select_api_model:
         :type test_run_select_api_model: TestRunSelectApiModel
@@ -149,7 +149,7 @@ class TestRunsApi:
     ) -> ApiResponse[int]:
         """Delete multiple test runs
 
-         Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
+         Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs
 
         :param test_run_select_api_model:
         :type test_run_select_api_model: TestRunSelectApiModel
@@ -222,7 +222,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Delete multiple test runs
 
-         Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
+         Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs
 
         :param test_run_select_api_model:
         :type test_run_select_api_model: TestRunSelectApiModel
@@ -644,7 +644,7 @@ class TestRunsApi:
     ) -> None:
         """Delete test run
 
-         Use case   User sets test run internal (guid format) identifier   System search and delete test run
+         Use case  User sets test run internal (guid format) identifier  System search and delete test run
 
         :param id: Test run internal (UUID) identifier (required)
         :type id: str
@@ -717,7 +717,7 @@ class TestRunsApi:
     ) -> ApiResponse[None]:
         """Delete test run
 
-         Use case   User sets test run internal (guid format) identifier   System search and delete test run
+         Use case  User sets test run internal (guid format) identifier  System search and delete test run
 
         :param id: Test run internal (UUID) identifier (required)
         :type id: str
@@ -790,7 +790,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Delete test run
 
-         Use case   User sets test run internal (guid format) identifier   System search and delete test run
+         Use case  User sets test run internal (guid format) identifier  System search and delete test run
 
         :param id: Test run internal (UUID) identifier (required)
         :type id: str
@@ -923,7 +923,7 @@ class TestRunsApi:
     ) -> None:
         """Permanently delete test run from archive
 
-         Use case   User sets archived test run internal (guid format) identifier   System search and purge archived test run
+         Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run
 
         :param id: Test run internal (UUID) identifier (required)
         :type id: str
@@ -996,7 +996,7 @@ class TestRunsApi:
     ) -> ApiResponse[None]:
         """Permanently delete test run from archive
 
-         Use case   User sets archived test run internal (guid format) identifier   System search and purge archived test run
+         Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run
 
         :param id: Test run internal (UUID) identifier (required)
         :type id: str
@@ -1069,7 +1069,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Permanently delete test run from archive
 
-         Use case   User sets archived test run internal (guid format) identifier   System search and purge archived test run
+         Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run
 
         :param id: Test run internal (UUID) identifier (required)
         :type id: str
@@ -1506,7 +1506,7 @@ class TestRunsApi:
     ) -> None:
         """Restore test run from the archive
 
-         Use case   User sets archived test run internal (guid format) identifier   System search and restore test run
+         Use case  User sets archived test run internal (guid format) identifier  System search and restore test run
 
         :param id: Unique ID of the test run (required)
         :type id: str
@@ -1579,7 +1579,7 @@ class TestRunsApi:
     ) -> ApiResponse[None]:
         """Restore test run from the archive
 
-         Use case   User sets archived test run internal (guid format) identifier   System search and restore test run
+         Use case  User sets archived test run internal (guid format) identifier  System search and restore test run
 
         :param id: Unique ID of the test run (required)
         :type id: str
@@ -1652,7 +1652,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Restore test run from the archive
 
-         Use case   User sets archived test run internal (guid format) identifier   System search and restore test run
+         Use case  User sets archived test run internal (guid format) identifier  System search and restore test run
 
         :param id: Unique ID of the test run (required)
         :type id: str
@@ -2945,7 +2945,7 @@ class TestRunsApi:
     ) -> int:
         """Permanently delete multiple test runs from archive
 
-         Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
+         Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs
 
         :param test_run_select_api_model:
         :type test_run_select_api_model: TestRunSelectApiModel
@@ -3018,7 +3018,7 @@ class TestRunsApi:
     ) -> ApiResponse[int]:
         """Permanently delete multiple test runs from archive
 
-         Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
+         Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs
 
         :param test_run_select_api_model:
         :type test_run_select_api_model: TestRunSelectApiModel
@@ -3091,7 +3091,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Permanently delete multiple test runs from archive
 
-         Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
+         Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs
 
         :param test_run_select_api_model:
         :type test_run_select_api_model: TestRunSelectApiModel
@@ -3237,7 +3237,7 @@ class TestRunsApi:
     ) -> int:
         """Restore multiple test runs from the archive
 
-         Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
+         Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs
 
         :param test_run_select_api_model:
         :type test_run_select_api_model: TestRunSelectApiModel
@@ -3310,7 +3310,7 @@ class TestRunsApi:
     ) -> ApiResponse[int]:
         """Restore multiple test runs from the archive
 
-         Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
+         Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs
 
         :param test_run_select_api_model:
         :type test_run_select_api_model: TestRunSelectApiModel
@@ -3383,7 +3383,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Restore multiple test runs from the archive
 
-         Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
+         Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs
 
         :param test_run_select_api_model:
         :type test_run_select_api_model: TestRunSelectApiModel
@@ -4192,7 +4192,7 @@ class TestRunsApi:
     ) -> None:
         """Complete TestRun
 
-         Use case   User sets test run identifier   User runs method execution   System completes test run   System returns no content response
+         Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -4265,7 +4265,7 @@ class TestRunsApi:
     ) -> ApiResponse[None]:
         """Complete TestRun
 
-         Use case   User sets test run identifier   User runs method execution   System completes test run   System returns no content response
+         Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -4338,7 +4338,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Complete TestRun
 
-         Use case   User sets test run identifier   User runs method execution   System completes test run   System returns no content response
+         Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -4471,7 +4471,7 @@ class TestRunsApi:
     ) -> TestRunV2ApiResult:
         """Create test runs based on autotests and configurations
 
-        This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
+        This method creates a test run based on an autotest and a configuration. The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is that in this method there is no need to create a test plan and work items (test cases and checklists).
 
         :param create_test_run_and_fill_by_auto_tests_api_model:
         :type create_test_run_and_fill_by_auto_tests_api_model: CreateTestRunAndFillByAutoTestsApiModel
@@ -4544,7 +4544,7 @@ class TestRunsApi:
     ) -> ApiResponse[TestRunV2ApiResult]:
         """Create test runs based on autotests and configurations
 
-        This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
+        This method creates a test run based on an autotest and a configuration. The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is that in this method there is no need to create a test plan and work items (test cases and checklists).
 
         :param create_test_run_and_fill_by_auto_tests_api_model:
         :type create_test_run_and_fill_by_auto_tests_api_model: CreateTestRunAndFillByAutoTestsApiModel
@@ -4617,7 +4617,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Create test runs based on autotests and configurations
 
-        This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
+        This method creates a test run based on an autotest and a configuration. The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is that in this method there is no need to create a test plan and work items (test cases and checklists).
 
         :param create_test_run_and_fill_by_auto_tests_api_model:
         :type create_test_run_and_fill_by_auto_tests_api_model: CreateTestRunAndFillByAutoTestsApiModel
@@ -4763,7 +4763,7 @@ class TestRunsApi:
     ) -> TestRunV2ApiResult:
         """Create test runs picking the needed test points
 
-        This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.
+        This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a jagged array within the \"<b>testPointSelectors</b>\" parameter.
 
         :param create_test_run_and_fill_by_configurations_api_model:
         :type create_test_run_and_fill_by_configurations_api_model: CreateTestRunAndFillByConfigurationsApiModel
@@ -4836,7 +4836,7 @@ class TestRunsApi:
     ) -> ApiResponse[TestRunV2ApiResult]:
         """Create test runs picking the needed test points
 
-        This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.
+        This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a jagged array within the \"<b>testPointSelectors</b>\" parameter.
 
         :param create_test_run_and_fill_by_configurations_api_model:
         :type create_test_run_and_fill_by_configurations_api_model: CreateTestRunAndFillByConfigurationsApiModel
@@ -4909,7 +4909,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Create test runs picking the needed test points
 
-        This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.
+        This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a jagged array within the \"<b>testPointSelectors</b>\" parameter.
 
         :param create_test_run_and_fill_by_configurations_api_model:
         :type create_test_run_and_fill_by_configurations_api_model: CreateTestRunAndFillByConfigurationsApiModel
@@ -5055,7 +5055,7 @@ class TestRunsApi:
     ) -> TestRunV2ApiResult:
         """Create test run based on configurations and work items
 
-        This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
+        This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.
 
         :param create_test_run_and_fill_by_work_items_api_model:
         :type create_test_run_and_fill_by_work_items_api_model: CreateTestRunAndFillByWorkItemsApiModel
@@ -5128,7 +5128,7 @@ class TestRunsApi:
     ) -> ApiResponse[TestRunV2ApiResult]:
         """Create test run based on configurations and work items
 
-        This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
+        This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.
 
         :param create_test_run_and_fill_by_work_items_api_model:
         :type create_test_run_and_fill_by_work_items_api_model: CreateTestRunAndFillByWorkItemsApiModel
@@ -5201,7 +5201,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Create test run based on configurations and work items
 
-        This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
+        This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.
 
         :param create_test_run_and_fill_by_work_items_api_model:
         :type create_test_run_and_fill_by_work_items_api_model: CreateTestRunAndFillByWorkItemsApiModel
@@ -5347,7 +5347,7 @@ class TestRunsApi:
     ) -> TestRunV2ApiResult:
         """Create empty TestRun
 
-         Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
+         Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model
 
         :param create_empty_test_run_api_model:
         :type create_empty_test_run_api_model: CreateEmptyTestRunApiModel
@@ -5420,7 +5420,7 @@ class TestRunsApi:
     ) -> ApiResponse[TestRunV2ApiResult]:
         """Create empty TestRun
 
-         Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
+         Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model
 
         :param create_empty_test_run_api_model:
         :type create_empty_test_run_api_model: CreateEmptyTestRunApiModel
@@ -5493,7 +5493,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Create empty TestRun
 
-         Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
+         Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model
 
         :param create_empty_test_run_api_model:
         :type create_empty_test_run_api_model: CreateEmptyTestRunApiModel
@@ -5639,7 +5639,7 @@ class TestRunsApi:
     ) -> TestRunV2ApiResult:
         """Get TestRun by Id
 
-         Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run
+         Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -5712,7 +5712,7 @@ class TestRunsApi:
     ) -> ApiResponse[TestRunV2ApiResult]:
         """Get TestRun by Id
 
-         Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run
+         Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -5785,7 +5785,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Get TestRun by Id
 
-         Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run
+         Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -6226,7 +6226,7 @@ class TestRunsApi:
     ) -> None:
         """Start TestRun
 
-         Use case   User sets test run identifier   User runs method execution   System starts test run   System returns no content response
+         Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -6299,7 +6299,7 @@ class TestRunsApi:
     ) -> ApiResponse[None]:
         """Start TestRun
 
-         Use case   User sets test run identifier   User runs method execution   System starts test run   System returns no content response
+         Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -6372,7 +6372,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Start TestRun
 
-         Use case   User sets test run identifier   User runs method execution   System starts test run   System returns no content response
+         Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -6505,7 +6505,7 @@ class TestRunsApi:
     ) -> None:
         """Stop TestRun
 
-         Use case   User sets test run identifier   User runs method execution   System stops test run   System returns no content response
+         Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -6578,7 +6578,7 @@ class TestRunsApi:
     ) -> ApiResponse[None]:
         """Stop TestRun
 
-         Use case   User sets test run identifier   User runs method execution   System stops test run   System returns no content response
+         Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -6651,7 +6651,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Stop TestRun
 
-         Use case   User sets test run identifier   User runs method execution   System stops test run   System returns no content response
+         Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response
 
         :param id: Test Run internal identifier (GUID format) (required)
         :type id: str
@@ -6784,7 +6784,7 @@ class TestRunsApi:
     ) -> None:
         """Update empty TestRun
 
-         Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
+         Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response
 
         :param update_empty_test_run_api_model:
         :type update_empty_test_run_api_model: UpdateEmptyTestRunApiModel
@@ -6857,7 +6857,7 @@ class TestRunsApi:
     ) -> ApiResponse[None]:
         """Update empty TestRun
 
-         Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
+         Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response
 
         :param update_empty_test_run_api_model:
         :type update_empty_test_run_api_model: UpdateEmptyTestRunApiModel
@@ -6930,7 +6930,7 @@ class TestRunsApi:
     ) -> RESTResponseType:
         """Update empty TestRun
 
-         Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
+         Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response
 
         :param update_empty_test_run_api_model:
         :type update_empty_test_run_api_model: UpdateEmptyTestRunApiModel

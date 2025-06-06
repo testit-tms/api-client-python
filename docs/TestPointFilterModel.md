@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **statuses** | [**List[TestPointStatus]**](TestPointStatus.md) | Specifies a test point statuses to search for | [optional] 
 **status_codes** | **List[str]** | Specifies a test point status codes to search for | [optional] 
 **priorities** | [**List[WorkItemPriorityModel]**](WorkItemPriorityModel.md) | Specifies a test point priorities to search for | [optional] 
+**source_types** | [**List[WorkItemSourceTypeModel]**](WorkItemSourceTypeModel.md) | Specifies a test point source types to search for | [optional] 
 **is_automated** | **bool** | Specifies a test point automation status to search for | [optional] 
 **name** | **str** | Specifies a test point name to search for | [optional] 
 **configuration_ids** | **List[str]** | Specifies a test point configuration IDs to search for | [optional] 

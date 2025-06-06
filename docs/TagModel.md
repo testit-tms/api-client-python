@@ -5,12 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
 **name** | **str** |  | 
-**created_date** | **datetime** |  | 
-**modified_date** | **datetime** |  | [optional] 
-**created_by_id** | **str** |  | 
-**modified_by_id** | **str** |  | [optional] 
 
 ## Example
 

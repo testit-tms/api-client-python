@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **modified_by_ids** | **List[str]** | Collection of identifiers of users who applied last modification to work item | [optional] 
 **states** | [**List[WorkItemStates]**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **priorities** | [**List[WorkItemPriorityModel]**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
-**entity_types** | **List[str]** | Collection of types of work item   Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
+**entity_types** | **List[str]** | Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
 **created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Date and time of work item creation | [optional] 
 **modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Date and time of work item last modification | [optional] 
 **is_automated** | **bool** | Is result must consist of only manual/automated work items | [optional] 

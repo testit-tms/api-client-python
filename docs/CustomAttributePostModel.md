@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**options** | [**List[CustomAttributeOptionPostModel]**](CustomAttributeOptionPostModel.md) | Collection of attribute options     Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
+**options** | [**List[CustomAttributeOptionPostModel]**](CustomAttributeOptionPostModel.md) | Collection of attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
 **type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of attribute | 
 **name** | **str** | Name of the attribute | 
 **is_enabled** | **bool** | Indicates if the attribute is enabled | 
