@@ -46,7 +46,7 @@ class AutoTestModel(BaseModel):
     last_test_result_id: Optional[StrictStr] = Field(default=None, description="Unique ID of the autotest last test result", alias="lastTestResultId")
     last_test_result_configuration: Optional[ConfigurationShortModel] = Field(default=None, description="Configuration of the autotest last test result", alias="lastTestResultConfiguration")
     last_test_result_outcome: Optional[StrictStr] = Field(default=None, description="Outcome of the autotest last test result", alias="lastTestResultOutcome")
-    last_test_result_status: TestStatusModel = Field(description="Status of the autotest last test result", alias="lastTestResultStatus")
+    last_test_result_status: Optional[TestStatusModel] = Field(default=None, description="Status of the autotest last test result", alias="lastTestResultStatus")
     stability_percentage: Optional[StrictInt] = Field(default=None, description="Stability percentage of the autotest", alias="stabilityPercentage")
     external_id: Annotated[str, Field(min_length=1, strict=True)] = Field(description="External ID of the autotest", alias="externalId")
     links: Optional[List[LinkPutModel]] = Field(default=None, description="Collection of the autotest links")
@@ -178,6 +178,11 @@ class AutoTestModel(BaseModel):
         # and model_fields_set contains the field
         if self.last_test_result_outcome is None and "last_test_result_outcome" in self.model_fields_set:
             _dict['lastTestResultOutcome'] = None
+
+        # set to None if last_test_result_status (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_test_result_status is None and "last_test_result_status" in self.model_fields_set:
+            _dict['lastTestResultStatus'] = None
 
         # set to None if stability_percentage (nullable) is None
         # and model_fields_set contains the field
