@@ -2,7 +2,7 @@ from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "testit-api-client"
 
-VERSION = "6.1.0"
+VERSION = "6.1.1"
 
 PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
