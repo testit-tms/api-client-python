@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_suites** | [**List[TestSuiteWithChildrenModel]**](TestSuiteWithChildrenModel.md) |  | 
@@ -26,7 +27,7 @@ Name | Type | Description | Notes
 **project_id** | **str** |  | 
 **product_name** | **str** |  | [optional] 
 **has_automatic_duration_timer** | **bool** |  | [optional] 
-**attributes** | **Dict[str, object]** |  | 
+**attributes** | **Dict[str, Optional[object]]** |  | 
 
 ## Example
 
@@ -38,7 +39,7 @@ json = "{}"
 # create an instance of TestPlanWithTestSuiteTreeModel from a JSON string
 test_plan_with_test_suite_tree_model_instance = TestPlanWithTestSuiteTreeModel.from_json(json)
 # print the JSON string representation of the object
-print TestPlanWithTestSuiteTreeModel.to_json()
+print(TestPlanWithTestSuiteTreeModel.to_json())
 
 # convert the object into a dict
 test_plan_with_test_suite_tree_model_dict = test_plan_with_test_suite_tree_model_instance.to_dict()

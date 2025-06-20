@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bug_link** | [**LinkModel**](LinkModel.md) |  | [optional] 
@@ -22,7 +23,7 @@ json = "{}"
 # create an instance of TestPlanLink from a JSON string
 test_plan_link_instance = TestPlanLink.from_json(json)
 # print the JSON string representation of the object
-print TestPlanLink.to_json()
+print(TestPlanLink.to_json())
 
 # convert the object into a dict
 test_plan_link_dict = test_plan_link_instance.to_dict()

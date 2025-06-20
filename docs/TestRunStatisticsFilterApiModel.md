@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **configuration_ids** | **List[str]** | Specifies a test result configuration IDs to search for | [optional] 
@@ -21,7 +22,7 @@ json = "{}"
 # create an instance of TestRunStatisticsFilterApiModel from a JSON string
 test_run_statistics_filter_api_model_instance = TestRunStatisticsFilterApiModel.from_json(json)
 # print the JSON string representation of the object
-print TestRunStatisticsFilterApiModel.to_json()
+print(TestRunStatisticsFilterApiModel.to_json())
 
 # convert the object into a dict
 test_run_statistics_filter_api_model_dict = test_run_statistics_filter_api_model_instance.to_dict()

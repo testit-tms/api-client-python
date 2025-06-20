@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**WebhooksDeleteFilterApiModel**](WebhooksDeleteFilterApiModel.md) |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of WebhooksDeleteApiModel from a JSON string
 webhooks_delete_api_model_instance = WebhooksDeleteApiModel.from_json(json)
 # print the JSON string representation of the object
-print WebhooksDeleteApiModel.to_json()
+print(WebhooksDeleteApiModel.to_json())
 
 # convert the object into a dict
 webhooks_delete_api_model_dict = webhooks_delete_api_model_instance.to_dict()

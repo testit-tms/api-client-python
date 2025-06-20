@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**GuidExtractionModel**](GuidExtractionModel.md) | Extraction parameters for configurations | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of ConfigurationExtractionModel from a JSON string
 configuration_extraction_model_instance = ConfigurationExtractionModel.from_json(json)
 # print the JSON string representation of the object
-print ConfigurationExtractionModel.to_json()
+print(ConfigurationExtractionModel.to_json())
 
 # convert the object into a dict
 configuration_extraction_model_dict = configuration_extraction_model_instance.to_dict()

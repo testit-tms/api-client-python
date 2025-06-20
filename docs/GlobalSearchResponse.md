@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **results** | [**List[GlobalSearchItemResult]**](GlobalSearchItemResult.md) |  | 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of GlobalSearchResponse from a JSON string
 global_search_response_instance = GlobalSearchResponse.from_json(json)
 # print the JSON string representation of the object
-print GlobalSearchResponse.to_json()
+print(GlobalSearchResponse.to_json())
 
 # convert the object into a dict
 global_search_response_dict = global_search_response_instance.to_dict()

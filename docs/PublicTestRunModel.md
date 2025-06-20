@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_run_id** | **str** |  | 
@@ -28,7 +29,7 @@ json = "{}"
 # create an instance of PublicTestRunModel from a JSON string
 public_test_run_model_instance = PublicTestRunModel.from_json(json)
 # print the JSON string representation of the object
-print PublicTestRunModel.to_json()
+print(PublicTestRunModel.to_json())
 
 # convert the object into a dict
 public_test_run_model_dict = public_test_run_model_instance.to_dict()

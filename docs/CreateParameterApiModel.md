@@ -2,11 +2,11 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Key of the parameter | 
 **value** | **str** | Value of the parameter | 
-**project_ids** | **List[str]** | List of projects where parameter should be available | [optional] 
 
 ## Example
 
@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of CreateParameterApiModel from a JSON string
 create_parameter_api_model_instance = CreateParameterApiModel.from_json(json)
 # print the JSON string representation of the object
-print CreateParameterApiModel.to_json()
+print(CreateParameterApiModel.to_json())
 
 # convert the object into a dict
 create_parameter_api_model_dict = create_parameter_api_model_instance.to_dict()

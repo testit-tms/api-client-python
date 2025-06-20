@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | The unique ID of the external service | 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of ProjectExternalServiceApiResult from a JSON string
 project_external_service_api_result_instance = ProjectExternalServiceApiResult.from_json(json)
 # print the JSON string representation of the object
-print ProjectExternalServiceApiResult.to_json()
+print(ProjectExternalServiceApiResult.to_json())
 
 # convert the object into a dict
 project_external_service_api_result_dict = project_external_service_api_result_instance.to_dict()

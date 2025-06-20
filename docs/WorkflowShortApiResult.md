@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of WorkflowShortApiResult from a JSON string
 workflow_short_api_result_instance = WorkflowShortApiResult.from_json(json)
 # print the JSON string representation of the object
-print WorkflowShortApiResult.to_json()
+print(WorkflowShortApiResult.to_json())
 
 # convert the object into a dict
 workflow_short_api_result_dict = workflow_short_api_result_instance.to_dict()

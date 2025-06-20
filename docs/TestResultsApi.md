@@ -26,14 +26,11 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.get_external_form_api_result import GetExternalFormApiResult
 from testit_api_client.models.test_results_select_api_model import TestResultsSelectApiModel
@@ -76,6 +73,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **external_project_id** | **str**|  | 
@@ -95,6 +93,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -112,14 +111,11 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.create_defect_api_model import CreateDefectApiModel
 from testit_api_client.models.defect_api_model import DefectApiModel
@@ -162,6 +158,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **external_project_id** | **str**|  | 
@@ -181,6 +178,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -198,14 +196,11 @@ Name | Type | Description  | Notes
 
 Get test result by ID aggregated with previous results
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_result_response import TestResultResponse
 from testit_api_client.rest import ApiException
@@ -247,6 +242,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result unique ID | 
@@ -265,6 +261,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -282,14 +279,11 @@ Name | Type | Description  | Notes
 
 Attach file to the test result
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -329,6 +323,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result unique ID | 
@@ -348,6 +343,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -365,14 +361,11 @@ void (empty response body)
 
 Get test result attachments meta-information
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.attachment_model import AttachmentModel
 from testit_api_client.rest import ApiException
@@ -414,6 +407,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result unique ID | 
@@ -432,6 +426,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -449,14 +444,11 @@ Name | Type | Description  | Notes
 
 Get test result by ID
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_result_response import TestResultResponse
 from testit_api_client.rest import ApiException
@@ -498,6 +490,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result unique ID | 
@@ -516,6 +509,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -533,14 +527,11 @@ Name | Type | Description  | Notes
 
 Edit test result by ID
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_result_update_v2_request import TestResultUpdateV2Request
 from testit_api_client.rest import ApiException
@@ -581,6 +572,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result unique ID | 
@@ -600,6 +592,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -617,14 +610,11 @@ void (empty response body)
 
 Get reruns
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.reruns_model import RerunsModel
 from testit_api_client.rest import ApiException
@@ -666,6 +656,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result unique ID | 
@@ -684,6 +675,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -701,14 +693,11 @@ Name | Type | Description  | Notes
 
 Search for test results
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_result_short_response import TestResultShortResponse
 from testit_api_client.models.test_results_filter_api_model import TestResultsFilterApiModel
@@ -756,6 +745,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -779,6 +769,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -796,14 +787,11 @@ Name | Type | Description  | Notes
 
 Search for test results and extract statistics
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_results_filter_api_model import TestResultsFilterApiModel
 from testit_api_client.models.test_results_statistics_api_result import TestResultsStatisticsApiResult
@@ -846,6 +834,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **test_results_filter_api_model** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md)|  | [optional] 
@@ -864,6 +853,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -881,23 +871,13 @@ Name | Type | Description  | Notes
 
 Upload and link attachment to TestResult
 
-
-Use case
-
-User sets testResultId
-
-User attaches a file
-
-System creates attachment and links it to the test result
-
-System returns attachment identifier
+ Use case  User sets testResultId  User attaches a file  System creates attachment and links it to the test result  System returns attachment identifier
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -937,6 +917,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result internal identifier (guid format) | 
@@ -956,6 +937,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
@@ -974,25 +956,13 @@ void (empty response body)
 
 Remove attachment and unlink from TestResult
 
-
-Use case
-
-User sets testResultId and attachmentId
-
-User attaches a file
-
-User runs method execution
-
-System deletes attachment and unlinks it from the test result
-
-System returns attachment identifier
+ Use case  User sets testResultId and attachmentId  User attaches a file  User runs method execution  System deletes attachment and unlinks it from the test result  System returns attachment identifier
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1032,6 +1002,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result internal identifier (guid format) | 
@@ -1051,6 +1022,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -1068,30 +1040,13 @@ void (empty response body)
 
 Get attachment of TestResult
 
-
-Use case
-
-User sets attachmentId and testResultId
-
-[Optional] User sets resize configuration
-
-User runs method execution
-
-System search attachments by the attachmentId and the testResultId
-
-[Optional] If resize configuration is set, System resizes the attachment according to the resize
-                    configuration
-
-[Optional] Otherwise, System does not resize the attachment
-
-System returns attachment as a file
+ Use case  User sets attachmentId and testResultId  [Optional] User sets resize configuration  User runs method execution  System search attachments by the attachmentId and the testResultId  [Optional] If resize configuration is set, System resizes the attachment according to the resize                     configuration  [Optional] Otherwise, System does not resize the attachment  System returns attachment as a file
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1136,6 +1091,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attachment_id** | **str**| Attachment internal identifier (guid format) | 
@@ -1160,6 +1116,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1177,23 +1134,13 @@ void (empty response body)
 
 Get Metadata of TestResult's attachment
 
-
-Use case
-
-User sets attachmentId and testResultId
-
-User runs method execution
-
-System search attachment by the attachmentId and the testResultId
-
-System returns attachment data
+ Use case  User sets attachmentId and testResultId  User runs method execution  System search attachment by the attachmentId and the testResultId  System returns attachment data
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.attachment_model import AttachmentModel
 from testit_api_client.rest import ApiException
@@ -1236,6 +1183,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result internal identifier (guid format) | 
@@ -1255,6 +1203,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1272,23 +1221,13 @@ Name | Type | Description  | Notes
 
 Get all attachments of TestResult
 
-
-Use case
-
-User sets testResultId
-
-User runs method execution
-
-System search all attachments of the test result
-
-System returns attachments enumeration
+ Use case  User sets testResultId  User runs method execution  System search all attachments of the test result  System returns attachments enumeration
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.attachment_model import AttachmentModel
 from testit_api_client.rest import ApiException
@@ -1330,6 +1269,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result internal identifier (guid format) | 
@@ -1348,6 +1288,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

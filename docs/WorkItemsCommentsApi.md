@@ -16,23 +16,13 @@ Method | HTTP request | Description
 
 Delete WorkItem comment
 
-
-Use case
-
-User sets comment identifier
-
-User runs method execution
-
-System delete comment
-
-System returns success status code
+ Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -71,6 +61,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**| Comment internal (guid format) identifier | 
@@ -89,6 +80,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -106,23 +98,13 @@ void (empty response body)
 
 Create WorkItem comment
 
-
-Use case
-
-User sets comment properties (listed in request parameters)
-
-User runs method execution
-
-System creates comment
-
-System returns comment model (listed in response parameters)
+ Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_comment_model import WorkItemCommentModel
 from testit_api_client.models.work_item_comment_post_model import WorkItemCommentPostModel
@@ -165,6 +147,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **work_item_comment_post_model** | [**WorkItemCommentPostModel**](WorkItemCommentPostModel.md)|  | [optional] 
@@ -183,6 +166,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
@@ -200,14 +184,11 @@ Name | Type | Description  | Notes
 
 Update work item comment
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_comment_put_model import WorkItemCommentPutModel
 from testit_api_client.rest import ApiException
@@ -247,6 +228,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **work_item_comment_put_model** | [**WorkItemCommentPutModel**](WorkItemCommentPutModel.md)|  | [optional] 
@@ -265,6 +247,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -282,14 +265,11 @@ void (empty response body)
 
 Get work item comments count
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -330,6 +310,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the work item | 
@@ -348,6 +329,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -365,14 +347,11 @@ Name | Type | Description  | Notes
 
 Get work item comments
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_comment_model import WorkItemCommentModel
 from testit_api_client.rest import ApiException
@@ -414,6 +393,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the work item | 
@@ -432,6 +412,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

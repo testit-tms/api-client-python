@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of UpdateWorkflowApiModel from a JSON string
 update_workflow_api_model_instance = UpdateWorkflowApiModel.from_json(json)
 # print the JSON string representation of the object
-print UpdateWorkflowApiModel.to_json()
+print(UpdateWorkflowApiModel.to_json())
 
 # convert the object into a dict
 update_workflow_api_model_dict = update_workflow_api_model_instance.to_dict()

@@ -3,6 +3,7 @@
 Rules for different level entities inclusion/exclusion
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**GuidExtractionModel**](GuidExtractionModel.md) | Extraction parameters for test runs | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of TestRunExtractionApiModel from a JSON string
 test_run_extraction_api_model_instance = TestRunExtractionApiModel.from_json(json)
 # print the JSON string representation of the object
-print TestRunExtractionApiModel.to_json()
+print(TestRunExtractionApiModel.to_json())
 
 # convert the object into a dict
 test_run_extraction_api_model_dict = test_run_extraction_api_model_instance.to_dict()

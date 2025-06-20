@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md) | Test result filters | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of TestResultsSelectApiModel from a JSON string
 test_results_select_api_model_instance = TestResultsSelectApiModel.from_json(json)
 # print the JSON string representation of the object
-print TestResultsSelectApiModel.to_json()
+print(TestResultsSelectApiModel.to_json())
 
 # convert the object into a dict
 test_results_select_api_model_dict = test_results_select_api_model_instance.to_dict()

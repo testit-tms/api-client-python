@@ -31,14 +31,11 @@ Method | HTTP request | Description
 
 Delete autotests
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_bulk_delete_api_model import AutoTestBulkDeleteApiModel
 from testit_api_client.models.auto_test_bulk_delete_api_result import AutoTestBulkDeleteApiResult
@@ -81,6 +78,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_test_bulk_delete_api_model** | [**AutoTestBulkDeleteApiModel**](AutoTestBulkDeleteApiModel.md)|  | [optional] 
@@ -99,6 +97,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -116,18 +115,13 @@ Name | Type | Description  | Notes
 
 Set \"Flaky\" status for multiple autotests
 
-User permissions for project:
-- Read only
-- Execute
-- Write
-- Full control
+User permissions for project: - Read only - Execute - Write - Full control
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_flaky_bulk_api_model import AutoTestFlakyBulkApiModel
 from testit_api_client.rest import ApiException
@@ -172,6 +166,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -195,6 +190,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -212,14 +208,13 @@ void (empty response body)
 
 Patch auto test
 
-See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.operation import Operation
 from testit_api_client.rest import ApiException
@@ -260,6 +255,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Global Id of auto test | 
@@ -279,6 +275,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -296,25 +293,13 @@ void (empty response body)
 
 Get test results history for autotest
 
-
-Use case
-
-User sets autotest internal (guid format) or global (integer format) identifier
-
-User sets getTestResultHistoryReportQuery (listed in the example)
-
-User runs method execution
-
-System search for test results using filters set by user in getTestResultHistoryReportQuery and id
-
-System returns the enumeration of test results
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets getTestResultHistoryReportQuery (listed in the example)  User runs method execution  System search for test results using filters set by user in getTestResultHistoryReportQuery and id  System returns the enumeration of test results
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_result_history_api_result import AutoTestResultHistoryApiResult
 from testit_api_client.models.auto_test_result_history_select_api_model import AutoTestResultHistorySelectApiModel
@@ -363,6 +348,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Autotest identifier | 
@@ -387,6 +373,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -404,18 +391,13 @@ Name | Type | Description  | Notes
 
 Get identifiers of changed linked work items
 
-User permissions for project:
-- Read only
-- Execute
-- Write
-- Full control
+User permissions for project: - Read only - Execute - Write - Full control
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -456,6 +438,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -474,6 +457,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -491,18 +475,13 @@ Name | Type | Description  | Notes
 
 Approve changes to work items linked to autotest
 
-User permissions for project:
-- Read only
-- Execute
-- Write
-- Full control
+User permissions for project: - Read only - Execute - Write - Full control
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -542,6 +521,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -561,6 +541,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -578,14 +559,11 @@ void (empty response body)
 
 Search for autotests
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_api_result import AutoTestApiResult
 from testit_api_client.models.auto_test_search_api_model import AutoTestSearchApiModel
@@ -633,6 +611,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -656,6 +635,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -673,19 +653,13 @@ Name | Type | Description  | Notes
 
 Create autotest
 
-
-This method creates a new autotest.
-
-To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.
-
-Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
+ This method creates a new autotest.  To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.  Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.models.auto_test_post_model import AutoTestPostModel
@@ -728,6 +702,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_test_post_model** | [**AutoTestPostModel**](AutoTestPostModel.md)|  | [optional] 
@@ -746,6 +721,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -763,31 +739,13 @@ Name | Type | Description  | Notes
 
 Create multiple autotests
 
-
-Use case
-
-User sets autotest parameters (listed in the example) and runs method execution
-
-System creates autotest
-
-[Optional] If steps enumeration is set, system creates step items and relates them to autotest
-
-[Optional] If setup enumeration is set, system creates setup items and relates them to autotest
-
-[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
-
-[Optional] If label enumeration is set, system creates labels and relates them to autotest
-
-[Optional] If link enumeration is set, system creates links and relates them to autotest
-
-System returns autotest model (example listed in response parameters)
+ Use case  User sets autotest parameters (listed in the example) and runs method execution  System creates autotest  [Optional] If steps enumeration is set, system creates step items and relates them to autotest  [Optional] If setup enumeration is set, system creates setup items and relates them to autotest  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  [Optional] If label enumeration is set, system creates labels and relates them to autotest  [Optional] If link enumeration is set, system creates links and relates them to autotest  System returns autotest model (example listed in response parameters)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.models.auto_test_post_model import AutoTestPostModel
@@ -830,6 +788,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_test_post_model** | [**List[AutoTestPostModel]**](AutoTestPostModel.md)|  | [optional] 
@@ -848,6 +807,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -865,21 +825,13 @@ Name | Type | Description  | Notes
 
 Delete autotest
 
-
-Use case
-
-User sets autotest internal (guid format) or global (integer format) identifier and runs method execution
-
-System finds the autotest by the identifier
-
-System deletes autotest and returns no content response
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  System finds the autotest by the identifier  System deletes autotest and returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -918,6 +870,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
@@ -936,6 +889,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -953,30 +907,13 @@ void (empty response body)
 
 Unlink autotest from work item
 
-
-Use case
-
-User sets autotest internal (guid format) or global (integer format) identifier
-
-[Optional] User sets workitem internal (guid format) or global (integer format) identifier
-
-User runs method execution
-
-System finds the autotest by the autotest identifier
-
-[Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it
-            from autotest.
-
-[Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.
-
-System returns no content response
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  [Optional] User sets workitem internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it             from autotest.  [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1016,6 +953,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
@@ -1035,6 +973,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -1052,14 +991,11 @@ void (empty response body)
 
 
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.rest import ApiException
@@ -1125,6 +1061,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal ID | [optional] 
@@ -1168,6 +1105,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1185,23 +1123,13 @@ Name | Type | Description  | Notes
 
 Get average autotest duration
 
-
-Use case
-
-User sets autotest internal (guid format) or global (integer format) identifier
-
-User runs method execution
-
-System calculates pass average duration and fail average duration of autotest from all related test results
-
-System returns pass average duration and fail average duration for autotest
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System calculates pass average duration and fail average duration of autotest from all related test results  System returns pass average duration and fail average duration for autotest
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_average_duration_model import AutoTestAverageDurationModel
 from testit_api_client.rest import ApiException
@@ -1243,6 +1171,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
@@ -1261,6 +1190,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1279,19 +1209,13 @@ Name | Type | Description  | Notes
 
 Get autotest by internal or global ID
 
-
-Use case
-
-User sets autotest internal or global identifier and runs method execution
-
-System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+ Use case  User sets autotest internal or global identifier and runs method execution  System returns autotest, which internal or global identifier equals the identifier value set in the previous action
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.rest import ApiException
@@ -1333,6 +1257,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
@@ -1351,6 +1276,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1368,25 +1294,13 @@ Name | Type | Description  | Notes
 
 Get autotest chronology
 
-
-Use case
-
-User sets autotest internal (guid format) or global (integer format) identifier
-
-User runs method execution
-
-System search all test results related to autotest (with default limit equal 100)
-
-System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending
-
-System returns test result chronology for autotest
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search all test results related to autotest (with default limit equal 100)  System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  System returns test result chronology for autotest
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_result_chronology_model import TestResultChronologyModel
 from testit_api_client.rest import ApiException
@@ -1428,6 +1342,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
@@ -1446,6 +1361,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1463,23 +1379,13 @@ Name | Type | Description  | Notes
 
 Get completed tests runs for autotests
 
-
-Use case
-
-User sets autotest internal (guid format) or global (integer format) identifier
-
-User runs method execution
-
-System search for all test runs related to the autotest
-
-System returns the enumeration of test runs
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search for all test runs related to the autotest  System returns the enumeration of test runs
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_by_auto_test_api_result import TestRunByAutoTestApiResult
 from testit_api_client.rest import ApiException
@@ -1521,6 +1427,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
@@ -1539,6 +1446,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1556,25 +1464,13 @@ Name | Type | Description  | Notes
 
 Get work items linked to autotest
 
-
-This method links an autotest to a test case or a checklist.
-            A manual test case with a linked automated work item is marked in the test management system as an autotest.
-            You can run it from graphical user interface (GUI). To do that:
-
-1. Open the project in GUI.
-
-            2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.
-
-            3. Select the autotest(s) you want to run using checkboxes.
-
-            4. In the toolbar above the test list, click <b>Run autotests</b>.
+ This method links an autotest to a test case or a checklist.             A manual test case with a linked automated work item is marked in the test management system as an autotest.             You can run it from graphical user interface (GUI). To do that:  1. Open the project in GUI.              2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.              3. Select the autotest(s) you want to run using checkboxes.              4. In the toolbar above the test list, click <b>Run autotests</b>.
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_identifier_model import WorkItemIdentifierModel
 from testit_api_client.rest import ApiException
@@ -1618,6 +1514,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. | 
@@ -1638,6 +1535,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1655,27 +1553,13 @@ Name | Type | Description  | Notes
 
 Link autotest with work items
 
-
-Use case
-
-User sets autotest internal (guid format) or global (integer format) identifier
-
-User sets work item internal (guid format) or global (integer format) identifier
-
-User runs method execution
-
-System finds the autotest by the autotest identifier
-
-System finds the work item by the work item identifier
-
-System relates the work item with the autotest and returns no content response
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets work item internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  System finds the work item by the work item identifier  System relates the work item with the autotest and returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_id_model import WorkItemIdModel
 from testit_api_client.rest import ApiException
@@ -1716,6 +1600,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Autotest internal (UUID) or global (integer) identifier | 
@@ -1735,6 +1620,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -1752,38 +1638,13 @@ void (empty response body)
 
 Update autotest
 
-
-Use case
-
-User sets autotest updated parameters values (listed in the example) and runs method execution
-
-System finds the autotest by the identifier
-
-System updates autotest parameters
-
-[Optional] If steps enumeration is set, system creates step items, relates them to autotest
-            and deletes relations with current steps( if exist)
-
-[Optional] If Setup enumeration is set, system creates setup items and relates them to autotest
-            and deletes relations with current Setup items (if exist)
-
-[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
-            and deletes relations with current teardown items (if exist)
-
-[Optional] If label enumeration is set, system creates labels and relates them to autotest
-            and deletes relations with current Labels (if exist)
-
-[Optional] If link enumeration is set, system creates links and relates them to autotest
-            and deletes relations with current Links (if exist)
-
-System updates autotest and returns no content response
+ Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_put_model import AutoTestPutModel
 from testit_api_client.rest import ApiException
@@ -1823,6 +1684,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_test_put_model** | [**AutoTestPutModel**](AutoTestPutModel.md)|  | [optional] 
@@ -1841,6 +1703,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1859,38 +1722,13 @@ void (empty response body)
 
 Update multiple autotests
 
-
-Use case
-
-User sets autotest updated parameters values (listed in the example) and runs method execution
-
-System finds the autotest by the identifier
-
-System updates autotest parameters
-
-[Optional] If steps enumeration is set, system creates step items, relates them to autotest
-            and deletes relations with current steps( if exist)
-
-[Optional] If Setup enumeration is set, system creates setup items and relates them to autotest
-            and deletes relations with current Setup items (if exist)
-
-[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
-            and deletes relations with current teardown items (if exist)
-
-[Optional] If label enumeration is set, system creates labels and relates them to autotest
-            and deletes relations with current Labels (if exist)
-
-[Optional] If link enumeration is set, system creates links and relates them to autotest
-            and deletes relations with current Links (if exist)
-
-System updates autotest and returns no content response
+ Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_put_model import AutoTestPutModel
 from testit_api_client.rest import ApiException
@@ -1930,6 +1768,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_test_put_model** | [**List[AutoTestPutModel]**](AutoTestPutModel.md)|  | [optional] 
@@ -1948,6 +1787,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |

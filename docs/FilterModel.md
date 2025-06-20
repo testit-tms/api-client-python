@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_date** | **datetime** |  | 
@@ -25,7 +26,7 @@ json = "{}"
 # create an instance of FilterModel from a JSON string
 filter_model_instance = FilterModel.from_json(json)
 # print the JSON string representation of the object
-print FilterModel.to_json()
+print(FilterModel.to_json())
 
 # convert the object into a dict
 filter_model_dict = filter_model_instance.to_dict()

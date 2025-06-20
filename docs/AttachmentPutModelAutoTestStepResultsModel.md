@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **str** | The name of the step. | [optional] 
@@ -25,7 +26,7 @@ json = "{}"
 # create an instance of AttachmentPutModelAutoTestStepResultsModel from a JSON string
 attachment_put_model_auto_test_step_results_model_instance = AttachmentPutModelAutoTestStepResultsModel.from_json(json)
 # print the JSON string representation of the object
-print AttachmentPutModelAutoTestStepResultsModel.to_json()
+print(AttachmentPutModelAutoTestStepResultsModel.to_json())
 
 # convert the object into a dict
 attachment_put_model_auto_test_step_results_model_dict = attachment_put_model_auto_test_step_results_model_instance.to_dict()

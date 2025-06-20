@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deleted_count** | **int** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of AutoTestBulkDeleteApiResult from a JSON string
 auto_test_bulk_delete_api_result_instance = AutoTestBulkDeleteApiResult.from_json(json)
 # print the JSON string representation of the object
-print AutoTestBulkDeleteApiResult.to_json()
+print(AutoTestBulkDeleteApiResult.to_json())
 
 # convert the object into a dict
 auto_test_bulk_delete_api_result_dict = auto_test_bulk_delete_api_result_instance.to_dict()

@@ -3,6 +3,7 @@
 Model containing options to filter work items
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**WorkItemLocalFilterModel**](WorkItemLocalFilterModel.md) | Collection of filters to apply to search | [optional] 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of WorkItemLocalSelectModel from a JSON string
 work_item_local_select_model_instance = WorkItemLocalSelectModel.from_json(json)
 # print the JSON string representation of the object
-print WorkItemLocalSelectModel.to_json()
+print(WorkItemLocalSelectModel.to_json())
 
 # convert the object into a dict
 work_item_local_select_model_dict = work_item_local_select_model_instance.to_dict()

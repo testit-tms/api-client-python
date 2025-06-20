@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -24,7 +25,7 @@ json = "{}"
 # create an instance of FailureClassModel from a JSON string
 failure_class_model_instance = FailureClassModel.from_json(json)
 # print the JSON string representation of the object
-print FailureClassModel.to_json()
+print(FailureClassModel.to_json())
 
 # convert the object into a dict
 failure_class_model_dict = failure_class_model_instance.to_dict()

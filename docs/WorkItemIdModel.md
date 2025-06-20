@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format | 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of WorkItemIdModel from a JSON string
 work_item_id_model_instance = WorkItemIdModel.from_json(json)
 # print the JSON string representation of the object
-print WorkItemIdModel.to_json()
+print(WorkItemIdModel.to_json())
 
 # convert the object into a dict
 work_item_id_model_dict = work_item_id_model_instance.to_dict()

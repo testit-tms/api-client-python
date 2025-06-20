@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **rerun_count** | **int** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of RerunsModel from a JSON string
 reruns_model_instance = RerunsModel.from_json(json)
 # print the JSON string representation of the object
-print RerunsModel.to_json()
+print(RerunsModel.to_json())
 
 # convert the object into a dict
 reruns_model_dict = reruns_model_instance.to_dict()

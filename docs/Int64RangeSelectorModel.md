@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **var_from** | **int** |  | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of Int64RangeSelectorModel from a JSON string
 int64_range_selector_model_instance = Int64RangeSelectorModel.from_json(json)
 # print the JSON string representation of the object
-print Int64RangeSelectorModel.to_json()
+print(Int64RangeSelectorModel.to_json())
 
 # convert the object into a dict
 int64_range_selector_model_dict = int64_range_selector_model_instance.to_dict()

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**GuidExtractionModel**](GuidExtractionModel.md) |  | [optional] 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of ProjectExtractionModel from a JSON string
 project_extraction_model_instance = ProjectExtractionModel.from_json(json)
 # print the JSON string representation of the object
-print ProjectExtractionModel.to_json()
+print(ProjectExtractionModel.to_json())
 
 # convert the object into a dict
 project_extraction_model_dict = project_extraction_model_instance.to_dict()

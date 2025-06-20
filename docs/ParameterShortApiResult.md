@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of ParameterShortApiResult from a JSON string
 parameter_short_api_result_instance = ParameterShortApiResult.from_json(json)
 # print the JSON string representation of the object
-print ParameterShortApiResult.to_json()
+print(ParameterShortApiResult.to_json())
 
 # convert the object into a dict
 parameter_short_api_result_dict = parameter_short_api_result_instance.to_dict()

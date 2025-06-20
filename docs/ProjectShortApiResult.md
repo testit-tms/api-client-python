@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of project | 
@@ -21,7 +22,7 @@ json = "{}"
 # create an instance of ProjectShortApiResult from a JSON string
 project_short_api_result_instance = ProjectShortApiResult.from_json(json)
 # print the JSON string representation of the object
-print ProjectShortApiResult.to_json()
+print(ProjectShortApiResult.to_json())
 
 # convert the object into a dict
 project_short_api_result_dict = project_short_api_result_instance.to_dict()

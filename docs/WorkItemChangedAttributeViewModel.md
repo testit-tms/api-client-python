@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of WorkItemChangedAttributeViewModel from a JSON string
 work_item_changed_attribute_view_model_instance = WorkItemChangedAttributeViewModel.from_json(json)
 # print the JSON string representation of the object
-print WorkItemChangedAttributeViewModel.to_json()
+print(WorkItemChangedAttributeViewModel.to_json())
 
 # convert the object into a dict
 work_item_changed_attribute_view_model_dict = work_item_changed_attribute_view_model_instance.to_dict()

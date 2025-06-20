@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the tag | 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of TagShortApiResult from a JSON string
 tag_short_api_result_instance = TagShortApiResult.from_json(json)
 # print the JSON string representation of the object
-print TagShortApiResult.to_json()
+print(TagShortApiResult.to_json())
 
 # convert the object into a dict
 tag_short_api_result_dict = tag_short_api_result_instance.to_dict()

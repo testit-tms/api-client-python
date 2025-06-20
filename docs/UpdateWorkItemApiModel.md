@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Workitem internal identifier | 
@@ -32,7 +33,7 @@ json = "{}"
 # create an instance of UpdateWorkItemApiModel from a JSON string
 update_work_item_api_model_instance = UpdateWorkItemApiModel.from_json(json)
 # print the JSON string representation of the object
-print UpdateWorkItemApiModel.to_json()
+print(UpdateWorkItemApiModel.to_json())
 
 # convert the object into a dict
 update_work_item_api_model_dict = update_work_item_api_model_instance.to_dict()

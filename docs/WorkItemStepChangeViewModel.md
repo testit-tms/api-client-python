@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **str** |  | 
@@ -22,7 +23,7 @@ json = "{}"
 # create an instance of WorkItemStepChangeViewModel from a JSON string
 work_item_step_change_view_model_instance = WorkItemStepChangeViewModel.from_json(json)
 # print the JSON string representation of the object
-print WorkItemStepChangeViewModel.to_json()
+print(WorkItemStepChangeViewModel.to_json())
 
 # convert the object into a dict
 work_item_step_change_view_model_dict = work_item_step_change_view_model_instance.to_dict()

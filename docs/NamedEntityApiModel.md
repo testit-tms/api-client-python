@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Entity name. | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of NamedEntityApiModel from a JSON string
 named_entity_api_model_instance = NamedEntityApiModel.from_json(json)
 # print the JSON string representation of the object
-print NamedEntityApiModel.to_json()
+print(NamedEntityApiModel.to_json())
 
 # convert the object into a dict
 named_entity_api_model_dict = named_entity_api_model_instance.to_dict()

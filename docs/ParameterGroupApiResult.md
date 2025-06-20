@@ -2,12 +2,12 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **parameter_key_id** | **str** |  | 
 **name** | **str** |  | 
 **values** | **Dict[str, str]** |  | 
-**project_ids** | **List[str]** |  | 
 
 ## Example
 
@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ParameterGroupApiResult from a JSON string
 parameter_group_api_result_instance = ParameterGroupApiResult.from_json(json)
 # print the JSON string representation of the object
-print ParameterGroupApiResult.to_json()
+print(ParameterGroupApiResult.to_json())
 
 # convert the object into a dict
 parameter_group_api_result_dict = parameter_group_api_result_instance.to_dict()

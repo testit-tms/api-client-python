@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | [optional] 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of ProblemDetails from a JSON string
 problem_details_instance = ProblemDetails.from_json(json)
 # print the JSON string representation of the object
-print ProblemDetails.to_json()
+print(ProblemDetails.to_json())
 
 # convert the object into a dict
 problem_details_dict = problem_details_instance.to_dict()

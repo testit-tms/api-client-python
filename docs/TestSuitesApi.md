@@ -24,14 +24,11 @@ Method | HTTP request | Description
 
 Add test-points to test suite
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_select_model import WorkItemSelectModel
 from testit_api_client.rest import ApiException
@@ -72,6 +69,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal identifier | 
@@ -91,6 +89,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -108,14 +107,13 @@ void (empty response body)
 
 Patch test suite
 
-See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.operation import Operation
 from testit_api_client.rest import ApiException
@@ -156,6 +154,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test Suite internal (UUID) identifier | 
@@ -175,6 +174,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -192,14 +192,11 @@ void (empty response body)
 
 Refresh test suite. Only dynamic test suites are supported by this method
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -238,6 +235,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test Suite internal (UUID) identifier | 
@@ -256,6 +254,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -273,14 +272,11 @@ void (empty response body)
 
 Set work items for test suite
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -320,6 +316,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique ID of the test suite | 
@@ -339,6 +336,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -356,14 +354,11 @@ void (empty response body)
 
 Create test suite
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_suite_v2_get_model import TestSuiteV2GetModel
 from testit_api_client.models.test_suite_v2_post_model import TestSuiteV2PostModel
@@ -406,6 +401,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **test_suite_v2_post_model** | [**TestSuiteV2PostModel**](TestSuiteV2PostModel.md)|  | [optional] 
@@ -424,6 +420,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -441,14 +438,11 @@ Name | Type | Description  | Notes
 
 Edit test suite
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_suite_v2_put_model import TestSuiteV2PutModel
 from testit_api_client.rest import ApiException
@@ -488,6 +482,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **test_suite_v2_put_model** | [**TestSuiteV2PutModel**](TestSuiteV2PutModel.md)|  | [optional] 
@@ -506,6 +501,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -523,25 +519,13 @@ void (empty response body)
 
 Delete TestSuite
 
-
-Use case
-
-User sets test suite identifier
-
-User runs method execution
-
-System search test suite by identifier
-
-System deletes test suite
-
-System returns no content response
+ Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -580,6 +564,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal (guid format) identifier\&quot; | 
@@ -598,6 +583,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -615,27 +601,13 @@ void (empty response body)
 
 Get Configurations By Id
 
-
-Use case
-
-User sets test suite identifier
-
-User runs method execution
-
-System search test suite by identifier
-
-System search test points related to the test suite
-
-System search configurations related to the test points
-
-System returns configurations array
+ Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_model import ConfigurationModel
 from testit_api_client.rest import ApiException
@@ -677,6 +649,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal (guid format) identifier\&quot; | 
@@ -695,6 +668,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -712,25 +686,13 @@ Name | Type | Description  | Notes
 
 Get TestPoints By Id
 
-
-Use case
-
-User sets test suite identifier
-
-User runs method execution
-
-System search test suite by identifier
-
-System search test points related to the test suite
-
-System returns test points array
+ Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_point_by_test_suite_model import TestPointByTestSuiteModel
 from testit_api_client.rest import ApiException
@@ -772,6 +734,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal (guid format) identifier\&quot; | 
@@ -790,6 +753,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -807,27 +771,13 @@ Name | Type | Description  | Notes
 
 Get TestResults By Id
 
-
-Use case
-
-User sets test suite identifier
-
-User runs method execution
-
-System search test suite by identifier
-
-System search test points related to the test suite
-
-System search test results related to the test points
-
-System returns test results array
+ Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_result_v2_short_model import TestResultV2ShortModel
 from testit_api_client.rest import ApiException
@@ -869,6 +819,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal (guid format) identifier\&quot; | 
@@ -887,6 +838,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -904,23 +856,13 @@ Name | Type | Description  | Notes
 
 Get TestSuite by Id
 
-
-Use case
-
-User sets test suite identifier
-
-User runs method execution
-
-System search test suite by identifier
-
-System returns test suite
+ Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_suite_v2_get_model import TestSuiteV2GetModel
 from testit_api_client.rest import ApiException
@@ -962,6 +904,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal (guid format) identifier\&quot; | 
@@ -980,6 +923,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -998,31 +942,13 @@ Name | Type | Description  | Notes
 
 Search WorkItems
 
-
-Use case
-
-User sets test suite identifier
-
-[Optional] User sets filter
-
-User runs method execution
-
-System search test suite by identifier
-
-System search test points related to the test suite
-
-System search work items related to the test points
-
-[Optional] User sets filter, system applies filter
-
-System returns work items array
+ Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_suite_work_items_search_model import TestSuiteWorkItemsSearchModel
 from testit_api_client.models.work_item_short_model import WorkItemShortModel
@@ -1071,6 +997,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal (guid format) identifier\&quot; | 
@@ -1095,6 +1022,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1112,31 +1040,13 @@ Name | Type | Description  | Notes
 
 Set Configurations By TestSuite Id
 
-
-Use case
-
-User sets test suite identifier
-
-User sets collection of configuration identifiers
-
-User runs method execution
-
-System search test suite by identifier
-
-System search test points related to the test suite
-
-System search configuration
-
-System restores(if exist) or creates test points with listed configuration
-
-System returns no content response
+ Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1176,6 +1086,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test suite internal (guid format) identifier\&quot; | 
@@ -1195,6 +1106,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |

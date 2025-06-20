@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Test run unique identifier | 
@@ -21,7 +22,7 @@ json = "{}"
 # create an instance of UpdateEmptyTestRunApiModel from a JSON string
 update_empty_test_run_api_model_instance = UpdateEmptyTestRunApiModel.from_json(json)
 # print the JSON string representation of the object
-print UpdateEmptyTestRunApiModel.to_json()
+print(UpdateEmptyTestRunApiModel.to_json())
 
 # convert the object into a dict
 update_empty_test_run_api_model_dict = update_empty_test_run_api_model_instance.to_dict()

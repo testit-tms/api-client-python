@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version_id** | **str** |  | 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of SharedStepModel from a JSON string
 shared_step_model_instance = SharedStepModel.from_json(json)
 # print the JSON string representation of the object
-print SharedStepModel.to_json()
+print(SharedStepModel.to_json())
 
 # convert the object into a dict
 shared_step_model_dict = shared_step_model_instance.to_dict()

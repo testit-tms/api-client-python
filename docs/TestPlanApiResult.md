@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 **has_automatic_duration_timer** | **bool** |  | [optional] 
 **locked_by_id** | **str** |  | [optional] 
 **locked_date** | **datetime** |  | [optional] 
-**attributes** | **Dict[str, object]** |  | 
+**attributes** | **Dict[str, Optional[object]]** |  | 
 **created_date** | **datetime** |  | [optional] 
 **modified_date** | **datetime** |  | [optional] 
 **created_by_id** | **str** |  | 
@@ -37,7 +38,7 @@ json = "{}"
 # create an instance of TestPlanApiResult from a JSON string
 test_plan_api_result_instance = TestPlanApiResult.from_json(json)
 # print the JSON string representation of the object
-print TestPlanApiResult.to_json()
+print(TestPlanApiResult.to_json())
 
 # convert the object into a dict
 test_plan_api_result_dict = test_plan_api_result_instance.to_dict()

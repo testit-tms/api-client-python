@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **str** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of TestPlanGroupByStatus from a JSON string
 test_plan_group_by_status_instance = TestPlanGroupByStatus.from_json(json)
 # print the JSON string representation of the object
-print TestPlanGroupByStatus.to_json()
+print(TestPlanGroupByStatus.to_json())
 
 # convert the object into a dict
 test_plan_group_by_status_dict = test_plan_group_by_status_instance.to_dict()

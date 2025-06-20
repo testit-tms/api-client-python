@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_suite_id** | **str** |  | 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of TestPlanGroupByTestSuite from a JSON string
 test_plan_group_by_test_suite_instance = TestPlanGroupByTestSuite.from_json(json)
 # print the JSON string representation of the object
-print TestPlanGroupByTestSuite.to_json()
+print(TestPlanGroupByTestSuite.to_json())
 
 # convert the object into a dict
 test_plan_group_by_test_suite_dict = test_plan_group_by_test_suite_instance.to_dict()

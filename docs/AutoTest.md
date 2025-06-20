@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **external_id** | **str** | External ID of the autotest | 
@@ -43,7 +44,7 @@ json = "{}"
 # create an instance of AutoTest from a JSON string
 auto_test_instance = AutoTest.from_json(json)
 # print the JSON string representation of the object
-print AutoTest.to_json()
+print(AutoTest.to_json())
 
 # convert the object into a dict
 auto_test_dict = auto_test_instance.to_dict()

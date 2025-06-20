@@ -12,14 +12,11 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.user_custom_name_validation_response import UserCustomNameValidationResponse
 from testit_api_client.rest import ApiException
@@ -60,6 +57,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_name** | **str**|  | [optional] 
@@ -78,6 +76,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

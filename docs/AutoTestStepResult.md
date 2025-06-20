@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **str** | The name of the step. | [optional] 
@@ -25,7 +26,7 @@ json = "{}"
 # create an instance of AutoTestStepResult from a JSON string
 auto_test_step_result_instance = AutoTestStepResult.from_json(json)
 # print the JSON string representation of the object
-print AutoTestStepResult.to_json()
+print(AutoTestStepResult.to_json())
 
 # convert the object into a dict
 auto_test_step_result_dict = auto_test_step_result_instance.to_dict()

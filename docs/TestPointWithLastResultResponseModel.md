@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -41,7 +42,7 @@ json = "{}"
 # create an instance of TestPointWithLastResultResponseModel from a JSON string
 test_point_with_last_result_response_model_instance = TestPointWithLastResultResponseModel.from_json(json)
 # print the JSON string representation of the object
-print TestPointWithLastResultResponseModel.to_json()
+print(TestPointWithLastResultResponseModel.to_json())
 
 # convert the object into a dict
 test_point_with_last_result_response_model_dict = test_point_with_last_result_response_model_instance.to_dict()

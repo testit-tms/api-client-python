@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**CompositeFilter**](CompositeFilter.md) |  | [optional] 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of Inquiry from a JSON string
 inquiry_instance = Inquiry.from_json(json)
 # print the JSON string representation of the object
-print Inquiry.to_json()
+print(Inquiry.to_json())
 
 # convert the object into a dict
 inquiry_dict = inquiry_instance.to_dict()

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the entity | 
@@ -25,7 +26,7 @@ json = "{}"
 # create an instance of TestPoint from a JSON string
 test_point_instance = TestPoint.from_json(json)
 # print the JSON string representation of the object
-print TestPoint.to_json()
+print(TestPoint.to_json())
 
 # convert the object into a dict
 test_point_dict = test_point_instance.to_dict()

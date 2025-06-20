@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **old_value** | **str** |  | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of StringChangedFieldViewModel from a JSON string
 string_changed_field_view_model_instance = StringChangedFieldViewModel.from_json(json)
 # print the JSON string representation of the object
-print StringChangedFieldViewModel.to_json()
+print(StringChangedFieldViewModel.to_json())
 
 # convert the object into a dict
 string_changed_field_view_model_dict = string_changed_field_view_model_instance.to_dict()

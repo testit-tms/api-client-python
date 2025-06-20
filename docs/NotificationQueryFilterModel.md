@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **types** | [**List[NotificationTypeModel]**](NotificationTypeModel.md) |  | [optional] 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of NotificationQueryFilterModel from a JSON string
 notification_query_filter_model_instance = NotificationQueryFilterModel.from_json(json)
 # print the JSON string representation of the object
-print NotificationQueryFilterModel.to_json()
+print(NotificationQueryFilterModel.to_json())
 
 # convert the object into a dict
 notification_query_filter_model_dict = notification_query_filter_model_instance.to_dict()

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_id** | **str** | Unique ID of the project. | 
@@ -21,7 +22,7 @@ json = "{}"
 # create an instance of AutoTestProjectSettingsGetModel from a JSON string
 auto_test_project_settings_get_model_instance = AutoTestProjectSettingsGetModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestProjectSettingsGetModel.to_json()
+print(AutoTestProjectSettingsGetModel.to_json())
 
 # convert the object into a dict
 auto_test_project_settings_get_model_dict = auto_test_project_settings_get_model_instance.to_dict()

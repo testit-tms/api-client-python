@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **str** | Action applied by user | [optional] 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of CreateStepApiModel from a JSON string
 create_step_api_model_instance = CreateStepApiModel.from_json(json)
 # print the JSON string representation of the object
-print CreateStepApiModel.to_json()
+print(CreateStepApiModel.to_json())
 
 # convert the object into a dict
 create_step_api_model_dict = create_step_api_model_instance.to_dict()

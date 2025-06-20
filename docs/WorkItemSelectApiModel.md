@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**WorkItemFilterApiModel**](WorkItemFilterApiModel.md) |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of WorkItemSelectApiModel from a JSON string
 work_item_select_api_model_instance = WorkItemSelectApiModel.from_json(json)
 # print the JSON string representation of the object
-print WorkItemSelectApiModel.to_json()
+print(WorkItemSelectApiModel.to_json())
 
 # convert the object into a dict
 work_item_select_api_model_dict = work_item_select_api_model_instance.to_dict()

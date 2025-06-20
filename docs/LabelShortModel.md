@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **global_id** | **int** | Global ID of the label | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of LabelShortModel from a JSON string
 label_short_model_instance = LabelShortModel.from_json(json)
 # print the JSON string representation of the object
-print LabelShortModel.to_json()
+print(LabelShortModel.to_json())
 
 # convert the object into a dict
 label_short_model_dict = label_short_model_instance.to_dict()

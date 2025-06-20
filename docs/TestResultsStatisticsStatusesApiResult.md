@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **in_progress** | **int** | Number of test results which is running currently | 
@@ -21,7 +22,7 @@ json = "{}"
 # create an instance of TestResultsStatisticsStatusesApiResult from a JSON string
 test_results_statistics_statuses_api_result_instance = TestResultsStatisticsStatusesApiResult.from_json(json)
 # print the JSON string representation of the object
-print TestResultsStatisticsStatusesApiResult.to_json()
+print(TestResultsStatisticsStatusesApiResult.to_json())
 
 # convert the object into a dict
 test_results_statistics_statuses_api_result_dict = test_results_statistics_statuses_api_result_instance.to_dict()

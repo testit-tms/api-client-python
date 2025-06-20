@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **include_steps** | **bool** | If autotest steps will be included | [optional] 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of AutoTestSearchIncludeApiModel from a JSON string
 auto_test_search_include_api_model_instance = AutoTestSearchIncludeApiModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestSearchIncludeApiModel.to_json()
+print(AutoTestSearchIncludeApiModel.to_json())
 
 # convert the object into a dict
 auto_test_search_include_api_model_dict = auto_test_search_include_api_model_instance.to_dict()

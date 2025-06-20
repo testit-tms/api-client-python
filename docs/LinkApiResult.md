@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Link unique identifier | [optional] 
@@ -21,7 +22,7 @@ json = "{}"
 # create an instance of LinkApiResult from a JSON string
 link_api_result_instance = LinkApiResult.from_json(json)
 # print the JSON string representation of the object
-print LinkApiResult.to_json()
+print(LinkApiResult.to_json())
 
 # convert the object into a dict
 link_api_result_dict = link_api_result_instance.to_dict()

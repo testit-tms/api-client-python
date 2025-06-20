@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tag_names** | **List[str]** | Collection of tags | [optional] 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 **name** | **str** | Name of work item | [optional] 
 **ids** | **List[str]** | Specifies a work item unique IDs to search for | [optional] 
 **global_ids** | **List[int]** | Collection of global (integer) identifiers | [optional] 
-**attributes** | **Dict[str, List[str]]** | Custom attributes of work item | [optional] 
+**attributes** | **Dict[str, Optional[List[str]]]** | Custom attributes of work item | [optional] 
 **is_deleted** | **bool** | Is result must consist of only actual/deleted work items | [optional] 
 **section_ids** | **List[str]** | Collection of section identifiers | [optional] 
 **created_by_ids** | **List[str]** | Collection of identifiers of users who created work item | [optional] 
@@ -42,7 +43,7 @@ json = "{}"
 # create an instance of TestSuiteWorkItemsSearchModel from a JSON string
 test_suite_work_items_search_model_instance = TestSuiteWorkItemsSearchModel.from_json(json)
 # print the JSON string representation of the object
-print TestSuiteWorkItemsSearchModel.to_json()
+print(TestSuiteWorkItemsSearchModel.to_json())
 
 # convert the object into a dict
 test_suite_work_items_search_model_dict = test_suite_work_items_search_model_instance.to_dict()

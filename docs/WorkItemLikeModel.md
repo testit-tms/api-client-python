@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **work_item_id** | **str** |  | 
@@ -22,7 +23,7 @@ json = "{}"
 # create an instance of WorkItemLikeModel from a JSON string
 work_item_like_model_instance = WorkItemLikeModel.from_json(json)
 # print the JSON string representation of the object
-print WorkItemLikeModel.to_json()
+print(WorkItemLikeModel.to_json())
 
 # convert the object into a dict
 work_item_like_model_dict = work_item_like_model_instance.to_dict()

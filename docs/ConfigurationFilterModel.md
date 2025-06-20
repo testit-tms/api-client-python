@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_ids** | **List[str]** | Collection of identifiers of projects from which configurations will be taken | [optional] 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of ConfigurationFilterModel from a JSON string
 configuration_filter_model_instance = ConfigurationFilterModel.from_json(json)
 # print the JSON string representation of the object
-print ConfigurationFilterModel.to_json()
+print(ConfigurationFilterModel.to_json())
 
 # convert the object into a dict
 configuration_filter_model_dict = configuration_filter_model_instance.to_dict()

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **old_value** | **bool** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of BooleanChangedFieldViewModel from a JSON string
 boolean_changed_field_view_model_instance = BooleanChangedFieldViewModel.from_json(json)
 # print the JSON string representation of the object
-print BooleanChangedFieldViewModel.to_json()
+print(BooleanChangedFieldViewModel.to_json())
 
 # convert the object into a dict
 boolean_changed_field_view_model_dict = boolean_changed_field_view_model_instance.to_dict()

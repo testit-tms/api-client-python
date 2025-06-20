@@ -23,14 +23,11 @@ Method | HTTP request | Description
 
 Create configurations by parameters
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_by_parameters_model import ConfigurationByParametersModel
 from testit_api_client.rest import ApiException
@@ -72,6 +69,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configuration_by_parameters_model** | [**ConfigurationByParametersModel**](ConfigurationByParametersModel.md)|  | [optional] 
@@ -90,6 +88,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -107,14 +106,11 @@ Name | Type | Description  | Notes
 
 Delete multiple configurations
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_select_model import ConfigurationSelectModel
 from testit_api_client.rest import ApiException
@@ -156,6 +152,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configuration_select_model** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] 
@@ -174,6 +171,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -191,14 +189,11 @@ Name | Type | Description  | Notes
 
 Delete configuration
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -237,6 +232,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the configuration | 
@@ -255,6 +251,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -272,14 +269,13 @@ void (empty response body)
 
 Patch configuration
 
-See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.operation import Operation
 from testit_api_client.rest import ApiException
@@ -320,6 +316,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique ID of the configuration | 
@@ -339,6 +336,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -356,14 +354,11 @@ void (empty response body)
 
 Permanently delete configuration from archive
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -402,6 +397,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the configuration | 
@@ -420,6 +416,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -437,14 +434,11 @@ void (empty response body)
 
 Restore configuration from the archive
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -483,6 +477,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the configuration | 
@@ -501,6 +496,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -518,14 +514,11 @@ void (empty response body)
 
 Permanently delete multiple archived configurations
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_select_model import ConfigurationSelectModel
 from testit_api_client.rest import ApiException
@@ -565,6 +558,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configuration_select_model** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] 
@@ -583,6 +577,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -600,14 +595,11 @@ void (empty response body)
 
 Edit configuration
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_put_model import ConfigurationPutModel
 from testit_api_client.rest import ApiException
@@ -647,6 +639,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configuration_put_model** | [**ConfigurationPutModel**](ConfigurationPutModel.md)|  | [optional] 
@@ -665,6 +658,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -682,14 +676,11 @@ void (empty response body)
 
 Restore multiple configurations from the archive
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_select_model import ConfigurationSelectModel
 from testit_api_client.rest import ApiException
@@ -731,6 +722,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configuration_select_model** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] 
@@ -749,6 +741,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -766,14 +759,11 @@ Name | Type | Description  | Notes
 
 Search for configurations
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_filter_model import ConfigurationFilterModel
 from testit_api_client.models.configuration_model import ConfigurationModel
@@ -821,6 +811,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -844,6 +835,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -861,23 +853,13 @@ Name | Type | Description  | Notes
 
 Create Configuration
 
-
-Use case
-
-User sets configuration model (listed in the request example)
-
-User runs method execution
-
-System creates configuration
-
-System returns created configuration (listed in the response example)
+ Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_model import ConfigurationModel
 from testit_api_client.models.configuration_post_model import ConfigurationPostModel
@@ -920,6 +902,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configuration_post_model** | [**ConfigurationPostModel**](ConfigurationPostModel.md)|  | [optional] 
@@ -938,6 +921,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
@@ -955,23 +939,13 @@ Name | Type | Description  | Notes
 
 Get configuration by internal or global ID
 
-
-Use case
-
-User sets configuration internal (guid format) or global (integer format) identifier
-
-User runs method execution
-
-System search configuration using the identifier
-
-System returns configuration
+ Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_model import ConfigurationModel
 from testit_api_client.rest import ApiException
@@ -1013,6 +987,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Configuration internal (guid format) or global (integer format) identifier | 
@@ -1031,6 +1006,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |

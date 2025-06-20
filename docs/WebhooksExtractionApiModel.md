@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**GuidExtractionModel**](GuidExtractionModel.md) |  | [optional] 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of WebhooksExtractionApiModel from a JSON string
 webhooks_extraction_api_model_instance = WebhooksExtractionApiModel.from_json(json)
 # print the JSON string representation of the object
-print WebhooksExtractionApiModel.to_json()
+print(WebhooksExtractionApiModel.to_json())
 
 # convert the object into a dict
 webhooks_extraction_api_model_dict = webhooks_extraction_api_model_instance.to_dict()

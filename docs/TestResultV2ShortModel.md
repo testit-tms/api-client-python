@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -34,7 +35,7 @@ json = "{}"
 # create an instance of TestResultV2ShortModel from a JSON string
 test_result_v2_short_model_instance = TestResultV2ShortModel.from_json(json)
 # print the JSON string representation of the object
-print TestResultV2ShortModel.to_json()
+print(TestResultV2ShortModel.to_json())
 
 # convert the object into a dict
 test_result_v2_short_model_dict = test_result_v2_short_model_instance.to_dict()

@@ -37,23 +37,13 @@ Method | HTTP request | Description
 
 Add global attributes to project
 
-
-Use case
-
-User sets project internal or global identifier and attributes identifiers
-
-System search project
-
-System relates global attributes with project
-
-System returns no content response
+ Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -93,6 +83,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -112,6 +103,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
@@ -129,14 +121,11 @@ void (empty response body)
 
 
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.create_project_api_model import CreateProjectApiModel
 from testit_api_client.models.demo_project_api_result import DemoProjectApiResult
@@ -178,6 +167,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_project_api_model** | [**CreateProjectApiModel**](CreateProjectApiModel.md)|  | [optional] 
@@ -196,6 +186,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -213,14 +204,11 @@ Name | Type | Description  | Notes
 
 Archive project
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -259,6 +247,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the project | 
@@ -277,6 +266,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -294,14 +284,11 @@ void (empty response body)
 
 Get failure classes
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.failure_class_model import FailureClassModel
 from testit_api_client.rest import ApiException
@@ -344,6 +331,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the project | 
@@ -363,6 +351,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -380,14 +369,11 @@ Name | Type | Description  | Notes
 
 Mark Project as favorite
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -426,6 +412,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -444,6 +431,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -461,21 +449,13 @@ void (empty response body)
 
 Get Project filters
 
-
-Use case
-
-User sets project internal or global identifier
-
-User runs method execution
-
-System returns project filters
+ Use case  User sets project internal or global identifier  User runs method execution  System returns project filters
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.filter_model import FilterModel
 from testit_api_client.rest import ApiException
@@ -517,6 +497,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -535,6 +516,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -552,14 +534,13 @@ Name | Type | Description  | Notes
 
 Patch project
 
-See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.operation import Operation
 from testit_api_client.rest import ApiException
@@ -600,6 +581,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global Id of project | 
@@ -619,6 +601,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -636,14 +619,11 @@ void (empty response body)
 
 Purge the project
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -682,6 +662,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the project | 
@@ -700,6 +681,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Accepted |  -  |
@@ -717,14 +699,11 @@ void (empty response body)
 
 Restore archived project
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -763,6 +742,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the project | 
@@ -781,6 +761,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -798,23 +779,13 @@ void (empty response body)
 
 Delete attribute from project's test plans
 
-
-Use case
-
-User sets project internal or global identifier and attribute identifier
-
-User runs method execution
-
-System updates project and delete attribute from project for test plans
-
-System returns no content response
+ Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -854,6 +825,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -873,6 +845,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -890,23 +863,13 @@ void (empty response body)
 
 Update attribute of project's test plans
 
-
-Use case
-
-User sets project internal or global identifier and attribute model
-
-User runs method execution
-
-System updates project and project attribute for test plan
-
-System returns no content response
+ Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_test_plan_project_relation_put_model import CustomAttributeTestPlanProjectRelationPutModel
 from testit_api_client.rest import ApiException
@@ -947,6 +910,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -966,6 +930,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -983,21 +948,13 @@ void (empty response body)
 
 Get active Project TestRuns
 
-
-Use case
-
-User sets project internal or global identifier
-
-User runs method execution
-
-System returns active testruns
+ Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.public_test_run_model import PublicTestRunModel
 from testit_api_client.rest import ApiException
@@ -1039,6 +996,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -1057,6 +1015,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1074,23 +1033,13 @@ Name | Type | Description  | Notes
 
 Get Project TestRuns full models
 
-
-Use case
-
-User sets project internal or global identifier
-
-User sets query params
-
-User runs method execution
-
-System returns project test runs full models
+ Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_api_result import TestRunApiResult
 from testit_api_client.rest import ApiException
@@ -1146,6 +1095,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -1178,6 +1128,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1195,14 +1146,11 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1242,6 +1190,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**|  | 
@@ -1260,6 +1209,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1277,14 +1227,11 @@ Name | Type | Description  | Notes
 
 Purge multiple projects
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.project_select_model import ProjectSelectModel
 from testit_api_client.rest import ApiException
@@ -1326,6 +1273,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_select_model** | [**ProjectSelectModel**](ProjectSelectModel.md)|  | [optional] 
@@ -1344,6 +1292,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1361,14 +1310,11 @@ Name | Type | Description  | Notes
 
 Restore multiple projects
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.project_select_model import ProjectSelectModel
 from testit_api_client.rest import ApiException
@@ -1410,6 +1356,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_select_model** | [**ProjectSelectModel**](ProjectSelectModel.md)|  | [optional] 
@@ -1428,6 +1375,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1445,14 +1393,11 @@ Name | Type | Description  | Notes
 
 Search for projects
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.project_short_model import ProjectShortModel
 from testit_api_client.models.projects_filter_model import ProjectsFilterModel
@@ -1500,6 +1445,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -1523,6 +1469,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1540,21 +1487,13 @@ Name | Type | Description  | Notes
 
 Get projects short models
 
-
-Use case
-
-User sets query params
-
-User runs method execution
-
-System return projects short models
+ Use case  User sets query params  User runs method execution  System return projects short models
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.get_short_projects_api_model import GetShortProjectsApiModel
 from testit_api_client.models.project_short_api_result_reply import ProjectShortApiResultReply
@@ -1597,6 +1536,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **get_short_projects_api_model** | [**GetShortProjectsApiModel**](GetShortProjectsApiModel.md)|  | [optional] 
@@ -1615,6 +1555,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1632,21 +1573,13 @@ Name | Type | Description  | Notes
 
 Create project
 
-
-Use case
-
-User sets project parameters (listed in request example) and runs method execution
-
-System creates project
-
-System returns project model (example listed in response parameters)
+ Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.create_project_api_model import CreateProjectApiModel
 from testit_api_client.models.project_model import ProjectModel
@@ -1689,6 +1622,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_project_api_model** | [**CreateProjectApiModel**](CreateProjectApiModel.md)|  | [optional] 
@@ -1707,6 +1641,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -1724,14 +1659,11 @@ Name | Type | Description  | Notes
 
 Delete all autotests from project
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1770,6 +1702,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the project | 
@@ -1788,6 +1721,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -1805,25 +1739,13 @@ void (empty response body)
 
 Get all projects
 
-
-Use case
-
-[Optional] User sets isDeleted field value
-
-[Optional] If User sets isDeleted field value as true, System search all deleted projects
-
-[Optional] If User sets isDeleted field value as false, System search all projects which are not deleted
-
-If User did not set isDeleted field value, System search all projects
-
-System returns array of all found projects(listed in response model)
+ Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.project_short_model import ProjectShortModel
 from testit_api_client.rest import ApiException
@@ -1871,6 +1793,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **is_deleted** | **bool**| If result must consist of only actual/deleted parameters | [optional] 
@@ -1895,6 +1818,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1912,23 +1836,13 @@ Name | Type | Description  | Notes
 
 Get namespaces of autotests in project
 
-
-Use case
-
-User sets project internal or global identifier and runs method execution
-
-System search project
-
-System search all autotest related to the project
-
-System returns array of autotest with namespaces and classnames (listed in response)
+ Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_namespace_model import AutoTestNamespaceModel
 from testit_api_client.rest import ApiException
@@ -1970,6 +1884,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -1988,6 +1903,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -2005,21 +1921,13 @@ Name | Type | Description  | Notes
 
 Get project by ID
 
-
-Use case
-
-User sets project internal or global identifier and runs method execution
-
-System search project
-
-System returns project (example listed in response parameters)
+ Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.project_model import ProjectModel
 from testit_api_client.rest import ApiException
@@ -2061,6 +1969,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -2079,6 +1988,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -2097,31 +2007,13 @@ Name | Type | Description  | Notes
 
 Get project test plans
 
-
-Use case
-
-User sets project internal or global identifier
-
-[Optional] User sets isDeleted field value
-
-User runs method execution
-
-System search project
-
-[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project
-
-[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted
-
-[Optional] If User did not set isDeleted field value, System search all v related to project
-
-System returns array of found test plans (listed in response model)
+ Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_plan_model import TestPlanModel
 from testit_api_client.rest import ApiException
@@ -2164,6 +2056,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -2183,6 +2076,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -2200,25 +2094,13 @@ Name | Type | Description  | Notes
 
 Get project test runs
 
-
-Use case
-
-User sets project internal or global identifier
-
-User runs method execution
-
-System search project
-
-System search all test runs related to project
-
-System returns array of found test runs (listed in response model)
+ Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
 from testit_api_client.rest import ApiException
@@ -2272,6 +2154,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -2302,6 +2185,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -2319,21 +2203,13 @@ Name | Type | Description  | Notes
 
 Update project
 
-
-Use case
-
-User sets project parameters (listed in request example) and runs method execution
-
-System updates project
-
-System returns updated project model (example listed in response parameters)
+ Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.update_project_api_model import UpdateProjectApiModel
 from testit_api_client.rest import ApiException
@@ -2373,6 +2249,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_project_api_model** | [**UpdateProjectApiModel**](UpdateProjectApiModel.md)|  | [optional] 
@@ -2391,6 +2268,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |

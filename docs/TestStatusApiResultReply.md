@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**List[TestStatusApiResult]**](TestStatusApiResult.md) |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of TestStatusApiResultReply from a JSON string
 test_status_api_result_reply_instance = TestStatusApiResultReply.from_json(json)
 # print the JSON string representation of the object
-print TestStatusApiResultReply.to_json()
+print(TestStatusApiResultReply.to_json())
 
 # convert the object into a dict
 test_status_api_result_reply_dict = test_status_api_result_reply_instance.to_dict()

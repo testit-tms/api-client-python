@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of project | 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of ProjectShortestModel from a JSON string
 project_shortest_model_instance = ProjectShortestModel.from_json(json)
 # print the JSON string representation of the object
-print ProjectShortestModel.to_json()
+print(ProjectShortestModel.to_json())
 
 # convert the object into a dict
 project_shortest_model_dict = project_shortest_model_instance.to_dict()

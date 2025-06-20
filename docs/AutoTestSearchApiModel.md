@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**AutoTestFilterApiModel**](AutoTestFilterApiModel.md) | Object containing different filters to adjust search | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of AutoTestSearchApiModel from a JSON string
 auto_test_search_api_model_instance = AutoTestSearchApiModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestSearchApiModel.to_json()
+print(AutoTestSearchApiModel.to_json())
 
 # convert the object into a dict
 auto_test_search_api_model_dict = auto_test_search_api_model_instance.to_dict()

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **include** | **List[str]** |  | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of GuidExtractionModel from a JSON string
 guid_extraction_model_instance = GuidExtractionModel.from_json(json)
 # print the JSON string representation of the object
-print GuidExtractionModel.to_json()
+print(GuidExtractionModel.to_json())
 
 # convert the object into a dict
 guid_extraction_model_dict = guid_extraction_model_instance.to_dict()

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **old_value** | [**TestSuiteChangeViewModel**](TestSuiteChangeViewModel.md) |  | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of TestSuiteChangeViewModelChangedFieldViewModel from a JSON string
 test_suite_change_view_model_changed_field_view_model_instance = TestSuiteChangeViewModelChangedFieldViewModel.from_json(json)
 # print the JSON string representation of the object
-print TestSuiteChangeViewModelChangedFieldViewModel.to_json()
+print(TestSuiteChangeViewModelChangedFieldViewModel.to_json())
 
 # convert the object into a dict
 test_suite_change_view_model_changed_field_view_model_dict = test_suite_change_view_model_changed_field_view_model_instance.to_dict()

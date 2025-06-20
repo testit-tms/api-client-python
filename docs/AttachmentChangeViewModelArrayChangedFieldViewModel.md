@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **old_value** | [**List[AttachmentChangeViewModel]**](AttachmentChangeViewModel.md) |  | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of AttachmentChangeViewModelArrayChangedFieldViewModel from a JSON string
 attachment_change_view_model_array_changed_field_view_model_instance = AttachmentChangeViewModelArrayChangedFieldViewModel.from_json(json)
 # print the JSON string representation of the object
-print AttachmentChangeViewModelArrayChangedFieldViewModel.to_json()
+print(AttachmentChangeViewModelArrayChangedFieldViewModel.to_json())
 
 # convert the object into a dict
 attachment_change_view_model_array_changed_field_view_model_dict = attachment_change_view_model_array_changed_field_view_model_instance.to_dict()

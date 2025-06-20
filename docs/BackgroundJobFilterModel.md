@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **types** | [**List[BackgroundJobType]**](BackgroundJobType.md) |  | [optional] 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of BackgroundJobFilterModel from a JSON string
 background_job_filter_model_instance = BackgroundJobFilterModel.from_json(json)
 # print the JSON string representation of the object
-print BackgroundJobFilterModel.to_json()
+print(BackgroundJobFilterModel.to_json())
 
 # convert the object into a dict
 background_job_filter_model_dict = background_job_filter_model_instance.to_dict()

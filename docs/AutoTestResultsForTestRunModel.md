@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **configuration_id** | **str** | Specifies the GUID of the autotest configuration, which was specified when the test run was created. | 
@@ -32,7 +33,7 @@ json = "{}"
 # create an instance of AutoTestResultsForTestRunModel from a JSON string
 auto_test_results_for_test_run_model_instance = AutoTestResultsForTestRunModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestResultsForTestRunModel.to_json()
+print(AutoTestResultsForTestRunModel.to_json())
 
 # convert the object into a dict
 auto_test_results_for_test_run_model_dict = auto_test_results_for_test_run_model_instance.to_dict()

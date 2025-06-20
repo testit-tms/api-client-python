@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **failure_category** | [**FailureCategoryModel**](FailureCategoryModel.md) |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of AutoTestResultReasonShort from a JSON string
 auto_test_result_reason_short_instance = AutoTestResultReasonShort.from_json(json)
 # print the JSON string representation of the object
-print AutoTestResultReasonShort.to_json()
+print(AutoTestResultReasonShort.to_json())
 
 # convert the object into a dict
 auto_test_result_reason_short_dict = auto_test_result_reason_short_instance.to_dict()

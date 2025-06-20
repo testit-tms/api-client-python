@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **skip** | **int** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of Page from a JSON string
 page_instance = Page.from_json(json)
 # print the JSON string representation of the object
-print Page.to_json()
+print(Page.to_json())
 
 # convert the object into a dict
 page_dict = page_instance.to_dict()

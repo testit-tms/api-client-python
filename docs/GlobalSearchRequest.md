@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **query** | **str** |  | 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of GlobalSearchRequest from a JSON string
 global_search_request_instance = GlobalSearchRequest.from_json(json)
 # print the JSON string representation of the object
-print GlobalSearchRequest.to_json()
+print(GlobalSearchRequest.to_json())
 
 # convert the object into a dict
 global_search_request_dict = global_search_request_instance.to_dict()

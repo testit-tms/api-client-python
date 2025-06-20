@@ -35,21 +35,13 @@ Method | HTTP request | Description
 
 Delete multiple test runs
 
-
-Use case
-
-User sets selection parameters of test runs
-
-System search and delete collection of test runs
-
-System returns the number of deleted test runs
+ Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_select_api_model import TestRunSelectApiModel
 from testit_api_client.rest import ApiException
@@ -91,6 +83,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **test_run_select_api_model** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md)|  | [optional] 
@@ -109,6 +102,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -126,14 +120,11 @@ Name | Type | Description  | Notes
 
 Get autotest classes and namespaces in test run
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_namespaces_count_response import AutoTestNamespacesCountResponse
 from testit_api_client.rest import ApiException
@@ -175,6 +166,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -193,6 +185,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -210,19 +203,13 @@ Name | Type | Description  | Notes
 
 Delete test run
 
-
-Use case
-
-User sets test run internal (guid format) identifier
-
-System search and delete test run
+ Use case  User sets test run internal (guid format) identifier  System search and delete test run
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -261,6 +248,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run internal (UUID) identifier | 
@@ -279,6 +267,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -296,19 +285,13 @@ void (empty response body)
 
 Permanently delete test run from archive
 
-
-Use case
-
-User sets archived test run internal (guid format) identifier
-
-System search and purge archived test run
+ Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -347,6 +330,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run internal (UUID) identifier | 
@@ -365,6 +349,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -382,14 +367,11 @@ void (empty response body)
 
 Manual autotests rerun in test run
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.manual_rerun_api_result import ManualRerunApiResult
 from testit_api_client.models.manual_rerun_select_test_results_api_model import ManualRerunSelectTestResultsApiModel
@@ -433,6 +415,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -452,6 +435,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -469,19 +453,13 @@ Name | Type | Description  | Notes
 
 Restore test run from the archive
 
-
-Use case
-
-User sets archived test run internal (guid format) identifier
-
-System search and restore test run
+ Use case  User sets archived test run internal (guid format) identifier  System search and restore test run
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -520,6 +498,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique ID of the test run | 
@@ -538,6 +517,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -555,14 +535,11 @@ void (empty response body)
 
 Search for the test run test results and build statistics
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_results_statistics_api_result import TestResultsStatisticsApiResult
 from testit_api_client.models.test_run_statistics_filter_api_model import TestRunStatisticsFilterApiModel
@@ -606,6 +583,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run unique ID | 
@@ -625,6 +603,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -642,14 +621,11 @@ Name | Type | Description  | Notes
 
 Get test results from the test run grouped by test points
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_point_result_api_result import TestPointResultApiResult
 from testit_api_client.rest import ApiException
@@ -691,6 +667,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run unique ID | 
@@ -709,6 +686,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -726,14 +704,11 @@ Name | Type | Description  | Notes
 
 Partial edit of multiple test results in the test run
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_test_results_partial_bulk_set_model import TestRunTestResultsPartialBulkSetModel
 from testit_api_client.rest import ApiException
@@ -774,6 +749,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run unique ID | 
@@ -793,6 +769,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -810,14 +787,11 @@ void (empty response body)
 
 Get modification date of last test result of the test run
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -858,6 +832,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run unique ID | 
@@ -876,6 +851,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -893,21 +869,13 @@ Name | Type | Description  | Notes
 
 Permanently delete multiple test runs from archive
 
-
-Use case
-
-User sets selection parameters of archived test runs
-
-System search and delete collection of archived test runs
-
-System returns the number of deleted archived test runs
+ Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_select_api_model import TestRunSelectApiModel
 from testit_api_client.rest import ApiException
@@ -949,6 +917,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **test_run_select_api_model** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md)|  | [optional] 
@@ -967,6 +936,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -984,21 +954,13 @@ Name | Type | Description  | Notes
 
 Restore multiple test runs from the archive
 
-
-Use case
-
-User sets selection parameters of archived test runs
-
-System search and restore collection of archived test runs
-
-System returns the number of restored test runs
+ Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_select_api_model import TestRunSelectApiModel
 from testit_api_client.rest import ApiException
@@ -1040,6 +1002,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **test_run_select_api_model** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md)|  | [optional] 
@@ -1058,6 +1021,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1075,14 +1039,11 @@ Name | Type | Description  | Notes
 
 Search for test runs
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_filter_api_model import TestRunFilterApiModel
 from testit_api_client.models.test_run_short_api_result import TestRunShortApiResult
@@ -1130,6 +1091,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -1153,6 +1115,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1170,14 +1133,11 @@ Name | Type | Description  | Notes
 
 Update multiple test runs
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.update_multiple_test_runs_api_model import UpdateMultipleTestRunsApiModel
 from testit_api_client.rest import ApiException
@@ -1217,6 +1177,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_multiple_test_runs_api_model** | [**UpdateMultipleTestRunsApiModel**](UpdateMultipleTestRunsApiModel.md)|  | [optional] 
@@ -1235,6 +1196,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -1252,23 +1214,13 @@ void (empty response body)
 
 Complete TestRun
 
-
-Use case
-
-User sets test run identifier
-
-User runs method execution
-
-System completes test run
-
-System returns no content response
+ Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1307,6 +1259,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test Run internal identifier (GUID format) | 
@@ -1325,6 +1278,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -1342,16 +1296,13 @@ void (empty response body)
 
 Create test runs based on autotests and configurations
 
-This method creates a test run based on an autotest and a configuration.
-The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is
-that in this method there is no need to create a test plan and work items (test cases and checklists).
+This method creates a test run based on an autotest and a configuration. The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is that in this method there is no need to create a test plan and work items (test cases and checklists).
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.create_test_run_and_fill_by_auto_tests_api_model import CreateTestRunAndFillByAutoTestsApiModel
 from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
@@ -1394,6 +1345,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_test_run_and_fill_by_auto_tests_api_model** | [**CreateTestRunAndFillByAutoTestsApiModel**](CreateTestRunAndFillByAutoTestsApiModel.md)|  | [optional] 
@@ -1412,6 +1364,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -1429,17 +1382,13 @@ Name | Type | Description  | Notes
 
 Create test runs picking the needed test points
 
-This method creates a test run based on a combination of a configuration and a work item(test case or checklist).
-Before you create a test run using this method, make sure to create a test plan. Work items must be automated.
-This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a
-jagged array within the "<b>testPointSelectors</b>" parameter.
+This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a jagged array within the \"<b>testPointSelectors</b>\" parameter.
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.create_test_run_and_fill_by_configurations_api_model import CreateTestRunAndFillByConfigurationsApiModel
 from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
@@ -1482,6 +1431,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_test_run_and_fill_by_configurations_api_model** | [**CreateTestRunAndFillByConfigurationsApiModel**](CreateTestRunAndFillByConfigurationsApiModel.md)|  | [optional] 
@@ -1500,6 +1450,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -1517,16 +1468,13 @@ Name | Type | Description  | Notes
 
 Create test run based on configurations and work items
 
-This method creates a test run based on a combination of configuration and work item (test case or checklist).
-Before you create a test run using this method, make sure to create a test plan.
-Work items must be automated.
+This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.create_test_run_and_fill_by_work_items_api_model import CreateTestRunAndFillByWorkItemsApiModel
 from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
@@ -1569,6 +1517,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_test_run_and_fill_by_work_items_api_model** | [**CreateTestRunAndFillByWorkItemsApiModel**](CreateTestRunAndFillByWorkItemsApiModel.md)|  | [optional] 
@@ -1587,6 +1536,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -1604,23 +1554,13 @@ Name | Type | Description  | Notes
 
 Create empty TestRun
 
-
-Use case
-
-User sets test run model (listed in the request example)
-
-User runs method execution
-
-System creates test run
-
-System returns test run model
+ Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.create_empty_test_run_api_model import CreateEmptyTestRunApiModel
 from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
@@ -1663,6 +1603,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_empty_test_run_api_model** | [**CreateEmptyTestRunApiModel**](CreateEmptyTestRunApiModel.md)|  | [optional] 
@@ -1681,6 +1622,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
@@ -1698,23 +1640,13 @@ Name | Type | Description  | Notes
 
 Get TestRun by Id
 
-
-Use case
-
-User sets test run identifier
-
-User runs method execution
-
-System finds test run
-
-System returns test run
+ Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_v2_api_result import TestRunV2ApiResult
 from testit_api_client.rest import ApiException
@@ -1756,6 +1688,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test Run internal identifier (GUID format) | 
@@ -1774,6 +1707,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1796,9 +1730,8 @@ This method sends test results to the test management system.
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.auto_test_results_for_test_run_model import AutoTestResultsForTestRunModel
 from testit_api_client.rest import ApiException
@@ -1841,6 +1774,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test Run internal identifier (GUID format) | 
@@ -1860,6 +1794,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1877,23 +1812,13 @@ Name | Type | Description  | Notes
 
 Start TestRun
 
-
-Use case
-
-User sets test run identifier
-
-User runs method execution
-
-System starts test run
-
-System returns no content response
+ Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1932,6 +1857,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test Run internal identifier (GUID format) | 
@@ -1950,6 +1876,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -1967,23 +1894,13 @@ void (empty response body)
 
 Stop TestRun
 
-
-Use case
-
-User sets test run identifier
-
-User runs method execution
-
-System stops test run
-
-System returns no content response
+ Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -2022,6 +1939,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test Run internal identifier (GUID format) | 
@@ -2040,6 +1958,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -2057,23 +1976,13 @@ void (empty response body)
 
 Update empty TestRun
 
-
-Use case
-
-User sets test run properties (listed in the request example)
-
-User runs method execution
-
-System updates test run
-
-System returns returns no content response
+ Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.update_empty_test_run_api_model import UpdateEmptyTestRunApiModel
 from testit_api_client.rest import ApiException
@@ -2113,6 +2022,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_empty_test_run_api_model** | [**UpdateEmptyTestRunApiModel**](UpdateEmptyTestRunApiModel.md)|  | [optional] 
@@ -2131,6 +2041,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |

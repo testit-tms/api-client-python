@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of LinkShort from a JSON string
 link_short_instance = LinkShort.from_json(json)
 # print the JSON string representation of the object
-print LinkShort.to_json()
+print(LinkShort.to_json())
 
 # convert the object into a dict
 link_short_dict = link_short_instance.to_dict()

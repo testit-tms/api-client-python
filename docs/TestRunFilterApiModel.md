@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_ids** | **List[str]** | Specifies a test run project IDs to search for | [optional] 
@@ -30,7 +31,7 @@ json = "{}"
 # create an instance of TestRunFilterApiModel from a JSON string
 test_run_filter_api_model_instance = TestRunFilterApiModel.from_json(json)
 # print the JSON string representation of the object
-print TestRunFilterApiModel.to_json()
+print(TestRunFilterApiModel.to_json())
 
 # convert the object into a dict
 test_run_filter_api_model_dict = test_run_filter_api_model_instance.to_dict()

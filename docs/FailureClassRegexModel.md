@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **regex_text** | **str** |  | 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of FailureClassRegexModel from a JSON string
 failure_class_regex_model_instance = FailureClassRegexModel.from_json(json)
 # print the JSON string representation of the object
-print FailureClassRegexModel.to_json()
+print(FailureClassRegexModel.to_json())
 
 # convert the object into a dict
 failure_class_regex_model_dict = failure_class_regex_model_instance.to_dict()

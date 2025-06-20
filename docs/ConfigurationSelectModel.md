@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**ConfigurationFilterModel**](ConfigurationFilterModel.md) | Configuration filters collection | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of ConfigurationSelectModel from a JSON string
 configuration_select_model_instance = ConfigurationSelectModel.from_json(json)
 # print the JSON string representation of the object
-print ConfigurationSelectModel.to_json()
+print(ConfigurationSelectModel.to_json())
 
 # convert the object into a dict
 configuration_select_model_dict = configuration_select_model_instance.to_dict()

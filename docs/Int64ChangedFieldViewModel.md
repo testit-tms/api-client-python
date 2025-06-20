@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **old_value** | **int** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of Int64ChangedFieldViewModel from a JSON string
 int64_changed_field_view_model_instance = Int64ChangedFieldViewModel.from_json(json)
 # print the JSON string representation of the object
-print Int64ChangedFieldViewModel.to_json()
+print(Int64ChangedFieldViewModel.to_json())
 
 # convert the object into a dict
 int64_changed_field_view_model_dict = int64_changed_field_view_model_instance.to_dict()

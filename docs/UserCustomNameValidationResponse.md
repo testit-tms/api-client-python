@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exists** | **bool** |  | 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of UserCustomNameValidationResponse from a JSON string
 user_custom_name_validation_response_instance = UserCustomNameValidationResponse.from_json(json)
 # print the JSON string representation of the object
-print UserCustomNameValidationResponse.to_json()
+print(UserCustomNameValidationResponse.to_json())
 
 # convert the object into a dict
 user_custom_name_validation_response_dict = user_custom_name_validation_response_instance.to_dict()

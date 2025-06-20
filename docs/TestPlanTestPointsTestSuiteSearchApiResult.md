@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of TestPlanTestPointsTestSuiteSearchApiResult from a JSON string
 test_plan_test_points_test_suite_search_api_result_instance = TestPlanTestPointsTestSuiteSearchApiResult.from_json(json)
 # print the JSON string representation of the object
-print TestPlanTestPointsTestSuiteSearchApiResult.to_json()
+print(TestPlanTestPointsTestSuiteSearchApiResult.to_json())
 
 # convert the object into a dict
 test_plan_test_points_test_suite_search_api_result_dict = test_plan_test_points_test_suite_search_api_result_instance.to_dict()

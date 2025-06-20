@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**WebhooksFilterApiModel**](WebhooksFilterApiModel.md) |  | 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of WebhooksUpdateApiModel from a JSON string
 webhooks_update_api_model_instance = WebhooksUpdateApiModel.from_json(json)
 # print the JSON string representation of the object
-print WebhooksUpdateApiModel.to_json()
+print(WebhooksUpdateApiModel.to_json())
 
 # convert the object into a dict
 webhooks_update_api_model_dict = webhooks_update_api_model_instance.to_dict()

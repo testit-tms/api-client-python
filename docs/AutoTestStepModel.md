@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **str** | Step name. | 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of AutoTestStepModel from a JSON string
 auto_test_step_model_instance = AutoTestStepModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestStepModel.to_json()
+print(AutoTestStepModel.to_json())
 
 # convert the object into a dict
 auto_test_step_model_dict = auto_test_step_model_instance.to_dict()

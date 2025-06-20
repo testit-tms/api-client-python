@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -29,7 +30,7 @@ json = "{}"
 # create an instance of UserWithRankModel from a JSON string
 user_with_rank_model_instance = UserWithRankModel.from_json(json)
 # print the JSON string representation of the object
-print UserWithRankModel.to_json()
+print(UserWithRankModel.to_json())
 
 # convert the object into a dict
 user_with_rank_model_dict = user_with_rank_model_instance.to_dict()

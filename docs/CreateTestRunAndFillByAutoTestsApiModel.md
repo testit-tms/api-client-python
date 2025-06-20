@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_id** | **str** | Specifies the GUID of the project, in which a test run will be created. | 
@@ -23,7 +24,7 @@ json = "{}"
 # create an instance of CreateTestRunAndFillByAutoTestsApiModel from a JSON string
 create_test_run_and_fill_by_auto_tests_api_model_instance = CreateTestRunAndFillByAutoTestsApiModel.from_json(json)
 # print the JSON string representation of the object
-print CreateTestRunAndFillByAutoTestsApiModel.to_json()
+print(CreateTestRunAndFillByAutoTestsApiModel.to_json())
 
 # convert the object into a dict
 create_test_run_and_fill_by_auto_tests_api_model_dict = create_test_run_and_fill_by_auto_tests_api_model_instance.to_dict()

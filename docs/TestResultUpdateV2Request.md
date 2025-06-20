@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **failure_class_ids** | **List[str]** |  | [optional] 
@@ -29,7 +30,7 @@ json = "{}"
 # create an instance of TestResultUpdateV2Request from a JSON string
 test_result_update_v2_request_instance = TestResultUpdateV2Request.from_json(json)
 # print the JSON string representation of the object
-print TestResultUpdateV2Request.to_json()
+print(TestResultUpdateV2Request.to_json())
 
 # convert the object into a dict
 test_result_update_v2_request_dict = test_result_update_v2_request_instance.to_dict()

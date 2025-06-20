@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the test result | 
@@ -34,7 +35,7 @@ json = "{}"
 # create an instance of TestResultShortResponse from a JSON string
 test_result_short_response_instance = TestResultShortResponse.from_json(json)
 # print the JSON string representation of the object
-print TestResultShortResponse.to_json()
+print(TestResultShortResponse.to_json())
 
 # convert the object into a dict
 test_result_short_response_dict = test_result_short_response_instance.to_dict()

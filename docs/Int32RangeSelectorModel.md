@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **var_from** | **int** |  | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of Int32RangeSelectorModel from a JSON string
 int32_range_selector_model_instance = Int32RangeSelectorModel.from_json(json)
 # print the JSON string representation of the object
-print Int32RangeSelectorModel.to_json()
+print(Int32RangeSelectorModel.to_json())
 
 # convert the object into a dict
 int32_range_selector_model_dict = int32_range_selector_model_instance.to_dict()

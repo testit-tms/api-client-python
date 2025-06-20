@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Internal test result identifier | 
@@ -42,7 +43,7 @@ json = "{}"
 # create an instance of TestResultHistoryReportApiResult from a JSON string
 test_result_history_report_api_result_instance = TestResultHistoryReportApiResult.from_json(json)
 # print the JSON string representation of the object
-print TestResultHistoryReportApiResult.to_json()
+print(TestResultHistoryReportApiResult.to_json())
 
 # convert the object into a dict
 test_result_history_report_api_result_dict = test_result_history_report_api_result_instance.to_dict()

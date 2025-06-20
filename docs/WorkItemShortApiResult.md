@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Work Item internal unique identifier | 
@@ -39,7 +40,7 @@ json = "{}"
 # create an instance of WorkItemShortApiResult from a JSON string
 work_item_short_api_result_instance = WorkItemShortApiResult.from_json(json)
 # print the JSON string representation of the object
-print WorkItemShortApiResult.to_json()
+print(WorkItemShortApiResult.to_json())
 
 # convert the object into a dict
 work_item_short_api_result_dict = work_item_short_api_result_instance.to_dict()

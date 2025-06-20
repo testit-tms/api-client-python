@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of TestSuiteV2PutModel from a JSON string
 test_suite_v2_put_model_instance = TestSuiteV2PutModel.from_json(json)
 # print the JSON string representation of the object
-print TestSuiteV2PutModel.to_json()
+print(TestSuiteV2PutModel.to_json())
 
 # convert the object into a dict
 test_suite_v2_put_model_dict = test_suite_v2_put_model_instance.to_dict()

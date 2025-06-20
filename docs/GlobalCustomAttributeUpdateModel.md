@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of attribute | 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of GlobalCustomAttributeUpdateModel from a JSON string
 global_custom_attribute_update_model_instance = GlobalCustomAttributeUpdateModel.from_json(json)
 # print the JSON string representation of the object
-print GlobalCustomAttributeUpdateModel.to_json()
+print(GlobalCustomAttributeUpdateModel.to_json())
 
 # convert the object into a dict
 global_custom_attribute_update_model_dict = global_custom_attribute_update_model_instance.to_dict()

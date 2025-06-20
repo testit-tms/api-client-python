@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | [optional] 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of CustomAttributeChangeModel from a JSON string
 custom_attribute_change_model_instance = CustomAttributeChangeModel.from_json(json)
 # print the JSON string representation of the object
-print CustomAttributeChangeModel.to_json()
+print(CustomAttributeChangeModel.to_json())
 
 # convert the object into a dict
 custom_attribute_change_model_dict = custom_attribute_change_model_instance.to_dict()

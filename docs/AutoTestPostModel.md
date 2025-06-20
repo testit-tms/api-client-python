@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **work_item_ids_for_link_with_auto_test** | **List[str]** | Specifies the IDs of work items to link your autotest to. You can specify several IDs. | [optional] 
@@ -32,7 +33,7 @@ json = "{}"
 # create an instance of AutoTestPostModel from a JSON string
 auto_test_post_model_instance = AutoTestPostModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestPostModel.to_json()
+print(AutoTestPostModel.to_json())
 
 # convert the object into a dict
 auto_test_post_model_dict = auto_test_post_model_instance.to_dict()

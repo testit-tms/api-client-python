@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_result_ids** | [**GuidExtractionModel**](GuidExtractionModel.md) | Set of extracted test result IDs | [optional] 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of ManualRerunTestResultApiModel from a JSON string
 manual_rerun_test_result_api_model_instance = ManualRerunTestResultApiModel.from_json(json)
 # print the JSON string representation of the object
-print ManualRerunTestResultApiModel.to_json()
+print(ManualRerunTestResultApiModel.to_json())
 
 # convert the object into a dict
 manual_rerun_test_result_api_model_dict = manual_rerun_test_result_api_model_instance.to_dict()

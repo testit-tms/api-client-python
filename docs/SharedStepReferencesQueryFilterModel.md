@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of work item | [optional] 
@@ -27,7 +28,7 @@ json = "{}"
 # create an instance of SharedStepReferencesQueryFilterModel from a JSON string
 shared_step_references_query_filter_model_instance = SharedStepReferencesQueryFilterModel.from_json(json)
 # print the JSON string representation of the object
-print SharedStepReferencesQueryFilterModel.to_json()
+print(SharedStepReferencesQueryFilterModel.to_json())
 
 # convert the object into a dict
 shared_step_references_query_filter_model_dict = shared_step_references_query_filter_model_instance.to_dict()

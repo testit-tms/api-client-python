@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md) |  | [optional] 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of ManualRerunSelectTestResultsApiModel from a JSON string
 manual_rerun_select_test_results_api_model_instance = ManualRerunSelectTestResultsApiModel.from_json(json)
 # print the JSON string representation of the object
-print ManualRerunSelectTestResultsApiModel.to_json()
+print(ManualRerunSelectTestResultsApiModel.to_json())
 
 # convert the object into a dict
 manual_rerun_select_test_results_api_model_dict = manual_rerun_select_test_results_api_model_instance.to_dict()

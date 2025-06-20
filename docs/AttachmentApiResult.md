@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the attachment | 
@@ -24,7 +25,7 @@ json = "{}"
 # create an instance of AttachmentApiResult from a JSON string
 attachment_api_result_instance = AttachmentApiResult.from_json(json)
 # print the JSON string representation of the object
-print AttachmentApiResult.to_json()
+print(AttachmentApiResult.to_json())
 
 # convert the object into a dict
 attachment_api_result_dict = attachment_api_result_instance.to_dict()

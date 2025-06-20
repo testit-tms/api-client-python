@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**AutoTestFilterModel**](AutoTestFilterModel.md) |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of AutoTestSelectModel from a JSON string
 auto_test_select_model_instance = AutoTestSelectModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestSelectModel.to_json()
+print(AutoTestSelectModel.to_json())
 
 # convert the object into a dict
 auto_test_select_model_dict = auto_test_select_model_instance.to_dict()

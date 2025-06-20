@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -22,7 +23,7 @@ json = "{}"
 # create an instance of WorkItemCommentModel from a JSON string
 work_item_comment_model_instance = WorkItemCommentModel.from_json(json)
 # print the JSON string representation of the object
-print WorkItemCommentModel.to_json()
+print(WorkItemCommentModel.to_json())
 
 # convert the object into a dict
 work_item_comment_model_dict = work_item_comment_model_instance.to_dict()

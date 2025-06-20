@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **str** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of TestRunGroupByStatusApiResult from a JSON string
 test_run_group_by_status_api_result_instance = TestRunGroupByStatusApiResult.from_json(json)
 # print the JSON string representation of the object
-print TestRunGroupByStatusApiResult.to_json()
+print(TestRunGroupByStatusApiResult.to_json())
 
 # convert the object into a dict
 test_run_group_by_status_api_result_dict = test_run_group_by_status_api_result_instance.to_dict()

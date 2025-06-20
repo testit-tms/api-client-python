@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **object** |  | [optional] 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of WorkItemGroupModel from a JSON string
 work_item_group_model_instance = WorkItemGroupModel.from_json(json)
 # print the JSON string representation of the object
-print WorkItemGroupModel.to_json()
+print(WorkItemGroupModel.to_json())
 
 # convert the object into a dict
 work_item_group_model_dict = work_item_group_model_instance.to_dict()

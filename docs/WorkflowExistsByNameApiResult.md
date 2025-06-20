@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exists** | **bool** |  | 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of WorkflowExistsByNameApiResult from a JSON string
 workflow_exists_by_name_api_result_instance = WorkflowExistsByNameApiResult.from_json(json)
 # print the JSON string representation of the object
-print WorkflowExistsByNameApiResult.to_json()
+print(WorkflowExistsByNameApiResult.to_json())
 
 # convert the object into a dict
 workflow_exists_by_name_api_result_dict = workflow_exists_by_name_api_result_instance.to_dict()

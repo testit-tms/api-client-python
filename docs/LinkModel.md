@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
@@ -21,7 +22,7 @@ json = "{}"
 # create an instance of LinkModel from a JSON string
 link_model_instance = LinkModel.from_json(json)
 # print the JSON string representation of the object
-print LinkModel.to_json()
+print(LinkModel.to_json())
 
 # convert the object into a dict
 link_model_dict = link_model_instance.to_dict()

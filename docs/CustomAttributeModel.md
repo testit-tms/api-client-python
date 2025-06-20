@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the attribute | 
@@ -23,7 +24,7 @@ json = "{}"
 # create an instance of CustomAttributeModel from a JSON string
 custom_attribute_model_instance = CustomAttributeModel.from_json(json)
 # print the JSON string representation of the object
-print CustomAttributeModel.to_json()
+print(CustomAttributeModel.to_json())
 
 # convert the object into a dict
 custom_attribute_model_dict = custom_attribute_model_instance.to_dict()

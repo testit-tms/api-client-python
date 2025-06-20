@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the attachment | 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of AttachmentPutModel from a JSON string
 attachment_put_model_instance = AttachmentPutModel.from_json(json)
 # print the JSON string representation of the object
-print AttachmentPutModel.to_json()
+print(AttachmentPutModel.to_json())
 
 # convert the object into a dict
 attachment_put_model_dict = attachment_put_model_instance.to_dict()

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of RerunTestResultModel from a JSON string
 rerun_test_result_model_instance = RerunTestResultModel.from_json(json)
 # print the JSON string representation of the object
-print RerunTestResultModel.to_json()
+print(RerunTestResultModel.to_json())
 
 # convert the object into a dict
 rerun_test_result_model_dict = rerun_test_result_model_instance.to_dict()

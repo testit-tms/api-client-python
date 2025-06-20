@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_ids** | **List[str]** | Specifies an autotest projects IDs to search for | [optional] 
@@ -35,7 +36,7 @@ json = "{}"
 # create an instance of AutoTestFilterApiModel from a JSON string
 auto_test_filter_api_model_instance = AutoTestFilterApiModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestFilterApiModel.to_json()
+print(AutoTestFilterApiModel.to_json())
 
 # convert the object into a dict
 auto_test_filter_api_model_dict = auto_test_filter_api_model_instance.to_dict()

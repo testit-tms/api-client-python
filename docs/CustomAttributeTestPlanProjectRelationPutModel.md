@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Custom attribute internal unique identifier | 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of CustomAttributeTestPlanProjectRelationPutModel from a JSON string
 custom_attribute_test_plan_project_relation_put_model_instance = CustomAttributeTestPlanProjectRelationPutModel.from_json(json)
 # print the JSON string representation of the object
-print CustomAttributeTestPlanProjectRelationPutModel.to_json()
+print(CustomAttributeTestPlanProjectRelationPutModel.to_json())
 
 # convert the object into a dict
 custom_attribute_test_plan_project_relation_put_model_dict = custom_attribute_test_plan_project_relation_put_model_instance.to_dict()

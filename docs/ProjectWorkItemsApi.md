@@ -16,14 +16,11 @@ Method | HTTP request | Description
 
 Search for work items and group results by attribute
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_group_get_model import WorkItemGroupGetModel
 from testit_api_client.models.work_item_group_model import WorkItemGroupModel
@@ -72,6 +69,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Unique or global ID of the project | 
@@ -96,6 +94,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -113,14 +112,11 @@ Name | Type | Description  | Notes
 
 Search for work items and extract IDs only
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_select_model import WorkItemSelectModel
 from testit_api_client.rest import ApiException
@@ -168,6 +164,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Unique or global ID of the project | 
@@ -192,6 +189,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -209,14 +207,11 @@ Name | Type | Description  | Notes
 
 Search for work items
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
 from testit_api_client.models.work_item_short_api_result import WorkItemShortApiResult
@@ -265,6 +260,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Unique or global ID of the project | 
@@ -289,6 +285,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -306,21 +303,13 @@ Name | Type | Description  | Notes
 
 Get WorkItems Tags
 
-
-Use case
-
-User sets project internal identifier
-
-User runs method execution
-
-System returns work items tags
+ Use case  User sets project internal identifier  User runs method execution  System returns work items tags
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.tag_short_api_result import TagShortApiResult
 from testit_api_client.rest import ApiException
@@ -363,6 +352,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) identifier | 
@@ -382,6 +372,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -399,31 +390,13 @@ Name | Type | Description  | Notes
 
 Get project work items
 
-
-Use case
-
-User sets project internal or global identifier
-
-[Optional] User sets isDeleted field value
-
-User runs method execution
-
-System search project
-
-[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project
-
-[Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted
-
-If User did not set isDeleted field value, System search all  workitems related to project
-
-System returns array of found workitems (listed in response model)
+ Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_short_model import WorkItemShortModel
 from testit_api_client.rest import ApiException
@@ -473,6 +446,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -499,6 +473,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |

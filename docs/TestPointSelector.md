@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **configuration_id** | **str** | Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs. | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of TestPointSelector from a JSON string
 test_point_selector_instance = TestPointSelector.from_json(json)
 # print the JSON string representation of the object
-print TestPointSelector.to_json()
+print(TestPointSelector.to_json())
 
 # convert the object into a dict
 test_point_selector_dict = test_point_selector_instance.to_dict()

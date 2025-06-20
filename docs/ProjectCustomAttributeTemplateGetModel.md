@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the custom attributes template | 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of ProjectCustomAttributeTemplateGetModel from a JSON string
 project_custom_attribute_template_get_model_instance = ProjectCustomAttributeTemplateGetModel.from_json(json)
 # print the JSON string representation of the object
-print ProjectCustomAttributeTemplateGetModel.to_json()
+print(ProjectCustomAttributeTemplateGetModel.to_json())
 
 # convert the object into a dict
 project_custom_attribute_template_get_model_dict = project_custom_attribute_template_get_model_instance.to_dict()

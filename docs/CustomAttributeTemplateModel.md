@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -18,7 +19,7 @@ json = "{}"
 # create an instance of CustomAttributeTemplateModel from a JSON string
 custom_attribute_template_model_instance = CustomAttributeTemplateModel.from_json(json)
 # print the JSON string representation of the object
-print CustomAttributeTemplateModel.to_json()
+print(CustomAttributeTemplateModel.to_json())
 
 # convert the object into a dict
 custom_attribute_template_model_dict = custom_attribute_template_model_instance.to_dict()

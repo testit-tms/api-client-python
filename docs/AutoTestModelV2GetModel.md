@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **external_id** | **str** | This property is used to set autotest identifier from client system | 
@@ -33,7 +34,7 @@ json = "{}"
 # create an instance of AutoTestModelV2GetModel from a JSON string
 auto_test_model_v2_get_model_instance = AutoTestModelV2GetModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestModelV2GetModel.to_json()
+print(AutoTestModelV2GetModel.to_json())
 
 # convert the object into a dict
 auto_test_model_v2_get_model_dict = auto_test_model_v2_get_model_instance.to_dict()

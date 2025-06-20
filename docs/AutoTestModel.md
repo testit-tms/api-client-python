@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **global_id** | **int** | Global ID of the autotest | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 **last_test_result_id** | **str** | Unique ID of the autotest last test result | [optional] 
 **last_test_result_configuration** | [**ConfigurationShortModel**](ConfigurationShortModel.md) | Configuration of the autotest last test result | [optional] 
 **last_test_result_outcome** | **str** | Outcome of the autotest last test result | [optional] 
-**last_test_result_status** | [**TestStatusModel**](TestStatusModel.md) | Status of the autotest last test result | [optional] 
+**last_test_result_status** | [**TestStatusModel**](TestStatusModel.md) | Status of the autotest last test result | 
 **stability_percentage** | **int** | Stability percentage of the autotest | [optional] 
 **external_id** | **str** | External ID of the autotest | 
 **links** | [**List[LinkPutModel]**](LinkPutModel.md) | Collection of the autotest links | [optional] 
@@ -44,7 +45,7 @@ json = "{}"
 # create an instance of AutoTestModel from a JSON string
 auto_test_model_instance = AutoTestModel.from_json(json)
 # print the JSON string representation of the object
-print AutoTestModel.to_json()
+print(AutoTestModel.to_json())
 
 # convert the object into a dict
 auto_test_model_dict = auto_test_model_instance.to_dict()

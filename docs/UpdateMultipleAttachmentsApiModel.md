@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | [**ActionUpdate**](ActionUpdate.md) |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of UpdateMultipleAttachmentsApiModel from a JSON string
 update_multiple_attachments_api_model_instance = UpdateMultipleAttachmentsApiModel.from_json(json)
 # print the JSON string representation of the object
-print UpdateMultipleAttachmentsApiModel.to_json()
+print(UpdateMultipleAttachmentsApiModel.to_json())
 
 # convert the object into a dict
 update_multiple_attachments_api_model_dict = update_multiple_attachments_api_model_instance.to_dict()

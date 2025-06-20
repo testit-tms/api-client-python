@@ -17,19 +17,13 @@ Method | HTTP request | Description
 
 Delete tags
 
-
-Use case
-
-User sets collection of tags internal (guid format) identifiers
-
-System searches and deletes a collection of tags
+ Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.select_tags_api_model import SelectTagsApiModel
 from testit_api_client.rest import ApiException
@@ -69,6 +63,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **select_tags_api_model** | [**SelectTagsApiModel**](SelectTagsApiModel.md)|  | [optional] 
@@ -87,6 +82,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -104,19 +100,13 @@ void (empty response body)
 
 Delete tag
 
-
-Use case
-
-User sets tag internal (guid format) identifier
-
-System search and delete tag
+ Use case  User sets tag internal (guid format) identifier  System search and delete tag
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -155,6 +145,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Tag internal (UUID) identifier | 
@@ -173,6 +164,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -190,23 +182,13 @@ void (empty response body)
 
 Create tag
 
-
-Use case
-
-User sets tag model (listed in the request example)
-
-User runs method execution
-
-System creates tag
-
-System returns tag model (listed in the response example)
+ Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.create_tag_api_model import CreateTagApiModel
 from testit_api_client.models.tag_api_result import TagApiResult
@@ -249,6 +231,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_tag_api_model** | [**CreateTagApiModel**](CreateTagApiModel.md)|  | [optional] 
@@ -267,6 +250,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
@@ -284,23 +268,13 @@ Name | Type | Description  | Notes
 
 Update tag
 
-
-Use case
-
-User sets tag ID and model (listed in the request example)
-
-User runs method execution
-
-System updates tag
-
-System returns tag model (listed in the response example)
+ Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.tag_api_result import TagApiResult
 from testit_api_client.models.update_tag_api_model import UpdateTagApiModel
@@ -344,6 +318,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | [optional] 
@@ -363,6 +338,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -380,19 +356,13 @@ Name | Type | Description  | Notes
 
 Search tags
 
-
-Use case
-
-User runs method execution
-
-System returns collection of tags (listed in the response example)
+ Use case  User runs method execution  System returns collection of tags (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.tag_api_result import TagApiResult
 from testit_api_client.rest import ApiException
@@ -438,6 +408,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -460,6 +431,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -477,19 +449,13 @@ Name | Type | Description  | Notes
 
 Get all Tags that are used in TestPlans
 
-
-Use case
-
-User runs method execution
-
-System returns tags (listed in the response example)
+ Use case  User runs method execution  System returns tags (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.tag_api_result import TagApiResult
 from testit_api_client.rest import ApiException
@@ -535,6 +501,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -557,6 +524,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count_group_by_status** | [**List[TestPlanTestPointsStatusGroupApiResult]**](TestPlanTestPointsStatusGroupApiResult.md) |  | 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of TestPlanTestPointsAnalyticsApiResult from a JSON string
 test_plan_test_points_analytics_api_result_instance = TestPlanTestPointsAnalyticsApiResult.from_json(json)
 # print the JSON string representation of the object
-print TestPlanTestPointsAnalyticsApiResult.to_json()
+print(TestPlanTestPointsAnalyticsApiResult.to_json())
 
 # convert the object into a dict
 test_plan_test_points_analytics_api_result_dict = test_plan_test_points_analytics_api_result_instance.to_dict()

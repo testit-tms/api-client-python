@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **select_model** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md) | Test run selection model | 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of UpdateMultipleTestRunsApiModel from a JSON string
 update_multiple_test_runs_api_model_instance = UpdateMultipleTestRunsApiModel.from_json(json)
 # print the JSON string representation of the object
-print UpdateMultipleTestRunsApiModel.to_json()
+print(UpdateMultipleTestRunsApiModel.to_json())
 
 # convert the object into a dict
 update_multiple_test_runs_api_model_dict = update_multiple_test_runs_api_model_instance.to_dict()

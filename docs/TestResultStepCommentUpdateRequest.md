@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Entity unique identifier | 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of TestResultStepCommentUpdateRequest from a JSON string
 test_result_step_comment_update_request_instance = TestResultStepCommentUpdateRequest.from_json(json)
 # print the JSON string representation of the object
-print TestResultStepCommentUpdateRequest.to_json()
+print(TestResultStepCommentUpdateRequest.to_json())
 
 # convert the object into a dict
 test_result_step_comment_update_request_dict = test_result_step_comment_update_request_instance.to_dict()

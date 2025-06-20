@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **previews** | [**List[WorkItemPreviewApiModel]**](WorkItemPreviewApiModel.md) |  | 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of GenerateWorkItemPreviewsApiResult from a JSON string
 generate_work_item_previews_api_result_instance = GenerateWorkItemPreviewsApiResult.from_json(json)
 # print the JSON string representation of the object
-print GenerateWorkItemPreviewsApiResult.to_json()
+print(GenerateWorkItemPreviewsApiResult.to_json())
 
 # convert the object into a dict
 generate_work_item_previews_api_result_dict = generate_work_item_previews_api_result_instance.to_dict()

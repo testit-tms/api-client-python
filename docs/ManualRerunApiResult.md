@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_results_count** | **int** |  | 
@@ -16,7 +17,7 @@ json = "{}"
 # create an instance of ManualRerunApiResult from a JSON string
 manual_rerun_api_result_instance = ManualRerunApiResult.from_json(json)
 # print the JSON string representation of the object
-print ManualRerunApiResult.to_json()
+print(ManualRerunApiResult.to_json())
 
 # convert the object into a dict
 manual_rerun_api_result_dict = manual_rerun_api_result_instance.to_dict()

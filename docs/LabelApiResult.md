@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the label | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of LabelApiResult from a JSON string
 label_api_result_instance = LabelApiResult.from_json(json)
 # print the JSON string representation of the object
-print LabelApiResult.to_json()
+print(LabelApiResult.to_json())
 
 # convert the object into a dict
 label_api_result_dict = label_api_result_instance.to_dict()

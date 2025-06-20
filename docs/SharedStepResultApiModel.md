@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **step_id** | **str** |  | 
@@ -17,7 +18,7 @@ json = "{}"
 # create an instance of SharedStepResultApiModel from a JSON string
 shared_step_result_api_model_instance = SharedStepResultApiModel.from_json(json)
 # print the JSON string representation of the object
-print SharedStepResultApiModel.to_json()
+print(SharedStepResultApiModel.to_json())
 
 # convert the object into a dict
 shared_step_result_api_model_dict = shared_step_result_api_model_instance.to_dict()

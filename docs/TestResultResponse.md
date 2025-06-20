@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -49,7 +50,7 @@ json = "{}"
 # create an instance of TestResultResponse from a JSON string
 test_result_response_instance = TestResultResponse.from_json(json)
 # print the JSON string representation of the object
-print TestResultResponse.to_json()
+print(TestResultResponse.to_json())
 
 # convert the object into a dict
 test_result_response_dict = test_result_response_instance.to_dict()

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of ExternalFormAllowedValueModel from a JSON string
 external_form_allowed_value_model_instance = ExternalFormAllowedValueModel.from_json(json)
 # print the JSON string representation of the object
-print ExternalFormAllowedValueModel.to_json()
+print(ExternalFormAllowedValueModel.to_json())
 
 # convert the object into a dict
 external_form_allowed_value_model_dict = external_form_allowed_value_model_instance.to_dict()

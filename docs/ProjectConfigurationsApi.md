@@ -12,25 +12,13 @@ Method | HTTP request | Description
 
 Get project configurations
 
-
-Use case
-
-User sets project internal or global identifier
-
-User runs method execution
-
-System search project
-
-System search all configurations related to project
-
-System returns array of found configurations (listed in response model)
+ Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_model import ConfigurationModel
 from testit_api_client.rest import ApiException
@@ -72,6 +60,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -90,6 +79,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

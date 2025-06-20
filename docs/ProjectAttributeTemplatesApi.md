@@ -14,14 +14,11 @@ Method | HTTP request | Description
 
 Search for custom attributes templates
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.project_custom_attribute_template_get_model import ProjectCustomAttributeTemplateGetModel
 from testit_api_client.models.project_custom_attributes_templates_filter_model import ProjectCustomAttributesTemplatesFilterModel
@@ -70,6 +67,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**|  | 
@@ -94,6 +92,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -111,23 +110,13 @@ Name | Type | Description  | Notes
 
 Delete CustomAttributeTemplate from Project
 
-
-Use case
-
-User sets project internal or global identifier
-
-User sets attribute template internal identifier
-
-User runs method execution
-
-System delete attribute template from project
+ Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -167,6 +156,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -186,6 +176,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -203,23 +194,13 @@ void (empty response body)
 
 Add CustomAttributeTemplate to Project
 
-
-Use case
-
-User sets project internal or global identifier
-
-User sets attribute template internal identifier
-
-User runs method execution
-
-System add attribute template to project
+ Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -259,6 +240,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -278,6 +260,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

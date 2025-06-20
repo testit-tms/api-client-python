@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**TestPlanStatusModel**](TestPlanStatusModel.md) |  | 
@@ -25,7 +26,7 @@ Name | Type | Description | Notes
 **project_id** | **str** |  | 
 **product_name** | **str** |  | [optional] 
 **has_automatic_duration_timer** | **bool** |  | [optional] 
-**attributes** | **Dict[str, object]** |  | 
+**attributes** | **Dict[str, Optional[object]]** |  | 
 
 ## Example
 
@@ -37,7 +38,7 @@ json = "{}"
 # create an instance of TestPlanModel from a JSON string
 test_plan_model_instance = TestPlanModel.from_json(json)
 # print the JSON string representation of the object
-print TestPlanModel.to_json()
+print(TestPlanModel.to_json())
 
 # convert the object into a dict
 test_plan_model_dict = test_plan_model_instance.to_dict()

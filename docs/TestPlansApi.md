@@ -42,14 +42,11 @@ Method | HTTP request | Description
 
 Add test-points to TestPlan with sections
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.work_item_select_model import WorkItemSelectModel
 from testit_api_client.rest import ApiException
@@ -90,6 +87,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -109,6 +107,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -126,25 +125,13 @@ void (empty response body)
 
 Add WorkItems to TestPlan with Sections as TestSuites
 
-
-Use case
-
-User sets TestPlan identifier
-
-User sets WorkItem identifiers (listed in request example)
-
-User runs method execution
-
-System added WorkItems and Sections to TestPlan
-
-System returns no content response
+ Use case  User sets TestPlan identifier  User sets WorkItem identifiers (listed in request example)  User runs method execution  System added WorkItems and Sections to TestPlan  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -184,6 +171,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -203,6 +191,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -220,21 +209,13 @@ void (empty response body)
 
 Get analytics by TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System returns analytics by test plan
+ Use case  User sets test plan identifier  User runs method execution  System returns analytics by test plan
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_point_analytic_result import TestPointAnalyticResult
 from testit_api_client.rest import ApiException
@@ -276,6 +257,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -294,6 +276,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -311,14 +294,11 @@ Name | Type | Description  | Notes
 
 Distribute test points between the users
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_plan_with_test_suite_tree_model import TestPlanWithTestSuiteTreeModel
 from testit_api_client.rest import ApiException
@@ -361,6 +341,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan unique or global ID | 
@@ -380,6 +361,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -397,21 +379,13 @@ Name | Type | Description  | Notes
 
 Get TestPlan configurations
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System return test plan configurations
+ Use case  User sets test plan identifier  User runs method execution  System return test plan configurations
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.configuration_model import ConfigurationModel
 from testit_api_client.rest import ApiException
@@ -453,6 +427,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -471,6 +446,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -488,23 +464,13 @@ Name | Type | Description  | Notes
 
 Export TestPoints from TestPlan in xls format
 
-
-Use case
-
-User sets test plan identifier
-
-User sets filter model (listed in request example)
-
-User runs method execution
-
-System return export xlsx file
+ Use case  User sets test plan identifier  User sets filter model (listed in request example)  User runs method execution  System return export xlsx file
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.get_xlsx_test_points_by_test_plan_model import GetXlsxTestPointsByTestPlanModel
 from testit_api_client.rest import ApiException
@@ -546,6 +512,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -566,6 +533,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -583,23 +551,13 @@ void (empty response body)
 
 Export TestResults history from TestPlan in xls format
 
-
-Use case
-
-User sets test plan identifier
-
-User sets filter model (listed in request example)
-
-User runs method execution
-
-System return export xlsx file
+ Use case  User sets test plan identifier  User sets filter model (listed in request example)  User runs method execution  System return export xlsx file
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -642,6 +600,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -664,6 +623,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -681,21 +641,13 @@ void (empty response body)
 
 Get TestPlan history
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System return test plan history
+ Use case  User sets test plan identifier  User runs method execution  System return test plan history
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_plan_change_model import TestPlanChangeModel
 from testit_api_client.rest import ApiException
@@ -742,6 +694,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -765,6 +718,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -782,23 +736,13 @@ Name | Type | Description  | Notes
 
 Get Links of TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User sets pagination filter (listed in request example)
-
-User runs method execution
-
-System returns links of TestPlan
+ Use case  User sets test plan identifier  User sets pagination filter (listed in request example)  User runs method execution  System returns links of TestPlan
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_plan_link import TestPlanLink
 from testit_api_client.rest import ApiException
@@ -843,6 +787,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -864,6 +809,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -881,14 +827,13 @@ Name | Type | Description  | Notes
 
 Patch test plan
 
-See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.operation import Operation
 from testit_api_client.rest import ApiException
@@ -929,6 +874,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique ID of the test plan | 
@@ -948,6 +894,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -965,21 +912,13 @@ void (empty response body)
 
 Get summary by TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System returns summary by test plan
+ Use case  User sets test plan identifier  User runs method execution  System returns summary by test plan
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_plan_summary_model import TestPlanSummaryModel
 from testit_api_client.rest import ApiException
@@ -1021,6 +960,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -1039,6 +979,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1056,23 +997,13 @@ Name | Type | Description  | Notes
 
 Get TestPoints with last result from TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User sets filter (listed in request example)
-
-User runs method execution
-
-System return test points with last result from test plan
+ Use case  User sets test plan identifier  User sets filter (listed in request example)  User runs method execution  System return test points with last result from test plan
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_point_with_last_result_response_model import TestPointWithLastResultResponseModel
 from testit_api_client.rest import ApiException
@@ -1120,6 +1051,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -1144,6 +1076,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1161,23 +1094,13 @@ Name | Type | Description  | Notes
 
 Reset TestPoints status of TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User sets test points identifiers
-
-User runs method execution
-
-System reset test points statuses of test plan
+ Use case  User sets test plan identifier  User sets test points identifiers  User runs method execution  System reset test points statuses of test plan
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1217,6 +1140,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -1236,6 +1160,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1253,14 +1178,11 @@ void (empty response body)
 
 Unassign users from multiple test points
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_point_select_model import TestPointSelectModel
 from testit_api_client.rest import ApiException
@@ -1303,6 +1225,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the test plan | 
@@ -1322,6 +1245,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1339,14 +1263,11 @@ Name | Type | Description  | Notes
 
 Assign user as a tester to multiple test points
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_point_select_model import TestPointSelectModel
 from testit_api_client.rest import ApiException
@@ -1390,6 +1311,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the test plan | 
@@ -1410,6 +1332,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1427,23 +1350,13 @@ Name | Type | Description  | Notes
 
 Get TestRuns of TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User sets TestRun status filter (listed in request example)
-
-User runs method execution
-
-System returns TestRuns for TestPlan
+ Use case  User sets test plan identifier  User sets TestRun status filter (listed in request example)  User runs method execution  System returns TestRuns for TestPlan
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_run_api_result import TestRunApiResult
 from testit_api_client.rest import ApiException
@@ -1494,6 +1407,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -1521,6 +1435,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1538,23 +1453,13 @@ Name | Type | Description  | Notes
 
 Search TestRuns of TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User sets TestRuns filter (listed in request example)
-
-User runs method execution
-
-System returns TestRuns for TestPlan
+ Use case  User sets test plan identifier  User sets TestRuns filter (listed in request example)  User runs method execution  System returns TestRuns for TestPlan
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.search_test_runs_api_model import SearchTestRunsApiModel
 from testit_api_client.models.test_run_api_result import TestRunApiResult
@@ -1603,6 +1508,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -1627,6 +1533,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1644,14 +1551,11 @@ Name | Type | Description  | Notes
 
 Get last modification date of test plan's test results
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1690,6 +1594,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan unique or global ID | 
@@ -1708,6 +1613,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Last modification date does not exist |  -  |
@@ -1726,21 +1632,13 @@ void (empty response body)
 
 Send unlock TestPlan notification
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System send unlock test plan notification
+ Use case  User sets test plan identifier  User runs method execution  System send unlock test plan notification
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1779,6 +1677,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -1797,6 +1696,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -1816,21 +1716,13 @@ void (empty response body)
 
 Get TestPlans short models by Project identifiers
 
-
-Use case
-
-User sets projects identifiers
-
-User runs method execution
-
-System return test plans short models (listed in response example)
+ Use case  User sets projects identifiers  User runs method execution  System return test plans short models (listed in response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_plan_short_model import TestPlanShortModel
 from testit_api_client.rest import ApiException
@@ -1873,6 +1765,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **is_deleted** | **bool**|  | [optional] 
@@ -1892,6 +1785,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1909,23 +1803,13 @@ Name | Type | Description  | Notes
 
 Clone TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System clones test plan
-
-System returns test plan (listed in response example)
+ Use case  User sets test plan identifier  User runs method execution  System clones test plan  System returns test plan (listed in response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_plan_model import TestPlanModel
 from testit_api_client.rest import ApiException
@@ -1967,6 +1851,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -1985,6 +1870,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
@@ -2002,23 +1888,13 @@ Name | Type | Description  | Notes
 
 Complete TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System completes the test plan and updates test plan status
-
-System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System completes the test plan and updates test plan status  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -2057,6 +1933,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -2075,6 +1952,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -2092,23 +1970,13 @@ void (empty response body)
 
 Create TestPlan
 
-
-Use case
-
-User sets test plan properties (listed in request example)
-
-User runs method execution
-
-System creates test plan
-
-System returns test plan (listed in response example)
+ Use case  User sets test plan properties (listed in request example)  User runs method execution  System creates test plan  System returns test plan (listed in response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.create_test_plan_api_model import CreateTestPlanApiModel
 from testit_api_client.models.test_plan_model import TestPlanModel
@@ -2151,6 +2019,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_test_plan_api_model** | [**CreateTestPlanApiModel**](CreateTestPlanApiModel.md)|  | [optional] 
@@ -2169,6 +2038,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
@@ -2186,23 +2056,13 @@ Name | Type | Description  | Notes
 
 Delete TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System delete test plan
-
-System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System delete test plan  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -2241,6 +2101,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -2259,6 +2120,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -2276,23 +2138,13 @@ void (empty response body)
 
 Get TestPlan by Id
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System search  test plan by the identifier
-
-System returns test plan
+ Use case  User sets test plan identifier  User runs method execution  System search  test plan by the identifier  System returns test plan
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_plan_model import TestPlanModel
 from testit_api_client.rest import ApiException
@@ -2334,6 +2186,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -2352,6 +2205,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -2370,23 +2224,13 @@ Name | Type | Description  | Notes
 
 Get TestSuites Tree By Id
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System finds test suites related to the test plan
-
-System returns test suites as a tree model (listed in response example)
+ Use case  User sets test plan identifier  User runs method execution  System finds test suites related to the test plan  System returns test suites as a tree model (listed in response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.test_suite_v2_tree_model import TestSuiteV2TreeModel
 from testit_api_client.rest import ApiException
@@ -2428,6 +2272,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -2446,6 +2291,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -2463,23 +2309,13 @@ Name | Type | Description  | Notes
 
 Pause TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System pauses the test plan and updates test plan status
-
-System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System pauses the test plan and updates test plan status  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -2518,6 +2354,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -2536,6 +2373,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -2553,14 +2391,11 @@ void (empty response body)
 
 Permanently delete test plan from archive
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -2599,6 +2434,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the test plan | 
@@ -2617,6 +2453,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -2634,23 +2471,13 @@ void (empty response body)
 
 Restore TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System restores test plan
-
-System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System restores test plan  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -2689,6 +2516,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -2707,6 +2535,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -2724,23 +2553,13 @@ void (empty response body)
 
 Start TestPlan
 
-
-Use case
-
-User sets test plan identifier
-
-User runs method execution
-
-System starts the test plan and updates test plan status
-
-System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System starts the test plan and updates test plan status  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -2779,6 +2598,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test plan internal (guid format) or global (int format) identifier | 
@@ -2797,6 +2617,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -2814,23 +2635,13 @@ void (empty response body)
 
 Update TestPlan
 
-
-Use case
-
-User sets test plan properties(listed in request example)
-
-User runs method execution
-
-System updates test plan
-
-System returns no content response
+ Use case  User sets test plan properties(listed in request example)  User runs method execution  System updates test plan  System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
-import time
-import os
 import testit_api_client
 from testit_api_client.models.update_test_plan_api_model import UpdateTestPlanApiModel
 from testit_api_client.rest import ApiException
@@ -2870,6 +2681,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_test_plan_api_model** | [**UpdateTestPlanApiModel**](UpdateTestPlanApiModel.md)|  | [optional] 
@@ -2888,6 +2700,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Specifies an attribute name to search for | 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of ProjectAttributesFilterModel from a JSON string
 project_attributes_filter_model_instance = ProjectAttributesFilterModel.from_json(json)
 # print the JSON string representation of the object
-print ProjectAttributesFilterModel.to_json()
+print(ProjectAttributesFilterModel.to_json())
 
 # convert the object into a dict
 project_attributes_filter_model_dict = project_attributes_filter_model_instance.to_dict()

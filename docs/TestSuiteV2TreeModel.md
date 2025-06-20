@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **children** | [**List[TestSuiteV2TreeModel]**](TestSuiteV2TreeModel.md) | nested enumeration of children is allowed | [optional] 
@@ -24,7 +25,7 @@ json = "{}"
 # create an instance of TestSuiteV2TreeModel from a JSON string
 test_suite_v2_tree_model_instance = TestSuiteV2TreeModel.from_json(json)
 # print the JSON string representation of the object
-print TestSuiteV2TreeModel.to_json()
+print(TestSuiteV2TreeModel.to_json())
 
 # convert the object into a dict
 test_suite_v2_tree_model_dict = test_suite_v2_tree_model_instance.to_dict()
