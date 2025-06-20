@@ -17,89 +17,73 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing import Optional, Set
-from typing_extensions import Self
+
+from typing import Optional
+from pydantic import BaseModel, Field, StrictStr
 
 class StringChangedFieldWithDiffsViewModel(BaseModel):
     """
     StringChangedFieldWithDiffsViewModel
-    """ # noqa: E501
+    """
     diff_value: Optional[StrictStr] = Field(default=None, alias="diffValue")
     old_value: Optional[StrictStr] = Field(default=None, alias="oldValue")
     new_value: Optional[StrictStr] = Field(default=None, alias="newValue")
-    __properties: ClassVar[List[str]] = ["diffValue", "oldValue", "newValue"]
+    __properties = ["diffValue", "oldValue", "newValue"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> StringChangedFieldWithDiffsViewModel:
         """Create an instance of StringChangedFieldWithDiffsViewModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if diff_value (nullable) is None
-        # and model_fields_set contains the field
-        if self.diff_value is None and "diff_value" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.diff_value is None and "diff_value" in self.__fields_set__:
             _dict['diffValue'] = None
 
         # set to None if old_value (nullable) is None
-        # and model_fields_set contains the field
-        if self.old_value is None and "old_value" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.old_value is None and "old_value" in self.__fields_set__:
             _dict['oldValue'] = None
 
         # set to None if new_value (nullable) is None
-        # and model_fields_set contains the field
-        if self.new_value is None and "new_value" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.new_value is None and "new_value" in self.__fields_set__:
             _dict['newValue'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> StringChangedFieldWithDiffsViewModel:
         """Create an instance of StringChangedFieldWithDiffsViewModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return StringChangedFieldWithDiffsViewModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "diffValue": obj.get("diffValue"),
-            "oldValue": obj.get("oldValue"),
-            "newValue": obj.get("newValue")
+        _obj = StringChangedFieldWithDiffsViewModel.parse_obj({
+            "diff_value": obj.get("diffValue"),
+            "old_value": obj.get("oldValue"),
+            "new_value": obj.get("newValue")
         })
         return _obj
 

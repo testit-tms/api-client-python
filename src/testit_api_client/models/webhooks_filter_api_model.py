@@ -17,99 +17,82 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictStr, conlist, constr
 from testit_api_client.models.request_type_api_model import RequestTypeApiModel
 from testit_api_client.models.web_hook_event_type_request import WebHookEventTypeRequest
-from typing import Optional, Set
-from typing_extensions import Self
 
 class WebhooksFilterApiModel(BaseModel):
     """
     WebhooksFilterApiModel
-    """ # noqa: E501
-    name: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=255)]] = Field(default=None, description="Specifies a webhook name to search for")
-    event_types: Optional[List[WebHookEventTypeRequest]] = Field(default=None, description="Specifies a webhook event types to search for", alias="eventTypes")
-    methods: Optional[List[RequestTypeApiModel]] = Field(default=None, description="Specifies a webhook methods to search for")
-    project_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a webhook project IDs to search for", alias="projectIds")
-    __properties: ClassVar[List[str]] = ["name", "eventTypes", "methods", "projectIds"]
+    """
+    name: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(default=None, description="Specifies a webhook name to search for")
+    event_types: Optional[conlist(WebHookEventTypeRequest, unique_items=True)] = Field(default=None, alias="eventTypes", description="Specifies a webhook event types to search for")
+    methods: Optional[conlist(RequestTypeApiModel, unique_items=True)] = Field(default=None, description="Specifies a webhook methods to search for")
+    project_ids: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="projectIds", description="Specifies a webhook project IDs to search for")
+    __properties = ["name", "eventTypes", "methods", "projectIds"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> WebhooksFilterApiModel:
         """Create an instance of WebhooksFilterApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if event_types (nullable) is None
-        # and model_fields_set contains the field
-        if self.event_types is None and "event_types" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.event_types is None and "event_types" in self.__fields_set__:
             _dict['eventTypes'] = None
 
         # set to None if methods (nullable) is None
-        # and model_fields_set contains the field
-        if self.methods is None and "methods" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.methods is None and "methods" in self.__fields_set__:
             _dict['methods'] = None
 
         # set to None if project_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.project_ids is None and "project_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.project_ids is None and "project_ids" in self.__fields_set__:
             _dict['projectIds'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> WebhooksFilterApiModel:
         """Create an instance of WebhooksFilterApiModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return WebhooksFilterApiModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = WebhooksFilterApiModel.parse_obj({
             "name": obj.get("name"),
-            "eventTypes": obj.get("eventTypes"),
+            "event_types": obj.get("eventTypes"),
             "methods": obj.get("methods"),
-            "projectIds": obj.get("projectIds")
+            "project_ids": obj.get("projectIds")
         })
         return _obj
 

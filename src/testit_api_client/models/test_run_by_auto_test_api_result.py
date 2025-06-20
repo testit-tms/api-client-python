@@ -17,102 +17,86 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+
+from typing import Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr
 from testit_api_client.models.test_run_state import TestRunState
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestRunByAutoTestApiResult(BaseModel):
     """
     TestRunByAutoTestApiResult
-    """ # noqa: E501
-    id: StrictStr = Field(description="Unique ID of the entity")
-    is_deleted: StrictBool = Field(description="Indicates if the entity is deleted", alias="isDeleted")
-    state_name: TestRunState = Field(description="Test run state", alias="stateName")
-    status: TestStatusApiResult = Field(description="Test run status")
-    project_id: StrictStr = Field(description="Project internal identifier", alias="projectId")
-    test_plan_id: Optional[StrictStr] = Field(default=None, description="Test plan internal identifier", alias="testPlanId")
+    """
+    id: StrictStr = Field(default=..., description="Unique ID of the entity")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Indicates if the entity is deleted")
+    state_name: TestRunState = Field(default=..., alias="stateName", description="Test run state")
+    status: TestStatusApiResult = Field(default=..., description="Test run status")
+    project_id: StrictStr = Field(default=..., alias="projectId", description="Project internal identifier")
+    test_plan_id: Optional[StrictStr] = Field(default=None, alias="testPlanId", description="Test plan internal identifier")
     name: Optional[StrictStr] = Field(default=None, description="Test run name")
     description: Optional[StrictStr] = Field(default=None, description="Test run description")
-    __properties: ClassVar[List[str]] = ["id", "isDeleted", "stateName", "status", "projectId", "testPlanId", "name", "description"]
+    __properties = ["id", "isDeleted", "stateName", "status", "projectId", "testPlanId", "name", "description"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestRunByAutoTestApiResult:
         """Create an instance of TestRunByAutoTestApiResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of status
         if self.status:
             _dict['status'] = self.status.to_dict()
         # set to None if test_plan_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_plan_id is None and "test_plan_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_plan_id is None and "test_plan_id" in self.__fields_set__:
             _dict['testPlanId'] = None
 
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestRunByAutoTestApiResult:
         """Create an instance of TestRunByAutoTestApiResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestRunByAutoTestApiResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = TestRunByAutoTestApiResult.parse_obj({
             "id": obj.get("id"),
-            "isDeleted": obj.get("isDeleted"),
-            "stateName": obj.get("stateName"),
-            "status": TestStatusApiResult.from_dict(obj["status"]) if obj.get("status") is not None else None,
-            "projectId": obj.get("projectId"),
-            "testPlanId": obj.get("testPlanId"),
+            "is_deleted": obj.get("isDeleted"),
+            "state_name": obj.get("stateName"),
+            "status": TestStatusApiResult.from_dict(obj.get("status")) if obj.get("status") is not None else None,
+            "project_id": obj.get("projectId"),
+            "test_plan_id": obj.get("testPlanId"),
             "name": obj.get("name"),
             "description": obj.get("description")
         })

@@ -18,70 +18,53 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictStr, conlist
 from testit_api_client.models.attachment_api_result import AttachmentApiResult
 from testit_api_client.models.auto_test_short_api_result import AutoTestShortApiResult
 from testit_api_client.models.test_point_short_api_result import TestPointShortApiResult
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestResultShortApiResult(BaseModel):
     """
     TestResultShortApiResult
-    """ # noqa: E501
-    id: StrictStr
-    outcome: StrictStr
-    status: TestStatusApiResult
+    """
+    id: StrictStr = Field(...)
+    outcome: StrictStr = Field(...)
+    status: TestStatusApiResult = Field(...)
     traces: Optional[StrictStr] = None
     failure_type: Optional[StrictStr] = Field(default=None, alias="failureType")
     message: Optional[StrictStr] = None
     test_point: Optional[TestPointShortApiResult] = Field(default=None, alias="testPoint")
-    created_date: datetime = Field(alias="createdDate")
+    created_date: datetime = Field(default=..., alias="createdDate")
     auto_test: Optional[AutoTestShortApiResult] = Field(default=None, alias="autoTest")
-    attachments: List[AttachmentApiResult]
-    __properties: ClassVar[List[str]] = ["id", "outcome", "status", "traces", "failureType", "message", "testPoint", "createdDate", "autoTest", "attachments"]
+    attachments: conlist(AttachmentApiResult) = Field(...)
+    __properties = ["id", "outcome", "status", "traces", "failureType", "message", "testPoint", "createdDate", "autoTest", "attachments"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestResultShortApiResult:
         """Create an instance of TestResultShortApiResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of status
         if self.status:
             _dict['status'] = self.status.to_dict()
@@ -94,57 +77,57 @@ class TestResultShortApiResult(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
-            for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+            for _item in self.attachments:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['attachments'] = _items
         # set to None if traces (nullable) is None
-        # and model_fields_set contains the field
-        if self.traces is None and "traces" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.traces is None and "traces" in self.__fields_set__:
             _dict['traces'] = None
 
         # set to None if failure_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.failure_type is None and "failure_type" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.failure_type is None and "failure_type" in self.__fields_set__:
             _dict['failureType'] = None
 
         # set to None if message (nullable) is None
-        # and model_fields_set contains the field
-        if self.message is None and "message" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.message is None and "message" in self.__fields_set__:
             _dict['message'] = None
 
         # set to None if test_point (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_point is None and "test_point" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_point is None and "test_point" in self.__fields_set__:
             _dict['testPoint'] = None
 
         # set to None if auto_test (nullable) is None
-        # and model_fields_set contains the field
-        if self.auto_test is None and "auto_test" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.auto_test is None and "auto_test" in self.__fields_set__:
             _dict['autoTest'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestResultShortApiResult:
         """Create an instance of TestResultShortApiResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestResultShortApiResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = TestResultShortApiResult.parse_obj({
             "id": obj.get("id"),
             "outcome": obj.get("outcome"),
-            "status": TestStatusApiResult.from_dict(obj["status"]) if obj.get("status") is not None else None,
+            "status": TestStatusApiResult.from_dict(obj.get("status")) if obj.get("status") is not None else None,
             "traces": obj.get("traces"),
-            "failureType": obj.get("failureType"),
+            "failure_type": obj.get("failureType"),
             "message": obj.get("message"),
-            "testPoint": TestPointShortApiResult.from_dict(obj["testPoint"]) if obj.get("testPoint") is not None else None,
-            "createdDate": obj.get("createdDate"),
-            "autoTest": AutoTestShortApiResult.from_dict(obj["autoTest"]) if obj.get("autoTest") is not None else None,
-            "attachments": [AttachmentApiResult.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None
+            "test_point": TestPointShortApiResult.from_dict(obj.get("testPoint")) if obj.get("testPoint") is not None else None,
+            "created_date": obj.get("createdDate"),
+            "auto_test": AutoTestShortApiResult.from_dict(obj.get("autoTest")) if obj.get("autoTest") is not None else None,
+            "attachments": [AttachmentApiResult.from_dict(_item) for _item in obj.get("attachments")] if obj.get("attachments") is not None else None
         })
         return _obj
 

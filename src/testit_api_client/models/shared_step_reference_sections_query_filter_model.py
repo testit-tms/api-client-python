@@ -17,62 +17,46 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictStr, conlist
 from testit_api_client.models.date_time_range_selector_model import DateTimeRangeSelectorModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class SharedStepReferenceSectionsQueryFilterModel(BaseModel):
     """
     SharedStepReferenceSectionsQueryFilterModel
-    """ # noqa: E501
+    """
     name: Optional[StrictStr] = Field(default=None, description="Name of section")
-    created_by_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of identifiers of users who created work item", alias="createdByIds")
-    modified_by_ids: Optional[List[StrictStr]] = Field(default=None, description="Collection of identifiers of users who applied last modification to work item", alias="modifiedByIds")
-    created_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, description="Date and time of work item creation", alias="createdDate")
-    modified_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, description="Date and time of work item last modification", alias="modifiedDate")
-    __properties: ClassVar[List[str]] = ["name", "createdByIds", "modifiedByIds", "createdDate", "modifiedDate"]
+    created_by_ids: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="createdByIds", description="Collection of identifiers of users who created work item")
+    modified_by_ids: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="modifiedByIds", description="Collection of identifiers of users who applied last modification to work item")
+    created_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="createdDate", description="Date and time of work item creation")
+    modified_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="modifiedDate", description="Date and time of work item last modification")
+    __properties = ["name", "createdByIds", "modifiedByIds", "createdDate", "modifiedDate"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> SharedStepReferenceSectionsQueryFilterModel:
         """Create an instance of SharedStepReferenceSectionsQueryFilterModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of created_date
         if self.created_date:
             _dict['createdDate'] = self.created_date.to_dict()
@@ -80,47 +64,47 @@ class SharedStepReferenceSectionsQueryFilterModel(BaseModel):
         if self.modified_date:
             _dict['modifiedDate'] = self.modified_date.to_dict()
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if created_by_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_by_ids is None and "created_by_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_by_ids is None and "created_by_ids" in self.__fields_set__:
             _dict['createdByIds'] = None
 
         # set to None if modified_by_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_ids is None and "modified_by_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_ids is None and "modified_by_ids" in self.__fields_set__:
             _dict['modifiedByIds'] = None
 
         # set to None if created_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_date is None and "created_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_date is None and "created_date" in self.__fields_set__:
             _dict['createdDate'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> SharedStepReferenceSectionsQueryFilterModel:
         """Create an instance of SharedStepReferenceSectionsQueryFilterModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return SharedStepReferenceSectionsQueryFilterModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = SharedStepReferenceSectionsQueryFilterModel.parse_obj({
             "name": obj.get("name"),
-            "createdByIds": obj.get("createdByIds"),
-            "modifiedByIds": obj.get("modifiedByIds"),
-            "createdDate": DateTimeRangeSelectorModel.from_dict(obj["createdDate"]) if obj.get("createdDate") is not None else None,
-            "modifiedDate": DateTimeRangeSelectorModel.from_dict(obj["modifiedDate"]) if obj.get("modifiedDate") is not None else None
+            "created_by_ids": obj.get("createdByIds"),
+            "modified_by_ids": obj.get("modifiedByIds"),
+            "created_date": DateTimeRangeSelectorModel.from_dict(obj.get("createdDate")) if obj.get("createdDate") is not None else None,
+            "modified_date": DateTimeRangeSelectorModel.from_dict(obj.get("modifiedDate")) if obj.get("modifiedDate") is not None else None
         })
         return _obj
 

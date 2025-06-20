@@ -17,66 +17,49 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictStr, conlist, constr
 from testit_api_client.models.date_time_range_selector_model import DateTimeRangeSelectorModel
 from testit_api_client.models.test_run_state import TestRunState
-from typing import Optional, Set
-from typing_extensions import Self
 
 class SearchTestRunsApiModel(BaseModel):
     """
     SearchTestRunsApiModel
-    """ # noqa: E501
-    name: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=255)]] = None
-    states: Optional[List[TestRunState]] = None
-    status_codes: Optional[List[StrictStr]] = Field(default=None, alias="statusCodes")
+    """
+    name: Optional[constr(strict=True, max_length=255, min_length=0)] = None
+    states: Optional[conlist(TestRunState, unique_items=True)] = None
+    status_codes: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="statusCodes")
     started_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="startedDate")
     completed_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="completedDate")
-    created_by_ids: Optional[List[StrictStr]] = Field(default=None, alias="createdByIds")
-    modified_by_ids: Optional[List[StrictStr]] = Field(default=None, alias="modifiedByIds")
-    __properties: ClassVar[List[str]] = ["name", "states", "statusCodes", "startedDate", "completedDate", "createdByIds", "modifiedByIds"]
+    created_by_ids: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="createdByIds")
+    modified_by_ids: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="modifiedByIds")
+    __properties = ["name", "states", "statusCodes", "startedDate", "completedDate", "createdByIds", "modifiedByIds"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> SearchTestRunsApiModel:
         """Create an instance of SearchTestRunsApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of started_date
         if self.started_date:
             _dict['startedDate'] = self.started_date.to_dict()
@@ -84,59 +67,59 @@ class SearchTestRunsApiModel(BaseModel):
         if self.completed_date:
             _dict['completedDate'] = self.completed_date.to_dict()
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if states (nullable) is None
-        # and model_fields_set contains the field
-        if self.states is None and "states" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.states is None and "states" in self.__fields_set__:
             _dict['states'] = None
 
         # set to None if status_codes (nullable) is None
-        # and model_fields_set contains the field
-        if self.status_codes is None and "status_codes" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.status_codes is None and "status_codes" in self.__fields_set__:
             _dict['statusCodes'] = None
 
         # set to None if started_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.started_date is None and "started_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.started_date is None and "started_date" in self.__fields_set__:
             _dict['startedDate'] = None
 
         # set to None if completed_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.completed_date is None and "completed_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.completed_date is None and "completed_date" in self.__fields_set__:
             _dict['completedDate'] = None
 
         # set to None if created_by_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_by_ids is None and "created_by_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_by_ids is None and "created_by_ids" in self.__fields_set__:
             _dict['createdByIds'] = None
 
         # set to None if modified_by_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_ids is None and "modified_by_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_ids is None and "modified_by_ids" in self.__fields_set__:
             _dict['modifiedByIds'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> SearchTestRunsApiModel:
         """Create an instance of SearchTestRunsApiModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return SearchTestRunsApiModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = SearchTestRunsApiModel.parse_obj({
             "name": obj.get("name"),
             "states": obj.get("states"),
-            "statusCodes": obj.get("statusCodes"),
-            "startedDate": DateTimeRangeSelectorModel.from_dict(obj["startedDate"]) if obj.get("startedDate") is not None else None,
-            "completedDate": DateTimeRangeSelectorModel.from_dict(obj["completedDate"]) if obj.get("completedDate") is not None else None,
-            "createdByIds": obj.get("createdByIds"),
-            "modifiedByIds": obj.get("modifiedByIds")
+            "status_codes": obj.get("statusCodes"),
+            "started_date": DateTimeRangeSelectorModel.from_dict(obj.get("startedDate")) if obj.get("startedDate") is not None else None,
+            "completed_date": DateTimeRangeSelectorModel.from_dict(obj.get("completedDate")) if obj.get("completedDate") is not None else None,
+            "created_by_ids": obj.get("createdByIds"),
+            "modified_by_ids": obj.get("modifiedByIds")
         })
         return _obj
 

@@ -18,122 +18,105 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Optional
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 from testit_api_client.models.notification_type_model import NotificationTypeModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class NotificationModel(BaseModel):
     """
     NotificationModel
-    """ # noqa: E501
-    id: StrictStr
+    """
+    id: StrictStr = Field(...)
     created_date: Optional[datetime] = Field(default=None, alias="createdDate")
-    is_read: StrictBool = Field(alias="isRead")
-    entity_id: StrictStr = Field(alias="entityId")
-    notification_type: NotificationTypeModel = Field(alias="notificationType")
+    is_read: StrictBool = Field(default=..., alias="isRead")
+    entity_id: StrictStr = Field(default=..., alias="entityId")
+    notification_type: NotificationTypeModel = Field(default=..., alias="notificationType")
     project_global_id: Optional[StrictInt] = Field(default=None, alias="projectGlobalId")
     project_name: Optional[StrictStr] = Field(default=None, alias="projectName")
-    test_plan_global_id: StrictInt = Field(alias="testPlanGlobalId")
-    test_plan_name: StrictStr = Field(alias="testPlanName")
+    test_plan_global_id: StrictInt = Field(default=..., alias="testPlanGlobalId")
+    test_plan_name: StrictStr = Field(default=..., alias="testPlanName")
     workitem_global_id: Optional[StrictInt] = Field(default=None, alias="workitemGlobalId")
-    comment: StrictStr
-    work_item_name: StrictStr = Field(alias="workItemName")
+    comment: StrictStr = Field(...)
+    work_item_name: StrictStr = Field(default=..., alias="workItemName")
     attribute_name: Optional[StrictStr] = Field(default=None, alias="attributeName")
-    created_by_id: StrictStr = Field(alias="createdById")
-    __properties: ClassVar[List[str]] = ["id", "createdDate", "isRead", "entityId", "notificationType", "projectGlobalId", "projectName", "testPlanGlobalId", "testPlanName", "workitemGlobalId", "comment", "workItemName", "attributeName", "createdById"]
+    created_by_id: StrictStr = Field(default=..., alias="createdById")
+    __properties = ["id", "createdDate", "isRead", "entityId", "notificationType", "projectGlobalId", "projectName", "testPlanGlobalId", "testPlanName", "workitemGlobalId", "comment", "workItemName", "attributeName", "createdById"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> NotificationModel:
         """Create an instance of NotificationModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if created_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_date is None and "created_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_date is None and "created_date" in self.__fields_set__:
             _dict['createdDate'] = None
 
         # set to None if project_global_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.project_global_id is None and "project_global_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.project_global_id is None and "project_global_id" in self.__fields_set__:
             _dict['projectGlobalId'] = None
 
         # set to None if project_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.project_name is None and "project_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.project_name is None and "project_name" in self.__fields_set__:
             _dict['projectName'] = None
 
         # set to None if workitem_global_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.workitem_global_id is None and "workitem_global_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.workitem_global_id is None and "workitem_global_id" in self.__fields_set__:
             _dict['workitemGlobalId'] = None
 
         # set to None if attribute_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.attribute_name is None and "attribute_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.attribute_name is None and "attribute_name" in self.__fields_set__:
             _dict['attributeName'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> NotificationModel:
         """Create an instance of NotificationModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return NotificationModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = NotificationModel.parse_obj({
             "id": obj.get("id"),
-            "createdDate": obj.get("createdDate"),
-            "isRead": obj.get("isRead"),
-            "entityId": obj.get("entityId"),
-            "notificationType": obj.get("notificationType"),
-            "projectGlobalId": obj.get("projectGlobalId"),
-            "projectName": obj.get("projectName"),
-            "testPlanGlobalId": obj.get("testPlanGlobalId"),
-            "testPlanName": obj.get("testPlanName"),
-            "workitemGlobalId": obj.get("workitemGlobalId"),
+            "created_date": obj.get("createdDate"),
+            "is_read": obj.get("isRead"),
+            "entity_id": obj.get("entityId"),
+            "notification_type": obj.get("notificationType"),
+            "project_global_id": obj.get("projectGlobalId"),
+            "project_name": obj.get("projectName"),
+            "test_plan_global_id": obj.get("testPlanGlobalId"),
+            "test_plan_name": obj.get("testPlanName"),
+            "workitem_global_id": obj.get("workitemGlobalId"),
             "comment": obj.get("comment"),
-            "workItemName": obj.get("workItemName"),
-            "attributeName": obj.get("attributeName"),
-            "createdById": obj.get("createdById")
+            "work_item_name": obj.get("workItemName"),
+            "attribute_name": obj.get("attributeName"),
+            "created_by_id": obj.get("createdById")
         })
         return _obj
 

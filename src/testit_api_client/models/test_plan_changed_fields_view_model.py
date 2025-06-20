@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+
+from typing import Dict, Optional
+from pydantic import BaseModel, Field
 from testit_api_client.models.boolean_changed_field_view_model import BooleanChangedFieldViewModel
 from testit_api_client.models.boolean_nullable_changed_field_view_model import BooleanNullableChangedFieldViewModel
 from testit_api_client.models.custom_attribute_change_model import CustomAttributeChangeModel
@@ -28,13 +29,11 @@ from testit_api_client.models.string_changed_field_with_diffs_view_model import 
 from testit_api_client.models.test_point_change_view_model_changed_field_view_model import TestPointChangeViewModelChangedFieldViewModel
 from testit_api_client.models.test_result_change_view_model_changed_field_view_model import TestResultChangeViewModelChangedFieldViewModel
 from testit_api_client.models.test_suite_change_view_model_changed_field_view_model import TestSuiteChangeViewModelChangedFieldViewModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestPlanChangedFieldsViewModel(BaseModel):
     """
     TestPlanChangedFieldsViewModel
-    """ # noqa: E501
+    """
     name: Optional[StringChangedFieldWithDiffsViewModel] = None
     description: Optional[StringChangedFieldWithDiffsViewModel] = None
     product_name: Optional[StringChangedFieldWithDiffsViewModel] = Field(default=None, alias="productName")
@@ -48,47 +47,32 @@ class TestPlanChangedFieldsViewModel(BaseModel):
     locking: Optional[BooleanChangedFieldViewModel] = None
     has_automatic_duration_timer: Optional[BooleanNullableChangedFieldViewModel] = Field(default=None, alias="hasAutomaticDurationTimer")
     attributes: Optional[Dict[str, CustomAttributeChangeModel]] = None
-    __properties: ClassVar[List[str]] = ["name", "description", "productName", "build", "period", "status", "tags", "testSuite", "testPoints", "testResults", "locking", "hasAutomaticDurationTimer", "attributes"]
+    __properties = ["name", "description", "productName", "build", "period", "status", "tags", "testSuite", "testPoints", "testResults", "locking", "hasAutomaticDurationTimer", "attributes"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestPlanChangedFieldsViewModel:
         """Create an instance of TestPlanChangedFieldsViewModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of name
         if self.name:
             _dict['name'] = self.name.to_dict()
@@ -128,102 +112,102 @@ class TestPlanChangedFieldsViewModel(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each value in attributes (dict)
         _field_dict = {}
         if self.attributes:
-            for _key_attributes in self.attributes:
-                if self.attributes[_key_attributes]:
-                    _field_dict[_key_attributes] = self.attributes[_key_attributes].to_dict()
+            for _key in self.attributes:
+                if self.attributes[_key]:
+                    _field_dict[_key] = self.attributes[_key].to_dict()
             _dict['attributes'] = _field_dict
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         # set to None if product_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.product_name is None and "product_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.product_name is None and "product_name" in self.__fields_set__:
             _dict['productName'] = None
 
         # set to None if build (nullable) is None
-        # and model_fields_set contains the field
-        if self.build is None and "build" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.build is None and "build" in self.__fields_set__:
             _dict['build'] = None
 
         # set to None if period (nullable) is None
-        # and model_fields_set contains the field
-        if self.period is None and "period" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.period is None and "period" in self.__fields_set__:
             _dict['period'] = None
 
         # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.status is None and "status" in self.__fields_set__:
             _dict['status'] = None
 
         # set to None if tags (nullable) is None
-        # and model_fields_set contains the field
-        if self.tags is None and "tags" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.tags is None and "tags" in self.__fields_set__:
             _dict['tags'] = None
 
         # set to None if test_suite (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_suite is None and "test_suite" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_suite is None and "test_suite" in self.__fields_set__:
             _dict['testSuite'] = None
 
         # set to None if test_points (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_points is None and "test_points" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_points is None and "test_points" in self.__fields_set__:
             _dict['testPoints'] = None
 
         # set to None if test_results (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_results is None and "test_results" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_results is None and "test_results" in self.__fields_set__:
             _dict['testResults'] = None
 
         # set to None if locking (nullable) is None
-        # and model_fields_set contains the field
-        if self.locking is None and "locking" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.locking is None and "locking" in self.__fields_set__:
             _dict['locking'] = None
 
         # set to None if has_automatic_duration_timer (nullable) is None
-        # and model_fields_set contains the field
-        if self.has_automatic_duration_timer is None and "has_automatic_duration_timer" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.has_automatic_duration_timer is None and "has_automatic_duration_timer" in self.__fields_set__:
             _dict['hasAutomaticDurationTimer'] = None
 
         # set to None if attributes (nullable) is None
-        # and model_fields_set contains the field
-        if self.attributes is None and "attributes" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.attributes is None and "attributes" in self.__fields_set__:
             _dict['attributes'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestPlanChangedFieldsViewModel:
         """Create an instance of TestPlanChangedFieldsViewModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestPlanChangedFieldsViewModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "name": StringChangedFieldWithDiffsViewModel.from_dict(obj["name"]) if obj.get("name") is not None else None,
-            "description": StringChangedFieldWithDiffsViewModel.from_dict(obj["description"]) if obj.get("description") is not None else None,
-            "productName": StringChangedFieldWithDiffsViewModel.from_dict(obj["productName"]) if obj.get("productName") is not None else None,
-            "build": StringChangedFieldWithDiffsViewModel.from_dict(obj["build"]) if obj.get("build") is not None else None,
-            "period": PeriodViewModelChangedFieldViewModel.from_dict(obj["period"]) if obj.get("period") is not None else None,
-            "status": StringChangedFieldWithDiffsViewModel.from_dict(obj["status"]) if obj.get("status") is not None else None,
-            "tags": StringArrayChangedFieldViewModel.from_dict(obj["tags"]) if obj.get("tags") is not None else None,
-            "testSuite": TestSuiteChangeViewModelChangedFieldViewModel.from_dict(obj["testSuite"]) if obj.get("testSuite") is not None else None,
-            "testPoints": TestPointChangeViewModelChangedFieldViewModel.from_dict(obj["testPoints"]) if obj.get("testPoints") is not None else None,
-            "testResults": TestResultChangeViewModelChangedFieldViewModel.from_dict(obj["testResults"]) if obj.get("testResults") is not None else None,
-            "locking": BooleanChangedFieldViewModel.from_dict(obj["locking"]) if obj.get("locking") is not None else None,
-            "hasAutomaticDurationTimer": BooleanNullableChangedFieldViewModel.from_dict(obj["hasAutomaticDurationTimer"]) if obj.get("hasAutomaticDurationTimer") is not None else None,
+        _obj = TestPlanChangedFieldsViewModel.parse_obj({
+            "name": StringChangedFieldWithDiffsViewModel.from_dict(obj.get("name")) if obj.get("name") is not None else None,
+            "description": StringChangedFieldWithDiffsViewModel.from_dict(obj.get("description")) if obj.get("description") is not None else None,
+            "product_name": StringChangedFieldWithDiffsViewModel.from_dict(obj.get("productName")) if obj.get("productName") is not None else None,
+            "build": StringChangedFieldWithDiffsViewModel.from_dict(obj.get("build")) if obj.get("build") is not None else None,
+            "period": PeriodViewModelChangedFieldViewModel.from_dict(obj.get("period")) if obj.get("period") is not None else None,
+            "status": StringChangedFieldWithDiffsViewModel.from_dict(obj.get("status")) if obj.get("status") is not None else None,
+            "tags": StringArrayChangedFieldViewModel.from_dict(obj.get("tags")) if obj.get("tags") is not None else None,
+            "test_suite": TestSuiteChangeViewModelChangedFieldViewModel.from_dict(obj.get("testSuite")) if obj.get("testSuite") is not None else None,
+            "test_points": TestPointChangeViewModelChangedFieldViewModel.from_dict(obj.get("testPoints")) if obj.get("testPoints") is not None else None,
+            "test_results": TestResultChangeViewModelChangedFieldViewModel.from_dict(obj.get("testResults")) if obj.get("testResults") is not None else None,
+            "locking": BooleanChangedFieldViewModel.from_dict(obj.get("locking")) if obj.get("locking") is not None else None,
+            "has_automatic_duration_timer": BooleanNullableChangedFieldViewModel.from_dict(obj.get("hasAutomaticDurationTimer")) if obj.get("hasAutomaticDurationTimer") is not None else None,
             "attributes": dict(
                 (_k, CustomAttributeChangeModel.from_dict(_v))
-                for _k, _v in obj["attributes"].items()
+                for _k, _v in obj.get("attributes").items()
             )
             if obj.get("attributes") is not None
             else None

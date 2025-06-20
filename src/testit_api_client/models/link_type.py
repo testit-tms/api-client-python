@@ -12,10 +12,13 @@
 """  # noqa: E501
 
 
-from __future__ import annotations
 import json
-from enum import Enum
-from typing_extensions import Self
+import pprint
+import re  # noqa: F401
+from aenum import Enum, no_arg
+
+
+
 
 
 class LinkType(str, Enum):
@@ -34,8 +37,8 @@ class LinkType(str, Enum):
     REPOSITORY = 'Repository'
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> LinkType:
         """Create an instance of LinkType from a JSON string"""
-        return cls(json.loads(json_str))
+        return LinkType(json.loads(json_str))
 
 

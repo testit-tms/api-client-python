@@ -17,81 +17,64 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
-from typing import Optional, Set
-from typing_extensions import Self
+
+from typing import Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
 
 class AutoTestProjectSettingsGetModel(BaseModel):
     """
     AutoTestProjectSettingsGetModel
-    """ # noqa: E501
-    project_id: StrictStr = Field(description="Unique ID of the project.", alias="projectId")
-    is_flaky_auto: Optional[StrictBool] = Field(default=False, description="Indicates if the status \"Flaky/Stable\" sets automatically", alias="isFlakyAuto")
-    flaky_stability_percentage: Optional[Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(default=100, description="Stability percentage for autotest flaky computing", alias="flakyStabilityPercentage")
-    flaky_test_run_count: Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]] = Field(default=100, description="Last test run count for autotest flaky computing", alias="flakyTestRunCount")
-    rerun_enabled: StrictBool = Field(description="Auto rerun enabled", alias="rerunEnabled")
-    rerun_attempts_count: Annotated[int, Field(le=10, strict=True, ge=1)] = Field(description="Auto rerun attempt count", alias="rerunAttemptsCount")
-    __properties: ClassVar[List[str]] = ["projectId", "isFlakyAuto", "flakyStabilityPercentage", "flakyTestRunCount", "rerunEnabled", "rerunAttemptsCount"]
+    """
+    project_id: StrictStr = Field(default=..., alias="projectId", description="Unique ID of the project.")
+    is_flaky_auto: Optional[StrictBool] = Field(default=False, alias="isFlakyAuto", description="Indicates if the status \"Flaky/Stable\" sets automatically")
+    flaky_stability_percentage: Optional[conint(strict=True, le=100, ge=0)] = Field(default=100, alias="flakyStabilityPercentage", description="Stability percentage for autotest flaky computing")
+    flaky_test_run_count: Optional[conint(strict=True, le=1000, ge=1)] = Field(default=100, alias="flakyTestRunCount", description="Last test run count for autotest flaky computing")
+    rerun_enabled: StrictBool = Field(default=..., alias="rerunEnabled", description="Auto rerun enabled")
+    rerun_attempts_count: conint(strict=True, le=10, ge=1) = Field(default=..., alias="rerunAttemptsCount", description="Auto rerun attempt count")
+    __properties = ["projectId", "isFlakyAuto", "flakyStabilityPercentage", "flakyTestRunCount", "rerunEnabled", "rerunAttemptsCount"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> AutoTestProjectSettingsGetModel:
         """Create an instance of AutoTestProjectSettingsGetModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> AutoTestProjectSettingsGetModel:
         """Create an instance of AutoTestProjectSettingsGetModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return AutoTestProjectSettingsGetModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "projectId": obj.get("projectId"),
-            "isFlakyAuto": obj.get("isFlakyAuto") if obj.get("isFlakyAuto") is not None else False,
-            "flakyStabilityPercentage": obj.get("flakyStabilityPercentage") if obj.get("flakyStabilityPercentage") is not None else 100,
-            "flakyTestRunCount": obj.get("flakyTestRunCount") if obj.get("flakyTestRunCount") is not None else 100,
-            "rerunEnabled": obj.get("rerunEnabled"),
-            "rerunAttemptsCount": obj.get("rerunAttemptsCount")
+        _obj = AutoTestProjectSettingsGetModel.parse_obj({
+            "project_id": obj.get("projectId"),
+            "is_flaky_auto": obj.get("isFlakyAuto") if obj.get("isFlakyAuto") is not None else False,
+            "flaky_stability_percentage": obj.get("flakyStabilityPercentage") if obj.get("flakyStabilityPercentage") is not None else 100,
+            "flaky_test_run_count": obj.get("flakyTestRunCount") if obj.get("flakyTestRunCount") is not None else 100,
+            "rerun_enabled": obj.get("rerunEnabled"),
+            "rerun_attempts_count": obj.get("rerunAttemptsCount")
         })
         return _obj
 

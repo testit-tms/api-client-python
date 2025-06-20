@@ -18,39 +18,37 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 from testit_api_client.models.auto_test_step_api_result import AutoTestStepApiResult
 from testit_api_client.models.configuration_short_api_result import ConfigurationShortApiResult
 from testit_api_client.models.label_api_result import LabelApiResult
 from testit_api_client.models.link_api_result import LinkApiResult
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
-from typing import Optional, Set
-from typing_extensions import Self
 
 class AutoTestApiResult(BaseModel):
     """
     AutoTestApiResult
-    """ # noqa: E501
-    id: StrictStr
-    project_id: StrictStr = Field(alias="projectId")
+    """
+    id: StrictStr = Field(...)
+    project_id: StrictStr = Field(default=..., alias="projectId")
     external_id: Optional[StrictStr] = Field(default=None, alias="externalId")
-    name: StrictStr
+    name: StrictStr = Field(...)
     namespace: Optional[StrictStr] = None
     classname: Optional[StrictStr] = None
-    steps: Optional[List[AutoTestStepApiResult]] = None
-    setup: Optional[List[AutoTestStepApiResult]] = None
-    teardown: Optional[List[AutoTestStepApiResult]] = None
+    steps: Optional[conlist(AutoTestStepApiResult)] = None
+    setup: Optional[conlist(AutoTestStepApiResult)] = None
+    teardown: Optional[conlist(AutoTestStepApiResult)] = None
     title: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
-    is_flaky: StrictBool = Field(alias="isFlaky")
+    is_flaky: StrictBool = Field(default=..., alias="isFlaky")
     external_key: Optional[StrictStr] = Field(default=None, alias="externalKey")
-    global_id: StrictInt = Field(alias="globalId")
-    is_deleted: StrictBool = Field(alias="isDeleted")
-    must_be_approved: StrictBool = Field(alias="mustBeApproved")
-    created_date: datetime = Field(alias="createdDate")
+    global_id: StrictInt = Field(default=..., alias="globalId")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted")
+    must_be_approved: StrictBool = Field(default=..., alias="mustBeApproved")
+    created_date: datetime = Field(default=..., alias="createdDate")
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
-    created_by_id: StrictStr = Field(alias="createdById")
+    created_by_id: StrictStr = Field(default=..., alias="createdById")
     modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
     last_test_run_id: Optional[StrictStr] = Field(default=None, alias="lastTestRunId")
     last_test_run_name: Optional[StrictStr] = Field(default=None, alias="lastTestRunName")
@@ -59,69 +57,54 @@ class AutoTestApiResult(BaseModel):
     last_test_result_outcome: Optional[StrictStr] = Field(default=None, alias="lastTestResultOutcome")
     last_test_result_status: Optional[TestStatusApiResult] = Field(default=None, alias="lastTestResultStatus")
     stability_percentage: Optional[StrictInt] = Field(default=None, alias="stabilityPercentage")
-    links: Optional[List[LinkApiResult]] = None
-    labels: Optional[List[LabelApiResult]] = None
-    __properties: ClassVar[List[str]] = ["id", "projectId", "externalId", "name", "namespace", "classname", "steps", "setup", "teardown", "title", "description", "isFlaky", "externalKey", "globalId", "isDeleted", "mustBeApproved", "createdDate", "modifiedDate", "createdById", "modifiedById", "lastTestRunId", "lastTestRunName", "lastTestResultId", "lastTestResultConfiguration", "lastTestResultOutcome", "lastTestResultStatus", "stabilityPercentage", "links", "labels"]
+    links: Optional[conlist(LinkApiResult)] = None
+    labels: Optional[conlist(LabelApiResult)] = None
+    __properties = ["id", "projectId", "externalId", "name", "namespace", "classname", "steps", "setup", "teardown", "title", "description", "isFlaky", "externalKey", "globalId", "isDeleted", "mustBeApproved", "createdDate", "modifiedDate", "createdById", "modifiedById", "lastTestRunId", "lastTestRunName", "lastTestResultId", "lastTestResultConfiguration", "lastTestResultOutcome", "lastTestResultStatus", "stabilityPercentage", "links", "labels"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> AutoTestApiResult:
         """Create an instance of AutoTestApiResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in steps (list)
         _items = []
         if self.steps:
-            for _item_steps in self.steps:
-                if _item_steps:
-                    _items.append(_item_steps.to_dict())
+            for _item in self.steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['steps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in setup (list)
         _items = []
         if self.setup:
-            for _item_setup in self.setup:
-                if _item_setup:
-                    _items.append(_item_setup.to_dict())
+            for _item in self.setup:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['setup'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in teardown (list)
         _items = []
         if self.teardown:
-            for _item_teardown in self.teardown:
-                if _item_teardown:
-                    _items.append(_item_teardown.to_dict())
+            for _item in self.teardown:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['teardown'] = _items
         # override the default output from pydantic by calling `to_dict()` of last_test_result_configuration
         if self.last_test_result_configuration:
@@ -132,158 +115,158 @@ class AutoTestApiResult(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
-            for _item_links in self.links:
-                if _item_links:
-                    _items.append(_item_links.to_dict())
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in labels (list)
         _items = []
         if self.labels:
-            for _item_labels in self.labels:
-                if _item_labels:
-                    _items.append(_item_labels.to_dict())
+            for _item in self.labels:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['labels'] = _items
         # set to None if external_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.external_id is None and "external_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.external_id is None and "external_id" in self.__fields_set__:
             _dict['externalId'] = None
 
         # set to None if namespace (nullable) is None
-        # and model_fields_set contains the field
-        if self.namespace is None and "namespace" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.namespace is None and "namespace" in self.__fields_set__:
             _dict['namespace'] = None
 
         # set to None if classname (nullable) is None
-        # and model_fields_set contains the field
-        if self.classname is None and "classname" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.classname is None and "classname" in self.__fields_set__:
             _dict['classname'] = None
 
         # set to None if steps (nullable) is None
-        # and model_fields_set contains the field
-        if self.steps is None and "steps" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.steps is None and "steps" in self.__fields_set__:
             _dict['steps'] = None
 
         # set to None if setup (nullable) is None
-        # and model_fields_set contains the field
-        if self.setup is None and "setup" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.setup is None and "setup" in self.__fields_set__:
             _dict['setup'] = None
 
         # set to None if teardown (nullable) is None
-        # and model_fields_set contains the field
-        if self.teardown is None and "teardown" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.teardown is None and "teardown" in self.__fields_set__:
             _dict['teardown'] = None
 
         # set to None if title (nullable) is None
-        # and model_fields_set contains the field
-        if self.title is None and "title" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.title is None and "title" in self.__fields_set__:
             _dict['title'] = None
 
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         # set to None if external_key (nullable) is None
-        # and model_fields_set contains the field
-        if self.external_key is None and "external_key" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.external_key is None and "external_key" in self.__fields_set__:
             _dict['externalKey'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         # set to None if last_test_run_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_run_id is None and "last_test_run_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_run_id is None and "last_test_run_id" in self.__fields_set__:
             _dict['lastTestRunId'] = None
 
         # set to None if last_test_run_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_run_name is None and "last_test_run_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_run_name is None and "last_test_run_name" in self.__fields_set__:
             _dict['lastTestRunName'] = None
 
         # set to None if last_test_result_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result_id is None and "last_test_result_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result_id is None and "last_test_result_id" in self.__fields_set__:
             _dict['lastTestResultId'] = None
 
         # set to None if last_test_result_configuration (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result_configuration is None and "last_test_result_configuration" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result_configuration is None and "last_test_result_configuration" in self.__fields_set__:
             _dict['lastTestResultConfiguration'] = None
 
         # set to None if last_test_result_outcome (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result_outcome is None and "last_test_result_outcome" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result_outcome is None and "last_test_result_outcome" in self.__fields_set__:
             _dict['lastTestResultOutcome'] = None
 
         # set to None if last_test_result_status (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result_status is None and "last_test_result_status" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result_status is None and "last_test_result_status" in self.__fields_set__:
             _dict['lastTestResultStatus'] = None
 
         # set to None if stability_percentage (nullable) is None
-        # and model_fields_set contains the field
-        if self.stability_percentage is None and "stability_percentage" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.stability_percentage is None and "stability_percentage" in self.__fields_set__:
             _dict['stabilityPercentage'] = None
 
         # set to None if links (nullable) is None
-        # and model_fields_set contains the field
-        if self.links is None and "links" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.links is None and "links" in self.__fields_set__:
             _dict['links'] = None
 
         # set to None if labels (nullable) is None
-        # and model_fields_set contains the field
-        if self.labels is None and "labels" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.labels is None and "labels" in self.__fields_set__:
             _dict['labels'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> AutoTestApiResult:
         """Create an instance of AutoTestApiResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return AutoTestApiResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = AutoTestApiResult.parse_obj({
             "id": obj.get("id"),
-            "projectId": obj.get("projectId"),
-            "externalId": obj.get("externalId"),
+            "project_id": obj.get("projectId"),
+            "external_id": obj.get("externalId"),
             "name": obj.get("name"),
             "namespace": obj.get("namespace"),
             "classname": obj.get("classname"),
-            "steps": [AutoTestStepApiResult.from_dict(_item) for _item in obj["steps"]] if obj.get("steps") is not None else None,
-            "setup": [AutoTestStepApiResult.from_dict(_item) for _item in obj["setup"]] if obj.get("setup") is not None else None,
-            "teardown": [AutoTestStepApiResult.from_dict(_item) for _item in obj["teardown"]] if obj.get("teardown") is not None else None,
+            "steps": [AutoTestStepApiResult.from_dict(_item) for _item in obj.get("steps")] if obj.get("steps") is not None else None,
+            "setup": [AutoTestStepApiResult.from_dict(_item) for _item in obj.get("setup")] if obj.get("setup") is not None else None,
+            "teardown": [AutoTestStepApiResult.from_dict(_item) for _item in obj.get("teardown")] if obj.get("teardown") is not None else None,
             "title": obj.get("title"),
             "description": obj.get("description"),
-            "isFlaky": obj.get("isFlaky"),
-            "externalKey": obj.get("externalKey"),
-            "globalId": obj.get("globalId"),
-            "isDeleted": obj.get("isDeleted"),
-            "mustBeApproved": obj.get("mustBeApproved"),
-            "createdDate": obj.get("createdDate"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedById": obj.get("modifiedById"),
-            "lastTestRunId": obj.get("lastTestRunId"),
-            "lastTestRunName": obj.get("lastTestRunName"),
-            "lastTestResultId": obj.get("lastTestResultId"),
-            "lastTestResultConfiguration": ConfigurationShortApiResult.from_dict(obj["lastTestResultConfiguration"]) if obj.get("lastTestResultConfiguration") is not None else None,
-            "lastTestResultOutcome": obj.get("lastTestResultOutcome"),
-            "lastTestResultStatus": TestStatusApiResult.from_dict(obj["lastTestResultStatus"]) if obj.get("lastTestResultStatus") is not None else None,
-            "stabilityPercentage": obj.get("stabilityPercentage"),
-            "links": [LinkApiResult.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-            "labels": [LabelApiResult.from_dict(_item) for _item in obj["labels"]] if obj.get("labels") is not None else None
+            "is_flaky": obj.get("isFlaky"),
+            "external_key": obj.get("externalKey"),
+            "global_id": obj.get("globalId"),
+            "is_deleted": obj.get("isDeleted"),
+            "must_be_approved": obj.get("mustBeApproved"),
+            "created_date": obj.get("createdDate"),
+            "modified_date": obj.get("modifiedDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_by_id": obj.get("modifiedById"),
+            "last_test_run_id": obj.get("lastTestRunId"),
+            "last_test_run_name": obj.get("lastTestRunName"),
+            "last_test_result_id": obj.get("lastTestResultId"),
+            "last_test_result_configuration": ConfigurationShortApiResult.from_dict(obj.get("lastTestResultConfiguration")) if obj.get("lastTestResultConfiguration") is not None else None,
+            "last_test_result_outcome": obj.get("lastTestResultOutcome"),
+            "last_test_result_status": TestStatusApiResult.from_dict(obj.get("lastTestResultStatus")) if obj.get("lastTestResultStatus") is not None else None,
+            "stability_percentage": obj.get("stabilityPercentage"),
+            "links": [LinkApiResult.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None,
+            "labels": [LabelApiResult.from_dict(_item) for _item in obj.get("labels")] if obj.get("labels") is not None else None
         })
         return _obj
 

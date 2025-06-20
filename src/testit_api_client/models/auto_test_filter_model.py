@@ -17,29 +17,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 from testit_api_client.models.autotest_result_outcome import AutotestResultOutcome
 from testit_api_client.models.date_time_range_selector_model import DateTimeRangeSelectorModel
 from testit_api_client.models.int64_range_selector_model import Int64RangeSelectorModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class AutoTestFilterModel(BaseModel):
     """
     AutoTestFilterModel
-    """ # noqa: E501
-    project_ids: Optional[List[StrictStr]] = Field(default=None, alias="projectIds")
-    external_ids: Optional[List[StrictStr]] = Field(default=None, alias="externalIds")
-    global_ids: Optional[List[StrictInt]] = Field(default=None, alias="globalIds")
+    """
+    project_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="projectIds")
+    external_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="externalIds")
+    global_ids: Optional[conlist(StrictInt)] = Field(default=None, alias="globalIds")
     name: Optional[StrictStr] = None
     is_flaky: Optional[StrictBool] = Field(default=None, alias="isFlaky")
     must_be_approved: Optional[StrictBool] = Field(default=None, alias="mustBeApproved")
     stability_percentage: Optional[Int64RangeSelectorModel] = Field(default=None, alias="stabilityPercentage")
     created_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="createdDate")
-    created_by_ids: Optional[List[StrictStr]] = Field(default=None, alias="createdByIds")
+    created_by_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="createdByIds")
     modified_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="modifiedDate")
-    modified_by_ids: Optional[List[StrictStr]] = Field(default=None, alias="modifiedByIds")
+    modified_by_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="modifiedByIds")
     is_deleted: Optional[StrictBool] = Field(default=None, alias="isDeleted")
     namespace: Optional[StrictStr] = None
     is_empty_namespace: Optional[StrictBool] = Field(default=None, alias="isEmptyNamespace")
@@ -48,48 +47,33 @@ class AutoTestFilterModel(BaseModel):
     last_test_result_outcome: Optional[AutotestResultOutcome] = Field(default=None, alias="lastTestResultOutcome")
     last_test_result_status_code: Optional[StrictStr] = Field(default=None, alias="lastTestResultStatusCode")
     external_key: Optional[StrictStr] = Field(default=None, alias="externalKey")
-    last_test_result_configuration_ids: Optional[List[StrictStr]] = Field(default=None, alias="lastTestResultConfigurationIds")
-    __properties: ClassVar[List[str]] = ["projectIds", "externalIds", "globalIds", "name", "isFlaky", "mustBeApproved", "stabilityPercentage", "createdDate", "createdByIds", "modifiedDate", "modifiedByIds", "isDeleted", "namespace", "isEmptyNamespace", "className", "isEmptyClassName", "lastTestResultOutcome", "lastTestResultStatusCode", "externalKey", "lastTestResultConfigurationIds"]
+    last_test_result_configuration_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="lastTestResultConfigurationIds")
+    __properties = ["projectIds", "externalIds", "globalIds", "name", "isFlaky", "mustBeApproved", "stabilityPercentage", "createdDate", "createdByIds", "modifiedDate", "modifiedByIds", "isDeleted", "namespace", "isEmptyNamespace", "className", "isEmptyClassName", "lastTestResultOutcome", "lastTestResultStatusCode", "externalKey", "lastTestResultConfigurationIds"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> AutoTestFilterModel:
         """Create an instance of AutoTestFilterModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of stability_percentage
         if self.stability_percentage:
             _dict['stabilityPercentage'] = self.stability_percentage.to_dict()
@@ -100,137 +84,137 @@ class AutoTestFilterModel(BaseModel):
         if self.modified_date:
             _dict['modifiedDate'] = self.modified_date.to_dict()
         # set to None if project_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.project_ids is None and "project_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.project_ids is None and "project_ids" in self.__fields_set__:
             _dict['projectIds'] = None
 
         # set to None if external_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.external_ids is None and "external_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.external_ids is None and "external_ids" in self.__fields_set__:
             _dict['externalIds'] = None
 
         # set to None if global_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.global_ids is None and "global_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.global_ids is None and "global_ids" in self.__fields_set__:
             _dict['globalIds'] = None
 
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if is_flaky (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_flaky is None and "is_flaky" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.is_flaky is None and "is_flaky" in self.__fields_set__:
             _dict['isFlaky'] = None
 
         # set to None if must_be_approved (nullable) is None
-        # and model_fields_set contains the field
-        if self.must_be_approved is None and "must_be_approved" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.must_be_approved is None and "must_be_approved" in self.__fields_set__:
             _dict['mustBeApproved'] = None
 
         # set to None if stability_percentage (nullable) is None
-        # and model_fields_set contains the field
-        if self.stability_percentage is None and "stability_percentage" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.stability_percentage is None and "stability_percentage" in self.__fields_set__:
             _dict['stabilityPercentage'] = None
 
         # set to None if created_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_date is None and "created_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_date is None and "created_date" in self.__fields_set__:
             _dict['createdDate'] = None
 
         # set to None if created_by_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_by_ids is None and "created_by_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_by_ids is None and "created_by_ids" in self.__fields_set__:
             _dict['createdByIds'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_ids is None and "modified_by_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_ids is None and "modified_by_ids" in self.__fields_set__:
             _dict['modifiedByIds'] = None
 
         # set to None if is_deleted (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_deleted is None and "is_deleted" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.is_deleted is None and "is_deleted" in self.__fields_set__:
             _dict['isDeleted'] = None
 
         # set to None if namespace (nullable) is None
-        # and model_fields_set contains the field
-        if self.namespace is None and "namespace" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.namespace is None and "namespace" in self.__fields_set__:
             _dict['namespace'] = None
 
         # set to None if is_empty_namespace (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_empty_namespace is None and "is_empty_namespace" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.is_empty_namespace is None and "is_empty_namespace" in self.__fields_set__:
             _dict['isEmptyNamespace'] = None
 
         # set to None if class_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.class_name is None and "class_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.class_name is None and "class_name" in self.__fields_set__:
             _dict['className'] = None
 
         # set to None if is_empty_class_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_empty_class_name is None and "is_empty_class_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.is_empty_class_name is None and "is_empty_class_name" in self.__fields_set__:
             _dict['isEmptyClassName'] = None
 
         # set to None if last_test_result_outcome (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result_outcome is None and "last_test_result_outcome" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result_outcome is None and "last_test_result_outcome" in self.__fields_set__:
             _dict['lastTestResultOutcome'] = None
 
         # set to None if last_test_result_status_code (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result_status_code is None and "last_test_result_status_code" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result_status_code is None and "last_test_result_status_code" in self.__fields_set__:
             _dict['lastTestResultStatusCode'] = None
 
         # set to None if external_key (nullable) is None
-        # and model_fields_set contains the field
-        if self.external_key is None and "external_key" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.external_key is None and "external_key" in self.__fields_set__:
             _dict['externalKey'] = None
 
         # set to None if last_test_result_configuration_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result_configuration_ids is None and "last_test_result_configuration_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result_configuration_ids is None and "last_test_result_configuration_ids" in self.__fields_set__:
             _dict['lastTestResultConfigurationIds'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> AutoTestFilterModel:
         """Create an instance of AutoTestFilterModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return AutoTestFilterModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "projectIds": obj.get("projectIds"),
-            "externalIds": obj.get("externalIds"),
-            "globalIds": obj.get("globalIds"),
+        _obj = AutoTestFilterModel.parse_obj({
+            "project_ids": obj.get("projectIds"),
+            "external_ids": obj.get("externalIds"),
+            "global_ids": obj.get("globalIds"),
             "name": obj.get("name"),
-            "isFlaky": obj.get("isFlaky"),
-            "mustBeApproved": obj.get("mustBeApproved"),
-            "stabilityPercentage": Int64RangeSelectorModel.from_dict(obj["stabilityPercentage"]) if obj.get("stabilityPercentage") is not None else None,
-            "createdDate": DateTimeRangeSelectorModel.from_dict(obj["createdDate"]) if obj.get("createdDate") is not None else None,
-            "createdByIds": obj.get("createdByIds"),
-            "modifiedDate": DateTimeRangeSelectorModel.from_dict(obj["modifiedDate"]) if obj.get("modifiedDate") is not None else None,
-            "modifiedByIds": obj.get("modifiedByIds"),
-            "isDeleted": obj.get("isDeleted"),
+            "is_flaky": obj.get("isFlaky"),
+            "must_be_approved": obj.get("mustBeApproved"),
+            "stability_percentage": Int64RangeSelectorModel.from_dict(obj.get("stabilityPercentage")) if obj.get("stabilityPercentage") is not None else None,
+            "created_date": DateTimeRangeSelectorModel.from_dict(obj.get("createdDate")) if obj.get("createdDate") is not None else None,
+            "created_by_ids": obj.get("createdByIds"),
+            "modified_date": DateTimeRangeSelectorModel.from_dict(obj.get("modifiedDate")) if obj.get("modifiedDate") is not None else None,
+            "modified_by_ids": obj.get("modifiedByIds"),
+            "is_deleted": obj.get("isDeleted"),
             "namespace": obj.get("namespace"),
-            "isEmptyNamespace": obj.get("isEmptyNamespace"),
-            "className": obj.get("className"),
-            "isEmptyClassName": obj.get("isEmptyClassName"),
-            "lastTestResultOutcome": obj.get("lastTestResultOutcome"),
-            "lastTestResultStatusCode": obj.get("lastTestResultStatusCode"),
-            "externalKey": obj.get("externalKey"),
-            "lastTestResultConfigurationIds": obj.get("lastTestResultConfigurationIds")
+            "is_empty_namespace": obj.get("isEmptyNamespace"),
+            "class_name": obj.get("className"),
+            "is_empty_class_name": obj.get("isEmptyClassName"),
+            "last_test_result_outcome": obj.get("lastTestResultOutcome"),
+            "last_test_result_status_code": obj.get("lastTestResultStatusCode"),
+            "external_key": obj.get("externalKey"),
+            "last_test_result_configuration_ids": obj.get("lastTestResultConfigurationIds")
         })
         return _obj
 

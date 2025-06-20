@@ -17,89 +17,80 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing import Optional, Set
-from typing_extensions import Self
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 
 class ParameterGroupsFilterApiModel(BaseModel):
     """
     ParameterGroupsFilterApiModel
-    """ # noqa: E501
-    parameter_key_ids: Optional[List[StrictStr]] = Field(default=None, alias="parameterKeyIds")
+    """
+    parameter_key_ids: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="parameterKeyIds")
     name: Optional[StrictStr] = None
     is_deleted: Optional[StrictBool] = Field(default=None, alias="isDeleted")
-    __properties: ClassVar[List[str]] = ["parameterKeyIds", "name", "isDeleted"]
+    project_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="projectIds")
+    __properties = ["parameterKeyIds", "name", "isDeleted", "projectIds"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> ParameterGroupsFilterApiModel:
         """Create an instance of ParameterGroupsFilterApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if parameter_key_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.parameter_key_ids is None and "parameter_key_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.parameter_key_ids is None and "parameter_key_ids" in self.__fields_set__:
             _dict['parameterKeyIds'] = None
 
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if is_deleted (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_deleted is None and "is_deleted" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.is_deleted is None and "is_deleted" in self.__fields_set__:
             _dict['isDeleted'] = None
+
+        # set to None if project_ids (nullable) is None
+        # and __fields_set__ contains the field
+        if self.project_ids is None and "project_ids" in self.__fields_set__:
+            _dict['projectIds'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> ParameterGroupsFilterApiModel:
         """Create an instance of ParameterGroupsFilterApiModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return ParameterGroupsFilterApiModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "parameterKeyIds": obj.get("parameterKeyIds"),
+        _obj = ParameterGroupsFilterApiModel.parse_obj({
+            "parameter_key_ids": obj.get("parameterKeyIds"),
             "name": obj.get("name"),
-            "isDeleted": obj.get("isDeleted")
+            "is_deleted": obj.get("isDeleted"),
+            "project_ids": obj.get("projectIds")
         })
         return _obj
 

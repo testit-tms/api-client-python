@@ -18,143 +18,125 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, constr
 from testit_api_client.models.tag_api_model import TagApiModel
 from testit_api_client.models.test_suite_test_plan_api_model import TestSuiteTestPlanApiModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class CreateTestPlanApiModel(BaseModel):
     """
     CreateTestPlanApiModel
-    """ # noqa: E501
-    tags: Optional[List[TagApiModel]] = Field(default=None, description="Test plan tag names collection")
-    name: Annotated[str, Field(min_length=0, strict=True, max_length=450)] = Field(description="Test plan name")
-    start_date: Optional[datetime] = Field(default=None, description="Date and time of test plan start", alias="startDate")
-    end_date: Optional[datetime] = Field(default=None, description="Date and time of test plan end", alias="endDate")
-    description: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=100000)]] = Field(default=None, description="Test plan description")
-    build: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=450)]] = Field(default=None, description="Build of the application on which test plan is executed")
-    project_id: StrictStr = Field(description="Project unique identifier", alias="projectId")
-    product_name: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=450)]] = Field(default=None, description="Name of the testing product", alias="productName")
-    has_automatic_duration_timer: Optional[StrictBool] = Field(default=None, description="Boolean flag defines if test plan has automatic duration timer", alias="hasAutomaticDurationTimer")
-    attributes: Dict[str, Any] = Field(description="Key value pair of test plan custom attributes")
+    """
+    tags: Optional[conlist(TagApiModel)] = Field(default=None, description="Test plan tag names collection")
+    name: constr(strict=True, max_length=450, min_length=0) = Field(default=..., description="Test plan name")
+    start_date: Optional[datetime] = Field(default=None, alias="startDate", description="Date and time of test plan start")
+    end_date: Optional[datetime] = Field(default=None, alias="endDate", description="Date and time of test plan end")
+    description: Optional[constr(strict=True, max_length=100000, min_length=0)] = Field(default=None, description="Test plan description")
+    build: Optional[constr(strict=True, max_length=450, min_length=0)] = Field(default=None, description="Build of the application on which test plan is executed")
+    project_id: StrictStr = Field(default=..., alias="projectId", description="Project unique identifier")
+    product_name: Optional[constr(strict=True, max_length=450, min_length=0)] = Field(default=None, alias="productName", description="Name of the testing product")
+    has_automatic_duration_timer: Optional[StrictBool] = Field(default=None, alias="hasAutomaticDurationTimer", description="Boolean flag defines if test plan has automatic duration timer")
+    attributes: Dict[str, Any] = Field(default=..., description="Key value pair of test plan custom attributes")
     test_suite: Optional[TestSuiteTestPlanApiModel] = Field(default=None, alias="testSuite")
-    __properties: ClassVar[List[str]] = ["tags", "name", "startDate", "endDate", "description", "build", "projectId", "productName", "hasAutomaticDurationTimer", "attributes", "testSuite"]
+    __properties = ["tags", "name", "startDate", "endDate", "description", "build", "projectId", "productName", "hasAutomaticDurationTimer", "attributes", "testSuite"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> CreateTestPlanApiModel:
         """Create an instance of CreateTestPlanApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in tags (list)
         _items = []
         if self.tags:
-            for _item_tags in self.tags:
-                if _item_tags:
-                    _items.append(_item_tags.to_dict())
+            for _item in self.tags:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['tags'] = _items
         # override the default output from pydantic by calling `to_dict()` of test_suite
         if self.test_suite:
             _dict['testSuite'] = self.test_suite.to_dict()
         # set to None if tags (nullable) is None
-        # and model_fields_set contains the field
-        if self.tags is None and "tags" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.tags is None and "tags" in self.__fields_set__:
             _dict['tags'] = None
 
         # set to None if start_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.start_date is None and "start_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.start_date is None and "start_date" in self.__fields_set__:
             _dict['startDate'] = None
 
         # set to None if end_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.end_date is None and "end_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.end_date is None and "end_date" in self.__fields_set__:
             _dict['endDate'] = None
 
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         # set to None if build (nullable) is None
-        # and model_fields_set contains the field
-        if self.build is None and "build" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.build is None and "build" in self.__fields_set__:
             _dict['build'] = None
 
         # set to None if product_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.product_name is None and "product_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.product_name is None and "product_name" in self.__fields_set__:
             _dict['productName'] = None
 
         # set to None if has_automatic_duration_timer (nullable) is None
-        # and model_fields_set contains the field
-        if self.has_automatic_duration_timer is None and "has_automatic_duration_timer" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.has_automatic_duration_timer is None and "has_automatic_duration_timer" in self.__fields_set__:
             _dict['hasAutomaticDurationTimer'] = None
 
         # set to None if test_suite (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_suite is None and "test_suite" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_suite is None and "test_suite" in self.__fields_set__:
             _dict['testSuite'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> CreateTestPlanApiModel:
         """Create an instance of CreateTestPlanApiModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return CreateTestPlanApiModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "tags": [TagApiModel.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
+        _obj = CreateTestPlanApiModel.parse_obj({
+            "tags": [TagApiModel.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None,
             "name": obj.get("name"),
-            "startDate": obj.get("startDate"),
-            "endDate": obj.get("endDate"),
+            "start_date": obj.get("startDate"),
+            "end_date": obj.get("endDate"),
             "description": obj.get("description"),
             "build": obj.get("build"),
-            "projectId": obj.get("projectId"),
-            "productName": obj.get("productName"),
-            "hasAutomaticDurationTimer": obj.get("hasAutomaticDurationTimer"),
+            "project_id": obj.get("projectId"),
+            "product_name": obj.get("productName"),
+            "has_automatic_duration_timer": obj.get("hasAutomaticDurationTimer"),
             "attributes": obj.get("attributes"),
-            "testSuite": TestSuiteTestPlanApiModel.from_dict(obj["testSuite"]) if obj.get("testSuite") is not None else None
+            "test_suite": TestSuiteTestPlanApiModel.from_dict(obj.get("testSuite")) if obj.get("testSuite") is not None else None
         })
         return _obj
 

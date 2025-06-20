@@ -17,102 +17,85 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, conlist, constr
 from testit_api_client.models.custom_attribute_option_post_model import CustomAttributeOptionPostModel
 from testit_api_client.models.custom_attribute_types_enum import CustomAttributeTypesEnum
-from typing import Optional, Set
-from typing_extensions import Self
 
 class GlobalCustomAttributePostModel(BaseModel):
     """
     GlobalCustomAttributePostModel
-    """ # noqa: E501
-    name: Annotated[str, Field(min_length=0, strict=True, max_length=255)] = Field(description="Name of attribute")
-    is_enabled: Optional[StrictBool] = Field(default=None, description="Indicates whether the attribute is available", alias="isEnabled")
-    is_required: Optional[StrictBool] = Field(default=None, description="Indicates whether the attribute value is mandatory to specify", alias="isRequired")
-    options: Optional[List[CustomAttributeOptionPostModel]] = Field(default=None, description="Collection of attribute options   Available for attributes of type `options` and `multiple options` only")
-    type: CustomAttributeTypesEnum = Field(description="Type of attribute")
-    __properties: ClassVar[List[str]] = ["name", "isEnabled", "isRequired", "options", "type"]
+    """
+    name: constr(strict=True, max_length=255, min_length=0) = Field(default=..., description="Name of attribute")
+    is_enabled: Optional[StrictBool] = Field(default=None, alias="isEnabled", description="Indicates whether the attribute is available")
+    is_required: Optional[StrictBool] = Field(default=None, alias="isRequired", description="Indicates whether the attribute value is mandatory to specify")
+    options: Optional[conlist(CustomAttributeOptionPostModel)] = Field(default=None, description="Collection of attribute options   Available for attributes of type `options` and `multiple options` only")
+    type: CustomAttributeTypesEnum = Field(default=..., description="Type of attribute")
+    __properties = ["name", "isEnabled", "isRequired", "options", "type"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> GlobalCustomAttributePostModel:
         """Create an instance of GlobalCustomAttributePostModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in options (list)
         _items = []
         if self.options:
-            for _item_options in self.options:
-                if _item_options:
-                    _items.append(_item_options.to_dict())
+            for _item in self.options:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['options'] = _items
         # set to None if is_enabled (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_enabled is None and "is_enabled" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.is_enabled is None and "is_enabled" in self.__fields_set__:
             _dict['isEnabled'] = None
 
         # set to None if is_required (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_required is None and "is_required" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.is_required is None and "is_required" in self.__fields_set__:
             _dict['isRequired'] = None
 
         # set to None if options (nullable) is None
-        # and model_fields_set contains the field
-        if self.options is None and "options" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.options is None and "options" in self.__fields_set__:
             _dict['options'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> GlobalCustomAttributePostModel:
         """Create an instance of GlobalCustomAttributePostModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return GlobalCustomAttributePostModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = GlobalCustomAttributePostModel.parse_obj({
             "name": obj.get("name"),
-            "isEnabled": obj.get("isEnabled"),
-            "isRequired": obj.get("isRequired"),
-            "options": [CustomAttributeOptionPostModel.from_dict(_item) for _item in obj["options"]] if obj.get("options") is not None else None,
+            "is_enabled": obj.get("isEnabled"),
+            "is_required": obj.get("isRequired"),
+            "options": [CustomAttributeOptionPostModel.from_dict(_item) for _item in obj.get("options")] if obj.get("options") is not None else None,
             "type": obj.get("type")
         })
         return _obj

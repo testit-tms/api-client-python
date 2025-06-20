@@ -17,122 +17,106 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+
+from typing import Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestPoint(BaseModel):
     """
     TestPoint
-    """ # noqa: E501
-    id: StrictStr = Field(description="Unique ID of the entity")
-    is_deleted: StrictBool = Field(description="Indicates if the entity is deleted", alias="isDeleted")
+    """
+    id: StrictStr = Field(default=..., description="Unique ID of the entity")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Indicates if the entity is deleted")
     tester_id: Optional[StrictStr] = Field(default=None, alias="testerId")
-    iteration_id: StrictStr = Field(alias="iterationId")
+    iteration_id: StrictStr = Field(default=..., alias="iterationId")
     work_item_id: Optional[StrictStr] = Field(default=None, alias="workItemId")
     configuration_id: Optional[StrictStr] = Field(default=None, alias="configurationId")
-    test_suite_id: StrictStr = Field(alias="testSuiteId")
+    test_suite_id: StrictStr = Field(default=..., alias="testSuiteId")
     status: Optional[StrictStr] = None
     status_model: Optional[TestStatusApiResult] = Field(default=None, alias="statusModel")
     last_test_result_id: Optional[StrictStr] = Field(default=None, alias="lastTestResultId")
-    __properties: ClassVar[List[str]] = ["id", "isDeleted", "testerId", "iterationId", "workItemId", "configurationId", "testSuiteId", "status", "statusModel", "lastTestResultId"]
+    __properties = ["id", "isDeleted", "testerId", "iterationId", "workItemId", "configurationId", "testSuiteId", "status", "statusModel", "lastTestResultId"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestPoint:
         """Create an instance of TestPoint from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of status_model
         if self.status_model:
             _dict['statusModel'] = self.status_model.to_dict()
         # set to None if tester_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.tester_id is None and "tester_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.tester_id is None and "tester_id" in self.__fields_set__:
             _dict['testerId'] = None
 
         # set to None if work_item_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.work_item_id is None and "work_item_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.work_item_id is None and "work_item_id" in self.__fields_set__:
             _dict['workItemId'] = None
 
         # set to None if configuration_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.configuration_id is None and "configuration_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.configuration_id is None and "configuration_id" in self.__fields_set__:
             _dict['configurationId'] = None
 
         # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.status is None and "status" in self.__fields_set__:
             _dict['status'] = None
 
         # set to None if status_model (nullable) is None
-        # and model_fields_set contains the field
-        if self.status_model is None and "status_model" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.status_model is None and "status_model" in self.__fields_set__:
             _dict['statusModel'] = None
 
         # set to None if last_test_result_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result_id is None and "last_test_result_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result_id is None and "last_test_result_id" in self.__fields_set__:
             _dict['lastTestResultId'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestPoint:
         """Create an instance of TestPoint from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestPoint.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = TestPoint.parse_obj({
             "id": obj.get("id"),
-            "isDeleted": obj.get("isDeleted"),
-            "testerId": obj.get("testerId"),
-            "iterationId": obj.get("iterationId"),
-            "workItemId": obj.get("workItemId"),
-            "configurationId": obj.get("configurationId"),
-            "testSuiteId": obj.get("testSuiteId"),
+            "is_deleted": obj.get("isDeleted"),
+            "tester_id": obj.get("testerId"),
+            "iteration_id": obj.get("iterationId"),
+            "work_item_id": obj.get("workItemId"),
+            "configuration_id": obj.get("configurationId"),
+            "test_suite_id": obj.get("testSuiteId"),
             "status": obj.get("status"),
-            "statusModel": TestStatusApiResult.from_dict(obj["statusModel"]) if obj.get("statusModel") is not None else None,
-            "lastTestResultId": obj.get("lastTestResultId")
+            "status_model": TestStatusApiResult.from_dict(obj.get("statusModel")) if obj.get("statusModel") is not None else None,
+            "last_test_result_id": obj.get("lastTestResultId")
         })
         return _obj
 

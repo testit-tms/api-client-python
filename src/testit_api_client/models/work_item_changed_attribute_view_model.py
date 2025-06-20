@@ -17,88 +17,72 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing import Optional, Set
-from typing_extensions import Self
+
+from typing import Any, Optional
+from pydantic import BaseModel, Field, StrictStr
 
 class WorkItemChangedAttributeViewModel(BaseModel):
     """
     WorkItemChangedAttributeViewModel
-    """ # noqa: E501
-    type: StrictStr
-    old_attribute_name: StrictStr = Field(alias="oldAttributeName")
-    new_attribute_name: StrictStr = Field(alias="newAttributeName")
-    old_value: Optional[Any] = Field(alias="oldValue")
-    new_value: Optional[Any] = Field(alias="newValue")
-    __properties: ClassVar[List[str]] = ["type", "oldAttributeName", "newAttributeName", "oldValue", "newValue"]
+    """
+    type: StrictStr = Field(...)
+    old_attribute_name: StrictStr = Field(default=..., alias="oldAttributeName")
+    new_attribute_name: StrictStr = Field(default=..., alias="newAttributeName")
+    old_value: Optional[Any] = Field(default=..., alias="oldValue")
+    new_value: Optional[Any] = Field(default=..., alias="newValue")
+    __properties = ["type", "oldAttributeName", "newAttributeName", "oldValue", "newValue"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> WorkItemChangedAttributeViewModel:
         """Create an instance of WorkItemChangedAttributeViewModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if old_value (nullable) is None
-        # and model_fields_set contains the field
-        if self.old_value is None and "old_value" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.old_value is None and "old_value" in self.__fields_set__:
             _dict['oldValue'] = None
 
         # set to None if new_value (nullable) is None
-        # and model_fields_set contains the field
-        if self.new_value is None and "new_value" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.new_value is None and "new_value" in self.__fields_set__:
             _dict['newValue'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> WorkItemChangedAttributeViewModel:
         """Create an instance of WorkItemChangedAttributeViewModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return WorkItemChangedAttributeViewModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = WorkItemChangedAttributeViewModel.parse_obj({
             "type": obj.get("type"),
-            "oldAttributeName": obj.get("oldAttributeName"),
-            "newAttributeName": obj.get("newAttributeName"),
-            "oldValue": obj.get("oldValue"),
-            "newValue": obj.get("newValue")
+            "old_attribute_name": obj.get("oldAttributeName"),
+            "new_attribute_name": obj.get("newAttributeName"),
+            "old_value": obj.get("oldValue"),
+            "new_value": obj.get("newValue")
         })
         return _obj
 

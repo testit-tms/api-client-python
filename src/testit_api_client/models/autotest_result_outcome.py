@@ -12,10 +12,13 @@
 """  # noqa: E501
 
 
-from __future__ import annotations
 import json
-from enum import Enum
-from typing_extensions import Self
+import pprint
+import re  # noqa: F401
+from aenum import Enum, no_arg
+
+
+
 
 
 class AutotestResultOutcome(str, Enum):
@@ -33,8 +36,8 @@ class AutotestResultOutcome(str, Enum):
     BLOCKED = 'Blocked'
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> AutotestResultOutcome:
         """Create an instance of AutotestResultOutcome from a JSON string"""
-        return cls(json.loads(json_str))
+        return AutotestResultOutcome(json.loads(json_str))
 
 

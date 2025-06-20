@@ -17,83 +17,67 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing import Optional, Set
-from typing_extensions import Self
+
+from typing import Optional
+from pydantic import BaseModel, Field, StrictInt, StrictStr
 
 class GlobalSearchItemResult(BaseModel):
     """
     GlobalSearchItemResult
-    """ # noqa: E501
-    resource_type: StrictStr = Field(alias="resourceType")
-    resource_id: StrictStr = Field(alias="resourceId")
+    """
+    resource_type: StrictStr = Field(default=..., alias="resourceType")
+    resource_id: StrictStr = Field(default=..., alias="resourceId")
     global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    name: StrictStr
-    project_global_id: StrictInt = Field(alias="projectGlobalId")
-    __properties: ClassVar[List[str]] = ["resourceType", "resourceId", "globalId", "name", "projectGlobalId"]
+    name: StrictStr = Field(...)
+    project_global_id: StrictInt = Field(default=..., alias="projectGlobalId")
+    __properties = ["resourceType", "resourceId", "globalId", "name", "projectGlobalId"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> GlobalSearchItemResult:
         """Create an instance of GlobalSearchItemResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if global_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.global_id is None and "global_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.global_id is None and "global_id" in self.__fields_set__:
             _dict['globalId'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> GlobalSearchItemResult:
         """Create an instance of GlobalSearchItemResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return GlobalSearchItemResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "resourceType": obj.get("resourceType"),
-            "resourceId": obj.get("resourceId"),
-            "globalId": obj.get("globalId"),
+        _obj = GlobalSearchItemResult.parse_obj({
+            "resource_type": obj.get("resourceType"),
+            "resource_id": obj.get("resourceId"),
+            "global_id": obj.get("globalId"),
             "name": obj.get("name"),
-            "projectGlobalId": obj.get("projectGlobalId")
+            "project_global_id": obj.get("projectGlobalId")
         })
         return _obj
 

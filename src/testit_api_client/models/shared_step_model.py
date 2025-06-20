@@ -17,89 +17,72 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
-from typing import Optional, Set
-from typing_extensions import Self
+
+from typing import List
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 
 class SharedStepModel(BaseModel):
     """
     SharedStepModel
-    """ # noqa: E501
-    version_id: StrictStr = Field(alias="versionId")
-    global_id: StrictInt = Field(alias="globalId")
-    name: StrictStr
-    steps: List[StepModel]
-    is_deleted: StrictBool = Field(alias="isDeleted")
-    __properties: ClassVar[List[str]] = ["versionId", "globalId", "name", "steps", "isDeleted"]
+    """
+    version_id: StrictStr = Field(default=..., alias="versionId")
+    global_id: StrictInt = Field(default=..., alias="globalId")
+    name: StrictStr = Field(...)
+    steps: conlist(StepModel) = Field(...)
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted")
+    __properties = ["versionId", "globalId", "name", "steps", "isDeleted"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> SharedStepModel:
         """Create an instance of SharedStepModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in steps (list)
         _items = []
         if self.steps:
-            for _item_steps in self.steps:
-                if _item_steps:
-                    _items.append(_item_steps.to_dict())
+            for _item in self.steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['steps'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> SharedStepModel:
         """Create an instance of SharedStepModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return SharedStepModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "versionId": obj.get("versionId"),
-            "globalId": obj.get("globalId"),
+        _obj = SharedStepModel.parse_obj({
+            "version_id": obj.get("versionId"),
+            "global_id": obj.get("globalId"),
             "name": obj.get("name"),
-            "steps": [StepModel.from_dict(_item) for _item in obj["steps"]] if obj.get("steps") is not None else None,
-            "isDeleted": obj.get("isDeleted")
+            "steps": [StepModel.from_dict(_item) for _item in obj.get("steps")] if obj.get("steps") is not None else None,
+            "is_deleted": obj.get("isDeleted")
         })
         return _obj
 
 from testit_api_client.models.step_model import StepModel
-# TODO: Rewrite to not use raise_errors
-SharedStepModel.model_rebuild(raise_errors=False)
+SharedStepModel.update_forward_refs()
 

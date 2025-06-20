@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from testit_api_client.models.audit_api_result import AuditApiResult
 from testit_api_client.models.configuration_short_api_result import ConfigurationShortApiResult
 from testit_api_client.models.last_test_result_api_result import LastTestResultApiResult
@@ -27,66 +28,49 @@ from testit_api_client.models.test_plan_test_points_test_suite_search_api_result
 from testit_api_client.models.test_plan_test_points_work_item_search_api_result import TestPlanTestPointsWorkItemSearchApiResult
 from testit_api_client.models.test_status_short_api_result import TestStatusShortApiResult
 from testit_api_client.models.user_name_api_result import UserNameApiResult
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestPlanTestPointsSearchApiResult(BaseModel):
     """
     TestPlanTestPointsSearchApiResult
-    """ # noqa: E501
-    id: StrictStr
-    created: AuditApiResult
+    """
+    id: StrictStr = Field(...)
+    created: AuditApiResult = Field(...)
     modified: Optional[AuditApiResult] = None
-    status: StrictStr
-    status_model: TestStatusShortApiResult = Field(alias="statusModel")
-    in_progress: StrictBool = Field(alias="inProgress")
-    configuration: ConfigurationShortApiResult
+    status: StrictStr = Field(...)
+    status_model: TestStatusShortApiResult = Field(default=..., alias="statusModel")
+    in_progress: StrictBool = Field(default=..., alias="inProgress")
+    configuration: ConfigurationShortApiResult = Field(...)
     tester: Optional[UserNameApiResult] = None
-    test_suite: TestPlanTestPointsTestSuiteSearchApiResult = Field(alias="testSuite")
-    work_item: TestPlanTestPointsWorkItemSearchApiResult = Field(alias="workItem")
-    parameters: List[ParameterShortApiResult]
+    test_suite: TestPlanTestPointsTestSuiteSearchApiResult = Field(default=..., alias="testSuite")
+    work_item: TestPlanTestPointsWorkItemSearchApiResult = Field(default=..., alias="workItem")
+    parameters: conlist(ParameterShortApiResult) = Field(...)
     last_test_result: Optional[LastTestResultApiResult] = Field(default=None, alias="lastTestResult")
-    __properties: ClassVar[List[str]] = ["id", "created", "modified", "status", "statusModel", "inProgress", "configuration", "tester", "testSuite", "workItem", "parameters", "lastTestResult"]
+    __properties = ["id", "created", "modified", "status", "statusModel", "inProgress", "configuration", "tester", "testSuite", "workItem", "parameters", "lastTestResult"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestPlanTestPointsSearchApiResult:
         """Create an instance of TestPlanTestPointsSearchApiResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of created
         if self.created:
             _dict['created'] = self.created.to_dict()
@@ -111,52 +95,52 @@ class TestPlanTestPointsSearchApiResult(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in parameters (list)
         _items = []
         if self.parameters:
-            for _item_parameters in self.parameters:
-                if _item_parameters:
-                    _items.append(_item_parameters.to_dict())
+            for _item in self.parameters:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['parameters'] = _items
         # override the default output from pydantic by calling `to_dict()` of last_test_result
         if self.last_test_result:
             _dict['lastTestResult'] = self.last_test_result.to_dict()
         # set to None if modified (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified is None and "modified" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified is None and "modified" in self.__fields_set__:
             _dict['modified'] = None
 
         # set to None if tester (nullable) is None
-        # and model_fields_set contains the field
-        if self.tester is None and "tester" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.tester is None and "tester" in self.__fields_set__:
             _dict['tester'] = None
 
         # set to None if last_test_result (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result is None and "last_test_result" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result is None and "last_test_result" in self.__fields_set__:
             _dict['lastTestResult'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestPlanTestPointsSearchApiResult:
         """Create an instance of TestPlanTestPointsSearchApiResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestPlanTestPointsSearchApiResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = TestPlanTestPointsSearchApiResult.parse_obj({
             "id": obj.get("id"),
-            "created": AuditApiResult.from_dict(obj["created"]) if obj.get("created") is not None else None,
-            "modified": AuditApiResult.from_dict(obj["modified"]) if obj.get("modified") is not None else None,
+            "created": AuditApiResult.from_dict(obj.get("created")) if obj.get("created") is not None else None,
+            "modified": AuditApiResult.from_dict(obj.get("modified")) if obj.get("modified") is not None else None,
             "status": obj.get("status"),
-            "statusModel": TestStatusShortApiResult.from_dict(obj["statusModel"]) if obj.get("statusModel") is not None else None,
-            "inProgress": obj.get("inProgress"),
-            "configuration": ConfigurationShortApiResult.from_dict(obj["configuration"]) if obj.get("configuration") is not None else None,
-            "tester": UserNameApiResult.from_dict(obj["tester"]) if obj.get("tester") is not None else None,
-            "testSuite": TestPlanTestPointsTestSuiteSearchApiResult.from_dict(obj["testSuite"]) if obj.get("testSuite") is not None else None,
-            "workItem": TestPlanTestPointsWorkItemSearchApiResult.from_dict(obj["workItem"]) if obj.get("workItem") is not None else None,
-            "parameters": [ParameterShortApiResult.from_dict(_item) for _item in obj["parameters"]] if obj.get("parameters") is not None else None,
-            "lastTestResult": LastTestResultApiResult.from_dict(obj["lastTestResult"]) if obj.get("lastTestResult") is not None else None
+            "status_model": TestStatusShortApiResult.from_dict(obj.get("statusModel")) if obj.get("statusModel") is not None else None,
+            "in_progress": obj.get("inProgress"),
+            "configuration": ConfigurationShortApiResult.from_dict(obj.get("configuration")) if obj.get("configuration") is not None else None,
+            "tester": UserNameApiResult.from_dict(obj.get("tester")) if obj.get("tester") is not None else None,
+            "test_suite": TestPlanTestPointsTestSuiteSearchApiResult.from_dict(obj.get("testSuite")) if obj.get("testSuite") is not None else None,
+            "work_item": TestPlanTestPointsWorkItemSearchApiResult.from_dict(obj.get("workItem")) if obj.get("workItem") is not None else None,
+            "parameters": [ParameterShortApiResult.from_dict(_item) for _item in obj.get("parameters")] if obj.get("parameters") is not None else None,
+            "last_test_result": LastTestResultApiResult.from_dict(obj.get("lastTestResult")) if obj.get("lastTestResult") is not None else None
         })
         return _obj
 

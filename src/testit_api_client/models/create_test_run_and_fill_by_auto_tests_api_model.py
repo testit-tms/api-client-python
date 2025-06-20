@@ -17,126 +17,109 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictStr, conlist
 from testit_api_client.models.assign_attachment_api_model import AssignAttachmentApiModel
 from testit_api_client.models.create_link_api_model import CreateLinkApiModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class CreateTestRunAndFillByAutoTestsApiModel(BaseModel):
     """
     CreateTestRunAndFillByAutoTestsApiModel
-    """ # noqa: E501
-    project_id: StrictStr = Field(description="Specifies the GUID of the project, in which a test run will be created.", alias="projectId")
+    """
+    project_id: StrictStr = Field(default=..., alias="projectId", description="Specifies the GUID of the project, in which a test run will be created.")
     name: Optional[StrictStr] = Field(default=None, description="Specifies the name of the test run.")
-    configuration_ids: Annotated[List[StrictStr], Field(min_length=1)] = Field(description="Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.", alias="configurationIds")
-    auto_test_external_ids: Annotated[List[StrictStr], Field(min_length=1)] = Field(description="Specifies the external ID of the autotest. You can specify several IDs.", alias="autoTestExternalIds")
+    configuration_ids: conlist(StrictStr, min_items=1) = Field(default=..., alias="configurationIds", description="Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.")
+    auto_test_external_ids: conlist(StrictStr, min_items=1) = Field(default=..., alias="autoTestExternalIds", description="Specifies the external ID of the autotest. You can specify several IDs.")
     description: Optional[StrictStr] = Field(default=None, description="Specifies the test run description.")
-    launch_source: Optional[StrictStr] = Field(default=None, description="Specifies the test run launch source.", alias="launchSource")
-    attachments: Optional[List[AssignAttachmentApiModel]] = Field(default=None, description="Collection of attachment ids to relate to the test run")
-    links: Optional[List[CreateLinkApiModel]] = Field(default=None, description="Collection of links to relate to the test run")
-    __properties: ClassVar[List[str]] = ["projectId", "name", "configurationIds", "autoTestExternalIds", "description", "launchSource", "attachments", "links"]
+    launch_source: Optional[StrictStr] = Field(default=None, alias="launchSource", description="Specifies the test run launch source.")
+    attachments: Optional[conlist(AssignAttachmentApiModel)] = Field(default=None, description="Collection of attachment ids to relate to the test run")
+    links: Optional[conlist(CreateLinkApiModel)] = Field(default=None, description="Collection of links to relate to the test run")
+    __properties = ["projectId", "name", "configurationIds", "autoTestExternalIds", "description", "launchSource", "attachments", "links"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> CreateTestRunAndFillByAutoTestsApiModel:
         """Create an instance of CreateTestRunAndFillByAutoTestsApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
-            for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+            for _item in self.attachments:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['attachments'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
-            for _item_links in self.links:
-                if _item_links:
-                    _items.append(_item_links.to_dict())
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['links'] = _items
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         # set to None if launch_source (nullable) is None
-        # and model_fields_set contains the field
-        if self.launch_source is None and "launch_source" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.launch_source is None and "launch_source" in self.__fields_set__:
             _dict['launchSource'] = None
 
         # set to None if attachments (nullable) is None
-        # and model_fields_set contains the field
-        if self.attachments is None and "attachments" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.attachments is None and "attachments" in self.__fields_set__:
             _dict['attachments'] = None
 
         # set to None if links (nullable) is None
-        # and model_fields_set contains the field
-        if self.links is None and "links" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.links is None and "links" in self.__fields_set__:
             _dict['links'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> CreateTestRunAndFillByAutoTestsApiModel:
         """Create an instance of CreateTestRunAndFillByAutoTestsApiModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return CreateTestRunAndFillByAutoTestsApiModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "projectId": obj.get("projectId"),
+        _obj = CreateTestRunAndFillByAutoTestsApiModel.parse_obj({
+            "project_id": obj.get("projectId"),
             "name": obj.get("name"),
-            "configurationIds": obj.get("configurationIds"),
-            "autoTestExternalIds": obj.get("autoTestExternalIds"),
+            "configuration_ids": obj.get("configurationIds"),
+            "auto_test_external_ids": obj.get("autoTestExternalIds"),
             "description": obj.get("description"),
-            "launchSource": obj.get("launchSource"),
-            "attachments": [AssignAttachmentApiModel.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
-            "links": [CreateLinkApiModel.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+            "launch_source": obj.get("launchSource"),
+            "attachments": [AssignAttachmentApiModel.from_dict(_item) for _item in obj.get("attachments")] if obj.get("attachments") is not None else None,
+            "links": [CreateLinkApiModel.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None
         })
         return _obj
 

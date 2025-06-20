@@ -17,137 +17,121 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+
+from typing import List
+from pydantic import BaseModel, Field, conlist
 from testit_api_client.models.test_plan_group_by_status import TestPlanGroupByStatus
 from testit_api_client.models.test_plan_group_by_status_code import TestPlanGroupByStatusCode
 from testit_api_client.models.test_plan_group_by_test_suite import TestPlanGroupByTestSuite
 from testit_api_client.models.test_plan_group_by_tester import TestPlanGroupByTester
 from testit_api_client.models.test_plan_group_by_tester_and_status import TestPlanGroupByTesterAndStatus
 from testit_api_client.models.test_plan_group_by_tester_and_status_code import TestPlanGroupByTesterAndStatusCode
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestPointAnalyticResult(BaseModel):
     """
     TestPointAnalyticResult
-    """ # noqa: E501
-    count_group_by_status: List[TestPlanGroupByStatus] = Field(alias="countGroupByStatus")
-    sum_group_by_tester: List[TestPlanGroupByTester] = Field(alias="sumGroupByTester")
-    count_group_by_tester: List[TestPlanGroupByTester] = Field(alias="countGroupByTester")
-    count_group_by_test_suite: List[TestPlanGroupByTestSuite] = Field(alias="countGroupByTestSuite")
-    count_group_by_tester_and_status: List[TestPlanGroupByTesterAndStatus] = Field(alias="countGroupByTesterAndStatus")
-    count_group_by_status_code: List[TestPlanGroupByStatusCode] = Field(alias="countGroupByStatusCode")
-    count_group_by_tester_and_status_code: List[TestPlanGroupByTesterAndStatusCode] = Field(alias="countGroupByTesterAndStatusCode")
-    __properties: ClassVar[List[str]] = ["countGroupByStatus", "sumGroupByTester", "countGroupByTester", "countGroupByTestSuite", "countGroupByTesterAndStatus", "countGroupByStatusCode", "countGroupByTesterAndStatusCode"]
+    """
+    count_group_by_status: conlist(TestPlanGroupByStatus) = Field(default=..., alias="countGroupByStatus")
+    sum_group_by_tester: conlist(TestPlanGroupByTester) = Field(default=..., alias="sumGroupByTester")
+    count_group_by_tester: conlist(TestPlanGroupByTester) = Field(default=..., alias="countGroupByTester")
+    count_group_by_test_suite: conlist(TestPlanGroupByTestSuite) = Field(default=..., alias="countGroupByTestSuite")
+    count_group_by_tester_and_status: conlist(TestPlanGroupByTesterAndStatus) = Field(default=..., alias="countGroupByTesterAndStatus")
+    count_group_by_status_code: conlist(TestPlanGroupByStatusCode) = Field(default=..., alias="countGroupByStatusCode")
+    count_group_by_tester_and_status_code: conlist(TestPlanGroupByTesterAndStatusCode) = Field(default=..., alias="countGroupByTesterAndStatusCode")
+    __properties = ["countGroupByStatus", "sumGroupByTester", "countGroupByTester", "countGroupByTestSuite", "countGroupByTesterAndStatus", "countGroupByStatusCode", "countGroupByTesterAndStatusCode"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestPointAnalyticResult:
         """Create an instance of TestPointAnalyticResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_status (list)
         _items = []
         if self.count_group_by_status:
-            for _item_count_group_by_status in self.count_group_by_status:
-                if _item_count_group_by_status:
-                    _items.append(_item_count_group_by_status.to_dict())
+            for _item in self.count_group_by_status:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['countGroupByStatus'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in sum_group_by_tester (list)
         _items = []
         if self.sum_group_by_tester:
-            for _item_sum_group_by_tester in self.sum_group_by_tester:
-                if _item_sum_group_by_tester:
-                    _items.append(_item_sum_group_by_tester.to_dict())
+            for _item in self.sum_group_by_tester:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['sumGroupByTester'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_tester (list)
         _items = []
         if self.count_group_by_tester:
-            for _item_count_group_by_tester in self.count_group_by_tester:
-                if _item_count_group_by_tester:
-                    _items.append(_item_count_group_by_tester.to_dict())
+            for _item in self.count_group_by_tester:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['countGroupByTester'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_test_suite (list)
         _items = []
         if self.count_group_by_test_suite:
-            for _item_count_group_by_test_suite in self.count_group_by_test_suite:
-                if _item_count_group_by_test_suite:
-                    _items.append(_item_count_group_by_test_suite.to_dict())
+            for _item in self.count_group_by_test_suite:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['countGroupByTestSuite'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_tester_and_status (list)
         _items = []
         if self.count_group_by_tester_and_status:
-            for _item_count_group_by_tester_and_status in self.count_group_by_tester_and_status:
-                if _item_count_group_by_tester_and_status:
-                    _items.append(_item_count_group_by_tester_and_status.to_dict())
+            for _item in self.count_group_by_tester_and_status:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['countGroupByTesterAndStatus'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_status_code (list)
         _items = []
         if self.count_group_by_status_code:
-            for _item_count_group_by_status_code in self.count_group_by_status_code:
-                if _item_count_group_by_status_code:
-                    _items.append(_item_count_group_by_status_code.to_dict())
+            for _item in self.count_group_by_status_code:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['countGroupByStatusCode'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_tester_and_status_code (list)
         _items = []
         if self.count_group_by_tester_and_status_code:
-            for _item_count_group_by_tester_and_status_code in self.count_group_by_tester_and_status_code:
-                if _item_count_group_by_tester_and_status_code:
-                    _items.append(_item_count_group_by_tester_and_status_code.to_dict())
+            for _item in self.count_group_by_tester_and_status_code:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['countGroupByTesterAndStatusCode'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestPointAnalyticResult:
         """Create an instance of TestPointAnalyticResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestPointAnalyticResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "countGroupByStatus": [TestPlanGroupByStatus.from_dict(_item) for _item in obj["countGroupByStatus"]] if obj.get("countGroupByStatus") is not None else None,
-            "sumGroupByTester": [TestPlanGroupByTester.from_dict(_item) for _item in obj["sumGroupByTester"]] if obj.get("sumGroupByTester") is not None else None,
-            "countGroupByTester": [TestPlanGroupByTester.from_dict(_item) for _item in obj["countGroupByTester"]] if obj.get("countGroupByTester") is not None else None,
-            "countGroupByTestSuite": [TestPlanGroupByTestSuite.from_dict(_item) for _item in obj["countGroupByTestSuite"]] if obj.get("countGroupByTestSuite") is not None else None,
-            "countGroupByTesterAndStatus": [TestPlanGroupByTesterAndStatus.from_dict(_item) for _item in obj["countGroupByTesterAndStatus"]] if obj.get("countGroupByTesterAndStatus") is not None else None,
-            "countGroupByStatusCode": [TestPlanGroupByStatusCode.from_dict(_item) for _item in obj["countGroupByStatusCode"]] if obj.get("countGroupByStatusCode") is not None else None,
-            "countGroupByTesterAndStatusCode": [TestPlanGroupByTesterAndStatusCode.from_dict(_item) for _item in obj["countGroupByTesterAndStatusCode"]] if obj.get("countGroupByTesterAndStatusCode") is not None else None
+        _obj = TestPointAnalyticResult.parse_obj({
+            "count_group_by_status": [TestPlanGroupByStatus.from_dict(_item) for _item in obj.get("countGroupByStatus")] if obj.get("countGroupByStatus") is not None else None,
+            "sum_group_by_tester": [TestPlanGroupByTester.from_dict(_item) for _item in obj.get("sumGroupByTester")] if obj.get("sumGroupByTester") is not None else None,
+            "count_group_by_tester": [TestPlanGroupByTester.from_dict(_item) for _item in obj.get("countGroupByTester")] if obj.get("countGroupByTester") is not None else None,
+            "count_group_by_test_suite": [TestPlanGroupByTestSuite.from_dict(_item) for _item in obj.get("countGroupByTestSuite")] if obj.get("countGroupByTestSuite") is not None else None,
+            "count_group_by_tester_and_status": [TestPlanGroupByTesterAndStatus.from_dict(_item) for _item in obj.get("countGroupByTesterAndStatus")] if obj.get("countGroupByTesterAndStatus") is not None else None,
+            "count_group_by_status_code": [TestPlanGroupByStatusCode.from_dict(_item) for _item in obj.get("countGroupByStatusCode")] if obj.get("countGroupByStatusCode") is not None else None,
+            "count_group_by_tester_and_status_code": [TestPlanGroupByTesterAndStatusCode.from_dict(_item) for _item in obj.get("countGroupByTesterAndStatusCode")] if obj.get("countGroupByTesterAndStatusCode") is not None else None
         })
         return _obj
 

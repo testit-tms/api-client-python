@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+
+from typing import Any, Dict, List, Optional
+from pydantic import BaseModel, Field, StrictStr, conint, conlist, constr
 from testit_api_client.models.assign_attachment_api_model import AssignAttachmentApiModel
 from testit_api_client.models.assign_iteration_api_model import AssignIterationApiModel
 from testit_api_client.models.auto_test_id_model import AutoTestIdModel
@@ -29,176 +29,159 @@ from testit_api_client.models.tag_model import TagModel
 from testit_api_client.models.work_item_entity_types import WorkItemEntityTypes
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
 from testit_api_client.models.work_item_states import WorkItemStates
-from typing import Optional, Set
-from typing_extensions import Self
 
 class CreateWorkItemApiModel(BaseModel):
     """
     CreateWorkItemApiModel
-    """ # noqa: E501
-    entity_type_name: WorkItemEntityTypes = Field(alias="entityTypeName")
+    """
+    entity_type_name: WorkItemEntityTypes = Field(default=..., alias="entityTypeName")
     description: Optional[StrictStr] = Field(default=None, description="Workitem description")
-    state: WorkItemStates
-    priority: WorkItemPriorityModel
-    steps: List[CreateStepApiModel] = Field(description="Collection of workitem steps")
-    precondition_steps: List[CreateStepApiModel] = Field(description="Collection of workitem precondition steps", alias="preconditionSteps")
-    postcondition_steps: List[CreateStepApiModel] = Field(description="Collection of workitem postcondition steps", alias="postconditionSteps")
-    duration: Annotated[int, Field(le=86400000, strict=True, ge=0)] = Field(description="WorkItem duration in milliseconds, must be 0 for shared steps and greater than 0 for the other types of work items")
-    attributes: Dict[str, Any] = Field(description="Key value pair of custom workitem attributes")
-    tags: List[TagModel] = Field(description="Collection of workitem tags")
-    attachments: Optional[List[AssignAttachmentApiModel]] = Field(default=None, description="Collection of workitem attachments")
-    iterations: Optional[List[AssignIterationApiModel]] = Field(default=None, description="Collection of parameter sets")
-    links: List[CreateLinkApiModel] = Field(description="Collection of workitem links")
-    name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Workitem name")
-    project_id: StrictStr = Field(description="Project unique identifier - used to link workitem with project", alias="projectId")
-    section_id: StrictStr = Field(description="Internal identifier of section where workitem is located", alias="sectionId")
-    auto_tests: Optional[List[AutoTestIdModel]] = Field(default=None, description="Collection of autotest internal ids", alias="autoTests")
-    __properties: ClassVar[List[str]] = ["entityTypeName", "description", "state", "priority", "steps", "preconditionSteps", "postconditionSteps", "duration", "attributes", "tags", "attachments", "iterations", "links", "name", "projectId", "sectionId", "autoTests"]
+    state: WorkItemStates = Field(...)
+    priority: WorkItemPriorityModel = Field(...)
+    steps: conlist(CreateStepApiModel) = Field(default=..., description="Collection of workitem steps")
+    precondition_steps: conlist(CreateStepApiModel) = Field(default=..., alias="preconditionSteps", description="Collection of workitem precondition steps")
+    postcondition_steps: conlist(CreateStepApiModel) = Field(default=..., alias="postconditionSteps", description="Collection of workitem postcondition steps")
+    duration: conint(strict=True, le=86400000, ge=0) = Field(default=..., description="WorkItem duration in milliseconds, must be 0 for shared steps and greater than 0 for the other types of work items")
+    attributes: Dict[str, Any] = Field(default=..., description="Key value pair of custom workitem attributes")
+    tags: conlist(TagModel) = Field(default=..., description="Collection of workitem tags")
+    attachments: Optional[conlist(AssignAttachmentApiModel)] = Field(default=None, description="Collection of workitem attachments")
+    iterations: Optional[conlist(AssignIterationApiModel)] = Field(default=None, description="Collection of parameter sets")
+    links: conlist(CreateLinkApiModel) = Field(default=..., description="Collection of workitem links")
+    name: constr(strict=True, min_length=1) = Field(default=..., description="Workitem name")
+    project_id: StrictStr = Field(default=..., alias="projectId", description="Project unique identifier - used to link workitem with project")
+    section_id: StrictStr = Field(default=..., alias="sectionId", description="Internal identifier of section where workitem is located")
+    auto_tests: Optional[conlist(AutoTestIdModel)] = Field(default=None, alias="autoTests", description="Collection of autotest internal ids")
+    __properties = ["entityTypeName", "description", "state", "priority", "steps", "preconditionSteps", "postconditionSteps", "duration", "attributes", "tags", "attachments", "iterations", "links", "name", "projectId", "sectionId", "autoTests"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> CreateWorkItemApiModel:
         """Create an instance of CreateWorkItemApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in steps (list)
         _items = []
         if self.steps:
-            for _item_steps in self.steps:
-                if _item_steps:
-                    _items.append(_item_steps.to_dict())
+            for _item in self.steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['steps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in precondition_steps (list)
         _items = []
         if self.precondition_steps:
-            for _item_precondition_steps in self.precondition_steps:
-                if _item_precondition_steps:
-                    _items.append(_item_precondition_steps.to_dict())
+            for _item in self.precondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['preconditionSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in postcondition_steps (list)
         _items = []
         if self.postcondition_steps:
-            for _item_postcondition_steps in self.postcondition_steps:
-                if _item_postcondition_steps:
-                    _items.append(_item_postcondition_steps.to_dict())
+            for _item in self.postcondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['postconditionSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in tags (list)
         _items = []
         if self.tags:
-            for _item_tags in self.tags:
-                if _item_tags:
-                    _items.append(_item_tags.to_dict())
+            for _item in self.tags:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['tags'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
-            for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+            for _item in self.attachments:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['attachments'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in iterations (list)
         _items = []
         if self.iterations:
-            for _item_iterations in self.iterations:
-                if _item_iterations:
-                    _items.append(_item_iterations.to_dict())
+            for _item in self.iterations:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['iterations'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
-            for _item_links in self.links:
-                if _item_links:
-                    _items.append(_item_links.to_dict())
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in auto_tests (list)
         _items = []
         if self.auto_tests:
-            for _item_auto_tests in self.auto_tests:
-                if _item_auto_tests:
-                    _items.append(_item_auto_tests.to_dict())
+            for _item in self.auto_tests:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['autoTests'] = _items
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         # set to None if attachments (nullable) is None
-        # and model_fields_set contains the field
-        if self.attachments is None and "attachments" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.attachments is None and "attachments" in self.__fields_set__:
             _dict['attachments'] = None
 
         # set to None if iterations (nullable) is None
-        # and model_fields_set contains the field
-        if self.iterations is None and "iterations" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.iterations is None and "iterations" in self.__fields_set__:
             _dict['iterations'] = None
 
         # set to None if auto_tests (nullable) is None
-        # and model_fields_set contains the field
-        if self.auto_tests is None and "auto_tests" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.auto_tests is None and "auto_tests" in self.__fields_set__:
             _dict['autoTests'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> CreateWorkItemApiModel:
         """Create an instance of CreateWorkItemApiModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return CreateWorkItemApiModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "entityTypeName": obj.get("entityTypeName"),
+        _obj = CreateWorkItemApiModel.parse_obj({
+            "entity_type_name": obj.get("entityTypeName"),
             "description": obj.get("description"),
             "state": obj.get("state"),
             "priority": obj.get("priority"),
-            "steps": [CreateStepApiModel.from_dict(_item) for _item in obj["steps"]] if obj.get("steps") is not None else None,
-            "preconditionSteps": [CreateStepApiModel.from_dict(_item) for _item in obj["preconditionSteps"]] if obj.get("preconditionSteps") is not None else None,
-            "postconditionSteps": [CreateStepApiModel.from_dict(_item) for _item in obj["postconditionSteps"]] if obj.get("postconditionSteps") is not None else None,
+            "steps": [CreateStepApiModel.from_dict(_item) for _item in obj.get("steps")] if obj.get("steps") is not None else None,
+            "precondition_steps": [CreateStepApiModel.from_dict(_item) for _item in obj.get("preconditionSteps")] if obj.get("preconditionSteps") is not None else None,
+            "postcondition_steps": [CreateStepApiModel.from_dict(_item) for _item in obj.get("postconditionSteps")] if obj.get("postconditionSteps") is not None else None,
             "duration": obj.get("duration"),
             "attributes": obj.get("attributes"),
-            "tags": [TagModel.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
-            "attachments": [AssignAttachmentApiModel.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
-            "iterations": [AssignIterationApiModel.from_dict(_item) for _item in obj["iterations"]] if obj.get("iterations") is not None else None,
-            "links": [CreateLinkApiModel.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+            "tags": [TagModel.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None,
+            "attachments": [AssignAttachmentApiModel.from_dict(_item) for _item in obj.get("attachments")] if obj.get("attachments") is not None else None,
+            "iterations": [AssignIterationApiModel.from_dict(_item) for _item in obj.get("iterations")] if obj.get("iterations") is not None else None,
+            "links": [CreateLinkApiModel.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None,
             "name": obj.get("name"),
-            "projectId": obj.get("projectId"),
-            "sectionId": obj.get("sectionId"),
-            "autoTests": [AutoTestIdModel.from_dict(_item) for _item in obj["autoTests"]] if obj.get("autoTests") is not None else None
+            "project_id": obj.get("projectId"),
+            "section_id": obj.get("sectionId"),
+            "auto_tests": [AutoTestIdModel.from_dict(_item) for _item in obj.get("autoTests")] if obj.get("autoTests") is not None else None
         })
         return _obj
 
