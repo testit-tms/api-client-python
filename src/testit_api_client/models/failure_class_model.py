@@ -18,115 +18,98 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from testit_api_client.models.failure_category_model import FailureCategoryModel
 from testit_api_client.models.failure_class_regex_model import FailureClassRegexModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class FailureClassModel(BaseModel):
     """
     FailureClassModel
-    """ # noqa: E501
+    """
     name: Optional[StrictStr] = None
-    failure_category: FailureCategoryModel = Field(alias="failureCategory")
-    created_date: datetime = Field(alias="createdDate")
+    failure_category: FailureCategoryModel = Field(default=..., alias="failureCategory")
+    created_date: datetime = Field(default=..., alias="createdDate")
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
-    created_by_id: StrictStr = Field(alias="createdById")
+    created_by_id: StrictStr = Field(default=..., alias="createdById")
     modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
-    failure_class_regexes: Optional[List[FailureClassRegexModel]] = Field(default=None, alias="failureClassRegexes")
-    id: StrictStr = Field(description="Unique ID of the entity")
-    is_deleted: StrictBool = Field(description="Indicates if the entity is deleted", alias="isDeleted")
-    __properties: ClassVar[List[str]] = ["name", "failureCategory", "createdDate", "modifiedDate", "createdById", "modifiedById", "failureClassRegexes", "id", "isDeleted"]
+    failure_class_regexes: Optional[conlist(FailureClassRegexModel)] = Field(default=None, alias="failureClassRegexes")
+    id: StrictStr = Field(default=..., description="Unique ID of the entity")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Indicates if the entity is deleted")
+    __properties = ["name", "failureCategory", "createdDate", "modifiedDate", "createdById", "modifiedById", "failureClassRegexes", "id", "isDeleted"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> FailureClassModel:
         """Create an instance of FailureClassModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in failure_class_regexes (list)
         _items = []
         if self.failure_class_regexes:
-            for _item_failure_class_regexes in self.failure_class_regexes:
-                if _item_failure_class_regexes:
-                    _items.append(_item_failure_class_regexes.to_dict())
+            for _item in self.failure_class_regexes:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['failureClassRegexes'] = _items
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         # set to None if failure_class_regexes (nullable) is None
-        # and model_fields_set contains the field
-        if self.failure_class_regexes is None and "failure_class_regexes" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.failure_class_regexes is None and "failure_class_regexes" in self.__fields_set__:
             _dict['failureClassRegexes'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> FailureClassModel:
         """Create an instance of FailureClassModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return FailureClassModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = FailureClassModel.parse_obj({
             "name": obj.get("name"),
-            "failureCategory": obj.get("failureCategory"),
-            "createdDate": obj.get("createdDate"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedById": obj.get("modifiedById"),
-            "failureClassRegexes": [FailureClassRegexModel.from_dict(_item) for _item in obj["failureClassRegexes"]] if obj.get("failureClassRegexes") is not None else None,
+            "failure_category": obj.get("failureCategory"),
+            "created_date": obj.get("createdDate"),
+            "modified_date": obj.get("modifiedDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_by_id": obj.get("modifiedById"),
+            "failure_class_regexes": [FailureClassRegexModel.from_dict(_item) for _item in obj.get("failureClassRegexes")] if obj.get("failureClassRegexes") is not None else None,
             "id": obj.get("id"),
-            "isDeleted": obj.get("isDeleted")
+            "is_deleted": obj.get("isDeleted")
         })
         return _obj
 

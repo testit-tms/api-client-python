@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **inquiry** | [**Inquiry**](Inquiry.md) |  | [optional] 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of GetShortProjectsApiModel from a JSON string
 get_short_projects_api_model_instance = GetShortProjectsApiModel.from_json(json)
 # print the JSON string representation of the object
-print(GetShortProjectsApiModel.to_json())
+print GetShortProjectsApiModel.to_json()
 
 # convert the object into a dict
 get_short_projects_api_model_dict = get_short_projects_api_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **auto_test_select** | [**AutoTestSelectApiModel**](AutoTestSelectApiModel.md) |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of AutoTestFlakyBulkApiModel from a JSON string
 auto_test_flaky_bulk_api_model_instance = AutoTestFlakyBulkApiModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestFlakyBulkApiModel.to_json())
+print AutoTestFlakyBulkApiModel.to_json()
 
 # convert the object into a dict
 auto_test_flaky_bulk_api_model_dict = auto_test_flaky_bulk_api_model_instance.to_dict()

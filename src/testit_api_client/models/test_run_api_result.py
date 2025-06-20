@@ -18,97 +18,80 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 from testit_api_client.models.auto_test_api_result import AutoTestApiResult
 from testit_api_client.models.test_plan_api_result import TestPlanApiResult
 from testit_api_client.models.test_result_api_result import TestResultApiResult
 from testit_api_client.models.test_run_analytic_api_result import TestRunAnalyticApiResult
 from testit_api_client.models.test_run_state import TestRunState
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestRunApiResult(BaseModel):
     """
     TestRunApiResult
-    """ # noqa: E501
-    id: StrictStr = Field(description="Unique ID of the entity")
-    is_deleted: StrictBool = Field(description="Indicates if the entity is deleted", alias="isDeleted")
+    """
+    id: StrictStr = Field(default=..., description="Unique ID of the entity")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Indicates if the entity is deleted")
     started_date: Optional[datetime] = Field(default=None, alias="startedDate")
     completed_date: Optional[datetime] = Field(default=None, alias="completedDate")
-    build: StrictStr
+    build: StrictStr = Field(...)
     description: Optional[StrictStr] = None
-    state_name: TestRunState = Field(alias="stateName")
-    status: TestStatusApiResult
-    project_id: StrictStr = Field(alias="projectId")
+    state_name: TestRunState = Field(default=..., alias="stateName")
+    status: TestStatusApiResult = Field(...)
+    project_id: StrictStr = Field(default=..., alias="projectId")
     test_plan_id: Optional[StrictStr] = Field(default=None, alias="testPlanId")
     run_by_user_id: Optional[StrictStr] = Field(default=None, alias="runByUserId")
     stopped_by_user_id: Optional[StrictStr] = Field(default=None, alias="stoppedByUserId")
     name: Optional[StrictStr] = None
     launch_source: Optional[StrictStr] = Field(default=None, alias="launchSource")
-    auto_tests: List[AutoTestApiResult] = Field(alias="autoTests")
-    auto_tests_count: StrictInt = Field(alias="autoTestsCount")
-    test_suite_ids: List[StrictStr] = Field(alias="testSuiteIds")
-    is_automated: StrictBool = Field(alias="isAutomated")
-    analytic: TestRunAnalyticApiResult
-    test_results: List[TestResultApiResult] = Field(alias="testResults")
+    auto_tests: conlist(AutoTestApiResult) = Field(default=..., alias="autoTests")
+    auto_tests_count: StrictInt = Field(default=..., alias="autoTestsCount")
+    test_suite_ids: conlist(StrictStr) = Field(default=..., alias="testSuiteIds")
+    is_automated: StrictBool = Field(default=..., alias="isAutomated")
+    analytic: TestRunAnalyticApiResult = Field(...)
+    test_results: conlist(TestResultApiResult) = Field(default=..., alias="testResults")
     test_plan: Optional[TestPlanApiResult] = Field(default=None, alias="testPlan")
-    created_date: datetime = Field(alias="createdDate")
+    created_date: datetime = Field(default=..., alias="createdDate")
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
-    created_by_id: StrictStr = Field(alias="createdById")
+    created_by_id: StrictStr = Field(default=..., alias="createdById")
     modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
     created_by_user_name: Optional[StrictStr] = Field(default=None, alias="createdByUserName")
-    __properties: ClassVar[List[str]] = ["id", "isDeleted", "startedDate", "completedDate", "build", "description", "stateName", "status", "projectId", "testPlanId", "runByUserId", "stoppedByUserId", "name", "launchSource", "autoTests", "autoTestsCount", "testSuiteIds", "isAutomated", "analytic", "testResults", "testPlan", "createdDate", "modifiedDate", "createdById", "modifiedById", "createdByUserName"]
+    __properties = ["id", "isDeleted", "startedDate", "completedDate", "build", "description", "stateName", "status", "projectId", "testPlanId", "runByUserId", "stoppedByUserId", "name", "launchSource", "autoTests", "autoTestsCount", "testSuiteIds", "isAutomated", "analytic", "testResults", "testPlan", "createdDate", "modifiedDate", "createdById", "modifiedById", "createdByUserName"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestRunApiResult:
         """Create an instance of TestRunApiResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of status
         if self.status:
             _dict['status'] = self.status.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in auto_tests (list)
         _items = []
         if self.auto_tests:
-            for _item_auto_tests in self.auto_tests:
-                if _item_auto_tests:
-                    _items.append(_item_auto_tests.to_dict())
+            for _item in self.auto_tests:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['autoTests'] = _items
         # override the default output from pydantic by calling `to_dict()` of analytic
         if self.analytic:
@@ -116,111 +99,111 @@ class TestRunApiResult(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in test_results (list)
         _items = []
         if self.test_results:
-            for _item_test_results in self.test_results:
-                if _item_test_results:
-                    _items.append(_item_test_results.to_dict())
+            for _item in self.test_results:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['testResults'] = _items
         # override the default output from pydantic by calling `to_dict()` of test_plan
         if self.test_plan:
             _dict['testPlan'] = self.test_plan.to_dict()
         # set to None if started_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.started_date is None and "started_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.started_date is None and "started_date" in self.__fields_set__:
             _dict['startedDate'] = None
 
         # set to None if completed_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.completed_date is None and "completed_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.completed_date is None and "completed_date" in self.__fields_set__:
             _dict['completedDate'] = None
 
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         # set to None if test_plan_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_plan_id is None and "test_plan_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_plan_id is None and "test_plan_id" in self.__fields_set__:
             _dict['testPlanId'] = None
 
         # set to None if run_by_user_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.run_by_user_id is None and "run_by_user_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.run_by_user_id is None and "run_by_user_id" in self.__fields_set__:
             _dict['runByUserId'] = None
 
         # set to None if stopped_by_user_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.stopped_by_user_id is None and "stopped_by_user_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.stopped_by_user_id is None and "stopped_by_user_id" in self.__fields_set__:
             _dict['stoppedByUserId'] = None
 
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if launch_source (nullable) is None
-        # and model_fields_set contains the field
-        if self.launch_source is None and "launch_source" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.launch_source is None and "launch_source" in self.__fields_set__:
             _dict['launchSource'] = None
 
         # set to None if test_plan (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_plan is None and "test_plan" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_plan is None and "test_plan" in self.__fields_set__:
             _dict['testPlan'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         # set to None if created_by_user_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_by_user_name is None and "created_by_user_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_by_user_name is None and "created_by_user_name" in self.__fields_set__:
             _dict['createdByUserName'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestRunApiResult:
         """Create an instance of TestRunApiResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestRunApiResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = TestRunApiResult.parse_obj({
             "id": obj.get("id"),
-            "isDeleted": obj.get("isDeleted"),
-            "startedDate": obj.get("startedDate"),
-            "completedDate": obj.get("completedDate"),
+            "is_deleted": obj.get("isDeleted"),
+            "started_date": obj.get("startedDate"),
+            "completed_date": obj.get("completedDate"),
             "build": obj.get("build"),
             "description": obj.get("description"),
-            "stateName": obj.get("stateName"),
-            "status": TestStatusApiResult.from_dict(obj["status"]) if obj.get("status") is not None else None,
-            "projectId": obj.get("projectId"),
-            "testPlanId": obj.get("testPlanId"),
-            "runByUserId": obj.get("runByUserId"),
-            "stoppedByUserId": obj.get("stoppedByUserId"),
+            "state_name": obj.get("stateName"),
+            "status": TestStatusApiResult.from_dict(obj.get("status")) if obj.get("status") is not None else None,
+            "project_id": obj.get("projectId"),
+            "test_plan_id": obj.get("testPlanId"),
+            "run_by_user_id": obj.get("runByUserId"),
+            "stopped_by_user_id": obj.get("stoppedByUserId"),
             "name": obj.get("name"),
-            "launchSource": obj.get("launchSource"),
-            "autoTests": [AutoTestApiResult.from_dict(_item) for _item in obj["autoTests"]] if obj.get("autoTests") is not None else None,
-            "autoTestsCount": obj.get("autoTestsCount"),
-            "testSuiteIds": obj.get("testSuiteIds"),
-            "isAutomated": obj.get("isAutomated"),
-            "analytic": TestRunAnalyticApiResult.from_dict(obj["analytic"]) if obj.get("analytic") is not None else None,
-            "testResults": [TestResultApiResult.from_dict(_item) for _item in obj["testResults"]] if obj.get("testResults") is not None else None,
-            "testPlan": TestPlanApiResult.from_dict(obj["testPlan"]) if obj.get("testPlan") is not None else None,
-            "createdDate": obj.get("createdDate"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedById": obj.get("modifiedById"),
-            "createdByUserName": obj.get("createdByUserName")
+            "launch_source": obj.get("launchSource"),
+            "auto_tests": [AutoTestApiResult.from_dict(_item) for _item in obj.get("autoTests")] if obj.get("autoTests") is not None else None,
+            "auto_tests_count": obj.get("autoTestsCount"),
+            "test_suite_ids": obj.get("testSuiteIds"),
+            "is_automated": obj.get("isAutomated"),
+            "analytic": TestRunAnalyticApiResult.from_dict(obj.get("analytic")) if obj.get("analytic") is not None else None,
+            "test_results": [TestResultApiResult.from_dict(_item) for _item in obj.get("testResults")] if obj.get("testResults") is not None else None,
+            "test_plan": TestPlanApiResult.from_dict(obj.get("testPlan")) if obj.get("testPlan") is not None else None,
+            "created_date": obj.get("createdDate"),
+            "modified_date": obj.get("modifiedDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_by_id": obj.get("modifiedById"),
+            "created_by_user_name": obj.get("createdByUserName")
         })
         return _obj
 

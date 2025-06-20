@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **order** | [**List[Order]**](Order.md) |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of TestPlanTestPointsInquiryApiModel from a JSON string
 test_plan_test_points_inquiry_api_model_instance = TestPlanTestPointsInquiryApiModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanTestPointsInquiryApiModel.to_json())
+print TestPlanTestPointsInquiryApiModel.to_json()
 
 # convert the object into a dict
 test_plan_test_points_inquiry_api_model_dict = test_plan_test_points_inquiry_api_model_instance.to_dict()

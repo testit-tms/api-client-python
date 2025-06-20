@@ -20,11 +20,14 @@ Method | HTTP request | Description
 
 
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_template_validation_result import CustomAttributeTemplateValidationResult
 from testit_api_client.rest import ApiException
@@ -65,7 +68,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**|  | [optional] 
@@ -84,7 +86,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -102,13 +103,23 @@ Name | Type | Description  | Notes
 
 Exclude CustomAttributes from CustomAttributeTemplate
 
- Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte
+
+Use case
+
+User sets attribute template internal identifier
+
+User sets attribute internal identifiers
+
+User runs method execution
+
+System delete attributes from attributes tempalte
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -148,7 +159,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Attribute template internal (UUID) identifier | 
@@ -168,7 +178,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -186,13 +195,23 @@ void (empty response body)
 
 Include CustomAttributes to CustomAttributeTemplate
 
- Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte
+
+Use case
+
+User sets attribute template internal identifier
+
+User sets attribute internal identifiers
+
+User runs method execution
+
+System add attributes to attributes tempalte
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -232,7 +251,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Attribute template internal (UUID) identifier | 
@@ -252,7 +270,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -270,13 +287,23 @@ void (empty response body)
 
 Delete CustomAttributeTemplate
 
- Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response
+
+Use case
+
+User sets attribute template internal identifier
+
+User runs method execution
+
+System search and delete attribute template
+
+System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -315,7 +342,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Attribute template internal (UUID) identifier | 
@@ -334,7 +360,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -352,13 +377,21 @@ void (empty response body)
 
 Get CustomAttributeTemplate by ID
 
- Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)
+
+Use case
+
+User sets attribute template internal identifier
+
+User runs method execution
+
+System return attribute template (listed in response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_template_model import CustomAttributeTemplateModel
 from testit_api_client.rest import ApiException
@@ -400,7 +433,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| CustomAttributeTemplate internal (UUID) identifier | 
@@ -419,7 +451,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -437,13 +468,21 @@ Name | Type | Description  | Notes
 
 Get CustomAttributeTemplate by name
 
- Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)
+
+Use case
+
+User sets attribute template name
+
+User runs method execution
+
+System search and return list of attribute templates (listed in response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_template_model import CustomAttributeTemplateModel
 from testit_api_client.rest import ApiException
@@ -485,7 +524,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**| CustomAttributeTemplate name for search | 
@@ -504,7 +542,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -522,13 +559,23 @@ Name | Type | Description  | Notes
 
 Create CustomAttributeTemplate
 
- Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)
+
+Use case
+
+User sets attribute template parameters (listed in request example)
+
+User runs method execution
+
+System creates attribute template
+
+System returns attribute template model (example listed in response parameters)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_template_model import CustomAttributeTemplateModel
 from testit_api_client.models.custom_attribute_template_post_model import CustomAttributeTemplatePostModel
@@ -571,7 +618,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **custom_attribute_template_post_model** | [**CustomAttributeTemplatePostModel**](CustomAttributeTemplatePostModel.md)|  | [optional] 
@@ -590,7 +636,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -608,11 +653,14 @@ Name | Type | Description  | Notes
 
 Update custom attributes template
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_template_put_model import CustomAttributeTemplatePutModel
 from testit_api_client.rest import ApiException
@@ -652,7 +700,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **custom_attribute_template_put_model** | [**CustomAttributeTemplatePutModel**](CustomAttributeTemplatePutModel.md)|  | [optional] 
@@ -671,7 +718,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -689,13 +735,21 @@ void (empty response body)
 
 Search CustomAttributeTemplates
 
- Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)
+
+Use case
+
+User sets search params model (listed in request example)
+
+User runs method execution
+
+System return attribute templates (listed in response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_template_search_query_model import CustomAttributeTemplateSearchQueryModel
 from testit_api_client.models.search_custom_attribute_template_get_model import SearchCustomAttributeTemplateGetModel
@@ -743,7 +797,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -767,7 +820,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |

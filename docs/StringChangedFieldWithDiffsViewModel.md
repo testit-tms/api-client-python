@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **diff_value** | **str** |  | [optional] 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of StringChangedFieldWithDiffsViewModel from a JSON string
 string_changed_field_with_diffs_view_model_instance = StringChangedFieldWithDiffsViewModel.from_json(json)
 # print the JSON string representation of the object
-print(StringChangedFieldWithDiffsViewModel.to_json())
+print StringChangedFieldWithDiffsViewModel.to_json()
 
 # convert the object into a dict
 string_changed_field_with_diffs_view_model_dict = string_changed_field_with_diffs_view_model_instance.to_dict()

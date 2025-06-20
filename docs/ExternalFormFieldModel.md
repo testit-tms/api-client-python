@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **field_id** | **str** |  | [optional] 
@@ -30,7 +29,7 @@ json = "{}"
 # create an instance of ExternalFormFieldModel from a JSON string
 external_form_field_model_instance = ExternalFormFieldModel.from_json(json)
 # print the JSON string representation of the object
-print(ExternalFormFieldModel.to_json())
+print ExternalFormFieldModel.to_json()
 
 # convert the object into a dict
 external_form_field_model_dict = external_form_field_model_instance.to_dict()

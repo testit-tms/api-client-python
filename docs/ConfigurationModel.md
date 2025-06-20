@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** |  | [optional] 
@@ -28,7 +27,7 @@ json = "{}"
 # create an instance of ConfigurationModel from a JSON string
 configuration_model_instance = ConfigurationModel.from_json(json)
 # print the JSON string representation of the object
-print(ConfigurationModel.to_json())
+print ConfigurationModel.to_json()
 
 # convert the object into a dict
 configuration_model_dict = configuration_model_instance.to_dict()

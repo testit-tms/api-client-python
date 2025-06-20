@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Specifies a webhook name to search for | [optional] 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of WebhooksFilterApiModel from a JSON string
 webhooks_filter_api_model_instance = WebhooksFilterApiModel.from_json(json)
 # print the JSON string representation of the object
-print(WebhooksFilterApiModel.to_json())
+print WebhooksFilterApiModel.to_json()
 
 # convert the object into a dict
 webhooks_filter_api_model_dict = webhooks_filter_api_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **external_service_id** | **str** |  | 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of GenerateWorkItemPreviewsApiModel from a JSON string
 generate_work_item_previews_api_model_instance = GenerateWorkItemPreviewsApiModel.from_json(json)
 # print the JSON string representation of the object
-print(GenerateWorkItemPreviewsApiModel.to_json())
+print GenerateWorkItemPreviewsApiModel.to_json()
 
 # convert the object into a dict
 generate_work_item_previews_api_model_dict = generate_work_item_previews_api_model_instance.to_dict()

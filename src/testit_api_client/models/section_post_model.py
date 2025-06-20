@@ -17,119 +17,102 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictStr, conlist, constr
 from testit_api_client.models.attachment_put_model import AttachmentPutModel
 from testit_api_client.models.step_post_model import StepPostModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class SectionPostModel(BaseModel):
     """
     SectionPostModel
-    """ # noqa: E501
-    name: Annotated[str, Field(min_length=0, strict=True, max_length=255)]
-    project_id: StrictStr = Field(alias="projectId")
+    """
+    name: constr(strict=True, max_length=255, min_length=0) = Field(...)
+    project_id: StrictStr = Field(default=..., alias="projectId")
     parent_id: Optional[StrictStr] = Field(default=None, alias="parentId")
-    precondition_steps: Optional[List[StepPostModel]] = Field(default=None, alias="preconditionSteps")
-    postcondition_steps: Optional[List[StepPostModel]] = Field(default=None, alias="postconditionSteps")
-    attachments: List[AttachmentPutModel]
-    __properties: ClassVar[List[str]] = ["name", "projectId", "parentId", "preconditionSteps", "postconditionSteps", "attachments"]
+    precondition_steps: Optional[conlist(StepPostModel)] = Field(default=None, alias="preconditionSteps")
+    postcondition_steps: Optional[conlist(StepPostModel)] = Field(default=None, alias="postconditionSteps")
+    attachments: conlist(AttachmentPutModel) = Field(...)
+    __properties = ["name", "projectId", "parentId", "preconditionSteps", "postconditionSteps", "attachments"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> SectionPostModel:
         """Create an instance of SectionPostModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in precondition_steps (list)
         _items = []
         if self.precondition_steps:
-            for _item_precondition_steps in self.precondition_steps:
-                if _item_precondition_steps:
-                    _items.append(_item_precondition_steps.to_dict())
+            for _item in self.precondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['preconditionSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in postcondition_steps (list)
         _items = []
         if self.postcondition_steps:
-            for _item_postcondition_steps in self.postcondition_steps:
-                if _item_postcondition_steps:
-                    _items.append(_item_postcondition_steps.to_dict())
+            for _item in self.postcondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['postconditionSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
-            for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+            for _item in self.attachments:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['attachments'] = _items
         # set to None if parent_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.parent_id is None and "parent_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.parent_id is None and "parent_id" in self.__fields_set__:
             _dict['parentId'] = None
 
         # set to None if precondition_steps (nullable) is None
-        # and model_fields_set contains the field
-        if self.precondition_steps is None and "precondition_steps" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.precondition_steps is None and "precondition_steps" in self.__fields_set__:
             _dict['preconditionSteps'] = None
 
         # set to None if postcondition_steps (nullable) is None
-        # and model_fields_set contains the field
-        if self.postcondition_steps is None and "postcondition_steps" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.postcondition_steps is None and "postcondition_steps" in self.__fields_set__:
             _dict['postconditionSteps'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> SectionPostModel:
         """Create an instance of SectionPostModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return SectionPostModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = SectionPostModel.parse_obj({
             "name": obj.get("name"),
-            "projectId": obj.get("projectId"),
-            "parentId": obj.get("parentId"),
-            "preconditionSteps": [StepPostModel.from_dict(_item) for _item in obj["preconditionSteps"]] if obj.get("preconditionSteps") is not None else None,
-            "postconditionSteps": [StepPostModel.from_dict(_item) for _item in obj["postconditionSteps"]] if obj.get("postconditionSteps") is not None else None,
-            "attachments": [AttachmentPutModel.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None
+            "project_id": obj.get("projectId"),
+            "parent_id": obj.get("parentId"),
+            "precondition_steps": [StepPostModel.from_dict(_item) for _item in obj.get("preconditionSteps")] if obj.get("preconditionSteps") is not None else None,
+            "postcondition_steps": [StepPostModel.from_dict(_item) for _item in obj.get("postconditionSteps")] if obj.get("postconditionSteps") is not None else None,
+            "attachments": [AttachmentPutModel.from_dict(_item) for _item in obj.get("attachments")] if obj.get("attachments") is not None else None
         })
         return _obj
 

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of attribute | 
@@ -21,7 +20,7 @@ json = "{}"
 # create an instance of GlobalCustomAttributePostModel from a JSON string
 global_custom_attribute_post_model_instance = GlobalCustomAttributePostModel.from_json(json)
 # print the JSON string representation of the object
-print(GlobalCustomAttributePostModel.to_json())
+print GlobalCustomAttributePostModel.to_json()
 
 # convert the object into a dict
 global_custom_attribute_post_model_dict = global_custom_attribute_post_model_instance.to_dict()

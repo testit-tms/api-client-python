@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of CreateWorkflowApiModel from a JSON string
 create_workflow_api_model_instance = CreateWorkflowApiModel.from_json(json)
 # print the JSON string representation of the object
-print(CreateWorkflowApiModel.to_json())
+print CreateWorkflowApiModel.to_json()
 
 # convert the object into a dict
 create_workflow_api_model_dict = create_workflow_api_model_instance.to_dict()

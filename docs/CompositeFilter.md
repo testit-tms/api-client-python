@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filters** | **List[object]** |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of CompositeFilter from a JSON string
 composite_filter_instance = CompositeFilter.from_json(json)
 # print the JSON string representation of the object
-print(CompositeFilter.to_json())
+print CompositeFilter.to_json()
 
 # convert the object into a dict
 composite_filter_dict = composite_filter_instance.to_dict()

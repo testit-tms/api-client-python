@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**TagsFilterApiModel**](TagsFilterApiModel.md) | Filters to select tags | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of SelectTagsApiModel from a JSON string
 select_tags_api_model_instance = SelectTagsApiModel.from_json(json)
 # print the JSON string representation of the object
-print(SelectTagsApiModel.to_json())
+print SelectTagsApiModel.to_json()
 
 # convert the object into a dict
 select_tags_api_model_dict = select_tags_api_model_instance.to_dict()

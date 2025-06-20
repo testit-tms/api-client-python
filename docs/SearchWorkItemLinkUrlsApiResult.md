@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**List[WorkItemLinkUrlApiResult]**](WorkItemLinkUrlApiResult.md) |  | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of SearchWorkItemLinkUrlsApiResult from a JSON string
 search_work_item_link_urls_api_result_instance = SearchWorkItemLinkUrlsApiResult.from_json(json)
 # print the JSON string representation of the object
-print(SearchWorkItemLinkUrlsApiResult.to_json())
+print SearchWorkItemLinkUrlsApiResult.to_json()
 
 # convert the object into a dict
 search_work_item_link_urls_api_result_dict = search_work_item_link_urls_api_result_instance.to_dict()

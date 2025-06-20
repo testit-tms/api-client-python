@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entity_type_name** | [**WorkItemEntityTypes**](WorkItemEntityTypes.md) |  | 
@@ -33,7 +32,7 @@ json = "{}"
 # create an instance of CreateWorkItemApiModel from a JSON string
 create_work_item_api_model_instance = CreateWorkItemApiModel.from_json(json)
 # print the JSON string representation of the object
-print(CreateWorkItemApiModel.to_json())
+print CreateWorkItemApiModel.to_json()
 
 # convert the object into a dict
 create_work_item_api_model_dict = create_work_item_api_model_instance.to_dict()

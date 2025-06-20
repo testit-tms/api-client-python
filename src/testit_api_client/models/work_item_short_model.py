@@ -18,166 +18,148 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, constr
 from testit_api_client.models.iteration_model import IterationModel
 from testit_api_client.models.link_short_model import LinkShortModel
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
 from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_states import WorkItemStates
-from typing import Optional, Set
-from typing_extensions import Self
 
 class WorkItemShortModel(BaseModel):
     """
     WorkItemShortModel
-    """ # noqa: E501
-    id: StrictStr = Field(description="Work Item internal unique identifier")
-    version_id: StrictStr = Field(description="Work Item version identifier", alias="versionId")
-    version_number: StrictInt = Field(description="Work Item version number", alias="versionNumber")
-    name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Work Item name")
-    entity_type_name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Work Item type. Possible values: CheckLists, SharedSteps, TestCases", alias="entityTypeName")
-    project_id: StrictStr = Field(description="Project unique identifier", alias="projectId")
-    section_id: StrictStr = Field(description="Identifier of Section where Work Item is located", alias="sectionId")
-    section_name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Section name of Work Item", alias="sectionName")
-    is_automated: StrictBool = Field(description="Boolean flag determining whether Work Item is automated", alias="isAutomated")
-    global_id: StrictInt = Field(description="Work Item global identifier", alias="globalId")
-    duration: StrictInt = Field(description="Work Item duration")
-    median_duration: Optional[StrictInt] = Field(default=None, description="Work Item median duration", alias="medianDuration")
+    """
+    id: StrictStr = Field(default=..., description="Work Item internal unique identifier")
+    version_id: StrictStr = Field(default=..., alias="versionId", description="Work Item version identifier")
+    version_number: StrictInt = Field(default=..., alias="versionNumber", description="Work Item version number")
+    name: constr(strict=True, min_length=1) = Field(default=..., description="Work Item name")
+    entity_type_name: constr(strict=True, min_length=1) = Field(default=..., alias="entityTypeName", description="Work Item type. Possible values: CheckLists, SharedSteps, TestCases")
+    project_id: StrictStr = Field(default=..., alias="projectId", description="Project unique identifier")
+    section_id: StrictStr = Field(default=..., alias="sectionId", description="Identifier of Section where Work Item is located")
+    section_name: constr(strict=True, min_length=1) = Field(default=..., alias="sectionName", description="Section name of Work Item")
+    is_automated: StrictBool = Field(default=..., alias="isAutomated", description="Boolean flag determining whether Work Item is automated")
+    global_id: StrictInt = Field(default=..., alias="globalId", description="Work Item global identifier")
+    duration: StrictInt = Field(default=..., description="Work Item duration")
+    median_duration: Optional[StrictInt] = Field(default=None, alias="medianDuration", description="Work Item median duration")
     attributes: Optional[Dict[str, Any]] = Field(default=None, description="Work Item attributes")
-    created_by_id: StrictStr = Field(description="Unique identifier of user who created Work Item", alias="createdById")
-    modified_by_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of user who applied the latest modification of Work Item", alias="modifiedById")
-    created_date: Optional[datetime] = Field(default=None, description="Date and time of Work Item creation", alias="createdDate")
-    modified_date: Optional[datetime] = Field(default=None, description="Date and time of the latest modification of Work Item", alias="modifiedDate")
-    state: WorkItemStates = Field(description="The current state of Work Item")
-    priority: WorkItemPriorityModel = Field(description="Work Item priority level")
-    source_type: WorkItemSourceTypeModel = Field(description="Work Item source type", alias="sourceType")
-    is_deleted: StrictBool = Field(description="Flag determining whether Work Item is deleted", alias="isDeleted")
-    tag_names: Optional[List[StrictStr]] = Field(default=None, description="Array of tag names of Work Item", alias="tagNames")
-    iterations: List[IterationModel] = Field(description="Set of iterations related to Work Item")
-    links: List[LinkShortModel] = Field(description="Set of links related to Work Item")
-    __properties: ClassVar[List[str]] = ["id", "versionId", "versionNumber", "name", "entityTypeName", "projectId", "sectionId", "sectionName", "isAutomated", "globalId", "duration", "medianDuration", "attributes", "createdById", "modifiedById", "createdDate", "modifiedDate", "state", "priority", "sourceType", "isDeleted", "tagNames", "iterations", "links"]
+    created_by_id: StrictStr = Field(default=..., alias="createdById", description="Unique identifier of user who created Work Item")
+    modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById", description="Unique identifier of user who applied the latest modification of Work Item")
+    created_date: Optional[datetime] = Field(default=None, alias="createdDate", description="Date and time of Work Item creation")
+    modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate", description="Date and time of the latest modification of Work Item")
+    state: WorkItemStates = Field(default=..., description="The current state of Work Item")
+    priority: WorkItemPriorityModel = Field(default=..., description="Work Item priority level")
+    source_type: WorkItemSourceTypeModel = Field(default=..., alias="sourceType", description="Work Item source type")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Flag determining whether Work Item is deleted")
+    tag_names: Optional[conlist(StrictStr)] = Field(default=None, alias="tagNames", description="Array of tag names of Work Item")
+    iterations: conlist(IterationModel) = Field(default=..., description="Set of iterations related to Work Item")
+    links: conlist(LinkShortModel) = Field(default=..., description="Set of links related to Work Item")
+    __properties = ["id", "versionId", "versionNumber", "name", "entityTypeName", "projectId", "sectionId", "sectionName", "isAutomated", "globalId", "duration", "medianDuration", "attributes", "createdById", "modifiedById", "createdDate", "modifiedDate", "state", "priority", "sourceType", "isDeleted", "tagNames", "iterations", "links"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> WorkItemShortModel:
         """Create an instance of WorkItemShortModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in iterations (list)
         _items = []
         if self.iterations:
-            for _item_iterations in self.iterations:
-                if _item_iterations:
-                    _items.append(_item_iterations.to_dict())
+            for _item in self.iterations:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['iterations'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
-            for _item_links in self.links:
-                if _item_links:
-                    _items.append(_item_links.to_dict())
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['links'] = _items
         # set to None if median_duration (nullable) is None
-        # and model_fields_set contains the field
-        if self.median_duration is None and "median_duration" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.median_duration is None and "median_duration" in self.__fields_set__:
             _dict['medianDuration'] = None
 
         # set to None if attributes (nullable) is None
-        # and model_fields_set contains the field
-        if self.attributes is None and "attributes" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.attributes is None and "attributes" in self.__fields_set__:
             _dict['attributes'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         # set to None if created_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_date is None and "created_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_date is None and "created_date" in self.__fields_set__:
             _dict['createdDate'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if tag_names (nullable) is None
-        # and model_fields_set contains the field
-        if self.tag_names is None and "tag_names" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.tag_names is None and "tag_names" in self.__fields_set__:
             _dict['tagNames'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> WorkItemShortModel:
         """Create an instance of WorkItemShortModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return WorkItemShortModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = WorkItemShortModel.parse_obj({
             "id": obj.get("id"),
-            "versionId": obj.get("versionId"),
-            "versionNumber": obj.get("versionNumber"),
+            "version_id": obj.get("versionId"),
+            "version_number": obj.get("versionNumber"),
             "name": obj.get("name"),
-            "entityTypeName": obj.get("entityTypeName"),
-            "projectId": obj.get("projectId"),
-            "sectionId": obj.get("sectionId"),
-            "sectionName": obj.get("sectionName"),
-            "isAutomated": obj.get("isAutomated"),
-            "globalId": obj.get("globalId"),
+            "entity_type_name": obj.get("entityTypeName"),
+            "project_id": obj.get("projectId"),
+            "section_id": obj.get("sectionId"),
+            "section_name": obj.get("sectionName"),
+            "is_automated": obj.get("isAutomated"),
+            "global_id": obj.get("globalId"),
             "duration": obj.get("duration"),
-            "medianDuration": obj.get("medianDuration"),
+            "median_duration": obj.get("medianDuration"),
             "attributes": obj.get("attributes"),
-            "createdById": obj.get("createdById"),
-            "modifiedById": obj.get("modifiedById"),
-            "createdDate": obj.get("createdDate"),
-            "modifiedDate": obj.get("modifiedDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_by_id": obj.get("modifiedById"),
+            "created_date": obj.get("createdDate"),
+            "modified_date": obj.get("modifiedDate"),
             "state": obj.get("state"),
             "priority": obj.get("priority"),
-            "sourceType": obj.get("sourceType"),
-            "isDeleted": obj.get("isDeleted"),
-            "tagNames": obj.get("tagNames"),
-            "iterations": [IterationModel.from_dict(_item) for _item in obj["iterations"]] if obj.get("iterations") is not None else None,
-            "links": [LinkShortModel.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+            "source_type": obj.get("sourceType"),
+            "is_deleted": obj.get("isDeleted"),
+            "tag_names": obj.get("tagNames"),
+            "iterations": [IterationModel.from_dict(_item) for _item in obj.get("iterations")] if obj.get("iterations") is not None else None,
+            "links": [LinkShortModel.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None
         })
         return _obj
 

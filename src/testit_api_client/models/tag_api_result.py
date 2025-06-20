@@ -18,90 +18,73 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing import Optional, Set
-from typing_extensions import Self
+from typing import Optional
+from pydantic import BaseModel, Field, StrictStr
 
 class TagApiResult(BaseModel):
     """
     TagApiResult
-    """ # noqa: E501
-    id: StrictStr = Field(description="ID of the tag")
-    name: StrictStr = Field(description="Name of the tag")
-    created_date: datetime = Field(description="Creation date of the tag", alias="createdDate")
-    created_by_id: StrictStr = Field(description="ID of the user who created the tag", alias="createdById")
-    modified_date: Optional[datetime] = Field(default=None, description="Latest modification date of the tag", alias="modifiedDate")
-    modified_by_id: Optional[StrictStr] = Field(default=None, description="ID of the user who last modified the tag", alias="modifiedById")
-    __properties: ClassVar[List[str]] = ["id", "name", "createdDate", "createdById", "modifiedDate", "modifiedById"]
+    """
+    id: StrictStr = Field(default=..., description="ID of the tag")
+    name: StrictStr = Field(default=..., description="Name of the tag")
+    created_date: datetime = Field(default=..., alias="createdDate", description="Creation date of the tag")
+    created_by_id: StrictStr = Field(default=..., alias="createdById", description="ID of the user who created the tag")
+    modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate", description="Latest modification date of the tag")
+    modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById", description="ID of the user who last modified the tag")
+    __properties = ["id", "name", "createdDate", "createdById", "modifiedDate", "modifiedById"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TagApiResult:
         """Create an instance of TagApiResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TagApiResult:
         """Create an instance of TagApiResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TagApiResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = TagApiResult.parse_obj({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "createdDate": obj.get("createdDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "modifiedById": obj.get("modifiedById")
+            "created_date": obj.get("createdDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_date": obj.get("modifiedDate"),
+            "modified_by_id": obj.get("modifiedById")
         })
         return _obj
 

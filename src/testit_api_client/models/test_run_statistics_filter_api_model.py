@@ -17,113 +17,96 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictStr, conlist, constr
 from testit_api_client.models.failure_category_model import FailureCategoryModel
 from testit_api_client.models.test_result_outcome import TestResultOutcome
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestRunStatisticsFilterApiModel(BaseModel):
     """
     TestRunStatisticsFilterApiModel
-    """ # noqa: E501
-    configuration_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test result configuration IDs to search for", alias="configurationIds")
-    outcomes: Optional[List[TestResultOutcome]] = Field(default=None, description="Specifies a test result outcomes to search for")
-    status_codes: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test result status codes to search for", alias="statusCodes")
-    failure_categories: Optional[List[FailureCategoryModel]] = Field(default=None, description="Specifies a test result failure categories to search for", alias="failureCategories")
-    namespace: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=255)]] = Field(default=None, description="Specifies a test result namespace to search for")
-    class_name: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=255)]] = Field(default=None, description="Specifies a test result class name to search for", alias="className")
-    __properties: ClassVar[List[str]] = ["configurationIds", "outcomes", "statusCodes", "failureCategories", "namespace", "className"]
+    """
+    configuration_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="configurationIds", description="Specifies a test result configuration IDs to search for")
+    outcomes: Optional[conlist(TestResultOutcome)] = Field(default=None, description="Specifies a test result outcomes to search for")
+    status_codes: Optional[conlist(StrictStr)] = Field(default=None, alias="statusCodes", description="Specifies a test result status codes to search for")
+    failure_categories: Optional[conlist(FailureCategoryModel)] = Field(default=None, alias="failureCategories", description="Specifies a test result failure categories to search for")
+    namespace: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(default=None, description="Specifies a test result namespace to search for")
+    class_name: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(default=None, alias="className", description="Specifies a test result class name to search for")
+    __properties = ["configurationIds", "outcomes", "statusCodes", "failureCategories", "namespace", "className"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestRunStatisticsFilterApiModel:
         """Create an instance of TestRunStatisticsFilterApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if configuration_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.configuration_ids is None and "configuration_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.configuration_ids is None and "configuration_ids" in self.__fields_set__:
             _dict['configurationIds'] = None
 
         # set to None if outcomes (nullable) is None
-        # and model_fields_set contains the field
-        if self.outcomes is None and "outcomes" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.outcomes is None and "outcomes" in self.__fields_set__:
             _dict['outcomes'] = None
 
         # set to None if status_codes (nullable) is None
-        # and model_fields_set contains the field
-        if self.status_codes is None and "status_codes" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.status_codes is None and "status_codes" in self.__fields_set__:
             _dict['statusCodes'] = None
 
         # set to None if failure_categories (nullable) is None
-        # and model_fields_set contains the field
-        if self.failure_categories is None and "failure_categories" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.failure_categories is None and "failure_categories" in self.__fields_set__:
             _dict['failureCategories'] = None
 
         # set to None if namespace (nullable) is None
-        # and model_fields_set contains the field
-        if self.namespace is None and "namespace" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.namespace is None and "namespace" in self.__fields_set__:
             _dict['namespace'] = None
 
         # set to None if class_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.class_name is None and "class_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.class_name is None and "class_name" in self.__fields_set__:
             _dict['className'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestRunStatisticsFilterApiModel:
         """Create an instance of TestRunStatisticsFilterApiModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestRunStatisticsFilterApiModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "configurationIds": obj.get("configurationIds"),
+        _obj = TestRunStatisticsFilterApiModel.parse_obj({
+            "configuration_ids": obj.get("configurationIds"),
             "outcomes": obj.get("outcomes"),
-            "statusCodes": obj.get("statusCodes"),
-            "failureCategories": obj.get("failureCategories"),
+            "status_codes": obj.get("statusCodes"),
+            "failure_categories": obj.get("failureCategories"),
             "namespace": obj.get("namespace"),
-            "className": obj.get("className")
+            "class_name": obj.get("className")
         })
         return _obj
 

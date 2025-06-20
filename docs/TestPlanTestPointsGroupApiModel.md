@@ -2,10 +2,9 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**var_field** | **str** |  | 
+**field** | **str** |  | 
 **display_field** | **str** |  | [optional] 
 
 ## Example
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of TestPlanTestPointsGroupApiModel from a JSON string
 test_plan_test_points_group_api_model_instance = TestPlanTestPointsGroupApiModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanTestPointsGroupApiModel.to_json())
+print TestPlanTestPointsGroupApiModel.to_json()
 
 # convert the object into a dict
 test_plan_test_points_group_api_model_dict = test_plan_test_points_group_api_model_instance.to_dict()

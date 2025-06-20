@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **start_date** | **datetime** |  | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of PeriodViewModel from a JSON string
 period_view_model_instance = PeriodViewModel.from_json(json)
 # print the JSON string representation of the object
-print(PeriodViewModel.to_json())
+print PeriodViewModel.to_json()
 
 # convert the object into a dict
 period_view_model_dict = period_view_model_instance.to_dict()

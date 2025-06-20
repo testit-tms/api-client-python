@@ -18,150 +18,132 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, constr
 from testit_api_client.models.attachment_model import AttachmentModel
 from testit_api_client.models.step_model import StepModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class SectionWithStepsModel(BaseModel):
     """
     SectionWithStepsModel
-    """ # noqa: E501
-    attachments: Optional[List[AttachmentModel]] = None
-    precondition_steps: Optional[List[StepModel]] = Field(default=None, alias="preconditionSteps")
-    postcondition_steps: Optional[List[StepModel]] = Field(default=None, alias="postconditionSteps")
+    """
+    attachments: Optional[conlist(AttachmentModel)] = None
+    precondition_steps: Optional[conlist(StepModel)] = Field(default=None, alias="preconditionSteps")
+    postcondition_steps: Optional[conlist(StepModel)] = Field(default=None, alias="postconditionSteps")
     project_id: Optional[StrictStr] = Field(default=None, alias="projectId")
     parent_id: Optional[StrictStr] = Field(default=None, alias="parentId")
-    is_deleted: StrictBool = Field(alias="isDeleted")
-    id: StrictStr
-    created_date: datetime = Field(alias="createdDate")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted")
+    id: StrictStr = Field(...)
+    created_date: datetime = Field(default=..., alias="createdDate")
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
-    created_by_id: StrictStr = Field(alias="createdById")
+    created_by_id: StrictStr = Field(default=..., alias="createdById")
     modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
-    name: Annotated[str, Field(min_length=1, strict=True)]
-    __properties: ClassVar[List[str]] = ["attachments", "preconditionSteps", "postconditionSteps", "projectId", "parentId", "isDeleted", "id", "createdDate", "modifiedDate", "createdById", "modifiedById", "name"]
+    name: constr(strict=True, min_length=1) = Field(...)
+    __properties = ["attachments", "preconditionSteps", "postconditionSteps", "projectId", "parentId", "isDeleted", "id", "createdDate", "modifiedDate", "createdById", "modifiedById", "name"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> SectionWithStepsModel:
         """Create an instance of SectionWithStepsModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
-            for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+            for _item in self.attachments:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['attachments'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in precondition_steps (list)
         _items = []
         if self.precondition_steps:
-            for _item_precondition_steps in self.precondition_steps:
-                if _item_precondition_steps:
-                    _items.append(_item_precondition_steps.to_dict())
+            for _item in self.precondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['preconditionSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in postcondition_steps (list)
         _items = []
         if self.postcondition_steps:
-            for _item_postcondition_steps in self.postcondition_steps:
-                if _item_postcondition_steps:
-                    _items.append(_item_postcondition_steps.to_dict())
+            for _item in self.postcondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['postconditionSteps'] = _items
         # set to None if attachments (nullable) is None
-        # and model_fields_set contains the field
-        if self.attachments is None and "attachments" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.attachments is None and "attachments" in self.__fields_set__:
             _dict['attachments'] = None
 
         # set to None if precondition_steps (nullable) is None
-        # and model_fields_set contains the field
-        if self.precondition_steps is None and "precondition_steps" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.precondition_steps is None and "precondition_steps" in self.__fields_set__:
             _dict['preconditionSteps'] = None
 
         # set to None if postcondition_steps (nullable) is None
-        # and model_fields_set contains the field
-        if self.postcondition_steps is None and "postcondition_steps" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.postcondition_steps is None and "postcondition_steps" in self.__fields_set__:
             _dict['postconditionSteps'] = None
 
         # set to None if project_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.project_id is None and "project_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.project_id is None and "project_id" in self.__fields_set__:
             _dict['projectId'] = None
 
         # set to None if parent_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.parent_id is None and "parent_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.parent_id is None and "parent_id" in self.__fields_set__:
             _dict['parentId'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> SectionWithStepsModel:
         """Create an instance of SectionWithStepsModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return SectionWithStepsModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "attachments": [AttachmentModel.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
-            "preconditionSteps": [StepModel.from_dict(_item) for _item in obj["preconditionSteps"]] if obj.get("preconditionSteps") is not None else None,
-            "postconditionSteps": [StepModel.from_dict(_item) for _item in obj["postconditionSteps"]] if obj.get("postconditionSteps") is not None else None,
-            "projectId": obj.get("projectId"),
-            "parentId": obj.get("parentId"),
-            "isDeleted": obj.get("isDeleted"),
+        _obj = SectionWithStepsModel.parse_obj({
+            "attachments": [AttachmentModel.from_dict(_item) for _item in obj.get("attachments")] if obj.get("attachments") is not None else None,
+            "precondition_steps": [StepModel.from_dict(_item) for _item in obj.get("preconditionSteps")] if obj.get("preconditionSteps") is not None else None,
+            "postcondition_steps": [StepModel.from_dict(_item) for _item in obj.get("postconditionSteps")] if obj.get("postconditionSteps") is not None else None,
+            "project_id": obj.get("projectId"),
+            "parent_id": obj.get("parentId"),
+            "is_deleted": obj.get("isDeleted"),
             "id": obj.get("id"),
-            "createdDate": obj.get("createdDate"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedById": obj.get("modifiedById"),
+            "created_date": obj.get("createdDate"),
+            "modified_date": obj.get("modifiedDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_by_id": obj.get("modifiedById"),
             "name": obj.get("name")
         })
         return _obj

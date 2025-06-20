@@ -17,76 +17,60 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from testit_api_client.models.date_time_range_selector_model import DateTimeRangeSelectorModel
 from testit_api_client.models.failure_category import FailureCategory
 from testit_api_client.models.int32_range_selector_model import Int32RangeSelectorModel
 from testit_api_client.models.test_result_outcome import TestResultOutcome
 from testit_api_client.models.test_run_state import TestRunState
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestRunFilterApiModel(BaseModel):
     """
     TestRunFilterApiModel
-    """ # noqa: E501
-    project_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test run project IDs to search for", alias="projectIds")
+    """
+    project_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="projectIds", description="Specifies a test run project IDs to search for")
     name: Optional[StrictStr] = Field(default=None, description="Specifies test run name")
-    states: Optional[List[TestRunState]] = Field(default=None, description="Specifies a test run states to search for")
-    status_codes: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test run status codes to search for", alias="statusCodes")
-    created_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, description="Specifies a test run range of created date to search for", alias="createdDate")
-    started_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, description="Specifies a test run range of started date to search for", alias="startedDate")
-    created_by_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test run creator IDs to search for", alias="createdByIds")
-    modified_by_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test run last editor IDs to search for", alias="modifiedByIds")
-    is_deleted: Optional[StrictBool] = Field(default=None, description="Specifies a test run deleted status to search for", alias="isDeleted")
-    auto_tests_count: Optional[Int32RangeSelectorModel] = Field(default=None, description="Number of autoTests run in the test run", alias="autoTestsCount")
-    test_results_outcome: Optional[List[TestResultOutcome]] = Field(default=None, description="Specifies test results outcomes", alias="testResultsOutcome")
-    test_results_status_codes: Optional[List[StrictStr]] = Field(default=None, description="Specifies test results status codes", alias="testResultsStatusCodes")
-    failure_category: Optional[List[FailureCategory]] = Field(default=None, description="Specifies failure categories", alias="failureCategory")
-    completed_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, description="Specifies a test run range of completed date to search for", alias="completedDate")
-    test_results_configuration_ids: Optional[List[StrictStr]] = Field(default=None, description="Specifies a test result configuration IDs to search for", alias="testResultsConfigurationIds")
-    __properties: ClassVar[List[str]] = ["projectIds", "name", "states", "statusCodes", "createdDate", "startedDate", "createdByIds", "modifiedByIds", "isDeleted", "autoTestsCount", "testResultsOutcome", "testResultsStatusCodes", "failureCategory", "completedDate", "testResultsConfigurationIds"]
+    states: Optional[conlist(TestRunState)] = Field(default=None, description="Specifies a test run states to search for")
+    status_codes: Optional[conlist(StrictStr)] = Field(default=None, alias="statusCodes", description="Specifies a test run status codes to search for")
+    created_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="createdDate", description="Specifies a test run range of created date to search for")
+    started_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="startedDate", description="Specifies a test run range of started date to search for")
+    created_by_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="createdByIds", description="Specifies a test run creator IDs to search for")
+    modified_by_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="modifiedByIds", description="Specifies a test run last editor IDs to search for")
+    is_deleted: Optional[StrictBool] = Field(default=None, alias="isDeleted", description="Specifies a test run deleted status to search for")
+    auto_tests_count: Optional[Int32RangeSelectorModel] = Field(default=None, alias="autoTestsCount", description="Number of autoTests run in the test run")
+    test_results_outcome: Optional[conlist(TestResultOutcome)] = Field(default=None, alias="testResultsOutcome", description="Specifies test results outcomes")
+    test_results_status_codes: Optional[conlist(StrictStr)] = Field(default=None, alias="testResultsStatusCodes", description="Specifies test results status codes")
+    failure_category: Optional[conlist(FailureCategory)] = Field(default=None, alias="failureCategory", description="Specifies failure categories")
+    completed_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="completedDate", description="Specifies a test run range of completed date to search for")
+    test_results_configuration_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="testResultsConfigurationIds", description="Specifies a test result configuration IDs to search for")
+    __properties = ["projectIds", "name", "states", "statusCodes", "createdDate", "startedDate", "createdByIds", "modifiedByIds", "isDeleted", "autoTestsCount", "testResultsOutcome", "testResultsStatusCodes", "failureCategory", "completedDate", "testResultsConfigurationIds"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestRunFilterApiModel:
         """Create an instance of TestRunFilterApiModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of created_date
         if self.created_date:
             _dict['createdDate'] = self.created_date.to_dict()
@@ -100,107 +84,107 @@ class TestRunFilterApiModel(BaseModel):
         if self.completed_date:
             _dict['completedDate'] = self.completed_date.to_dict()
         # set to None if project_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.project_ids is None and "project_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.project_ids is None and "project_ids" in self.__fields_set__:
             _dict['projectIds'] = None
 
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if states (nullable) is None
-        # and model_fields_set contains the field
-        if self.states is None and "states" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.states is None and "states" in self.__fields_set__:
             _dict['states'] = None
 
         # set to None if status_codes (nullable) is None
-        # and model_fields_set contains the field
-        if self.status_codes is None and "status_codes" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.status_codes is None and "status_codes" in self.__fields_set__:
             _dict['statusCodes'] = None
 
         # set to None if created_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_date is None and "created_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_date is None and "created_date" in self.__fields_set__:
             _dict['createdDate'] = None
 
         # set to None if started_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.started_date is None and "started_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.started_date is None and "started_date" in self.__fields_set__:
             _dict['startedDate'] = None
 
         # set to None if created_by_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_by_ids is None and "created_by_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.created_by_ids is None and "created_by_ids" in self.__fields_set__:
             _dict['createdByIds'] = None
 
         # set to None if modified_by_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_ids is None and "modified_by_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_ids is None and "modified_by_ids" in self.__fields_set__:
             _dict['modifiedByIds'] = None
 
         # set to None if is_deleted (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_deleted is None and "is_deleted" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.is_deleted is None and "is_deleted" in self.__fields_set__:
             _dict['isDeleted'] = None
 
         # set to None if auto_tests_count (nullable) is None
-        # and model_fields_set contains the field
-        if self.auto_tests_count is None and "auto_tests_count" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.auto_tests_count is None and "auto_tests_count" in self.__fields_set__:
             _dict['autoTestsCount'] = None
 
         # set to None if test_results_outcome (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_results_outcome is None and "test_results_outcome" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_results_outcome is None and "test_results_outcome" in self.__fields_set__:
             _dict['testResultsOutcome'] = None
 
         # set to None if test_results_status_codes (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_results_status_codes is None and "test_results_status_codes" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_results_status_codes is None and "test_results_status_codes" in self.__fields_set__:
             _dict['testResultsStatusCodes'] = None
 
         # set to None if failure_category (nullable) is None
-        # and model_fields_set contains the field
-        if self.failure_category is None and "failure_category" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.failure_category is None and "failure_category" in self.__fields_set__:
             _dict['failureCategory'] = None
 
         # set to None if completed_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.completed_date is None and "completed_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.completed_date is None and "completed_date" in self.__fields_set__:
             _dict['completedDate'] = None
 
         # set to None if test_results_configuration_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_results_configuration_ids is None and "test_results_configuration_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.test_results_configuration_ids is None and "test_results_configuration_ids" in self.__fields_set__:
             _dict['testResultsConfigurationIds'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestRunFilterApiModel:
         """Create an instance of TestRunFilterApiModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestRunFilterApiModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "projectIds": obj.get("projectIds"),
+        _obj = TestRunFilterApiModel.parse_obj({
+            "project_ids": obj.get("projectIds"),
             "name": obj.get("name"),
             "states": obj.get("states"),
-            "statusCodes": obj.get("statusCodes"),
-            "createdDate": DateTimeRangeSelectorModel.from_dict(obj["createdDate"]) if obj.get("createdDate") is not None else None,
-            "startedDate": DateTimeRangeSelectorModel.from_dict(obj["startedDate"]) if obj.get("startedDate") is not None else None,
-            "createdByIds": obj.get("createdByIds"),
-            "modifiedByIds": obj.get("modifiedByIds"),
-            "isDeleted": obj.get("isDeleted"),
-            "autoTestsCount": Int32RangeSelectorModel.from_dict(obj["autoTestsCount"]) if obj.get("autoTestsCount") is not None else None,
-            "testResultsOutcome": obj.get("testResultsOutcome"),
-            "testResultsStatusCodes": obj.get("testResultsStatusCodes"),
-            "failureCategory": obj.get("failureCategory"),
-            "completedDate": DateTimeRangeSelectorModel.from_dict(obj["completedDate"]) if obj.get("completedDate") is not None else None,
-            "testResultsConfigurationIds": obj.get("testResultsConfigurationIds")
+            "status_codes": obj.get("statusCodes"),
+            "created_date": DateTimeRangeSelectorModel.from_dict(obj.get("createdDate")) if obj.get("createdDate") is not None else None,
+            "started_date": DateTimeRangeSelectorModel.from_dict(obj.get("startedDate")) if obj.get("startedDate") is not None else None,
+            "created_by_ids": obj.get("createdByIds"),
+            "modified_by_ids": obj.get("modifiedByIds"),
+            "is_deleted": obj.get("isDeleted"),
+            "auto_tests_count": Int32RangeSelectorModel.from_dict(obj.get("autoTestsCount")) if obj.get("autoTestsCount") is not None else None,
+            "test_results_outcome": obj.get("testResultsOutcome"),
+            "test_results_status_codes": obj.get("testResultsStatusCodes"),
+            "failure_category": obj.get("failureCategory"),
+            "completed_date": DateTimeRangeSelectorModel.from_dict(obj.get("completedDate")) if obj.get("completedDate") is not None else None,
+            "test_results_configuration_ids": obj.get("testResultsConfigurationIds")
         })
         return _obj
 

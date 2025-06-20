@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count_group_by_status** | [**List[TestRunGroupByStatusApiResult]**](TestRunGroupByStatusApiResult.md) |  | 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of TestRunAnalyticApiResult from a JSON string
 test_run_analytic_api_result_instance = TestRunAnalyticApiResult.from_json(json)
 # print the JSON string representation of the object
-print(TestRunAnalyticApiResult.to_json())
+print TestRunAnalyticApiResult.to_json()
 
 # convert the object into a dict
 test_run_analytic_api_result_dict = test_run_analytic_api_result_instance.to_dict()

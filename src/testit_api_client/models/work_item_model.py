@@ -18,9 +18,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint, conlist, constr
 from testit_api_client.models.attachment_model import AttachmentModel
 from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.models.iteration_model import IterationModel
@@ -31,237 +30,220 @@ from testit_api_client.models.work_item_entity_types import WorkItemEntityTypes
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
 from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_states import WorkItemStates
-from typing import Optional, Set
-from typing_extensions import Self
 
 class WorkItemModel(BaseModel):
     """
     WorkItemModel
-    """ # noqa: E501
-    version_id: StrictStr = Field(description="used for versioning changes in workitem", alias="versionId")
-    median_duration: StrictInt = Field(description="used for getting a median duration of all autotests related to this workitem", alias="medianDuration")
-    is_deleted: StrictBool = Field(alias="isDeleted")
-    project_id: StrictStr = Field(alias="projectId")
-    entity_type_name: WorkItemEntityTypes = Field(alias="entityTypeName")
-    is_automated: StrictBool = Field(alias="isAutomated")
-    auto_tests: Optional[List[AutoTestModel]] = Field(default=None, alias="autoTests")
-    attachments: Optional[List[AttachmentModel]] = None
-    section_precondition_steps: Optional[List[StepModel]] = Field(default=None, alias="sectionPreconditionSteps")
-    section_postcondition_steps: Optional[List[StepModel]] = Field(default=None, alias="sectionPostconditionSteps")
-    version_number: StrictInt = Field(description="used for define chronology of workitem state in each version", alias="versionNumber")
-    iterations: Optional[List[IterationModel]] = None
-    created_date: datetime = Field(alias="createdDate")
+    """
+    version_id: StrictStr = Field(default=..., alias="versionId", description="used for versioning changes in workitem")
+    median_duration: StrictInt = Field(default=..., alias="medianDuration", description="used for getting a median duration of all autotests related to this workitem")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted")
+    project_id: StrictStr = Field(default=..., alias="projectId")
+    entity_type_name: WorkItemEntityTypes = Field(default=..., alias="entityTypeName")
+    is_automated: StrictBool = Field(default=..., alias="isAutomated")
+    auto_tests: Optional[conlist(AutoTestModel)] = Field(default=None, alias="autoTests")
+    attachments: Optional[conlist(AttachmentModel)] = None
+    section_precondition_steps: Optional[conlist(StepModel)] = Field(default=None, alias="sectionPreconditionSteps")
+    section_postcondition_steps: Optional[conlist(StepModel)] = Field(default=None, alias="sectionPostconditionSteps")
+    version_number: StrictInt = Field(default=..., alias="versionNumber", description="used for define chronology of workitem state in each version")
+    iterations: Optional[conlist(IterationModel)] = None
+    created_date: datetime = Field(default=..., alias="createdDate")
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
-    created_by_id: StrictStr = Field(alias="createdById")
+    created_by_id: StrictStr = Field(default=..., alias="createdById")
     modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
-    global_id: StrictInt = Field(alias="globalId")
-    id: StrictStr
-    section_id: StrictStr = Field(alias="sectionId")
+    global_id: StrictInt = Field(default=..., alias="globalId")
+    id: StrictStr = Field(...)
+    section_id: StrictStr = Field(default=..., alias="sectionId")
     description: Optional[StrictStr] = None
-    state: WorkItemStates
-    priority: WorkItemPriorityModel
-    source_type: WorkItemSourceTypeModel = Field(alias="sourceType")
-    steps: List[StepModel]
-    precondition_steps: List[StepModel] = Field(alias="preconditionSteps")
-    postcondition_steps: List[StepModel] = Field(alias="postconditionSteps")
-    duration: Annotated[int, Field(le=86400000, strict=True, ge=0)]
-    attributes: Dict[str, Any]
-    tags: List[TagModel]
-    links: List[LinkModel]
-    name: Annotated[str, Field(min_length=1, strict=True)]
-    __properties: ClassVar[List[str]] = ["versionId", "medianDuration", "isDeleted", "projectId", "entityTypeName", "isAutomated", "autoTests", "attachments", "sectionPreconditionSteps", "sectionPostconditionSteps", "versionNumber", "iterations", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "id", "sectionId", "description", "state", "priority", "sourceType", "steps", "preconditionSteps", "postconditionSteps", "duration", "attributes", "tags", "links", "name"]
+    state: WorkItemStates = Field(...)
+    priority: WorkItemPriorityModel = Field(...)
+    source_type: WorkItemSourceTypeModel = Field(default=..., alias="sourceType")
+    steps: conlist(StepModel) = Field(...)
+    precondition_steps: conlist(StepModel) = Field(default=..., alias="preconditionSteps")
+    postcondition_steps: conlist(StepModel) = Field(default=..., alias="postconditionSteps")
+    duration: conint(strict=True, le=86400000, ge=0) = Field(...)
+    attributes: Dict[str, Any] = Field(...)
+    tags: conlist(TagModel) = Field(...)
+    links: conlist(LinkModel) = Field(...)
+    name: constr(strict=True, min_length=1) = Field(...)
+    __properties = ["versionId", "medianDuration", "isDeleted", "projectId", "entityTypeName", "isAutomated", "autoTests", "attachments", "sectionPreconditionSteps", "sectionPostconditionSteps", "versionNumber", "iterations", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "id", "sectionId", "description", "state", "priority", "sourceType", "steps", "preconditionSteps", "postconditionSteps", "duration", "attributes", "tags", "links", "name"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> WorkItemModel:
         """Create an instance of WorkItemModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in auto_tests (list)
         _items = []
         if self.auto_tests:
-            for _item_auto_tests in self.auto_tests:
-                if _item_auto_tests:
-                    _items.append(_item_auto_tests.to_dict())
+            for _item in self.auto_tests:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['autoTests'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
-            for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+            for _item in self.attachments:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['attachments'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in section_precondition_steps (list)
         _items = []
         if self.section_precondition_steps:
-            for _item_section_precondition_steps in self.section_precondition_steps:
-                if _item_section_precondition_steps:
-                    _items.append(_item_section_precondition_steps.to_dict())
+            for _item in self.section_precondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['sectionPreconditionSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in section_postcondition_steps (list)
         _items = []
         if self.section_postcondition_steps:
-            for _item_section_postcondition_steps in self.section_postcondition_steps:
-                if _item_section_postcondition_steps:
-                    _items.append(_item_section_postcondition_steps.to_dict())
+            for _item in self.section_postcondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['sectionPostconditionSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in iterations (list)
         _items = []
         if self.iterations:
-            for _item_iterations in self.iterations:
-                if _item_iterations:
-                    _items.append(_item_iterations.to_dict())
+            for _item in self.iterations:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['iterations'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in steps (list)
         _items = []
         if self.steps:
-            for _item_steps in self.steps:
-                if _item_steps:
-                    _items.append(_item_steps.to_dict())
+            for _item in self.steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['steps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in precondition_steps (list)
         _items = []
         if self.precondition_steps:
-            for _item_precondition_steps in self.precondition_steps:
-                if _item_precondition_steps:
-                    _items.append(_item_precondition_steps.to_dict())
+            for _item in self.precondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['preconditionSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in postcondition_steps (list)
         _items = []
         if self.postcondition_steps:
-            for _item_postcondition_steps in self.postcondition_steps:
-                if _item_postcondition_steps:
-                    _items.append(_item_postcondition_steps.to_dict())
+            for _item in self.postcondition_steps:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['postconditionSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in tags (list)
         _items = []
         if self.tags:
-            for _item_tags in self.tags:
-                if _item_tags:
-                    _items.append(_item_tags.to_dict())
+            for _item in self.tags:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['tags'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
-            for _item_links in self.links:
-                if _item_links:
-                    _items.append(_item_links.to_dict())
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['links'] = _items
         # set to None if auto_tests (nullable) is None
-        # and model_fields_set contains the field
-        if self.auto_tests is None and "auto_tests" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.auto_tests is None and "auto_tests" in self.__fields_set__:
             _dict['autoTests'] = None
 
         # set to None if attachments (nullable) is None
-        # and model_fields_set contains the field
-        if self.attachments is None and "attachments" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.attachments is None and "attachments" in self.__fields_set__:
             _dict['attachments'] = None
 
         # set to None if section_precondition_steps (nullable) is None
-        # and model_fields_set contains the field
-        if self.section_precondition_steps is None and "section_precondition_steps" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.section_precondition_steps is None and "section_precondition_steps" in self.__fields_set__:
             _dict['sectionPreconditionSteps'] = None
 
         # set to None if section_postcondition_steps (nullable) is None
-        # and model_fields_set contains the field
-        if self.section_postcondition_steps is None and "section_postcondition_steps" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.section_postcondition_steps is None and "section_postcondition_steps" in self.__fields_set__:
             _dict['sectionPostconditionSteps'] = None
 
         # set to None if iterations (nullable) is None
-        # and model_fields_set contains the field
-        if self.iterations is None and "iterations" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.iterations is None and "iterations" in self.__fields_set__:
             _dict['iterations'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> WorkItemModel:
         """Create an instance of WorkItemModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return WorkItemModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "versionId": obj.get("versionId"),
-            "medianDuration": obj.get("medianDuration"),
-            "isDeleted": obj.get("isDeleted"),
-            "projectId": obj.get("projectId"),
-            "entityTypeName": obj.get("entityTypeName"),
-            "isAutomated": obj.get("isAutomated"),
-            "autoTests": [AutoTestModel.from_dict(_item) for _item in obj["autoTests"]] if obj.get("autoTests") is not None else None,
-            "attachments": [AttachmentModel.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
-            "sectionPreconditionSteps": [StepModel.from_dict(_item) for _item in obj["sectionPreconditionSteps"]] if obj.get("sectionPreconditionSteps") is not None else None,
-            "sectionPostconditionSteps": [StepModel.from_dict(_item) for _item in obj["sectionPostconditionSteps"]] if obj.get("sectionPostconditionSteps") is not None else None,
-            "versionNumber": obj.get("versionNumber"),
-            "iterations": [IterationModel.from_dict(_item) for _item in obj["iterations"]] if obj.get("iterations") is not None else None,
-            "createdDate": obj.get("createdDate"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedById": obj.get("modifiedById"),
-            "globalId": obj.get("globalId"),
+        _obj = WorkItemModel.parse_obj({
+            "version_id": obj.get("versionId"),
+            "median_duration": obj.get("medianDuration"),
+            "is_deleted": obj.get("isDeleted"),
+            "project_id": obj.get("projectId"),
+            "entity_type_name": obj.get("entityTypeName"),
+            "is_automated": obj.get("isAutomated"),
+            "auto_tests": [AutoTestModel.from_dict(_item) for _item in obj.get("autoTests")] if obj.get("autoTests") is not None else None,
+            "attachments": [AttachmentModel.from_dict(_item) for _item in obj.get("attachments")] if obj.get("attachments") is not None else None,
+            "section_precondition_steps": [StepModel.from_dict(_item) for _item in obj.get("sectionPreconditionSteps")] if obj.get("sectionPreconditionSteps") is not None else None,
+            "section_postcondition_steps": [StepModel.from_dict(_item) for _item in obj.get("sectionPostconditionSteps")] if obj.get("sectionPostconditionSteps") is not None else None,
+            "version_number": obj.get("versionNumber"),
+            "iterations": [IterationModel.from_dict(_item) for _item in obj.get("iterations")] if obj.get("iterations") is not None else None,
+            "created_date": obj.get("createdDate"),
+            "modified_date": obj.get("modifiedDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_by_id": obj.get("modifiedById"),
+            "global_id": obj.get("globalId"),
             "id": obj.get("id"),
-            "sectionId": obj.get("sectionId"),
+            "section_id": obj.get("sectionId"),
             "description": obj.get("description"),
             "state": obj.get("state"),
             "priority": obj.get("priority"),
-            "sourceType": obj.get("sourceType"),
-            "steps": [StepModel.from_dict(_item) for _item in obj["steps"]] if obj.get("steps") is not None else None,
-            "preconditionSteps": [StepModel.from_dict(_item) for _item in obj["preconditionSteps"]] if obj.get("preconditionSteps") is not None else None,
-            "postconditionSteps": [StepModel.from_dict(_item) for _item in obj["postconditionSteps"]] if obj.get("postconditionSteps") is not None else None,
+            "source_type": obj.get("sourceType"),
+            "steps": [StepModel.from_dict(_item) for _item in obj.get("steps")] if obj.get("steps") is not None else None,
+            "precondition_steps": [StepModel.from_dict(_item) for _item in obj.get("preconditionSteps")] if obj.get("preconditionSteps") is not None else None,
+            "postcondition_steps": [StepModel.from_dict(_item) for _item in obj.get("postconditionSteps")] if obj.get("postconditionSteps") is not None else None,
             "duration": obj.get("duration"),
             "attributes": obj.get("attributes"),
-            "tags": [TagModel.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
-            "links": [LinkModel.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+            "tags": [TagModel.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None,
+            "links": [LinkModel.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None,
             "name": obj.get("name")
         })
         return _obj

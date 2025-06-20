@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **auto_test_select** | [**AutoTestSelectModel**](AutoTestSelectModel.md) |  | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of AutoTestBulkDeleteApiModel from a JSON string
 auto_test_bulk_delete_api_model_instance = AutoTestBulkDeleteApiModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestBulkDeleteApiModel.to_json())
+print AutoTestBulkDeleteApiModel.to_json()
 
 # convert the object into a dict
 auto_test_bulk_delete_api_model_dict = auto_test_bulk_delete_api_model_instance.to_dict()

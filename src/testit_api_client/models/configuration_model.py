@@ -18,117 +18,100 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing import Optional, Set
-from typing_extensions import Self
+from typing import Dict, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 
 class ConfigurationModel(BaseModel):
     """
     ConfigurationModel
-    """ # noqa: E501
+    """
     description: Optional[StrictStr] = None
     parameters: Optional[Dict[str, StrictStr]] = None
-    project_id: StrictStr = Field(description="This property is used to link configuration with project", alias="projectId")
-    is_default: StrictBool = Field(alias="isDefault")
+    project_id: StrictStr = Field(default=..., alias="projectId", description="This property is used to link configuration with project")
+    is_default: StrictBool = Field(default=..., alias="isDefault")
     name: Optional[StrictStr] = None
-    created_date: datetime = Field(alias="createdDate")
+    created_date: datetime = Field(default=..., alias="createdDate")
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
-    created_by_id: StrictStr = Field(alias="createdById")
+    created_by_id: StrictStr = Field(default=..., alias="createdById")
     modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
-    global_id: StrictInt = Field(alias="globalId")
-    id: StrictStr = Field(description="Unique ID of the entity")
-    is_deleted: StrictBool = Field(description="Indicates if the entity is deleted", alias="isDeleted")
-    __properties: ClassVar[List[str]] = ["description", "parameters", "projectId", "isDefault", "name", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "id", "isDeleted"]
+    global_id: StrictInt = Field(default=..., alias="globalId")
+    id: StrictStr = Field(default=..., description="Unique ID of the entity")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Indicates if the entity is deleted")
+    __properties = ["description", "parameters", "projectId", "isDefault", "name", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "id", "isDeleted"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> ConfigurationModel:
         """Create an instance of ConfigurationModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         # set to None if parameters (nullable) is None
-        # and model_fields_set contains the field
-        if self.parameters is None and "parameters" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.parameters is None and "parameters" in self.__fields_set__:
             _dict['parameters'] = None
 
         # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.name is None and "name" in self.__fields_set__:
             _dict['name'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> ConfigurationModel:
         """Create an instance of ConfigurationModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return ConfigurationModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = ConfigurationModel.parse_obj({
             "description": obj.get("description"),
             "parameters": obj.get("parameters"),
-            "projectId": obj.get("projectId"),
-            "isDefault": obj.get("isDefault"),
+            "project_id": obj.get("projectId"),
+            "is_default": obj.get("isDefault"),
             "name": obj.get("name"),
-            "createdDate": obj.get("createdDate"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedById": obj.get("modifiedById"),
-            "globalId": obj.get("globalId"),
+            "created_date": obj.get("createdDate"),
+            "modified_date": obj.get("modifiedDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_by_id": obj.get("modifiedById"),
+            "global_id": obj.get("globalId"),
             "id": obj.get("id"),
-            "isDeleted": obj.get("isDeleted")
+            "is_deleted": obj.get("isDeleted")
         })
         return _obj
 

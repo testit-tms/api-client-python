@@ -18,128 +18,109 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, constr
 from testit_api_client.models.test_suite_type import TestSuiteType
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestSuiteV2TreeModel(BaseModel):
     """
     TestSuiteV2TreeModel
-    """ # noqa: E501
-    children: Optional[List[TestSuiteV2TreeModel]] = Field(default=None, description="nested enumeration of children is allowed")
-    id: StrictStr = Field(description="Unique ID of the test suite")
-    refresh_date: Optional[datetime] = Field(default=None, description="Date of the last refresh of the test suite", alias="refreshDate")
-    parent_id: Optional[StrictStr] = Field(default=None, description="Unique ID of the parent test suite in hierarchy", alias="parentId")
-    test_plan_id: StrictStr = Field(description="Unique ID of test plan to which the test suite belongs", alias="testPlanId")
-    name: Annotated[str, Field(min_length=0, strict=True, max_length=255)] = Field(description="Name of the test suite")
+    """
+    children: Optional[conlist(TestSuiteV2TreeModel)] = Field(default=None, description="nested enumeration of children is allowed")
+    id: StrictStr = Field(default=..., description="Unique ID of the test suite")
+    refresh_date: Optional[datetime] = Field(default=None, alias="refreshDate", description="Date of the last refresh of the test suite")
+    parent_id: Optional[StrictStr] = Field(default=None, alias="parentId", description="Unique ID of the parent test suite in hierarchy")
+    test_plan_id: StrictStr = Field(default=..., alias="testPlanId", description="Unique ID of test plan to which the test suite belongs")
+    name: constr(strict=True, max_length=255, min_length=0) = Field(default=..., description="Name of the test suite")
     type: Optional[TestSuiteType] = Field(default=None, description="Type of the test suite")
-    save_structure: Optional[StrictBool] = Field(default=None, description="Indicates if the test suite retains section tree structure", alias="saveStructure")
-    auto_refresh: Optional[StrictBool] = Field(default=None, description="Indicates if scheduled auto refresh is enabled for the test suite", alias="autoRefresh")
-    __properties: ClassVar[List[str]] = ["children", "id", "refreshDate", "parentId", "testPlanId", "name", "type", "saveStructure", "autoRefresh"]
+    save_structure: Optional[StrictBool] = Field(default=None, alias="saveStructure", description="Indicates if the test suite retains section tree structure")
+    auto_refresh: Optional[StrictBool] = Field(default=None, alias="autoRefresh", description="Indicates if scheduled auto refresh is enabled for the test suite")
+    __properties = ["children", "id", "refreshDate", "parentId", "testPlanId", "name", "type", "saveStructure", "autoRefresh"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestSuiteV2TreeModel:
         """Create an instance of TestSuiteV2TreeModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in children (list)
         _items = []
         if self.children:
-            for _item_children in self.children:
-                if _item_children:
-                    _items.append(_item_children.to_dict())
+            for _item in self.children:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['children'] = _items
         # set to None if children (nullable) is None
-        # and model_fields_set contains the field
-        if self.children is None and "children" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.children is None and "children" in self.__fields_set__:
             _dict['children'] = None
 
         # set to None if refresh_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.refresh_date is None and "refresh_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.refresh_date is None and "refresh_date" in self.__fields_set__:
             _dict['refreshDate'] = None
 
         # set to None if parent_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.parent_id is None and "parent_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.parent_id is None and "parent_id" in self.__fields_set__:
             _dict['parentId'] = None
 
         # set to None if type (nullable) is None
-        # and model_fields_set contains the field
-        if self.type is None and "type" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.type is None and "type" in self.__fields_set__:
             _dict['type'] = None
 
         # set to None if save_structure (nullable) is None
-        # and model_fields_set contains the field
-        if self.save_structure is None and "save_structure" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.save_structure is None and "save_structure" in self.__fields_set__:
             _dict['saveStructure'] = None
 
         # set to None if auto_refresh (nullable) is None
-        # and model_fields_set contains the field
-        if self.auto_refresh is None and "auto_refresh" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.auto_refresh is None and "auto_refresh" in self.__fields_set__:
             _dict['autoRefresh'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestSuiteV2TreeModel:
         """Create an instance of TestSuiteV2TreeModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestSuiteV2TreeModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "children": [TestSuiteV2TreeModel.from_dict(_item) for _item in obj["children"]] if obj.get("children") is not None else None,
+        _obj = TestSuiteV2TreeModel.parse_obj({
+            "children": [TestSuiteV2TreeModel.from_dict(_item) for _item in obj.get("children")] if obj.get("children") is not None else None,
             "id": obj.get("id"),
-            "refreshDate": obj.get("refreshDate"),
-            "parentId": obj.get("parentId"),
-            "testPlanId": obj.get("testPlanId"),
+            "refresh_date": obj.get("refreshDate"),
+            "parent_id": obj.get("parentId"),
+            "test_plan_id": obj.get("testPlanId"),
             "name": obj.get("name"),
             "type": obj.get("type"),
-            "saveStructure": obj.get("saveStructure"),
-            "autoRefresh": obj.get("autoRefresh")
+            "save_structure": obj.get("saveStructure"),
+            "auto_refresh": obj.get("autoRefresh")
         })
         return _obj
 
-# TODO: Rewrite to not use raise_errors
-TestSuiteV2TreeModel.model_rebuild(raise_errors=False)
+TestSuiteV2TreeModel.update_forward_refs()
 

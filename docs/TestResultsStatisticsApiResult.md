@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **statuses** | [**TestResultsStatisticsStatusesApiResult**](TestResultsStatisticsStatusesApiResult.md) | Test results counts aggregated by outcome | [readonly] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of TestResultsStatisticsApiResult from a JSON string
 test_results_statistics_api_result_instance = TestResultsStatisticsApiResult.from_json(json)
 # print the JSON string representation of the object
-print(TestResultsStatisticsApiResult.to_json())
+print TestResultsStatisticsApiResult.to_json()
 
 # convert the object into a dict
 test_results_statistics_api_result_dict = test_results_statistics_api_result_instance.to_dict()

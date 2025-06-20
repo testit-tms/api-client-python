@@ -18,97 +18,80 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, Dict, List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 from testit_api_client.models.last_test_result_model import LastTestResultModel
 from testit_api_client.models.test_point_status import TestPointStatus
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
 from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_state import WorkItemState
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestPointShortResponseModel(BaseModel):
     """
     TestPointShortResponseModel
-    """ # noqa: E501
-    id: StrictStr = Field(description="Unique ID of the test point")
-    created_date: datetime = Field(description="Creation date of the test point", alias="createdDate")
-    created_by_id: StrictStr = Field(description="Unique ID of the test point creator", alias="createdById")
-    modified_date: Optional[datetime] = Field(default=None, description="Last modification date of the test point", alias="modifiedDate")
-    modified_by_id: Optional[StrictStr] = Field(default=None, description="Unique ID of the test point last editor", alias="modifiedById")
-    tester_id: Optional[StrictStr] = Field(default=None, description="Unique ID of the test point assigned user", alias="testerId")
+    """
+    id: StrictStr = Field(default=..., description="Unique ID of the test point")
+    created_date: datetime = Field(default=..., alias="createdDate", description="Creation date of the test point")
+    created_by_id: StrictStr = Field(default=..., alias="createdById", description="Unique ID of the test point creator")
+    modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate", description="Last modification date of the test point")
+    modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById", description="Unique ID of the test point last editor")
+    tester_id: Optional[StrictStr] = Field(default=None, alias="testerId", description="Unique ID of the test point assigned user")
     parameters: Optional[Dict[str, StrictStr]] = Field(default=None, description="Collection of the test point parameters")
-    attributes: Dict[str, Any] = Field(description="Collection of attributes of work item the test point represents")
-    tags: List[StrictStr] = Field(description="Collection of the test point tags")
-    links: List[StrictStr] = Field(description="Collection of the test point links")
-    test_suite_id: StrictStr = Field(description="Unique ID of test suite the test point assigned to", alias="testSuiteId")
-    test_suite_name: StrictStr = Field(description="Name of the test suite", alias="testSuiteName")
-    work_item_id: StrictStr = Field(description="Unique ID of work item the test point represents", alias="workItemId")
-    work_item_global_id: StrictInt = Field(description="Global ID of work item the test point represents", alias="workItemGlobalId")
-    work_item_version_id: StrictStr = Field(description="Unique ID of work item version the test point represents", alias="workItemVersionId")
-    work_item_version_number: StrictInt = Field(description="Number of work item version the test point represents", alias="workItemVersionNumber")
-    work_item_median_duration: Optional[StrictInt] = Field(default=None, description="Median duration of work item the test point represents", alias="workItemMedianDuration")
-    status: TestPointStatus = Field(description="Status of the test point")
-    status_model: TestStatusApiResult = Field(description="Status of the test point", alias="statusModel")
-    priority: WorkItemPriorityModel = Field(description="Priority of the test point")
-    source_type: WorkItemSourceTypeModel = Field(description="Source type of the test point", alias="sourceType")
-    is_automated: StrictBool = Field(description="Indicates if the test point represents an autotest", alias="isAutomated")
-    name: StrictStr = Field(description="Name of the test point")
-    configuration_id: StrictStr = Field(description="Unique ID of the test point configuration", alias="configurationId")
-    duration: StrictInt = Field(description="Duration of the test point")
-    section_id: StrictStr = Field(description="Unique ID of section where work item the test point represents is located", alias="sectionId")
-    section_name: Optional[StrictStr] = Field(default=None, description="Name of section where work item the test point represents is located", alias="sectionName")
-    project_id: StrictStr = Field(description="Unique ID of the test point project", alias="projectId")
-    last_test_result: Optional[LastTestResultModel] = Field(default=None, description="Model of the test point last test result", alias="lastTestResult")
-    iteration_id: StrictStr = Field(description="Unique ID of work item iteration the test point represents", alias="iterationId")
-    work_item_state: WorkItemState = Field(description="Work item state", alias="workItemState")
-    work_item_created_by_id: StrictStr = Field(description="Unique ID of the work item creator", alias="workItemCreatedById")
-    work_item_created_date: datetime = Field(description="Creation date of work item", alias="workItemCreatedDate")
-    work_item_modified_by_id: Optional[StrictStr] = Field(default=None, description="Unique ID of the work item last editor", alias="workItemModifiedById")
-    work_item_modified_date: Optional[datetime] = Field(default=None, description="Modified date of work item", alias="workItemModifiedDate")
-    __properties: ClassVar[List[str]] = ["id", "createdDate", "createdById", "modifiedDate", "modifiedById", "testerId", "parameters", "attributes", "tags", "links", "testSuiteId", "testSuiteName", "workItemId", "workItemGlobalId", "workItemVersionId", "workItemVersionNumber", "workItemMedianDuration", "status", "statusModel", "priority", "sourceType", "isAutomated", "name", "configurationId", "duration", "sectionId", "sectionName", "projectId", "lastTestResult", "iterationId", "workItemState", "workItemCreatedById", "workItemCreatedDate", "workItemModifiedById", "workItemModifiedDate"]
+    attributes: Dict[str, Any] = Field(default=..., description="Collection of attributes of work item the test point represents")
+    tags: conlist(StrictStr) = Field(default=..., description="Collection of the test point tags")
+    links: conlist(StrictStr) = Field(default=..., description="Collection of the test point links")
+    test_suite_id: StrictStr = Field(default=..., alias="testSuiteId", description="Unique ID of test suite the test point assigned to")
+    test_suite_name: StrictStr = Field(default=..., alias="testSuiteName", description="Name of the test suite")
+    work_item_id: StrictStr = Field(default=..., alias="workItemId", description="Unique ID of work item the test point represents")
+    work_item_global_id: StrictInt = Field(default=..., alias="workItemGlobalId", description="Global ID of work item the test point represents")
+    work_item_version_id: StrictStr = Field(default=..., alias="workItemVersionId", description="Unique ID of work item version the test point represents")
+    work_item_version_number: StrictInt = Field(default=..., alias="workItemVersionNumber", description="Number of work item version the test point represents")
+    work_item_median_duration: Optional[StrictInt] = Field(default=None, alias="workItemMedianDuration", description="Median duration of work item the test point represents")
+    status: TestPointStatus = Field(default=..., description="Status of the test point")
+    status_model: TestStatusApiResult = Field(default=..., alias="statusModel", description="Status of the test point")
+    priority: WorkItemPriorityModel = Field(default=..., description="Priority of the test point")
+    source_type: WorkItemSourceTypeModel = Field(default=..., alias="sourceType", description="Source type of the test point")
+    is_automated: StrictBool = Field(default=..., alias="isAutomated", description="Indicates if the test point represents an autotest")
+    name: StrictStr = Field(default=..., description="Name of the test point")
+    configuration_id: StrictStr = Field(default=..., alias="configurationId", description="Unique ID of the test point configuration")
+    duration: StrictInt = Field(default=..., description="Duration of the test point")
+    section_id: StrictStr = Field(default=..., alias="sectionId", description="Unique ID of section where work item the test point represents is located")
+    section_name: Optional[StrictStr] = Field(default=None, alias="sectionName", description="Name of section where work item the test point represents is located")
+    project_id: StrictStr = Field(default=..., alias="projectId", description="Unique ID of the test point project")
+    last_test_result: Optional[LastTestResultModel] = Field(default=None, alias="lastTestResult", description="Model of the test point last test result")
+    iteration_id: StrictStr = Field(default=..., alias="iterationId", description="Unique ID of work item iteration the test point represents")
+    work_item_state: WorkItemState = Field(default=..., alias="workItemState", description="Work item state")
+    work_item_created_by_id: StrictStr = Field(default=..., alias="workItemCreatedById", description="Unique ID of the work item creator")
+    work_item_created_date: datetime = Field(default=..., alias="workItemCreatedDate", description="Creation date of work item")
+    work_item_modified_by_id: Optional[StrictStr] = Field(default=None, alias="workItemModifiedById", description="Unique ID of the work item last editor")
+    work_item_modified_date: Optional[datetime] = Field(default=None, alias="workItemModifiedDate", description="Modified date of work item")
+    __properties = ["id", "createdDate", "createdById", "modifiedDate", "modifiedById", "testerId", "parameters", "attributes", "tags", "links", "testSuiteId", "testSuiteName", "workItemId", "workItemGlobalId", "workItemVersionId", "workItemVersionNumber", "workItemMedianDuration", "status", "statusModel", "priority", "sourceType", "isAutomated", "name", "configurationId", "duration", "sectionId", "sectionName", "projectId", "lastTestResult", "iterationId", "workItemState", "workItemCreatedById", "workItemCreatedDate", "workItemModifiedById", "workItemModifiedDate"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestPointShortResponseModel:
         """Create an instance of TestPointShortResponseModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of status_model
         if self.status_model:
             _dict['statusModel'] = self.status_model.to_dict()
@@ -116,97 +99,97 @@ class TestPointShortResponseModel(BaseModel):
         if self.last_test_result:
             _dict['lastTestResult'] = self.last_test_result.to_dict()
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         # set to None if tester_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.tester_id is None and "tester_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.tester_id is None and "tester_id" in self.__fields_set__:
             _dict['testerId'] = None
 
         # set to None if parameters (nullable) is None
-        # and model_fields_set contains the field
-        if self.parameters is None and "parameters" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.parameters is None and "parameters" in self.__fields_set__:
             _dict['parameters'] = None
 
         # set to None if work_item_median_duration (nullable) is None
-        # and model_fields_set contains the field
-        if self.work_item_median_duration is None and "work_item_median_duration" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.work_item_median_duration is None and "work_item_median_duration" in self.__fields_set__:
             _dict['workItemMedianDuration'] = None
 
         # set to None if section_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.section_name is None and "section_name" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.section_name is None and "section_name" in self.__fields_set__:
             _dict['sectionName'] = None
 
         # set to None if last_test_result (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_test_result is None and "last_test_result" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.last_test_result is None and "last_test_result" in self.__fields_set__:
             _dict['lastTestResult'] = None
 
         # set to None if work_item_modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.work_item_modified_by_id is None and "work_item_modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.work_item_modified_by_id is None and "work_item_modified_by_id" in self.__fields_set__:
             _dict['workItemModifiedById'] = None
 
         # set to None if work_item_modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.work_item_modified_date is None and "work_item_modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.work_item_modified_date is None and "work_item_modified_date" in self.__fields_set__:
             _dict['workItemModifiedDate'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestPointShortResponseModel:
         """Create an instance of TestPointShortResponseModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestPointShortResponseModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = TestPointShortResponseModel.parse_obj({
             "id": obj.get("id"),
-            "createdDate": obj.get("createdDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "modifiedById": obj.get("modifiedById"),
-            "testerId": obj.get("testerId"),
+            "created_date": obj.get("createdDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_date": obj.get("modifiedDate"),
+            "modified_by_id": obj.get("modifiedById"),
+            "tester_id": obj.get("testerId"),
             "parameters": obj.get("parameters"),
             "attributes": obj.get("attributes"),
             "tags": obj.get("tags"),
             "links": obj.get("links"),
-            "testSuiteId": obj.get("testSuiteId"),
-            "testSuiteName": obj.get("testSuiteName"),
-            "workItemId": obj.get("workItemId"),
-            "workItemGlobalId": obj.get("workItemGlobalId"),
-            "workItemVersionId": obj.get("workItemVersionId"),
-            "workItemVersionNumber": obj.get("workItemVersionNumber"),
-            "workItemMedianDuration": obj.get("workItemMedianDuration"),
+            "test_suite_id": obj.get("testSuiteId"),
+            "test_suite_name": obj.get("testSuiteName"),
+            "work_item_id": obj.get("workItemId"),
+            "work_item_global_id": obj.get("workItemGlobalId"),
+            "work_item_version_id": obj.get("workItemVersionId"),
+            "work_item_version_number": obj.get("workItemVersionNumber"),
+            "work_item_median_duration": obj.get("workItemMedianDuration"),
             "status": obj.get("status"),
-            "statusModel": TestStatusApiResult.from_dict(obj["statusModel"]) if obj.get("statusModel") is not None else None,
+            "status_model": TestStatusApiResult.from_dict(obj.get("statusModel")) if obj.get("statusModel") is not None else None,
             "priority": obj.get("priority"),
-            "sourceType": obj.get("sourceType"),
-            "isAutomated": obj.get("isAutomated"),
+            "source_type": obj.get("sourceType"),
+            "is_automated": obj.get("isAutomated"),
             "name": obj.get("name"),
-            "configurationId": obj.get("configurationId"),
+            "configuration_id": obj.get("configurationId"),
             "duration": obj.get("duration"),
-            "sectionId": obj.get("sectionId"),
-            "sectionName": obj.get("sectionName"),
-            "projectId": obj.get("projectId"),
-            "lastTestResult": LastTestResultModel.from_dict(obj["lastTestResult"]) if obj.get("lastTestResult") is not None else None,
-            "iterationId": obj.get("iterationId"),
-            "workItemState": obj.get("workItemState"),
-            "workItemCreatedById": obj.get("workItemCreatedById"),
-            "workItemCreatedDate": obj.get("workItemCreatedDate"),
-            "workItemModifiedById": obj.get("workItemModifiedById"),
-            "workItemModifiedDate": obj.get("workItemModifiedDate")
+            "section_id": obj.get("sectionId"),
+            "section_name": obj.get("sectionName"),
+            "project_id": obj.get("projectId"),
+            "last_test_result": LastTestResultModel.from_dict(obj.get("lastTestResult")) if obj.get("lastTestResult") is not None else None,
+            "iteration_id": obj.get("iterationId"),
+            "work_item_state": obj.get("workItemState"),
+            "work_item_created_by_id": obj.get("workItemCreatedById"),
+            "work_item_created_date": obj.get("workItemCreatedDate"),
+            "work_item_modified_by_id": obj.get("workItemModifiedById"),
+            "work_item_modified_date": obj.get("workItemModifiedDate")
         })
         return _obj
 

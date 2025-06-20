@@ -17,81 +17,65 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing import Optional, Set
-from typing_extensions import Self
+
+from typing import Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr
 
 class FailureClassRegexModel(BaseModel):
     """
     FailureClassRegexModel
-    """ # noqa: E501
-    regex_text: StrictStr = Field(alias="regexText")
+    """
+    regex_text: StrictStr = Field(default=..., alias="regexText")
     failure_class_id: Optional[StrictStr] = Field(default=None, alias="failureClassId")
-    id: StrictStr = Field(description="Unique ID of the entity")
-    is_deleted: StrictBool = Field(description="Indicates if the entity is deleted", alias="isDeleted")
-    __properties: ClassVar[List[str]] = ["regexText", "failureClassId", "id", "isDeleted"]
+    id: StrictStr = Field(default=..., description="Unique ID of the entity")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Indicates if the entity is deleted")
+    __properties = ["regexText", "failureClassId", "id", "isDeleted"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> FailureClassRegexModel:
         """Create an instance of FailureClassRegexModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if failure_class_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.failure_class_id is None and "failure_class_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.failure_class_id is None and "failure_class_id" in self.__fields_set__:
             _dict['failureClassId'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> FailureClassRegexModel:
         """Create an instance of FailureClassRegexModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return FailureClassRegexModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "regexText": obj.get("regexText"),
-            "failureClassId": obj.get("failureClassId"),
+        _obj = FailureClassRegexModel.parse_obj({
+            "regex_text": obj.get("regexText"),
+            "failure_class_id": obj.get("failureClassId"),
             "id": obj.get("id"),
-            "isDeleted": obj.get("isDeleted")
+            "is_deleted": obj.get("isDeleted")
         })
         return _obj
 

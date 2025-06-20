@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of SharedStepChangeViewModel from a JSON string
 shared_step_change_view_model_instance = SharedStepChangeViewModel.from_json(json)
 # print the JSON string representation of the object
-print(SharedStepChangeViewModel.to_json())
+print SharedStepChangeViewModel.to_json()
 
 # convert the object into a dict
 shared_step_change_view_model_dict = shared_step_change_view_model_instance.to_dict()

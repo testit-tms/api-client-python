@@ -17,96 +17,80 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+
+from typing import Dict, List
+from pydantic import BaseModel, Field, conlist
 from testit_api_client.models.external_form_allowed_value_model import ExternalFormAllowedValueModel
 from testit_api_client.models.external_form_field_model import ExternalFormFieldModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class ExternalFormModel(BaseModel):
     """
     ExternalFormModel
-    """ # noqa: E501
-    fields: List[ExternalFormFieldModel]
-    possible_values: Dict[str, List[ExternalFormAllowedValueModel]] = Field(alias="possibleValues")
-    __properties: ClassVar[List[str]] = ["fields", "possibleValues"]
+    """
+    fields: conlist(ExternalFormFieldModel) = Field(...)
+    possible_values: Dict[str, conlist(ExternalFormAllowedValueModel)] = Field(default=..., alias="possibleValues")
+    __properties = ["fields", "possibleValues"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> ExternalFormModel:
         """Create an instance of ExternalFormModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in fields (list)
         _items = []
         if self.fields:
-            for _item_fields in self.fields:
-                if _item_fields:
-                    _items.append(_item_fields.to_dict())
+            for _item in self.fields:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['fields'] = _items
         # override the default output from pydantic by calling `to_dict()` of each value in possible_values (dict of array)
         _field_dict_of_array = {}
         if self.possible_values:
-            for _key_possible_values in self.possible_values:
-                if self.possible_values[_key_possible_values] is not None:
-                    _field_dict_of_array[_key_possible_values] = [
-                        _item.to_dict() for _item in self.possible_values[_key_possible_values]
+            for _key in self.possible_values:
+                if self.possible_values[_key] is not None:
+                    _field_dict_of_array[_key] = [
+                        _item.to_dict() for _item in self.possible_values[_key]
                     ]
             _dict['possibleValues'] = _field_dict_of_array
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> ExternalFormModel:
         """Create an instance of ExternalFormModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return ExternalFormModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "fields": [ExternalFormFieldModel.from_dict(_item) for _item in obj["fields"]] if obj.get("fields") is not None else None,
-            "possibleValues": dict(
+        _obj = ExternalFormModel.parse_obj({
+            "fields": [ExternalFormFieldModel.from_dict(_item) for _item in obj.get("fields")] if obj.get("fields") is not None else None,
+            "possible_values": dict(
                 (_k,
                         [ExternalFormAllowedValueModel.from_dict(_item) for _item in _v]
                         if _v is not None
                         else None
                 )
-                for _k, _v in obj.get("possibleValues", {}).items()
+                for _k, _v in obj.get("possibleValues").items()
             )
         })
         return _obj

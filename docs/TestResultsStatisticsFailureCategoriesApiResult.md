@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **infrastructure_defect** | **int** | Number of test results which outcomes were caused by some infrastructure defect | 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of TestResultsStatisticsFailureCategoriesApiResult from a JSON string
 test_results_statistics_failure_categories_api_result_instance = TestResultsStatisticsFailureCategoriesApiResult.from_json(json)
 # print the JSON string representation of the object
-print(TestResultsStatisticsFailureCategoriesApiResult.to_json())
+print TestResultsStatisticsFailureCategoriesApiResult.to_json()
 
 # convert the object into a dict
 test_results_statistics_failure_categories_api_result_dict = test_results_statistics_failure_categories_api_result_instance.to_dict()

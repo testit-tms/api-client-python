@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the attribute template | 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of CustomAttributeTemplatePutModel from a JSON string
 custom_attribute_template_put_model_instance = CustomAttributeTemplatePutModel.from_json(json)
 # print the JSON string representation of the object
-print(CustomAttributeTemplatePutModel.to_json())
+print CustomAttributeTemplatePutModel.to_json()
 
 # convert the object into a dict
 custom_attribute_template_put_model_dict = custom_attribute_template_put_model_instance.to_dict()

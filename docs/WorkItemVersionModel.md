@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version_id** | **str** | used for versioning changes in workitem | 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of WorkItemVersionModel from a JSON string
 work_item_version_model_instance = WorkItemVersionModel.from_json(json)
 # print the JSON string representation of the object
-print(WorkItemVersionModel.to_json())
+print WorkItemVersionModel.to_json()
 
 # convert the object into a dict
 work_item_version_model_dict = work_item_version_model_instance.to_dict()

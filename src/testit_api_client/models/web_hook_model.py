@@ -18,147 +18,130 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Dict, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr
 from testit_api_client.models.request_type_model import RequestTypeModel
 from testit_api_client.models.web_hook_event_type_model import WebHookEventTypeModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class WebHookModel(BaseModel):
     """
     WebHookModel
-    """ # noqa: E501
-    name: StrictStr = Field(description="Name of the webhook")
-    event_type: WebHookEventTypeModel = Field(description="Type of event which triggers the webhook", alias="eventType")
+    """
+    name: StrictStr = Field(default=..., description="Name of the webhook")
+    event_type: WebHookEventTypeModel = Field(default=..., alias="eventType", description="Type of event which triggers the webhook")
     description: Optional[StrictStr] = Field(default=None, description="Description of the webhook")
-    url: StrictStr = Field(description="Url to which the webhook sends request")
-    request_type: RequestTypeModel = Field(description="Method which the webhook uses", alias="requestType")
-    should_send_body: StrictBool = Field(description="Indicates if the webhook sends body", alias="shouldSendBody")
+    url: StrictStr = Field(default=..., description="Url to which the webhook sends request")
+    request_type: RequestTypeModel = Field(default=..., alias="requestType", description="Method which the webhook uses")
+    should_send_body: StrictBool = Field(default=..., alias="shouldSendBody", description="Indicates if the webhook sends body")
     headers: Optional[Dict[str, StrictStr]] = Field(default=None, description="Collection of headers which the webhook sends")
-    query_parameters: Optional[Dict[str, StrictStr]] = Field(default=None, description="Collection of query parameters which the webhook sends", alias="queryParameters")
-    is_enabled: StrictBool = Field(description="Indicates if the webhook is active", alias="isEnabled")
-    should_send_custom_body: StrictBool = Field(description="Indicates if the webhook sends custom body", alias="shouldSendCustomBody")
-    custom_body: Optional[StrictStr] = Field(default=None, description="Custom body of the webhook", alias="customBody")
-    custom_body_media_type: Optional[StrictStr] = Field(default=None, description="MIME type of body of the webhook", alias="customBodyMediaType")
-    should_replace_parameters: StrictBool = Field(description="Indicates if the webhook injects parameters", alias="shouldReplaceParameters")
-    should_escape_parameters: StrictBool = Field(description="Indicates if the webhook escapes invalid characters in parameters", alias="shouldEscapeParameters")
-    created_date: datetime = Field(description="Creation date of the webhook", alias="createdDate")
-    created_by_id: StrictStr = Field(description="Unique ID of user who created the webhook", alias="createdById")
-    modified_date: Optional[datetime] = Field(default=None, description="Last modification date of the webhook", alias="modifiedDate")
-    modified_by_id: Optional[StrictStr] = Field(default=None, description="Unique ID of user who modified the webhook last time", alias="modifiedById")
-    project_id: StrictStr = Field(description="Unique ID of project where the webhook is located", alias="projectId")
-    id: StrictStr = Field(description="Unique ID of the entity")
-    is_deleted: StrictBool = Field(description="Indicates if the entity is deleted", alias="isDeleted")
-    __properties: ClassVar[List[str]] = ["name", "eventType", "description", "url", "requestType", "shouldSendBody", "headers", "queryParameters", "isEnabled", "shouldSendCustomBody", "customBody", "customBodyMediaType", "shouldReplaceParameters", "shouldEscapeParameters", "createdDate", "createdById", "modifiedDate", "modifiedById", "projectId", "id", "isDeleted"]
+    query_parameters: Optional[Dict[str, StrictStr]] = Field(default=None, alias="queryParameters", description="Collection of query parameters which the webhook sends")
+    is_enabled: StrictBool = Field(default=..., alias="isEnabled", description="Indicates if the webhook is active")
+    should_send_custom_body: StrictBool = Field(default=..., alias="shouldSendCustomBody", description="Indicates if the webhook sends custom body")
+    custom_body: Optional[StrictStr] = Field(default=None, alias="customBody", description="Custom body of the webhook")
+    custom_body_media_type: Optional[StrictStr] = Field(default=None, alias="customBodyMediaType", description="MIME type of body of the webhook")
+    should_replace_parameters: StrictBool = Field(default=..., alias="shouldReplaceParameters", description="Indicates if the webhook injects parameters")
+    should_escape_parameters: StrictBool = Field(default=..., alias="shouldEscapeParameters", description="Indicates if the webhook escapes invalid characters in parameters")
+    created_date: datetime = Field(default=..., alias="createdDate", description="Creation date of the webhook")
+    created_by_id: StrictStr = Field(default=..., alias="createdById", description="Unique ID of user who created the webhook")
+    modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate", description="Last modification date of the webhook")
+    modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById", description="Unique ID of user who modified the webhook last time")
+    project_id: StrictStr = Field(default=..., alias="projectId", description="Unique ID of project where the webhook is located")
+    id: StrictStr = Field(default=..., description="Unique ID of the entity")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Indicates if the entity is deleted")
+    __properties = ["name", "eventType", "description", "url", "requestType", "shouldSendBody", "headers", "queryParameters", "isEnabled", "shouldSendCustomBody", "customBody", "customBodyMediaType", "shouldReplaceParameters", "shouldEscapeParameters", "createdDate", "createdById", "modifiedDate", "modifiedById", "projectId", "id", "isDeleted"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> WebHookModel:
         """Create an instance of WebHookModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.description is None and "description" in self.__fields_set__:
             _dict['description'] = None
 
         # set to None if headers (nullable) is None
-        # and model_fields_set contains the field
-        if self.headers is None and "headers" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.headers is None and "headers" in self.__fields_set__:
             _dict['headers'] = None
 
         # set to None if query_parameters (nullable) is None
-        # and model_fields_set contains the field
-        if self.query_parameters is None and "query_parameters" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.query_parameters is None and "query_parameters" in self.__fields_set__:
             _dict['queryParameters'] = None
 
         # set to None if custom_body (nullable) is None
-        # and model_fields_set contains the field
-        if self.custom_body is None and "custom_body" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.custom_body is None and "custom_body" in self.__fields_set__:
             _dict['customBody'] = None
 
         # set to None if custom_body_media_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.custom_body_media_type is None and "custom_body_media_type" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.custom_body_media_type is None and "custom_body_media_type" in self.__fields_set__:
             _dict['customBodyMediaType'] = None
 
         # set to None if modified_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_date is None and "modified_date" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
             _dict['modifiedDate'] = None
 
         # set to None if modified_by_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.modified_by_id is None and "modified_by_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
             _dict['modifiedById'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> WebHookModel:
         """Create an instance of WebHookModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return WebHookModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = WebHookModel.parse_obj({
             "name": obj.get("name"),
-            "eventType": obj.get("eventType"),
+            "event_type": obj.get("eventType"),
             "description": obj.get("description"),
             "url": obj.get("url"),
-            "requestType": obj.get("requestType"),
-            "shouldSendBody": obj.get("shouldSendBody"),
+            "request_type": obj.get("requestType"),
+            "should_send_body": obj.get("shouldSendBody"),
             "headers": obj.get("headers"),
-            "queryParameters": obj.get("queryParameters"),
-            "isEnabled": obj.get("isEnabled"),
-            "shouldSendCustomBody": obj.get("shouldSendCustomBody"),
-            "customBody": obj.get("customBody"),
-            "customBodyMediaType": obj.get("customBodyMediaType"),
-            "shouldReplaceParameters": obj.get("shouldReplaceParameters"),
-            "shouldEscapeParameters": obj.get("shouldEscapeParameters"),
-            "createdDate": obj.get("createdDate"),
-            "createdById": obj.get("createdById"),
-            "modifiedDate": obj.get("modifiedDate"),
-            "modifiedById": obj.get("modifiedById"),
-            "projectId": obj.get("projectId"),
+            "query_parameters": obj.get("queryParameters"),
+            "is_enabled": obj.get("isEnabled"),
+            "should_send_custom_body": obj.get("shouldSendCustomBody"),
+            "custom_body": obj.get("customBody"),
+            "custom_body_media_type": obj.get("customBodyMediaType"),
+            "should_replace_parameters": obj.get("shouldReplaceParameters"),
+            "should_escape_parameters": obj.get("shouldEscapeParameters"),
+            "created_date": obj.get("createdDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_date": obj.get("modifiedDate"),
+            "modified_by_id": obj.get("modifiedById"),
+            "project_id": obj.get("projectId"),
             "id": obj.get("id"),
-            "isDeleted": obj.get("isDeleted")
+            "is_deleted": obj.get("isDeleted")
         })
         return _obj
 

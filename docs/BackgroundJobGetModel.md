@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -27,7 +26,7 @@ json = "{}"
 # create an instance of BackgroundJobGetModel from a JSON string
 background_job_get_model_instance = BackgroundJobGetModel.from_json(json)
 # print the JSON string representation of the object
-print(BackgroundJobGetModel.to_json())
+print BackgroundJobGetModel.to_json()
 
 # convert the object into a dict
 background_job_get_model_dict = background_job_get_model_instance.to_dict()

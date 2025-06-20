@@ -17,105 +17,89 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+
+from typing import Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr
 from testit_api_client.models.user_rank_model import UserRankModel
-from typing import Optional, Set
-from typing_extensions import Self
 
 class UserWithRankModel(BaseModel):
     """
     UserWithRankModel
-    """ # noqa: E501
-    id: StrictStr
-    first_name: StrictStr = Field(alias="firstName")
-    last_name: StrictStr = Field(alias="lastName")
-    middle_name: StrictStr = Field(alias="middleName")
-    user_name: StrictStr = Field(alias="userName")
-    display_name: StrictStr = Field(alias="displayName")
-    user_type: StrictStr = Field(alias="userType")
-    avatar_url: StrictStr = Field(alias="avatarUrl")
-    avatar_metadata: StrictStr = Field(alias="avatarMetadata")
-    is_deleted: StrictBool = Field(alias="isDeleted")
-    is_disabled: StrictBool = Field(alias="isDisabled")
+    """
+    id: StrictStr = Field(...)
+    first_name: StrictStr = Field(default=..., alias="firstName")
+    last_name: StrictStr = Field(default=..., alias="lastName")
+    middle_name: StrictStr = Field(default=..., alias="middleName")
+    user_name: StrictStr = Field(default=..., alias="userName")
+    display_name: StrictStr = Field(default=..., alias="displayName")
+    user_type: StrictStr = Field(default=..., alias="userType")
+    avatar_url: StrictStr = Field(default=..., alias="avatarUrl")
+    avatar_metadata: StrictStr = Field(default=..., alias="avatarMetadata")
+    is_deleted: StrictBool = Field(default=..., alias="isDeleted")
+    is_disabled: StrictBool = Field(default=..., alias="isDisabled")
     provider_id: Optional[StrictStr] = Field(default=None, alias="providerId")
-    is_active_status_by_entity: StrictBool = Field(alias="isActiveStatusByEntity")
-    user_rank: UserRankModel = Field(alias="userRank")
-    __properties: ClassVar[List[str]] = ["id", "firstName", "lastName", "middleName", "userName", "displayName", "userType", "avatarUrl", "avatarMetadata", "isDeleted", "isDisabled", "providerId", "isActiveStatusByEntity", "userRank"]
+    is_active_status_by_entity: StrictBool = Field(default=..., alias="isActiveStatusByEntity")
+    user_rank: UserRankModel = Field(default=..., alias="userRank")
+    __properties = ["id", "firstName", "lastName", "middleName", "userName", "displayName", "userType", "avatarUrl", "avatarMetadata", "isDeleted", "isDisabled", "providerId", "isActiveStatusByEntity", "userRank"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> UserWithRankModel:
         """Create an instance of UserWithRankModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of user_rank
         if self.user_rank:
             _dict['userRank'] = self.user_rank.to_dict()
         # set to None if provider_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.provider_id is None and "provider_id" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.provider_id is None and "provider_id" in self.__fields_set__:
             _dict['providerId'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> UserWithRankModel:
         """Create an instance of UserWithRankModel from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return UserWithRankModel.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = UserWithRankModel.parse_obj({
             "id": obj.get("id"),
-            "firstName": obj.get("firstName"),
-            "lastName": obj.get("lastName"),
-            "middleName": obj.get("middleName"),
-            "userName": obj.get("userName"),
-            "displayName": obj.get("displayName"),
-            "userType": obj.get("userType"),
-            "avatarUrl": obj.get("avatarUrl"),
-            "avatarMetadata": obj.get("avatarMetadata"),
-            "isDeleted": obj.get("isDeleted"),
-            "isDisabled": obj.get("isDisabled"),
-            "providerId": obj.get("providerId"),
-            "isActiveStatusByEntity": obj.get("isActiveStatusByEntity"),
-            "userRank": UserRankModel.from_dict(obj["userRank"]) if obj.get("userRank") is not None else None
+            "first_name": obj.get("firstName"),
+            "last_name": obj.get("lastName"),
+            "middle_name": obj.get("middleName"),
+            "user_name": obj.get("userName"),
+            "display_name": obj.get("displayName"),
+            "user_type": obj.get("userType"),
+            "avatar_url": obj.get("avatarUrl"),
+            "avatar_metadata": obj.get("avatarMetadata"),
+            "is_deleted": obj.get("isDeleted"),
+            "is_disabled": obj.get("isDisabled"),
+            "provider_id": obj.get("providerId"),
+            "is_active_status_by_entity": obj.get("isActiveStatusByEntity"),
+            "user_rank": UserRankModel.from_dict(obj.get("userRank")) if obj.get("userRank") is not None else None
         })
         return _obj
 

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **parameters** | [**List[ParameterIterationModel]**](ParameterIterationModel.md) |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of AssignIterationApiModel from a JSON string
 assign_iteration_api_model_instance = AssignIterationApiModel.from_json(json)
 # print the JSON string representation of the object
-print(AssignIterationApiModel.to_json())
+print AssignIterationApiModel.to_json()
 
 # convert the object into a dict
 assign_iteration_api_model_dict = assign_iteration_api_model_instance.to_dict()

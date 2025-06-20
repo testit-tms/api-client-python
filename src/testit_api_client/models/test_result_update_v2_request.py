@@ -17,213 +17,196 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictStr, conint, conlist
 from testit_api_client.models.attachment_update_request import AttachmentUpdateRequest
 from testit_api_client.models.auto_test_step_result_update_request import AutoTestStepResultUpdateRequest
 from testit_api_client.models.link import Link
 from testit_api_client.models.step_result_api_model import StepResultApiModel
 from testit_api_client.models.test_result_outcome import TestResultOutcome
 from testit_api_client.models.test_result_step_comment_update_request import TestResultStepCommentUpdateRequest
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestResultUpdateV2Request(BaseModel):
     """
     TestResultUpdateV2Request
-    """ # noqa: E501
-    failure_class_ids: Optional[List[StrictStr]] = Field(default=None, alias="failureClassIds")
+    """
+    failure_class_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="failureClassIds")
     outcome: Optional[TestResultOutcome] = None
     status_code: Optional[StrictStr] = Field(default=None, alias="statusCode")
     comment: Optional[StrictStr] = None
-    links: Optional[List[Link]] = None
-    step_results: Optional[List[StepResultApiModel]] = Field(default=None, alias="stepResults")
-    attachments: Optional[List[AttachmentUpdateRequest]] = None
-    duration_in_ms: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="durationInMs")
-    duration: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    step_comments: Optional[List[TestResultStepCommentUpdateRequest]] = Field(default=None, alias="stepComments")
-    setup_results: Optional[List[AutoTestStepResultUpdateRequest]] = Field(default=None, alias="setupResults")
-    teardown_results: Optional[List[AutoTestStepResultUpdateRequest]] = Field(default=None, alias="teardownResults")
+    links: Optional[conlist(Link)] = None
+    step_results: Optional[conlist(StepResultApiModel)] = Field(default=None, alias="stepResults")
+    attachments: Optional[conlist(AttachmentUpdateRequest)] = None
+    duration_in_ms: Optional[conint(strict=True, ge=0)] = Field(default=None, alias="durationInMs")
+    duration: Optional[conint(strict=True, ge=0)] = None
+    step_comments: Optional[conlist(TestResultStepCommentUpdateRequest)] = Field(default=None, alias="stepComments")
+    setup_results: Optional[conlist(AutoTestStepResultUpdateRequest)] = Field(default=None, alias="setupResults")
+    teardown_results: Optional[conlist(AutoTestStepResultUpdateRequest)] = Field(default=None, alias="teardownResults")
     message: Optional[StrictStr] = None
     trace: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["failureClassIds", "outcome", "statusCode", "comment", "links", "stepResults", "attachments", "durationInMs", "duration", "stepComments", "setupResults", "teardownResults", "message", "trace"]
+    __properties = ["failureClassIds", "outcome", "statusCode", "comment", "links", "stepResults", "attachments", "durationInMs", "duration", "stepComments", "setupResults", "teardownResults", "message", "trace"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestResultUpdateV2Request:
         """Create an instance of TestResultUpdateV2Request from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
-            for _item_links in self.links:
-                if _item_links:
-                    _items.append(_item_links.to_dict())
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in step_results (list)
         _items = []
         if self.step_results:
-            for _item_step_results in self.step_results:
-                if _item_step_results:
-                    _items.append(_item_step_results.to_dict())
+            for _item in self.step_results:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['stepResults'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
-            for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+            for _item in self.attachments:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['attachments'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in step_comments (list)
         _items = []
         if self.step_comments:
-            for _item_step_comments in self.step_comments:
-                if _item_step_comments:
-                    _items.append(_item_step_comments.to_dict())
+            for _item in self.step_comments:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['stepComments'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in setup_results (list)
         _items = []
         if self.setup_results:
-            for _item_setup_results in self.setup_results:
-                if _item_setup_results:
-                    _items.append(_item_setup_results.to_dict())
+            for _item in self.setup_results:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['setupResults'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in teardown_results (list)
         _items = []
         if self.teardown_results:
-            for _item_teardown_results in self.teardown_results:
-                if _item_teardown_results:
-                    _items.append(_item_teardown_results.to_dict())
+            for _item in self.teardown_results:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['teardownResults'] = _items
         # set to None if failure_class_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.failure_class_ids is None and "failure_class_ids" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.failure_class_ids is None and "failure_class_ids" in self.__fields_set__:
             _dict['failureClassIds'] = None
 
         # set to None if outcome (nullable) is None
-        # and model_fields_set contains the field
-        if self.outcome is None and "outcome" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.outcome is None and "outcome" in self.__fields_set__:
             _dict['outcome'] = None
 
         # set to None if status_code (nullable) is None
-        # and model_fields_set contains the field
-        if self.status_code is None and "status_code" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.status_code is None and "status_code" in self.__fields_set__:
             _dict['statusCode'] = None
 
         # set to None if comment (nullable) is None
-        # and model_fields_set contains the field
-        if self.comment is None and "comment" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.comment is None and "comment" in self.__fields_set__:
             _dict['comment'] = None
 
         # set to None if links (nullable) is None
-        # and model_fields_set contains the field
-        if self.links is None and "links" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.links is None and "links" in self.__fields_set__:
             _dict['links'] = None
 
         # set to None if step_results (nullable) is None
-        # and model_fields_set contains the field
-        if self.step_results is None and "step_results" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.step_results is None and "step_results" in self.__fields_set__:
             _dict['stepResults'] = None
 
         # set to None if attachments (nullable) is None
-        # and model_fields_set contains the field
-        if self.attachments is None and "attachments" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.attachments is None and "attachments" in self.__fields_set__:
             _dict['attachments'] = None
 
         # set to None if duration_in_ms (nullable) is None
-        # and model_fields_set contains the field
-        if self.duration_in_ms is None and "duration_in_ms" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.duration_in_ms is None and "duration_in_ms" in self.__fields_set__:
             _dict['durationInMs'] = None
 
         # set to None if duration (nullable) is None
-        # and model_fields_set contains the field
-        if self.duration is None and "duration" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.duration is None and "duration" in self.__fields_set__:
             _dict['duration'] = None
 
         # set to None if step_comments (nullable) is None
-        # and model_fields_set contains the field
-        if self.step_comments is None and "step_comments" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.step_comments is None and "step_comments" in self.__fields_set__:
             _dict['stepComments'] = None
 
         # set to None if setup_results (nullable) is None
-        # and model_fields_set contains the field
-        if self.setup_results is None and "setup_results" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.setup_results is None and "setup_results" in self.__fields_set__:
             _dict['setupResults'] = None
 
         # set to None if teardown_results (nullable) is None
-        # and model_fields_set contains the field
-        if self.teardown_results is None and "teardown_results" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.teardown_results is None and "teardown_results" in self.__fields_set__:
             _dict['teardownResults'] = None
 
         # set to None if message (nullable) is None
-        # and model_fields_set contains the field
-        if self.message is None and "message" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.message is None and "message" in self.__fields_set__:
             _dict['message'] = None
 
         # set to None if trace (nullable) is None
-        # and model_fields_set contains the field
-        if self.trace is None and "trace" in self.model_fields_set:
+        # and __fields_set__ contains the field
+        if self.trace is None and "trace" in self.__fields_set__:
             _dict['trace'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestResultUpdateV2Request:
         """Create an instance of TestResultUpdateV2Request from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestResultUpdateV2Request.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "failureClassIds": obj.get("failureClassIds"),
+        _obj = TestResultUpdateV2Request.parse_obj({
+            "failure_class_ids": obj.get("failureClassIds"),
             "outcome": obj.get("outcome"),
-            "statusCode": obj.get("statusCode"),
+            "status_code": obj.get("statusCode"),
             "comment": obj.get("comment"),
-            "links": [Link.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-            "stepResults": [StepResultApiModel.from_dict(_item) for _item in obj["stepResults"]] if obj.get("stepResults") is not None else None,
-            "attachments": [AttachmentUpdateRequest.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
-            "durationInMs": obj.get("durationInMs"),
+            "links": [Link.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None,
+            "step_results": [StepResultApiModel.from_dict(_item) for _item in obj.get("stepResults")] if obj.get("stepResults") is not None else None,
+            "attachments": [AttachmentUpdateRequest.from_dict(_item) for _item in obj.get("attachments")] if obj.get("attachments") is not None else None,
+            "duration_in_ms": obj.get("durationInMs"),
             "duration": obj.get("duration"),
-            "stepComments": [TestResultStepCommentUpdateRequest.from_dict(_item) for _item in obj["stepComments"]] if obj.get("stepComments") is not None else None,
-            "setupResults": [AutoTestStepResultUpdateRequest.from_dict(_item) for _item in obj["setupResults"]] if obj.get("setupResults") is not None else None,
-            "teardownResults": [AutoTestStepResultUpdateRequest.from_dict(_item) for _item in obj["teardownResults"]] if obj.get("teardownResults") is not None else None,
+            "step_comments": [TestResultStepCommentUpdateRequest.from_dict(_item) for _item in obj.get("stepComments")] if obj.get("stepComments") is not None else None,
+            "setup_results": [AutoTestStepResultUpdateRequest.from_dict(_item) for _item in obj.get("setupResults")] if obj.get("setupResults") is not None else None,
+            "teardown_results": [AutoTestStepResultUpdateRequest.from_dict(_item) for _item in obj.get("teardownResults")] if obj.get("teardownResults") is not None else None,
             "message": obj.get("message"),
             "trace": obj.get("trace")
         })

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md) |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of TestPlanSelectModel from a JSON string
 test_plan_select_model_instance = TestPlanSelectModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanSelectModel.to_json())
+print TestPlanSelectModel.to_json()
 
 # convert the object into a dict
 test_plan_select_model_dict = test_plan_select_model_instance.to_dict()

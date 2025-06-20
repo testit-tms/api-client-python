@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**WorkItemLinkUrlFilterApiModel**](WorkItemLinkUrlFilterApiModel.md) |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of WorkItemLinkUrlApiModel from a JSON string
 work_item_link_url_api_model_instance = WorkItemLinkUrlApiModel.from_json(json)
 # print the JSON string representation of the object
-print(WorkItemLinkUrlApiModel.to_json())
+print WorkItemLinkUrlApiModel.to_json()
 
 # convert the object into a dict
 work_item_link_url_api_model_dict = work_item_link_url_api_model_instance.to_dict()

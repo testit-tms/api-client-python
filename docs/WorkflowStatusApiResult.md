@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -23,7 +22,7 @@ json = "{}"
 # create an instance of WorkflowStatusApiResult from a JSON string
 workflow_status_api_result_instance = WorkflowStatusApiResult.from_json(json)
 # print the JSON string representation of the object
-print(WorkflowStatusApiResult.to_json())
+print WorkflowStatusApiResult.to_json()
 
 # convert the object into a dict
 workflow_status_api_result_dict = workflow_status_api_result_instance.to_dict()

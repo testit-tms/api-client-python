@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count_group_by_status** | [**List[TestPlanGroupByStatus]**](TestPlanGroupByStatus.md) |  | 
@@ -23,7 +22,7 @@ json = "{}"
 # create an instance of TestPointAnalyticResult from a JSON string
 test_point_analytic_result_instance = TestPointAnalyticResult.from_json(json)
 # print the JSON string representation of the object
-print(TestPointAnalyticResult.to_json())
+print TestPointAnalyticResult.to_json()
 
 # convert the object into a dict
 test_point_analytic_result_dict = test_point_analytic_result_instance.to_dict()

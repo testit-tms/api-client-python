@@ -2,12 +2,12 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **parameter_key_ids** | **List[str]** |  | [optional] 
 **name** | **str** |  | [optional] 
 **is_deleted** | **bool** |  | [optional] 
+**project_ids** | **List[str]** |  | [optional] 
 
 ## Example
 
@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ParameterGroupsFilterApiModel from a JSON string
 parameter_groups_filter_api_model_instance = ParameterGroupsFilterApiModel.from_json(json)
 # print the JSON string representation of the object
-print(ParameterGroupsFilterApiModel.to_json())
+print ParameterGroupsFilterApiModel.to_json()
 
 # convert the object into a dict
 parameter_groups_filter_api_model_dict = parameter_groups_filter_api_model_instance.to_dict()

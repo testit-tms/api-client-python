@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of AutoTestClassCountApiModel from a JSON string
 auto_test_class_count_api_model_instance = AutoTestClassCountApiModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestClassCountApiModel.to_json())
+print AutoTestClassCountApiModel.to_json()
 
 # convert the object into a dict
 auto_test_class_count_api_model_dict = auto_test_class_count_api_model_instance.to_dict()

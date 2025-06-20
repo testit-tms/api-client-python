@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **errors** | **Dict[str, List[str]]** |  | 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of ValidationProblemDetails from a JSON string
 validation_problem_details_instance = ValidationProblemDetails.from_json(json)
 # print the JSON string representation of the object
-print(ValidationProblemDetails.to_json())
+print ValidationProblemDetails.to_json()
 
 # convert the object into a dict
 validation_problem_details_dict = validation_problem_details_instance.to_dict()

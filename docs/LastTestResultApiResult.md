@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -23,7 +22,7 @@ json = "{}"
 # create an instance of LastTestResultApiResult from a JSON string
 last_test_result_api_result_instance = LastTestResultApiResult.from_json(json)
 # print the JSON string representation of the object
-print(LastTestResultApiResult.to_json())
+print LastTestResultApiResult.to_json()
 
 # convert the object into a dict
 last_test_result_api_result_dict = last_test_result_api_result_instance.to_dict()

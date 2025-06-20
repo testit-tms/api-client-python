@@ -17,76 +17,60 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+
+
+from pydantic import BaseModel, Field, StrictStr
 from testit_api_client.models.external_service_category_api_result import ExternalServiceCategoryApiResult
-from typing import Optional, Set
-from typing_extensions import Self
 
 class ExternalServiceMetadataApiResult(BaseModel):
     """
     ExternalServiceMetadataApiResult
-    """ # noqa: E501
-    name: StrictStr = Field(description="The name of the external service")
-    code: StrictStr = Field(description="The code of the external service")
-    icon_url: StrictStr = Field(description="The icon URL of the external service", alias="iconUrl")
-    category: ExternalServiceCategoryApiResult = Field(description="The category of the external service")
-    __properties: ClassVar[List[str]] = ["name", "code", "iconUrl", "category"]
+    """
+    name: StrictStr = Field(default=..., description="The name of the external service")
+    code: StrictStr = Field(default=..., description="The code of the external service")
+    icon_url: StrictStr = Field(default=..., alias="iconUrl", description="The icon URL of the external service")
+    category: ExternalServiceCategoryApiResult = Field(default=..., description="The category of the external service")
+    __properties = ["name", "code", "iconUrl", "category"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> ExternalServiceMetadataApiResult:
         """Create an instance of ExternalServiceMetadataApiResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> ExternalServiceMetadataApiResult:
         """Create an instance of ExternalServiceMetadataApiResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return ExternalServiceMetadataApiResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
+        _obj = ExternalServiceMetadataApiResult.parse_obj({
             "name": obj.get("name"),
             "code": obj.get("code"),
-            "iconUrl": obj.get("iconUrl"),
+            "icon_url": obj.get("iconUrl"),
             "category": obj.get("category")
         })
         return _obj

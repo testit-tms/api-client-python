@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_id** | **str** | Project unique identifier              This property is to link test run with a project | 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of CreateEmptyTestRunApiModel from a JSON string
 create_empty_test_run_api_model_instance = CreateEmptyTestRunApiModel.from_json(json)
 # print the JSON string representation of the object
-print(CreateEmptyTestRunApiModel.to_json())
+print CreateEmptyTestRunApiModel.to_json()
 
 # convert the object into a dict
 create_empty_test_run_api_model_dict = create_empty_test_run_api_model_instance.to_dict()

@@ -17,98 +17,82 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+
+from typing import List
+from pydantic import BaseModel, Field, conlist
 from testit_api_client.models.test_run_group_by_failure_class_api_result import TestRunGroupByFailureClassApiResult
 from testit_api_client.models.test_run_group_by_status_api_result import TestRunGroupByStatusApiResult
 from testit_api_client.models.test_run_group_by_status_type_api_result import TestRunGroupByStatusTypeApiResult
-from typing import Optional, Set
-from typing_extensions import Self
 
 class TestRunAnalyticApiResult(BaseModel):
     """
     TestRunAnalyticApiResult
-    """ # noqa: E501
-    count_group_by_status: List[TestRunGroupByStatusApiResult] = Field(alias="countGroupByStatus")
-    count_group_by_status_type: List[TestRunGroupByStatusTypeApiResult] = Field(alias="countGroupByStatusType")
-    count_group_by_failure_class: List[TestRunGroupByFailureClassApiResult] = Field(alias="countGroupByFailureClass")
-    __properties: ClassVar[List[str]] = ["countGroupByStatus", "countGroupByStatusType", "countGroupByFailureClass"]
+    """
+    count_group_by_status: conlist(TestRunGroupByStatusApiResult) = Field(default=..., alias="countGroupByStatus")
+    count_group_by_status_type: conlist(TestRunGroupByStatusTypeApiResult) = Field(default=..., alias="countGroupByStatusType")
+    count_group_by_failure_class: conlist(TestRunGroupByFailureClassApiResult) = Field(default=..., alias="countGroupByFailureClass")
+    __properties = ["countGroupByStatus", "countGroupByStatusType", "countGroupByFailureClass"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    class Config:
+        """Pydantic configuration"""
+        allow_population_by_field_name = True
+        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.dict(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> TestRunAnalyticApiResult:
         """Create an instance of TestRunAnalyticApiResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Return the dictionary representation of the model using alias.
-
-        This has the following differences from calling pydantic's
-        `self.model_dump(by_alias=True)`:
-
-        * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
-          are ignored.
-        """
-        excluded_fields: Set[str] = set([
-        ])
-
-        _dict = self.model_dump(
-            by_alias=True,
-            exclude=excluded_fields,
-            exclude_none=True,
-        )
+    def to_dict(self):
+        """Returns the dictionary representation of the model using alias"""
+        _dict = self.dict(by_alias=True,
+                          exclude={
+                          },
+                          exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_status (list)
         _items = []
         if self.count_group_by_status:
-            for _item_count_group_by_status in self.count_group_by_status:
-                if _item_count_group_by_status:
-                    _items.append(_item_count_group_by_status.to_dict())
+            for _item in self.count_group_by_status:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['countGroupByStatus'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_status_type (list)
         _items = []
         if self.count_group_by_status_type:
-            for _item_count_group_by_status_type in self.count_group_by_status_type:
-                if _item_count_group_by_status_type:
-                    _items.append(_item_count_group_by_status_type.to_dict())
+            for _item in self.count_group_by_status_type:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['countGroupByStatusType'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in count_group_by_failure_class (list)
         _items = []
         if self.count_group_by_failure_class:
-            for _item_count_group_by_failure_class in self.count_group_by_failure_class:
-                if _item_count_group_by_failure_class:
-                    _items.append(_item_count_group_by_failure_class.to_dict())
+            for _item in self.count_group_by_failure_class:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['countGroupByFailureClass'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict) -> TestRunAnalyticApiResult:
         """Create an instance of TestRunAnalyticApiResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return cls.model_validate(obj)
+            return TestRunAnalyticApiResult.parse_obj(obj)
 
-        _obj = cls.model_validate({
-            "countGroupByStatus": [TestRunGroupByStatusApiResult.from_dict(_item) for _item in obj["countGroupByStatus"]] if obj.get("countGroupByStatus") is not None else None,
-            "countGroupByStatusType": [TestRunGroupByStatusTypeApiResult.from_dict(_item) for _item in obj["countGroupByStatusType"]] if obj.get("countGroupByStatusType") is not None else None,
-            "countGroupByFailureClass": [TestRunGroupByFailureClassApiResult.from_dict(_item) for _item in obj["countGroupByFailureClass"]] if obj.get("countGroupByFailureClass") is not None else None
+        _obj = TestRunAnalyticApiResult.parse_obj({
+            "count_group_by_status": [TestRunGroupByStatusApiResult.from_dict(_item) for _item in obj.get("countGroupByStatus")] if obj.get("countGroupByStatus") is not None else None,
+            "count_group_by_status_type": [TestRunGroupByStatusTypeApiResult.from_dict(_item) for _item in obj.get("countGroupByStatusType")] if obj.get("countGroupByStatusType") is not None else None,
+            "count_group_by_failure_class": [TestRunGroupByFailureClassApiResult.from_dict(_item) for _item in obj.get("countGroupByFailureClass")] if obj.get("countGroupByFailureClass") is not None else None
         })
         return _obj
 

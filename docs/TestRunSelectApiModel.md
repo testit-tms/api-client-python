@@ -3,7 +3,6 @@
 Model containing options to filter test runs
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**TestRunFilterApiModel**](TestRunFilterApiModel.md) |  | 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of TestRunSelectApiModel from a JSON string
 test_run_select_api_model_instance = TestRunSelectApiModel.from_json(json)
 # print the JSON string representation of the object
-print(TestRunSelectApiModel.to_json())
+print TestRunSelectApiModel.to_json()
 
 # convert the object into a dict
 test_run_select_api_model_dict = test_run_select_api_model_instance.to_dict()

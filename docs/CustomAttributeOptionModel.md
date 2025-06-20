@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the attribute option | 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of CustomAttributeOptionModel from a JSON string
 custom_attribute_option_model_instance = CustomAttributeOptionModel.from_json(json)
 # print the JSON string representation of the object
-print(CustomAttributeOptionModel.to_json())
+print CustomAttributeOptionModel.to_json()
 
 # convert the object into a dict
 custom_attribute_option_model_dict = custom_attribute_option_model_instance.to_dict()

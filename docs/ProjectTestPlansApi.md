@@ -17,13 +17,23 @@ Method | HTTP request | Description
 
 Get TestPlans analytics
 
- Use case  User sets project internal identifier  User sets query params  User runs method execution  System return analytics
+
+Use case
+
+User sets project internal identifier
+
+User sets query params
+
+User runs method execution
+
+System return analytics
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.test_plan_with_analytic_model import TestPlanWithAnalyticModel
 from testit_api_client.rest import ApiException
@@ -72,7 +82,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) identifier | 
@@ -98,7 +107,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -116,11 +124,14 @@ Name | Type | Description  | Notes
 
 Delete multiple test plans
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.test_plan_select_model import TestPlanSelectModel
 from testit_api_client.rest import ApiException
@@ -163,7 +174,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Unique or global ID of the project | 
@@ -183,7 +193,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -201,13 +210,21 @@ Name | Type | Description  | Notes
 
 Checks if TestPlan exists with the specified name exists for the project
 
- Use case  User sets project internal or global identifier  User runs method execution  System purge delete project workitems
+
+Use case
+
+User sets project internal or global identifier
+
+User runs method execution
+
+System purge delete project workitems
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -249,7 +266,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -269,7 +285,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -287,11 +302,14 @@ Name | Type | Description  | Notes
 
 Permanently delete multiple archived test plans
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.test_plan_select_model import TestPlanSelectModel
 from testit_api_client.rest import ApiException
@@ -332,7 +350,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Unique or global ID of the project | 
@@ -352,7 +369,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -370,11 +386,14 @@ void (empty response body)
 
 Restore multiple test plans
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.test_plan_select_model import TestPlanSelectModel
 from testit_api_client.rest import ApiException
@@ -417,7 +436,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Unique or global ID of the project | 
@@ -437,7 +455,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -455,13 +472,23 @@ Name | Type | Description  | Notes
 
 Get Project TestPlans with analytics
 
- Use case  User sets project internal or global identifier  User sets request body  User runs method execution  System returns project testplans with analytics
+
+Use case
+
+User sets project internal or global identifier
+
+User sets request body
+
+User runs method execution
+
+System returns project testplans with analytics
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.project_test_plans_filter_model import ProjectTestPlansFilterModel
 from testit_api_client.models.test_plan_with_analytic_model import TestPlanWithAnalyticModel
@@ -511,7 +538,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -537,7 +563,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |

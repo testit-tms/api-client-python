@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the project | 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of CreateProjectApiModel from a JSON string
 create_project_api_model_instance = CreateProjectApiModel.from_json(json)
 # print the JSON string representation of the object
-print(CreateProjectApiModel.to_json())
+print CreateProjectApiModel.to_json()
 
 # convert the object into a dict
 create_project_api_model_dict = create_project_api_model_instance.to_dict()
