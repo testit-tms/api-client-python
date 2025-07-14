@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **failure_category** | [**FailureCategory**](FailureCategory.md) |  | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of TestResultFailureClassApiResult from a JSON string
 test_result_failure_class_api_result_instance = TestResultFailureClassApiResult.from_json(json)
 # print the JSON string representation of the object
-print(TestResultFailureClassApiResult.to_json())
+print TestResultFailureClassApiResult.to_json()
 
 # convert the object into a dict
 test_result_failure_class_api_result_dict = test_result_failure_class_api_result_instance.to_dict()

@@ -68,7 +68,7 @@ class TestRunsApi:
     def api_v2_test_runs_delete(self, test_run_select_api_model : Optional[TestRunSelectApiModel] = None, **kwargs) -> int:  # noqa: E501
         """Delete multiple test runs  # noqa: E501
 
-         Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs  # noqa: E501
+         Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -98,7 +98,7 @@ class TestRunsApi:
     def api_v2_test_runs_delete_with_http_info(self, test_run_select_api_model : Optional[TestRunSelectApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Delete multiple test runs  # noqa: E501
 
-         Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs  # noqa: E501
+         Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -365,7 +365,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_delete(self, id : Annotated[StrictStr, Field(..., description="Test run internal (UUID) identifier")], **kwargs) -> None:  # noqa: E501
         """Delete test run  # noqa: E501
 
-         Use case  User sets test run internal (guid format) identifier  System search and delete test run  # noqa: E501
+         Use case   User sets test run internal (guid format) identifier   System search and delete test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -395,7 +395,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_delete_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test run internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete test run  # noqa: E501
 
-         Use case  User sets test run internal (guid format) identifier  System search and delete test run  # noqa: E501
+         Use case   User sets test run internal (guid format) identifier   System search and delete test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -503,7 +503,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_purge_post(self, id : Annotated[StrictStr, Field(..., description="Test run internal (UUID) identifier")], **kwargs) -> None:  # noqa: E501
         """Permanently delete test run from archive  # noqa: E501
 
-         Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run  # noqa: E501
+         Use case   User sets archived test run internal (guid format) identifier   System search and purge archived test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -533,7 +533,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_purge_post_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test run internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Permanently delete test run from archive  # noqa: E501
 
-         Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run  # noqa: E501
+         Use case   User sets archived test run internal (guid format) identifier   System search and purge archived test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -800,7 +800,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_restore_post(self, id : Annotated[StrictStr, Field(..., description="Unique ID of the test run")], **kwargs) -> None:  # noqa: E501
         """Restore test run from the archive  # noqa: E501
 
-         Use case  User sets archived test run internal (guid format) identifier  System search and restore test run  # noqa: E501
+         Use case   User sets archived test run internal (guid format) identifier   System search and restore test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -830,7 +830,7 @@ class TestRunsApi:
     def api_v2_test_runs_id_restore_post_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Unique ID of the test run")], **kwargs) -> ApiResponse:  # noqa: E501
         """Restore test run from the archive  # noqa: E501
 
-         Use case  User sets archived test run internal (guid format) identifier  System search and restore test run  # noqa: E501
+         Use case   User sets archived test run internal (guid format) identifier   System search and restore test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1536,7 +1536,7 @@ class TestRunsApi:
     def api_v2_test_runs_purge_bulk_post(self, test_run_select_api_model : Optional[TestRunSelectApiModel] = None, **kwargs) -> int:  # noqa: E501
         """Permanently delete multiple test runs from archive  # noqa: E501
 
-         Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs  # noqa: E501
+         Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1566,7 +1566,7 @@ class TestRunsApi:
     def api_v2_test_runs_purge_bulk_post_with_http_info(self, test_run_select_api_model : Optional[TestRunSelectApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Permanently delete multiple test runs from archive  # noqa: E501
 
-         Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs  # noqa: E501
+         Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1689,7 +1689,7 @@ class TestRunsApi:
     def api_v2_test_runs_restore_bulk_post(self, test_run_select_api_model : Optional[TestRunSelectApiModel] = None, **kwargs) -> int:  # noqa: E501
         """Restore multiple test runs from the archive  # noqa: E501
 
-         Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs  # noqa: E501
+         Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1719,7 +1719,7 @@ class TestRunsApi:
     def api_v2_test_runs_restore_bulk_post_with_http_info(self, test_run_select_api_model : Optional[TestRunSelectApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Restore multiple test runs from the archive  # noqa: E501
 
-         Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs  # noqa: E501
+         Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2176,7 +2176,7 @@ class TestRunsApi:
     def complete_test_run(self, id : Annotated[StrictStr, Field(..., description="Test Run internal identifier (GUID format)")], **kwargs) -> None:  # noqa: E501
         """Complete TestRun  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response  # noqa: E501
+         Use case   User sets test run identifier   User runs method execution   System completes test run   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2206,7 +2206,7 @@ class TestRunsApi:
     def complete_test_run_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test Run internal identifier (GUID format)")], **kwargs) -> ApiResponse:  # noqa: E501
         """Complete TestRun  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response  # noqa: E501
+         Use case   User sets test run identifier   User runs method execution   System completes test run   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2314,7 +2314,7 @@ class TestRunsApi:
     def create_and_fill_by_auto_tests(self, create_test_run_and_fill_by_auto_tests_api_model : Optional[CreateTestRunAndFillByAutoTestsApiModel] = None, **kwargs) -> TestRunV2ApiResult:  # noqa: E501
         """Create test runs based on autotests and configurations  # noqa: E501
 
-        This method creates a test run based on an autotest and a configuration. The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is that in this method there is no need to create a test plan and work items (test cases and checklists).  # noqa: E501
+        This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2344,7 +2344,7 @@ class TestRunsApi:
     def create_and_fill_by_auto_tests_with_http_info(self, create_test_run_and_fill_by_auto_tests_api_model : Optional[CreateTestRunAndFillByAutoTestsApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create test runs based on autotests and configurations  # noqa: E501
 
-        This method creates a test run based on an autotest and a configuration. The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is that in this method there is no need to create a test plan and work items (test cases and checklists).  # noqa: E501
+        This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2467,7 +2467,7 @@ class TestRunsApi:
     def create_and_fill_by_configurations(self, create_test_run_and_fill_by_configurations_api_model : Optional[CreateTestRunAndFillByConfigurationsApiModel] = None, **kwargs) -> TestRunV2ApiResult:  # noqa: E501
         """Create test runs picking the needed test points  # noqa: E501
 
-        This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a jagged array within the \"<b>testPointSelectors</b>\" parameter.  # noqa: E501
+        This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2497,7 +2497,7 @@ class TestRunsApi:
     def create_and_fill_by_configurations_with_http_info(self, create_test_run_and_fill_by_configurations_api_model : Optional[CreateTestRunAndFillByConfigurationsApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create test runs picking the needed test points  # noqa: E501
 
-        This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a jagged array within the \"<b>testPointSelectors</b>\" parameter.  # noqa: E501
+        This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2620,7 +2620,7 @@ class TestRunsApi:
     def create_and_fill_by_work_items(self, create_test_run_and_fill_by_work_items_api_model : Optional[CreateTestRunAndFillByWorkItemsApiModel] = None, **kwargs) -> TestRunV2ApiResult:  # noqa: E501
         """Create test run based on configurations and work items  # noqa: E501
 
-        This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  # noqa: E501
+        This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2650,7 +2650,7 @@ class TestRunsApi:
     def create_and_fill_by_work_items_with_http_info(self, create_test_run_and_fill_by_work_items_api_model : Optional[CreateTestRunAndFillByWorkItemsApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create test run based on configurations and work items  # noqa: E501
 
-        This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  # noqa: E501
+        This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2773,7 +2773,7 @@ class TestRunsApi:
     def create_empty(self, create_empty_test_run_api_model : Optional[CreateEmptyTestRunApiModel] = None, **kwargs) -> TestRunV2ApiResult:  # noqa: E501
         """Create empty TestRun  # noqa: E501
 
-         Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model  # noqa: E501
+         Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2803,7 +2803,7 @@ class TestRunsApi:
     def create_empty_with_http_info(self, create_empty_test_run_api_model : Optional[CreateEmptyTestRunApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create empty TestRun  # noqa: E501
 
-         Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model  # noqa: E501
+         Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2926,7 +2926,7 @@ class TestRunsApi:
     def get_test_run_by_id(self, id : Annotated[StrictStr, Field(..., description="Test Run internal identifier (GUID format)")], **kwargs) -> TestRunV2ApiResult:  # noqa: E501
         """Get TestRun by Id  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run  # noqa: E501
+         Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2956,7 +2956,7 @@ class TestRunsApi:
     def get_test_run_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test Run internal identifier (GUID format)")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get TestRun by Id  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run  # noqa: E501
+         Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3233,7 +3233,7 @@ class TestRunsApi:
     def start_test_run(self, id : Annotated[StrictStr, Field(..., description="Test Run internal identifier (GUID format)")], **kwargs) -> None:  # noqa: E501
         """Start TestRun  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response  # noqa: E501
+         Use case   User sets test run identifier   User runs method execution   System starts test run   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3263,7 +3263,7 @@ class TestRunsApi:
     def start_test_run_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test Run internal identifier (GUID format)")], **kwargs) -> ApiResponse:  # noqa: E501
         """Start TestRun  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response  # noqa: E501
+         Use case   User sets test run identifier   User runs method execution   System starts test run   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3371,7 +3371,7 @@ class TestRunsApi:
     def stop_test_run(self, id : Annotated[StrictStr, Field(..., description="Test Run internal identifier (GUID format)")], **kwargs) -> None:  # noqa: E501
         """Stop TestRun  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response  # noqa: E501
+         Use case   User sets test run identifier   User runs method execution   System stops test run   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3401,7 +3401,7 @@ class TestRunsApi:
     def stop_test_run_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test Run internal identifier (GUID format)")], **kwargs) -> ApiResponse:  # noqa: E501
         """Stop TestRun  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response  # noqa: E501
+         Use case   User sets test run identifier   User runs method execution   System stops test run   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3509,7 +3509,7 @@ class TestRunsApi:
     def update_empty(self, update_empty_test_run_api_model : Optional[UpdateEmptyTestRunApiModel] = None, **kwargs) -> None:  # noqa: E501
         """Update empty TestRun  # noqa: E501
 
-         Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response  # noqa: E501
+         Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3539,7 +3539,7 @@ class TestRunsApi:
     def update_empty_with_http_info(self, update_empty_test_run_api_model : Optional[UpdateEmptyTestRunApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update empty TestRun  # noqa: E501
 
-         Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response  # noqa: E501
+         Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -23,10 +23,10 @@ from pydantic import Field, StrictInt, StrictStr
 
 from typing import List, Optional
 
-from testit_api_client.models.create_tag_api_model import CreateTagApiModel
-from testit_api_client.models.select_tags_api_model import SelectTagsApiModel
-from testit_api_client.models.tag_api_result import TagApiResult
-from testit_api_client.models.update_tag_api_model import UpdateTagApiModel
+from testit_api_client.models.tag_model import TagModel
+from testit_api_client.models.tag_post_model import TagPostModel
+from testit_api_client.models.tag_put_model import TagPutModel
+from testit_api_client.models.tag_select_model import TagSelectModel
 
 from testit_api_client.api_client import ApiClient
 from testit_api_client.api_response import ApiResponse
@@ -49,18 +49,18 @@ class TagsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def api_v2_tags_delete(self, select_tags_api_model : Optional[SelectTagsApiModel] = None, **kwargs) -> None:  # noqa: E501
+    def api_v2_tags_delete(self, tag_select_model : Optional[TagSelectModel] = None, **kwargs) -> None:  # noqa: E501
         """Delete tags  # noqa: E501
 
-         Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags  # noqa: E501
+         Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_tags_delete(select_tags_api_model, async_req=True)
+        >>> thread = api.api_v2_tags_delete(tag_select_model, async_req=True)
         >>> result = thread.get()
 
-        :param select_tags_api_model:
-        :type select_tags_api_model: SelectTagsApiModel
+        :param tag_select_model:
+        :type tag_select_model: TagSelectModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -76,21 +76,21 @@ class TagsApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the api_v2_tags_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.api_v2_tags_delete_with_http_info(select_tags_api_model, **kwargs)  # noqa: E501
+        return self.api_v2_tags_delete_with_http_info(tag_select_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def api_v2_tags_delete_with_http_info(self, select_tags_api_model : Optional[SelectTagsApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def api_v2_tags_delete_with_http_info(self, tag_select_model : Optional[TagSelectModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Delete tags  # noqa: E501
 
-         Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags  # noqa: E501
+         Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_tags_delete_with_http_info(select_tags_api_model, async_req=True)
+        >>> thread = api.api_v2_tags_delete_with_http_info(tag_select_model, async_req=True)
         >>> result = thread.get()
 
-        :param select_tags_api_model:
-        :type select_tags_api_model: SelectTagsApiModel
+        :param tag_select_model:
+        :type tag_select_model: TagSelectModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -119,7 +119,7 @@ class TagsApi:
         _params = locals()
 
         _all_params = [
-            'select_tags_api_model'
+            'tag_select_model'
         ]
         _all_params.extend(
             [
@@ -157,8 +157,8 @@ class TagsApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['select_tags_api_model'] is not None:
-            _body_params = _params['select_tags_api_model']
+        if _params['tag_select_model'] is not None:
+            _body_params = _params['tag_select_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -194,10 +194,150 @@ class TagsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
+    def api_v2_tags_get(self, **kwargs) -> List[TagModel]:  # noqa: E501
+        """(Deprecated) Get all Tags  # noqa: E501
+
+         Use case   User runs method execution   System returns tags (listed in the response example)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_tags_get(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: List[TagModel]
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the api_v2_tags_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.api_v2_tags_get_with_http_info(**kwargs)  # noqa: E501
+
+    @validate_arguments
+    def api_v2_tags_get_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+        """(Deprecated) Get all Tags  # noqa: E501
+
+         Use case   User runs method execution   System returns tags (listed in the response example)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_tags_get_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(List[TagModel], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        warnings.warn("GET /api/v2/tags is deprecated.", DeprecationWarning)
+
+        _params = locals()
+
+        _all_params = [
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method api_v2_tags_get" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
+
+        _response_types_map = {
+            '200': "List[TagModel]",
+            '400': "ValidationProblemDetails",
+            '401': "ProblemDetails",
+            '403': "ProblemDetails",
+            '404': "ProblemDetails",
+            '409': "ProblemDetails",
+            '422': "ProblemDetails",
+        }
+
+        return self.api_client.call_api(
+            '/api/v2/tags', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
     def api_v2_tags_id_delete(self, id : Annotated[StrictStr, Field(..., description="Tag internal (UUID) identifier")], **kwargs) -> None:  # noqa: E501
         """Delete tag  # noqa: E501
 
-         Use case  User sets tag internal (guid format) identifier  System search and delete tag  # noqa: E501
+         Use case   User sets tag internal (guid format) identifier   System search and delete tag  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -227,7 +367,7 @@ class TagsApi:
     def api_v2_tags_id_delete_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Tag internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete tag  # noqa: E501
 
-         Use case  User sets tag internal (guid format) identifier  System search and delete tag  # noqa: E501
+         Use case   User sets tag internal (guid format) identifier   System search and delete tag  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -332,18 +472,18 @@ class TagsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_tags_post(self, create_tag_api_model : Optional[CreateTagApiModel] = None, **kwargs) -> TagApiResult:  # noqa: E501
+    def api_v2_tags_post(self, tag_post_model : Optional[TagPostModel] = None, **kwargs) -> TagModel:  # noqa: E501
         """Create tag  # noqa: E501
 
-         Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)  # noqa: E501
+         Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_tags_post(create_tag_api_model, async_req=True)
+        >>> thread = api.api_v2_tags_post(tag_post_model, async_req=True)
         >>> result = thread.get()
 
-        :param create_tag_api_model:
-        :type create_tag_api_model: CreateTagApiModel
+        :param tag_post_model:
+        :type tag_post_model: TagPostModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -353,27 +493,27 @@ class TagsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: TagApiResult
+        :rtype: TagModel
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             message = "Error! Please call the api_v2_tags_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.api_v2_tags_post_with_http_info(create_tag_api_model, **kwargs)  # noqa: E501
+        return self.api_v2_tags_post_with_http_info(tag_post_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def api_v2_tags_post_with_http_info(self, create_tag_api_model : Optional[CreateTagApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def api_v2_tags_post_with_http_info(self, tag_post_model : Optional[TagPostModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create tag  # noqa: E501
 
-         Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)  # noqa: E501
+         Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_tags_post_with_http_info(create_tag_api_model, async_req=True)
+        >>> thread = api.api_v2_tags_post_with_http_info(tag_post_model, async_req=True)
         >>> result = thread.get()
 
-        :param create_tag_api_model:
-        :type create_tag_api_model: CreateTagApiModel
+        :param tag_post_model:
+        :type tag_post_model: TagPostModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -396,13 +536,13 @@ class TagsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(TagApiResult, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(TagModel, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
 
         _all_params = [
-            'create_tag_api_model'
+            'tag_post_model'
         ]
         _all_params.extend(
             [
@@ -440,8 +580,8 @@ class TagsApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['create_tag_api_model'] is not None:
-            _body_params = _params['create_tag_api_model']
+        if _params['tag_post_model'] is not None:
+            _body_params = _params['tag_post_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -458,7 +598,7 @@ class TagsApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '201': "TagApiResult",
+            '201': "TagModel",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -485,20 +625,20 @@ class TagsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_tags_put(self, id : Optional[StrictStr] = None, update_tag_api_model : Optional[UpdateTagApiModel] = None, **kwargs) -> TagApiResult:  # noqa: E501
+    def api_v2_tags_put(self, id : Optional[StrictStr] = None, tag_put_model : Optional[TagPutModel] = None, **kwargs) -> TagModel:  # noqa: E501
         """Update tag  # noqa: E501
 
-         Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)  # noqa: E501
+         Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_tags_put(id, update_tag_api_model, async_req=True)
+        >>> thread = api.api_v2_tags_put(id, tag_put_model, async_req=True)
         >>> result = thread.get()
 
         :param id:
         :type id: str
-        :param update_tag_api_model:
-        :type update_tag_api_model: UpdateTagApiModel
+        :param tag_put_model:
+        :type tag_put_model: TagPutModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -508,29 +648,29 @@ class TagsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: TagApiResult
+        :rtype: TagModel
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             message = "Error! Please call the api_v2_tags_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.api_v2_tags_put_with_http_info(id, update_tag_api_model, **kwargs)  # noqa: E501
+        return self.api_v2_tags_put_with_http_info(id, tag_put_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def api_v2_tags_put_with_http_info(self, id : Optional[StrictStr] = None, update_tag_api_model : Optional[UpdateTagApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def api_v2_tags_put_with_http_info(self, id : Optional[StrictStr] = None, tag_put_model : Optional[TagPutModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update tag  # noqa: E501
 
-         Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)  # noqa: E501
+         Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_tags_put_with_http_info(id, update_tag_api_model, async_req=True)
+        >>> thread = api.api_v2_tags_put_with_http_info(id, tag_put_model, async_req=True)
         >>> result = thread.get()
 
         :param id:
         :type id: str
-        :param update_tag_api_model:
-        :type update_tag_api_model: UpdateTagApiModel
+        :param tag_put_model:
+        :type tag_put_model: TagPutModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -553,14 +693,14 @@ class TagsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(TagApiResult, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(TagModel, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
 
         _all_params = [
             'id',
-            'update_tag_api_model'
+            'tag_put_model'
         ]
         _all_params.extend(
             [
@@ -601,8 +741,8 @@ class TagsApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['update_tag_api_model'] is not None:
-            _body_params = _params['update_tag_api_model']
+        if _params['tag_put_model'] is not None:
+            _body_params = _params['tag_put_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -619,7 +759,7 @@ class TagsApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "TagApiResult",
+            '200': "TagModel",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -646,10 +786,10 @@ class TagsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_tags_search_get(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[TagApiResult]:  # noqa: E501
+    def api_v2_tags_search_get(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[TagModel]:  # noqa: E501
         """Search tags  # noqa: E501
 
-         Use case  User runs method execution  System returns collection of tags (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns collection of tags (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -675,7 +815,7 @@ class TagsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[TagApiResult]
+        :rtype: List[TagModel]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -687,7 +827,7 @@ class TagsApi:
     def api_v2_tags_search_get_with_http_info(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Search tags  # noqa: E501
 
-         Use case  User runs method execution  System returns collection of tags (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns collection of tags (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -726,7 +866,7 @@ class TagsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[TagApiResult], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[TagModel], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -797,7 +937,7 @@ class TagsApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[TagApiResult]",
+            '200': "List[TagModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -824,10 +964,10 @@ class TagsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_tags_test_plans_tags_get(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[TagApiResult]:  # noqa: E501
+    def api_v2_tags_test_plans_tags_get(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[TagModel]:  # noqa: E501
         """Get all Tags that are used in TestPlans  # noqa: E501
 
-         Use case  User runs method execution  System returns tags (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns tags (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -853,7 +993,7 @@ class TagsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[TagApiResult]
+        :rtype: List[TagModel]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -865,7 +1005,7 @@ class TagsApi:
     def api_v2_tags_test_plans_tags_get_with_http_info(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get all Tags that are used in TestPlans  # noqa: E501
 
-         Use case  User runs method execution  System returns tags (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns tags (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -904,7 +1044,7 @@ class TagsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[TagApiResult], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[TagModel], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -975,7 +1115,7 @@ class TagsApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[TagApiResult]",
+            '200': "List[TagModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",

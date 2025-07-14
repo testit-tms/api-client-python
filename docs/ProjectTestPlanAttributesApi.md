@@ -16,13 +16,23 @@ Method | HTTP request | Description
 
 Add attributes to project's test plans
 
- Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
+
+Use case
+
+User sets project internal or global identifier and attributes identifiers
+
+User runs method execution
+
+System updates project and add attributes to project for test plans
+
+System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -62,7 +72,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -82,11 +91,10 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |  Attributes must be global |  -  |
+**400** |   Attributes must be global  |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for project settings is required |  -  |
 **404** | Not Found |  -  |
@@ -100,13 +108,23 @@ void (empty response body)
 
 Delete attribute from project's test plans
 
- Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
+
+Use case
+
+User sets project internal or global identifier and attribute identifier
+
+User runs method execution
+
+System updates project and delete attribute from project for test plans
+
+System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -146,7 +164,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -166,7 +183,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -184,13 +200,19 @@ void (empty response body)
 
 Get project's test plan attributes
 
- Use case  User runs method execution  System returns project for test plans attributes by project identifier
+
+Use case
+
+User runs method execution
+
+System returns project for test plans attributes by project identifier
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_model import CustomAttributeModel
 from testit_api_client.rest import ApiException
@@ -232,7 +254,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -251,7 +272,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -269,11 +289,14 @@ Name | Type | Description  | Notes
 
 Search for attributes used in the project test plans
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_get_model import CustomAttributeGetModel
 from testit_api_client.models.project_attributes_filter_model import ProjectAttributesFilterModel
@@ -322,7 +345,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Unique or global project ID | 
@@ -347,7 +369,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -365,13 +386,23 @@ Name | Type | Description  | Notes
 
 Update attribute of project's test plans
 
- Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
+
+Use case
+
+User sets project internal or global identifier and attribute model
+
+User runs method execution
+
+System updates project and project attribute for test plan
+
+System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.custom_attribute_test_plan_project_relation_put_model import CustomAttributeTestPlanProjectRelationPutModel
 from testit_api_client.rest import ApiException
@@ -412,7 +443,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
@@ -432,7 +462,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |

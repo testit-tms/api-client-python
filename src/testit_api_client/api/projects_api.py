@@ -28,14 +28,11 @@ from typing import List, Optional
 from testit_api_client.models.auto_test_namespace_model import AutoTestNamespaceModel
 from testit_api_client.models.create_project_api_model import CreateProjectApiModel
 from testit_api_client.models.custom_attribute_test_plan_project_relation_put_model import CustomAttributeTestPlanProjectRelationPutModel
-from testit_api_client.models.demo_project_api_result import DemoProjectApiResult
 from testit_api_client.models.failure_class_model import FailureClassModel
 from testit_api_client.models.filter_model import FilterModel
-from testit_api_client.models.get_short_projects_api_model import GetShortProjectsApiModel
 from testit_api_client.models.operation import Operation
 from testit_api_client.models.project_model import ProjectModel
 from testit_api_client.models.project_select_model import ProjectSelectModel
-from testit_api_client.models.project_short_api_result_reply import ProjectShortApiResultReply
 from testit_api_client.models.project_short_model import ProjectShortModel
 from testit_api_client.models.projects_filter_model import ProjectsFilterModel
 from testit_api_client.models.public_test_run_model import PublicTestRunModel
@@ -68,7 +65,7 @@ class ProjectsApi:
     def add_globa_attributes_to_project(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], request_body : Optional[conlist(StrictStr, unique_items=True)] = None, **kwargs) -> None:  # noqa: E501
         """Add global attributes to project  # noqa: E501
 
-         Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response  # noqa: E501
+         Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -100,7 +97,7 @@ class ProjectsApi:
     def add_globa_attributes_to_project_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], request_body : Optional[conlist(StrictStr, unique_items=True)] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Add global attributes to project  # noqa: E501
 
-         Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response  # noqa: E501
+         Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -202,157 +199,6 @@ class ProjectsApi:
 
         return self.api_client.call_api(
             '/api/v2/projects/{id}/globalAttributes', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def api_v2_projects_demo_post(self, create_project_api_model : Optional[CreateProjectApiModel] = None, **kwargs) -> DemoProjectApiResult:  # noqa: E501
-        """api_v2_projects_demo_post  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.api_v2_projects_demo_post(create_project_api_model, async_req=True)
-        >>> result = thread.get()
-
-        :param create_project_api_model:
-        :type create_project_api_model: CreateProjectApiModel
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: DemoProjectApiResult
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the api_v2_projects_demo_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.api_v2_projects_demo_post_with_http_info(create_project_api_model, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def api_v2_projects_demo_post_with_http_info(self, create_project_api_model : Optional[CreateProjectApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """api_v2_projects_demo_post  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.api_v2_projects_demo_post_with_http_info(create_project_api_model, async_req=True)
-        >>> result = thread.get()
-
-        :param create_project_api_model:
-        :type create_project_api_model: CreateProjectApiModel
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(DemoProjectApiResult, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'create_project_api_model'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method api_v2_projects_demo_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['create_project_api_model'] is not None:
-            _body_params = _params['create_project_api_model']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
-
-        _response_types_map = {
-            '201': "DemoProjectApiResult",
-            '400': "ValidationProblemDetails",
-            '401': "ProblemDetails",
-            '403': "ProblemDetails",
-            '404': "ProblemDetails",
-            '409': "ProblemDetails",
-            '422': "ProblemDetails",
-        }
-
-        return self.api_client.call_api(
-            '/api/v2/projects/demo', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -796,7 +642,7 @@ class ProjectsApi:
     def api_v2_projects_id_filters_get(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> List[FilterModel]:  # noqa: E501
         """Get Project filters  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System returns project filters  # noqa: E501
+         Use case   User sets project internal or global identifier    User runs method execution   System returns project filters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -826,7 +672,7 @@ class ProjectsApi:
     def api_v2_projects_id_filters_get_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get Project filters  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System returns project filters  # noqa: E501
+         Use case   User sets project internal or global identifier    User runs method execution   System returns project filters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1367,7 +1213,7 @@ class ProjectsApi:
     def api_v2_projects_id_test_plans_attribute_attribute_id_delete(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], attribute_id : StrictStr, **kwargs) -> None:  # noqa: E501
         """(Deprecated) Delete attribute from project's test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response  # noqa: E501
+         Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1399,7 +1245,7 @@ class ProjectsApi:
     def api_v2_projects_id_test_plans_attribute_attribute_id_delete_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], attribute_id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """(Deprecated) Delete attribute from project's test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response  # noqa: E501
+         Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1515,7 +1361,7 @@ class ProjectsApi:
     def api_v2_projects_id_test_plans_attribute_put(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], custom_attribute_test_plan_project_relation_put_model : Optional[CustomAttributeTestPlanProjectRelationPutModel] = None, **kwargs) -> None:  # noqa: E501
         """(Deprecated) Update attribute of project's test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response  # noqa: E501
+         Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1547,7 +1393,7 @@ class ProjectsApi:
     def api_v2_projects_id_test_plans_attribute_put_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], custom_attribute_test_plan_project_relation_put_model : Optional[CustomAttributeTestPlanProjectRelationPutModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """(Deprecated) Update attribute of project's test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response  # noqa: E501
+         Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1670,7 +1516,7 @@ class ProjectsApi:
     def api_v2_projects_id_test_runs_active_get(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> List[PublicTestRunModel]:  # noqa: E501
         """Get active Project TestRuns  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns  # noqa: E501
+         Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1700,7 +1546,7 @@ class ProjectsApi:
     def api_v2_projects_id_test_runs_active_get_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get active Project TestRuns  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns  # noqa: E501
+         Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1816,7 +1662,7 @@ class ProjectsApi:
     def api_v2_projects_id_test_runs_full_get(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], include_test_results : Optional[StrictBool] = None, must_aggregate_test_results : Optional[StrictBool] = None, not_started : Optional[StrictBool] = None, in_progress : Optional[StrictBool] = None, stopped : Optional[StrictBool] = None, completed : Optional[StrictBool] = None, created_date_from : Optional[datetime] = None, created_date_to : Optional[datetime] = None, test_plan_id : Optional[StrictStr] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[TestRunApiResult]:  # noqa: E501
         """Get Project TestRuns full models  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1874,7 +1720,7 @@ class ProjectsApi:
     def api_v2_projects_id_test_runs_full_get_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], include_test_results : Optional[StrictBool] = None, must_aggregate_test_results : Optional[StrictBool] = None, not_started : Optional[StrictBool] = None, in_progress : Optional[StrictBool] = None, stopped : Optional[StrictBool] = None, completed : Optional[StrictBool] = None, created_date_from : Optional[datetime] = None, created_date_to : Optional[datetime] = None, test_plan_id : Optional[StrictStr] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Project TestRuns full models  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2714,163 +2560,10 @@ class ProjectsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_projects_shorts_post(self, get_short_projects_api_model : Optional[GetShortProjectsApiModel] = None, **kwargs) -> ProjectShortApiResultReply:  # noqa: E501
-        """Get projects short models  # noqa: E501
-
-         Use case  User sets query params  User runs method execution  System return projects short models  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.api_v2_projects_shorts_post(get_short_projects_api_model, async_req=True)
-        >>> result = thread.get()
-
-        :param get_short_projects_api_model:
-        :type get_short_projects_api_model: GetShortProjectsApiModel
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: ProjectShortApiResultReply
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the api_v2_projects_shorts_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.api_v2_projects_shorts_post_with_http_info(get_short_projects_api_model, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def api_v2_projects_shorts_post_with_http_info(self, get_short_projects_api_model : Optional[GetShortProjectsApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Get projects short models  # noqa: E501
-
-         Use case  User sets query params  User runs method execution  System return projects short models  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.api_v2_projects_shorts_post_with_http_info(get_short_projects_api_model, async_req=True)
-        >>> result = thread.get()
-
-        :param get_short_projects_api_model:
-        :type get_short_projects_api_model: GetShortProjectsApiModel
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(ProjectShortApiResultReply, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'get_short_projects_api_model'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method api_v2_projects_shorts_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['get_short_projects_api_model'] is not None:
-            _body_params = _params['get_short_projects_api_model']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
-
-        _response_types_map = {
-            '200': "ProjectShortApiResultReply",
-            '400': "ValidationProblemDetails",
-            '401': "ProblemDetails",
-            '403': "ProblemDetails",
-            '404': "ProblemDetails",
-            '409': "ProblemDetails",
-            '422': "ProblemDetails",
-        }
-
-        return self.api_client.call_api(
-            '/api/v2/projects/shorts', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
     def create_project(self, create_project_api_model : Optional[CreateProjectApiModel] = None, **kwargs) -> ProjectModel:  # noqa: E501
         """Create project  # noqa: E501
 
-         Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)  # noqa: E501
+         Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2900,7 +2593,7 @@ class ProjectsApi:
     def create_project_with_http_info(self, create_project_api_model : Optional[CreateProjectApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create project  # noqa: E501
 
-         Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)  # noqa: E501
+         Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3159,7 +2852,7 @@ class ProjectsApi:
     def get_all_projects(self, is_deleted : Annotated[Optional[StrictBool], Field(description="If result must consist of only actual/deleted parameters")] = None, project_name : Optional[StrictStr] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[ProjectShortModel]:  # noqa: E501
         """(Deprecated) Get all projects  # noqa: E501
 
-         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)  # noqa: E501
+         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3201,7 +2894,7 @@ class ProjectsApi:
     def get_all_projects_with_http_info(self, is_deleted : Annotated[Optional[StrictBool], Field(description="If result must consist of only actual/deleted parameters")] = None, project_name : Optional[StrictStr] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """(Deprecated) Get all projects  # noqa: E501
 
-         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)  # noqa: E501
+         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3355,7 +3048,7 @@ class ProjectsApi:
     def get_auto_tests_namespaces(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> List[AutoTestNamespaceModel]:  # noqa: E501
         """Get namespaces of autotests in project  # noqa: E501
 
-         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)  # noqa: E501
+         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3385,7 +3078,7 @@ class ProjectsApi:
     def get_auto_tests_namespaces_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get namespaces of autotests in project  # noqa: E501
 
-         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)  # noqa: E501
+         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3501,7 +3194,7 @@ class ProjectsApi:
     def get_project_by_id(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> ProjectModel:  # noqa: E501
         """Get project by ID  # noqa: E501
 
-         Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)  # noqa: E501
+         Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3531,7 +3224,7 @@ class ProjectsApi:
     def get_project_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get project by ID  # noqa: E501
 
-         Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)  # noqa: E501
+         Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3647,7 +3340,7 @@ class ProjectsApi:
     def get_test_plans_by_project_id(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], is_deleted : Annotated[Optional[StrictBool], Field(description="If result must consist of only actual/archived test plans")] = None, **kwargs) -> List[TestPlanModel]:  # noqa: E501
         """Get project test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3679,7 +3372,7 @@ class ProjectsApi:
     def get_test_plans_by_project_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], is_deleted : Annotated[Optional[StrictBool], Field(description="If result must consist of only actual/archived test plans")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get project test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3801,7 +3494,7 @@ class ProjectsApi:
     def get_test_runs_by_project_id(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], not_started : StrictBool, in_progress : StrictBool, stopped : StrictBool, completed : StrictBool, created_date_from : Optional[datetime] = None, created_date_to : Optional[datetime] = None, test_plan_id : Optional[StrictStr] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[TestRunV2ApiResult]:  # noqa: E501
         """Get project test runs  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3855,7 +3548,7 @@ class ProjectsApi:
     def get_test_runs_by_project_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], not_started : StrictBool, in_progress : StrictBool, stopped : StrictBool, completed : StrictBool, created_date_from : Optional[datetime] = None, created_date_to : Optional[datetime] = None, test_plan_id : Optional[StrictStr] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get project test runs  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4049,7 +3742,7 @@ class ProjectsApi:
     def update_project(self, update_project_api_model : Optional[UpdateProjectApiModel] = None, **kwargs) -> None:  # noqa: E501
         """Update project  # noqa: E501
 
-         Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)  # noqa: E501
+         Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4079,7 +3772,7 @@ class ProjectsApi:
     def update_project_with_http_info(self, update_project_api_model : Optional[UpdateProjectApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update project  # noqa: E501
 
-         Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)  # noqa: E501
+         Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

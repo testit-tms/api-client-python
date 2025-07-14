@@ -18,8 +18,8 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictStr, conlist, constr
+
+from pydantic import BaseModel, Field, StrictStr, constr
 
 class ParameterShortModel(BaseModel):
     """
@@ -29,8 +29,7 @@ class ParameterShortModel(BaseModel):
     parameter_key_id: StrictStr = Field(default=..., alias="parameterKeyId")
     value: constr(strict=True, max_length=1500, min_length=0) = Field(default=..., description="Value of the parameter")
     name: constr(strict=True, max_length=255, min_length=0) = Field(default=..., description="Key of the parameter")
-    project_ids: conlist(StrictStr) = Field(default=..., alias="projectIds")
-    __properties = ["id", "parameterKeyId", "value", "name", "projectIds"]
+    __properties = ["id", "parameterKeyId", "value", "name"]
 
     class Config:
         """Pydantic configuration"""
@@ -71,8 +70,7 @@ class ParameterShortModel(BaseModel):
             "id": obj.get("id"),
             "parameter_key_id": obj.get("parameterKeyId"),
             "value": obj.get("value"),
-            "name": obj.get("name"),
-            "project_ids": obj.get("projectIds")
+            "name": obj.get("name")
         })
         return _obj
 

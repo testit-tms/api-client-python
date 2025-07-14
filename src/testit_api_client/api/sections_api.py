@@ -208,7 +208,7 @@ class SectionsApi:
     def create_section(self, section_post_model : Optional[SectionPostModel] = None, **kwargs) -> SectionWithStepsModel:  # noqa: E501
         """Create section  # noqa: E501
 
-         Use case  User sets section properties (listed in request example)  User runs method execution  System creates section property values  System returns section (listed in response example)  # noqa: E501
+         Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -238,7 +238,7 @@ class SectionsApi:
     def create_section_with_http_info(self, section_post_model : Optional[SectionPostModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create section  # noqa: E501
 
-         Use case  User sets section properties (listed in request example)  User runs method execution  System creates section property values  System returns section (listed in response example)  # noqa: E501
+         Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -361,7 +361,7 @@ class SectionsApi:
     def delete_section(self, id : Annotated[StrictStr, Field(..., description="Section internal (UUID) identifier")], **kwargs) -> None:  # noqa: E501
         """Delete section  # noqa: E501
 
-         Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search and delete nested sections of the found section  System search and delete workitems related to the found nested sections  System deletes initial section and related workitem  System returns no content response  # noqa: E501
+         Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -391,7 +391,7 @@ class SectionsApi:
     def delete_section_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Section internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete section  # noqa: E501
 
-         Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search and delete nested sections of the found section  System search and delete workitems related to the found nested sections  System deletes initial section and related workitem  System returns no content response  # noqa: E501
+         Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -499,7 +499,7 @@ class SectionsApi:
     def get_section_by_id(self, id : Annotated[StrictStr, Field(..., description="Section internal (UUID) identifier")], is_deleted : Optional[Any] = None, **kwargs) -> SectionWithStepsModel:  # noqa: E501
         """Get section  # noqa: E501
 
-         Use case  User sets section internal (guid format) identifier  User runs method execution  System search section by the section identifier  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns section  # noqa: E501
+         Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -531,7 +531,7 @@ class SectionsApi:
     def get_section_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Section internal (UUID) identifier")], is_deleted : Optional[Any] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get section  # noqa: E501
 
-         Use case  User sets section internal (guid format) identifier  User runs method execution  System search section by the section identifier  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns section  # noqa: E501
+         Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -653,7 +653,7 @@ class SectionsApi:
     def get_work_items_by_section_id(self, id : Annotated[StrictStr, Field(..., description="Section internal (UUID) identifier")], is_deleted : Annotated[Optional[StrictBool], Field(description="Requested section is deleted")] = None, tag_names : Annotated[Optional[conlist(StrictStr)], Field(description="List of work item tags")] = None, include_iterations : Optional[StrictBool] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[WorkItemShortModel]:  # noqa: E501
         """(Deprecated) Get section work items  # noqa: E501
 
-         Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search work items related to the section  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns work item collection  # noqa: E501
+         Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -699,7 +699,7 @@ class SectionsApi:
     def get_work_items_by_section_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Section internal (UUID) identifier")], is_deleted : Annotated[Optional[StrictBool], Field(description="Requested section is deleted")] = None, tag_names : Annotated[Optional[conlist(StrictStr)], Field(description="List of work item tags")] = None, include_iterations : Optional[StrictBool] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """(Deprecated) Get section work items  # noqa: E501
 
-         Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search work items related to the section  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns work item collection  # noqa: E501
+         Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1009,7 +1009,7 @@ class SectionsApi:
     def rename(self, section_rename_model : Optional[SectionRenameModel] = None, **kwargs) -> None:  # noqa: E501
         """Rename section  # noqa: E501
 
-         Use case  User sets section identifier and new name (listed in request example)  User runs method execution  System search section by the identifier  System updates section name using the new name  System returns no content response  # noqa: E501
+         Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1039,7 +1039,7 @@ class SectionsApi:
     def rename_with_http_info(self, section_rename_model : Optional[SectionRenameModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Rename section  # noqa: E501
 
-         Use case  User sets section identifier and new name (listed in request example)  User runs method execution  System search section by the identifier  System updates section name using the new name  System returns no content response  # noqa: E501
+         Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1154,7 +1154,7 @@ class SectionsApi:
     def update_section(self, section_put_model : Optional[SectionPutModel] = None, **kwargs) -> None:  # noqa: E501
         """Update section  # noqa: E501
 
-         Use case  User sets section properties (listed in request example)  User runs method execution  System search section by the identifier  System updates section using the property values  System returns no content response  # noqa: E501
+         Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1184,7 +1184,7 @@ class SectionsApi:
     def update_section_with_http_info(self, section_put_model : Optional[SectionPutModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update section  # noqa: E501
 
-         Use case  User sets section properties (listed in request example)  User runs method execution  System search section by the identifier  System updates section using the property values  System returns no content response  # noqa: E501
+         Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

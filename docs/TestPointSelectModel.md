@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**TestPointFilterModel**](TestPointFilterModel.md) |  | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of TestPointSelectModel from a JSON string
 test_point_select_model_instance = TestPointSelectModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPointSelectModel.to_json())
+print TestPointSelectModel.to_json()
 
 # convert the object into a dict
 test_point_select_model_dict = test_point_select_model_instance.to_dict()

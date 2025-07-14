@@ -30,7 +30,7 @@ class GlobalCustomAttributePostModel(BaseModel):
     name: constr(strict=True, max_length=255, min_length=0) = Field(default=..., description="Name of attribute")
     is_enabled: Optional[StrictBool] = Field(default=None, alias="isEnabled", description="Indicates whether the attribute is available")
     is_required: Optional[StrictBool] = Field(default=None, alias="isRequired", description="Indicates whether the attribute value is mandatory to specify")
-    options: Optional[conlist(CustomAttributeOptionPostModel)] = Field(default=None, description="Collection of attribute options   Available for attributes of type `options` and `multiple options` only")
+    options: Optional[conlist(CustomAttributeOptionPostModel)] = Field(default=None, description="Collection of attribute options     Available for attributes of type `options` and `multiple options` only")
     type: CustomAttributeTypesEnum = Field(default=..., description="Type of attribute")
     __properties = ["name", "isEnabled", "isRequired", "options", "type"]
 

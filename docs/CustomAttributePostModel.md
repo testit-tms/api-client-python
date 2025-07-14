@@ -2,10 +2,9 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**options** | [**List[CustomAttributeOptionPostModel]**](CustomAttributeOptionPostModel.md) | Collection of attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
+**options** | [**List[CustomAttributeOptionPostModel]**](CustomAttributeOptionPostModel.md) | Collection of attribute options     Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
 **type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of attribute | 
 **name** | **str** | Name of the attribute | 
 **is_enabled** | **bool** | Indicates if the attribute is enabled | 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of CustomAttributePostModel from a JSON string
 custom_attribute_post_model_instance = CustomAttributePostModel.from_json(json)
 # print the JSON string representation of the object
-print(CustomAttributePostModel.to_json())
+print CustomAttributePostModel.to_json()
 
 # convert the object into a dict
 custom_attribute_post_model_dict = custom_attribute_post_model_instance.to_dict()

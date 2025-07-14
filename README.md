@@ -182,7 +182,6 @@ Class | Method | HTTP request | Description
 *ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_tags_get**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_tags_get) | **GET** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 *ProjectWorkItemsApi* | [**get_work_items_by_project_id**](docs/ProjectWorkItemsApi.md#get_work_items_by_project_id) | **GET** /api/v2/projects/{projectId}/workItems | Get project work items
 *ProjectsApi* | [**add_globa_attributes_to_project**](docs/ProjectsApi.md#add_globa_attributes_to_project) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-*ProjectsApi* | [**api_v2_projects_demo_post**](docs/ProjectsApi.md#api_v2_projects_demo_post) | **POST** /api/v2/projects/demo | 
 *ProjectsApi* | [**api_v2_projects_id_delete**](docs/ProjectsApi.md#api_v2_projects_id_delete) | **DELETE** /api/v2/projects/{id} | Archive project
 *ProjectsApi* | [**api_v2_projects_id_failure_classes_get**](docs/ProjectsApi.md#api_v2_projects_id_failure_classes_get) | **GET** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsApi* | [**api_v2_projects_id_favorite_put**](docs/ProjectsApi.md#api_v2_projects_id_favorite_put) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -198,7 +197,6 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**api_v2_projects_purge_bulk_post**](docs/ProjectsApi.md#api_v2_projects_purge_bulk_post) | **POST** /api/v2/projects/purge/bulk | Purge multiple projects
 *ProjectsApi* | [**api_v2_projects_restore_bulk_post**](docs/ProjectsApi.md#api_v2_projects_restore_bulk_post) | **POST** /api/v2/projects/restore/bulk | Restore multiple projects
 *ProjectsApi* | [**api_v2_projects_search_post**](docs/ProjectsApi.md#api_v2_projects_search_post) | **POST** /api/v2/projects/search | Search for projects
-*ProjectsApi* | [**api_v2_projects_shorts_post**](docs/ProjectsApi.md#api_v2_projects_shorts_post) | **POST** /api/v2/projects/shorts | Get projects short models
 *ProjectsApi* | [**create_project**](docs/ProjectsApi.md#create_project) | **POST** /api/v2/projects | Create project
 *ProjectsApi* | [**delete_project_auto_tests**](docs/ProjectsApi.md#delete_project_auto_tests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete all autotests from project
 *ProjectsApi* | [**get_all_projects**](docs/ProjectsApi.md#get_all_projects) | **GET** /api/v2/projects | Get all projects
@@ -217,6 +215,7 @@ Class | Method | HTTP request | Description
 *SectionsApi* | [**rename**](docs/SectionsApi.md#rename) | **POST** /api/v2/sections/rename | Rename section
 *SectionsApi* | [**update_section**](docs/SectionsApi.md#update_section) | **PUT** /api/v2/sections | Update section
 *TagsApi* | [**api_v2_tags_delete**](docs/TagsApi.md#api_v2_tags_delete) | **DELETE** /api/v2/tags | Delete tags
+*TagsApi* | [**api_v2_tags_get**](docs/TagsApi.md#api_v2_tags_get) | **GET** /api/v2/tags | Get all Tags
 *TagsApi* | [**api_v2_tags_id_delete**](docs/TagsApi.md#api_v2_tags_id_delete) | **DELETE** /api/v2/tags/{id} | Delete tag
 *TagsApi* | [**api_v2_tags_post**](docs/TagsApi.md#api_v2_tags_post) | **POST** /api/v2/tags | Create tag
 *TagsApi* | [**api_v2_tags_put**](docs/TagsApi.md#api_v2_tags_put) | **PUT** /api/v2/tags | Update tag

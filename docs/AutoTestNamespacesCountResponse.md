@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **namespaces** | [**List[AutoTestNamespaceCountApiModel]**](AutoTestNamespaceCountApiModel.md) |  | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of AutoTestNamespacesCountResponse from a JSON string
 auto_test_namespaces_count_response_instance = AutoTestNamespacesCountResponse.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestNamespacesCountResponse.to_json())
+print AutoTestNamespacesCountResponse.to_json()
 
 # convert the object into a dict
 auto_test_namespaces_count_response_dict = auto_test_namespaces_count_response_instance.to_dict()

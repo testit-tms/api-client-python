@@ -27,7 +27,7 @@ class CustomAttributePostModel(BaseModel):
     """
     CustomAttributePostModel
     """
-    options: Optional[conlist(CustomAttributeOptionPostModel)] = Field(default=None, description="Collection of attribute options   Available for attributes of type `options` and `multiple options` only")
+    options: Optional[conlist(CustomAttributeOptionPostModel)] = Field(default=None, description="Collection of attribute options     Available for attributes of type `options` and `multiple options` only")
     type: CustomAttributeTypesEnum = Field(default=..., description="Type of attribute")
     name: constr(strict=True, max_length=255, min_length=0) = Field(default=..., description="Name of the attribute")
     is_enabled: StrictBool = Field(default=..., alias="isEnabled", description="Indicates if the attribute is enabled")

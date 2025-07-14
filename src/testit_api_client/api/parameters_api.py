@@ -23,12 +23,11 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr, conlist, constr
 
 from typing import List, Optional
 
-from testit_api_client.models.create_parameter_api_model import CreateParameterApiModel
-from testit_api_client.models.parameter_api_result import ParameterApiResult
-from testit_api_client.models.parameter_group_api_result import ParameterGroupApiResult
-from testit_api_client.models.parameter_groups_filter_api_model import ParameterGroupsFilterApiModel
-from testit_api_client.models.parameters_filter_api_model import ParametersFilterApiModel
-from testit_api_client.models.update_parameter_api_model import UpdateParameterApiModel
+from testit_api_client.models.parameter_filter_model import ParameterFilterModel
+from testit_api_client.models.parameter_group_model import ParameterGroupModel
+from testit_api_client.models.parameter_model import ParameterModel
+from testit_api_client.models.parameter_post_model import ParameterPostModel
+from testit_api_client.models.parameter_put_model import ParameterPutModel
 
 from testit_api_client.api_client import ApiClient
 from testit_api_client.api_response import ApiResponse
@@ -51,18 +50,18 @@ class ParametersApi:
         self.api_client = api_client
 
     @validate_arguments
-    def api_v2_parameters_bulk_post(self, create_parameter_api_model : Optional[conlist(CreateParameterApiModel)] = None, **kwargs) -> List[ParameterApiResult]:  # noqa: E501
+    def api_v2_parameters_bulk_post(self, parameter_post_model : Optional[conlist(ParameterPostModel)] = None, **kwargs) -> List[ParameterModel]:  # noqa: E501
         """Create multiple parameters  # noqa: E501
 
-         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)  # noqa: E501
+         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_bulk_post(create_parameter_api_model, async_req=True)
+        >>> thread = api.api_v2_parameters_bulk_post(parameter_post_model, async_req=True)
         >>> result = thread.get()
 
-        :param create_parameter_api_model:
-        :type create_parameter_api_model: List[CreateParameterApiModel]
+        :param parameter_post_model:
+        :type parameter_post_model: List[ParameterPostModel]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -72,27 +71,27 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[ParameterApiResult]
+        :rtype: List[ParameterModel]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             message = "Error! Please call the api_v2_parameters_bulk_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.api_v2_parameters_bulk_post_with_http_info(create_parameter_api_model, **kwargs)  # noqa: E501
+        return self.api_v2_parameters_bulk_post_with_http_info(parameter_post_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def api_v2_parameters_bulk_post_with_http_info(self, create_parameter_api_model : Optional[conlist(CreateParameterApiModel)] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def api_v2_parameters_bulk_post_with_http_info(self, parameter_post_model : Optional[conlist(ParameterPostModel)] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create multiple parameters  # noqa: E501
 
-         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)  # noqa: E501
+         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_bulk_post_with_http_info(create_parameter_api_model, async_req=True)
+        >>> thread = api.api_v2_parameters_bulk_post_with_http_info(parameter_post_model, async_req=True)
         >>> result = thread.get()
 
-        :param create_parameter_api_model:
-        :type create_parameter_api_model: List[CreateParameterApiModel]
+        :param parameter_post_model:
+        :type parameter_post_model: List[ParameterPostModel]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -115,13 +114,13 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[ParameterApiResult], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[ParameterModel], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
 
         _all_params = [
-            'create_parameter_api_model'
+            'parameter_post_model'
         ]
         _all_params.extend(
             [
@@ -159,8 +158,8 @@ class ParametersApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['create_parameter_api_model'] is not None:
-            _body_params = _params['create_parameter_api_model']
+        if _params['parameter_post_model'] is not None:
+            _body_params = _params['parameter_post_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -177,7 +176,7 @@ class ParametersApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '201': "List[ParameterApiResult]",
+            '201': "List[ParameterModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -204,18 +203,18 @@ class ParametersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_parameters_bulk_put(self, update_parameter_api_model : Optional[conlist(UpdateParameterApiModel)] = None, **kwargs) -> None:  # noqa: E501
+    def api_v2_parameters_bulk_put(self, parameter_put_model : Optional[conlist(ParameterPutModel)] = None, **kwargs) -> None:  # noqa: E501
         """Update multiple parameters  # noqa: E501
 
-         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters  # noqa: E501
+         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_bulk_put(update_parameter_api_model, async_req=True)
+        >>> thread = api.api_v2_parameters_bulk_put(parameter_put_model, async_req=True)
         >>> result = thread.get()
 
-        :param update_parameter_api_model:
-        :type update_parameter_api_model: List[UpdateParameterApiModel]
+        :param parameter_put_model:
+        :type parameter_put_model: List[ParameterPutModel]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -231,21 +230,21 @@ class ParametersApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the api_v2_parameters_bulk_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.api_v2_parameters_bulk_put_with_http_info(update_parameter_api_model, **kwargs)  # noqa: E501
+        return self.api_v2_parameters_bulk_put_with_http_info(parameter_put_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def api_v2_parameters_bulk_put_with_http_info(self, update_parameter_api_model : Optional[conlist(UpdateParameterApiModel)] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def api_v2_parameters_bulk_put_with_http_info(self, parameter_put_model : Optional[conlist(ParameterPutModel)] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update multiple parameters  # noqa: E501
 
-         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters  # noqa: E501
+         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_bulk_put_with_http_info(update_parameter_api_model, async_req=True)
+        >>> thread = api.api_v2_parameters_bulk_put_with_http_info(parameter_put_model, async_req=True)
         >>> result = thread.get()
 
-        :param update_parameter_api_model:
-        :type update_parameter_api_model: List[UpdateParameterApiModel]
+        :param parameter_put_model:
+        :type parameter_put_model: List[ParameterPutModel]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -274,7 +273,7 @@ class ParametersApi:
         _params = locals()
 
         _all_params = [
-            'update_parameter_api_model'
+            'parameter_put_model'
         ]
         _all_params.extend(
             [
@@ -312,8 +311,8 @@ class ParametersApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['update_parameter_api_model'] is not None:
-            _body_params = _params['update_parameter_api_model']
+        if _params['parameter_put_model'] is not None:
+            _body_params = _params['parameter_put_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -349,24 +348,20 @@ class ParametersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_parameters_groups_get(self, parameter_key_ids : Optional[conlist(StrictStr, unique_items=True)] = None, name : Optional[StrictStr] = None, is_deleted : Optional[StrictBool] = None, project_ids : Optional[conlist(StrictStr)] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[ParameterGroupApiResult]:  # noqa: E501
+    def api_v2_parameters_groups_get(self, is_deleted : Optional[StrictBool] = None, parameter_key_ids : Optional[conlist(StrictStr, unique_items=True)] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[ParameterGroupModel]:  # noqa: E501
         """Get parameters as group  # noqa: E501
 
-         Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_groups_get(parameter_key_ids, name, is_deleted, project_ids, skip, take, order_by, search_field, search_value, async_req=True)
+        >>> thread = api.api_v2_parameters_groups_get(is_deleted, parameter_key_ids, skip, take, order_by, search_field, search_value, async_req=True)
         >>> result = thread.get()
 
-        :param parameter_key_ids:
-        :type parameter_key_ids: List[str]
-        :param name:
-        :type name: str
         :param is_deleted:
         :type is_deleted: bool
-        :param project_ids:
-        :type project_ids: List[str]
+        :param parameter_key_ids:
+        :type parameter_key_ids: List[str]
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
         :param take: Amount of items to be taken (limit)
@@ -386,33 +381,29 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[ParameterGroupApiResult]
+        :rtype: List[ParameterGroupModel]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             message = "Error! Please call the api_v2_parameters_groups_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.api_v2_parameters_groups_get_with_http_info(parameter_key_ids, name, is_deleted, project_ids, skip, take, order_by, search_field, search_value, **kwargs)  # noqa: E501
+        return self.api_v2_parameters_groups_get_with_http_info(is_deleted, parameter_key_ids, skip, take, order_by, search_field, search_value, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def api_v2_parameters_groups_get_with_http_info(self, parameter_key_ids : Optional[conlist(StrictStr, unique_items=True)] = None, name : Optional[StrictStr] = None, is_deleted : Optional[StrictBool] = None, project_ids : Optional[conlist(StrictStr)] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def api_v2_parameters_groups_get_with_http_info(self, is_deleted : Optional[StrictBool] = None, parameter_key_ids : Optional[conlist(StrictStr, unique_items=True)] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get parameters as group  # noqa: E501
 
-         Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_groups_get_with_http_info(parameter_key_ids, name, is_deleted, project_ids, skip, take, order_by, search_field, search_value, async_req=True)
+        >>> thread = api.api_v2_parameters_groups_get_with_http_info(is_deleted, parameter_key_ids, skip, take, order_by, search_field, search_value, async_req=True)
         >>> result = thread.get()
 
-        :param parameter_key_ids:
-        :type parameter_key_ids: List[str]
-        :param name:
-        :type name: str
         :param is_deleted:
         :type is_deleted: bool
-        :param project_ids:
-        :type project_ids: List[str]
+        :param parameter_key_ids:
+        :type parameter_key_ids: List[str]
         :param skip: Amount of items to be skipped (offset)
         :type skip: int
         :param take: Amount of items to be taken (limit)
@@ -445,16 +436,14 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[ParameterGroupApiResult], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[ParameterGroupModel], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
 
         _all_params = [
-            'parameter_key_ids',
-            'name',
             'is_deleted',
-            'project_ids',
+            'parameter_key_ids',
             'skip',
             'take',
             'order_by',
@@ -490,19 +479,12 @@ class ParametersApi:
 
         # process the query parameters
         _query_params = []
-        if _params.get('parameter_key_ids') is not None:  # noqa: E501
-            _query_params.append(('parameterKeyIds', _params['parameter_key_ids']))
-            _collection_formats['parameterKeyIds'] = 'multi'
-
-        if _params.get('name') is not None:  # noqa: E501
-            _query_params.append(('name', _params['name']))
-
         if _params.get('is_deleted') is not None:  # noqa: E501
             _query_params.append(('isDeleted', _params['is_deleted']))
 
-        if _params.get('project_ids') is not None:  # noqa: E501
-            _query_params.append(('projectIds', _params['project_ids']))
-            _collection_formats['projectIds'] = 'multi'
+        if _params.get('parameter_key_ids') is not None:  # noqa: E501
+            _query_params.append(('parameterKeyIds', _params['parameter_key_ids']))
+            _collection_formats['parameterKeyIds'] = 'multi'
 
         if _params.get('skip') is not None:  # noqa: E501
             _query_params.append(('Skip', _params['skip']))
@@ -534,7 +516,7 @@ class ParametersApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[ParameterGroupApiResult]",
+            '200': "List[ParameterGroupModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -564,7 +546,7 @@ class ParametersApi:
     def api_v2_parameters_key_name_name_exists_get(self, name : StrictStr, **kwargs) -> bool:  # noqa: E501
         """Check existence parameter key in system  # noqa: E501
 
-         Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system  # noqa: E501
+         Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -594,7 +576,7 @@ class ParametersApi:
     def api_v2_parameters_key_name_name_exists_get_with_http_info(self, name : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """Check existence parameter key in system  # noqa: E501
 
-         Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system  # noqa: E501
+         Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -710,7 +692,7 @@ class ParametersApi:
     def api_v2_parameters_key_values_get(self, key : Annotated[StrictStr, Field(..., description="Parameter key (string format)")], **kwargs) -> List[str]:  # noqa: E501
         """Get all parameter key values  # noqa: E501
 
-         Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter  # noqa: E501
+         Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -740,7 +722,7 @@ class ParametersApi:
     def api_v2_parameters_key_values_get_with_http_info(self, key : Annotated[StrictStr, Field(..., description="Parameter key (string format)")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get all parameter key values  # noqa: E501
 
-         Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter  # noqa: E501
+         Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -853,18 +835,16 @@ class ParametersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_parameters_keys_get(self, project_ids : Optional[conlist(StrictStr)] = None, **kwargs) -> List[str]:  # noqa: E501
+    def api_v2_parameters_keys_get(self, **kwargs) -> List[str]:  # noqa: E501
         """Get all parameter keys  # noqa: E501
 
-         Use case  User runs method execution  System search all parameter keys  System returns parameter keys  # noqa: E501
+         Use case   User runs method execution   System search all parameter keys   System returns parameter keys  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_keys_get(project_ids, async_req=True)
+        >>> thread = api.api_v2_parameters_keys_get(async_req=True)
         >>> result = thread.get()
 
-        :param project_ids:
-        :type project_ids: List[str]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -880,21 +860,19 @@ class ParametersApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the api_v2_parameters_keys_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.api_v2_parameters_keys_get_with_http_info(project_ids, **kwargs)  # noqa: E501
+        return self.api_v2_parameters_keys_get_with_http_info(**kwargs)  # noqa: E501
 
     @validate_arguments
-    def api_v2_parameters_keys_get_with_http_info(self, project_ids : Optional[conlist(StrictStr)] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def api_v2_parameters_keys_get_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
         """Get all parameter keys  # noqa: E501
 
-         Use case  User runs method execution  System search all parameter keys  System returns parameter keys  # noqa: E501
+         Use case   User runs method execution   System search all parameter keys   System returns parameter keys  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_keys_get_with_http_info(project_ids, async_req=True)
+        >>> thread = api.api_v2_parameters_keys_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param project_ids:
-        :type project_ids: List[str]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -923,7 +901,6 @@ class ParametersApi:
         _params = locals()
 
         _all_params = [
-            'project_ids'
         ]
         _all_params.extend(
             [
@@ -954,10 +931,6 @@ class ParametersApi:
 
         # process the query parameters
         _query_params = []
-        if _params.get('project_ids') is not None:  # noqa: E501
-            _query_params.append(('projectIds', _params['project_ids']))
-            _collection_formats['projectIds'] = 'multi'
-
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
@@ -1000,13 +973,13 @@ class ParametersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_parameters_search_groups_post(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, parameter_groups_filter_api_model : Optional[ParameterGroupsFilterApiModel] = None, **kwargs) -> List[ParameterGroupApiResult]:  # noqa: E501
+    def api_v2_parameters_search_groups_post(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, parameter_filter_model : Optional[ParameterFilterModel] = None, **kwargs) -> List[ParameterGroupModel]:  # noqa: E501
         """Search for parameters as group  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_search_groups_post(skip, take, order_by, search_field, search_value, parameter_groups_filter_api_model, async_req=True)
+        >>> thread = api.api_v2_parameters_search_groups_post(skip, take, order_by, search_field, search_value, parameter_filter_model, async_req=True)
         >>> result = thread.get()
 
         :param skip: Amount of items to be skipped (offset)
@@ -1019,8 +992,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameter_groups_filter_api_model:
-        :type parameter_groups_filter_api_model: ParameterGroupsFilterApiModel
+        :param parameter_filter_model:
+        :type parameter_filter_model: ParameterFilterModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -1030,22 +1003,22 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[ParameterGroupApiResult]
+        :rtype: List[ParameterGroupModel]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             message = "Error! Please call the api_v2_parameters_search_groups_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.api_v2_parameters_search_groups_post_with_http_info(skip, take, order_by, search_field, search_value, parameter_groups_filter_api_model, **kwargs)  # noqa: E501
+        return self.api_v2_parameters_search_groups_post_with_http_info(skip, take, order_by, search_field, search_value, parameter_filter_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def api_v2_parameters_search_groups_post_with_http_info(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, parameter_groups_filter_api_model : Optional[ParameterGroupsFilterApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def api_v2_parameters_search_groups_post_with_http_info(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, parameter_filter_model : Optional[ParameterFilterModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Search for parameters as group  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_search_groups_post_with_http_info(skip, take, order_by, search_field, search_value, parameter_groups_filter_api_model, async_req=True)
+        >>> thread = api.api_v2_parameters_search_groups_post_with_http_info(skip, take, order_by, search_field, search_value, parameter_filter_model, async_req=True)
         >>> result = thread.get()
 
         :param skip: Amount of items to be skipped (offset)
@@ -1058,8 +1031,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameter_groups_filter_api_model:
-        :type parameter_groups_filter_api_model: ParameterGroupsFilterApiModel
+        :param parameter_filter_model:
+        :type parameter_filter_model: ParameterFilterModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -1082,7 +1055,7 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[ParameterGroupApiResult], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[ParameterGroupModel], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -1093,7 +1066,7 @@ class ParametersApi:
             'order_by',
             'search_field',
             'search_value',
-            'parameter_groups_filter_api_model'
+            'parameter_filter_model'
         ]
         _all_params.extend(
             [
@@ -1146,8 +1119,8 @@ class ParametersApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['parameter_groups_filter_api_model'] is not None:
-            _body_params = _params['parameter_groups_filter_api_model']
+        if _params['parameter_filter_model'] is not None:
+            _body_params = _params['parameter_filter_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1164,7 +1137,7 @@ class ParametersApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[ParameterGroupApiResult]",
+            '200': "List[ParameterGroupModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1191,13 +1164,13 @@ class ParametersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_parameters_search_post(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, parameters_filter_api_model : Optional[ParametersFilterApiModel] = None, **kwargs) -> List[ParameterApiResult]:  # noqa: E501
+    def api_v2_parameters_search_post(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, parameter_filter_model : Optional[ParameterFilterModel] = None, **kwargs) -> List[ParameterModel]:  # noqa: E501
         """Search for parameters  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_search_post(skip, take, order_by, search_field, search_value, parameters_filter_api_model, async_req=True)
+        >>> thread = api.api_v2_parameters_search_post(skip, take, order_by, search_field, search_value, parameter_filter_model, async_req=True)
         >>> result = thread.get()
 
         :param skip: Amount of items to be skipped (offset)
@@ -1210,8 +1183,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameters_filter_api_model:
-        :type parameters_filter_api_model: ParametersFilterApiModel
+        :param parameter_filter_model:
+        :type parameter_filter_model: ParameterFilterModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -1221,22 +1194,22 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[ParameterApiResult]
+        :rtype: List[ParameterModel]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             message = "Error! Please call the api_v2_parameters_search_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.api_v2_parameters_search_post_with_http_info(skip, take, order_by, search_field, search_value, parameters_filter_api_model, **kwargs)  # noqa: E501
+        return self.api_v2_parameters_search_post_with_http_info(skip, take, order_by, search_field, search_value, parameter_filter_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def api_v2_parameters_search_post_with_http_info(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, parameters_filter_api_model : Optional[ParametersFilterApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def api_v2_parameters_search_post_with_http_info(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, parameter_filter_model : Optional[ParameterFilterModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Search for parameters  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_parameters_search_post_with_http_info(skip, take, order_by, search_field, search_value, parameters_filter_api_model, async_req=True)
+        >>> thread = api.api_v2_parameters_search_post_with_http_info(skip, take, order_by, search_field, search_value, parameter_filter_model, async_req=True)
         >>> result = thread.get()
 
         :param skip: Amount of items to be skipped (offset)
@@ -1249,8 +1222,8 @@ class ParametersApi:
         :type search_field: str
         :param search_value: Value for searching
         :type search_value: str
-        :param parameters_filter_api_model:
-        :type parameters_filter_api_model: ParametersFilterApiModel
+        :param parameter_filter_model:
+        :type parameter_filter_model: ParameterFilterModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -1273,7 +1246,7 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[ParameterApiResult], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[ParameterModel], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -1284,7 +1257,7 @@ class ParametersApi:
             'order_by',
             'search_field',
             'search_value',
-            'parameters_filter_api_model'
+            'parameter_filter_model'
         ]
         _all_params.extend(
             [
@@ -1337,8 +1310,8 @@ class ParametersApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['parameters_filter_api_model'] is not None:
-            _body_params = _params['parameters_filter_api_model']
+        if _params['parameter_filter_model'] is not None:
+            _body_params = _params['parameter_filter_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1355,7 +1328,7 @@ class ParametersApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[ParameterApiResult]",
+            '200': "List[ParameterModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1382,18 +1355,18 @@ class ParametersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def create_parameter(self, create_parameter_api_model : Optional[CreateParameterApiModel] = None, **kwargs) -> ParameterApiResult:  # noqa: E501
+    def create_parameter(self, parameter_post_model : Optional[ParameterPostModel] = None, **kwargs) -> ParameterModel:  # noqa: E501
         """Create parameter  # noqa: E501
 
-         Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model  # noqa: E501
+         Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_parameter(create_parameter_api_model, async_req=True)
+        >>> thread = api.create_parameter(parameter_post_model, async_req=True)
         >>> result = thread.get()
 
-        :param create_parameter_api_model:
-        :type create_parameter_api_model: CreateParameterApiModel
+        :param parameter_post_model:
+        :type parameter_post_model: ParameterPostModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -1403,27 +1376,27 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: ParameterApiResult
+        :rtype: ParameterModel
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
             message = "Error! Please call the create_parameter_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.create_parameter_with_http_info(create_parameter_api_model, **kwargs)  # noqa: E501
+        return self.create_parameter_with_http_info(parameter_post_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_parameter_with_http_info(self, create_parameter_api_model : Optional[CreateParameterApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def create_parameter_with_http_info(self, parameter_post_model : Optional[ParameterPostModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create parameter  # noqa: E501
 
-         Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model  # noqa: E501
+         Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_parameter_with_http_info(create_parameter_api_model, async_req=True)
+        >>> thread = api.create_parameter_with_http_info(parameter_post_model, async_req=True)
         >>> result = thread.get()
 
-        :param create_parameter_api_model:
-        :type create_parameter_api_model: CreateParameterApiModel
+        :param parameter_post_model:
+        :type parameter_post_model: ParameterPostModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -1446,13 +1419,13 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ParameterApiResult, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(ParameterModel, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
 
         _all_params = [
-            'create_parameter_api_model'
+            'parameter_post_model'
         ]
         _all_params.extend(
             [
@@ -1490,8 +1463,8 @@ class ParametersApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['create_parameter_api_model'] is not None:
-            _body_params = _params['create_parameter_api_model']
+        if _params['parameter_post_model'] is not None:
+            _body_params = _params['parameter_post_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1508,7 +1481,7 @@ class ParametersApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '201': "ParameterApiResult",
+            '201': "ParameterModel",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -1814,7 +1787,7 @@ class ParametersApi:
     def delete_parameter(self, id : Annotated[StrictStr, Field(..., description="Parameter internal (UUID) identifier")], **kwargs) -> None:  # noqa: E501
         """Delete parameter  # noqa: E501
 
-         Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter  # noqa: E501
+         Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1844,7 +1817,7 @@ class ParametersApi:
     def delete_parameter_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Parameter internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete parameter  # noqa: E501
 
-         Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter  # noqa: E501
+         Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1949,10 +1922,10 @@ class ParametersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_all_parameters(self, is_deleted : Annotated[Optional[StrictBool], Field(description="If result must consist of only actual/deleted parameters")] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[ParameterApiResult]:  # noqa: E501
+    def get_all_parameters(self, is_deleted : Annotated[Optional[StrictBool], Field(description="If result must consist of only actual/deleted parameters")] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[ParameterModel]:  # noqa: E501
         """Get all parameters  # noqa: E501
 
-         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)  # noqa: E501
+         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1980,7 +1953,7 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[ParameterApiResult]
+        :rtype: List[ParameterModel]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -1992,7 +1965,7 @@ class ParametersApi:
     def get_all_parameters_with_http_info(self, is_deleted : Annotated[Optional[StrictBool], Field(description="If result must consist of only actual/deleted parameters")] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get all parameters  # noqa: E501
 
-         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)  # noqa: E501
+         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2033,7 +2006,7 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[ParameterApiResult], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[ParameterModel], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -2108,7 +2081,7 @@ class ParametersApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[ParameterApiResult]",
+            '200': "List[ParameterModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2135,10 +2108,10 @@ class ParametersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_parameter_by_id(self, id : Annotated[StrictStr, Field(..., description="Parameter internal (UUID) identifier")], **kwargs) -> ParameterApiResult:  # noqa: E501
+    def get_parameter_by_id(self, id : Annotated[StrictStr, Field(..., description="Parameter internal (UUID) identifier")], **kwargs) -> ParameterModel:  # noqa: E501
         """Get parameter by ID  # noqa: E501
 
-         Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter  # noqa: E501
+         Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2156,7 +2129,7 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: ParameterApiResult
+        :rtype: ParameterModel
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -2168,7 +2141,7 @@ class ParametersApi:
     def get_parameter_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Parameter internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get parameter by ID  # noqa: E501
 
-         Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter  # noqa: E501
+         Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2199,7 +2172,7 @@ class ParametersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ParameterApiResult, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(ParameterModel, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -2254,7 +2227,7 @@ class ParametersApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "ParameterApiResult",
+            '200': "ParameterModel",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -2281,18 +2254,18 @@ class ParametersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_parameter(self, update_parameter_api_model : Optional[UpdateParameterApiModel] = None, **kwargs) -> None:  # noqa: E501
+    def update_parameter(self, parameter_put_model : Optional[ParameterPutModel] = None, **kwargs) -> None:  # noqa: E501
         """Update parameter  # noqa: E501
 
-         Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response  # noqa: E501
+         Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_parameter(update_parameter_api_model, async_req=True)
+        >>> thread = api.update_parameter(parameter_put_model, async_req=True)
         >>> result = thread.get()
 
-        :param update_parameter_api_model:
-        :type update_parameter_api_model: UpdateParameterApiModel
+        :param parameter_put_model:
+        :type parameter_put_model: ParameterPutModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -2308,21 +2281,21 @@ class ParametersApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the update_parameter_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_parameter_with_http_info(update_parameter_api_model, **kwargs)  # noqa: E501
+        return self.update_parameter_with_http_info(parameter_put_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_parameter_with_http_info(self, update_parameter_api_model : Optional[UpdateParameterApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_parameter_with_http_info(self, parameter_put_model : Optional[ParameterPutModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update parameter  # noqa: E501
 
-         Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response  # noqa: E501
+         Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_parameter_with_http_info(update_parameter_api_model, async_req=True)
+        >>> thread = api.update_parameter_with_http_info(parameter_put_model, async_req=True)
         >>> result = thread.get()
 
-        :param update_parameter_api_model:
-        :type update_parameter_api_model: UpdateParameterApiModel
+        :param parameter_put_model:
+        :type parameter_put_model: ParameterPutModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -2351,7 +2324,7 @@ class ParametersApi:
         _params = locals()
 
         _all_params = [
-            'update_parameter_api_model'
+            'parameter_put_model'
         ]
         _all_params.extend(
             [
@@ -2389,8 +2362,8 @@ class ParametersApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['update_parameter_api_model'] is not None:
-            _body_params = _params['update_parameter_api_model']
+        if _params['parameter_put_model'] is not None:
+            _body_params = _params['parameter_put_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(

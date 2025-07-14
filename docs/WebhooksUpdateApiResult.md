@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **updated_count** | **int** |  | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of WebhooksUpdateApiResult from a JSON string
 webhooks_update_api_result_instance = WebhooksUpdateApiResult.from_json(json)
 # print the JSON string representation of the object
-print(WebhooksUpdateApiResult.to_json())
+print WebhooksUpdateApiResult.to_json()
 
 # convert the object into a dict
 webhooks_update_api_result_dict = webhooks_update_api_result_instance.to_dict()

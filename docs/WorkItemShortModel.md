@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Work Item internal unique identifier | 
@@ -24,7 +23,6 @@ Name | Type | Description | Notes
 **modified_date** | **datetime** | Date and time of the latest modification of Work Item | [optional] 
 **state** | [**WorkItemStates**](WorkItemStates.md) | The current state of Work Item | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) | Work Item priority level | 
-**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) | Work Item source type | 
 **is_deleted** | **bool** | Flag determining whether Work Item is deleted | 
 **tag_names** | **List[str]** | Array of tag names of Work Item | [optional] 
 **iterations** | [**List[IterationModel]**](IterationModel.md) | Set of iterations related to Work Item | 
@@ -40,7 +38,7 @@ json = "{}"
 # create an instance of WorkItemShortModel from a JSON string
 work_item_short_model_instance = WorkItemShortModel.from_json(json)
 # print the JSON string representation of the object
-print(WorkItemShortModel.to_json())
+print WorkItemShortModel.to_json()
 
 # convert the object into a dict
 work_item_short_model_dict = work_item_short_model_instance.to_dict()

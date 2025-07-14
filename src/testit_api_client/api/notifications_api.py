@@ -50,7 +50,7 @@ class NotificationsApi:
     def api_v2_notifications_count_get(self, is_read : Optional[StrictBool] = None, **kwargs) -> int:  # noqa: E501
         """Get unread Notifications total in last 7 days  # noqa: E501
 
-         Use case  User runs method execution  System returns unread notifications total (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns unread notifications total (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -80,7 +80,7 @@ class NotificationsApi:
     def api_v2_notifications_count_get_with_http_info(self, is_read : Optional[StrictBool] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get unread Notifications total in last 7 days  # noqa: E501
 
-         Use case  User runs method execution  System returns unread notifications total (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns unread notifications total (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -196,7 +196,7 @@ class NotificationsApi:
     def api_v2_notifications_get(self, notification_type : Optional[Any] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[NotificationModel]:  # noqa: E501
         """Get all Notifications for current User  # noqa: E501
 
-         Use case  User runs method execution  System returns notifications (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns notifications (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -236,7 +236,7 @@ class NotificationsApi:
     def api_v2_notifications_get_with_http_info(self, notification_type : Optional[Any] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get all Notifications for current User  # noqa: E501
 
-         Use case  User runs method execution  System returns notifications (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns notifications (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -382,7 +382,7 @@ class NotificationsApi:
     def api_v2_notifications_id_read_post(self, id : StrictStr, **kwargs) -> None:  # noqa: E501
         """Set Notification as read  # noqa: E501
 
-         Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read  # noqa: E501
+         Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -412,7 +412,7 @@ class NotificationsApi:
     def api_v2_notifications_id_read_post_with_http_info(self, id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """Set Notification as read  # noqa: E501
 
-         Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read  # noqa: E501
+         Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -520,7 +520,7 @@ class NotificationsApi:
     def api_v2_notifications_read_post(self, **kwargs) -> None:  # noqa: E501
         """Set all Notifications as read  # noqa: E501
 
-         Use case  User runs method execution  System set all notifications as read  # noqa: E501
+         Use case   User runs method execution   System set all notifications as read  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -548,7 +548,7 @@ class NotificationsApi:
     def api_v2_notifications_read_post_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
         """Set all Notifications as read  # noqa: E501
 
-         Use case  User runs method execution  System set all notifications as read  # noqa: E501
+         Use case   User runs method execution   System set all notifications as read  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -650,7 +650,7 @@ class NotificationsApi:
     def api_v2_notifications_search_post(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, notification_query_filter_model : Optional[NotificationQueryFilterModel] = None, **kwargs) -> List[NotificationModel]:  # noqa: E501
         """Search Notifications for current User  # noqa: E501
 
-         Use case  User set filter and runs method execution  System returns notifications (listed in the response example)  # noqa: E501
+         Use case   User set filter and runs method execution   System returns notifications (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -690,7 +690,7 @@ class NotificationsApi:
     def api_v2_notifications_search_post_with_http_info(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, notification_query_filter_model : Optional[NotificationQueryFilterModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Search Notifications for current User  # noqa: E501
 
-         Use case  User set filter and runs method execution  System returns notifications (listed in the response example)  # noqa: E501
+         Use case   User set filter and runs method execution   System returns notifications (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

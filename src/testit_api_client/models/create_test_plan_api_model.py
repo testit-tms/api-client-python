@@ -20,14 +20,14 @@ import json
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, constr
-from testit_api_client.models.tag_api_model import TagApiModel
+from testit_api_client.models.tag_post_model import TagPostModel
 from testit_api_client.models.test_suite_test_plan_api_model import TestSuiteTestPlanApiModel
 
 class CreateTestPlanApiModel(BaseModel):
     """
     CreateTestPlanApiModel
     """
-    tags: Optional[conlist(TagApiModel)] = Field(default=None, description="Test plan tag names collection")
+    tags: Optional[conlist(TagPostModel)] = Field(default=None, description="Test plan tag names collection")
     name: constr(strict=True, max_length=450, min_length=0) = Field(default=..., description="Test plan name")
     start_date: Optional[datetime] = Field(default=None, alias="startDate", description="Date and time of test plan start")
     end_date: Optional[datetime] = Field(default=None, alias="endDate", description="Date and time of test plan end")
@@ -126,7 +126,7 @@ class CreateTestPlanApiModel(BaseModel):
             return CreateTestPlanApiModel.parse_obj(obj)
 
         _obj = CreateTestPlanApiModel.parse_obj({
-            "tags": [TagApiModel.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None,
+            "tags": [TagPostModel.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None,
             "name": obj.get("name"),
             "start_date": obj.get("startDate"),
             "end_date": obj.get("endDate"),

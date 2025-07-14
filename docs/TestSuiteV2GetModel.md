@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the test suite | 
@@ -24,7 +23,7 @@ json = "{}"
 # create an instance of TestSuiteV2GetModel from a JSON string
 test_suite_v2_get_model_instance = TestSuiteV2GetModel.from_json(json)
 # print the JSON string representation of the object
-print(TestSuiteV2GetModel.to_json())
+print TestSuiteV2GetModel.to_json()
 
 # convert the object into a dict
 test_suite_v2_get_model_dict = test_suite_v2_get_model_instance.to_dict()

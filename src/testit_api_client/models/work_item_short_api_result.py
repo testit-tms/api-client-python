@@ -23,7 +23,6 @@ from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 from testit_api_client.models.iteration_api_result import IterationApiResult
 from testit_api_client.models.link_short_api_result import LinkShortApiResult
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
-from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_states import WorkItemStates
 
 class WorkItemShortApiResult(BaseModel):
@@ -49,12 +48,11 @@ class WorkItemShortApiResult(BaseModel):
     modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate", description="Date and time of the latest modification of Work Item")
     state: WorkItemStates = Field(default=..., description="The current state of Work Item")
     priority: WorkItemPriorityModel = Field(default=..., description="Work Item priority level")
-    source_type: WorkItemSourceTypeModel = Field(default=..., alias="sourceType", description="Work Item priority level")
     is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Flag determining whether Work Item is deleted")
     tag_names: Optional[conlist(StrictStr)] = Field(default=None, alias="tagNames", description="Array of tag names of Work Item")
     iterations: conlist(IterationApiResult) = Field(default=..., description="Set of iterations related to Work Item")
     links: conlist(LinkShortApiResult) = Field(default=..., description="Set of links related to Work Item")
-    __properties = ["id", "versionId", "versionNumber", "name", "entityTypeName", "projectId", "sectionId", "sectionName", "isAutomated", "globalId", "duration", "medianDuration", "attributes", "createdById", "modifiedById", "createdDate", "modifiedDate", "state", "priority", "sourceType", "isDeleted", "tagNames", "iterations", "links"]
+    __properties = ["id", "versionId", "versionNumber", "name", "entityTypeName", "projectId", "sectionId", "sectionName", "isAutomated", "globalId", "duration", "medianDuration", "attributes", "createdById", "modifiedById", "createdDate", "modifiedDate", "state", "priority", "isDeleted", "tagNames", "iterations", "links"]
 
     class Config:
         """Pydantic configuration"""
@@ -155,7 +153,6 @@ class WorkItemShortApiResult(BaseModel):
             "modified_date": obj.get("modifiedDate"),
             "state": obj.get("state"),
             "priority": obj.get("priority"),
-            "source_type": obj.get("sourceType"),
             "is_deleted": obj.get("isDeleted"),
             "tag_names": obj.get("tagNames"),
             "iterations": [IterationApiResult.from_dict(_item) for _item in obj.get("iterations")] if obj.get("iterations") is not None else None,

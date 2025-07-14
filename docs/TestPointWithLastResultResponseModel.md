@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -27,7 +26,6 @@ Name | Type | Description | Notes
 **tag_names** | **List[str]** |  | [optional] 
 **duration** | **int** |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **test_suite_name_bread_crumbs** | **List[str]** |  | [optional] 
 **group_count** | **int** |  | [optional] 
 **iteration** | [**IterationModel**](IterationModel.md) |  | [optional] 
@@ -42,7 +40,7 @@ json = "{}"
 # create an instance of TestPointWithLastResultResponseModel from a JSON string
 test_point_with_last_result_response_model_instance = TestPointWithLastResultResponseModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPointWithLastResultResponseModel.to_json())
+print TestPointWithLastResultResponseModel.to_json()
 
 # convert the object into a dict
 test_point_with_last_result_response_model_dict = test_point_with_last_result_response_model_instance.to_dict()

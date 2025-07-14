@@ -28,7 +28,6 @@ class GetXlsxTestPointsByTestPlanModel(BaseModel):
     include_name: StrictBool = Field(default=..., alias="includeName")
     include_section: StrictBool = Field(default=..., alias="includeSection")
     include_priority: StrictBool = Field(default=..., alias="includePriority")
-    include_source_type: StrictBool = Field(default=..., alias="includeSourceType")
     include_automated: StrictBool = Field(default=..., alias="includeAutomated")
     include_status: StrictBool = Field(default=..., alias="includeStatus")
     include_duration: StrictBool = Field(default=..., alias="includeDuration")
@@ -40,7 +39,7 @@ class GetXlsxTestPointsByTestPlanModel(BaseModel):
     include_iterations: StrictBool = Field(default=..., alias="includeIterations")
     custom_attributes_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="customAttributesIds")
     configuration_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="configurationIds")
-    __properties = ["includeName", "includeSection", "includePriority", "includeSourceType", "includeAutomated", "includeStatus", "includeDuration", "includeCreationDate", "includeAuthor", "includeModificationDate", "includeModifiedBy", "includeTags", "includeIterations", "customAttributesIds", "configurationIds"]
+    __properties = ["includeName", "includeSection", "includePriority", "includeAutomated", "includeStatus", "includeDuration", "includeCreationDate", "includeAuthor", "includeModificationDate", "includeModifiedBy", "includeTags", "includeIterations", "customAttributesIds", "configurationIds"]
 
     class Config:
         """Pydantic configuration"""
@@ -91,7 +90,6 @@ class GetXlsxTestPointsByTestPlanModel(BaseModel):
             "include_name": obj.get("includeName"),
             "include_section": obj.get("includeSection"),
             "include_priority": obj.get("includePriority"),
-            "include_source_type": obj.get("includeSourceType"),
             "include_automated": obj.get("includeAutomated"),
             "include_status": obj.get("includeStatus"),
             "include_duration": obj.get("includeDuration"),

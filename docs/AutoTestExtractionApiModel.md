@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**GuidExtractionModel**](GuidExtractionModel.md) | Extraction parameters for autotests | [optional] 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of AutoTestExtractionApiModel from a JSON string
 auto_test_extraction_api_model_instance = AutoTestExtractionApiModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestExtractionApiModel.to_json())
+print AutoTestExtractionApiModel.to_json()
 
 # convert the object into a dict
 auto_test_extraction_api_model_dict = auto_test_extraction_api_model_instance.to_dict()

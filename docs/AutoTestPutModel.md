@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId | [optional] 
@@ -32,7 +31,7 @@ json = "{}"
 # create an instance of AutoTestPutModel from a JSON string
 auto_test_put_model_instance = AutoTestPutModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestPutModel.to_json())
+print AutoTestPutModel.to_json()
 
 # convert the object into a dict
 auto_test_put_model_dict = auto_test_put_model_instance.to_dict()

@@ -27,7 +27,7 @@ class GlobalCustomAttributeUpdateModel(BaseModel):
     GlobalCustomAttributeUpdateModel
     """
     name: constr(strict=True, max_length=255, min_length=0) = Field(default=..., description="Name of attribute")
-    options: Optional[conlist(CustomAttributeOptionModel)] = Field(default=None, description="Collection of attribute options   Available for attributes of type `options` and `multiple options` only")
+    options: Optional[conlist(CustomAttributeOptionModel)] = Field(default=None, description="Collection of attribute options     Available for attributes of type `options` and `multiple options` only")
     is_enabled: Optional[StrictBool] = Field(default=None, alias="isEnabled", description="Indicates whether the attribute is available")
     is_required: Optional[StrictBool] = Field(default=None, alias="isRequired", description="Indicates whether the attribute value is mandatory to specify")
     __properties = ["name", "options", "isEnabled", "isRequired"]

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**TestPlanStatusModel**](TestPlanStatusModel.md) |  | 
@@ -17,7 +16,7 @@ Name | Type | Description | Notes
 **locked_date** | **datetime** |  | [optional] 
 **id** | **str** |  | 
 **locked_by_id** | **str** |  | [optional] 
-**tags** | [**List[TagModel]**](TagModel.md) |  | [optional] 
+**tags** | [**List[TagPostModel]**](TagPostModel.md) |  | [optional] 
 **name** | **str** |  | 
 **start_date** | **datetime** | Used for analytics | [optional] 
 **end_date** | **datetime** | Used for analytics | [optional] 
@@ -26,7 +25,7 @@ Name | Type | Description | Notes
 **project_id** | **str** |  | 
 **product_name** | **str** |  | [optional] 
 **has_automatic_duration_timer** | **bool** |  | [optional] 
-**attributes** | **Dict[str, Optional[object]]** |  | 
+**attributes** | **Dict[str, object]** |  | 
 
 ## Example
 
@@ -38,7 +37,7 @@ json = "{}"
 # create an instance of TestPlanModel from a JSON string
 test_plan_model_instance = TestPlanModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanModel.to_json())
+print TestPlanModel.to_json()
 
 # convert the object into a dict
 test_plan_model_dict = test_plan_model_instance.to_dict()

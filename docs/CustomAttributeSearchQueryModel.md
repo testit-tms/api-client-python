@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of attribute | [optional] 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of CustomAttributeSearchQueryModel from a JSON string
 custom_attribute_search_query_model_instance = CustomAttributeSearchQueryModel.from_json(json)
 # print the JSON string representation of the object
-print(CustomAttributeSearchQueryModel.to_json())
+print CustomAttributeSearchQueryModel.to_json()
 
 # convert the object into a dict
 custom_attribute_search_query_model_dict = custom_attribute_search_query_model_instance.to_dict()

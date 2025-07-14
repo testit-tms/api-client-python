@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_id** | **str** | Demo project ID | 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of DemoProjectApiResult from a JSON string
 demo_project_api_result_instance = DemoProjectApiResult.from_json(json)
 # print the JSON string representation of the object
-print(DemoProjectApiResult.to_json())
+print DemoProjectApiResult.to_json()
 
 # convert the object into a dict
 demo_project_api_result_dict = demo_project_api_result_instance.to_dict()

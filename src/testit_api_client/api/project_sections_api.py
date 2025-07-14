@@ -49,7 +49,7 @@ class ProjectSectionsApi:
     def get_sections_by_project_id(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[SectionModel]:  # noqa: E501
         """Get project sections  # noqa: E501
 
-         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)  # noqa: E501
+         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all sections related to the project   System returns array of sections (listed in response)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -89,7 +89,7 @@ class ProjectSectionsApi:
     def get_sections_by_project_id_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get project sections  # noqa: E501
 
-         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)  # noqa: E501
+         Use case   User sets project internal or global identifier and runs method execution   System search project   System search all sections related to the project   System returns array of sections (listed in response)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

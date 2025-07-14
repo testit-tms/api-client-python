@@ -17,16 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-
-from pydantic import BaseModel, Field, constr
+from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel, Field, StrictStr, constr
 
 class TagModel(BaseModel):
     """
     TagModel
     """
-    name: constr(strict=True, max_length=255, min_length=0) = Field(...)
-    __properties = ["name"]
+    id: StrictStr = Field(...)
+    name: constr(strict=True, min_length=1) = Field(...)
+    created_date: datetime = Field(default=..., alias="createdDate")
+    modified_date: Optional[datetime] = Field(default=None, alias="modifiedDate")
+    created_by_id: StrictStr = Field(default=..., alias="createdById")
+    modified_by_id: Optional[StrictStr] = Field(default=None, alias="modifiedById")
+    __properties = ["id", "name", "createdDate", "modifiedDate", "createdById", "modifiedById"]
 
     class Config:
         """Pydantic configuration"""
@@ -52,6 +57,16 @@ class TagModel(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # set to None if modified_date (nullable) is None
+        # and __fields_set__ contains the field
+        if self.modified_date is None and "modified_date" in self.__fields_set__:
+            _dict['modifiedDate'] = None
+
+        # set to None if modified_by_id (nullable) is None
+        # and __fields_set__ contains the field
+        if self.modified_by_id is None and "modified_by_id" in self.__fields_set__:
+            _dict['modifiedById'] = None
+
         return _dict
 
     @classmethod
@@ -64,7 +79,12 @@ class TagModel(BaseModel):
             return TagModel.parse_obj(obj)
 
         _obj = TagModel.parse_obj({
-            "name": obj.get("name")
+            "id": obj.get("id"),
+            "name": obj.get("name"),
+            "created_date": obj.get("createdDate"),
+            "modified_date": obj.get("modifiedDate"),
+            "created_by_id": obj.get("createdById"),
+            "modified_by_id": obj.get("modifiedById")
         })
         return _obj
 

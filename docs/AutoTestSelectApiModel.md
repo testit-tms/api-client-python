@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**AutoTestFilterApiModel**](AutoTestFilterApiModel.md) |  | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of AutoTestSelectApiModel from a JSON string
 auto_test_select_api_model_instance = AutoTestSelectApiModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestSelectApiModel.to_json())
+print AutoTestSelectApiModel.to_json()
 
 # convert the object into a dict
 auto_test_select_api_model_dict = auto_test_select_api_model_instance.to_dict()

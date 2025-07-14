@@ -2,15 +2,13 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **configuration_id** | **str** | Specifies the GUID of the autotest configuration, which was specified when the test run was created. | 
 **links** | [**List[LinkPostModel]**](LinkPostModel.md) | Specifies the links in the autotest. | [optional] 
 **failure_reason_names** | [**List[FailureCategoryModel]**](FailureCategoryModel.md) | Specifies the cause of autotest failure. | [optional] 
 **auto_test_external_id** | **str** | Specifies the external ID of the autotest, which was specified when the test run was created. | 
-**outcome** | [**AvailableTestResultOutcome**](AvailableTestResultOutcome.md) | Specifies the result of the autotest execution. | [optional] 
-**status_code** | **str** | Specifies the result of the autotest execution. | [optional] 
+**outcome** | [**AvailableTestResultOutcome**](AvailableTestResultOutcome.md) | Specifies the result of the autotest execution. | 
 **message** | **str** | A comment for the result. | [optional] 
 **traces** | **str** | An extended comment or a stack trace. | [optional] 
 **started_on** | **datetime** | Test run start date. | [optional] 
@@ -33,7 +31,7 @@ json = "{}"
 # create an instance of AutoTestResultsForTestRunModel from a JSON string
 auto_test_results_for_test_run_model_instance = AutoTestResultsForTestRunModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestResultsForTestRunModel.to_json())
+print AutoTestResultsForTestRunModel.to_json()
 
 # convert the object into a dict
 auto_test_results_for_test_run_model_dict = auto_test_results_for_test_run_model_instance.to_dict()

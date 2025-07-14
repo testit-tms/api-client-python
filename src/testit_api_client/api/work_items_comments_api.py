@@ -51,7 +51,7 @@ class WorkItemsCommentsApi:
     def api_v2_work_items_comments_comment_id_delete(self, comment_id : Annotated[StrictStr, Field(..., description="Comment internal (guid format) identifier")], **kwargs) -> None:  # noqa: E501
         """Delete WorkItem comment  # noqa: E501
 
-         Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code  # noqa: E501
+         Use case   User sets comment identifier   User runs method execution   System delete comment    System returns success status code  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -81,7 +81,7 @@ class WorkItemsCommentsApi:
     def api_v2_work_items_comments_comment_id_delete_with_http_info(self, comment_id : Annotated[StrictStr, Field(..., description="Comment internal (guid format) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete WorkItem comment  # noqa: E501
 
-         Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code  # noqa: E501
+         Use case   User sets comment identifier   User runs method execution   System delete comment    System returns success status code  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -189,7 +189,7 @@ class WorkItemsCommentsApi:
     def api_v2_work_items_comments_post(self, work_item_comment_post_model : Optional[WorkItemCommentPostModel] = None, **kwargs) -> WorkItemCommentModel:  # noqa: E501
         """Create WorkItem comment  # noqa: E501
 
-         Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)  # noqa: E501
+         Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -219,7 +219,7 @@ class WorkItemsCommentsApi:
     def api_v2_work_items_comments_post_with_http_info(self, work_item_comment_post_model : Optional[WorkItemCommentPostModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create WorkItem comment  # noqa: E501
 
-         Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)  # noqa: E501
+         Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

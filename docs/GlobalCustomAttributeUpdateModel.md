@@ -2,11 +2,10 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of attribute | 
-**options** | [**List[CustomAttributeOptionModel]**](CustomAttributeOptionModel.md) | Collection of attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
+**options** | [**List[CustomAttributeOptionModel]**](CustomAttributeOptionModel.md) | Collection of attribute options     Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
 **is_enabled** | **bool** | Indicates whether the attribute is available | [optional] 
 **is_required** | **bool** | Indicates whether the attribute value is mandatory to specify | [optional] 
 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of GlobalCustomAttributeUpdateModel from a JSON string
 global_custom_attribute_update_model_instance = GlobalCustomAttributeUpdateModel.from_json(json)
 # print the JSON string representation of the object
-print(GlobalCustomAttributeUpdateModel.to_json())
+print GlobalCustomAttributeUpdateModel.to_json()
 
 # convert the object into a dict
 global_custom_attribute_update_model_dict = global_custom_attribute_update_model_instance.to_dict()

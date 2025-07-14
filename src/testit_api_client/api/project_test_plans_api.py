@@ -51,7 +51,7 @@ class ProjectTestPlansApi:
     def api_v2_projects_project_id_test_plans_analytics_get(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) identifier")], is_deleted : Optional[StrictBool] = None, must_update_cache : Optional[StrictBool] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[TestPlanWithAnalyticModel]:  # noqa: E501
         """Get TestPlans analytics  # noqa: E501
 
-         Use case  User sets project internal identifier  User sets query params  User runs method execution  System return analytics  # noqa: E501
+         Use case   User sets project internal identifier   User sets query params   User runs method execution   System return analytics  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -95,7 +95,7 @@ class ProjectTestPlansApi:
     def api_v2_projects_project_id_test_plans_analytics_get_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) identifier")], is_deleted : Optional[StrictBool] = None, must_update_cache : Optional[StrictBool] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get TestPlans analytics  # noqa: E501
 
-         Use case  User sets project internal identifier  User sets query params  User runs method execution  System return analytics  # noqa: E501
+         Use case   User sets project internal identifier   User sets query params   User runs method execution   System return analytics  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -412,7 +412,7 @@ class ProjectTestPlansApi:
     def api_v2_projects_project_id_test_plans_name_exists_get(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], name : Annotated[StrictStr, Field(..., description="TestPlan name to check")], **kwargs) -> bool:  # noqa: E501
         """Checks if TestPlan exists with the specified name exists for the project  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System purge delete project workitems  # noqa: E501
+         Use case   User sets project internal or global identifier    User runs method execution   System purge delete project workitems  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -444,7 +444,7 @@ class ProjectTestPlansApi:
     def api_v2_projects_project_id_test_plans_name_exists_get_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], name : Annotated[StrictStr, Field(..., description="TestPlan name to check")], **kwargs) -> ApiResponse:  # noqa: E501
         """Checks if TestPlan exists with the specified name exists for the project  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System purge delete project workitems  # noqa: E501
+         Use case   User sets project internal or global identifier    User runs method execution   System purge delete project workitems  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -876,7 +876,7 @@ class ProjectTestPlansApi:
     def api_v2_projects_project_id_test_plans_search_post(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], must_update_cache : Optional[StrictBool] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, project_test_plans_filter_model : Optional[ProjectTestPlansFilterModel] = None, **kwargs) -> List[TestPlanWithAnalyticModel]:  # noqa: E501
         """Get Project TestPlans with analytics  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets request body  User runs method execution  System returns project testplans with analytics  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets request body    User runs method execution   System returns project testplans with analytics  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -920,7 +920,7 @@ class ProjectTestPlansApi:
     def api_v2_projects_project_id_test_plans_search_post_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], must_update_cache : Optional[StrictBool] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, project_test_plans_filter_model : Optional[ProjectTestPlansFilterModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Project TestPlans with analytics  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets request body  User runs method execution  System returns project testplans with analytics  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets request body    User runs method execution   System returns project testplans with analytics  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

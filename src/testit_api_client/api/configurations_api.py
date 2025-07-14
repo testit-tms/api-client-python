@@ -1546,7 +1546,7 @@ class ConfigurationsApi:
     def create_configuration(self, configuration_post_model : Optional[ConfigurationPostModel] = None, **kwargs) -> ConfigurationModel:  # noqa: E501
         """Create Configuration  # noqa: E501
 
-         Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)  # noqa: E501
+         Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1576,7 +1576,7 @@ class ConfigurationsApi:
     def create_configuration_with_http_info(self, configuration_post_model : Optional[ConfigurationPostModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create Configuration  # noqa: E501
 
-         Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)  # noqa: E501
+         Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1699,7 +1699,7 @@ class ConfigurationsApi:
     def get_configuration_by_id(self, id : Annotated[StrictStr, Field(..., description="Configuration internal (guid format) or global (integer format) identifier")], **kwargs) -> ConfigurationModel:  # noqa: E501
         """Get configuration by internal or global ID  # noqa: E501
 
-         Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration  # noqa: E501
+         Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1729,7 +1729,7 @@ class ConfigurationsApi:
     def get_configuration_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Configuration internal (guid format) or global (integer format) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get configuration by internal or global ID  # noqa: E501
 
-         Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration  # noqa: E501
+         Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

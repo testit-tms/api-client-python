@@ -24,7 +24,6 @@ from testit_api_client.models.auto_test_step_model import AutoTestStepModel
 from testit_api_client.models.configuration_short_model import ConfigurationShortModel
 from testit_api_client.models.label_short_model import LabelShortModel
 from testit_api_client.models.link_put_model import LinkPutModel
-from testit_api_client.models.test_status_model import TestStatusModel
 
 class AutoTestModel(BaseModel):
     """
@@ -43,7 +42,6 @@ class AutoTestModel(BaseModel):
     last_test_result_id: Optional[StrictStr] = Field(default=None, alias="lastTestResultId", description="Unique ID of the autotest last test result")
     last_test_result_configuration: Optional[ConfigurationShortModel] = Field(default=None, alias="lastTestResultConfiguration", description="Configuration of the autotest last test result")
     last_test_result_outcome: Optional[StrictStr] = Field(default=None, alias="lastTestResultOutcome", description="Outcome of the autotest last test result")
-    last_test_result_status: Optional[TestStatusModel] = Field(default=None, alias="lastTestResultStatus", description="Status of the autotest last test result")
     stability_percentage: Optional[StrictInt] = Field(default=None, alias="stabilityPercentage", description="Stability percentage of the autotest")
     external_id: constr(strict=True, min_length=1) = Field(default=..., alias="externalId", description="External ID of the autotest")
     links: Optional[conlist(LinkPutModel)] = Field(default=None, description="Collection of the autotest links")
@@ -59,7 +57,7 @@ class AutoTestModel(BaseModel):
     labels: Optional[conlist(LabelShortModel)] = Field(default=None, description="Collection of the autotest labels")
     is_flaky: Optional[StrictBool] = Field(default=None, alias="isFlaky", description="Indicates if the autotest is marked as flaky")
     external_key: Optional[StrictStr] = Field(default=None, alias="externalKey", description="External key of the autotest")
-    __properties = ["globalId", "isDeleted", "mustBeApproved", "id", "createdDate", "modifiedDate", "createdById", "modifiedById", "lastTestRunId", "lastTestRunName", "lastTestResultId", "lastTestResultConfiguration", "lastTestResultOutcome", "lastTestResultStatus", "stabilityPercentage", "externalId", "links", "projectId", "name", "namespace", "classname", "steps", "setup", "teardown", "title", "description", "labels", "isFlaky", "externalKey"]
+    __properties = ["globalId", "isDeleted", "mustBeApproved", "id", "createdDate", "modifiedDate", "createdById", "modifiedById", "lastTestRunId", "lastTestRunName", "lastTestResultId", "lastTestResultConfiguration", "lastTestResultOutcome", "stabilityPercentage", "externalId", "links", "projectId", "name", "namespace", "classname", "steps", "setup", "teardown", "title", "description", "labels", "isFlaky", "externalKey"]
 
     class Config:
         """Pydantic configuration"""
@@ -88,9 +86,6 @@ class AutoTestModel(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of last_test_result_configuration
         if self.last_test_result_configuration:
             _dict['lastTestResultConfiguration'] = self.last_test_result_configuration.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of last_test_result_status
-        if self.last_test_result_status:
-            _dict['lastTestResultStatus'] = self.last_test_result_status.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -160,11 +155,6 @@ class AutoTestModel(BaseModel):
         # and __fields_set__ contains the field
         if self.last_test_result_outcome is None and "last_test_result_outcome" in self.__fields_set__:
             _dict['lastTestResultOutcome'] = None
-
-        # set to None if last_test_result_status (nullable) is None
-        # and __fields_set__ contains the field
-        if self.last_test_result_status is None and "last_test_result_status" in self.__fields_set__:
-            _dict['lastTestResultStatus'] = None
 
         # set to None if stability_percentage (nullable) is None
         # and __fields_set__ contains the field
@@ -251,7 +241,6 @@ class AutoTestModel(BaseModel):
             "last_test_result_id": obj.get("lastTestResultId"),
             "last_test_result_configuration": ConfigurationShortModel.from_dict(obj.get("lastTestResultConfiguration")) if obj.get("lastTestResultConfiguration") is not None else None,
             "last_test_result_outcome": obj.get("lastTestResultOutcome"),
-            "last_test_result_status": TestStatusModel.from_dict(obj.get("lastTestResultStatus")) if obj.get("lastTestResultStatus") is not None else None,
             "stability_percentage": obj.get("stabilityPercentage"),
             "external_id": obj.get("externalId"),
             "links": [LinkPutModel.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None,

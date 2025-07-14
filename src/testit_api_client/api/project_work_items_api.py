@@ -23,7 +23,7 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr, conlist
 
 from typing import List, Optional
 
-from testit_api_client.models.tag_short_api_result import TagShortApiResult
+from testit_api_client.models.tag_short_model import TagShortModel
 from testit_api_client.models.work_item_group_get_model import WorkItemGroupGetModel
 from testit_api_client.models.work_item_group_model import WorkItemGroupModel
 from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
@@ -649,10 +649,10 @@ class ProjectWorkItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_projects_project_id_work_items_tags_get(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) identifier")], is_deleted : Optional[StrictBool] = None, **kwargs) -> List[TagShortApiResult]:  # noqa: E501
+    def api_v2_projects_project_id_work_items_tags_get(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) identifier")], is_deleted : Optional[StrictBool] = None, **kwargs) -> List[TagShortModel]:  # noqa: E501
         """Get WorkItems Tags  # noqa: E501
 
-         Use case  User sets project internal identifier  User runs method execution  System returns work items tags  # noqa: E501
+         Use case   User sets project internal identifier    User runs method execution   System returns work items tags  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -672,7 +672,7 @@ class ProjectWorkItemsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[TagShortApiResult]
+        :rtype: List[TagShortModel]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -684,7 +684,7 @@ class ProjectWorkItemsApi:
     def api_v2_projects_project_id_work_items_tags_get_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) identifier")], is_deleted : Optional[StrictBool] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get WorkItems Tags  # noqa: E501
 
-         Use case  User sets project internal identifier  User runs method execution  System returns work items tags  # noqa: E501
+         Use case   User sets project internal identifier    User runs method execution   System returns work items tags  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -717,7 +717,7 @@ class ProjectWorkItemsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[TagShortApiResult], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[TagShortModel], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -776,7 +776,7 @@ class ProjectWorkItemsApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[TagShortApiResult]",
+            '200': "List[TagShortModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",
@@ -806,7 +806,7 @@ class ProjectWorkItemsApi:
     def get_work_items_by_project_id(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], is_deleted : Annotated[Optional[StrictBool], Field(description="If result must consist of only actual/deleted work items")] = None, tag_names : Annotated[Optional[conlist(StrictStr)], Field(description="List of tags to filter by")] = None, include_iterations : Optional[StrictBool] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[WorkItemShortModel]:  # noqa: E501
         """(Deprecated) Get project work items  # noqa: E501
 
-         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -852,7 +852,7 @@ class ProjectWorkItemsApi:
     def get_work_items_by_project_id_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], is_deleted : Annotated[Optional[StrictBool], Field(description="If result must consist of only actual/deleted work items")] = None, tag_names : Annotated[Optional[conlist(StrictStr)], Field(description="List of tags to filter by")] = None, include_iterations : Optional[StrictBool] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """(Deprecated) Get project work items  # noqa: E501
 
-         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

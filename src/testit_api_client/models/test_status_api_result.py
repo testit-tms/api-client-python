@@ -20,7 +20,7 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
-from testit_api_client.models.test_status_api_type import TestStatusApiType
+from testit_api_client.models.test_status_type import TestStatusType
 
 class TestStatusApiResult(BaseModel):
     """
@@ -28,7 +28,7 @@ class TestStatusApiResult(BaseModel):
     """
     id: StrictStr = Field(...)
     name: StrictStr = Field(...)
-    type: TestStatusApiType = Field(default=..., description="Collection of possible status types")
+    type: TestStatusType = Field(...)
     is_system: StrictBool = Field(default=..., alias="isSystem")
     code: StrictStr = Field(...)
     description: Optional[StrictStr] = None

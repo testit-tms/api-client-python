@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_run_id** | **str** |  | 
@@ -15,7 +14,6 @@ Name | Type | Description | Notes
 **auto_tests** | [**List[AutoTestModel]**](AutoTestModel.md) |  | 
 **test_points** | [**List[PublicTestPointModel]**](PublicTestPointModel.md) |  | 
 **status** | **str** |  | 
-**status_model** | [**TestStatusModel**](TestStatusModel.md) |  | 
 **custom_parameters** | **Dict[str, str]** |  | [optional] 
 **test_run_description** | **str** |  | [optional] 
 
@@ -29,7 +27,7 @@ json = "{}"
 # create an instance of PublicTestRunModel from a JSON string
 public_test_run_model_instance = PublicTestRunModel.from_json(json)
 # print the JSON string representation of the object
-print(PublicTestRunModel.to_json())
+print PublicTestRunModel.to_json()
 
 # convert the object into a dict
 public_test_run_model_dict = public_test_run_model_instance.to_dict()

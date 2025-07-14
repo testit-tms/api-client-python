@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the entity | 
@@ -42,7 +41,7 @@ json = "{}"
 # create an instance of TestRunApiResult from a JSON string
 test_run_api_result_instance = TestRunApiResult.from_json(json)
 # print the JSON string representation of the object
-print(TestRunApiResult.to_json())
+print TestRunApiResult.to_json()
 
 # convert the object into a dict
 test_run_api_result_dict = test_run_api_result_instance.to_dict()

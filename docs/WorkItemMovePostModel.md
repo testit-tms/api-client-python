@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of WorkItemMovePostModel from a JSON string
 work_item_move_post_model_instance = WorkItemMovePostModel.from_json(json)
 # print the JSON string representation of the object
-print(WorkItemMovePostModel.to_json())
+print WorkItemMovePostModel.to_json()
 
 # convert the object into a dict
 work_item_move_post_model_dict = work_item_move_post_model_instance.to_dict()

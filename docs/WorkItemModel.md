@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version_id** | **str** | used for versioning changes in workitem | 
@@ -27,13 +26,12 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **state** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **steps** | [**List[StepModel]**](StepModel.md) |  | 
 **precondition_steps** | [**List[StepModel]**](StepModel.md) |  | 
 **postcondition_steps** | [**List[StepModel]**](StepModel.md) |  | 
 **duration** | **int** |  | 
 **attributes** | **Dict[str, object]** |  | 
-**tags** | [**List[TagModel]**](TagModel.md) |  | 
+**tags** | [**List[TagPutModel]**](TagPutModel.md) |  | 
 **links** | [**List[LinkModel]**](LinkModel.md) |  | 
 **name** | **str** |  | 
 
@@ -47,7 +45,7 @@ json = "{}"
 # create an instance of WorkItemModel from a JSON string
 work_item_model_instance = WorkItemModel.from_json(json)
 # print the JSON string representation of the object
-print(WorkItemModel.to_json())
+print WorkItemModel.to_json()
 
 # convert the object into a dict
 work_item_model_dict = work_item_model_instance.to_dict()

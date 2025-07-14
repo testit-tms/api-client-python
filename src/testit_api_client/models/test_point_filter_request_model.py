@@ -24,7 +24,6 @@ from testit_api_client.models.date_time_range_selector_model import DateTimeRang
 from testit_api_client.models.int64_range_selector_model import Int64RangeSelectorModel
 from testit_api_client.models.test_point_status import TestPointStatus
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
-from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 
 class TestPointFilterRequestModel(BaseModel):
     """
@@ -38,7 +37,6 @@ class TestPointFilterRequestModel(BaseModel):
     statuses: Optional[conlist(TestPointStatus)] = Field(default=None, description="Specifies a test point statuses to search for")
     status_codes: Optional[conlist(StrictStr)] = Field(default=None, alias="statusCodes", description="Specifies a test point status codes to search for")
     priorities: Optional[conlist(WorkItemPriorityModel)] = Field(default=None, description="Specifies a test point priorities to search for")
-    source_types: Optional[conlist(WorkItemSourceTypeModel)] = Field(default=None, alias="sourceTypes", description="Specifies a test point source types to search for")
     is_automated: Optional[StrictBool] = Field(default=None, alias="isAutomated", description="Specifies a test point automation status to search for")
     name: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(default=None, description="Specifies a test point name to search for")
     configuration_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="configurationIds", description="Specifies a test point configuration IDs to search for")
@@ -55,7 +53,7 @@ class TestPointFilterRequestModel(BaseModel):
     work_item_created_by_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="workItemCreatedByIds", description="Specifies a work item creator IDs to search for")
     work_item_modified_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="workItemModifiedDate", description="Specifies a work item range of last modification date to search for")
     work_item_modified_by_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="workItemModifiedByIds", description="Specifies a work item last editor IDs to search for")
-    __properties = ["testPlanIds", "testSuiteIds", "workItemGlobalIds", "workItemMedianDuration", "workItemIsDeleted", "statuses", "statusCodes", "priorities", "sourceTypes", "isAutomated", "name", "configurationIds", "testerIds", "duration", "sectionIds", "createdDate", "createdByIds", "modifiedDate", "modifiedByIds", "tags", "attributes", "workItemCreatedDate", "workItemCreatedByIds", "workItemModifiedDate", "workItemModifiedByIds"]
+    __properties = ["testPlanIds", "testSuiteIds", "workItemGlobalIds", "workItemMedianDuration", "workItemIsDeleted", "statuses", "statusCodes", "priorities", "isAutomated", "name", "configurationIds", "testerIds", "duration", "sectionIds", "createdDate", "createdByIds", "modifiedDate", "modifiedByIds", "tags", "attributes", "workItemCreatedDate", "workItemCreatedByIds", "workItemModifiedDate", "workItemModifiedByIds"]
 
     class Config:
         """Pydantic configuration"""
@@ -138,11 +136,6 @@ class TestPointFilterRequestModel(BaseModel):
         # and __fields_set__ contains the field
         if self.priorities is None and "priorities" in self.__fields_set__:
             _dict['priorities'] = None
-
-        # set to None if source_types (nullable) is None
-        # and __fields_set__ contains the field
-        if self.source_types is None and "source_types" in self.__fields_set__:
-            _dict['sourceTypes'] = None
 
         # set to None if is_automated (nullable) is None
         # and __fields_set__ contains the field
@@ -244,7 +237,6 @@ class TestPointFilterRequestModel(BaseModel):
             "statuses": obj.get("statuses"),
             "status_codes": obj.get("statusCodes"),
             "priorities": obj.get("priorities"),
-            "source_types": obj.get("sourceTypes"),
             "is_automated": obj.get("isAutomated"),
             "name": obj.get("name"),
             "configuration_ids": obj.get("configurationIds"),

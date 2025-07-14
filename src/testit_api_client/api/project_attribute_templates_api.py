@@ -249,7 +249,7 @@ class ProjectAttributeTemplatesApi:
     def api_v2_projects_project_id_attributes_templates_template_id_delete(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], template_id : Annotated[StrictStr, Field(..., description="CustomAttributeTemplate internal (UUID) identifier")], **kwargs) -> None:  # noqa: E501
         """Delete CustomAttributeTemplate from Project  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System delete attribute template from project  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -281,7 +281,7 @@ class ProjectAttributeTemplatesApi:
     def api_v2_projects_project_id_attributes_templates_template_id_delete_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], template_id : Annotated[StrictStr, Field(..., description="CustomAttributeTemplate internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete CustomAttributeTemplate from Project  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System delete attribute template from project  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -395,7 +395,7 @@ class ProjectAttributeTemplatesApi:
     def api_v2_projects_project_id_attributes_templates_template_id_post(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], template_id : Annotated[StrictStr, Field(..., description="CustomAttributeTemplate internal (UUID) identifier")], **kwargs) -> None:  # noqa: E501
         """Add CustomAttributeTemplate to Project  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System add attribute template to project  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -427,7 +427,7 @@ class ProjectAttributeTemplatesApi:
     def api_v2_projects_project_id_attributes_templates_template_id_post_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], template_id : Annotated[StrictStr, Field(..., description="CustomAttributeTemplate internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Add CustomAttributeTemplate to Project  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project  # noqa: E501
+         Use case   User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution   System add attribute template to project  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

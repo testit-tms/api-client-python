@@ -1592,7 +1592,7 @@ class TestResultsApi:
     def create_attachment(self, id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], file : Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="Select file")] = None, **kwargs) -> None:  # noqa: E501
         """Upload and link attachment to TestResult  # noqa: E501
 
-         Use case  User sets testResultId  User attaches a file  System creates attachment and links it to the test result  System returns attachment identifier  # noqa: E501
+         Use case   User sets testResultId   User attaches a file   System creates attachment and links it to the test result   System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1624,7 +1624,7 @@ class TestResultsApi:
     def create_attachment_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], file : Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="Select file")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Upload and link attachment to TestResult  # noqa: E501
 
-         Use case  User sets testResultId  User attaches a file  System creates attachment and links it to the test result  System returns attachment identifier  # noqa: E501
+         Use case   User sets testResultId   User attaches a file   System creates attachment and links it to the test result   System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1745,7 +1745,7 @@ class TestResultsApi:
     def delete_attachment(self, id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], attachment_id : Annotated[StrictStr, Field(..., description="Attachment internal identifier (guid format)")], **kwargs) -> None:  # noqa: E501
         """Remove attachment and unlink from TestResult  # noqa: E501
 
-         Use case  User sets testResultId and attachmentId  User attaches a file  User runs method execution  System deletes attachment and unlinks it from the test result  System returns attachment identifier  # noqa: E501
+         Use case   User sets testResultId and attachmentId   User attaches a file   User runs method execution   System deletes attachment and unlinks it from the test result   System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1777,7 +1777,7 @@ class TestResultsApi:
     def delete_attachment_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], attachment_id : Annotated[StrictStr, Field(..., description="Attachment internal identifier (guid format)")], **kwargs) -> ApiResponse:  # noqa: E501
         """Remove attachment and unlink from TestResult  # noqa: E501
 
-         Use case  User sets testResultId and attachmentId  User attaches a file  User runs method execution  System deletes attachment and unlinks it from the test result  System returns attachment identifier  # noqa: E501
+         Use case   User sets testResultId and attachmentId   User attaches a file   User runs method execution   System deletes attachment and unlinks it from the test result   System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1891,7 +1891,7 @@ class TestResultsApi:
     def download_attachment(self, attachment_id : Annotated[StrictStr, Field(..., description="Attachment internal identifier (guid format)")], id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], width : Annotated[Optional[conint(strict=True, le=2147483647, ge=1)], Field(description="Width of the result image")] = None, height : Annotated[Optional[conint(strict=True, le=2147483647, ge=1)], Field(description="Height of the result image")] = None, resize_type : Annotated[Optional[Any], Field(description="Type of resizing to apply to the result image")] = None, background_color : Annotated[Optional[constr(strict=True, max_length=7, min_length=7)], Field(description="Color of the background if the `resizeType` is `AddBackgroundStripes`")] = None, preview : Annotated[Optional[StrictBool], Field(description="If image must be converted to a preview (lower quality, no animation)")] = None, **kwargs) -> None:  # noqa: E501
         """Get attachment of TestResult  # noqa: E501
 
-         Use case  User sets attachmentId and testResultId  [Optional] User sets resize configuration  User runs method execution  System search attachments by the attachmentId and the testResultId  [Optional] If resize configuration is set, System resizes the attachment according to the resize                     configuration  [Optional] Otherwise, System does not resize the attachment  System returns attachment as a file  # noqa: E501
+         Use case   User sets attachmentId and testResultId   [Optional] User sets resize configuration   User runs method execution   System search attachments by the attachmentId and the testResultId                         [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                     [Optional] Otherwise, System does not resize the attachment   System returns attachment as a file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1933,7 +1933,7 @@ class TestResultsApi:
     def download_attachment_with_http_info(self, attachment_id : Annotated[StrictStr, Field(..., description="Attachment internal identifier (guid format)")], id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], width : Annotated[Optional[conint(strict=True, le=2147483647, ge=1)], Field(description="Width of the result image")] = None, height : Annotated[Optional[conint(strict=True, le=2147483647, ge=1)], Field(description="Height of the result image")] = None, resize_type : Annotated[Optional[Any], Field(description="Type of resizing to apply to the result image")] = None, background_color : Annotated[Optional[constr(strict=True, max_length=7, min_length=7)], Field(description="Color of the background if the `resizeType` is `AddBackgroundStripes`")] = None, preview : Annotated[Optional[StrictBool], Field(description="If image must be converted to a preview (lower quality, no animation)")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get attachment of TestResult  # noqa: E501
 
-         Use case  User sets attachmentId and testResultId  [Optional] User sets resize configuration  User runs method execution  System search attachments by the attachmentId and the testResultId  [Optional] If resize configuration is set, System resizes the attachment according to the resize                     configuration  [Optional] Otherwise, System does not resize the attachment  System returns attachment as a file  # noqa: E501
+         Use case   User sets attachmentId and testResultId   [Optional] User sets resize configuration   User runs method execution   System search attachments by the attachmentId and the testResultId                         [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                     [Optional] Otherwise, System does not resize the attachment   System returns attachment as a file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2077,7 +2077,7 @@ class TestResultsApi:
     def get_attachment(self, id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], attachment_id : Annotated[StrictStr, Field(..., description="Attachment internal identifier (guid format)")], **kwargs) -> AttachmentModel:  # noqa: E501
         """Get Metadata of TestResult's attachment  # noqa: E501
 
-         Use case  User sets attachmentId and testResultId  User runs method execution  System search attachment by the attachmentId and the testResultId  System returns attachment data  # noqa: E501
+         Use case   User sets attachmentId and testResultId   User runs method execution   System search attachment by the attachmentId and the testResultId   System returns attachment data  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2109,7 +2109,7 @@ class TestResultsApi:
     def get_attachment_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], attachment_id : Annotated[StrictStr, Field(..., description="Attachment internal identifier (guid format)")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get Metadata of TestResult's attachment  # noqa: E501
 
-         Use case  User sets attachmentId and testResultId  User runs method execution  System search attachment by the attachmentId and the testResultId  System returns attachment data  # noqa: E501
+         Use case   User sets attachmentId and testResultId   User runs method execution   System search attachment by the attachmentId and the testResultId   System returns attachment data  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2231,7 +2231,7 @@ class TestResultsApi:
     def get_attachments(self, id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], **kwargs) -> List[AttachmentModel]:  # noqa: E501
         """Get all attachments of TestResult  # noqa: E501
 
-         Use case  User sets testResultId  User runs method execution  System search all attachments of the test result  System returns attachments enumeration  # noqa: E501
+         Use case   User sets testResultId   User runs method execution   System search all attachments of the test result   System returns attachments enumeration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2261,7 +2261,7 @@ class TestResultsApi:
     def get_attachments_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test result internal identifier (guid format)")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get all attachments of TestResult  # noqa: E501
 
-         Use case  User sets testResultId  User runs method execution  System search all attachments of the test result  System returns attachments enumeration  # noqa: E501
+         Use case   User sets testResultId   User runs method execution   System search all attachments of the test result   System returns attachments enumeration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

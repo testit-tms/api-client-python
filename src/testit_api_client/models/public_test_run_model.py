@@ -23,7 +23,6 @@ from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
 from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.models.configuration_model import ConfigurationModel
 from testit_api_client.models.public_test_point_model import PublicTestPointModel
-from testit_api_client.models.test_status_model import TestStatusModel
 
 class PublicTestRunModel(BaseModel):
     """
@@ -39,10 +38,9 @@ class PublicTestRunModel(BaseModel):
     auto_tests: conlist(AutoTestModel) = Field(default=..., alias="autoTests")
     test_points: conlist(PublicTestPointModel) = Field(default=..., alias="testPoints")
     status: StrictStr = Field(...)
-    status_model: TestStatusModel = Field(default=..., alias="statusModel")
     custom_parameters: Optional[Dict[str, StrictStr]] = Field(default=None, alias="customParameters")
     test_run_description: Optional[StrictStr] = Field(default=None, alias="testRunDescription")
-    __properties = ["testRunId", "testPlanId", "testPlanGlobalId", "name", "productName", "build", "configurations", "autoTests", "testPoints", "status", "statusModel", "customParameters", "testRunDescription"]
+    __properties = ["testRunId", "testPlanId", "testPlanGlobalId", "name", "productName", "build", "configurations", "autoTests", "testPoints", "status", "customParameters", "testRunDescription"]
 
     class Config:
         """Pydantic configuration"""
@@ -89,9 +87,6 @@ class PublicTestRunModel(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['testPoints'] = _items
-        # override the default output from pydantic by calling `to_dict()` of status_model
-        if self.status_model:
-            _dict['statusModel'] = self.status_model.to_dict()
         # set to None if test_plan_id (nullable) is None
         # and __fields_set__ contains the field
         if self.test_plan_id is None and "test_plan_id" in self.__fields_set__:
@@ -139,7 +134,6 @@ class PublicTestRunModel(BaseModel):
             "auto_tests": [AutoTestModel.from_dict(_item) for _item in obj.get("autoTests")] if obj.get("autoTests") is not None else None,
             "test_points": [PublicTestPointModel.from_dict(_item) for _item in obj.get("testPoints")] if obj.get("testPoints") is not None else None,
             "status": obj.get("status"),
-            "status_model": TestStatusModel.from_dict(obj.get("statusModel")) if obj.get("statusModel") is not None else None,
             "custom_parameters": obj.get("customParameters"),
             "test_run_description": obj.get("testRunDescription")
         })

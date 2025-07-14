@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_plan_ids** | **List[str]** | Specifies a test point test plan IDS to search for | [optional] 
@@ -13,7 +12,6 @@ Name | Type | Description | Notes
 **statuses** | [**List[TestPointStatus]**](TestPointStatus.md) | Specifies a test point statuses to search for | [optional] 
 **status_codes** | **List[str]** | Specifies a test point status codes to search for | [optional] 
 **priorities** | [**List[WorkItemPriorityModel]**](WorkItemPriorityModel.md) | Specifies a test point priorities to search for | [optional] 
-**source_types** | [**List[WorkItemSourceTypeModel]**](WorkItemSourceTypeModel.md) | Specifies a test point source types to search for | [optional] 
 **is_automated** | **bool** | Specifies a test point automation status to search for | [optional] 
 **name** | **str** | Specifies a test point name to search for | [optional] 
 **configuration_ids** | **List[str]** | Specifies a test point configuration IDs to search for | [optional] 
@@ -25,7 +23,7 @@ Name | Type | Description | Notes
 **modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test point range of last modification date to search for | [optional] 
 **modified_by_ids** | **List[str]** | Specifies a test point last editor IDs to search for | [optional] 
 **tags** | **List[str]** | Specifies a test point tags to search for | [optional] 
-**attributes** | **Dict[str, Optional[List[str]]]** | Specifies a test point attributes to search for | [optional] 
+**attributes** | **Dict[str, List[str]]** | Specifies a test point attributes to search for | [optional] 
 **work_item_created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **work_item_created_by_ids** | **List[str]** | Specifies a work item creator IDs to search for | [optional] 
 **work_item_modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 
@@ -41,7 +39,7 @@ json = "{}"
 # create an instance of TestPointFilterModel from a JSON string
 test_point_filter_model_instance = TestPointFilterModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPointFilterModel.to_json())
+print TestPointFilterModel.to_json()
 
 # convert the object into a dict
 test_point_filter_model_dict = test_point_filter_model_instance.to_dict()

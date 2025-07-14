@@ -30,7 +30,7 @@ class UpdateEmptyTestRunApiModel(BaseModel):
     id: StrictStr = Field(default=..., description="Test run unique identifier")
     name: constr(strict=True, min_length=1) = Field(default=..., description="Test run name")
     description: Optional[StrictStr] = Field(default=None, description="Test run description")
-    launch_source: Optional[StrictStr] = Field(default=None, alias="launchSource", description="Test run launch source              Once launch source is specified it cannot be updated")
+    launch_source: Optional[StrictStr] = Field(default=None, alias="launchSource", description="Test run launch source                Once launch source is specified it cannot be updated")
     attachments: Optional[conlist(AssignAttachmentApiModel)] = Field(default=None, description="Collection of attachments related to the test run")
     links: Optional[conlist(UpdateLinkApiModel)] = Field(default=None, description="Collection of links related to the test run")
     __properties = ["id", "name", "description", "launchSource", "attachments", "links"]

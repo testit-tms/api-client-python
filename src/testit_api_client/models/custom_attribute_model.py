@@ -28,7 +28,7 @@ class CustomAttributeModel(BaseModel):
     CustomAttributeModel
     """
     id: StrictStr = Field(default=..., description="Unique ID of the attribute")
-    options: conlist(CustomAttributeOptionModel) = Field(default=..., description="Collection of the attribute options   Available for attributes of type `options` and `multiple options` only")
+    options: conlist(CustomAttributeOptionModel) = Field(default=..., description="Collection of the attribute options     Available for attributes of type `options` and `multiple options` only")
     type: CustomAttributeTypesEnum = Field(default=..., description="Type of the attribute")
     is_deleted: StrictBool = Field(default=..., alias="isDeleted", description="Indicates if the attribute is deleted")
     name: constr(strict=True, max_length=255, min_length=0) = Field(default=..., description="Name of the attribute")

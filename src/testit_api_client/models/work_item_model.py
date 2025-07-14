@@ -25,10 +25,9 @@ from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.models.iteration_model import IterationModel
 from testit_api_client.models.link_model import LinkModel
 from testit_api_client.models.step_model import StepModel
-from testit_api_client.models.tag_model import TagModel
+from testit_api_client.models.tag_put_model import TagPutModel
 from testit_api_client.models.work_item_entity_types import WorkItemEntityTypes
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
-from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_states import WorkItemStates
 
 class WorkItemModel(BaseModel):
@@ -57,16 +56,15 @@ class WorkItemModel(BaseModel):
     description: Optional[StrictStr] = None
     state: WorkItemStates = Field(...)
     priority: WorkItemPriorityModel = Field(...)
-    source_type: WorkItemSourceTypeModel = Field(default=..., alias="sourceType")
     steps: conlist(StepModel) = Field(...)
     precondition_steps: conlist(StepModel) = Field(default=..., alias="preconditionSteps")
     postcondition_steps: conlist(StepModel) = Field(default=..., alias="postconditionSteps")
     duration: conint(strict=True, le=86400000, ge=0) = Field(...)
     attributes: Dict[str, Any] = Field(...)
-    tags: conlist(TagModel) = Field(...)
+    tags: conlist(TagPutModel) = Field(...)
     links: conlist(LinkModel) = Field(...)
     name: constr(strict=True, min_length=1) = Field(...)
-    __properties = ["versionId", "medianDuration", "isDeleted", "projectId", "entityTypeName", "isAutomated", "autoTests", "attachments", "sectionPreconditionSteps", "sectionPostconditionSteps", "versionNumber", "iterations", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "id", "sectionId", "description", "state", "priority", "sourceType", "steps", "preconditionSteps", "postconditionSteps", "duration", "attributes", "tags", "links", "name"]
+    __properties = ["versionId", "medianDuration", "isDeleted", "projectId", "entityTypeName", "isAutomated", "autoTests", "attachments", "sectionPreconditionSteps", "sectionPostconditionSteps", "versionNumber", "iterations", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "id", "sectionId", "description", "state", "priority", "steps", "preconditionSteps", "postconditionSteps", "duration", "attributes", "tags", "links", "name"]
 
     class Config:
         """Pydantic configuration"""
@@ -236,13 +234,12 @@ class WorkItemModel(BaseModel):
             "description": obj.get("description"),
             "state": obj.get("state"),
             "priority": obj.get("priority"),
-            "source_type": obj.get("sourceType"),
             "steps": [StepModel.from_dict(_item) for _item in obj.get("steps")] if obj.get("steps") is not None else None,
             "precondition_steps": [StepModel.from_dict(_item) for _item in obj.get("preconditionSteps")] if obj.get("preconditionSteps") is not None else None,
             "postcondition_steps": [StepModel.from_dict(_item) for _item in obj.get("postconditionSteps")] if obj.get("postconditionSteps") is not None else None,
             "duration": obj.get("duration"),
             "attributes": obj.get("attributes"),
-            "tags": [TagModel.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None,
+            "tags": [TagPutModel.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None,
             "links": [LinkModel.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None,
             "name": obj.get("name")
         })

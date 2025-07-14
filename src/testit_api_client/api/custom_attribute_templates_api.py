@@ -198,7 +198,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_id_custom_attributes_exclude_post(self, id : Annotated[StrictStr, Field(..., description="Attribute template internal (UUID) identifier")], request_body : Optional[conlist(StrictStr, unique_items=True)] = None, **kwargs) -> None:  # noqa: E501
         """Exclude CustomAttributes from CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte  # noqa: E501
+         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System delete attributes from attributes tempalte  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -230,7 +230,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_id_custom_attributes_exclude_post_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Attribute template internal (UUID) identifier")], request_body : Optional[conlist(StrictStr, unique_items=True)] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Exclude CustomAttributes from CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte  # noqa: E501
+         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System delete attributes from attributes tempalte  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -351,7 +351,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_id_custom_attributes_include_post(self, id : Annotated[StrictStr, Field(..., description="Attribute template internal (UUID) identifier")], request_body : Optional[conlist(StrictStr, unique_items=True)] = None, **kwargs) -> None:  # noqa: E501
         """Include CustomAttributes to CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte  # noqa: E501
+         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System add attributes to attributes tempalte  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -383,7 +383,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_id_custom_attributes_include_post_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Attribute template internal (UUID) identifier")], request_body : Optional[conlist(StrictStr, unique_items=True)] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Include CustomAttributes to CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte  # noqa: E501
+         Use case   User sets attribute template internal identifier   User sets attribute internal identifiers    User runs method execution   System add attributes to attributes tempalte  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -504,7 +504,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_id_delete(self, id : Annotated[StrictStr, Field(..., description="Attribute template internal (UUID) identifier")], **kwargs) -> None:  # noqa: E501
         """Delete CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response  # noqa: E501
+         Use case   User sets attribute template internal identifier   User runs method execution   System search and delete attribute template   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -534,7 +534,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_id_delete_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Attribute template internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response  # noqa: E501
+         Use case   User sets attribute template internal identifier   User runs method execution   System search and delete attribute template   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -642,7 +642,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_id_get(self, id : Annotated[StrictStr, Field(..., description="CustomAttributeTemplate internal (UUID) identifier")], **kwargs) -> CustomAttributeTemplateModel:  # noqa: E501
         """Get CustomAttributeTemplate by ID  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)  # noqa: E501
+         Use case   User sets attribute template internal identifier    User runs method execution   System return attribute template (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -672,7 +672,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_id_get_with_http_info(self, id : Annotated[StrictStr, Field(..., description="CustomAttributeTemplate internal (UUID) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get CustomAttributeTemplate by ID  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)  # noqa: E501
+         Use case   User sets attribute template internal identifier    User runs method execution   System return attribute template (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -788,7 +788,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_name_get(self, name : Annotated[StrictStr, Field(..., description="CustomAttributeTemplate name for search")], **kwargs) -> CustomAttributeTemplateModel:  # noqa: E501
         """Get CustomAttributeTemplate by name  # noqa: E501
 
-         Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)  # noqa: E501
+         Use case   User sets attribute template name   User runs method execution   System search and return list of attribute templates (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -818,7 +818,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_name_get_with_http_info(self, name : Annotated[StrictStr, Field(..., description="CustomAttributeTemplate name for search")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get CustomAttributeTemplate by name  # noqa: E501
 
-         Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)  # noqa: E501
+         Use case   User sets attribute template name   User runs method execution   System search and return list of attribute templates (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -934,7 +934,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_post(self, custom_attribute_template_post_model : Optional[CustomAttributeTemplatePostModel] = None, **kwargs) -> CustomAttributeTemplateModel:  # noqa: E501
         """Create CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)  # noqa: E501
+         Use case   User sets attribute template parameters (listed in request example)   User runs method execution   System creates attribute template   System returns attribute template model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -964,7 +964,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_post_with_http_info(self, custom_attribute_template_post_model : Optional[CustomAttributeTemplatePostModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)  # noqa: E501
+         Use case   User sets attribute template parameters (listed in request example)   User runs method execution   System creates attribute template   System returns attribute template model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1230,7 +1230,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_search_post(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, custom_attribute_template_search_query_model : Optional[CustomAttributeTemplateSearchQueryModel] = None, **kwargs) -> List[SearchCustomAttributeTemplateGetModel]:  # noqa: E501
         """Search CustomAttributeTemplates  # noqa: E501
 
-         Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)  # noqa: E501
+         Use case   User sets search params model (listed in request example)   User runs method execution   System return attribute templates (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1270,7 +1270,7 @@ class CustomAttributeTemplatesApi:
     def api_v2_custom_attributes_templates_search_post_with_http_info(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, custom_attribute_template_search_query_model : Optional[CustomAttributeTemplateSearchQueryModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Search CustomAttributeTemplates  # noqa: E501
 
-         Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)  # noqa: E501
+         Use case   User sets search params model (listed in request example)   User runs method execution   System return attribute templates (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

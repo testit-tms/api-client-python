@@ -2,13 +2,11 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **include_name** | **bool** |  | 
 **include_section** | **bool** |  | 
 **include_priority** | **bool** |  | 
-**include_source_type** | **bool** |  | 
 **include_automated** | **bool** |  | 
 **include_status** | **bool** |  | 
 **include_duration** | **bool** |  | 
@@ -31,7 +29,7 @@ json = "{}"
 # create an instance of GetXlsxTestPointsByTestPlanModel from a JSON string
 get_xlsx_test_points_by_test_plan_model_instance = GetXlsxTestPointsByTestPlanModel.from_json(json)
 # print the JSON string representation of the object
-print(GetXlsxTestPointsByTestPlanModel.to_json())
+print GetXlsxTestPointsByTestPlanModel.to_json()
 
 # convert the object into a dict
 get_xlsx_test_points_by_test_plan_model_dict = get_xlsx_test_points_by_test_plan_model_instance.to_dict()

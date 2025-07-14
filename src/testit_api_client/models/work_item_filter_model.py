@@ -26,7 +26,6 @@ from testit_api_client.models.int64_range_selector_model import Int64RangeSelect
 from testit_api_client.models.work_item_entity_types import WorkItemEntityTypes
 from testit_api_client.models.work_item_link_filter_model import WorkItemLinkFilterModel
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
-from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_states import WorkItemStates
 
 class WorkItemFilterModel(BaseModel):
@@ -48,7 +47,6 @@ class WorkItemFilterModel(BaseModel):
     modified_by_ids: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="modifiedByIds", description="Collection of identifiers of users who applied last modification to work item")
     states: Optional[conlist(WorkItemStates, unique_items=True)] = Field(default=None, description="Collection of states of work item")
     priorities: Optional[conlist(WorkItemPriorityModel, unique_items=True)] = Field(default=None, description="Collection of priorities of work item")
-    source_types: Optional[conlist(WorkItemSourceTypeModel, unique_items=True)] = Field(default=None, alias="sourceTypes", description="Collection of priorities of work item")
     types: Optional[conlist(WorkItemEntityTypes, unique_items=True)] = Field(default=None, description="Collection of types of work item")
     created_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="createdDate", description="Specifies a work item range of creation date to search for")
     modified_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="modifiedDate", description="Specifies a work item range of last modification date to search for")
@@ -58,7 +56,7 @@ class WorkItemFilterModel(BaseModel):
     tags: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, description="Collection of tags")
     auto_test_ids: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="autoTestIds", description="Collection of identifiers of linked autotests")
     work_item_version_ids: Optional[conlist(StrictStr)] = Field(default=None, alias="workItemVersionIds", description="Collection of identifiers work items versions.")
-    __properties = ["nameOrId", "includeIds", "excludeIds", "projectIds", "links", "name", "ids", "globalIds", "attributes", "isDeleted", "sectionIds", "createdByIds", "modifiedByIds", "states", "priorities", "sourceTypes", "types", "createdDate", "modifiedDate", "duration", "medianDuration", "isAutomated", "tags", "autoTestIds", "workItemVersionIds"]
+    __properties = ["nameOrId", "includeIds", "excludeIds", "projectIds", "links", "name", "ids", "globalIds", "attributes", "isDeleted", "sectionIds", "createdByIds", "modifiedByIds", "states", "priorities", "types", "createdDate", "modifiedDate", "duration", "medianDuration", "isAutomated", "tags", "autoTestIds", "workItemVersionIds"]
 
     class Config:
         """Pydantic configuration"""
@@ -174,11 +172,6 @@ class WorkItemFilterModel(BaseModel):
         if self.priorities is None and "priorities" in self.__fields_set__:
             _dict['priorities'] = None
 
-        # set to None if source_types (nullable) is None
-        # and __fields_set__ contains the field
-        if self.source_types is None and "source_types" in self.__fields_set__:
-            _dict['sourceTypes'] = None
-
         # set to None if types (nullable) is None
         # and __fields_set__ contains the field
         if self.types is None and "types" in self.__fields_set__:
@@ -251,7 +244,6 @@ class WorkItemFilterModel(BaseModel):
             "modified_by_ids": obj.get("modifiedByIds"),
             "states": obj.get("states"),
             "priorities": obj.get("priorities"),
-            "source_types": obj.get("sourceTypes"),
             "types": obj.get("types"),
             "created_date": DateTimeRangeSelectorModel.from_dict(obj.get("createdDate")) if obj.get("createdDate") is not None else None,
             "modified_date": DateTimeRangeSelectorModel.from_dict(obj.get("modifiedDate")) if obj.get("modifiedDate") is not None else None,

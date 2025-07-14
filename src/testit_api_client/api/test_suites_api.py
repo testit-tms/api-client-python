@@ -943,7 +943,7 @@ class TestSuitesApi:
     def delete_test_suite(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> None:  # noqa: E501
         """Delete TestSuite  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -973,7 +973,7 @@ class TestSuitesApi:
     def delete_test_suite_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete TestSuite  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1081,7 +1081,7 @@ class TestSuitesApi:
     def get_configurations_by_test_suite_id(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> List[ConfigurationModel]:  # noqa: E501
         """Get Configurations By Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1111,7 +1111,7 @@ class TestSuitesApi:
     def get_configurations_by_test_suite_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get Configurations By Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1227,7 +1227,7 @@ class TestSuitesApi:
     def get_test_points_by_id(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> List[TestPointByTestSuiteModel]:  # noqa: E501
         """Get TestPoints By Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1257,7 +1257,7 @@ class TestSuitesApi:
     def get_test_points_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get TestPoints By Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1373,7 +1373,7 @@ class TestSuitesApi:
     def get_test_results_by_id(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> List[TestResultV2ShortModel]:  # noqa: E501
         """Get TestResults By Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1403,7 +1403,7 @@ class TestSuitesApi:
     def get_test_results_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get TestResults By Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1519,7 +1519,7 @@ class TestSuitesApi:
     def get_test_suite_by_id(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> TestSuiteV2GetModel:  # noqa: E501
         """Get TestSuite by Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1549,7 +1549,7 @@ class TestSuitesApi:
     def get_test_suite_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get TestSuite by Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1665,7 +1665,7 @@ class TestSuitesApi:
     def search_work_items(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, test_suite_work_items_search_model : Optional[TestSuiteWorkItemsSearchModel] = None, **kwargs) -> List[WorkItemShortModel]:  # noqa: E501
         """(Deprecated) Search WorkItems  # noqa: E501
 
-         Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array  # noqa: E501
+         Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1707,7 +1707,7 @@ class TestSuitesApi:
     def search_work_items_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, test_suite_work_items_search_model : Optional[TestSuiteWorkItemsSearchModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """(Deprecated) Search WorkItems  # noqa: E501
 
-         Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array  # noqa: E501
+         Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1868,7 +1868,7 @@ class TestSuitesApi:
     def set_configurations_by_test_suite_id(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], request_body : Annotated[Optional[conlist(StrictStr, unique_items=True)], Field(description="Collection of configuration identifiers\"")] = None, **kwargs) -> None:  # noqa: E501
         """Set Configurations By TestSuite Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response  # noqa: E501
+         Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1900,7 +1900,7 @@ class TestSuitesApi:
     def set_configurations_by_test_suite_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Test suite internal (guid format) identifier\"")], request_body : Annotated[Optional[conlist(StrictStr, unique_items=True)], Field(description="Collection of configuration identifiers\"")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Set Configurations By TestSuite Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response  # noqa: E501
+         Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

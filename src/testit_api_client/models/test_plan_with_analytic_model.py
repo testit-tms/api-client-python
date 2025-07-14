@@ -20,7 +20,7 @@ import json
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, constr
-from testit_api_client.models.tag_model import TagModel
+from testit_api_client.models.tag_post_model import TagPostModel
 from testit_api_client.models.test_plan_status_model import TestPlanStatusModel
 from testit_api_client.models.test_point_analytic_result import TestPointAnalyticResult
 
@@ -41,7 +41,7 @@ class TestPlanWithAnalyticModel(BaseModel):
     locked_date: Optional[datetime] = Field(default=None, alias="lockedDate")
     id: StrictStr = Field(...)
     locked_by_id: Optional[StrictStr] = Field(default=None, alias="lockedById")
-    tags: Optional[conlist(TagModel)] = None
+    tags: Optional[conlist(TagPostModel)] = None
     name: constr(strict=True, max_length=450, min_length=0) = Field(...)
     start_date: Optional[datetime] = Field(default=None, alias="startDate", description="Used for analytics")
     end_date: Optional[datetime] = Field(default=None, alias="endDate", description="Used for analytics")
@@ -182,7 +182,7 @@ class TestPlanWithAnalyticModel(BaseModel):
             "locked_date": obj.get("lockedDate"),
             "id": obj.get("id"),
             "locked_by_id": obj.get("lockedById"),
-            "tags": [TagModel.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None,
+            "tags": [TagPostModel.from_dict(_item) for _item in obj.get("tags")] if obj.get("tags") is not None else None,
             "name": obj.get("name"),
             "start_date": obj.get("startDate"),
             "end_date": obj.get("endDate"),

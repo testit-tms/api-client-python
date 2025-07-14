@@ -24,7 +24,6 @@ from testit_api_client.models.last_test_result_model import LastTestResultModel
 from testit_api_client.models.test_point_status import TestPointStatus
 from testit_api_client.models.test_status_api_result import TestStatusApiResult
 from testit_api_client.models.work_item_priority_model import WorkItemPriorityModel
-from testit_api_client.models.work_item_source_type_model import WorkItemSourceTypeModel
 from testit_api_client.models.work_item_state import WorkItemState
 
 class TestPointShortResponseModel(BaseModel):
@@ -51,7 +50,6 @@ class TestPointShortResponseModel(BaseModel):
     status: TestPointStatus = Field(default=..., description="Status of the test point")
     status_model: TestStatusApiResult = Field(default=..., alias="statusModel", description="Status of the test point")
     priority: WorkItemPriorityModel = Field(default=..., description="Priority of the test point")
-    source_type: WorkItemSourceTypeModel = Field(default=..., alias="sourceType", description="Source type of the test point")
     is_automated: StrictBool = Field(default=..., alias="isAutomated", description="Indicates if the test point represents an autotest")
     name: StrictStr = Field(default=..., description="Name of the test point")
     configuration_id: StrictStr = Field(default=..., alias="configurationId", description="Unique ID of the test point configuration")
@@ -66,7 +64,7 @@ class TestPointShortResponseModel(BaseModel):
     work_item_created_date: datetime = Field(default=..., alias="workItemCreatedDate", description="Creation date of work item")
     work_item_modified_by_id: Optional[StrictStr] = Field(default=None, alias="workItemModifiedById", description="Unique ID of the work item last editor")
     work_item_modified_date: Optional[datetime] = Field(default=None, alias="workItemModifiedDate", description="Modified date of work item")
-    __properties = ["id", "createdDate", "createdById", "modifiedDate", "modifiedById", "testerId", "parameters", "attributes", "tags", "links", "testSuiteId", "testSuiteName", "workItemId", "workItemGlobalId", "workItemVersionId", "workItemVersionNumber", "workItemMedianDuration", "status", "statusModel", "priority", "sourceType", "isAutomated", "name", "configurationId", "duration", "sectionId", "sectionName", "projectId", "lastTestResult", "iterationId", "workItemState", "workItemCreatedById", "workItemCreatedDate", "workItemModifiedById", "workItemModifiedDate"]
+    __properties = ["id", "createdDate", "createdById", "modifiedDate", "modifiedById", "testerId", "parameters", "attributes", "tags", "links", "testSuiteId", "testSuiteName", "workItemId", "workItemGlobalId", "workItemVersionId", "workItemVersionNumber", "workItemMedianDuration", "status", "statusModel", "priority", "isAutomated", "name", "configurationId", "duration", "sectionId", "sectionName", "projectId", "lastTestResult", "iterationId", "workItemState", "workItemCreatedById", "workItemCreatedDate", "workItemModifiedById", "workItemModifiedDate"]
 
     class Config:
         """Pydantic configuration"""
@@ -175,7 +173,6 @@ class TestPointShortResponseModel(BaseModel):
             "status": obj.get("status"),
             "status_model": TestStatusApiResult.from_dict(obj.get("statusModel")) if obj.get("statusModel") is not None else None,
             "priority": obj.get("priority"),
-            "source_type": obj.get("sourceType"),
             "is_automated": obj.get("isAutomated"),
             "name": obj.get("name"),
             "configuration_id": obj.get("configurationId"),

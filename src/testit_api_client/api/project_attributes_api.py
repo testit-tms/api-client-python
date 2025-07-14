@@ -53,7 +53,7 @@ class ProjectAttributesApi:
     def create_projects_attribute(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], custom_attribute_post_model : Optional[CustomAttributePostModel] = None, **kwargs) -> CustomAttributeModel:  # noqa: E501
         """Create project attribute  # noqa: E501
 
-         Use case  User sets attribute parameters (listed in request example) and runs method execution  System search project  System creates attribute and relates it to the project  System returns project attribute properties (example listed in response parameters)  # noqa: E501
+         Use case   User sets attribute parameters (listed in request example) and runs method execution   System search project   System creates attribute and relates it to the project   System returns project attribute properties (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -85,7 +85,7 @@ class ProjectAttributesApi:
     def create_projects_attribute_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], custom_attribute_post_model : Optional[CustomAttributePostModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create project attribute  # noqa: E501
 
-         Use case  User sets attribute parameters (listed in request example) and runs method execution  System search project  System creates attribute and relates it to the project  System returns project attribute properties (example listed in response parameters)  # noqa: E501
+         Use case   User sets attribute parameters (listed in request example) and runs method execution   System search project   System creates attribute and relates it to the project   System returns project attribute properties (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -214,7 +214,7 @@ class ProjectAttributesApi:
     def delete_projects_attribute(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], attribute_id : Annotated[StrictStr, Field(..., description="Project attribute internal (UUID)")], **kwargs) -> None:  # noqa: E501
         """Delete project attribute  # noqa: E501
 
-         Use case  User sets project identifier and runs method execution  User sets attribute identifier  User runs method execution  System search project  System search and delete attribute  System returns no content response  # noqa: E501
+         Use case   User sets project identifier and runs method execution   User sets attribute identifier   User runs method execution   System search project   System search and delete attribute   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -246,7 +246,7 @@ class ProjectAttributesApi:
     def delete_projects_attribute_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], attribute_id : Annotated[StrictStr, Field(..., description="Project attribute internal (UUID)")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete project attribute  # noqa: E501
 
-         Use case  User sets project identifier and runs method execution  User sets attribute identifier  User runs method execution  System search project  System search and delete attribute  System returns no content response  # noqa: E501
+         Use case   User sets project identifier and runs method execution   User sets attribute identifier   User runs method execution   System search project   System search and delete attribute   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -360,7 +360,7 @@ class ProjectAttributesApi:
     def get_attribute_by_project_id(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], attribute_id : Annotated[StrictStr, Field(..., description="Project attribute internal (UUID) or global (integer) identifier")], **kwargs) -> CustomAttributeModel:  # noqa: E501
         """Get project attribute  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets project attribute identifier  User runs method execution  System search project  System search project attribute  System returns project attribute (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   User sets project attribute identifier   User runs method execution   System search project   System search project attribute    System returns project attribute (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -392,7 +392,7 @@ class ProjectAttributesApi:
     def get_attribute_by_project_id_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], attribute_id : Annotated[StrictStr, Field(..., description="Project attribute internal (UUID) or global (integer) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get project attribute  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets project attribute identifier  User runs method execution  System search project  System search project attribute  System returns project attribute (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   User sets project attribute identifier   User runs method execution   System search project   System search project attribute    System returns project attribute (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -514,7 +514,7 @@ class ProjectAttributesApi:
     def get_attributes_by_project_id(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], is_deleted : Optional[Any] = None, **kwargs) -> List[CustomAttributeModel]:  # noqa: E501
         """Get project attributes  # noqa: E501
 
-         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all attributes related to project  System returns array of found attributes (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project   [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all attributes related to project   System returns array of found attributes (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -546,7 +546,7 @@ class ProjectAttributesApi:
     def get_attributes_by_project_id_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], is_deleted : Optional[Any] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get project attributes  # noqa: E501
 
-         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all attributes related to project  System returns array of found attributes (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project   [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all attributes related to project   System returns array of found attributes (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

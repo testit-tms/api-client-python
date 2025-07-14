@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Test suite nane | 
@@ -21,7 +20,7 @@ json = "{}"
 # create an instance of TestSuiteTestPlanApiModel from a JSON string
 test_suite_test_plan_api_model_instance = TestSuiteTestPlanApiModel.from_json(json)
 # print the JSON string representation of the object
-print(TestSuiteTestPlanApiModel.to_json())
+print TestSuiteTestPlanApiModel.to_json()
 
 # convert the object into a dict
 test_suite_test_plan_api_model_dict = test_suite_test_plan_api_model_instance.to_dict()

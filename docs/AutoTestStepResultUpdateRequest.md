@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **str** | The name of the step. | [optional] 
@@ -13,7 +12,7 @@ Name | Type | Description | Notes
 **duration** | **int** | Expected or actual duration of the test run execution in milliseconds. | [optional] 
 **outcome** | [**AvailableTestResultOutcome**](AvailableTestResultOutcome.md) | Specifies the result of the autotest execution. | [optional] 
 **step_results** | [**List[AutoTestStepResultUpdateRequest]**](AutoTestStepResultUpdateRequest.md) | Nested step results. The maximum nesting level is 15. | [optional] 
-**attachments** | [**List[AttachmentUpdateRequest]**](AttachmentUpdateRequest.md) | /// &lt;summary&gt; Specifies an attachment GUID. Multiple values can be sent. &lt;/summary&gt; | [optional] 
+**attachments** | [**List[AttachmentUpdateRequest]**](AttachmentUpdateRequest.md) | /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt; | [optional] 
 **parameters** | **Dict[str, str]** | \&quot;&lt;b&gt;parameter&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom parameters. Multiple parameters can be sent. | [optional] 
 
 ## Example
@@ -26,7 +25,7 @@ json = "{}"
 # create an instance of AutoTestStepResultUpdateRequest from a JSON string
 auto_test_step_result_update_request_instance = AutoTestStepResultUpdateRequest.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestStepResultUpdateRequest.to_json())
+print AutoTestStepResultUpdateRequest.to_json()
 
 # convert the object into a dict
 auto_test_step_result_update_request_dict = auto_test_step_result_update_request_instance.to_dict()

@@ -29,7 +29,7 @@ class TestPointByTestSuiteModel(BaseModel):
     tester_id: Optional[StrictStr] = Field(default=None, alias="testerId", description="Tester who is responded for the test unique internal identifier")
     work_item_id: Optional[StrictStr] = Field(default=None, alias="workItemId", description="Workitem to which test point relates unique identifier")
     configuration_id: Optional[StrictStr] = Field(default=None, alias="configurationId", description="Configuration to which test point relates unique identifier")
-    status: Optional[StrictStr] = Field(default=None, description="Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed")
+    status: Optional[StrictStr] = Field(default=None, description="Test point status   Applies one of these values: Blocked, NoResults, Failed, Passed")
     last_test_result_id: Optional[StrictStr] = Field(default=None, alias="lastTestResultId", description="Last test result unique identifier")
     iteration_id: StrictStr = Field(default=..., alias="iterationId", description="Iteration unique identifier")
     work_item_median_duration: Optional[StrictInt] = Field(default=None, alias="workItemMedianDuration", description="Median duration of work item the test point represents")

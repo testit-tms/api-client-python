@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of section | [optional] 
@@ -21,7 +20,7 @@ json = "{}"
 # create an instance of SharedStepReferenceSectionsQueryFilterModel from a JSON string
 shared_step_reference_sections_query_filter_model_instance = SharedStepReferenceSectionsQueryFilterModel.from_json(json)
 # print the JSON string representation of the object
-print(SharedStepReferenceSectionsQueryFilterModel.to_json())
+print SharedStepReferenceSectionsQueryFilterModel.to_json()
 
 # convert the object into a dict
 shared_step_reference_sections_query_filter_model_dict = shared_step_reference_sections_query_filter_model_instance.to_dict()

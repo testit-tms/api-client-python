@@ -2,12 +2,11 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | 
-**type** | [**TestStatusApiType**](TestStatusApiType.md) | Collection of possible status types | 
+**type** | [**TestStatusType**](TestStatusType.md) |  | 
 **is_system** | **bool** |  | 
 **code** | **str** |  | 
 **description** | **str** |  | [optional] 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of TestStatusApiResult from a JSON string
 test_status_api_result_instance = TestStatusApiResult.from_json(json)
 # print the JSON string representation of the object
-print(TestStatusApiResult.to_json())
+print TestStatusApiResult.to_json()
 
 # convert the object into a dict
 test_status_api_result_dict = test_status_api_result_instance.to_dict()

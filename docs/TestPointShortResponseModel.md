@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the test point | 
@@ -25,7 +24,6 @@ Name | Type | Description | Notes
 **status** | [**TestPointStatus**](TestPointStatus.md) | Status of the test point | 
 **status_model** | [**TestStatusApiResult**](TestStatusApiResult.md) | Status of the test point | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) | Priority of the test point | 
-**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) | Source type of the test point | 
 **is_automated** | **bool** | Indicates if the test point represents an autotest | 
 **name** | **str** | Name of the test point | 
 **configuration_id** | **str** | Unique ID of the test point configuration | 
@@ -51,7 +49,7 @@ json = "{}"
 # create an instance of TestPointShortResponseModel from a JSON string
 test_point_short_response_model_instance = TestPointShortResponseModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPointShortResponseModel.to_json())
+print TestPointShortResponseModel.to_json()
 
 # convert the object into a dict
 test_point_short_response_model_dict = test_point_short_response_model_instance.to_dict()

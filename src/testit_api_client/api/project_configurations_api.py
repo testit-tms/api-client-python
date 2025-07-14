@@ -49,7 +49,7 @@ class ProjectConfigurationsApi:
     def get_configurations_by_project_id(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> List[ConfigurationModel]:  # noqa: E501
         """Get project configurations  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all configurations related to project   System returns array of found configurations (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -79,7 +79,7 @@ class ProjectConfigurationsApi:
     def get_configurations_by_project_id_with_http_info(self, project_id : Annotated[StrictStr, Field(..., description="Project internal (UUID) or global (integer) identifier")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get project configurations  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)  # noqa: E501
+         Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all configurations related to project   System returns array of found configurations (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

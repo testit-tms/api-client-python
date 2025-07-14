@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **var_from** | **datetime** |  | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of DateTimeRangeSelectorModel from a JSON string
 date_time_range_selector_model_instance = DateTimeRangeSelectorModel.from_json(json)
 # print the JSON string representation of the object
-print(DateTimeRangeSelectorModel.to_json())
+print DateTimeRangeSelectorModel.to_json()
 
 # convert the object into a dict
 date_time_range_selector_model_dict = date_time_range_selector_model_instance.to_dict()

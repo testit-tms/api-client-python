@@ -37,13 +37,23 @@ Method | HTTP request | Description
 
 Upload and link attachment to WorkItem
 
- Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
+
+Use case
+
+User sets workItemId
+
+User attaches a file
+
+System creates attachment and links it to the work item
+
+System returns attachment identifier
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -83,7 +93,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Work item internal identifier (guid format) | 
@@ -103,7 +112,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **413** | Multipart body length limit exceeded (default constraint is one gigabyte) |  -  |
@@ -122,13 +130,21 @@ void (empty response body)
 
 Transform CheckList to TestCase
 
- Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
+
+Use case
+
+User sets checklist identifier
+
+User runs method execution
+
+System transform CheckList to TestCase
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.work_item_model import WorkItemModel
 from testit_api_client.rest import ApiException
@@ -170,7 +186,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -189,7 +204,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -207,13 +221,21 @@ Name | Type | Description  | Notes
 
 Get change history of WorkItem
 
- Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System return change history of WorkItem
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.work_item_change_model import WorkItemChangeModel
 from testit_api_client.rest import ApiException
@@ -260,7 +282,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -284,7 +305,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -302,13 +322,21 @@ Name | Type | Description  | Notes
 
 Delete like from WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System delete like from WorkItem
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -347,7 +375,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -366,7 +393,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -384,13 +410,21 @@ void (empty response body)
 
 Set like to WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System set like to WorkItem
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -429,7 +463,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -448,7 +481,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -466,13 +498,21 @@ void (empty response body)
 
 Get likes count of WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System return likes count of WorkItem
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -513,7 +553,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -532,7 +571,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -550,13 +588,21 @@ Name | Type | Description  | Notes
 
 Get likes of WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System return likes of WorkItem
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.work_item_like_model import WorkItemLikeModel
 from testit_api_client.rest import ApiException
@@ -598,7 +644,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -617,7 +662,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -635,13 +679,21 @@ Name | Type | Description  | Notes
 
 Get test results history of WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System return test results history of WorkItem
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.test_result_history_report_api_result import TestResultHistoryReportApiResult
 from testit_api_client.rest import ApiException
@@ -698,7 +750,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -732,7 +783,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -750,13 +800,21 @@ Name | Type | Description  | Notes
 
 Set WorkItem as actual
 
- Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System set WorkItem as actual
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.work_item_model import WorkItemModel
 from testit_api_client.rest import ApiException
@@ -799,7 +857,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -819,7 +876,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -837,11 +893,14 @@ Name | Type | Description  | Notes
 
 
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.search_work_item_link_urls_api_result import SearchWorkItemLinkUrlsApiResult
 from testit_api_client.models.work_item_link_url_api_model import WorkItemLinkUrlApiModel
@@ -888,7 +947,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -912,7 +970,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -930,13 +987,21 @@ Name | Type | Description  | Notes
 
 Move WorkItem to another section
 
- Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System move WorkItem to another section
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.work_item_move_post_model import WorkItemMovePostModel
 from testit_api_client.models.work_item_short_model import WorkItemShortModel
@@ -979,7 +1044,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **work_item_move_post_model** | [**WorkItemMovePostModel**](WorkItemMovePostModel.md)|  | [optional] 
@@ -998,7 +1062,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1016,11 +1079,14 @@ Name | Type | Description  | Notes
 
 Search for work items
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
 from testit_api_client.models.work_item_short_api_result import WorkItemShortApiResult
@@ -1068,7 +1134,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -1092,7 +1157,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1110,13 +1174,21 @@ Name | Type | Description  | Notes
 
 Get SharedStep references in sections
 
- Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+
+Use case
+
+User sets SharedStep identifier
+
+User runs method execution
+
+System return SharedStep references
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.shared_step_reference_section_model import SharedStepReferenceSectionModel
 from testit_api_client.models.shared_step_reference_sections_query_filter_model import SharedStepReferenceSectionsQueryFilterModel
@@ -1165,7 +1237,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shared_step_id** | **str**|  | 
@@ -1190,7 +1261,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1208,13 +1278,21 @@ Name | Type | Description  | Notes
 
 Get SharedStep references in work items
 
- Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+
+Use case
+
+User sets SharedStep identifier
+
+User runs method execution
+
+System return SharedStep references
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.shared_step_reference_model import SharedStepReferenceModel
 from testit_api_client.models.shared_step_references_query_filter_model import SharedStepReferencesQueryFilterModel
@@ -1263,7 +1341,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shared_step_id** | **str**|  | 
@@ -1288,7 +1365,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1306,13 +1382,21 @@ Name | Type | Description  | Notes
 
 Get SharedStep references
 
- Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+
+Use case
+
+User sets SharedStep identifier
+
+User runs method execution
+
+System return SharedStep references
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.shared_step_reference_model import SharedStepReferenceModel
 from testit_api_client.rest import ApiException
@@ -1354,7 +1438,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shared_step_id** | **str**|  | 
@@ -1373,7 +1456,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1387,20 +1469,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_work_item**
-> WorkItemModel create_work_item(create_work_item_api_model=create_work_item_api_model)
+> WorkItemModel create_work_item(work_item_post_model=work_item_post_model)
 
 Create Test Case, Checklist or Shared Step
 
- Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)
+
+Use case
+
+User sets work item properties (listed in request parameters)
+
+User runs method execution
+
+System creates work item by identifier
+
+System returns work item model (listed in response parameters)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
-from testit_api_client.models.create_work_item_api_model import CreateWorkItemApiModel
 from testit_api_client.models.work_item_model import WorkItemModel
+from testit_api_client.models.work_item_post_model import WorkItemPostModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -1425,11 +1517,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WorkItemsApi(api_client)
-    create_work_item_api_model = testit_api_client.CreateWorkItemApiModel() # CreateWorkItemApiModel |  (optional)
+    work_item_post_model = testit_api_client.WorkItemPostModel() # WorkItemPostModel |  (optional)
 
     try:
         # Create Test Case, Checklist or Shared Step
-        api_response = api_instance.create_work_item(create_work_item_api_model=create_work_item_api_model)
+        api_response = api_instance.create_work_item(work_item_post_model=work_item_post_model)
         print("The response of WorkItemsApi->create_work_item:\n")
         pprint(api_response)
     except Exception as e:
@@ -1440,10 +1532,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_work_item_api_model** | [**CreateWorkItemApiModel**](CreateWorkItemApiModel.md)|  | [optional] 
+ **work_item_post_model** | [**WorkItemPostModel**](WorkItemPostModel.md)|  | [optional] 
 
 ### Return type
 
@@ -1459,14 +1550,13 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
-**400** |  Field is required  Priority is not a valid  Tags must be set  Duration should be a positive number  Should be empty for CheckList  Attribute value must be a valid guid for user scheme  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme |  -  |
+**400** |  Field is required   Priority is not a valid   Tags must be set   Duration should be a positive number   Should be empty for CheckList   Attribute value must be a valid guid for user scheme   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
-**404** |  Can&#39;t find section  Can&#39;t find project  Can&#39;t find attachmentIds  Project not found  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project |  -  |
+**404** |  Can&#39;t find section   Can&#39;t find project   Can&#39;t find attachmentIds   Project not found   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -1477,13 +1567,25 @@ Name | Type | Description  | Notes
 
 Delete all links AutoTests from WorkItem by Id or GlobalId
 
- Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System search work item by identifier
+
+System search and delete all autotests, related to found work item
+
+System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1509,7 +1611,7 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WorkItemsApi(api_client)
-    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or global(integer format) identifier\"
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or  global(integer format) identifier\"
 
     try:
         # Delete all links AutoTests from WorkItem by Id or GlobalId
@@ -1522,10 +1624,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+ **id** | **str**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Return type
 
@@ -1541,7 +1642,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -1560,13 +1660,23 @@ void (empty response body)
 
 Delete Test Case, Checklist or Shared Step by Id or GlobalId
 
- Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System deletes work item
+
+System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1592,7 +1702,7 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WorkItemsApi(api_client)
-    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or global(integer format) identifier\"
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or  global(integer format) identifier\"
 
     try:
         # Delete Test Case, Checklist or Shared Step by Id or GlobalId
@@ -1605,10 +1715,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+ **id** | **str**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Return type
 
@@ -1624,7 +1733,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -1642,13 +1750,25 @@ void (empty response body)
 
 Get all AutoTests linked to WorkItem by Id or GlobalId
 
- Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System search work item by identifier
+
+System search all autotests, related to found work item
+
+System returns list of found autotests
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.auto_test_model import AutoTestModel
 from testit_api_client.rest import ApiException
@@ -1675,7 +1795,7 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WorkItemsApi(api_client)
-    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or global(integer format) identifier\"
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or  global(integer format) identifier\"
 
     try:
         # Get all AutoTests linked to WorkItem by Id or GlobalId
@@ -1690,10 +1810,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+ **id** | **str**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Return type
 
@@ -1709,7 +1828,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1727,11 +1845,14 @@ Name | Type | Description  | Notes
 
 Get iterations by work item Id or GlobalId
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.iteration_model import IterationModel
 from testit_api_client.rest import ApiException
@@ -1758,7 +1879,7 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WorkItemsApi(api_client)
-    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or global(integer format) identifier\"
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or  global(integer format) identifier\"
     version_id = '00000000-0000-0000-0000-000000000000' # str | WorkItem version (guid format) identifier (optional)
     version_number = 0 # int | WorkItem version number (0 is the last version)\" (optional)
 
@@ -1775,10 +1896,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+ **id** | **str**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
  **version_id** | **str**| WorkItem version (guid format) identifier | [optional] 
  **version_number** | **int**| WorkItem version number (0 is the last version)\&quot; | [optional] 
 
@@ -1796,7 +1916,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1814,13 +1933,33 @@ Name | Type | Description  | Notes
 
 Get Test Case, Checklist or Shared Step by Id or GlobalId
 
- Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
+
+Use case
+
+User sets work item identifier
+
+[Optional] User sets work item version identifier
+
+[Optional] User sets work item version number
+
+User runs method execution
+
+System search work item by identifier
+
+[Optional] if User sets work item version identifier, system search work item version by identifier.
+
+[Optional] if user sets work item version number, system search work item version by number
+
+Otherwise, system search last work item version
+
+System returns work item 
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.work_item_model import WorkItemModel
 from testit_api_client.rest import ApiException
@@ -1847,7 +1986,7 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WorkItemsApi(api_client)
-    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or global(integer format) identifier\"
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or  global(integer format) identifier\"
     version_id = '00000000-0000-0000-0000-000000000000' # str | WorkItem version (guid format) identifier\" (optional)
     version_number = 0 # int | WorkItem version number (0 is the last version)\" (optional)
 
@@ -1864,10 +2003,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+ **id** | **str**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
  **version_id** | **str**| WorkItem version (guid format) identifier\&quot; | [optional] 
  **version_number** | **int**| WorkItem version number (0 is the last version)\&quot; | [optional] 
 
@@ -1885,7 +2023,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1903,13 +2040,27 @@ Name | Type | Description  | Notes
 
 Get WorkItem chronology by Id or GlobalId
 
- Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System search work item by identifier
+
+System search test results of all autotests, related to found work item
+
+System sort results by CompletedOn ascending, then by CreatedDate ascending
+
+System returns sorted collection of test results
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.test_result_chronology_model import TestResultChronologyModel
 from testit_api_client.rest import ApiException
@@ -1951,7 +2102,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -1970,7 +2120,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -1988,13 +2137,30 @@ Name | Type | Description  | Notes
 
 Get WorkItem versions
 
- Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
+
+Use case
+
+User sets work item identifier
+
+[Optional] User sets work item version identifier
+
+User runs method execution
+
+System search work item by identifier
+
+
+                    [Optional] If User set work item version identifier, System search work item version by version identifier
+                    Otherwise, system search all version of work item
+                
+
+System returns array of work item version models (listed in response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.work_item_version_model import WorkItemVersionModel
 from testit_api_client.rest import ApiException
@@ -2021,9 +2187,9 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WorkItemsApi(api_client)
-    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or global(integer format) identifier\"
-    work_item_version_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem version (guid format) identifier\" (optional)
-    version_number = 1 # int | WorkItem version (integer format) number\" (optional)
+    id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem internal (guid format) or  global(integer format) identifier\"
+    work_item_version_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | WorkItem version (guid format)  identifier\" (optional)
+    version_number = 1 # int | WorkItem version (integer format)  number\" (optional)
 
     try:
         # Get WorkItem versions
@@ -2038,12 +2204,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
- **work_item_version_id** | **str**| WorkItem version (guid format) identifier\&quot; | [optional] 
- **version_number** | **int**| WorkItem version (integer format) number\&quot; | [optional] 
+ **id** | **str**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
+ **work_item_version_id** | **str**| WorkItem version (guid format)  identifier\&quot; | [optional] 
+ **version_number** | **int**| WorkItem version (integer format)  number\&quot; | [optional] 
 
 ### Return type
 
@@ -2059,7 +2224,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -2077,11 +2241,14 @@ Name | Type | Description  | Notes
 
 Permanently delete test case, checklist or shared steps from archive
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -2120,7 +2287,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the work item | 
@@ -2139,7 +2305,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -2157,11 +2322,14 @@ void (empty response body)
 
 Restore test case, checklist or shared steps from archive
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -2200,7 +2368,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique or global ID of the work item | 
@@ -2219,7 +2386,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -2233,19 +2399,29 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_work_item**
-> update_work_item(update_work_item_api_model=update_work_item_api_model)
+> update_work_item(work_item_put_model=work_item_put_model)
 
 Update Test Case, Checklist or Shared Step
 
- Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
+
+Use case
+
+User sets work item properties (listed in request parameters)
+
+User runs method execution
+
+System updates work item by identifier
+
+System returns updated work item model (listed in response parameters)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
-from testit_api_client.models.update_work_item_api_model import UpdateWorkItemApiModel
+from testit_api_client.models.work_item_put_model import WorkItemPutModel
 from testit_api_client.rest import ApiException
 from pprint import pprint
 
@@ -2270,11 +2446,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.WorkItemsApi(api_client)
-    update_work_item_api_model = testit_api_client.UpdateWorkItemApiModel() # UpdateWorkItemApiModel |  (optional)
+    work_item_put_model = testit_api_client.WorkItemPutModel() # WorkItemPutModel |  (optional)
 
     try:
         # Update Test Case, Checklist or Shared Step
-        api_instance.update_work_item(update_work_item_api_model=update_work_item_api_model)
+        api_instance.update_work_item(work_item_put_model=work_item_put_model)
     except Exception as e:
         print("Exception when calling WorkItemsApi->update_work_item: %s\n" % e)
 ```
@@ -2283,10 +2459,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_work_item_api_model** | [**UpdateWorkItemApiModel**](UpdateWorkItemApiModel.md)|  | [optional] 
+ **work_item_put_model** | [**WorkItemPutModel**](WorkItemPutModel.md)|  | [optional] 
 
 ### Return type
 
@@ -2302,14 +2477,13 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme |  -  |
+**400** |  Field is required   Priority is not a valid   duration should be a positive number   should be empty for CheckList   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library required |  -  |
-**404** |  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project |  -  |
+**404** |  WorkItem not found   Can&#39;t find section   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 

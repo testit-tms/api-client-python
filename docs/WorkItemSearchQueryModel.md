@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_ids** | **List[str]** | Collection of project identifiers | [optional] 
@@ -10,14 +9,13 @@ Name | Type | Description | Notes
 **name** | **str** | Name of work item | [optional] 
 **ids** | **List[str]** | Specifies a work item unique IDs to search for | [optional] 
 **global_ids** | **List[int]** | Collection of global (integer) identifiers | [optional] 
-**attributes** | **Dict[str, Optional[List[str]]]** | Custom attributes of work item | [optional] 
+**attributes** | **Dict[str, List[str]]** | Custom attributes of work item | [optional] 
 **is_deleted** | **bool** | Is result must consist of only actual/deleted work items | [optional] 
 **section_ids** | **List[str]** | Collection of section identifiers | [optional] 
 **created_by_ids** | **List[str]** | Collection of identifiers of users who created work item | [optional] 
 **modified_by_ids** | **List[str]** | Collection of identifiers of users who applied last modification to work item | [optional] 
 **states** | [**List[WorkItemStates]**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **priorities** | [**List[WorkItemPriorityModel]**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
-**source_types** | [**List[WorkItemSourceTypeModel]**](WorkItemSourceTypeModel.md) | Collection of priorities of work item | [optional] 
 **types** | [**List[WorkItemEntityTypes]**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
 **created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 
@@ -38,7 +36,7 @@ json = "{}"
 # create an instance of WorkItemSearchQueryModel from a JSON string
 work_item_search_query_model_instance = WorkItemSearchQueryModel.from_json(json)
 # print the JSON string representation of the object
-print(WorkItemSearchQueryModel.to_json())
+print WorkItemSearchQueryModel.to_json()
 
 # convert the object into a dict
 work_item_search_query_model_dict = work_item_search_query_model_instance.to_dict()

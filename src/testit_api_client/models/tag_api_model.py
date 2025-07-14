@@ -25,7 +25,7 @@ class TagApiModel(BaseModel):
     """
     TagApiModel
     """
-    name: constr(strict=True, max_length=255, min_length=0) = Field(default=..., description="Tag name")
+    name: constr(strict=True, max_length=30, min_length=0) = Field(default=..., description="Tag name")
     __properties = ["name"]
 
     class Config:

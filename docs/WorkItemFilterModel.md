@@ -3,7 +3,6 @@
 Collection of filters to apply to search
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name_or_id** | **str** | Name or identifier (UUID) of work item | [optional] 
@@ -14,14 +13,13 @@ Name | Type | Description | Notes
 **name** | **str** | Name of work item | [optional] 
 **ids** | **List[str]** | Specifies a work item unique IDs to search for | [optional] 
 **global_ids** | **List[int]** | Collection of global (integer) identifiers | [optional] 
-**attributes** | **Dict[str, Optional[List[str]]]** | Custom attributes of work item | [optional] 
+**attributes** | **Dict[str, List[str]]** | Custom attributes of work item | [optional] 
 **is_deleted** | **bool** | Is result must consist of only actual/deleted work items | [optional] 
 **section_ids** | **List[str]** | Collection of section identifiers | [optional] 
 **created_by_ids** | **List[str]** | Collection of identifiers of users who created work item | [optional] 
 **modified_by_ids** | **List[str]** | Collection of identifiers of users who applied last modification to work item | [optional] 
 **states** | [**List[WorkItemStates]**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **priorities** | [**List[WorkItemPriorityModel]**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
-**source_types** | [**List[WorkItemSourceTypeModel]**](WorkItemSourceTypeModel.md) | Collection of priorities of work item | [optional] 
 **types** | [**List[WorkItemEntityTypes]**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
 **created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 
@@ -42,7 +40,7 @@ json = "{}"
 # create an instance of WorkItemFilterModel from a JSON string
 work_item_filter_model_instance = WorkItemFilterModel.from_json(json)
 # print the JSON string representation of the object
-print(WorkItemFilterModel.to_json())
+print WorkItemFilterModel.to_json()
 
 # convert the object into a dict
 work_item_filter_model_dict = work_item_filter_model_instance.to_dict()

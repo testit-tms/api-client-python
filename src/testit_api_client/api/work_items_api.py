@@ -26,7 +26,6 @@ from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr, conli
 from typing import List, Optional, Union
 
 from testit_api_client.models.auto_test_model import AutoTestModel
-from testit_api_client.models.create_work_item_api_model import CreateWorkItemApiModel
 from testit_api_client.models.iteration_model import IterationModel
 from testit_api_client.models.search_work_item_link_urls_api_result import SearchWorkItemLinkUrlsApiResult
 from testit_api_client.models.shared_step_reference_model import SharedStepReferenceModel
@@ -35,12 +34,13 @@ from testit_api_client.models.shared_step_reference_sections_query_filter_model 
 from testit_api_client.models.shared_step_references_query_filter_model import SharedStepReferencesQueryFilterModel
 from testit_api_client.models.test_result_chronology_model import TestResultChronologyModel
 from testit_api_client.models.test_result_history_report_api_result import TestResultHistoryReportApiResult
-from testit_api_client.models.update_work_item_api_model import UpdateWorkItemApiModel
 from testit_api_client.models.work_item_change_model import WorkItemChangeModel
 from testit_api_client.models.work_item_like_model import WorkItemLikeModel
 from testit_api_client.models.work_item_link_url_api_model import WorkItemLinkUrlApiModel
 from testit_api_client.models.work_item_model import WorkItemModel
 from testit_api_client.models.work_item_move_post_model import WorkItemMovePostModel
+from testit_api_client.models.work_item_post_model import WorkItemPostModel
+from testit_api_client.models.work_item_put_model import WorkItemPutModel
 from testit_api_client.models.work_item_select_api_model import WorkItemSelectApiModel
 from testit_api_client.models.work_item_short_api_result import WorkItemShortApiResult
 from testit_api_client.models.work_item_short_model import WorkItemShortModel
@@ -70,7 +70,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_attachments_post(self, id : Annotated[StrictStr, Field(..., description="Work item internal identifier (guid format)")], file : Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="Select file")] = None, **kwargs) -> None:  # noqa: E501
         """Upload and link attachment to WorkItem  # noqa: E501
 
-         Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier  # noqa: E501
+         Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -102,7 +102,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_attachments_post_with_http_info(self, id : Annotated[StrictStr, Field(..., description="Work item internal identifier (guid format)")], file : Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="Select file")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Upload and link attachment to WorkItem  # noqa: E501
 
-         Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier  # noqa: E501
+         Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -223,7 +223,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_check_list_transform_to_test_case_post(self, id : StrictStr, **kwargs) -> WorkItemModel:  # noqa: E501
         """Transform CheckList to TestCase  # noqa: E501
 
-         Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase  # noqa: E501
+         Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -253,7 +253,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_check_list_transform_to_test_case_post_with_http_info(self, id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """Transform CheckList to TestCase  # noqa: E501
 
-         Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase  # noqa: E501
+         Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -369,7 +369,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_history_get(self, id : StrictStr, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[WorkItemChangeModel]:  # noqa: E501
         """Get change history of WorkItem  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -409,7 +409,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_history_get_with_http_info(self, id : StrictStr, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get change history of WorkItem  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -555,7 +555,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_like_delete(self, id : StrictStr, **kwargs) -> None:  # noqa: E501
         """Delete like from WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -585,7 +585,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_like_delete_with_http_info(self, id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """Delete like from WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -693,7 +693,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_like_post(self, id : StrictStr, **kwargs) -> None:  # noqa: E501
         """Set like to WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -723,7 +723,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_like_post_with_http_info(self, id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """Set like to WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -831,7 +831,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_likes_count_get(self, id : StrictStr, **kwargs) -> int:  # noqa: E501
         """Get likes count of WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -861,7 +861,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_likes_count_get_with_http_info(self, id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """Get likes count of WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -977,7 +977,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_likes_get(self, id : StrictStr, **kwargs) -> List[WorkItemLikeModel]:  # noqa: E501
         """Get likes of WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1007,7 +1007,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_likes_get_with_http_info(self, id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """Get likes of WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1123,7 +1123,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_test_results_history_get(self, id : StrictStr, var_from : Annotated[Optional[datetime], Field(description="Take results from this date")] = None, to : Annotated[Optional[datetime], Field(description="Take results until this date")] = None, configuration_ids : Annotated[Optional[conlist(StrictStr)], Field(description="Identifiers of test result configurations")] = None, test_plan_ids : Annotated[Optional[conlist(StrictStr)], Field(description="Identifiers of test plans which contain test results")] = None, user_ids : Annotated[Optional[conlist(StrictStr)], Field(description="Identifiers of users who set test results")] = None, outcomes : Annotated[Optional[conlist(StrictStr)], Field(description="List of outcomes of test results")] = None, status_codes : Annotated[Optional[conlist(StrictStr)], Field(description="List of status codes of test results")] = None, is_automated : Annotated[Optional[StrictBool], Field(description="OBSOLETE: Use `Automated` instead")] = None, automated : Annotated[Optional[StrictBool], Field(description="If result must consist of only manual/automated test results")] = None, test_run_ids : Annotated[Optional[conlist(StrictStr)], Field(description="Identifiers of test runs which contain test results")] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> List[TestResultHistoryReportApiResult]:  # noqa: E501
         """Get test results history of WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1183,7 +1183,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_test_results_history_get_with_http_info(self, id : StrictStr, var_from : Annotated[Optional[datetime], Field(description="Take results from this date")] = None, to : Annotated[Optional[datetime], Field(description="Take results until this date")] = None, configuration_ids : Annotated[Optional[conlist(StrictStr)], Field(description="Identifiers of test result configurations")] = None, test_plan_ids : Annotated[Optional[conlist(StrictStr)], Field(description="Identifiers of test plans which contain test results")] = None, user_ids : Annotated[Optional[conlist(StrictStr)], Field(description="Identifiers of users who set test results")] = None, outcomes : Annotated[Optional[conlist(StrictStr)], Field(description="List of outcomes of test results")] = None, status_codes : Annotated[Optional[conlist(StrictStr)], Field(description="List of status codes of test results")] = None, is_automated : Annotated[Optional[StrictBool], Field(description="OBSOLETE: Use `Automated` instead")] = None, automated : Annotated[Optional[StrictBool], Field(description="If result must consist of only manual/automated test results")] = None, test_run_ids : Annotated[Optional[conlist(StrictStr)], Field(description="Identifiers of test runs which contain test results")] = None, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get test results history of WorkItem  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1401,7 +1401,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_version_version_id_actual_post(self, id : StrictStr, version_id : StrictStr, **kwargs) -> WorkItemModel:  # noqa: E501
         """Set WorkItem as actual  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1433,7 +1433,7 @@ class WorkItemsApi:
     def api_v2_work_items_id_version_version_id_actual_post_with_http_info(self, id : StrictStr, version_id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """Set WorkItem as actual  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1746,7 +1746,7 @@ class WorkItemsApi:
     def api_v2_work_items_move_post(self, work_item_move_post_model : Optional[WorkItemMovePostModel] = None, **kwargs) -> WorkItemShortModel:  # noqa: E501
         """Move WorkItem to another section  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1776,7 +1776,7 @@ class WorkItemsApi:
     def api_v2_work_items_move_post_with_http_info(self, work_item_move_post_model : Optional[WorkItemMovePostModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Move WorkItem to another section  # noqa: E501
 
-         Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section  # noqa: E501
+         Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2090,7 +2090,7 @@ class WorkItemsApi:
     def api_v2_work_items_shared_step_id_references_sections_post(self, shared_step_id : StrictStr, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, shared_step_reference_sections_query_filter_model : Optional[SharedStepReferenceSectionsQueryFilterModel] = None, **kwargs) -> List[SharedStepReferenceSectionModel]:  # noqa: E501
         """Get SharedStep references in sections  # noqa: E501
 
-         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references  # noqa: E501
+         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2132,7 +2132,7 @@ class WorkItemsApi:
     def api_v2_work_items_shared_step_id_references_sections_post_with_http_info(self, shared_step_id : StrictStr, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, shared_step_reference_sections_query_filter_model : Optional[SharedStepReferenceSectionsQueryFilterModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get SharedStep references in sections  # noqa: E501
 
-         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references  # noqa: E501
+         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2291,7 +2291,7 @@ class WorkItemsApi:
     def api_v2_work_items_shared_step_id_references_work_items_post(self, shared_step_id : StrictStr, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, shared_step_references_query_filter_model : Optional[SharedStepReferencesQueryFilterModel] = None, **kwargs) -> List[SharedStepReferenceModel]:  # noqa: E501
         """Get SharedStep references in work items  # noqa: E501
 
-         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references  # noqa: E501
+         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2333,7 +2333,7 @@ class WorkItemsApi:
     def api_v2_work_items_shared_step_id_references_work_items_post_with_http_info(self, shared_step_id : StrictStr, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, shared_step_references_query_filter_model : Optional[SharedStepReferencesQueryFilterModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get SharedStep references in work items  # noqa: E501
 
-         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references  # noqa: E501
+         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2492,7 +2492,7 @@ class WorkItemsApi:
     def api_v2_work_items_shared_steps_shared_step_id_references_get(self, shared_step_id : StrictStr, **kwargs) -> List[SharedStepReferenceModel]:  # noqa: E501
         """(Deprecated) Get SharedStep references  # noqa: E501
 
-         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references  # noqa: E501
+         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2522,7 +2522,7 @@ class WorkItemsApi:
     def api_v2_work_items_shared_steps_shared_step_id_references_get_with_http_info(self, shared_step_id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
         """(Deprecated) Get SharedStep references  # noqa: E501
 
-         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references  # noqa: E501
+         Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2637,18 +2637,18 @@ class WorkItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def create_work_item(self, create_work_item_api_model : Optional[CreateWorkItemApiModel] = None, **kwargs) -> WorkItemModel:  # noqa: E501
+    def create_work_item(self, work_item_post_model : Optional[WorkItemPostModel] = None, **kwargs) -> WorkItemModel:  # noqa: E501
         """Create Test Case, Checklist or Shared Step  # noqa: E501
 
-         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)  # noqa: E501
+         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_work_item(create_work_item_api_model, async_req=True)
+        >>> thread = api.create_work_item(work_item_post_model, async_req=True)
         >>> result = thread.get()
 
-        :param create_work_item_api_model:
-        :type create_work_item_api_model: CreateWorkItemApiModel
+        :param work_item_post_model:
+        :type work_item_post_model: WorkItemPostModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -2664,21 +2664,21 @@ class WorkItemsApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the create_work_item_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.create_work_item_with_http_info(create_work_item_api_model, **kwargs)  # noqa: E501
+        return self.create_work_item_with_http_info(work_item_post_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_work_item_with_http_info(self, create_work_item_api_model : Optional[CreateWorkItemApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def create_work_item_with_http_info(self, work_item_post_model : Optional[WorkItemPostModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create Test Case, Checklist or Shared Step  # noqa: E501
 
-         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)  # noqa: E501
+         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_work_item_with_http_info(create_work_item_api_model, async_req=True)
+        >>> thread = api.create_work_item_with_http_info(work_item_post_model, async_req=True)
         >>> result = thread.get()
 
-        :param create_work_item_api_model:
-        :type create_work_item_api_model: CreateWorkItemApiModel
+        :param work_item_post_model:
+        :type work_item_post_model: WorkItemPostModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -2707,7 +2707,7 @@ class WorkItemsApi:
         _params = locals()
 
         _all_params = [
-            'create_work_item_api_model'
+            'work_item_post_model'
         ]
         _all_params.extend(
             [
@@ -2745,8 +2745,8 @@ class WorkItemsApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['create_work_item_api_model'] is not None:
-            _body_params = _params['create_work_item_api_model']
+        if _params['work_item_post_model'] is not None:
+            _body_params = _params['work_item_post_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -2790,17 +2790,17 @@ class WorkItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_all_work_items_from_auto_test(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], **kwargs) -> None:  # noqa: E501
+    def delete_all_work_items_from_auto_test(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], **kwargs) -> None:  # noqa: E501
         """Delete all links AutoTests from WorkItem by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.delete_all_work_items_from_auto_test(id, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2820,17 +2820,17 @@ class WorkItemsApi:
         return self.delete_all_work_items_from_auto_test_with_http_info(id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_all_work_items_from_auto_test_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_all_work_items_from_auto_test_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete all links AutoTests from WorkItem by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.delete_all_work_items_from_auto_test_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2928,17 +2928,17 @@ class WorkItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_work_item(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], **kwargs) -> None:  # noqa: E501
+    def delete_work_item(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], **kwargs) -> None:  # noqa: E501
         """Delete Test Case, Checklist or Shared Step by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.delete_work_item(id, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2958,17 +2958,17 @@ class WorkItemsApi:
         return self.delete_work_item_with_http_info(id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_work_item_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_work_item_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Test Case, Checklist or Shared Step by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.delete_work_item_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -3066,17 +3066,17 @@ class WorkItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_auto_tests_for_work_item(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], **kwargs) -> List[AutoTestModel]:  # noqa: E501
+    def get_auto_tests_for_work_item(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], **kwargs) -> List[AutoTestModel]:  # noqa: E501
         """Get all AutoTests linked to WorkItem by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.get_auto_tests_for_work_item(id, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -3096,17 +3096,17 @@ class WorkItemsApi:
         return self.get_auto_tests_for_work_item_with_http_info(id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_auto_tests_for_work_item_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_auto_tests_for_work_item_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get all AutoTests linked to WorkItem by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.get_auto_tests_for_work_item_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -3212,7 +3212,7 @@ class WorkItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_iterations(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None, **kwargs) -> List[IterationModel]:  # noqa: E501
+    def get_iterations(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None, **kwargs) -> List[IterationModel]:  # noqa: E501
         """Get iterations by work item Id or GlobalId  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3221,7 +3221,7 @@ class WorkItemsApi:
         >>> thread = api.get_iterations(id, version_id, version_number, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier
         :type version_id: str
@@ -3245,7 +3245,7 @@ class WorkItemsApi:
         return self.get_iterations_with_http_info(id, version_id, version_number, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_iterations_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_iterations_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get iterations by work item Id or GlobalId  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3254,7 +3254,7 @@ class WorkItemsApi:
         >>> thread = api.get_iterations_with_http_info(id, version_id, version_number, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier
         :type version_id: str
@@ -3372,17 +3372,17 @@ class WorkItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_work_item_by_id(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None, **kwargs) -> WorkItemModel:  # noqa: E501
+    def get_work_item_by_id(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None, **kwargs) -> WorkItemModel:  # noqa: E501
         """Get Test Case, Checklist or Shared Step by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item  # noqa: E501
+         Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.get_work_item_by_id(id, version_id, version_number, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier\"
         :type version_id: str
@@ -3406,17 +3406,17 @@ class WorkItemsApi:
         return self.get_work_item_by_id_with_http_info(id, version_id, version_number, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_work_item_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_work_item_by_id_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version number (0 is the last version)\"")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Test Case, Checklist or Shared Step by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item  # noqa: E501
+         Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.get_work_item_by_id_with_http_info(id, version_id, version_number, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
         :param version_id: WorkItem version (guid format) identifier\"
         :type version_id: str
@@ -3535,9 +3535,9 @@ class WorkItemsApi:
 
     @validate_arguments
     def get_work_item_chronology(self, id : StrictStr, **kwargs) -> List[TestResultChronologyModel]:  # noqa: E501
-        """(Deprecated) Get WorkItem chronology by Id or GlobalId  # noqa: E501
+        """Get WorkItem chronology by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3565,9 +3565,9 @@ class WorkItemsApi:
 
     @validate_arguments
     def get_work_item_chronology_with_http_info(self, id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
-        """(Deprecated) Get WorkItem chronology by Id or GlobalId  # noqa: E501
+        """Get WorkItem chronology by Id or GlobalId  # noqa: E501
 
-         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results  # noqa: E501
+         Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3600,8 +3600,6 @@ class WorkItemsApi:
                  returns the request thread.
         :rtype: tuple(List[TestResultChronologyModel], status_code(int), headers(HTTPHeaderDict))
         """
-
-        warnings.warn("GET /api/v2/workItems/{id}/chronology is deprecated.", DeprecationWarning)
 
         _params = locals()
 
@@ -3682,21 +3680,21 @@ class WorkItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_work_item_versions(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], work_item_version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format) number\"")] = None, **kwargs) -> List[WorkItemVersionModel]:  # noqa: E501
+    def get_work_item_versions(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], work_item_version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format)  identifier\"")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format)  number\"")] = None, **kwargs) -> List[WorkItemVersionModel]:  # noqa: E501
         """Get WorkItem versions  # noqa: E501
 
-         Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)  # noqa: E501
+         Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.get_work_item_versions(id, work_item_version_id, version_number, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
-        :param work_item_version_id: WorkItem version (guid format) identifier\"
+        :param work_item_version_id: WorkItem version (guid format)  identifier\"
         :type work_item_version_id: str
-        :param version_number: WorkItem version (integer format) number\"
+        :param version_number: WorkItem version (integer format)  number\"
         :type version_number: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -3716,21 +3714,21 @@ class WorkItemsApi:
         return self.get_work_item_versions_with_http_info(id, work_item_version_id, version_number, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_work_item_versions_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or global(integer format) identifier\"")], work_item_version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format) identifier\"")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format) number\"")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_work_item_versions_with_http_info(self, id : Annotated[StrictStr, Field(..., description="WorkItem internal (guid format) or  global(integer format) identifier\"")], work_item_version_id : Annotated[Optional[StrictStr], Field(description="WorkItem version (guid format)  identifier\"")] = None, version_number : Annotated[Optional[StrictInt], Field(description="WorkItem version (integer format)  number\"")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get WorkItem versions  # noqa: E501
 
-         Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)  # noqa: E501
+         Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
         >>> thread = api.get_work_item_versions_with_http_info(id, work_item_version_id, version_number, async_req=True)
         >>> result = thread.get()
 
-        :param id: WorkItem internal (guid format) or global(integer format) identifier\" (required)
+        :param id: WorkItem internal (guid format) or  global(integer format) identifier\" (required)
         :type id: str
-        :param work_item_version_id: WorkItem version (guid format) identifier\"
+        :param work_item_version_id: WorkItem version (guid format)  identifier\"
         :type work_item_version_id: str
-        :param version_number: WorkItem version (integer format) number\"
+        :param version_number: WorkItem version (integer format)  number\"
         :type version_number: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -4116,18 +4114,18 @@ class WorkItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_work_item(self, update_work_item_api_model : Optional[UpdateWorkItemApiModel] = None, **kwargs) -> None:  # noqa: E501
+    def update_work_item(self, work_item_put_model : Optional[WorkItemPutModel] = None, **kwargs) -> None:  # noqa: E501
         """Update Test Case, Checklist or Shared Step  # noqa: E501
 
-         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)  # noqa: E501
+         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_work_item(update_work_item_api_model, async_req=True)
+        >>> thread = api.update_work_item(work_item_put_model, async_req=True)
         >>> result = thread.get()
 
-        :param update_work_item_api_model:
-        :type update_work_item_api_model: UpdateWorkItemApiModel
+        :param work_item_put_model:
+        :type work_item_put_model: WorkItemPutModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -4143,21 +4141,21 @@ class WorkItemsApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the update_work_item_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.update_work_item_with_http_info(update_work_item_api_model, **kwargs)  # noqa: E501
+        return self.update_work_item_with_http_info(work_item_put_model, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_work_item_with_http_info(self, update_work_item_api_model : Optional[UpdateWorkItemApiModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_work_item_with_http_info(self, work_item_put_model : Optional[WorkItemPutModel] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Test Case, Checklist or Shared Step  # noqa: E501
 
-         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)  # noqa: E501
+         Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_work_item_with_http_info(update_work_item_api_model, async_req=True)
+        >>> thread = api.update_work_item_with_http_info(work_item_put_model, async_req=True)
         >>> result = thread.get()
 
-        :param update_work_item_api_model:
-        :type update_work_item_api_model: UpdateWorkItemApiModel
+        :param work_item_put_model:
+        :type work_item_put_model: WorkItemPutModel
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -4186,7 +4184,7 @@ class WorkItemsApi:
         _params = locals()
 
         _all_params = [
-            'update_work_item_api_model'
+            'work_item_put_model'
         ]
         _all_params.extend(
             [
@@ -4224,8 +4222,8 @@ class WorkItemsApi:
         _files = {}
         # process the body parameter
         _body_params = None
-        if _params['update_work_item_api_model'] is not None:
-            _body_params = _params['update_work_item_api_model']
+        if _params['work_item_put_model'] is not None:
+            _body_params = _params['work_item_put_model']
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(

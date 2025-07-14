@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **total_test_points_count** | **int** |  | 
@@ -23,7 +22,7 @@ json = "{}"
 # create an instance of TestPlanSummaryModel from a JSON string
 test_plan_summary_model_instance = TestPlanSummaryModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanSummaryModel.to_json())
+print TestPlanSummaryModel.to_json()
 
 # convert the object into a dict
 test_plan_summary_model_dict = test_plan_summary_model_instance.to_dict()

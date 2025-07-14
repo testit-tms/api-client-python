@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of SectionRenameModel from a JSON string
 section_rename_model_instance = SectionRenameModel.from_json(json)
 # print the JSON string representation of the object
-print(SectionRenameModel.to_json())
+print SectionRenameModel.to_json()
 
 # convert the object into a dict
 section_rename_model_dict = section_rename_model_instance.to_dict()

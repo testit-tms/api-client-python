@@ -35,7 +35,7 @@ class SharedStepReferencesQueryFilterModel(BaseModel):
     modified_by_ids: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="modifiedByIds", description="Collection of identifiers of users who applied last modification to work item")
     states: Optional[conlist(WorkItemStates, unique_items=True)] = Field(default=None, description="Collection of states of work item")
     priorities: Optional[conlist(WorkItemPriorityModel, unique_items=True)] = Field(default=None, description="Collection of priorities of work item")
-    entity_types: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="entityTypes", description="Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`")
+    entity_types: Optional[conlist(StrictStr, unique_items=True)] = Field(default=None, alias="entityTypes", description="Collection of types of work item   Allowed values: `TestCases`, `CheckLists`, `SharedSteps`")
     created_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="createdDate", description="Date and time of work item creation")
     modified_date: Optional[DateTimeRangeSelectorModel] = Field(default=None, alias="modifiedDate", description="Date and time of work item last modification")
     is_automated: Optional[StrictBool] = Field(default=None, alias="isAutomated", description="Is result must consist of only manual/automated work items")

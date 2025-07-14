@@ -27,7 +27,7 @@ class CreateEmptyTestRunApiModel(BaseModel):
     """
     CreateEmptyTestRunApiModel
     """
-    project_id: StrictStr = Field(default=..., alias="projectId", description="Project unique identifier              This property is to link test run with a project")
+    project_id: StrictStr = Field(default=..., alias="projectId", description="Project unique identifier                This property is to link test run with a project")
     name: Optional[StrictStr] = Field(default=None, description="Test run name")
     description: Optional[StrictStr] = Field(default=None, description="Test run description")
     launch_source: Optional[StrictStr] = Field(default=None, alias="launchSource", description="Test run launch source")

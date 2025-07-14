@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **selector** | [**TestRunTestResultsSelectModel**](TestRunTestResultsSelectModel.md) | Object with filters and extraction parameters | [optional] 
@@ -21,7 +20,7 @@ json = "{}"
 # create an instance of TestRunTestResultsPartialBulkSetModel from a JSON string
 test_run_test_results_partial_bulk_set_model_instance = TestRunTestResultsPartialBulkSetModel.from_json(json)
 # print the JSON string representation of the object
-print(TestRunTestResultsPartialBulkSetModel.to_json())
+print TestRunTestResultsPartialBulkSetModel.to_json()
 
 # convert the object into a dict
 test_run_test_results_partial_bulk_set_model_dict = test_run_test_results_partial_bulk_set_model_instance.to_dict()

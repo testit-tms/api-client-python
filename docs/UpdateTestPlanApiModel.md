@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Test plan unique internal identifier | 
@@ -15,7 +14,7 @@ Name | Type | Description | Notes
 **project_id** | **str** | Project unique identifier | 
 **product_name** | **str** | Name of the testing product | [optional] 
 **has_automatic_duration_timer** | **bool** | Boolean flag defines if test plan has automatic duration timer | [optional] 
-**attributes** | **Dict[str, Optional[object]]** | Key value pair of test plan custom attributes | [optional] 
+**attributes** | **Dict[str, object]** | Key value pair of test plan custom attributes | [optional] 
 **tags** | [**List[TagApiModel]**](TagApiModel.md) | Test plan tag names collection | [optional] 
 
 ## Example
@@ -28,7 +27,7 @@ json = "{}"
 # create an instance of UpdateTestPlanApiModel from a JSON string
 update_test_plan_api_model_instance = UpdateTestPlanApiModel.from_json(json)
 # print the JSON string representation of the object
-print(UpdateTestPlanApiModel.to_json())
+print UpdateTestPlanApiModel.to_json()
 
 # convert the object into a dict
 update_test_plan_api_model_dict = update_test_plan_api_model_instance.to_dict()
