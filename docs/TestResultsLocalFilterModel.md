@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **configuration_ids** | **List[str]** | Specifies a test result configuration IDs to search for | [optional] 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of TestResultsLocalFilterModel from a JSON string
 test_results_local_filter_model_instance = TestResultsLocalFilterModel.from_json(json)
 # print the JSON string representation of the object
-print(TestResultsLocalFilterModel.to_json())
+print TestResultsLocalFilterModel.to_json()
 
 # convert the object into a dict
 test_results_local_filter_model_dict = test_results_local_filter_model_instance.to_dict()

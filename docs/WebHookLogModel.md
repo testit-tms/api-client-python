@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **web_hook_name** | **str** |  | 
@@ -33,7 +32,7 @@ json = "{}"
 # create an instance of WebHookLogModel from a JSON string
 web_hook_log_model_instance = WebHookLogModel.from_json(json)
 # print the JSON string representation of the object
-print(WebHookLogModel.to_json())
+print WebHookLogModel.to_json()
 
 # convert the object into a dict
 web_hook_log_model_dict = web_hook_log_model_instance.to_dict()

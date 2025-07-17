@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**TestResultsLocalFilterModel**](TestResultsLocalFilterModel.md) | Collection of filters to apply to search | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of TestRunTestResultsSelectModel from a JSON string
 test_run_test_results_select_model_instance = TestRunTestResultsSelectModel.from_json(json)
 # print the JSON string representation of the object
-print(TestRunTestResultsSelectModel.to_json())
+print TestRunTestResultsSelectModel.to_json()
 
 # convert the object into a dict
 test_run_test_results_select_model_dict = test_run_test_results_select_model_instance.to_dict()

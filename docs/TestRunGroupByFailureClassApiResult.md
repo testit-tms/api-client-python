@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **failure_category** | **str** |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of TestRunGroupByFailureClassApiResult from a JSON string
 test_run_group_by_failure_class_api_result_instance = TestRunGroupByFailureClassApiResult.from_json(json)
 # print the JSON string representation of the object
-print(TestRunGroupByFailureClassApiResult.to_json())
+print TestRunGroupByFailureClassApiResult.to_json()
 
 # convert the object into a dict
 test_run_group_by_failure_class_api_result_dict = test_run_group_by_failure_class_api_result_instance.to_dict()

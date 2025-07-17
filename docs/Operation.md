@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | **object** |  | [optional] 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of Operation from a JSON string
 operation_instance = Operation.from_json(json)
 # print the JSON string representation of the object
-print(Operation.to_json())
+print Operation.to_json()
 
 # convert the object into a dict
 operation_dict = operation_instance.to_dict()

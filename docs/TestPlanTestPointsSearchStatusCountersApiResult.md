@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **automated_test_points_count** | **int** |  | 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of TestPlanTestPointsSearchStatusCountersApiResult from a JSON string
 test_plan_test_points_search_status_counters_api_result_instance = TestPlanTestPointsSearchStatusCountersApiResult.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanTestPointsSearchStatusCountersApiResult.to_json())
+print TestPlanTestPointsSearchStatusCountersApiResult.to_json()
 
 # convert the object into a dict
 test_plan_test_points_search_status_counters_api_result_dict = test_plan_test_points_search_status_counters_api_result_instance.to_dict()

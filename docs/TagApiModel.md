@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Tag name | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of TagApiModel from a JSON string
 tag_api_model_instance = TagApiModel.from_json(json)
 # print the JSON string representation of the object
-print(TagApiModel.to_json())
+print TagApiModel.to_json()
 
 # convert the object into a dict
 tag_api_model_dict = tag_api_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of IterationModel from a JSON string
 iteration_model_instance = IterationModel.from_json(json)
 # print the JSON string representation of the object
-print(IterationModel.to_json())
+print IterationModel.to_json()
 
 # convert the object into a dict
 iteration_model_dict = iteration_model_instance.to_dict()

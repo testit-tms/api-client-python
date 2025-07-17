@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Specifies a tag name to search for | [optional] 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of TagsFilterApiModel from a JSON string
 tags_filter_api_model_instance = TagsFilterApiModel.from_json(json)
 # print the JSON string representation of the object
-print(TagsFilterApiModel.to_json())
+print TagsFilterApiModel.to_json()
 
 # convert the object into a dict
 tags_filter_api_model_dict = tags_filter_api_model_instance.to_dict()

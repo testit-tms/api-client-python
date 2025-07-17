@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of ExternalFormLinkModel from a JSON string
 external_form_link_model_instance = ExternalFormLinkModel.from_json(json)
 # print the JSON string representation of the object
-print(ExternalFormLinkModel.to_json())
+print ExternalFormLinkModel.to_json()
 
 # convert the object into a dict
 external_form_link_model_dict = external_form_link_model_instance.to_dict()

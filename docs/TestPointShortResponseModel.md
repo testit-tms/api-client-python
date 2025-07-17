@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the test point | 
@@ -51,7 +50,7 @@ json = "{}"
 # create an instance of TestPointShortResponseModel from a JSON string
 test_point_short_response_model_instance = TestPointShortResponseModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPointShortResponseModel.to_json())
+print TestPointShortResponseModel.to_json()
 
 # convert the object into a dict
 test_point_short_response_model_dict = test_point_short_response_model_instance.to_dict()

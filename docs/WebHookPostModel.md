@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_id** | **str** | Unique ID of the webhook project | 
@@ -30,7 +29,7 @@ json = "{}"
 # create an instance of WebHookPostModel from a JSON string
 web_hook_post_model_instance = WebHookPostModel.from_json(json)
 # print the JSON string representation of the object
-print(WebHookPostModel.to_json())
+print WebHookPostModel.to_json()
 
 # convert the object into a dict
 web_hook_post_model_dict = web_hook_post_model_instance.to_dict()

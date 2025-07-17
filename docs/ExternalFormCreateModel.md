@@ -2,13 +2,12 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **possible_values** | **Dict[str, List[ExternalFormAllowedValueModel]]** |  | 
 **fields** | [**List[ExternalFormFieldModel]**](ExternalFormFieldModel.md) |  | 
 **links** | [**List[ExternalFormLinkModel]**](ExternalFormLinkModel.md) |  | 
-**values** | **Dict[str, Optional[object]]** |  | 
+**values** | **Dict[str, object]** |  | 
 
 ## Example
 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of ExternalFormCreateModel from a JSON string
 external_form_create_model_instance = ExternalFormCreateModel.from_json(json)
 # print the JSON string representation of the object
-print(ExternalFormCreateModel.to_json())
+print ExternalFormCreateModel.to_json()
 
 # convert the object into a dict
 external_form_create_model_dict = external_form_create_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**List[ProjectExternalServiceApiResult]**](ProjectExternalServiceApiResult.md) | External services associated with a project | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of ProjectExternalServicesApiResult from a JSON string
 project_external_services_api_result_instance = ProjectExternalServicesApiResult.from_json(json)
 # print the JSON string representation of the object
-print(ProjectExternalServicesApiResult.to_json())
+print ProjectExternalServicesApiResult.to_json()
 
 # convert the object into a dict
 project_external_services_api_result_dict = project_external_services_api_result_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **settings** | **object** | External service settings | [optional] 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of EnableProjectExternalServiceApiModel from a JSON string
 enable_project_external_service_api_model_instance = EnableProjectExternalServiceApiModel.from_json(json)
 # print the JSON string representation of the object
-print(EnableProjectExternalServiceApiModel.to_json())
+print EnableProjectExternalServiceApiModel.to_json()
 
 # convert the object into a dict
 enable_project_external_service_api_model_dict = enable_project_external_service_api_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Test point unique internal identifier | 
@@ -24,7 +23,7 @@ json = "{}"
 # create an instance of TestPointByTestSuiteModel from a JSON string
 test_point_by_test_suite_model_instance = TestPointByTestSuiteModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPointByTestSuiteModel.to_json())
+print TestPointByTestSuiteModel.to_json()
 
 # convert the object into a dict
 test_point_by_test_suite_model_dict = test_point_by_test_suite_model_instance.to_dict()

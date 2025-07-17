@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_flaky_auto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | [optional] [default to False]
@@ -21,7 +20,7 @@ json = "{}"
 # create an instance of AutoTestProjectSettingsPostModel from a JSON string
 auto_test_project_settings_post_model_instance = AutoTestProjectSettingsPostModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestProjectSettingsPostModel.to_json())
+print AutoTestProjectSettingsPostModel.to_json()
 
 # convert the object into a dict
 auto_test_project_settings_post_model_dict = auto_test_project_settings_post_model_instance.to_dict()

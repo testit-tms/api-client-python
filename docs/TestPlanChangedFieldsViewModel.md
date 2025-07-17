@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
@@ -29,7 +28,7 @@ json = "{}"
 # create an instance of TestPlanChangedFieldsViewModel from a JSON string
 test_plan_changed_fields_view_model_instance = TestPlanChangedFieldsViewModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanChangedFieldsViewModel.to_json())
+print TestPlanChangedFieldsViewModel.to_json()
 
 # convert the object into a dict
 test_plan_changed_fields_view_model_dict = test_plan_changed_fields_view_model_instance.to_dict()

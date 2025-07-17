@@ -25,6 +25,7 @@ from typing import List, Optional
 
 from testit_api_client.models.custom_attribute_model import CustomAttributeModel
 from testit_api_client.models.custom_attribute_search_query_model import CustomAttributeSearchQueryModel
+from testit_api_client.models.custom_attribute_search_response_model import CustomAttributeSearchResponseModel
 from testit_api_client.models.custom_attribute_validation_result import CustomAttributeValidationResult
 from testit_api_client.models.global_custom_attribute_post_model import GlobalCustomAttributePostModel
 from testit_api_client.models.global_custom_attribute_update_model import GlobalCustomAttributeUpdateModel
@@ -792,7 +793,7 @@ class CustomAttributesApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def api_v2_custom_attributes_search_post(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, custom_attribute_search_query_model : Optional[CustomAttributeSearchQueryModel] = None, **kwargs) -> List[CustomAttributeModel]:  # noqa: E501
+    def api_v2_custom_attributes_search_post(self, skip : Annotated[Optional[StrictInt], Field(description="Amount of items to be skipped (offset)")] = None, take : Annotated[Optional[StrictInt], Field(description="Amount of items to be taken (limit)")] = None, order_by : Annotated[Optional[StrictStr], Field(description="SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)")] = None, search_field : Annotated[Optional[StrictStr], Field(description="Property name for searching")] = None, search_value : Annotated[Optional[StrictStr], Field(description="Value for searching")] = None, custom_attribute_search_query_model : Optional[CustomAttributeSearchQueryModel] = None, **kwargs) -> List[CustomAttributeSearchResponseModel]:  # noqa: E501
         """Search for attributes  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -822,7 +823,7 @@ class CustomAttributesApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[CustomAttributeModel]
+        :rtype: List[CustomAttributeSearchResponseModel]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -874,7 +875,7 @@ class CustomAttributesApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[CustomAttributeModel], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[CustomAttributeSearchResponseModel], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -956,7 +957,7 @@ class CustomAttributesApi:
         _auth_settings = ['Bearer or PrivateToken']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[CustomAttributeModel]",
+            '200': "List[CustomAttributeSearchResponseModel]",
             '400': "ValidationProblemDetails",
             '401': "ProblemDetails",
             '403': "ProblemDetails",

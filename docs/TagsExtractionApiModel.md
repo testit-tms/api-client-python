@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**GuidExtractionModel**](GuidExtractionModel.md) | Specifies tags unique ID&#39;s to search for | [optional] 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of TagsExtractionApiModel from a JSON string
 tags_extraction_api_model_instance = TagsExtractionApiModel.from_json(json)
 # print the JSON string representation of the object
-print(TagsExtractionApiModel.to_json())
+print TagsExtractionApiModel.to_json()
 
 # convert the object into a dict
 tags_extraction_api_model_dict = tags_extraction_api_model_instance.to_dict()

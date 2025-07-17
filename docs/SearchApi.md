@@ -12,11 +12,14 @@ Method | HTTP request | Description
 
 
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.global_search_request import GlobalSearchRequest
 from testit_api_client.models.global_search_response import GlobalSearchResponse
@@ -58,7 +61,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **global_search_request** | [**GlobalSearchRequest**](GlobalSearchRequest.md)|  | [optional] 
@@ -77,7 +79,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

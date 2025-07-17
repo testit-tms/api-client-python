@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -26,7 +25,7 @@ json = "{}"
 # create an instance of TestResultShortApiResult from a JSON string
 test_result_short_api_result_instance = TestResultShortApiResult.from_json(json)
 # print the JSON string representation of the object
-print(TestResultShortApiResult.to_json())
+print TestResultShortApiResult.to_json()
 
 # convert the object into a dict
 test_result_short_api_result_dict = test_result_short_api_result_instance.to_dict()

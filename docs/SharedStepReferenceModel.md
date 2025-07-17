@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -35,7 +34,7 @@ json = "{}"
 # create an instance of SharedStepReferenceModel from a JSON string
 shared_step_reference_model_instance = SharedStepReferenceModel.from_json(json)
 # print the JSON string representation of the object
-print(SharedStepReferenceModel.to_json())
+print SharedStepReferenceModel.to_json()
 
 # convert the object into a dict
 shared_step_reference_model_dict = shared_step_reference_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **step_id** | **str** |  | 
@@ -21,7 +20,7 @@ json = "{}"
 # create an instance of StepResultApiModel from a JSON string
 step_result_api_model_instance = StepResultApiModel.from_json(json)
 # print the JSON string representation of the object
-print(StepResultApiModel.to_json())
+print StepResultApiModel.to_json()
 
 # convert the object into a dict
 step_result_api_model_dict = step_result_api_model_instance.to_dict()

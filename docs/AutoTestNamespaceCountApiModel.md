@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of AutoTestNamespaceCountApiModel from a JSON string
 auto_test_namespace_count_api_model_instance = AutoTestNamespaceCountApiModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestNamespaceCountApiModel.to_json())
+print AutoTestNamespaceCountApiModel.to_json()
 
 # convert the object into a dict
 auto_test_namespace_count_api_model_dict = auto_test_namespace_count_api_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user_id** | **str** |  | 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of TestPointChangeViewModel from a JSON string
 test_point_change_view_model_instance = TestPointChangeViewModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPointChangeViewModel.to_json())
+print TestPointChangeViewModel.to_json()
 
 # convert the object into a dict
 test_point_change_view_model_dict = test_point_change_view_model_instance.to_dict()

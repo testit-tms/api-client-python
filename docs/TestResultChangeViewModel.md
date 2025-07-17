@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_point_count** | **int** |  | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of TestResultChangeViewModel from a JSON string
 test_result_change_view_model_instance = TestResultChangeViewModel.from_json(json)
 # print the JSON string representation of the object
-print(TestResultChangeViewModel.to_json())
+print TestResultChangeViewModel.to_json()
 
 # convert the object into a dict
 test_result_change_view_model_dict = test_result_change_view_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of StepPutModel from a JSON string
 step_put_model_instance = StepPutModel.from_json(json)
 # print the JSON string representation of the object
-print(StepPutModel.to_json())
+print StepPutModel.to_json()
 
 # convert the object into a dict
 step_put_model_dict = step_put_model_instance.to_dict()

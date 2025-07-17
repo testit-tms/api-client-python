@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **work_item** | [**SharedStepModel**](SharedStepModel.md) | Nested shared steps are allowed | [optional] 
@@ -23,7 +22,7 @@ json = "{}"
 # create an instance of StepModel from a JSON string
 step_model_instance = StepModel.from_json(json)
 # print the JSON string representation of the object
-print(StepModel.to_json())
+print StepModel.to_json()
 
 # convert the object into a dict
 step_model_dict = step_model_instance.to_dict()

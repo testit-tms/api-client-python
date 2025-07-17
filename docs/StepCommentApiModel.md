@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -26,7 +25,7 @@ json = "{}"
 # create an instance of StepCommentApiModel from a JSON string
 step_comment_api_model_instance = StepCommentApiModel.from_json(json)
 # print the JSON string representation of the object
-print(StepCommentApiModel.to_json())
+print StepCommentApiModel.to_json()
 
 # convert the object into a dict
 step_comment_api_model_dict = step_comment_api_model_instance.to_dict()

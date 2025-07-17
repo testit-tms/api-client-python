@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -35,7 +34,7 @@ json = "{}"
 # create an instance of AutoTestResultHistoryApiResult from a JSON string
 auto_test_result_history_api_result_instance = AutoTestResultHistoryApiResult.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestResultHistoryApiResult.to_json())
+print AutoTestResultHistoryApiResult.to_json()
 
 # convert the object into a dict
 auto_test_result_history_api_result_dict = auto_test_result_history_api_result_instance.to_dict()

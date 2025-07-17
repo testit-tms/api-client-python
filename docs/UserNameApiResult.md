@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of UserNameApiResult from a JSON string
 user_name_api_result_instance = UserNameApiResult.from_json(json)
 # print the JSON string representation of the object
-print(UserNameApiResult.to_json())
+print UserNameApiResult.to_json()
 
 # convert the object into a dict
 user_name_api_result_dict = user_name_api_result_instance.to_dict()

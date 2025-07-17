@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Step unique internal identifier | 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of UpdateStepApiModel from a JSON string
 update_step_api_model_instance = UpdateStepApiModel.from_json(json)
 # print the JSON string representation of the object
-print(UpdateStepApiModel.to_json())
+print UpdateStepApiModel.to_json()
 
 # convert the object into a dict
 update_step_api_model_dict = update_step_api_model_instance.to_dict()

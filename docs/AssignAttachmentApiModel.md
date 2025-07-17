@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the attachment | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of AssignAttachmentApiModel from a JSON string
 assign_attachment_api_model_instance = AssignAttachmentApiModel.from_json(json)
 # print the JSON string representation of the object
-print(AssignAttachmentApiModel.to_json())
+print AssignAttachmentApiModel.to_json()
 
 # convert the object into a dict
 assign_attachment_api_model_dict = assign_attachment_api_model_instance.to_dict()
