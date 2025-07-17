@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **global_id** | **int** | Global ID of the project | 
 **type** | [**ProjectTypeModel**](ProjectTypeModel.md) | Type of the project | 
 **is_flaky_auto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | 
+**workflow_id** | **str** |  | 
 
 ## Example
 

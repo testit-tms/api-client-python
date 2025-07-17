@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **section_id** | **str** |  | 
 **previews** | [**List[WorkItemPreviewApiModel]**](WorkItemPreviewApiModel.md) |  | 
 **attributes** | **Dict[str, object]** |  | [optional] 
+**link** | [**PreviewsIssueLinkApiModel**](PreviewsIssueLinkApiModel.md) |  | [optional] 
 
 ## Example
 
