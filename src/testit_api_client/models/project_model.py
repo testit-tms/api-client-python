@@ -45,7 +45,8 @@ class ProjectModel(BaseModel):
     global_id: StrictInt = Field(default=..., alias="globalId", description="Global ID of the project")
     type: ProjectTypeModel = Field(default=..., description="Type of the project")
     is_flaky_auto: StrictBool = Field(default=..., alias="isFlakyAuto", description="Indicates if the status \"Flaky/Stable\" sets automatically")
-    __properties = ["id", "description", "name", "isFavorite", "attributesScheme", "testPlansAttributesScheme", "testCasesCount", "sharedStepsCount", "checkListsCount", "autoTestsCount", "isDeleted", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "type", "isFlakyAuto"]
+    workflow_id: StrictStr = Field(default=..., alias="workflowId")
+    __properties = ["id", "description", "name", "isFavorite", "attributesScheme", "testPlansAttributesScheme", "testCasesCount", "sharedStepsCount", "checkListsCount", "autoTestsCount", "isDeleted", "createdDate", "modifiedDate", "createdById", "modifiedById", "globalId", "type", "isFlakyAuto", "workflowId"]
 
     class Config:
         """Pydantic configuration"""
@@ -159,7 +160,8 @@ class ProjectModel(BaseModel):
             "modified_by_id": obj.get("modifiedById"),
             "global_id": obj.get("globalId"),
             "type": obj.get("type"),
-            "is_flaky_auto": obj.get("isFlakyAuto")
+            "is_flaky_auto": obj.get("isFlakyAuto"),
+            "workflow_id": obj.get("workflowId")
         })
         return _obj
 

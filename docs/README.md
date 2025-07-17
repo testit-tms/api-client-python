@@ -177,6 +177,8 @@
  - [ParametersFilterApiModel](ParametersFilterApiModel.md)
  - [PeriodViewModel](PeriodViewModel.md)
  - [PeriodViewModelChangedFieldViewModel](PeriodViewModelChangedFieldViewModel.md)
+ - [PreviewsIssueLinkApiModel](PreviewsIssueLinkApiModel.md)
+ - [PreviewsIssueLinkApiResult](PreviewsIssueLinkApiResult.md)
  - [ProblemDetails](ProblemDetails.md)
  - [ProjectAttributesFilterModel](ProjectAttributesFilterModel.md)
  - [ProjectCustomAttributeTemplateGetModel](ProjectCustomAttributeTemplateGetModel.md)

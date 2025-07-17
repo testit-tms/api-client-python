@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **previews** | [**List[WorkItemPreviewApiModel]**](WorkItemPreviewApiModel.md) |  | 
+**link** | [**PreviewsIssueLinkApiResult**](PreviewsIssueLinkApiResult.md) |  | [optional] 
 
 ## Example
 

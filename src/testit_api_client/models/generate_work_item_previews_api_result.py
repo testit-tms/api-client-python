@@ -18,8 +18,9 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, Field, conlist
+from testit_api_client.models.previews_issue_link_api_result import PreviewsIssueLinkApiResult
 from testit_api_client.models.work_item_preview_api_model import WorkItemPreviewApiModel
 
 class GenerateWorkItemPreviewsApiResult(BaseModel):
@@ -27,7 +28,8 @@ class GenerateWorkItemPreviewsApiResult(BaseModel):
     GenerateWorkItemPreviewsApiResult
     """
     previews: conlist(WorkItemPreviewApiModel) = Field(...)
-    __properties = ["previews"]
+    link: Optional[PreviewsIssueLinkApiResult] = None
+    __properties = ["previews", "link"]
 
     class Config:
         """Pydantic configuration"""
@@ -60,6 +62,14 @@ class GenerateWorkItemPreviewsApiResult(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['previews'] = _items
+        # override the default output from pydantic by calling `to_dict()` of link
+        if self.link:
+            _dict['link'] = self.link.to_dict()
+        # set to None if link (nullable) is None
+        # and __fields_set__ contains the field
+        if self.link is None and "link" in self.__fields_set__:
+            _dict['link'] = None
+
         return _dict
 
     @classmethod
@@ -72,7 +82,8 @@ class GenerateWorkItemPreviewsApiResult(BaseModel):
             return GenerateWorkItemPreviewsApiResult.parse_obj(obj)
 
         _obj = GenerateWorkItemPreviewsApiResult.parse_obj({
-            "previews": [WorkItemPreviewApiModel.from_dict(_item) for _item in obj.get("previews")] if obj.get("previews") is not None else None
+            "previews": [WorkItemPreviewApiModel.from_dict(_item) for _item in obj.get("previews")] if obj.get("previews") is not None else None,
+            "link": PreviewsIssueLinkApiResult.from_dict(obj.get("link")) if obj.get("link") is not None else None
         })
         return _obj
 

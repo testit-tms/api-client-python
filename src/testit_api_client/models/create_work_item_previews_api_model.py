@@ -20,6 +20,7 @@ import json
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
+from testit_api_client.models.previews_issue_link_api_model import PreviewsIssueLinkApiModel
 from testit_api_client.models.work_item_preview_api_model import WorkItemPreviewApiModel
 
 class CreateWorkItemPreviewsApiModel(BaseModel):
@@ -29,7 +30,8 @@ class CreateWorkItemPreviewsApiModel(BaseModel):
     section_id: StrictStr = Field(default=..., alias="sectionId")
     previews: conlist(WorkItemPreviewApiModel) = Field(...)
     attributes: Optional[Dict[str, Any]] = None
-    __properties = ["sectionId", "previews", "attributes"]
+    link: Optional[PreviewsIssueLinkApiModel] = None
+    __properties = ["sectionId", "previews", "attributes", "link"]
 
     class Config:
         """Pydantic configuration"""
@@ -62,10 +64,18 @@ class CreateWorkItemPreviewsApiModel(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['previews'] = _items
+        # override the default output from pydantic by calling `to_dict()` of link
+        if self.link:
+            _dict['link'] = self.link.to_dict()
         # set to None if attributes (nullable) is None
         # and __fields_set__ contains the field
         if self.attributes is None and "attributes" in self.__fields_set__:
             _dict['attributes'] = None
+
+        # set to None if link (nullable) is None
+        # and __fields_set__ contains the field
+        if self.link is None and "link" in self.__fields_set__:
+            _dict['link'] = None
 
         return _dict
 
@@ -81,7 +91,8 @@ class CreateWorkItemPreviewsApiModel(BaseModel):
         _obj = CreateWorkItemPreviewsApiModel.parse_obj({
             "section_id": obj.get("sectionId"),
             "previews": [WorkItemPreviewApiModel.from_dict(_item) for _item in obj.get("previews")] if obj.get("previews") is not None else None,
-            "attributes": obj.get("attributes")
+            "attributes": obj.get("attributes"),
+            "link": PreviewsIssueLinkApiModel.from_dict(obj.get("link")) if obj.get("link") is not None else None
         })
         return _obj
 
