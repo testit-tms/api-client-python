@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_id** | **str** |  | [optional] 
@@ -25,7 +24,7 @@ json = "{}"
 # create an instance of SectionModel from a JSON string
 section_model_instance = SectionModel.from_json(json)
 # print the JSON string representation of the object
-print(SectionModel.to_json())
+print SectionModel.to_json()
 
 # convert the object into a dict
 section_model_dict = section_model_instance.to_dict()

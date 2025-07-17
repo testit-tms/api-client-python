@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **passed_average_duration** | **float** |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of AutoTestAverageDurationModel from a JSON string
 auto_test_average_duration_model_instance = AutoTestAverageDurationModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestAverageDurationModel.to_json())
+print AutoTestAverageDurationModel.to_json()
 
 # convert the object into a dict
 auto_test_average_duration_model_dict = auto_test_average_duration_model_instance.to_dict()

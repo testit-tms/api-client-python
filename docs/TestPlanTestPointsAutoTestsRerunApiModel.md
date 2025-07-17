@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**TestPlanTestPointsSearchApiModel**](TestPlanTestPointsSearchApiModel.md) |  | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of TestPlanTestPointsAutoTestsRerunApiModel from a JSON string
 test_plan_test_points_auto_tests_rerun_api_model_instance = TestPlanTestPointsAutoTestsRerunApiModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanTestPointsAutoTestsRerunApiModel.to_json())
+print TestPlanTestPointsAutoTestsRerunApiModel.to_json()
 
 # convert the object into a dict
 test_plan_test_points_auto_tests_rerun_api_model_dict = test_plan_test_points_auto_tests_rerun_api_model_instance.to_dict()

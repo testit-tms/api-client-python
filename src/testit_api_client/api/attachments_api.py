@@ -641,7 +641,7 @@ class AttachmentsApi:
     def api_v2_attachments_post(self, file : Optional[Union[StrictBytes, StrictStr]] = None, **kwargs) -> AttachmentModel:  # noqa: E501
         """Upload new attachment file  # noqa: E501
 
-        File size is restricted to 50 MB (52 428 800 bytes)  # noqa: E501
+        File size is restricted to 1 GB (1 073 741 824 bytes)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -671,7 +671,7 @@ class AttachmentsApi:
     def api_v2_attachments_post_with_http_info(self, file : Optional[Union[StrictBytes, StrictStr]] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Upload new attachment file  # noqa: E501
 
-        File size is restricted to 50 MB (52 428 800 bytes)  # noqa: E501
+        File size is restricted to 1 GB (1 073 741 824 bytes)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

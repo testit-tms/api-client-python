@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Specifies a webhook name to search for | [optional] 
@@ -21,7 +20,7 @@ json = "{}"
 # create an instance of SearchWebhooksQueryModel from a JSON string
 search_webhooks_query_model_instance = SearchWebhooksQueryModel.from_json(json)
 # print the JSON string representation of the object
-print(SearchWebhooksQueryModel.to_json())
+print SearchWebhooksQueryModel.to_json()
 
 # convert the object into a dict
 search_webhooks_query_model_dict = search_webhooks_query_model_instance.to_dict()

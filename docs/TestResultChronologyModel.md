@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **outcome** | **str** |  | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of TestResultChronologyModel from a JSON string
 test_result_chronology_model_instance = TestResultChronologyModel.from_json(json)
 # print the JSON string representation of the object
-print(TestResultChronologyModel.to_json())
+print TestResultChronologyModel.to_json()
 
 # convert the object into a dict
 test_result_chronology_model_dict = test_result_chronology_model_instance.to_dict()

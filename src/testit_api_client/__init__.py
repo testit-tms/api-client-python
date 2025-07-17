@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "6.2.0"
+__version__ = "6.3.0"
 
 # import apis into sdk package
 from testit_api_client.api.attachments_api import AttachmentsApi
@@ -153,6 +153,7 @@ from testit_api_client.models.custom_attribute_option_post_model import CustomAt
 from testit_api_client.models.custom_attribute_post_model import CustomAttributePostModel
 from testit_api_client.models.custom_attribute_put_model import CustomAttributePutModel
 from testit_api_client.models.custom_attribute_search_query_model import CustomAttributeSearchQueryModel
+from testit_api_client.models.custom_attribute_search_response_model import CustomAttributeSearchResponseModel
 from testit_api_client.models.custom_attribute_template_model import CustomAttributeTemplateModel
 from testit_api_client.models.custom_attribute_template_post_model import CustomAttributeTemplatePostModel
 from testit_api_client.models.custom_attribute_template_put_model import CustomAttributeTemplatePutModel

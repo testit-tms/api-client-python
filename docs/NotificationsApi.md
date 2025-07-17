@@ -16,13 +16,19 @@ Method | HTTP request | Description
 
 Get unread Notifications total in last 7 days
 
- Use case  User runs method execution  System returns unread notifications total (listed in the response example)
+
+Use case
+
+User runs method execution
+
+System returns unread notifications total (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -63,7 +69,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **is_read** | **bool**|  | [optional] 
@@ -82,7 +87,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -100,13 +104,19 @@ Name | Type | Description  | Notes
 
 Get all Notifications for current User
 
- Use case  User runs method execution  System returns notifications (listed in the response example)
+
+Use case
+
+User runs method execution
+
+System returns notifications (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.notification_model import NotificationModel
 from testit_api_client.rest import ApiException
@@ -153,7 +163,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notification_type** | [**NotificationTypeModel**](.md)|  | [optional] 
@@ -177,7 +186,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -195,13 +203,21 @@ Name | Type | Description  | Notes
 
 Set Notification as read
 
- Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
+
+Use case
+
+User sets notification internal (guid format) identifier
+
+User runs method execution
+
+System set notification as read
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -240,7 +256,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -259,7 +274,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -278,13 +292,19 @@ void (empty response body)
 
 Set all Notifications as read
 
- Use case  User runs method execution  System set all notifications as read
+
+Use case
+
+User runs method execution
+
+System set all notifications as read
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -321,7 +341,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -338,7 +357,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -357,13 +375,19 @@ void (empty response body)
 
 Search Notifications for current User
 
- Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
+
+Use case
+
+User set filter and runs method execution
+
+System returns notifications (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.notification_model import NotificationModel
 from testit_api_client.models.notification_query_filter_model import NotificationQueryFilterModel
@@ -411,7 +435,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -435,7 +458,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |

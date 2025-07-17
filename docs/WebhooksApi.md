@@ -21,11 +21,14 @@ Method | HTTP request | Description
 
 
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.webhooks_delete_api_model import WebhooksDeleteApiModel
 from testit_api_client.rest import ApiException
@@ -64,7 +67,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhooks_delete_api_model** | [**WebhooksDeleteApiModel**](WebhooksDeleteApiModel.md)|  | [optional] 
@@ -83,7 +85,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -101,11 +102,14 @@ void (empty response body)
 
 Get all webhooks
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.web_hook_model import WebHookModel
 from testit_api_client.rest import ApiException
@@ -147,7 +151,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project unique ID | [optional] 
@@ -166,7 +169,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -185,11 +187,14 @@ Name | Type | Description  | Notes
 
 Delete webhook by ID
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -228,7 +233,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Webhook unique ID | 
@@ -247,7 +251,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -265,11 +268,14 @@ void (empty response body)
 
 Get webhook by ID
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.web_hook_model import WebHookModel
 from testit_api_client.rest import ApiException
@@ -311,7 +317,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Webhook unique ID | 
@@ -330,7 +335,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -348,11 +352,14 @@ Name | Type | Description  | Notes
 
 Edit webhook by ID
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.web_hook_model import WebHookModel
 from testit_api_client.models.web_hook_post_model import WebHookPostModel
@@ -396,7 +403,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Webhook unique ID | 
@@ -416,7 +422,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -434,11 +439,14 @@ Name | Type | Description  | Notes
 
 Create webhook
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.web_hook_model import WebHookModel
 from testit_api_client.models.web_hook_post_model import WebHookPostModel
@@ -481,7 +489,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **web_hook_post_model** | [**WebHookPostModel**](WebHookPostModel.md)|  | [optional] 
@@ -500,7 +507,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -518,11 +524,14 @@ Name | Type | Description  | Notes
 
 
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.webhooks_update_api_model import WebhooksUpdateApiModel
 from testit_api_client.models.webhooks_update_api_result import WebhooksUpdateApiResult
@@ -564,7 +573,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhooks_update_api_model** | [**WebhooksUpdateApiModel**](WebhooksUpdateApiModel.md)|  | [optional] 
@@ -583,7 +591,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -601,11 +608,14 @@ Name | Type | Description  | Notes
 
 Search for webhooks
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.search_webhooks_query_model import SearchWebhooksQueryModel
 from testit_api_client.models.web_hook_model import WebHookModel
@@ -653,7 +663,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -677,7 +686,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -695,11 +703,14 @@ Name | Type | Description  | Notes
 
 Get special variables for webhook event type
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -741,7 +752,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **event_type** | [**WebHookEventType**](.md)| Webhook event type | [optional] 
@@ -761,7 +771,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -779,11 +788,14 @@ Name | Type | Description  | Notes
 
 Test webhook's url
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.web_hook_test_model import WebHookTestModel
 from testit_api_client.models.webhook_response import WebhookResponse
@@ -826,7 +838,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **web_hook_test_model** | [**WebHookTestModel**](WebHookTestModel.md)|  | [optional] 
@@ -845,7 +856,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

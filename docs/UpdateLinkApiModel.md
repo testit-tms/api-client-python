@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Link unique identifier | [optional] 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of UpdateLinkApiModel from a JSON string
 update_link_api_model_instance = UpdateLinkApiModel.from_json(json)
 # print the JSON string representation of the object
-print(UpdateLinkApiModel.to_json())
+print UpdateLinkApiModel.to_json()
 
 # convert the object into a dict
 update_link_api_model_dict = update_link_api_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** |  | [optional] 
@@ -21,7 +20,7 @@ json = "{}"
 # create an instance of ConfigurationPostModel from a JSON string
 configuration_post_model_instance = ConfigurationPostModel.from_json(json)
 # print the JSON string representation of the object
-print(ConfigurationPostModel.to_json())
+print ConfigurationPostModel.to_json()
 
 # convert the object into a dict
 configuration_post_model_dict = configuration_post_model_instance.to_dict()

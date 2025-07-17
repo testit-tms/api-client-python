@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -14,6 +13,7 @@ Name | Type | Description | Notes
 **modified_date** | **datetime** |  | [optional] 
 **modified_by_id** | **str** |  | [optional] 
 **is_deleted** | **bool** |  | 
+**project_ids** | **List[str]** |  | 
 
 ## Example
 
@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of ParameterApiResult from a JSON string
 parameter_api_result_instance = ParameterApiResult.from_json(json)
 # print the JSON string representation of the object
-print(ParameterApiResult.to_json())
+print ParameterApiResult.to_json()
 
 # convert the object into a dict
 parameter_api_result_dict = parameter_api_result_instance.to_dict()

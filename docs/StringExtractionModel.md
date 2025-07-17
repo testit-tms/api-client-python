@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **include** | **List[str]** |  | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of StringExtractionModel from a JSON string
 string_extraction_model_instance = StringExtractionModel.from_json(json)
 # print the JSON string representation of the object
-print(StringExtractionModel.to_json())
+print StringExtractionModel.to_json()
 
 # convert the object into a dict
 string_extraction_model_dict = string_extraction_model_instance.to_dict()

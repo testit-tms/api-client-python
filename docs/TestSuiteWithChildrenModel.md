@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **children** | [**List[TestSuiteWithChildrenModel]**](TestSuiteWithChildrenModel.md) |  | [optional] 
@@ -23,7 +22,7 @@ json = "{}"
 # create an instance of TestSuiteWithChildrenModel from a JSON string
 test_suite_with_children_model_instance = TestSuiteWithChildrenModel.from_json(json)
 # print the JSON string representation of the object
-print(TestSuiteWithChildrenModel.to_json())
+print TestSuiteWithChildrenModel.to_json()
 
 # convert the object into a dict
 test_suite_with_children_model_dict = test_suite_with_children_model_instance.to_dict()

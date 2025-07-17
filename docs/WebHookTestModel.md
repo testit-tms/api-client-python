@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_type** | [**RequestTypeModel**](RequestTypeModel.md) | Request method of the webhook | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of WebHookTestModel from a JSON string
 web_hook_test_model_instance = WebHookTestModel.from_json(json)
 # print the JSON string representation of the object
-print(WebHookTestModel.to_json())
+print WebHookTestModel.to_json()
 
 # convert the object into a dict
 web_hook_test_model_dict = web_hook_test_model_instance.to_dict()

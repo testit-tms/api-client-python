@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_id** | **str** | This property is used to link configuration with project | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of ConfigurationByParametersModel from a JSON string
 configuration_by_parameters_model_instance = ConfigurationByParametersModel.from_json(json)
 # print the JSON string representation of the object
-print(ConfigurationByParametersModel.to_json())
+print ConfigurationByParametersModel.to_json()
 
 # convert the object into a dict
 configuration_by_parameters_model_dict = configuration_by_parameters_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -23,7 +22,7 @@ json = "{}"
 # create an instance of SearchTestRunsApiModel from a JSON string
 search_test_runs_api_model_instance = SearchTestRunsApiModel.from_json(json)
 # print the JSON string representation of the object
-print(SearchTestRunsApiModel.to_json())
+print SearchTestRunsApiModel.to_json()
 
 # convert the object into a dict
 search_test_runs_api_model_dict = search_test_runs_api_model_instance.to_dict()

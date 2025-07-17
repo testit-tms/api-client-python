@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user_id** | **str** |  | 
@@ -19,7 +18,7 @@ json = "{}"
 # create an instance of AuditApiResult from a JSON string
 audit_api_result_instance = AuditApiResult.from_json(json)
 # print the JSON string representation of the object
-print(AuditApiResult.to_json())
+print AuditApiResult.to_json()
 
 # convert the object into a dict
 audit_api_result_dict = audit_api_result_instance.to_dict()

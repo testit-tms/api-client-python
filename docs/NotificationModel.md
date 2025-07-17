@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -30,7 +29,7 @@ json = "{}"
 # create an instance of NotificationModel from a JSON string
 notification_model_instance = NotificationModel.from_json(json)
 # print the JSON string representation of the object
-print(NotificationModel.to_json())
+print NotificationModel.to_json()
 
 # convert the object into a dict
 notification_model_dict = notification_model_instance.to_dict()

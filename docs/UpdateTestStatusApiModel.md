@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the status, must be unique | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of UpdateTestStatusApiModel from a JSON string
 update_test_status_api_model_instance = UpdateTestStatusApiModel.from_json(json)
 # print the JSON string representation of the object
-print(UpdateTestStatusApiModel.to_json())
+print UpdateTestStatusApiModel.to_json()
 
 # convert the object into a dict
 update_test_status_api_model_dict = update_test_status_api_model_instance.to_dict()

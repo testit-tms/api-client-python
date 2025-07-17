@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the label | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of LabelPostModel from a JSON string
 label_post_model_instance = LabelPostModel.from_json(json)
 # print the JSON string representation of the object
-print(LabelPostModel.to_json())
+print LabelPostModel.to_json()
 
 # convert the object into a dict
 label_post_model_dict = label_post_model_instance.to_dict()

@@ -26,13 +26,23 @@ Method | HTTP request | Description
 
 Create multiple parameters
 
- Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
+
+Use case
+
+User sets list of parameter model (listed in the request example)
+
+User runs method execution
+
+System creates parameters
+
+System returns list of parameter model (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.create_parameter_api_model import CreateParameterApiModel
 from testit_api_client.models.parameter_api_result import ParameterApiResult
@@ -75,7 +85,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_parameter_api_model** | [**List[CreateParameterApiModel]**](CreateParameterApiModel.md)|  | [optional] 
@@ -94,7 +103,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -112,13 +120,21 @@ Name | Type | Description  | Notes
 
 Update multiple parameters
 
- Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
+
+Use case
+
+User sets list of parameter model (listed in the request example)
+
+User runs method execution
+
+System updates parameters
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.update_parameter_api_model import UpdateParameterApiModel
 from testit_api_client.rest import ApiException
@@ -158,7 +174,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_parameter_api_model** | [**List[UpdateParameterApiModel]**](UpdateParameterApiModel.md)|  | [optional] 
@@ -177,7 +192,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -191,17 +205,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_groups_get**
-> List[ParameterGroupApiResult] api_v2_parameters_groups_get(parameter_key_ids=parameter_key_ids, name=name, is_deleted=is_deleted, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+> List[ParameterGroupApiResult] api_v2_parameters_groups_get(parameter_key_ids=parameter_key_ids, name=name, is_deleted=is_deleted, project_ids=project_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
 
 Get parameters as group
 
- Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
+
+Use case
+
+User runs method execution
+
+System search parameters
+
+System returns parameters models as groups (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.parameter_group_api_result import ParameterGroupApiResult
 from testit_api_client.rest import ApiException
@@ -231,6 +253,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     parameter_key_ids = ['parameter_key_ids_example'] # List[str] |  (optional)
     name = 'name_example' # str |  (optional)
     is_deleted = True # bool |  (optional)
+    project_ids = ['project_ids_example'] # List[str] |  (optional)
     skip = 56 # int | Amount of items to be skipped (offset) (optional)
     take = 56 # int | Amount of items to be taken (limit) (optional)
     order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -239,7 +262,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Get parameters as group
-        api_response = api_instance.api_v2_parameters_groups_get(parameter_key_ids=parameter_key_ids, name=name, is_deleted=is_deleted, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        api_response = api_instance.api_v2_parameters_groups_get(parameter_key_ids=parameter_key_ids, name=name, is_deleted=is_deleted, project_ids=project_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         print("The response of ParametersApi->api_v2_parameters_groups_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -250,12 +273,12 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **parameter_key_ids** | [**List[str]**](str.md)|  | [optional] 
  **name** | **str**|  | [optional] 
  **is_deleted** | **bool**|  | [optional] 
+ **project_ids** | [**List[str]**](str.md)|  | [optional] 
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
  **take** | **int**| Amount of items to be taken (limit) | [optional] 
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
@@ -276,7 +299,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -294,13 +316,23 @@ Name | Type | Description  | Notes
 
 Check existence parameter key in system
 
- Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
+
+Use case
+
+User sets name of parameter key
+
+User runs method execution
+
+System search parameter key
+
+System returns the flag for the existence of the parameter key in the system
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -341,7 +373,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**|  | 
@@ -360,7 +391,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -378,13 +408,23 @@ Name | Type | Description  | Notes
 
 Get all parameter key values
 
- Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
+
+Use case
+
+User sets parameter key (string format)
+
+User runs method execution
+
+System search parameter values using the key
+
+System returns parameter
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -425,7 +465,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **str**| Parameter key (string format) | 
@@ -444,7 +483,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -458,17 +496,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_keys_get**
-> List[str] api_v2_parameters_keys_get()
+> List[str] api_v2_parameters_keys_get(project_ids=project_ids)
 
 Get all parameter keys
 
- Use case  User runs method execution  System search all parameter keys  System returns parameter keys
+
+Use case
+
+User runs method execution
+
+System search all parameter keys
+
+System returns parameter keys
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -494,10 +540,11 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = testit_api_client.ParametersApi(api_client)
+    project_ids = ['project_ids_example'] # List[str] |  (optional)
 
     try:
         # Get all parameter keys
-        api_response = api_instance.api_v2_parameters_keys_get()
+        api_response = api_instance.api_v2_parameters_keys_get(project_ids=project_ids)
         print("The response of ParametersApi->api_v2_parameters_keys_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -508,7 +555,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_ids** | [**List[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -524,7 +573,6 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -542,11 +590,14 @@ This endpoint does not need any parameter.
 
 Search for parameters as group
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.parameter_group_api_result import ParameterGroupApiResult
 from testit_api_client.models.parameter_groups_filter_api_model import ParameterGroupsFilterApiModel
@@ -594,7 +645,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -618,7 +668,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -636,11 +685,14 @@ Name | Type | Description  | Notes
 
 Search for parameters
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.parameter_api_result import ParameterApiResult
 from testit_api_client.models.parameters_filter_api_model import ParametersFilterApiModel
@@ -688,7 +740,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
@@ -712,7 +763,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -730,13 +780,23 @@ Name | Type | Description  | Notes
 
 Create parameter
 
- Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
+
+Use case
+
+User sets parameter model (listed in the request example)
+
+User runs method execution
+
+System creates parameter
+
+System returns parameter model
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.create_parameter_api_model import CreateParameterApiModel
 from testit_api_client.models.parameter_api_result import ParameterApiResult
@@ -779,7 +839,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_parameter_api_model** | [**CreateParameterApiModel**](CreateParameterApiModel.md)|  | [optional] 
@@ -798,7 +857,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
@@ -821,8 +879,9 @@ Deletes parameter and all it's values
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -861,7 +920,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**| Name of the parameter | 
@@ -880,7 +938,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -903,8 +960,9 @@ Deletes parameter and all it's values by parameter key identifier
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -943,7 +1001,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key_id** | **str**| Identifier of the parameter key | 
@@ -962,7 +1019,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -980,13 +1036,21 @@ void (empty response body)
 
 Delete parameter
 
- Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
+
+Use case
+
+User sets parameter internal (guid format) identifier
+
+System search and delete parameter
+
+System returns deleted parameter
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -1025,7 +1089,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Parameter internal (UUID) identifier | 
@@ -1044,7 +1107,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1062,13 +1124,25 @@ void (empty response body)
 
 Get all parameters
 
- Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
+
+Use case
+
+[Optional] User sets isDeleted field value
+
+[Optional] If User sets isDeleted field value as true, System search all deleted parameters
+
+[Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted
+
+If User did not set isDeleted field value, System search all parameters
+
+System returns array of all found parameters(listed in response model)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.parameter_api_result import ParameterApiResult
 from testit_api_client.rest import ApiException
@@ -1115,7 +1189,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **is_deleted** | **bool**| If result must consist of only actual/deleted parameters | [optional] 
@@ -1139,7 +1212,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -1157,13 +1229,23 @@ Name | Type | Description  | Notes
 
 Get parameter by ID
 
- Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
+
+Use case
+
+User sets parameter internal (guid format) identifier
+
+User runs method execution
+
+System search parameter using the identifier
+
+System returns parameter
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.parameter_api_result import ParameterApiResult
 from testit_api_client.rest import ApiException
@@ -1205,7 +1287,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Parameter internal (UUID) identifier | 
@@ -1224,7 +1305,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1242,13 +1322,23 @@ Name | Type | Description  | Notes
 
 Update parameter
 
- Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
+
+Use case
+
+User sets parameter updated properties(listed in the request example)
+
+User runs method execution
+
+System updated parameter using updated properties
+
+System returns no content response
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.update_parameter_api_model import UpdateParameterApiModel
 from testit_api_client.rest import ApiException
@@ -1288,7 +1378,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_parameter_api_model** | [**UpdateParameterApiModel**](UpdateParameterApiModel.md)|  | [optional] 
@@ -1307,7 +1396,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |

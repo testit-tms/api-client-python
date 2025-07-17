@@ -16,11 +16,14 @@ Method | HTTP request | Description
 
 Delete attachment file
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -59,7 +62,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -78,7 +80,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Attachment file was deleted successfully |  -  |
@@ -96,11 +97,14 @@ void (empty response body)
 
 Download attachment file
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -144,7 +148,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -168,7 +171,6 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -186,11 +188,14 @@ void (empty response body)
 
 Get attachment metadata
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.attachment_model import AttachmentModel
 from testit_api_client.rest import ApiException
@@ -232,7 +237,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
@@ -251,7 +255,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -269,11 +272,14 @@ Name | Type | Description  | Notes
 
 Get size of attachments storage in bytes
 
+
+
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.rest import ApiException
 from pprint import pprint
@@ -312,7 +318,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -329,7 +334,6 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -347,13 +351,14 @@ This endpoint does not need any parameter.
 
 Upload new attachment file
 
-File size is restricted to 50 MB (52 428 800 bytes)
+File size is restricted to 1 GB (1 073 741 824 bytes)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
-
 ```python
+import time
+import os
 import testit_api_client
 from testit_api_client.models.attachment_model import AttachmentModel
 from testit_api_client.rest import ApiException
@@ -395,7 +400,6 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **bytearray**|  | [optional] 
@@ -414,7 +418,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |

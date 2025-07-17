@@ -23,6 +23,7 @@
 | 5.2     | 4.2.0         |
 | 5.2.2   | 5.1.2.post522 |
 | 5.3.0   | 6.0.1.post530 |
+| 5.4.0   | 6.3.0.post540 |
 | Cloud   | 6.1.1         |
 
 ## Installation & Usage
@@ -182,7 +183,6 @@ Class | Method | HTTP request | Description
 *ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_tags_get**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_tags_get) | **GET** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 *ProjectWorkItemsApi* | [**get_work_items_by_project_id**](docs/ProjectWorkItemsApi.md#get_work_items_by_project_id) | **GET** /api/v2/projects/{projectId}/workItems | Get project work items
 *ProjectsApi* | [**add_globa_attributes_to_project**](docs/ProjectsApi.md#add_globa_attributes_to_project) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-*ProjectsApi* | [**api_v2_projects_demo_post**](docs/ProjectsApi.md#api_v2_projects_demo_post) | **POST** /api/v2/projects/demo | 
 *ProjectsApi* | [**api_v2_projects_id_delete**](docs/ProjectsApi.md#api_v2_projects_id_delete) | **DELETE** /api/v2/projects/{id} | Archive project
 *ProjectsApi* | [**api_v2_projects_id_failure_classes_get**](docs/ProjectsApi.md#api_v2_projects_id_failure_classes_get) | **GET** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsApi* | [**api_v2_projects_id_favorite_put**](docs/ProjectsApi.md#api_v2_projects_id_favorite_put) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite

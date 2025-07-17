@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of ParameterIterationModel from a JSON string
 parameter_iteration_model_instance = ParameterIterationModel.from_json(json)
 # print the JSON string representation of the object
-print(ParameterIterationModel.to_json())
+print ParameterIterationModel.to_json()
 
 # convert the object into a dict
 parameter_iteration_model_dict = parameter_iteration_model_instance.to_dict()

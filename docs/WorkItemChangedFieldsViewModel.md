@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
@@ -36,7 +35,7 @@ json = "{}"
 # create an instance of WorkItemChangedFieldsViewModel from a JSON string
 work_item_changed_fields_view_model_instance = WorkItemChangedFieldsViewModel.from_json(json)
 # print the JSON string representation of the object
-print(WorkItemChangedFieldsViewModel.to_json())
+print WorkItemChangedFieldsViewModel.to_json()
 
 # convert the object into a dict
 work_item_changed_fields_view_model_dict = work_item_changed_fields_view_model_instance.to_dict()

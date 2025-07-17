@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **parent_id** | **str** | Unique ID of the parent test suite in hierarchy | [optional] 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of TestSuiteV2PostModel from a JSON string
 test_suite_v2_post_model_instance = TestSuiteV2PostModel.from_json(json)
 # print the JSON string representation of the object
-print(TestSuiteV2PostModel.to_json())
+print TestSuiteV2PostModel.to_json()
 
 # convert the object into a dict
 test_suite_v2_post_model_dict = test_suite_v2_post_model_instance.to_dict()

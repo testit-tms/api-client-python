@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the attachment | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of AttachmentUpdateRequest from a JSON string
 attachment_update_request_instance = AttachmentUpdateRequest.from_json(json)
 # print the JSON string representation of the object
-print(AttachmentUpdateRequest.to_json())
+print AttachmentUpdateRequest.to_json()
 
 # convert the object into a dict
 attachment_update_request_dict = attachment_update_request_instance.to_dict()

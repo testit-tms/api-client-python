@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exists** | **bool** |  | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of CustomAttributeValidationResult from a JSON string
 custom_attribute_validation_result_instance = CustomAttributeValidationResult.from_json(json)
 # print the JSON string representation of the object
-print(CustomAttributeValidationResult.to_json())
+print CustomAttributeValidationResult.to_json()
 
 # convert the object into a dict
 custom_attribute_validation_result_dict = custom_attribute_validation_result_instance.to_dict()

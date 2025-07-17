@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**GuidExtractionModel**](GuidExtractionModel.md) |  | [optional] 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of TestPlanExtractionModel from a JSON string
 test_plan_extraction_model_instance = TestPlanExtractionModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanExtractionModel.to_json())
+print TestPlanExtractionModel.to_json()
 
 # convert the object into a dict
 test_plan_extraction_model_dict = test_plan_extraction_model_instance.to_dict()

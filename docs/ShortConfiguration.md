@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of ShortConfiguration from a JSON string
 short_configuration_instance = ShortConfiguration.from_json(json)
 # print the JSON string representation of the object
-print(ShortConfiguration.to_json())
+print ShortConfiguration.to_json()
 
 # convert the object into a dict
 short_configuration_dict = short_configuration_instance.to_dict()

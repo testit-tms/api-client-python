@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **inquiry** | [**Inquiry**](Inquiry.md) |  | [optional] 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of SearchWorkflowsApiModel from a JSON string
 search_workflows_api_model_instance = SearchWorkflowsApiModel.from_json(json)
 # print the JSON string representation of the object
-print(SearchWorkflowsApiModel.to_json())
+print SearchWorkflowsApiModel.to_json()
 
 # convert the object into a dict
 search_workflows_api_model_dict = search_workflows_api_model_instance.to_dict()

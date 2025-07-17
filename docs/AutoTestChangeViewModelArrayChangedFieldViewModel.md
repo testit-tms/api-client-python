@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **old_value** | [**List[AutoTestChangeViewModel]**](AutoTestChangeViewModel.md) |  | [optional] 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of AutoTestChangeViewModelArrayChangedFieldViewModel from a JSON string
 auto_test_change_view_model_array_changed_field_view_model_instance = AutoTestChangeViewModelArrayChangedFieldViewModel.from_json(json)
 # print the JSON string representation of the object
-print(AutoTestChangeViewModelArrayChangedFieldViewModel.to_json())
+print AutoTestChangeViewModelArrayChangedFieldViewModel.to_json()
 
 # convert the object into a dict
 auto_test_change_view_model_array_changed_field_view_model_dict = auto_test_change_view_model_array_changed_field_view_model_instance.to_dict()

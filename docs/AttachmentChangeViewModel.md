@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of AttachmentChangeViewModel from a JSON string
 attachment_change_view_model_instance = AttachmentChangeViewModel.from_json(json)
 # print the JSON string representation of the object
-print(AttachmentChangeViewModel.to_json())
+print AttachmentChangeViewModel.to_json()
 
 # convert the object into a dict
 attachment_change_view_model_dict = attachment_change_view_model_instance.to_dict()

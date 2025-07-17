@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -19,7 +18,7 @@ Name | Type | Description | Notes
 **start_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **end_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **tag_names** | **List[str]** |  | [optional] 
-**attributes** | **Dict[str, Optional[List[str]]]** |  | [optional] 
+**attributes** | **Dict[str, List[str]]** |  | [optional] 
 **is_deleted** | **bool** |  | [optional] 
 
 ## Example
@@ -32,7 +31,7 @@ json = "{}"
 # create an instance of ProjectTestPlansFilterModel from a JSON string
 project_test_plans_filter_model_instance = ProjectTestPlansFilterModel.from_json(json)
 # print the JSON string representation of the object
-print(ProjectTestPlansFilterModel.to_json())
+print ProjectTestPlansFilterModel.to_json()
 
 # convert the object into a dict
 project_test_plans_filter_model_dict = project_test_plans_filter_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
@@ -22,7 +21,7 @@ json = "{}"
 # create an instance of TestStatusModel from a JSON string
 test_status_model_instance = TestStatusModel.from_json(json)
 # print the JSON string representation of the object
-print(TestStatusModel.to_json())
+print TestStatusModel.to_json()
 
 # convert the object into a dict
 test_status_model_dict = test_status_model_instance.to_dict()

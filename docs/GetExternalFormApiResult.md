@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_result_ids** | **List[str]** | Linked test result IDs | 
@@ -18,7 +17,7 @@ json = "{}"
 # create an instance of GetExternalFormApiResult from a JSON string
 get_external_form_api_result_instance = GetExternalFormApiResult.from_json(json)
 # print the JSON string representation of the object
-print(GetExternalFormApiResult.to_json())
+print GetExternalFormApiResult.to_json()
 
 # convert the object into a dict
 get_external_form_api_result_dict = get_external_form_api_result_instance.to_dict()

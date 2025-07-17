@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**List[ExternalServiceMetadataApiResult]**](ExternalServiceMetadataApiResult.md) | External services metadata | 
@@ -17,7 +16,7 @@ json = "{}"
 # create an instance of ExternalServicesMetadataApiResult from a JSON string
 external_services_metadata_api_result_instance = ExternalServicesMetadataApiResult.from_json(json)
 # print the JSON string representation of the object
-print(ExternalServicesMetadataApiResult.to_json())
+print ExternalServicesMetadataApiResult.to_json()
 
 # convert the object into a dict
 external_services_metadata_api_result_dict = external_services_metadata_api_result_instance.to_dict()

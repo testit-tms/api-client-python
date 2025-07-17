@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique ID of the section | 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of SectionMoveModel from a JSON string
 section_move_model_instance = SectionMoveModel.from_json(json)
 # print the JSON string representation of the object
-print(SectionMoveModel.to_json())
+print SectionMoveModel.to_json()
 
 # convert the object into a dict
 section_move_model_dict = section_move_model_instance.to_dict()

@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test_suite_ids** | **List[str]** | Specifies a test point test suite IDs to search for | [optional] 
@@ -22,7 +21,7 @@ Name | Type | Description | Notes
 **modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test point range of last modification date to search for | [optional] 
 **modified_by_ids** | **List[str]** | Specifies a test point last editor IDs to search for | [optional] 
 **tags** | **List[str]** | Specifies a test point tags to search for | [optional] 
-**attributes** | **Dict[str, Optional[List[str]]]** | Specifies a test point attributes to search for | [optional] 
+**attributes** | **Dict[str, List[str]]** | Specifies a test point attributes to search for | [optional] 
 **work_item_created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **work_item_created_by_ids** | **List[str]** | Specifies a work item creator IDs to search for | [optional] 
 **work_item_modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 
@@ -38,7 +37,7 @@ json = "{}"
 # create an instance of TestPlanTestPointsSearchApiModel from a JSON string
 test_plan_test_points_search_api_model_instance = TestPlanTestPointsSearchApiModel.from_json(json)
 # print the JSON string representation of the object
-print(TestPlanTestPointsSearchApiModel.to_json())
+print TestPlanTestPointsSearchApiModel.to_json()
 
 # convert the object into a dict
 test_plan_test_points_search_api_model_dict = test_plan_test_points_search_api_model_instance.to_dict()
