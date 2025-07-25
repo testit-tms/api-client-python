@@ -12,27 +12,23 @@ Method | HTTP request | Description
 
 
 # **api_v2_notifications_count_get**
-> int api_v2_notifications_count_get(is_read=is_read)
+> int api_v2_notifications_count_get()
 
 Get unread Notifications total in last 7 days
 
-
-Use case
-
-User runs method execution
-
-System returns unread notifications total (listed in the response example)
+ Use case  User runs method execution  System returns unread notifications total (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.rest import ApiException
+from testit_api_client.api import notifications_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -45,7 +41,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -53,25 +49,25 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.NotificationsApi(api_client)
+    api_instance = notifications_api.NotificationsApi(api_client)
     is_read = True # bool |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Get unread Notifications total in last 7 days
         api_response = api_instance.api_v2_notifications_count_get(is_read=is_read)
-        print("The response of NotificationsApi->api_v2_notifications_count_get:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_count_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **is_read** | **bool**|  | [optional] 
+ **is_read** | **bool**|  | [optional]
 
 ### Return type
 
@@ -86,7 +82,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
@@ -100,28 +98,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_notifications_get**
-> List[NotificationModel] api_v2_notifications_get(notification_type=notification_type, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+> [NotificationModel] api_v2_notifications_get()
 
 Get all Notifications for current User
 
-
-Use case
-
-User runs method execution
-
-System returns notifications (listed in the response example)
+ Use case  User runs method execution  System returns notifications (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.notification_model import NotificationModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import notifications_api
+from testit_api_client.model.notification_model import NotificationModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.notification_type_model import NotificationTypeModel
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -134,7 +129,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -142,39 +137,39 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.NotificationsApi(api_client)
-    notification_type = testit_api_client.NotificationTypeModel() # NotificationTypeModel |  (optional)
-    skip = 56 # int | Amount of items to be skipped (offset) (optional)
-    take = 56 # int | Amount of items to be taken (limit) (optional)
-    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = 'search_field_example' # str | Property name for searching (optional)
-    search_value = 'search_value_example' # str | Value for searching (optional)
+    api_instance = notifications_api.NotificationsApi(api_client)
+    notification_type = None # NotificationTypeModel |  (optional)
+    skip = 1 # int | Amount of items to be skipped (offset) (optional)
+    take = 1 # int | Amount of items to be taken (limit) (optional)
+    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = "SearchField_example" # str | Property name for searching (optional)
+    search_value = "SearchValue_example" # str | Value for searching (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Get all Notifications for current User
         api_response = api_instance.api_v2_notifications_get(notification_type=notification_type, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
-        print("The response of NotificationsApi->api_v2_notifications_get:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_type** | [**NotificationTypeModel**](.md)|  | [optional] 
- **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
- **take** | **int**| Amount of items to be taken (limit) | [optional] 
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
- **search_field** | **str**| Property name for searching | [optional] 
- **search_value** | **str**| Value for searching | [optional] 
+ **notification_type** | **NotificationTypeModel**|  | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional]
+ **take** | **int**| Amount of items to be taken (limit) | [optional]
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
+ **search_field** | **str**| Property name for searching | [optional]
+ **search_value** | **str**| Value for searching | [optional]
 
 ### Return type
 
-[**List[NotificationModel]**](NotificationModel.md)
+[**[NotificationModel]**](NotificationModel.md)
 
 ### Authorization
 
@@ -185,7 +180,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -203,25 +200,19 @@ Name | Type | Description  | Notes
 
 Set Notification as read
 
-
-Use case
-
-User sets notification internal (guid format) identifier
-
-User runs method execution
-
-System set notification as read
+ Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.rest import ApiException
+from testit_api_client.api import notifications_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -234,7 +225,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -242,23 +233,23 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.NotificationsApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = notifications_api.NotificationsApi(api_client)
+    id = "id_example" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         # Set Notification as read
         api_instance.api_v2_notifications_id_read_post(id)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_id_read_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
@@ -273,7 +264,9 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -292,23 +285,19 @@ void (empty response body)
 
 Set all Notifications as read
 
-
-Use case
-
-User runs method execution
-
-System set all notifications as read
+ Use case  User runs method execution  System set all notifications as read
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.rest import ApiException
+from testit_api_client.api import notifications_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -321,7 +310,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -329,15 +318,15 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.NotificationsApi(api_client)
+    api_instance = notifications_api.NotificationsApi(api_client)
 
+    # example, this endpoint has no required or optional parameters
     try:
         # Set all Notifications as read
         api_instance.api_v2_notifications_read_post()
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_read_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
@@ -356,7 +345,9 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -371,29 +362,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_notifications_search_post**
-> List[NotificationModel] api_v2_notifications_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, notification_query_filter_model=notification_query_filter_model)
+> [NotificationModel] api_v2_notifications_search_post()
 
 Search Notifications for current User
 
-
-Use case
-
-User set filter and runs method execution
-
-System returns notifications (listed in the response example)
+ Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.notification_model import NotificationModel
-from testit_api_client.models.notification_query_filter_model import NotificationQueryFilterModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import notifications_api
+from testit_api_client.model.notification_model import NotificationModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_notifications_search_post_request import ApiV2NotificationsSearchPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -406,7 +393,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -414,39 +401,39 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.NotificationsApi(api_client)
-    skip = 56 # int | Amount of items to be skipped (offset) (optional)
-    take = 56 # int | Amount of items to be taken (limit) (optional)
-    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = 'search_field_example' # str | Property name for searching (optional)
-    search_value = 'search_value_example' # str | Value for searching (optional)
-    notification_query_filter_model = testit_api_client.NotificationQueryFilterModel() # NotificationQueryFilterModel |  (optional)
+    api_instance = notifications_api.NotificationsApi(api_client)
+    skip = 1 # int | Amount of items to be skipped (offset) (optional)
+    take = 1 # int | Amount of items to be taken (limit) (optional)
+    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = "SearchField_example" # str | Property name for searching (optional)
+    search_value = "SearchValue_example" # str | Value for searching (optional)
+    api_v2_notifications_search_post_request = ApiV2NotificationsSearchPostRequest(None) # ApiV2NotificationsSearchPostRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Search Notifications for current User
-        api_response = api_instance.api_v2_notifications_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, notification_query_filter_model=notification_query_filter_model)
-        print("The response of NotificationsApi->api_v2_notifications_search_post:\n")
+        api_response = api_instance.api_v2_notifications_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_notifications_search_post_request=api_v2_notifications_search_post_request)
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_search_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
- **take** | **int**| Amount of items to be taken (limit) | [optional] 
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
- **search_field** | **str**| Property name for searching | [optional] 
- **search_value** | **str**| Value for searching | [optional] 
- **notification_query_filter_model** | [**NotificationQueryFilterModel**](NotificationQueryFilterModel.md)|  | [optional] 
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional]
+ **take** | **int**| Amount of items to be taken (limit) | [optional]
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
+ **search_field** | **str**| Property name for searching | [optional]
+ **search_value** | **str**| Value for searching | [optional]
+ **api_v2_notifications_search_post_request** | [**ApiV2NotificationsSearchPostRequest**](ApiV2NotificationsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
-[**List[NotificationModel]**](NotificationModel.md)
+[**[NotificationModel]**](NotificationModel.md)
 
 ### Authorization
 
@@ -457,7 +444,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |

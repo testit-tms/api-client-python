@@ -8,24 +8,23 @@ Method | HTTP request | Description
 
 
 # **api_v2_search_global_search_post**
-> GlobalSearchResponse api_v2_search_global_search_post(global_search_request=global_search_request)
-
-
+> GlobalSearchResponse api_v2_search_global_search_post()
 
 
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.global_search_request import GlobalSearchRequest
-from testit_api_client.models.global_search_response import GlobalSearchResponse
-from testit_api_client.rest import ApiException
+from testit_api_client.api import search_api
+from testit_api_client.model.global_search_response import GlobalSearchResponse
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_search_global_search_post_request import ApiV2SearchGlobalSearchPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -38,7 +37,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -46,24 +45,24 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.SearchApi(api_client)
-    global_search_request = testit_api_client.GlobalSearchRequest() # GlobalSearchRequest |  (optional)
+    api_instance = search_api.SearchApi(api_client)
+    api_v2_search_global_search_post_request = ApiV2SearchGlobalSearchPostRequest(None) # ApiV2SearchGlobalSearchPostRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
-        api_response = api_instance.api_v2_search_global_search_post(global_search_request=global_search_request)
-        print("The response of SearchApi->api_v2_search_global_search_post:\n")
+        api_response = api_instance.api_v2_search_global_search_post(api_v2_search_global_search_post_request=api_v2_search_global_search_post_request)
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling SearchApi->api_v2_search_global_search_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **global_search_request** | [**GlobalSearchRequest**](GlobalSearchRequest.md)|  | [optional] 
+ **api_v2_search_global_search_post_request** | [**ApiV2SearchGlobalSearchPostRequest**](ApiV2SearchGlobalSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -78,7 +77,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
