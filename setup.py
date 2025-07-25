@@ -4,10 +4,9 @@ NAME = "testit-api-client"
 
 VERSION = "7.0.0"
 
-PYTHON_REQUIRES = ">=3.7"
-REQUIRES = [
-    "urllib3 >= 1.25.3, < 3.0.0",
-    "python-dateutil",
+PYTHON_REQUIRES = [
+  "urllib3 >= 1.25.3",
+  "python-dateutil",
 ]
 setup(
     name=NAME,

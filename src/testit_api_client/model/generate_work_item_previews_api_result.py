@@ -30,9 +30,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.previews_issue_link_api_result import PreviewsIssueLinkApiResult
     from testit_api_client.model.work_item_preview_api_model import WorkItemPreviewApiModel
-    globals()['PreviewsIssueLinkApiResult'] = PreviewsIssueLinkApiResult
     globals()['WorkItemPreviewApiModel'] = WorkItemPreviewApiModel
 
 
@@ -83,7 +81,6 @@ class GenerateWorkItemPreviewsApiResult(ModelNormal):
         lazy_import()
         return {
             'previews': ([WorkItemPreviewApiModel],),  # noqa: E501
-            'link': (PreviewsIssueLinkApiResult,),  # noqa: E501
         }
 
     @cached_property
@@ -93,7 +90,6 @@ class GenerateWorkItemPreviewsApiResult(ModelNormal):
 
     attribute_map = {
         'previews': 'previews',  # noqa: E501
-        'link': 'link',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,7 +136,6 @@ class GenerateWorkItemPreviewsApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            link (PreviewsIssueLinkApiResult): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,7 +225,6 @@ class GenerateWorkItemPreviewsApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            link (PreviewsIssueLinkApiResult): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
