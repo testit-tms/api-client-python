@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **auto_tests** | [**[AutoTestModel]**](AutoTestModel.md) |  | 
 **test_points** | [**[PublicTestPointModel]**](PublicTestPointModel.md) |  | 
 **status** | **str** |  | 
-**status_model** | [**PublicTestRunModelStatusModel**](PublicTestRunModelStatusModel.md) |  | 
 **test_plan_id** | **str, none_type** |  | [optional] 
 **product_name** | **str, none_type** |  | [optional] 
 **build** | **str, none_type** |  | [optional] 

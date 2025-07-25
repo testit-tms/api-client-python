@@ -160,7 +160,7 @@ class TestPointRelatedToTestResult(ModelComposed):
             tester_id (str, none_type): Tester who is responded for the test unique internal identifier. [optional]  # noqa: E501
             work_item_id (str, none_type): Workitem to which test point relates unique identifier. [optional]  # noqa: E501
             configuration_id (str, none_type): Configuration to which test point relates unique identifier. [optional]  # noqa: E501
-            status (str, none_type): Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
+            status (str, none_type): Test point status   Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
             last_test_result_id (str, none_type): Last test result unique identifier. [optional]  # noqa: E501
             work_item_median_duration (int, none_type): Median duration of work item the test point represents. [optional]  # noqa: E501
         """
@@ -272,7 +272,7 @@ class TestPointRelatedToTestResult(ModelComposed):
             tester_id (str, none_type): Tester who is responded for the test unique internal identifier. [optional]  # noqa: E501
             work_item_id (str, none_type): Workitem to which test point relates unique identifier. [optional]  # noqa: E501
             configuration_id (str, none_type): Configuration to which test point relates unique identifier. [optional]  # noqa: E501
-            status (str, none_type): Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
+            status (str, none_type): Test point status   Applies one of these values: Blocked, NoResults, Failed, Passed. [optional]  # noqa: E501
             last_test_result_id (str, none_type): Last test result unique identifier. [optional]  # noqa: E501
             work_item_median_duration (int, none_type): Median duration of work item the test point represents. [optional]  # noqa: E501
         """

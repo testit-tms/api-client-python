@@ -90,7 +90,6 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
             'include_name': (bool,),  # noqa: E501
             'include_section': (bool,),  # noqa: E501
             'include_priority': (bool,),  # noqa: E501
-            'include_source_type': (bool,),  # noqa: E501
             'include_automated': (bool,),  # noqa: E501
             'include_status': (bool,),  # noqa: E501
             'include_duration': (bool,),  # noqa: E501
@@ -113,7 +112,6 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
         'include_name': 'includeName',  # noqa: E501
         'include_section': 'includeSection',  # noqa: E501
         'include_priority': 'includePriority',  # noqa: E501
-        'include_source_type': 'includeSourceType',  # noqa: E501
         'include_automated': 'includeAutomated',  # noqa: E501
         'include_status': 'includeStatus',  # noqa: E501
         'include_duration': 'includeDuration',  # noqa: E501
@@ -139,7 +137,6 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
             include_name (bool):
             include_section (bool):
             include_priority (bool):
-            include_source_type (bool):
             include_automated (bool):
             include_status (bool):
             include_duration (bool):
@@ -257,7 +254,6 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
             include_name (bool):
             include_section (bool):
             include_priority (bool):
-            include_source_type (bool):
             include_automated (bool):
             include_status (bool):
             include_duration (bool):

@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_custom_attributes_search_post**
-> [CustomAttributeSearchResponseModel] api_v2_custom_attributes_search_post()
+> [CustomAttributeModel] api_v2_custom_attributes_search_post()
 
 Search for attributes
 
@@ -459,8 +459,8 @@ Search for attributes
 import time
 import testit_api_client
 from testit_api_client.api import custom_attributes_api
-from testit_api_client.model.custom_attribute_search_response_model import CustomAttributeSearchResponseModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.custom_attribute_model import CustomAttributeModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.api_v2_custom_attributes_search_post_request import ApiV2CustomAttributesSearchPostRequest
 from pprint import pprint
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[CustomAttributeSearchResponseModel]**](CustomAttributeSearchResponseModel.md)
+[**[CustomAttributeModel]**](CustomAttributeModel.md)
 
 ### Authorization
 

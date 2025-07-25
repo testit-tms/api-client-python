@@ -5,7 +5,6 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_globa_attributes_to_project**](ProjectsApi.md#add_globa_attributes_to_project) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-[**api_v2_projects_demo_post**](ProjectsApi.md#api_v2_projects_demo_post) | **POST** /api/v2/projects/demo | 
 [**api_v2_projects_id_delete**](ProjectsApi.md#api_v2_projects_id_delete) | **DELETE** /api/v2/projects/{id} | Archive project
 [**api_v2_projects_id_failure_classes_get**](ProjectsApi.md#api_v2_projects_id_failure_classes_get) | **GET** /api/v2/projects/{id}/failureClasses | Get failure classes
 [**api_v2_projects_id_favorite_put**](ProjectsApi.md#api_v2_projects_id_favorite_put) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -21,7 +20,6 @@ Method | HTTP request | Description
 [**api_v2_projects_purge_bulk_post**](ProjectsApi.md#api_v2_projects_purge_bulk_post) | **POST** /api/v2/projects/purge/bulk | Purge multiple projects
 [**api_v2_projects_restore_bulk_post**](ProjectsApi.md#api_v2_projects_restore_bulk_post) | **POST** /api/v2/projects/restore/bulk | Restore multiple projects
 [**api_v2_projects_search_post**](ProjectsApi.md#api_v2_projects_search_post) | **POST** /api/v2/projects/search | Search for projects
-[**api_v2_projects_shorts_post**](ProjectsApi.md#api_v2_projects_shorts_post) | **POST** /api/v2/projects/shorts | Get projects short models
 [**create_project**](ProjectsApi.md#create_project) | **POST** /api/v2/projects | Create project
 [**delete_project_auto_tests**](ProjectsApi.md#delete_project_auto_tests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete all autotests from project
 [**get_all_projects**](ProjectsApi.md#get_all_projects) | **GET** /api/v2/projects | Get all projects
@@ -37,7 +35,7 @@ Method | HTTP request | Description
 
 Add global attributes to project
 
- Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response
+ Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
 
 ### Example
 
@@ -119,95 +117,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** |  Attributes must be global |  -  |
+**400** |   Attributes must be global  |  -  |
 **401** | Unauthorized |  -  |
 **403** | Project admin permission for project settings is required |  -  |
 **404** | Project with provided ID was not found |  -  |
-**409** | Conflict |  -  |
-**422** | Unprocessable Entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **api_v2_projects_demo_post**
-> DemoProjectApiResult api_v2_projects_demo_post()
-
-
-
-### Example
-
-* Api Key Authentication (Bearer or PrivateToken):
-
-```python
-import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.create_project_request import CreateProjectRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.demo_project_api_result import DemoProjectApiResult
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = projects_api.ProjectsApi(api_client)
-    create_project_request = CreateProjectRequest(None) # CreateProjectRequest |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_response = api_instance.api_v2_projects_demo_post(create_project_request=create_project_request)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling ProjectsApi->api_v2_projects_demo_post: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_project_request** | [**CreateProjectRequest**](CreateProjectRequest.md)|  | [optional]
-
-### Return type
-
-[**DemoProjectApiResult**](DemoProjectApiResult.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Created |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -477,7 +390,7 @@ void (empty response body)
 
 Get Project filters
 
- Use case  User sets project internal or global identifier  User runs method execution  System returns project filters
+ Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
 
 ### Example
 
@@ -829,7 +742,7 @@ void (empty response body)
 
 Delete attribute from project's test plans
 
- Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
+ Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
 
 ### Example
 
@@ -915,7 +828,7 @@ void (empty response body)
 
 Update attribute of project's test plans
 
- Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
+ Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
 
 ### Example
 
@@ -1010,7 +923,7 @@ void (empty response body)
 
 Get active Project TestRuns
 
- Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns
+ Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
 
 ### Example
 
@@ -1096,7 +1009,7 @@ Name | Type | Description  | Notes
 
 Get Project TestRuns full models
 
- Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models
+ Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
 
 ### Example
 
@@ -1562,100 +1475,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **api_v2_projects_shorts_post**
-> ProjectShortApiResultReply api_v2_projects_shorts_post()
-
-Get projects short models
-
- Use case  User sets query params  User runs method execution  System return projects short models
-
-### Example
-
-* Api Key Authentication (Bearer or PrivateToken):
-
-```python
-import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.project_short_api_result_reply import ProjectShortApiResultReply
-from testit_api_client.model.api_v2_projects_shorts_post_request import ApiV2ProjectsShortsPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = projects_api.ProjectsApi(api_client)
-    api_v2_projects_shorts_post_request = ApiV2ProjectsShortsPostRequest(None) # ApiV2ProjectsShortsPostRequest |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get projects short models
-        api_response = api_instance.api_v2_projects_shorts_post(api_v2_projects_shorts_post_request=api_v2_projects_shorts_post_request)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling ProjectsApi->api_v2_projects_shorts_post: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_v2_projects_shorts_post_request** | [**ApiV2ProjectsShortsPostRequest**](ApiV2ProjectsShortsPostRequest.md)|  | [optional]
-
-### Return type
-
-[**ProjectShortApiResultReply**](ProjectShortApiResultReply.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**409** | Conflict |  -  |
-**422** | Unprocessable Entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **create_project**
 > ProjectModel create_project()
 
 Create project
 
- Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
+ Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
 
 ### Example
 
@@ -1825,7 +1650,7 @@ void (empty response body)
 
 Get all projects
 
- Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)
+ Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
 
 ### Example
 
@@ -1924,7 +1749,7 @@ Name | Type | Description  | Notes
 
 Get namespaces of autotests in project
 
- Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)
+ Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
 
 ### Example
 
@@ -2010,7 +1835,7 @@ Name | Type | Description  | Notes
 
 Get project by ID
 
- Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
+ Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
 
 ### Example
 
@@ -2097,7 +1922,7 @@ Name | Type | Description  | Notes
 
 Get project test plans
 
- Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
+ Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
 
 ### Example
 
@@ -2194,7 +2019,7 @@ Name | Type | Description  | Notes
 
 Get project test runs
 
- Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)
+ Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
 
 ### Example
 
@@ -2313,7 +2138,7 @@ Name | Type | Description  | Notes
 
 Update project
 
- Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)
+ Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
 
 ### Example
 
@@ -2385,7 +2210,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |  - ID is invalid  - Field is required |  -  |
+**400** |  - ID is invalid   - Field is required |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for projects is required |  -  |
 **404** | Project with provided ID was not found |  -  |

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **name** | **str** | Test plan name | 
 **project_id** | **str** | Project unique identifier | 
 **attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | Key value pair of test plan custom attributes | 
-**tags** | [**[TagApiModel], none_type**](TagApiModel.md) | Test plan tag names collection | [optional] 
+**tags** | [**[TagPostModel], none_type**](TagPostModel.md) | Test plan tag names collection | [optional] 
 **start_date** | **datetime, none_type** | Date and time of test plan start | [optional] 
 **end_date** | **datetime, none_type** | Date and time of test plan end | [optional] 
 **description** | **str, none_type** | Test plan description | [optional] 

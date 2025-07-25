@@ -35,20 +35,18 @@ def lazy_import():
     from testit_api_client.model.iteration_model import IterationModel
     from testit_api_client.model.link_model import LinkModel
     from testit_api_client.model.step_model import StepModel
-    from testit_api_client.model.tag_model import TagModel
+    from testit_api_client.model.tag_put_model import TagPutModel
     from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     from testit_api_client.model.work_item_states import WorkItemStates
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AutoTestModel'] = AutoTestModel
     globals()['IterationModel'] = IterationModel
     globals()['LinkModel'] = LinkModel
     globals()['StepModel'] = StepModel
-    globals()['TagModel'] = TagModel
+    globals()['TagPutModel'] = TagPutModel
     globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
     globals()['WorkItemStates'] = WorkItemStates
 
 
@@ -119,13 +117,12 @@ class WorkItemModel(ModelNormal):
             'section_id': (str,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
-            'source_type': (WorkItemSourceTypeModel,),  # noqa: E501
             'steps': ([StepModel],),  # noqa: E501
             'precondition_steps': ([StepModel],),  # noqa: E501
             'postcondition_steps': ([StepModel],),  # noqa: E501
             'duration': (int,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'tags': ([TagModel],),  # noqa: E501
+            'tags': ([TagPutModel],),  # noqa: E501
             'links': ([LinkModel],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'auto_tests': ([AutoTestModel], none_type,),  # noqa: E501
@@ -158,7 +155,6 @@ class WorkItemModel(ModelNormal):
         'section_id': 'sectionId',  # noqa: E501
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
-        'source_type': 'sourceType',  # noqa: E501
         'steps': 'steps',  # noqa: E501
         'precondition_steps': 'preconditionSteps',  # noqa: E501
         'postcondition_steps': 'postconditionSteps',  # noqa: E501
@@ -184,7 +180,7 @@ class WorkItemModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, id, section_id, state, priority, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
@@ -202,13 +198,12 @@ class WorkItemModel(ModelNormal):
             section_id (str):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
             steps ([StepModel]):
             precondition_steps ([StepModel]):
             postcondition_steps ([StepModel]):
             duration (int):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            tags ([TagModel]):
+            tags ([TagPutModel]):
             links ([LinkModel]):
             name (str):
 
@@ -296,7 +291,6 @@ class WorkItemModel(ModelNormal):
         self.section_id = section_id
         self.state = state
         self.priority = priority
-        self.source_type = source_type
         self.steps = steps
         self.precondition_steps = precondition_steps
         self.postcondition_steps = postcondition_steps
@@ -325,7 +319,7 @@ class WorkItemModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, id, section_id, state, priority, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
@@ -343,13 +337,12 @@ class WorkItemModel(ModelNormal):
             section_id (str):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
             steps ([StepModel]):
             precondition_steps ([StepModel]):
             postcondition_steps ([StepModel]):
             duration (int):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            tags ([TagModel]):
+            tags ([TagPutModel]):
             links ([LinkModel]):
             name (str):
 
@@ -435,7 +428,6 @@ class WorkItemModel(ModelNormal):
         self.section_id = section_id
         self.state = state
         self.priority = priority
-        self.source_type = source_type
         self.steps = steps
         self.precondition_steps = precondition_steps
         self.postcondition_steps = postcondition_steps

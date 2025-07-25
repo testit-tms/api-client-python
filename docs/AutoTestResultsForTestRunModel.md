@@ -6,10 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **configuration_id** | **str** | Specifies the GUID of the autotest configuration, which was specified when the test run was created. | 
 **auto_test_external_id** | **str** | Specifies the external ID of the autotest, which was specified when the test run was created. | 
+**outcome** | [**AvailableTestResultOutcome**](AvailableTestResultOutcome.md) |  | 
 **links** | [**[LinkPostModel], none_type**](LinkPostModel.md) | Specifies the links in the autotest. | [optional] 
 **failure_reason_names** | [**[FailureCategoryModel], none_type**](FailureCategoryModel.md) | Specifies the cause of autotest failure. | [optional] 
-**outcome** | [**AvailableTestResultOutcome**](AvailableTestResultOutcome.md) |  | [optional] 
-**status_code** | **str, none_type** | Specifies the result of the autotest execution. | [optional] 
 **message** | **str, none_type** | A comment for the result. | [optional] 
 **traces** | **str, none_type** | An extended comment or a stack trace. | [optional] 
 **started_on** | **datetime, none_type** | Test run start date. | [optional] 

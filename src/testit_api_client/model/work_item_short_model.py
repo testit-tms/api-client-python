@@ -33,12 +33,10 @@ def lazy_import():
     from testit_api_client.model.iteration_model import IterationModel
     from testit_api_client.model.link_short_model import LinkShortModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     from testit_api_client.model.work_item_states import WorkItemStates
     globals()['IterationModel'] = IterationModel
     globals()['LinkShortModel'] = LinkShortModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
     globals()['WorkItemStates'] = WorkItemStates
 
 
@@ -111,7 +109,6 @@ class WorkItemShortModel(ModelNormal):
             'created_by_id': (str,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
-            'source_type': (WorkItemSourceTypeModel,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'iterations': ([IterationModel],),  # noqa: E501
             'links': ([LinkShortModel],),  # noqa: E501
@@ -143,7 +140,6 @@ class WorkItemShortModel(ModelNormal):
         'created_by_id': 'createdById',  # noqa: E501
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
-        'source_type': 'sourceType',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
         'links': 'links',  # noqa: E501
@@ -162,7 +158,7 @@ class WorkItemShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, version_id, version_number, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, source_type, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, version_id, version_number, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
@@ -180,7 +176,6 @@ class WorkItemShortModel(ModelNormal):
             created_by_id (str): Unique identifier of user who created Work Item
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
             is_deleted (bool): Flag determining whether Work Item is deleted
             iterations ([IterationModel]): Set of iterations related to Work Item
             links ([LinkShortModel]): Set of links related to Work Item
@@ -267,7 +262,6 @@ class WorkItemShortModel(ModelNormal):
         self.created_by_id = created_by_id
         self.state = state
         self.priority = priority
-        self.source_type = source_type
         self.is_deleted = is_deleted
         self.iterations = iterations
         self.links = links
@@ -291,7 +285,7 @@ class WorkItemShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, version_id, version_number, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, source_type, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, version_id, version_number, name, entity_type_name, project_id, section_id, section_name, is_automated, global_id, duration, created_by_id, state, priority, is_deleted, iterations, links, *args, **kwargs):  # noqa: E501
         """WorkItemShortModel - a model defined in OpenAPI
 
         Args:
@@ -309,7 +303,6 @@ class WorkItemShortModel(ModelNormal):
             created_by_id (str): Unique identifier of user who created Work Item
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
             is_deleted (bool): Flag determining whether Work Item is deleted
             iterations ([IterationModel]): Set of iterations related to Work Item
             links ([LinkShortModel]): Set of links related to Work Item
@@ -394,7 +387,6 @@ class WorkItemShortModel(ModelNormal):
         self.created_by_id = created_by_id
         self.state = state
         self.priority = priority
-        self.source_type = source_type
         self.is_deleted = is_deleted
         self.iterations = iterations
         self.links = links

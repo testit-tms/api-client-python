@@ -21,14 +21,13 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_parameters_search_groups_post_request import ApiV2ParametersSearchGroupsPostRequest
 from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
-from testit_api_client.model.create_parameter_api_model import CreateParameterApiModel
 from testit_api_client.model.create_parameter_request import CreateParameterRequest
-from testit_api_client.model.parameter_api_result import ParameterApiResult
-from testit_api_client.model.parameter_group_api_result import ParameterGroupApiResult
+from testit_api_client.model.parameter_group_model import ParameterGroupModel
+from testit_api_client.model.parameter_model import ParameterModel
+from testit_api_client.model.parameter_post_model import ParameterPostModel
+from testit_api_client.model.parameter_put_model import ParameterPutModel
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.update_parameter_api_model import UpdateParameterApiModel
 from testit_api_client.model.update_parameter_request import UpdateParameterRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -46,7 +45,7 @@ class ParametersApi(object):
         self.api_client = api_client
         self.api_v2_parameters_bulk_post_endpoint = _Endpoint(
             settings={
-                'response_type': ([ParameterApiResult],),
+                'response_type': ([ParameterModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -57,7 +56,7 @@ class ParametersApi(object):
             },
             params_map={
                 'all': [
-                    'create_parameter_api_model',
+                    'parameter_post_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -73,13 +72,13 @@ class ParametersApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'create_parameter_api_model':
-                        ([CreateParameterApiModel],),
+                    'parameter_post_model':
+                        ([ParameterPostModel],),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'create_parameter_api_model': 'body',
+                    'parameter_post_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -107,7 +106,7 @@ class ParametersApi(object):
             },
             params_map={
                 'all': [
-                    'update_parameter_api_model',
+                    'parameter_put_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -123,13 +122,13 @@ class ParametersApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'update_parameter_api_model':
-                        ([UpdateParameterApiModel],),
+                    'parameter_put_model':
+                        ([ParameterPutModel],),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'update_parameter_api_model': 'body',
+                    'parameter_put_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -146,7 +145,7 @@ class ParametersApi(object):
         )
         self.api_v2_parameters_groups_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([ParameterGroupApiResult],),
+                'response_type': ([ParameterGroupModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -157,10 +156,8 @@ class ParametersApi(object):
             },
             params_map={
                 'all': [
-                    'parameter_key_ids',
-                    'name',
                     'is_deleted',
-                    'project_ids',
+                    'parameter_key_ids',
                     'skip',
                     'take',
                     'order_by',
@@ -185,13 +182,9 @@ class ParametersApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'parameter_key_ids':
-                        ([str],),
-                    'name':
-                        (str,),
                     'is_deleted':
                         (bool,),
-                    'project_ids':
+                    'parameter_key_ids':
                         ([str],),
                     'skip':
                         (int,),
@@ -205,10 +198,8 @@ class ParametersApi(object):
                         (str,),
                 },
                 'attribute_map': {
-                    'parameter_key_ids': 'parameterKeyIds',
-                    'name': 'name',
                     'is_deleted': 'isDeleted',
-                    'project_ids': 'projectIds',
+                    'parameter_key_ids': 'parameterKeyIds',
                     'skip': 'Skip',
                     'take': 'Take',
                     'order_by': 'OrderBy',
@@ -216,10 +207,8 @@ class ParametersApi(object):
                     'search_value': 'SearchValue',
                 },
                 'location_map': {
-                    'parameter_key_ids': 'query',
-                    'name': 'query',
                     'is_deleted': 'query',
-                    'project_ids': 'query',
+                    'parameter_key_ids': 'query',
                     'skip': 'query',
                     'take': 'query',
                     'order_by': 'query',
@@ -228,7 +217,6 @@ class ParametersApi(object):
                 },
                 'collection_format_map': {
                     'parameter_key_ids': 'multi',
-                    'project_ids': 'multi',
                 }
             },
             headers_map={
@@ -354,7 +342,6 @@ class ParametersApi(object):
             },
             params_map={
                 'all': [
-                    'project_ids',
                 ],
                 'required': [],
                 'nullable': [
@@ -370,17 +357,12 @@ class ParametersApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'project_ids':
-                        ([str],),
                 },
                 'attribute_map': {
-                    'project_ids': 'projectIds',
                 },
                 'location_map': {
-                    'project_ids': 'query',
                 },
                 'collection_format_map': {
-                    'project_ids': 'multi',
                 }
             },
             headers_map={
@@ -393,7 +375,7 @@ class ParametersApi(object):
         )
         self.api_v2_parameters_search_groups_post_endpoint = _Endpoint(
             settings={
-                'response_type': ([ParameterGroupApiResult],),
+                'response_type': ([ParameterGroupModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -409,7 +391,7 @@ class ParametersApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'api_v2_parameters_search_groups_post_request',
+                    'api_v2_parameters_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -435,8 +417,8 @@ class ParametersApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'api_v2_parameters_search_groups_post_request':
-                        (ApiV2ParametersSearchGroupsPostRequest,),
+                    'api_v2_parameters_search_post_request':
+                        (ApiV2ParametersSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -451,7 +433,7 @@ class ParametersApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'api_v2_parameters_search_groups_post_request': 'body',
+                    'api_v2_parameters_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -468,7 +450,7 @@ class ParametersApi(object):
         )
         self.api_v2_parameters_search_post_endpoint = _Endpoint(
             settings={
-                'response_type': ([ParameterApiResult],),
+                'response_type': ([ParameterModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -543,7 +525,7 @@ class ParametersApi(object):
         )
         self.create_parameter_endpoint = _Endpoint(
             settings={
-                'response_type': (ParameterApiResult,),
+                'response_type': (ParameterModel,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -751,7 +733,7 @@ class ParametersApi(object):
         )
         self.get_all_parameters_endpoint = _Endpoint(
             settings={
-                'response_type': ([ParameterApiResult],),
+                'response_type': ([ParameterModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -825,7 +807,7 @@ class ParametersApi(object):
         )
         self.get_parameter_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (ParameterApiResult,),
+                'response_type': (ParameterModel,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -931,7 +913,7 @@ class ParametersApi(object):
     ):
         """Create multiple parameters  # noqa: E501
 
-         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)  # noqa: E501
+         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -940,7 +922,7 @@ class ParametersApi(object):
 
 
         Keyword Args:
-            create_parameter_api_model ([CreateParameterApiModel]): [optional]
+            parameter_post_model ([ParameterPostModel]): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -973,7 +955,7 @@ class ParametersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [ParameterApiResult]
+            [ParameterModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1010,7 +992,7 @@ class ParametersApi(object):
     ):
         """Update multiple parameters  # noqa: E501
 
-         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters  # noqa: E501
+         Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1019,7 +1001,7 @@ class ParametersApi(object):
 
 
         Keyword Args:
-            update_parameter_api_model ([UpdateParameterApiModel]): [optional]
+            parameter_put_model ([ParameterPutModel]): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1089,7 +1071,7 @@ class ParametersApi(object):
     ):
         """Get parameters as group  # noqa: E501
 
-         Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1098,10 +1080,8 @@ class ParametersApi(object):
 
 
         Keyword Args:
-            parameter_key_ids ([str]): [optional]
-            name (str): [optional]
             is_deleted (bool): [optional]
-            project_ids ([str]): [optional]
+            parameter_key_ids ([str]): [optional]
             skip (int): Amount of items to be skipped (offset). [optional]
             take (int): Amount of items to be taken (limit). [optional]
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
@@ -1139,7 +1119,7 @@ class ParametersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [ParameterGroupApiResult]
+            [ParameterGroupModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1177,7 +1157,7 @@ class ParametersApi(object):
     ):
         """Check existence parameter key in system  # noqa: E501
 
-         Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system  # noqa: E501
+         Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1260,7 +1240,7 @@ class ParametersApi(object):
     ):
         """Get all parameter key values  # noqa: E501
 
-         Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter  # noqa: E501
+         Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1342,7 +1322,7 @@ class ParametersApi(object):
     ):
         """Get all parameter keys  # noqa: E501
 
-         Use case  User runs method execution  System search all parameter keys  System returns parameter keys  # noqa: E501
+         Use case   User runs method execution   System search all parameter keys   System returns parameter keys  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1351,7 +1331,6 @@ class ParametersApi(object):
 
 
         Keyword Args:
-            project_ids ([str]): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1434,7 +1413,7 @@ class ParametersApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            api_v2_parameters_search_groups_post_request (ApiV2ParametersSearchGroupsPostRequest): [optional]
+            api_v2_parameters_search_post_request (ApiV2ParametersSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1467,7 +1446,7 @@ class ParametersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [ParameterGroupApiResult]
+            [ParameterGroupModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1550,7 +1529,7 @@ class ParametersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [ParameterApiResult]
+            [ParameterModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1587,7 +1566,7 @@ class ParametersApi(object):
     ):
         """Create parameter  # noqa: E501
 
-         Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model  # noqa: E501
+         Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1629,7 +1608,7 @@ class ParametersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ParameterApiResult
+            ParameterModel
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1833,7 +1812,7 @@ class ParametersApi(object):
     ):
         """Delete parameter  # noqa: E501
 
-         Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter  # noqa: E501
+         Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1915,7 +1894,7 @@ class ParametersApi(object):
     ):
         """Get all parameters  # noqa: E501
 
-         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)  # noqa: E501
+         Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1962,7 +1941,7 @@ class ParametersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [ParameterApiResult]
+            [ParameterModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2000,7 +1979,7 @@ class ParametersApi(object):
     ):
         """Get parameter by ID  # noqa: E501
 
-         Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter  # noqa: E501
+         Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2043,7 +2022,7 @@ class ParametersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ParameterApiResult
+            ParameterModel
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2082,7 +2061,7 @@ class ParametersApi(object):
     ):
         """Update parameter  # noqa: E501
 
-         Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response  # noqa: E501
+         Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

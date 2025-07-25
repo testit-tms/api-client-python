@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **modified_by_id** | **str, none_type** |  | [optional] 
 **locked_date** | **datetime, none_type** |  | [optional] 
 **locked_by_id** | **str, none_type** |  | [optional] 
-**tags** | [**[TagModel], none_type**](TagModel.md) |  | [optional] 
+**tags** | [**[TagPostModel], none_type**](TagPostModel.md) |  | [optional] 
 **start_date** | **datetime, none_type** | Used for analytics | [optional] 
 **end_date** | **datetime, none_type** | Used for analytics | [optional] 
 **description** | **str, none_type** |  | [optional] 

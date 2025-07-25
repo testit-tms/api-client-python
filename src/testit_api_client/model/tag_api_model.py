@@ -59,7 +59,7 @@ class TagApiModel(ModelNormal):
 
     validations = {
         ('name',): {
-            'max_length': 255,
+            'max_length': 30,
             'min_length': 0,
         },
     }

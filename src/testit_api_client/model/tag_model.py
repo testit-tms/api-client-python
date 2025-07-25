@@ -59,8 +59,7 @@ class TagModel(ModelNormal):
 
     validations = {
         ('name',): {
-            'max_length': 255,
-            'min_length': 0,
+            'min_length': 1,
         },
     }
 
@@ -79,7 +78,12 @@ class TagModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -88,7 +92,12 @@ class TagModel(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
     }
 
     read_only_vars = {
@@ -98,11 +107,14 @@ class TagModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, created_date, created_by_id, *args, **kwargs):  # noqa: E501
         """TagModel - a model defined in OpenAPI
 
         Args:
+            id (str):
             name (str):
+            created_date (datetime):
+            created_by_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -135,6 +147,8 @@ class TagModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            modified_date (datetime, none_type): [optional]  # noqa: E501
+            modified_by_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -166,7 +180,10 @@ class TagModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.name = name
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -187,11 +204,14 @@ class TagModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, created_date, created_by_id, *args, **kwargs):  # noqa: E501
         """TagModel - a model defined in OpenAPI
 
         Args:
+            id (str):
             name (str):
+            created_date (datetime):
+            created_by_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,6 +244,8 @@ class TagModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            modified_date (datetime, none_type): [optional]  # noqa: E501
+            modified_by_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,7 +275,10 @@ class TagModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.name = name
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

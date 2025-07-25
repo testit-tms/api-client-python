@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_status_api_type import TestStatusApiType
-    globals()['TestStatusApiType'] = TestStatusApiType
+    from testit_api_client.model.test_status_type import TestStatusType
+    globals()['TestStatusType'] = TestStatusType
 
 
 class TestStatusApiResult(ModelNormal):
@@ -82,7 +82,7 @@ class TestStatusApiResult(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'type': (TestStatusApiType,),  # noqa: E501
+            'type': (TestStatusType,),  # noqa: E501
             'is_system': (bool,),  # noqa: E501
             'code': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -115,7 +115,7 @@ class TestStatusApiResult(ModelNormal):
         Args:
             id (str):
             name (str):
-            type (TestStatusApiType):
+            type (TestStatusType):
             is_system (bool):
             code (str):
 
@@ -213,7 +213,7 @@ class TestStatusApiResult(ModelNormal):
         Args:
             id (str):
             name (str):
-            type (TestStatusApiType):
+            type (TestStatusType):
             is_system (bool):
             code (str):
 

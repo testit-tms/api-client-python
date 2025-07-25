@@ -30,9 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.tag_api_model import TagApiModel
+    from testit_api_client.model.tag_post_model import TagPostModel
     from testit_api_client.model.test_suite_test_plan_api_model import TestSuiteTestPlanApiModel
-    globals()['TagApiModel'] = TagApiModel
+    globals()['TagPostModel'] = TagPostModel
     globals()['TestSuiteTestPlanApiModel'] = TestSuiteTestPlanApiModel
 
 
@@ -101,7 +101,7 @@ class CreateTestPlanApiModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'tags': ([TagApiModel], none_type,),  # noqa: E501
+            'tags': ([TagPostModel], none_type,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
             'end_date': (datetime, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -176,7 +176,7 @@ class CreateTestPlanApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tags ([TagApiModel], none_type): Test plan tag names collection. [optional]  # noqa: E501
+            tags ([TagPostModel], none_type): Test plan tag names collection. [optional]  # noqa: E501
             start_date (datetime, none_type): Date and time of test plan start. [optional]  # noqa: E501
             end_date (datetime, none_type): Date and time of test plan end. [optional]  # noqa: E501
             description (str, none_type): Test plan description. [optional]  # noqa: E501
@@ -277,7 +277,7 @@ class CreateTestPlanApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tags ([TagApiModel], none_type): Test plan tag names collection. [optional]  # noqa: E501
+            tags ([TagPostModel], none_type): Test plan tag names collection. [optional]  # noqa: E501
             start_date (datetime, none_type): Date and time of test plan start. [optional]  # noqa: E501
             end_date (datetime, none_type): Date and time of test plan end. [optional]  # noqa: E501
             description (str, none_type): Test plan description. [optional]  # noqa: E501

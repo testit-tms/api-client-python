@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **status** | [**TestPointStatus**](TestPointStatus.md) |  | 
 **status_model** | [**TestPointShortResponseModelStatusModel**](TestPointShortResponseModelStatusModel.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **is_automated** | **bool** | Indicates if the test point represents an autotest | 
 **name** | **str** | Name of the test point | 
 **configuration_id** | **str** | Unique ID of the test point configuration | 

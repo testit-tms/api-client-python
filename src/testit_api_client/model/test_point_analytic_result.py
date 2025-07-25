@@ -31,17 +31,13 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.test_plan_group_by_status import TestPlanGroupByStatus
-    from testit_api_client.model.test_plan_group_by_status_code import TestPlanGroupByStatusCode
     from testit_api_client.model.test_plan_group_by_test_suite import TestPlanGroupByTestSuite
     from testit_api_client.model.test_plan_group_by_tester import TestPlanGroupByTester
     from testit_api_client.model.test_plan_group_by_tester_and_status import TestPlanGroupByTesterAndStatus
-    from testit_api_client.model.test_plan_group_by_tester_and_status_code import TestPlanGroupByTesterAndStatusCode
     globals()['TestPlanGroupByStatus'] = TestPlanGroupByStatus
-    globals()['TestPlanGroupByStatusCode'] = TestPlanGroupByStatusCode
     globals()['TestPlanGroupByTestSuite'] = TestPlanGroupByTestSuite
     globals()['TestPlanGroupByTester'] = TestPlanGroupByTester
     globals()['TestPlanGroupByTesterAndStatus'] = TestPlanGroupByTesterAndStatus
-    globals()['TestPlanGroupByTesterAndStatusCode'] = TestPlanGroupByTesterAndStatusCode
 
 
 class TestPointAnalyticResult(ModelNormal):
@@ -95,8 +91,6 @@ class TestPointAnalyticResult(ModelNormal):
             'count_group_by_tester': ([TestPlanGroupByTester],),  # noqa: E501
             'count_group_by_test_suite': ([TestPlanGroupByTestSuite],),  # noqa: E501
             'count_group_by_tester_and_status': ([TestPlanGroupByTesterAndStatus],),  # noqa: E501
-            'count_group_by_status_code': ([TestPlanGroupByStatusCode],),  # noqa: E501
-            'count_group_by_tester_and_status_code': ([TestPlanGroupByTesterAndStatusCode],),  # noqa: E501
         }
 
     @cached_property
@@ -110,8 +104,6 @@ class TestPointAnalyticResult(ModelNormal):
         'count_group_by_tester': 'countGroupByTester',  # noqa: E501
         'count_group_by_test_suite': 'countGroupByTestSuite',  # noqa: E501
         'count_group_by_tester_and_status': 'countGroupByTesterAndStatus',  # noqa: E501
-        'count_group_by_status_code': 'countGroupByStatusCode',  # noqa: E501
-        'count_group_by_tester_and_status_code': 'countGroupByTesterAndStatusCode',  # noqa: E501
     }
 
     read_only_vars = {
@@ -121,7 +113,7 @@ class TestPointAnalyticResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, count_group_by_status, sum_group_by_tester, count_group_by_tester, count_group_by_test_suite, count_group_by_tester_and_status, count_group_by_status_code, count_group_by_tester_and_status_code, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, count_group_by_status, sum_group_by_tester, count_group_by_tester, count_group_by_test_suite, count_group_by_tester_and_status, *args, **kwargs):  # noqa: E501
         """TestPointAnalyticResult - a model defined in OpenAPI
 
         Args:
@@ -130,8 +122,6 @@ class TestPointAnalyticResult(ModelNormal):
             count_group_by_tester ([TestPlanGroupByTester]):
             count_group_by_test_suite ([TestPlanGroupByTestSuite]):
             count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]):
-            count_group_by_status_code ([TestPlanGroupByStatusCode]):
-            count_group_by_tester_and_status_code ([TestPlanGroupByTesterAndStatusCode]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,8 +190,6 @@ class TestPointAnalyticResult(ModelNormal):
         self.count_group_by_tester = count_group_by_tester
         self.count_group_by_test_suite = count_group_by_test_suite
         self.count_group_by_tester_and_status = count_group_by_tester_and_status
-        self.count_group_by_status_code = count_group_by_status_code
-        self.count_group_by_tester_and_status_code = count_group_by_tester_and_status_code
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -222,7 +210,7 @@ class TestPointAnalyticResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, count_group_by_status, sum_group_by_tester, count_group_by_tester, count_group_by_test_suite, count_group_by_tester_and_status, count_group_by_status_code, count_group_by_tester_and_status_code, *args, **kwargs):  # noqa: E501
+    def __init__(self, count_group_by_status, sum_group_by_tester, count_group_by_tester, count_group_by_test_suite, count_group_by_tester_and_status, *args, **kwargs):  # noqa: E501
         """TestPointAnalyticResult - a model defined in OpenAPI
 
         Args:
@@ -231,8 +219,6 @@ class TestPointAnalyticResult(ModelNormal):
             count_group_by_tester ([TestPlanGroupByTester]):
             count_group_by_test_suite ([TestPlanGroupByTestSuite]):
             count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]):
-            count_group_by_status_code ([TestPlanGroupByStatusCode]):
-            count_group_by_tester_and_status_code ([TestPlanGroupByTesterAndStatusCode]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -299,8 +285,6 @@ class TestPointAnalyticResult(ModelNormal):
         self.count_group_by_tester = count_group_by_tester
         self.count_group_by_test_suite = count_group_by_test_suite
         self.count_group_by_tester_and_status = count_group_by_tester_and_status
-        self.count_group_by_status_code = count_group_by_status_code
-        self.count_group_by_tester_and_status_code = count_group_by_tester_and_status_code
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

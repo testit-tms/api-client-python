@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.update_parameter_api_model import UpdateParameterApiModel
-    globals()['UpdateParameterApiModel'] = UpdateParameterApiModel
+    from testit_api_client.model.parameter_put_model import ParameterPutModel
+    globals()['ParameterPutModel'] = ParameterPutModel
 
 
 class UpdateParameterRequest(ModelComposed):
@@ -62,12 +62,12 @@ class UpdateParameterRequest(ModelComposed):
     }
 
     validations = {
-        ('name',): {
-            'max_length': 255,
-            'min_length': 0,
-        },
         ('value',): {
             'max_length': 1500,
+            'min_length': 0,
+        },
+        ('name',): {
+            'max_length': 255,
             'min_length': 0,
         },
     }
@@ -96,9 +96,8 @@ class UpdateParameterRequest(ModelComposed):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
-            'project_ids': ([str], none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -108,9 +107,8 @@ class UpdateParameterRequest(ModelComposed):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'value': 'value',  # noqa: E501
-        'project_ids': 'projectIds',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -122,9 +120,9 @@ class UpdateParameterRequest(ModelComposed):
         """UpdateParameterRequest - a model defined in OpenAPI
 
         Keyword Args:
-            id (str): ID's of the parameter
-            name (str): Key of the parameter
+            id (str):
             value (str): Value of the parameter
+            name (str): Key of the parameter
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -155,7 +153,6 @@ class UpdateParameterRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_ids ([str], none_type): List of projects where parameter should be available. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,9 +226,9 @@ class UpdateParameterRequest(ModelComposed):
         """UpdateParameterRequest - a model defined in OpenAPI
 
         Keyword Args:
-            id (str): ID's of the parameter
-            name (str): Key of the parameter
+            id (str):
             value (str): Value of the parameter
+            name (str): Key of the parameter
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -262,7 +259,6 @@ class UpdateParameterRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_ids ([str], none_type): List of projects where parameter should be available. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -332,7 +328,7 @@ class UpdateParameterRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              UpdateParameterApiModel,
+              ParameterPutModel,
           ],
           'oneOf': [
           ],

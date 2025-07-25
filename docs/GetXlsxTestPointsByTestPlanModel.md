@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **include_name** | **bool** |  | 
 **include_section** | **bool** |  | 
 **include_priority** | **bool** |  | 
-**include_source_type** | **bool** |  | 
 **include_automated** | **bool** |  | 
 **include_status** | **bool** |  | 
 **include_duration** | **bool** |  | 

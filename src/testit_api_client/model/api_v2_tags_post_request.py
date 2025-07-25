@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.create_tag_api_model import CreateTagApiModel
-    globals()['CreateTagApiModel'] = CreateTagApiModel
+    from testit_api_client.model.tag_post_model import TagPostModel
+    globals()['TagPostModel'] = TagPostModel
 
 
 class ApiV2TagsPostRequest(ModelComposed):
@@ -63,7 +63,7 @@ class ApiV2TagsPostRequest(ModelComposed):
 
     validations = {
         ('name',): {
-            'max_length': 255,
+            'max_length': 30,
             'min_length': 0,
         },
     }
@@ -112,7 +112,7 @@ class ApiV2TagsPostRequest(ModelComposed):
         """ApiV2TagsPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            name (str): Name of the tag
+            name (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -216,7 +216,7 @@ class ApiV2TagsPostRequest(ModelComposed):
         """ApiV2TagsPostRequest - a model defined in OpenAPI
 
         Keyword Args:
-            name (str): Name of the tag
+            name (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -316,7 +316,7 @@ class ApiV2TagsPostRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CreateTagApiModel,
+              TagPostModel,
           ],
           'oneOf': [
           ],

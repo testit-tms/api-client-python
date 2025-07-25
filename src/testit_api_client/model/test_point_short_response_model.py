@@ -34,13 +34,11 @@ def lazy_import():
     from testit_api_client.model.test_point_short_response_model_status_model import TestPointShortResponseModelStatusModel
     from testit_api_client.model.test_point_status import TestPointStatus
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     from testit_api_client.model.work_item_state import WorkItemState
     globals()['TestPointShortResponseModelLastTestResult'] = TestPointShortResponseModelLastTestResult
     globals()['TestPointShortResponseModelStatusModel'] = TestPointShortResponseModelStatusModel
     globals()['TestPointStatus'] = TestPointStatus
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
     globals()['WorkItemState'] = WorkItemState
 
 
@@ -105,7 +103,6 @@ class TestPointShortResponseModel(ModelNormal):
             'status': (TestPointStatus,),  # noqa: E501
             'status_model': (TestPointShortResponseModelStatusModel,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
-            'source_type': (WorkItemSourceTypeModel,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
@@ -148,7 +145,6 @@ class TestPointShortResponseModel(ModelNormal):
         'status': 'status',  # noqa: E501
         'status_model': 'statusModel',  # noqa: E501
         'priority': 'priority',  # noqa: E501
-        'source_type': 'sourceType',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'name': 'name',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
@@ -177,7 +173,7 @@ class TestPointShortResponseModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, created_date, created_by_id, attributes, tags, links, test_suite_id, test_suite_name, work_item_id, work_item_global_id, work_item_version_id, work_item_version_number, status, status_model, priority, source_type, is_automated, name, configuration_id, duration, section_id, project_id, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, created_date, created_by_id, attributes, tags, links, test_suite_id, test_suite_name, work_item_id, work_item_global_id, work_item_version_id, work_item_version_number, status, status_model, priority, is_automated, name, configuration_id, duration, section_id, project_id, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
         """TestPointShortResponseModel - a model defined in OpenAPI
 
         Args:
@@ -196,7 +192,6 @@ class TestPointShortResponseModel(ModelNormal):
             status (TestPointStatus):
             status_model (TestPointShortResponseModelStatusModel):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
             is_automated (bool): Indicates if the test point represents an autotest
             name (str): Name of the test point
             configuration_id (str): Unique ID of the test point configuration
@@ -294,7 +289,6 @@ class TestPointShortResponseModel(ModelNormal):
         self.status = status
         self.status_model = status_model
         self.priority = priority
-        self.source_type = source_type
         self.is_automated = is_automated
         self.name = name
         self.configuration_id = configuration_id
@@ -325,7 +319,7 @@ class TestPointShortResponseModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, created_date, created_by_id, attributes, tags, links, test_suite_id, test_suite_name, work_item_id, work_item_global_id, work_item_version_id, work_item_version_number, status, status_model, priority, source_type, is_automated, name, configuration_id, duration, section_id, project_id, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, created_date, created_by_id, attributes, tags, links, test_suite_id, test_suite_name, work_item_id, work_item_global_id, work_item_version_id, work_item_version_number, status, status_model, priority, is_automated, name, configuration_id, duration, section_id, project_id, iteration_id, work_item_state, work_item_created_by_id, work_item_created_date, *args, **kwargs):  # noqa: E501
         """TestPointShortResponseModel - a model defined in OpenAPI
 
         Args:
@@ -344,7 +338,6 @@ class TestPointShortResponseModel(ModelNormal):
             status (TestPointStatus):
             status_model (TestPointShortResponseModelStatusModel):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
             is_automated (bool): Indicates if the test point represents an autotest
             name (str): Name of the test point
             configuration_id (str): Unique ID of the test point configuration
@@ -440,7 +433,6 @@ class TestPointShortResponseModel(ModelNormal):
         self.status = status
         self.status_model = status_model
         self.priority = priority
-        self.source_type = source_type
         self.is_automated = is_automated
         self.name = name
         self.configuration_id = configuration_id

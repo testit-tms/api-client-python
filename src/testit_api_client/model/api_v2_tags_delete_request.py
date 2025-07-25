@@ -30,12 +30,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.select_tags_api_model import SelectTagsApiModel
-    from testit_api_client.model.select_tags_api_model_extraction_model import SelectTagsApiModelExtractionModel
-    from testit_api_client.model.select_tags_api_model_filter import SelectTagsApiModelFilter
-    globals()['SelectTagsApiModel'] = SelectTagsApiModel
-    globals()['SelectTagsApiModelExtractionModel'] = SelectTagsApiModelExtractionModel
-    globals()['SelectTagsApiModelFilter'] = SelectTagsApiModelFilter
+    from testit_api_client.model.tag_extraction_model import TagExtractionModel
+    from testit_api_client.model.tag_select_model import TagSelectModel
+    from testit_api_client.model.tags_filter_model import TagsFilterModel
+    globals()['TagExtractionModel'] = TagExtractionModel
+    globals()['TagSelectModel'] = TagSelectModel
+    globals()['TagsFilterModel'] = TagsFilterModel
 
 
 class ApiV2TagsDeleteRequest(ModelComposed):
@@ -91,8 +91,8 @@ class ApiV2TagsDeleteRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'filter': (SelectTagsApiModelFilter,),  # noqa: E501
-            'extraction_model': (SelectTagsApiModelExtractionModel,),  # noqa: E501
+            'filter': (TagsFilterModel,),  # noqa: E501
+            'extraction_model': (TagExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class ApiV2TagsDeleteRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (SelectTagsApiModelFilter): [optional]  # noqa: E501
-            extraction_model (SelectTagsApiModelExtractionModel): [optional]  # noqa: E501
+            filter (TagsFilterModel): [optional]  # noqa: E501
+            extraction_model (TagExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -249,8 +249,8 @@ class ApiV2TagsDeleteRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (SelectTagsApiModelFilter): [optional]  # noqa: E501
-            extraction_model (SelectTagsApiModelExtractionModel): [optional]  # noqa: E501
+            filter (TagsFilterModel): [optional]  # noqa: E501
+            extraction_model (TagExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -320,7 +320,7 @@ class ApiV2TagsDeleteRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              SelectTagsApiModel,
+              TagSelectModel,
           ],
           'oneOf': [
           ],

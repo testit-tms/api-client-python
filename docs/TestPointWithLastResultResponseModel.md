@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **created_by_id** | **str** |  | 
 **duration** | **int** |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **work_item_name** | **str, none_type** |  | [optional] 
 **tester_id** | **str, none_type** |  | [optional] 
 **configuration_id** | **str, none_type** |  | [optional] 

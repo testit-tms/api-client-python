@@ -158,7 +158,7 @@ class ApiV2CustomAttributesGlobalPostRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             is_enabled (bool, none_type): Indicates whether the attribute is available. [optional]  # noqa: E501
             is_required (bool, none_type): Indicates whether the attribute value is mandatory to specify. [optional]  # noqa: E501
-            options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options   Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
+            options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options     Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,7 +266,7 @@ class ApiV2CustomAttributesGlobalPostRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             is_enabled (bool, none_type): Indicates whether the attribute is available. [optional]  # noqa: E501
             is_required (bool, none_type): Indicates whether the attribute value is mandatory to specify. [optional]  # noqa: E501
-            options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options   Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
+            options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options     Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

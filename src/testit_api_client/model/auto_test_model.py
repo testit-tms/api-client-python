@@ -31,12 +31,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.auto_test_model_last_test_result_configuration import AutoTestModelLastTestResultConfiguration
-    from testit_api_client.model.auto_test_model_last_test_result_status import AutoTestModelLastTestResultStatus
     from testit_api_client.model.auto_test_step_model import AutoTestStepModel
     from testit_api_client.model.label_short_model import LabelShortModel
     from testit_api_client.model.link_put_model import LinkPutModel
     globals()['AutoTestModelLastTestResultConfiguration'] = AutoTestModelLastTestResultConfiguration
-    globals()['AutoTestModelLastTestResultStatus'] = AutoTestModelLastTestResultStatus
     globals()['AutoTestStepModel'] = AutoTestStepModel
     globals()['LabelShortModel'] = LabelShortModel
     globals()['LinkPutModel'] = LinkPutModel
@@ -110,7 +108,6 @@ class AutoTestModel(ModelNormal):
             'last_test_result_id': (str, none_type,),  # noqa: E501
             'last_test_result_configuration': (AutoTestModelLastTestResultConfiguration,),  # noqa: E501
             'last_test_result_outcome': (str, none_type,),  # noqa: E501
-            'last_test_result_status': (AutoTestModelLastTestResultStatus,),  # noqa: E501
             'stability_percentage': (int, none_type,),  # noqa: E501
             'links': ([LinkPutModel], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
@@ -147,7 +144,6 @@ class AutoTestModel(ModelNormal):
         'last_test_result_id': 'lastTestResultId',  # noqa: E501
         'last_test_result_configuration': 'lastTestResultConfiguration',  # noqa: E501
         'last_test_result_outcome': 'lastTestResultOutcome',  # noqa: E501
-        'last_test_result_status': 'lastTestResultStatus',  # noqa: E501
         'stability_percentage': 'stabilityPercentage',  # noqa: E501
         'links': 'links',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
@@ -221,7 +217,6 @@ class AutoTestModel(ModelNormal):
             last_test_result_id (str, none_type): Unique ID of the autotest last test result. [optional]  # noqa: E501
             last_test_result_configuration (AutoTestModelLastTestResultConfiguration): [optional]  # noqa: E501
             last_test_result_outcome (str, none_type): Outcome of the autotest last test result. [optional]  # noqa: E501
-            last_test_result_status (AutoTestModelLastTestResultStatus): [optional]  # noqa: E501
             stability_percentage (int, none_type): Stability percentage of the autotest. [optional]  # noqa: E501
             links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
@@ -346,7 +341,6 @@ class AutoTestModel(ModelNormal):
             last_test_result_id (str, none_type): Unique ID of the autotest last test result. [optional]  # noqa: E501
             last_test_result_configuration (AutoTestModelLastTestResultConfiguration): [optional]  # noqa: E501
             last_test_result_outcome (str, none_type): Outcome of the autotest last test result. [optional]  # noqa: E501
-            last_test_result_status (AutoTestModelLastTestResultStatus): [optional]  # noqa: E501
             stability_percentage (int, none_type): Stability percentage of the autotest. [optional]  # noqa: E501
             links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501

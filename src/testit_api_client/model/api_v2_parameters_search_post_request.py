@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.parameters_filter_api_model import ParametersFilterApiModel
-    globals()['ParametersFilterApiModel'] = ParametersFilterApiModel
+    from testit_api_client.model.parameter_filter_model import ParameterFilterModel
+    globals()['ParameterFilterModel'] = ParameterFilterModel
 
 
 class ApiV2ParametersSearchPostRequest(ModelComposed):
@@ -87,9 +87,8 @@ class ApiV2ParametersSearchPostRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'name': (str, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
-            'project_ids': ([str], none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -98,9 +97,8 @@ class ApiV2ParametersSearchPostRequest(ModelComposed):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
-        'project_ids': 'projectIds',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,9 +140,8 @@ class ApiV2ParametersSearchPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool, none_type): [optional]  # noqa: E501
-            project_ids ([str], none_type): [optional]  # noqa: E501
+            is_deleted (bool, none_type): Specifies a parameter deleted status to search for. [optional]  # noqa: E501
+            name (str, none_type): Specifies a parameter key name to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,9 +245,8 @@ class ApiV2ParametersSearchPostRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
-            is_deleted (bool, none_type): [optional]  # noqa: E501
-            project_ids ([str], none_type): [optional]  # noqa: E501
+            is_deleted (bool, none_type): Specifies a parameter deleted status to search for. [optional]  # noqa: E501
+            name (str, none_type): Specifies a parameter key name to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -320,7 +316,7 @@ class ApiV2ParametersSearchPostRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              ParametersFilterApiModel,
+              ParameterFilterModel,
           ],
           'oneOf': [
           ],

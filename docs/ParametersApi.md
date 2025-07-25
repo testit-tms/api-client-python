@@ -22,11 +22,11 @@ Method | HTTP request | Description
 
 
 # **api_v2_parameters_bulk_post**
-> [ParameterApiResult] api_v2_parameters_bulk_post()
+> [ParameterModel] api_v2_parameters_bulk_post()
 
 Create multiple parameters
 
- Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
+ Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
 
 ### Example
 
@@ -36,9 +36,9 @@ Create multiple parameters
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
+from testit_api_client.model.parameter_post_model import ParameterPostModel
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.create_parameter_api_model import CreateParameterApiModel
-from testit_api_client.model.parameter_api_result import ParameterApiResult
+from testit_api_client.model.parameter_model import ParameterModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -62,21 +62,18 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
-    create_parameter_api_model = [
-        CreateParameterApiModel(
-            name="name_example",
+    parameter_post_model = [
+        ParameterPostModel(
             value="value_example",
-            project_ids=[
-                "project_ids_example",
-            ],
+            name="name_example",
         ),
-    ] # [CreateParameterApiModel] |  (optional)
+    ] # [ParameterPostModel] |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create multiple parameters
-        api_response = api_instance.api_v2_parameters_bulk_post(create_parameter_api_model=create_parameter_api_model)
+        api_response = api_instance.api_v2_parameters_bulk_post(parameter_post_model=parameter_post_model)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_bulk_post: %s\n" % e)
@@ -87,11 +84,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_parameter_api_model** | [**[CreateParameterApiModel]**](CreateParameterApiModel.md)|  | [optional]
+ **parameter_post_model** | [**[ParameterPostModel]**](ParameterPostModel.md)|  | [optional]
 
 ### Return type
 
-[**[ParameterApiResult]**](ParameterApiResult.md)
+[**[ParameterModel]**](ParameterModel.md)
 
 ### Authorization
 
@@ -122,7 +119,7 @@ Name | Type | Description  | Notes
 
 Update multiple parameters
 
- Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
+ Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
 
 ### Example
 
@@ -133,7 +130,7 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.update_parameter_api_model import UpdateParameterApiModel
+from testit_api_client.model.parameter_put_model import ParameterPutModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -157,22 +154,19 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
-    update_parameter_api_model = [
-        UpdateParameterApiModel(
-            id="id_example",
-            name="name_example",
+    parameter_put_model = [
+        ParameterPutModel(
+            id="c84f3ad0-a50f-407d-97c1-c7e116fa30e0",
             value="value_example",
-            project_ids=[
-                "project_ids_example",
-            ],
+            name="name_example",
         ),
-    ] # [UpdateParameterApiModel] |  (optional)
+    ] # [ParameterPutModel] |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update multiple parameters
-        api_instance.api_v2_parameters_bulk_put(update_parameter_api_model=update_parameter_api_model)
+        api_instance.api_v2_parameters_bulk_put(parameter_put_model=parameter_put_model)
     except testit_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_bulk_put: %s\n" % e)
 ```
@@ -182,7 +176,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_parameter_api_model** | [**[UpdateParameterApiModel]**](UpdateParameterApiModel.md)|  | [optional]
+ **parameter_put_model** | [**[ParameterPutModel]**](ParameterPutModel.md)|  | [optional]
 
 ### Return type
 
@@ -213,11 +207,11 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_groups_get**
-> [ParameterGroupApiResult] api_v2_parameters_groups_get()
+> [ParameterGroupModel] api_v2_parameters_groups_get()
 
 Get parameters as group
 
- Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
+ Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
 
 ### Example
 
@@ -227,9 +221,9 @@ Get parameters as group
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
-from testit_api_client.model.parameter_group_api_result import ParameterGroupApiResult
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.parameter_group_model import ParameterGroupModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -252,13 +246,9 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
+    is_deleted = True # bool |  (optional)
     parameter_key_ids = [
         "parameterKeyIds_example",
-    ] # [str] |  (optional)
-    name = "name_example" # str |  (optional)
-    is_deleted = True # bool |  (optional)
-    project_ids = [
-        "projectIds_example",
     ] # [str] |  (optional)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
     take = 1 # int | Amount of items to be taken (limit) (optional)
@@ -270,7 +260,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get parameters as group
-        api_response = api_instance.api_v2_parameters_groups_get(parameter_key_ids=parameter_key_ids, name=name, is_deleted=is_deleted, project_ids=project_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+        api_response = api_instance.api_v2_parameters_groups_get(is_deleted=is_deleted, parameter_key_ids=parameter_key_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_groups_get: %s\n" % e)
@@ -281,10 +271,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parameter_key_ids** | **[str]**|  | [optional]
- **name** | **str**|  | [optional]
  **is_deleted** | **bool**|  | [optional]
- **project_ids** | **[str]**|  | [optional]
+ **parameter_key_ids** | **[str]**|  | [optional]
  **skip** | **int**| Amount of items to be skipped (offset) | [optional]
  **take** | **int**| Amount of items to be taken (limit) | [optional]
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
@@ -293,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ParameterGroupApiResult]**](ParameterGroupApiResult.md)
+[**[ParameterGroupModel]**](ParameterGroupModel.md)
 
 ### Authorization
 
@@ -324,7 +312,7 @@ Name | Type | Description  | Notes
 
 Check existence parameter key in system
 
- Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
+ Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
 
 ### Example
 
@@ -409,7 +397,7 @@ Name | Type | Description  | Notes
 
 Get all parameter key values
 
- Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
+ Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
 
 ### Example
 
@@ -494,7 +482,7 @@ Name | Type | Description  | Notes
 
 Get all parameter keys
 
- Use case  User runs method execution  System search all parameter keys  System returns parameter keys
+ Use case   User runs method execution   System search all parameter keys   System returns parameter keys
 
 ### Example
 
@@ -528,15 +516,11 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
-    project_ids = [
-        "projectIds_example",
-    ] # [str] |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+    # example, this endpoint has no required or optional parameters
     try:
         # Get all parameter keys
-        api_response = api_instance.api_v2_parameters_keys_get(project_ids=project_ids)
+        api_response = api_instance.api_v2_parameters_keys_get()
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_keys_get: %s\n" % e)
@@ -544,10 +528,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **project_ids** | **[str]**|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -578,7 +559,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_search_groups_post**
-> [ParameterGroupApiResult] api_v2_parameters_search_groups_post()
+> [ParameterGroupModel] api_v2_parameters_search_groups_post()
 
 Search for parameters as group
 
@@ -590,10 +571,10 @@ Search for parameters as group
 import time
 import testit_api_client
 from testit_api_client.api import parameters_api
-from testit_api_client.model.parameter_group_api_result import ParameterGroupApiResult
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_parameters_search_groups_post_request import ApiV2ParametersSearchGroupsPostRequest
+from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.parameter_group_model import ParameterGroupModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -621,13 +602,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    api_v2_parameters_search_groups_post_request = ApiV2ParametersSearchGroupsPostRequest(None) # ApiV2ParametersSearchGroupsPostRequest |  (optional)
+    api_v2_parameters_search_post_request = ApiV2ParametersSearchPostRequest(None) # ApiV2ParametersSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for parameters as group
-        api_response = api_instance.api_v2_parameters_search_groups_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_parameters_search_groups_post_request=api_v2_parameters_search_groups_post_request)
+        api_response = api_instance.api_v2_parameters_search_groups_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_parameters_search_post_request=api_v2_parameters_search_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_search_groups_post: %s\n" % e)
@@ -643,11 +624,11 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **api_v2_parameters_search_groups_post_request** | [**ApiV2ParametersSearchGroupsPostRequest**](ApiV2ParametersSearchGroupsPostRequest.md)|  | [optional]
+ **api_v2_parameters_search_post_request** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
-[**[ParameterGroupApiResult]**](ParameterGroupApiResult.md)
+[**[ParameterGroupModel]**](ParameterGroupModel.md)
 
 ### Authorization
 
@@ -674,7 +655,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_parameters_search_post**
-> [ParameterApiResult] api_v2_parameters_search_post()
+> [ParameterModel] api_v2_parameters_search_post()
 
 Search for parameters
 
@@ -688,7 +669,7 @@ import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
-from testit_api_client.model.parameter_api_result import ParameterApiResult
+from testit_api_client.model.parameter_model import ParameterModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -743,7 +724,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ParameterApiResult]**](ParameterApiResult.md)
+[**[ParameterModel]**](ParameterModel.md)
 
 ### Authorization
 
@@ -770,11 +751,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_parameter**
-> ParameterApiResult create_parameter()
+> ParameterModel create_parameter()
 
 Create parameter
 
- Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
+ Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
 
 ### Example
 
@@ -785,7 +766,7 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_api_result import ParameterApiResult
+from testit_api_client.model.parameter_model import ParameterModel
 from testit_api_client.model.create_parameter_request import CreateParameterRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -831,7 +812,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ParameterApiResult**](ParameterApiResult.md)
+[**ParameterModel**](ParameterModel.md)
 
 ### Authorization
 
@@ -1030,7 +1011,7 @@ void (empty response body)
 
 Delete parameter
 
- Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
+ Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
 
 ### Example
 
@@ -1041,7 +1022,6 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1100,21 +1080,22 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
-**400** |  - ID is not valid  - DTO is not valid |  -  |
+**404** | Not Found |  -  |
+**400** |  - ID is not valid   - DTO is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Parameter is in use in iterations |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_parameters**
-> [ParameterApiResult] get_all_parameters()
+> [ParameterModel] get_all_parameters()
 
 Get all parameters
 
- Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
+ Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
 
 ### Example
 
@@ -1125,7 +1106,7 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_api_result import ParameterApiResult
+from testit_api_client.model.parameter_model import ParameterModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1180,7 +1161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ParameterApiResult]**](ParameterApiResult.md)
+[**[ParameterModel]**](ParameterModel.md)
 
 ### Authorization
 
@@ -1207,11 +1188,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_parameter_by_id**
-> ParameterApiResult get_parameter_by_id(id)
+> ParameterModel get_parameter_by_id(id)
 
 Get parameter by ID
 
- Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
+ Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
 
 ### Example
 
@@ -1222,7 +1203,7 @@ import time
 import testit_api_client
 from testit_api_client.api import parameters_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_api_result import ParameterApiResult
+from testit_api_client.model.parameter_model import ParameterModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1266,7 +1247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ParameterApiResult**](ParameterApiResult.md)
+[**ParameterModel**](ParameterModel.md)
 
 ### Authorization
 
@@ -1297,7 +1278,7 @@ Name | Type | Description  | Notes
 
 Update parameter
 
- Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
+ Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
 
 ### Example
 
@@ -1369,7 +1350,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |  - ID is not valid  - DTO is not valid |  -  |
+**400** |  - ID is not valid   - DTO is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Parameter with provided ID was not found |  -  |

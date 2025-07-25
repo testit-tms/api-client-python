@@ -30,26 +30,24 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_plan_test_points_search_api_model_created_date import TestPlanTestPointsSearchApiModelCreatedDate
-    from testit_api_client.model.test_plan_test_points_search_api_model_duration import TestPlanTestPointsSearchApiModelDuration
-    from testit_api_client.model.test_plan_test_points_search_api_model_modified_date import TestPlanTestPointsSearchApiModelModifiedDate
-    from testit_api_client.model.test_plan_test_points_search_api_model_work_item_created_date import TestPlanTestPointsSearchApiModelWorkItemCreatedDate
-    from testit_api_client.model.test_plan_test_points_search_api_model_work_item_median_duration import TestPlanTestPointsSearchApiModelWorkItemMedianDuration
-    from testit_api_client.model.test_plan_test_points_search_api_model_work_item_modified_date import TestPlanTestPointsSearchApiModelWorkItemModifiedDate
+    from testit_api_client.model.test_point_filter_model_created_date import TestPointFilterModelCreatedDate
+    from testit_api_client.model.test_point_filter_model_duration import TestPointFilterModelDuration
+    from testit_api_client.model.test_point_filter_model_modified_date import TestPointFilterModelModifiedDate
+    from testit_api_client.model.test_point_filter_model_work_item_created_date import TestPointFilterModelWorkItemCreatedDate
+    from testit_api_client.model.test_point_filter_model_work_item_median_duration import TestPointFilterModelWorkItemMedianDuration
+    from testit_api_client.model.test_point_filter_model_work_item_modified_date import TestPointFilterModelWorkItemModifiedDate
     from testit_api_client.model.test_point_filter_request_model import TestPointFilterRequestModel
     from testit_api_client.model.test_point_status import TestPointStatus
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
-    globals()['TestPlanTestPointsSearchApiModelCreatedDate'] = TestPlanTestPointsSearchApiModelCreatedDate
-    globals()['TestPlanTestPointsSearchApiModelDuration'] = TestPlanTestPointsSearchApiModelDuration
-    globals()['TestPlanTestPointsSearchApiModelModifiedDate'] = TestPlanTestPointsSearchApiModelModifiedDate
-    globals()['TestPlanTestPointsSearchApiModelWorkItemCreatedDate'] = TestPlanTestPointsSearchApiModelWorkItemCreatedDate
-    globals()['TestPlanTestPointsSearchApiModelWorkItemMedianDuration'] = TestPlanTestPointsSearchApiModelWorkItemMedianDuration
-    globals()['TestPlanTestPointsSearchApiModelWorkItemModifiedDate'] = TestPlanTestPointsSearchApiModelWorkItemModifiedDate
+    globals()['TestPointFilterModelCreatedDate'] = TestPointFilterModelCreatedDate
+    globals()['TestPointFilterModelDuration'] = TestPointFilterModelDuration
+    globals()['TestPointFilterModelModifiedDate'] = TestPointFilterModelModifiedDate
+    globals()['TestPointFilterModelWorkItemCreatedDate'] = TestPointFilterModelWorkItemCreatedDate
+    globals()['TestPointFilterModelWorkItemMedianDuration'] = TestPointFilterModelWorkItemMedianDuration
+    globals()['TestPointFilterModelWorkItemModifiedDate'] = TestPointFilterModelWorkItemModifiedDate
     globals()['TestPointFilterRequestModel'] = TestPointFilterRequestModel
     globals()['TestPointStatus'] = TestPointStatus
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
 
 
 class ApiV2TestPointsSearchPostRequest(ModelComposed):
@@ -112,27 +110,26 @@ class ApiV2TestPointsSearchPostRequest(ModelComposed):
             'test_plan_ids': ([str], none_type,),  # noqa: E501
             'test_suite_ids': ([str], none_type,),  # noqa: E501
             'work_item_global_ids': ([int], none_type,),  # noqa: E501
-            'work_item_median_duration': (TestPlanTestPointsSearchApiModelWorkItemMedianDuration,),  # noqa: E501
+            'work_item_median_duration': (TestPointFilterModelWorkItemMedianDuration,),  # noqa: E501
             'work_item_is_deleted': (bool, none_type,),  # noqa: E501
             'statuses': ([TestPointStatus], none_type,),  # noqa: E501
             'status_codes': ([str], none_type,),  # noqa: E501
             'priorities': ([WorkItemPriorityModel], none_type,),  # noqa: E501
-            'source_types': ([WorkItemSourceTypeModel], none_type,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'configuration_ids': ([str], none_type,),  # noqa: E501
             'tester_ids': ([str], none_type,),  # noqa: E501
-            'duration': (TestPlanTestPointsSearchApiModelDuration,),  # noqa: E501
+            'duration': (TestPointFilterModelDuration,),  # noqa: E501
             'section_ids': ([str], none_type,),  # noqa: E501
-            'created_date': (TestPlanTestPointsSearchApiModelCreatedDate,),  # noqa: E501
+            'created_date': (TestPointFilterModelCreatedDate,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
-            'modified_date': (TestPlanTestPointsSearchApiModelModifiedDate,),  # noqa: E501
+            'modified_date': (TestPointFilterModelModifiedDate,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
             'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
-            'work_item_created_date': (TestPlanTestPointsSearchApiModelWorkItemCreatedDate,),  # noqa: E501
+            'work_item_created_date': (TestPointFilterModelWorkItemCreatedDate,),  # noqa: E501
             'work_item_created_by_ids': ([str], none_type,),  # noqa: E501
-            'work_item_modified_date': (TestPlanTestPointsSearchApiModelWorkItemModifiedDate,),  # noqa: E501
+            'work_item_modified_date': (TestPointFilterModelWorkItemModifiedDate,),  # noqa: E501
             'work_item_modified_by_ids': ([str], none_type,),  # noqa: E501
         }
 
@@ -150,7 +147,6 @@ class ApiV2TestPointsSearchPostRequest(ModelComposed):
         'statuses': 'statuses',  # noqa: E501
         'status_codes': 'statusCodes',  # noqa: E501
         'priorities': 'priorities',  # noqa: E501
-        'source_types': 'sourceTypes',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'name': 'name',  # noqa: E501
         'configuration_ids': 'configurationIds',  # noqa: E501
@@ -211,27 +207,26 @@ class ApiV2TestPointsSearchPostRequest(ModelComposed):
             test_plan_ids ([str], none_type): Specifies a test point test plan IDS to search for. [optional]  # noqa: E501
             test_suite_ids ([str], none_type): Specifies a test point test suite IDs to search for. [optional]  # noqa: E501
             work_item_global_ids ([int], none_type): Specifies a test point work item global IDs to search for. [optional]  # noqa: E501
-            work_item_median_duration (TestPlanTestPointsSearchApiModelWorkItemMedianDuration): [optional]  # noqa: E501
+            work_item_median_duration (TestPointFilterModelWorkItemMedianDuration): [optional]  # noqa: E501
             work_item_is_deleted (bool, none_type): Specifies a test point work item is deleted flag to search for. [optional]  # noqa: E501
             statuses ([TestPointStatus], none_type): Specifies a test point statuses to search for. [optional]  # noqa: E501
             status_codes ([str], none_type): Specifies a test point status codes to search for. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Specifies a test point priorities to search for. [optional]  # noqa: E501
-            source_types ([WorkItemSourceTypeModel], none_type): Specifies a test point source types to search for. [optional]  # noqa: E501
             is_automated (bool, none_type): Specifies a test point automation status to search for. [optional]  # noqa: E501
             name (str, none_type): Specifies a test point name to search for. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test point configuration IDs to search for. [optional]  # noqa: E501
             tester_ids ([str], none_type): Specifies a test point assigned user IDs to search for. [optional]  # noqa: E501
-            duration (TestPlanTestPointsSearchApiModelDuration): [optional]  # noqa: E501
+            duration (TestPointFilterModelDuration): [optional]  # noqa: E501
             section_ids ([str], none_type): Specifies a test point work item section IDs to search for. [optional]  # noqa: E501
-            created_date (TestPlanTestPointsSearchApiModelCreatedDate): [optional]  # noqa: E501
+            created_date (TestPointFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies a test point creator IDs to search for. [optional]  # noqa: E501
-            modified_date (TestPlanTestPointsSearchApiModelModifiedDate): [optional]  # noqa: E501
+            modified_date (TestPointFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
-            work_item_created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
+            work_item_created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
             work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501
-            work_item_modified_date (TestPlanTestPointsSearchApiModelWorkItemModifiedDate): [optional]  # noqa: E501
+            work_item_modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
             work_item_modified_by_ids ([str], none_type): Specifies a work item last editor IDs to search for. [optional]  # noqa: E501
         """
 
@@ -339,27 +334,26 @@ class ApiV2TestPointsSearchPostRequest(ModelComposed):
             test_plan_ids ([str], none_type): Specifies a test point test plan IDS to search for. [optional]  # noqa: E501
             test_suite_ids ([str], none_type): Specifies a test point test suite IDs to search for. [optional]  # noqa: E501
             work_item_global_ids ([int], none_type): Specifies a test point work item global IDs to search for. [optional]  # noqa: E501
-            work_item_median_duration (TestPlanTestPointsSearchApiModelWorkItemMedianDuration): [optional]  # noqa: E501
+            work_item_median_duration (TestPointFilterModelWorkItemMedianDuration): [optional]  # noqa: E501
             work_item_is_deleted (bool, none_type): Specifies a test point work item is deleted flag to search for. [optional]  # noqa: E501
             statuses ([TestPointStatus], none_type): Specifies a test point statuses to search for. [optional]  # noqa: E501
             status_codes ([str], none_type): Specifies a test point status codes to search for. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Specifies a test point priorities to search for. [optional]  # noqa: E501
-            source_types ([WorkItemSourceTypeModel], none_type): Specifies a test point source types to search for. [optional]  # noqa: E501
             is_automated (bool, none_type): Specifies a test point automation status to search for. [optional]  # noqa: E501
             name (str, none_type): Specifies a test point name to search for. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test point configuration IDs to search for. [optional]  # noqa: E501
             tester_ids ([str], none_type): Specifies a test point assigned user IDs to search for. [optional]  # noqa: E501
-            duration (TestPlanTestPointsSearchApiModelDuration): [optional]  # noqa: E501
+            duration (TestPointFilterModelDuration): [optional]  # noqa: E501
             section_ids ([str], none_type): Specifies a test point work item section IDs to search for. [optional]  # noqa: E501
-            created_date (TestPlanTestPointsSearchApiModelCreatedDate): [optional]  # noqa: E501
+            created_date (TestPointFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies a test point creator IDs to search for. [optional]  # noqa: E501
-            modified_date (TestPlanTestPointsSearchApiModelModifiedDate): [optional]  # noqa: E501
+            modified_date (TestPointFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
-            work_item_created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
+            work_item_created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
             work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501
-            work_item_modified_date (TestPlanTestPointsSearchApiModelWorkItemModifiedDate): [optional]  # noqa: E501
+            work_item_modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
             work_item_modified_by_ids ([str], none_type): Specifies a work item last editor IDs to search for. [optional]  # noqa: E501
         """
 

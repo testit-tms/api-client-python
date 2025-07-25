@@ -30,24 +30,24 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.assign_attachment_api_model import AssignAttachmentApiModel
-    from testit_api_client.model.assign_iteration_api_model import AssignIterationApiModel
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
     from testit_api_client.model.auto_test_id_model import AutoTestIdModel
-    from testit_api_client.model.create_link_api_model import CreateLinkApiModel
-    from testit_api_client.model.create_step_api_model import CreateStepApiModel
-    from testit_api_client.model.create_work_item_api_model import CreateWorkItemApiModel
-    from testit_api_client.model.tag_model import TagModel
+    from testit_api_client.model.iteration_put_model import IterationPutModel
+    from testit_api_client.model.link_post_model import LinkPostModel
+    from testit_api_client.model.step_post_model import StepPostModel
+    from testit_api_client.model.tag_post_model import TagPostModel
     from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
+    from testit_api_client.model.work_item_post_model import WorkItemPostModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_states import WorkItemStates
-    globals()['AssignAttachmentApiModel'] = AssignAttachmentApiModel
-    globals()['AssignIterationApiModel'] = AssignIterationApiModel
+    globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['AutoTestIdModel'] = AutoTestIdModel
-    globals()['CreateLinkApiModel'] = CreateLinkApiModel
-    globals()['CreateStepApiModel'] = CreateStepApiModel
-    globals()['CreateWorkItemApiModel'] = CreateWorkItemApiModel
-    globals()['TagModel'] = TagModel
+    globals()['IterationPutModel'] = IterationPutModel
+    globals()['LinkPostModel'] = LinkPostModel
+    globals()['StepPostModel'] = StepPostModel
+    globals()['TagPostModel'] = TagPostModel
     globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
+    globals()['WorkItemPostModel'] = WorkItemPostModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemStates'] = WorkItemStates
 
@@ -115,19 +115,19 @@ class CreateWorkItemRequest(ModelComposed):
             'entity_type_name': (WorkItemEntityTypes,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
-            'steps': ([CreateStepApiModel],),  # noqa: E501
-            'precondition_steps': ([CreateStepApiModel],),  # noqa: E501
-            'postcondition_steps': ([CreateStepApiModel],),  # noqa: E501
+            'steps': ([StepPostModel],),  # noqa: E501
+            'precondition_steps': ([StepPostModel],),  # noqa: E501
+            'postcondition_steps': ([StepPostModel],),  # noqa: E501
             'duration': (int,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'tags': ([TagModel],),  # noqa: E501
-            'links': ([CreateLinkApiModel],),  # noqa: E501
+            'tags': ([TagPostModel],),  # noqa: E501
+            'links': ([LinkPostModel],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'attachments': ([AssignAttachmentApiModel], none_type,),  # noqa: E501
-            'iterations': ([AssignIterationApiModel], none_type,),  # noqa: E501
+            'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
+            'iterations': ([IterationPutModel], none_type,),  # noqa: E501
             'auto_tests': ([AutoTestIdModel], none_type,),  # noqa: E501
         }
 
@@ -168,16 +168,16 @@ class CreateWorkItemRequest(ModelComposed):
             entity_type_name (WorkItemEntityTypes):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
-            steps ([CreateStepApiModel]): Collection of workitem steps
-            precondition_steps ([CreateStepApiModel]): Collection of workitem precondition steps
-            postcondition_steps ([CreateStepApiModel]): Collection of workitem postcondition steps
-            duration (int): WorkItem duration in milliseconds, must be 0 for shared steps and greater than 0 for the other types of work items
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key value pair of custom workitem attributes
-            tags ([TagModel]): Collection of workitem tags
-            links ([CreateLinkApiModel]): Collection of workitem links
-            name (str): Workitem name
-            project_id (str): Project unique identifier - used to link workitem with project
-            section_id (str): Internal identifier of section where workitem is located
+            steps ([StepPostModel]):
+            precondition_steps ([StepPostModel]):
+            postcondition_steps ([StepPostModel]):
+            duration (int): Must be 0 for shared steps and greater than 0 for the other types of work items
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            tags ([TagPostModel]):
+            links ([LinkPostModel]):
+            name (str):
+            project_id (str): This property is used to link workitem with project
+            section_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -208,10 +208,10 @@ class CreateWorkItemRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): Workitem description. [optional]  # noqa: E501
-            attachments ([AssignAttachmentApiModel], none_type): Collection of workitem attachments. [optional]  # noqa: E501
-            iterations ([AssignIterationApiModel], none_type): Collection of parameter sets. [optional]  # noqa: E501
-            auto_tests ([AutoTestIdModel], none_type): Collection of autotest internal ids. [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            iterations ([IterationPutModel], none_type): [optional]  # noqa: E501
+            auto_tests ([AutoTestIdModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -288,16 +288,16 @@ class CreateWorkItemRequest(ModelComposed):
             entity_type_name (WorkItemEntityTypes):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
-            steps ([CreateStepApiModel]): Collection of workitem steps
-            precondition_steps ([CreateStepApiModel]): Collection of workitem precondition steps
-            postcondition_steps ([CreateStepApiModel]): Collection of workitem postcondition steps
-            duration (int): WorkItem duration in milliseconds, must be 0 for shared steps and greater than 0 for the other types of work items
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key value pair of custom workitem attributes
-            tags ([TagModel]): Collection of workitem tags
-            links ([CreateLinkApiModel]): Collection of workitem links
-            name (str): Workitem name
-            project_id (str): Project unique identifier - used to link workitem with project
-            section_id (str): Internal identifier of section where workitem is located
+            steps ([StepPostModel]):
+            precondition_steps ([StepPostModel]):
+            postcondition_steps ([StepPostModel]):
+            duration (int): Must be 0 for shared steps and greater than 0 for the other types of work items
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            tags ([TagPostModel]):
+            links ([LinkPostModel]):
+            name (str):
+            project_id (str): This property is used to link workitem with project
+            section_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -328,10 +328,10 @@ class CreateWorkItemRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): Workitem description. [optional]  # noqa: E501
-            attachments ([AssignAttachmentApiModel], none_type): Collection of workitem attachments. [optional]  # noqa: E501
-            iterations ([AssignIterationApiModel], none_type): Collection of parameter sets. [optional]  # noqa: E501
-            auto_tests ([AutoTestIdModel], none_type): Collection of autotest internal ids. [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            iterations ([IterationPutModel], none_type): [optional]  # noqa: E501
+            auto_tests ([AutoTestIdModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -401,7 +401,7 @@ class CreateWorkItemRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CreateWorkItemApiModel,
+              WorkItemPostModel,
           ],
           'oneOf': [
           ],

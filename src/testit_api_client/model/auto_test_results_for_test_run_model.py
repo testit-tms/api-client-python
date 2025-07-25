@@ -97,10 +97,9 @@ class AutoTestResultsForTestRunModel(ModelNormal):
         return {
             'configuration_id': (str,),  # noqa: E501
             'auto_test_external_id': (str,),  # noqa: E501
+            'outcome': (AvailableTestResultOutcome,),  # noqa: E501
             'links': ([LinkPostModel], none_type,),  # noqa: E501
             'failure_reason_names': ([FailureCategoryModel], none_type,),  # noqa: E501
-            'outcome': (AvailableTestResultOutcome,),  # noqa: E501
-            'status_code': (str, none_type,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'traces': (str, none_type,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
@@ -122,10 +121,9 @@ class AutoTestResultsForTestRunModel(ModelNormal):
     attribute_map = {
         'configuration_id': 'configurationId',  # noqa: E501
         'auto_test_external_id': 'autoTestExternalId',  # noqa: E501
+        'outcome': 'outcome',  # noqa: E501
         'links': 'links',  # noqa: E501
         'failure_reason_names': 'failureReasonNames',  # noqa: E501
-        'outcome': 'outcome',  # noqa: E501
-        'status_code': 'statusCode',  # noqa: E501
         'message': 'message',  # noqa: E501
         'traces': 'traces',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
@@ -146,12 +144,13 @@ class AutoTestResultsForTestRunModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, configuration_id, auto_test_external_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, configuration_id, auto_test_external_id, outcome, *args, **kwargs):  # noqa: E501
         """AutoTestResultsForTestRunModel - a model defined in OpenAPI
 
         Args:
             configuration_id (str): Specifies the GUID of the autotest configuration, which was specified when the test run was created.
             auto_test_external_id (str): Specifies the external ID of the autotest, which was specified when the test run was created.
+            outcome (AvailableTestResultOutcome):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -186,8 +185,6 @@ class AutoTestResultsForTestRunModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             links ([LinkPostModel], none_type): Specifies the links in the autotest.. [optional]  # noqa: E501
             failure_reason_names ([FailureCategoryModel], none_type): Specifies the cause of autotest failure.. [optional]  # noqa: E501
-            outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
-            status_code (str, none_type): Specifies the result of the autotest execution.. [optional]  # noqa: E501
             message (str, none_type): A comment for the result.. [optional]  # noqa: E501
             traces (str, none_type): An extended comment or a stack trace.. [optional]  # noqa: E501
             started_on (datetime, none_type): Test run start date.. [optional]  # noqa: E501
@@ -232,6 +229,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
 
         self.configuration_id = configuration_id
         self.auto_test_external_id = auto_test_external_id
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -252,12 +250,13 @@ class AutoTestResultsForTestRunModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, configuration_id, auto_test_external_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, configuration_id, auto_test_external_id, outcome, *args, **kwargs):  # noqa: E501
         """AutoTestResultsForTestRunModel - a model defined in OpenAPI
 
         Args:
             configuration_id (str): Specifies the GUID of the autotest configuration, which was specified when the test run was created.
             auto_test_external_id (str): Specifies the external ID of the autotest, which was specified when the test run was created.
+            outcome (AvailableTestResultOutcome):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -292,8 +291,6 @@ class AutoTestResultsForTestRunModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             links ([LinkPostModel], none_type): Specifies the links in the autotest.. [optional]  # noqa: E501
             failure_reason_names ([FailureCategoryModel], none_type): Specifies the cause of autotest failure.. [optional]  # noqa: E501
-            outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
-            status_code (str, none_type): Specifies the result of the autotest execution.. [optional]  # noqa: E501
             message (str, none_type): A comment for the result.. [optional]  # noqa: E501
             traces (str, none_type): An extended comment or a stack trace.. [optional]  # noqa: E501
             started_on (datetime, none_type): Test run start date.. [optional]  # noqa: E501
@@ -336,6 +333,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
 
         self.configuration_id = configuration_id
         self.auto_test_external_id = auto_test_external_id
+        self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

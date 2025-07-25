@@ -87,7 +87,6 @@ class ParameterShortModel(ModelNormal):
             'parameter_key_id': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'project_ids': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -100,7 +99,6 @@ class ParameterShortModel(ModelNormal):
         'parameter_key_id': 'parameterKeyId',  # noqa: E501
         'value': 'value',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'project_ids': 'projectIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -110,7 +108,7 @@ class ParameterShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, parameter_key_id, value, name, project_ids, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, parameter_key_id, value, name, *args, **kwargs):  # noqa: E501
         """ParameterShortModel - a model defined in OpenAPI
 
         Args:
@@ -118,7 +116,6 @@ class ParameterShortModel(ModelNormal):
             parameter_key_id (str):
             value (str): Value of the parameter
             name (str): Key of the parameter
-            project_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -186,7 +183,6 @@ class ParameterShortModel(ModelNormal):
         self.parameter_key_id = parameter_key_id
         self.value = value
         self.name = name
-        self.project_ids = project_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -207,7 +203,7 @@ class ParameterShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, parameter_key_id, value, name, project_ids, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, parameter_key_id, value, name, *args, **kwargs):  # noqa: E501
         """ParameterShortModel - a model defined in OpenAPI
 
         Args:
@@ -215,7 +211,6 @@ class ParameterShortModel(ModelNormal):
             parameter_key_id (str):
             value (str): Value of the parameter
             name (str): Key of the parameter
-            project_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -281,7 +276,6 @@ class ParameterShortModel(ModelNormal):
         self.parameter_key_id = parameter_key_id
         self.value = value
         self.name = name
-        self.project_ids = project_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

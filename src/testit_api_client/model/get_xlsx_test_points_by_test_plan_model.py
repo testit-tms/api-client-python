@@ -78,7 +78,6 @@ class GetXlsxTestPointsByTestPlanModel(ModelNormal):
             'include_name': (bool,),  # noqa: E501
             'include_section': (bool,),  # noqa: E501
             'include_priority': (bool,),  # noqa: E501
-            'include_source_type': (bool,),  # noqa: E501
             'include_automated': (bool,),  # noqa: E501
             'include_status': (bool,),  # noqa: E501
             'include_duration': (bool,),  # noqa: E501
@@ -101,7 +100,6 @@ class GetXlsxTestPointsByTestPlanModel(ModelNormal):
         'include_name': 'includeName',  # noqa: E501
         'include_section': 'includeSection',  # noqa: E501
         'include_priority': 'includePriority',  # noqa: E501
-        'include_source_type': 'includeSourceType',  # noqa: E501
         'include_automated': 'includeAutomated',  # noqa: E501
         'include_status': 'includeStatus',  # noqa: E501
         'include_duration': 'includeDuration',  # noqa: E501
@@ -122,14 +120,13 @@ class GetXlsxTestPointsByTestPlanModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, include_name, include_section, include_priority, include_source_type, include_automated, include_status, include_duration, include_creation_date, include_author, include_modification_date, include_modified_by, include_tags, include_iterations, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, include_name, include_section, include_priority, include_automated, include_status, include_duration, include_creation_date, include_author, include_modification_date, include_modified_by, include_tags, include_iterations, *args, **kwargs):  # noqa: E501
         """GetXlsxTestPointsByTestPlanModel - a model defined in OpenAPI
 
         Args:
             include_name (bool):
             include_section (bool):
             include_priority (bool):
-            include_source_type (bool):
             include_automated (bool):
             include_status (bool):
             include_duration (bool):
@@ -207,7 +204,6 @@ class GetXlsxTestPointsByTestPlanModel(ModelNormal):
         self.include_name = include_name
         self.include_section = include_section
         self.include_priority = include_priority
-        self.include_source_type = include_source_type
         self.include_automated = include_automated
         self.include_status = include_status
         self.include_duration = include_duration
@@ -237,14 +233,13 @@ class GetXlsxTestPointsByTestPlanModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, include_name, include_section, include_priority, include_source_type, include_automated, include_status, include_duration, include_creation_date, include_author, include_modification_date, include_modified_by, include_tags, include_iterations, *args, **kwargs):  # noqa: E501
+    def __init__(self, include_name, include_section, include_priority, include_automated, include_status, include_duration, include_creation_date, include_author, include_modification_date, include_modified_by, include_tags, include_iterations, *args, **kwargs):  # noqa: E501
         """GetXlsxTestPointsByTestPlanModel - a model defined in OpenAPI
 
         Args:
             include_name (bool):
             include_section (bool):
             include_priority (bool):
-            include_source_type (bool):
             include_automated (bool):
             include_status (bool):
             include_duration (bool):
@@ -320,7 +315,6 @@ class GetXlsxTestPointsByTestPlanModel(ModelNormal):
         self.include_name = include_name
         self.include_section = include_section
         self.include_priority = include_priority
-        self.include_source_type = include_source_type
         self.include_automated = include_automated
         self.include_status = include_status
         self.include_duration = include_duration

@@ -25,7 +25,7 @@ from testit_api_client.model.api_v2_tags_delete_request import ApiV2TagsDeleteRe
 from testit_api_client.model.api_v2_tags_post_request import ApiV2TagsPostRequest
 from testit_api_client.model.api_v2_tags_put_request import ApiV2TagsPutRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.tag_api_result import TagApiResult
+from testit_api_client.model.tag_model import TagModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
@@ -93,6 +93,50 @@ class TagsApi(object):
             },
             api_client=api_client
         )
+        self.api_v2_tags_get_endpoint = _Endpoint(
+            settings={
+                'response_type': ([TagModel],),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/tags',
+                'operation_id': 'api_v2_tags_get',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.api_v2_tags_id_delete_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -146,7 +190,7 @@ class TagsApi(object):
         )
         self.api_v2_tags_post_endpoint = _Endpoint(
             settings={
-                'response_type': (TagApiResult,),
+                'response_type': (TagModel,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -199,7 +243,7 @@ class TagsApi(object):
         )
         self.api_v2_tags_put_endpoint = _Endpoint(
             settings={
-                'response_type': (TagApiResult,),
+                'response_type': (TagModel,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -257,7 +301,7 @@ class TagsApi(object):
         )
         self.api_v2_tags_search_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([TagApiResult],),
+                'response_type': ([TagModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -326,7 +370,7 @@ class TagsApi(object):
         )
         self.api_v2_tags_test_plans_tags_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([TagApiResult],),
+                'response_type': ([TagModel],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -400,7 +444,7 @@ class TagsApi(object):
     ):
         """Delete tags  # noqa: E501
 
-         Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags  # noqa: E501
+         Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -473,6 +517,84 @@ class TagsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.api_v2_tags_delete_endpoint.call_with_http_info(**kwargs)
 
+    def api_v2_tags_get(
+        self,
+        **kwargs
+    ):
+        """Get all Tags  # noqa: E501
+
+         Use case   User runs method execution   System returns tags (listed in the response example)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_tags_get(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [TagModel]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.api_v2_tags_get_endpoint.call_with_http_info(**kwargs)
+
     def api_v2_tags_id_delete(
         self,
         id,
@@ -480,7 +602,7 @@ class TagsApi(object):
     ):
         """Delete tag  # noqa: E501
 
-         Use case  User sets tag internal (guid format) identifier  System search and delete tag  # noqa: E501
+         Use case   User sets tag internal (guid format) identifier   System search and delete tag  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -562,7 +684,7 @@ class TagsApi(object):
     ):
         """Create tag  # noqa: E501
 
-         Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)  # noqa: E501
+         Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -604,7 +726,7 @@ class TagsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            TagApiResult
+            TagModel
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -641,7 +763,7 @@ class TagsApi(object):
     ):
         """Update tag  # noqa: E501
 
-         Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)  # noqa: E501
+         Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -684,7 +806,7 @@ class TagsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            TagApiResult
+            TagModel
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -721,7 +843,7 @@ class TagsApi(object):
     ):
         """Search tags  # noqa: E501
 
-         Use case  User runs method execution  System returns collection of tags (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns collection of tags (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -767,7 +889,7 @@ class TagsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [TagApiResult]
+            [TagModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -804,7 +926,7 @@ class TagsApi(object):
     ):
         """Get all Tags that are used in TestPlans  # noqa: E501
 
-         Use case  User runs method execution  System returns tags (listed in the response example)  # noqa: E501
+         Use case   User runs method execution   System returns tags (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -850,7 +972,7 @@ class TagsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [TagApiResult]
+            [TagModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """

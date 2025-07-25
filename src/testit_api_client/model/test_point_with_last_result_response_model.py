@@ -34,12 +34,10 @@ def lazy_import():
     from testit_api_client.model.last_test_result_model import LastTestResultModel
     from testit_api_client.model.test_status_api_result import TestStatusApiResult
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     globals()['IterationModel'] = IterationModel
     globals()['LastTestResultModel'] = LastTestResultModel
     globals()['TestStatusApiResult'] = TestStatusApiResult
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
 
 
 class TestPointWithLastResultResponseModel(ModelNormal):
@@ -96,7 +94,6 @@ class TestPointWithLastResultResponseModel(ModelNormal):
             'created_by_id': (str,),  # noqa: E501
             'duration': (int,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
-            'source_type': (WorkItemSourceTypeModel,),  # noqa: E501
             'work_item_name': (str, none_type,),  # noqa: E501
             'tester_id': (str, none_type,),  # noqa: E501
             'configuration_id': (str, none_type,),  # noqa: E501
@@ -130,7 +127,6 @@ class TestPointWithLastResultResponseModel(ModelNormal):
         'created_by_id': 'createdById',  # noqa: E501
         'duration': 'duration',  # noqa: E501
         'priority': 'priority',  # noqa: E501
-        'source_type': 'sourceType',  # noqa: E501
         'work_item_name': 'workItemName',  # noqa: E501
         'tester_id': 'testerId',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
@@ -157,7 +153,7 @@ class TestPointWithLastResultResponseModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, is_automated, work_item_id, test_suite_id, section_id, created_by_id, duration, priority, source_type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_automated, work_item_id, test_suite_id, section_id, created_by_id, duration, priority, *args, **kwargs):  # noqa: E501
         """TestPointWithLastResultResponseModel - a model defined in OpenAPI
 
         Args:
@@ -169,7 +165,6 @@ class TestPointWithLastResultResponseModel(ModelNormal):
             created_by_id (str):
             duration (int):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -258,7 +253,6 @@ class TestPointWithLastResultResponseModel(ModelNormal):
         self.created_by_id = created_by_id
         self.duration = duration
         self.priority = priority
-        self.source_type = source_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -279,7 +273,7 @@ class TestPointWithLastResultResponseModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, is_automated, work_item_id, test_suite_id, section_id, created_by_id, duration, priority, source_type, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_automated, work_item_id, test_suite_id, section_id, created_by_id, duration, priority, *args, **kwargs):  # noqa: E501
         """TestPointWithLastResultResponseModel - a model defined in OpenAPI
 
         Args:
@@ -291,7 +285,6 @@ class TestPointWithLastResultResponseModel(ModelNormal):
             created_by_id (str):
             duration (int):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -378,7 +371,6 @@ class TestPointWithLastResultResponseModel(ModelNormal):
         self.created_by_id = created_by_id
         self.duration = duration
         self.priority = priority
-        self.source_type = source_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

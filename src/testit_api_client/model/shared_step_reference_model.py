@@ -32,10 +32,8 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.tag_model import TagModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     globals()['TagModel'] = TagModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
 
 
 class SharedStepReferenceModel(ModelNormal):
@@ -94,7 +92,6 @@ class SharedStepReferenceModel(ModelNormal):
             'created_by_id': (str,),  # noqa: E501
             'state': (str,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
-            'source_type': (WorkItemSourceTypeModel,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'version_id': (str,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
@@ -121,7 +118,6 @@ class SharedStepReferenceModel(ModelNormal):
         'created_by_id': 'createdById',  # noqa: E501
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
-        'source_type': 'sourceType',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'version_id': 'versionId',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
@@ -139,7 +135,7 @@ class SharedStepReferenceModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, global_id, name, entity_type_name, has_this_shared_step_as_step, has_this_shared_step_as_precondition, has_this_shared_step_as_postcondition, created_by_id, state, priority, source_type, is_deleted, version_id, is_automated, section_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, global_id, name, entity_type_name, has_this_shared_step_as_step, has_this_shared_step_as_precondition, has_this_shared_step_as_postcondition, created_by_id, state, priority, is_deleted, version_id, is_automated, section_id, *args, **kwargs):  # noqa: E501
         """SharedStepReferenceModel - a model defined in OpenAPI
 
         Args:
@@ -153,7 +149,6 @@ class SharedStepReferenceModel(ModelNormal):
             created_by_id (str):
             state (str):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
             is_deleted (bool):
             version_id (str): used for versioning changes in workitem
             is_automated (bool):
@@ -235,7 +230,6 @@ class SharedStepReferenceModel(ModelNormal):
         self.created_by_id = created_by_id
         self.state = state
         self.priority = priority
-        self.source_type = source_type
         self.is_deleted = is_deleted
         self.version_id = version_id
         self.is_automated = is_automated
@@ -260,7 +254,7 @@ class SharedStepReferenceModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, global_id, name, entity_type_name, has_this_shared_step_as_step, has_this_shared_step_as_precondition, has_this_shared_step_as_postcondition, created_by_id, state, priority, source_type, is_deleted, version_id, is_automated, section_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, global_id, name, entity_type_name, has_this_shared_step_as_step, has_this_shared_step_as_precondition, has_this_shared_step_as_postcondition, created_by_id, state, priority, is_deleted, version_id, is_automated, section_id, *args, **kwargs):  # noqa: E501
         """SharedStepReferenceModel - a model defined in OpenAPI
 
         Args:
@@ -274,7 +268,6 @@ class SharedStepReferenceModel(ModelNormal):
             created_by_id (str):
             state (str):
             priority (WorkItemPriorityModel):
-            source_type (WorkItemSourceTypeModel):
             is_deleted (bool):
             version_id (str): used for versioning changes in workitem
             is_automated (bool):
@@ -354,7 +347,6 @@ class SharedStepReferenceModel(ModelNormal):
         self.created_by_id = created_by_id
         self.state = state
         self.priority = priority
-        self.source_type = source_type
         self.is_deleted = is_deleted
         self.version_id = version_id
         self.is_automated = is_automated

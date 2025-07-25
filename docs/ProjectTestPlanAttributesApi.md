@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Add attributes to project's test plans
 
- Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
+ Use case   User sets project internal or global identifier and attributes identifiers   User runs method execution   System updates project and add attributes to project for test plans   System returns no content response
 
 ### Example
 
@@ -98,7 +98,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |  Attributes must be global |  -  |
+**400** |   Attributes must be global  |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for project settings is required |  -  |
 **404** | Not Found |  -  |
@@ -112,7 +112,7 @@ void (empty response body)
 
 Delete attribute from project's test plans
 
- Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
+ Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
 
 ### Example
 
@@ -198,7 +198,7 @@ void (empty response body)
 
 Get project's test plan attributes
 
- Use case  User runs method execution  System returns project for test plans attributes by project identifier
+ Use case   User runs method execution   System returns project for test plans attributes by project identifier
 
 ### Example
 
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 
 Update attribute of project's test plans
 
- Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
+ Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
 
 ### Example
 

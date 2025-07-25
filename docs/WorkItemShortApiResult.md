@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **created_by_id** | **str** | Unique identifier of user who created Work Item | 
 **state** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **is_deleted** | **bool** | Flag determining whether Work Item is deleted | 
 **iterations** | [**[IterationApiResult]**](IterationApiResult.md) | Set of iterations related to Work Item | 
 **links** | [**[LinkShortApiResult]**](LinkShortApiResult.md) | Set of links related to Work Item | 

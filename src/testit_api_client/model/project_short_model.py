@@ -89,7 +89,6 @@ class ProjectShortModel(ModelNormal):
             'global_id': (int,),  # noqa: E501
             'type': (ProjectTypeModel,),  # noqa: E501
             'is_flaky_auto': (bool,),  # noqa: E501
-            'workflow_id': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'test_cases_count': (int, none_type,),  # noqa: E501
             'shared_steps_count': (int, none_type,),  # noqa: E501
@@ -114,7 +113,6 @@ class ProjectShortModel(ModelNormal):
         'global_id': 'globalId',  # noqa: E501
         'type': 'type',  # noqa: E501
         'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
-        'workflow_id': 'workflowId',  # noqa: E501
         'description': 'description',  # noqa: E501
         'test_cases_count': 'testCasesCount',  # noqa: E501
         'shared_steps_count': 'sharedStepsCount',  # noqa: E501
@@ -131,7 +129,7 @@ class ProjectShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, is_flaky_auto, workflow_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, is_flaky_auto, *args, **kwargs):  # noqa: E501
         """ProjectShortModel - a model defined in OpenAPI
 
         Args:
@@ -144,7 +142,6 @@ class ProjectShortModel(ModelNormal):
             global_id (int): Global ID of the project
             type (ProjectTypeModel):
             is_flaky_auto (bool): Indicates if the status \"Flaky/Stable\" sets automatically
-            workflow_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,7 +221,6 @@ class ProjectShortModel(ModelNormal):
         self.global_id = global_id
         self.type = type
         self.is_flaky_auto = is_flaky_auto
-        self.workflow_id = workflow_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -245,7 +241,7 @@ class ProjectShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, is_flaky_auto, workflow_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, is_flaky_auto, *args, **kwargs):  # noqa: E501
         """ProjectShortModel - a model defined in OpenAPI
 
         Args:
@@ -258,7 +254,6 @@ class ProjectShortModel(ModelNormal):
             global_id (int): Global ID of the project
             type (ProjectTypeModel):
             is_flaky_auto (bool): Indicates if the status \"Flaky/Stable\" sets automatically
-            workflow_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -336,7 +331,6 @@ class ProjectShortModel(ModelNormal):
         self.global_id = global_id
         self.type = type
         self.is_flaky_auto = is_flaky_auto
-        self.workflow_id = workflow_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -1266,7 +1266,7 @@ class TestSuitesApi(object):
     ):
         """Delete TestSuite  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1349,7 +1349,7 @@ class TestSuitesApi(object):
     ):
         """Get Configurations By Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1432,7 +1432,7 @@ class TestSuitesApi(object):
     ):
         """Get TestPoints By Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1515,7 +1515,7 @@ class TestSuitesApi(object):
     ):
         """Get TestResults By Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1598,7 +1598,7 @@ class TestSuitesApi(object):
     ):
         """Get TestSuite by Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite  # noqa: E501
+         Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1681,7 +1681,7 @@ class TestSuitesApi(object):
     ):
         """Search WorkItems  # noqa: E501
 
-         Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array  # noqa: E501
+         Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1770,7 +1770,7 @@ class TestSuitesApi(object):
     ):
         """Set Configurations By TestSuite Id  # noqa: E501
 
-         Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response  # noqa: E501
+         Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

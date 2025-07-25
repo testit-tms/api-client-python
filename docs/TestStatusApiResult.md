@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | 
-**type** | [**TestStatusApiType**](TestStatusApiType.md) |  | 
+**type** | [**TestStatusType**](TestStatusType.md) |  | 
 **is_system** | **bool** |  | 
 **code** | **str** |  | 
 **description** | **str, none_type** |  | [optional] 

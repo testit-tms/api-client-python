@@ -18,13 +18,12 @@ Name | Type | Description | Notes
 **section_id** | **str** |  | 
 **state** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **steps** | [**[StepModel]**](StepModel.md) |  | 
 **precondition_steps** | [**[StepModel]**](StepModel.md) |  | 
 **postcondition_steps** | [**[StepModel]**](StepModel.md) |  | 
 **duration** | **int** |  | 
 **attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
-**tags** | [**[TagModel]**](TagModel.md) |  | 
+**tags** | [**[TagPutModel]**](TagPutModel.md) |  | 
 **links** | [**[LinkModel]**](LinkModel.md) |  | 
 **name** | **str** |  | 
 **auto_tests** | [**[AutoTestModel], none_type**](AutoTestModel.md) |  | [optional] 

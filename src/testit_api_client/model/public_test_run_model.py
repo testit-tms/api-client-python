@@ -33,11 +33,9 @@ def lazy_import():
     from testit_api_client.model.auto_test_model import AutoTestModel
     from testit_api_client.model.configuration_model import ConfigurationModel
     from testit_api_client.model.public_test_point_model import PublicTestPointModel
-    from testit_api_client.model.public_test_run_model_status_model import PublicTestRunModelStatusModel
     globals()['AutoTestModel'] = AutoTestModel
     globals()['ConfigurationModel'] = ConfigurationModel
     globals()['PublicTestPointModel'] = PublicTestPointModel
-    globals()['PublicTestRunModelStatusModel'] = PublicTestRunModelStatusModel
 
 
 class PublicTestRunModel(ModelNormal):
@@ -93,7 +91,6 @@ class PublicTestRunModel(ModelNormal):
             'auto_tests': ([AutoTestModel],),  # noqa: E501
             'test_points': ([PublicTestPointModel],),  # noqa: E501
             'status': (str,),  # noqa: E501
-            'status_model': (PublicTestRunModelStatusModel,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'build': (str, none_type,),  # noqa: E501
@@ -114,7 +111,6 @@ class PublicTestRunModel(ModelNormal):
         'auto_tests': 'autoTests',  # noqa: E501
         'test_points': 'testPoints',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'status_model': 'statusModel',  # noqa: E501
         'test_plan_id': 'testPlanId',  # noqa: E501
         'product_name': 'productName',  # noqa: E501
         'build': 'build',  # noqa: E501
@@ -129,7 +125,7 @@ class PublicTestRunModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, test_run_id, test_plan_global_id, name, configurations, auto_tests, test_points, status, status_model, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, test_run_id, test_plan_global_id, name, configurations, auto_tests, test_points, status, *args, **kwargs):  # noqa: E501
         """PublicTestRunModel - a model defined in OpenAPI
 
         Args:
@@ -140,7 +136,6 @@ class PublicTestRunModel(ModelNormal):
             auto_tests ([AutoTestModel]):
             test_points ([PublicTestPointModel]):
             status (str):
-            status_model (PublicTestRunModelStatusModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -216,7 +211,6 @@ class PublicTestRunModel(ModelNormal):
         self.auto_tests = auto_tests
         self.test_points = test_points
         self.status = status
-        self.status_model = status_model
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -237,7 +231,7 @@ class PublicTestRunModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, test_run_id, test_plan_global_id, name, configurations, auto_tests, test_points, status, status_model, *args, **kwargs):  # noqa: E501
+    def __init__(self, test_run_id, test_plan_global_id, name, configurations, auto_tests, test_points, status, *args, **kwargs):  # noqa: E501
         """PublicTestRunModel - a model defined in OpenAPI
 
         Args:
@@ -248,7 +242,6 @@ class PublicTestRunModel(ModelNormal):
             auto_tests ([AutoTestModel]):
             test_points ([PublicTestPointModel]):
             status (str):
-            status_model (PublicTestRunModelStatusModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -322,7 +315,6 @@ class PublicTestRunModel(ModelNormal):
         self.auto_tests = auto_tests
         self.test_points = test_points
         self.status = status
-        self.status_model = status_model
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
