@@ -16,18 +16,17 @@ Method | HTTP request | Description
 
 Delete attachment file
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.rest import ApiException
+from testit_api_client.api import attachments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -40,7 +39,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -48,23 +47,23 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.AttachmentsApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = attachments_api.AttachmentsApi(api_client)
+    id = "id_example" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete attachment file
         api_instance.api_v2_attachments_id_delete(id)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_id_delete: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
@@ -79,7 +78,9 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Attachment file was deleted successfully |  -  |
@@ -93,22 +94,22 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_attachments_id_get**
-> api_v2_attachments_id_get(id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
+> api_v2_attachments_id_get(id)
 
 Download attachment file
-
-
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.rest import ApiException
+from testit_api_client.api import attachments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.image_resize_type import ImageResizeType
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -121,7 +122,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -129,33 +130,41 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.AttachmentsApi(api_client)
-    id = 'id_example' # str | 
-    width = 56 # int | Width of the result image (optional)
-    height = 56 # int | Height of the result image (optional)
-    resize_type = testit_api_client.ImageResizeType() # ImageResizeType | Type of resizing to apply to the result image (optional)
-    background_color = 'background_color_example' # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
+    api_instance = attachments_api.AttachmentsApi(api_client)
+    id = "id_example" # str | 
+    width = 1 # int | Width of the result image (optional)
+    height = 1 # int | Height of the result image (optional)
+    resize_type = None # ImageResizeType | Type of resizing to apply to the result image (optional)
+    background_color = "#62ECB0" # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
     preview = True # bool | If image must be converted to a preview (lower quality, no animation) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Download attachment file
+        api_instance.api_v2_attachments_id_get(id)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling AttachmentsApi->api_v2_attachments_id_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Download attachment file
         api_instance.api_v2_attachments_id_get(id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_id_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
- **width** | **int**| Width of the result image | [optional] 
- **height** | **int**| Height of the result image | [optional] 
- **resize_type** | [**ImageResizeType**](.md)| Type of resizing to apply to the result image | [optional] 
- **background_color** | **str**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional] 
- **preview** | **bool**| If image must be converted to a preview (lower quality, no animation) | [optional] 
+ **id** | **str**|  |
+ **width** | **int**| Width of the result image | [optional]
+ **height** | **int**| Height of the result image | [optional]
+ **resize_type** | **ImageResizeType**| Type of resizing to apply to the result image | [optional]
+ **background_color** | **str**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional]
+ **preview** | **bool**| If image must be converted to a preview (lower quality, no animation) | [optional]
 
 ### Return type
 
@@ -170,7 +179,9 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -188,19 +199,18 @@ void (empty response body)
 
 Get attachment metadata
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.attachment_model import AttachmentModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import attachments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.attachment_model import AttachmentModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -213,7 +223,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -221,25 +231,24 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.AttachmentsApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = attachments_api.AttachmentsApi(api_client)
+    id = "id_example" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         # Get attachment metadata
         api_response = api_instance.api_v2_attachments_id_metadata_get(id)
-        print("The response of AttachmentsApi->api_v2_attachments_id_metadata_get:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_id_metadata_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
@@ -254,7 +263,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -272,18 +283,17 @@ Name | Type | Description  | Notes
 
 Get size of attachments storage in bytes
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.rest import ApiException
+from testit_api_client.api import attachments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -296,7 +306,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -304,17 +314,16 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.AttachmentsApi(api_client)
+    api_instance = attachments_api.AttachmentsApi(api_client)
 
+    # example, this endpoint has no required or optional parameters
     try:
         # Get size of attachments storage in bytes
         api_response = api_instance.api_v2_attachments_occupied_file_storage_size_get()
-        print("The response of AttachmentsApi->api_v2_attachments_occupied_file_storage_size_get:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_occupied_file_storage_size_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
@@ -333,7 +342,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -347,7 +358,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_attachments_post**
-> AttachmentModel api_v2_attachments_post(file=file)
+> AttachmentModel api_v2_attachments_post()
 
 Upload new attachment file
 
@@ -356,14 +367,15 @@ File size is restricted to 50 MB (52 428 800 bytes)
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.attachment_model import AttachmentModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import attachments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.attachment_model import AttachmentModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -376,7 +388,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -384,25 +396,25 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.AttachmentsApi(api_client)
-    file = None # bytearray |  (optional)
+    api_instance = attachments_api.AttachmentsApi(api_client)
+    file = open('/path/to/file', 'rb') # file_type |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Upload new attachment file
         api_response = api_instance.api_v2_attachments_post(file=file)
-        print("The response of AttachmentsApi->api_v2_attachments_post:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **bytearray**|  | [optional] 
+ **file** | **file_type**|  | [optional]
 
 ### Return type
 
@@ -417,7 +429,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |

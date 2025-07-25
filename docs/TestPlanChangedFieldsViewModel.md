@@ -16,25 +16,8 @@ Name | Type | Description | Notes
 **test_results** | [**TestResultChangeViewModelChangedFieldViewModel**](TestResultChangeViewModelChangedFieldViewModel.md) |  | [optional] 
 **locking** | [**BooleanChangedFieldViewModel**](BooleanChangedFieldViewModel.md) |  | [optional] 
 **has_automatic_duration_timer** | [**BooleanNullableChangedFieldViewModel**](BooleanNullableChangedFieldViewModel.md) |  | [optional] 
-**attributes** | [**Dict[str, CustomAttributeChangeModel]**](CustomAttributeChangeModel.md) |  | [optional] 
+**attributes** | [**{str: (CustomAttributeChangeModel,)}, none_type**](CustomAttributeChangeModel.md) |  | [optional] 
 
-## Example
-
-```python
-from testit_api_client.models.test_plan_changed_fields_view_model import TestPlanChangedFieldsViewModel
-
-# TODO update the JSON string below
-json = "{}"
-# create an instance of TestPlanChangedFieldsViewModel from a JSON string
-test_plan_changed_fields_view_model_instance = TestPlanChangedFieldsViewModel.from_json(json)
-# print the JSON string representation of the object
-print TestPlanChangedFieldsViewModel.to_json()
-
-# convert the object into a dict
-test_plan_changed_fields_view_model_dict = test_plan_changed_fields_view_model_instance.to_dict()
-# create an instance of TestPlanChangedFieldsViewModel from a dict
-test_plan_changed_fields_view_model_from_dict = TestPlanChangedFieldsViewModel.from_dict(test_plan_changed_fields_view_model_dict)
-```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

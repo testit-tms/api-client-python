@@ -16,27 +16,19 @@ Method | HTTP request | Description
 
 Delete WorkItem comment
 
-
-Use case
-
-User sets comment identifier
-
-User runs method execution
-
-System delete comment
-
-System returns success status code
+ Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.rest import ApiException
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -49,7 +41,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -57,23 +49,23 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.WorkItemsCommentsApi(api_client)
-    comment_id = '3fa85f64-5717-4562-b3fc-2c963f66afa6' # str | Comment internal (guid format) identifier
+    api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
+    comment_id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Comment internal (guid format) identifier
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete WorkItem comment
         api_instance.api_v2_work_items_comments_comment_id_delete(comment_id)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_comment_id_delete: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **comment_id** | **str**| Comment internal (guid format) identifier | 
+ **comment_id** | **str**| Comment internal (guid format) identifier |
 
 ### Return type
 
@@ -88,7 +80,9 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
@@ -102,33 +96,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_comments_post**
-> WorkItemCommentModel api_v2_work_items_comments_post(work_item_comment_post_model=work_item_comment_post_model)
+> WorkItemCommentModel api_v2_work_items_comments_post()
 
 Create WorkItem comment
 
-
-Use case
-
-User sets comment properties (listed in request parameters)
-
-User runs method execution
-
-System creates comment
-
-System returns comment model (listed in response parameters)
+ Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.work_item_comment_model import WorkItemCommentModel
-from testit_api_client.models.work_item_comment_post_model import WorkItemCommentPostModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.api_v2_work_items_comments_post_request import ApiV2WorkItemsCommentsPostRequest
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -141,7 +127,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -149,25 +135,25 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.WorkItemsCommentsApi(api_client)
-    work_item_comment_post_model = testit_api_client.WorkItemCommentPostModel() # WorkItemCommentPostModel |  (optional)
+    api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
+    api_v2_work_items_comments_post_request = ApiV2WorkItemsCommentsPostRequest(None) # ApiV2WorkItemsCommentsPostRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create WorkItem comment
-        api_response = api_instance.api_v2_work_items_comments_post(work_item_comment_post_model=work_item_comment_post_model)
-        print("The response of WorkItemsCommentsApi->api_v2_work_items_comments_post:\n")
+        api_response = api_instance.api_v2_work_items_comments_post(api_v2_work_items_comments_post_request=api_v2_work_items_comments_post_request)
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_item_comment_post_model** | [**WorkItemCommentPostModel**](WorkItemCommentPostModel.md)|  | [optional] 
+ **api_v2_work_items_comments_post_request** | [**ApiV2WorkItemsCommentsPostRequest**](ApiV2WorkItemsCommentsPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -182,7 +168,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
@@ -196,23 +184,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_comments_put**
-> api_v2_work_items_comments_put(work_item_comment_put_model=work_item_comment_put_model)
+> api_v2_work_items_comments_put()
 
 Update work item comment
-
-
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.work_item_comment_put_model import WorkItemCommentPutModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.api_v2_work_items_comments_put_request import ApiV2WorkItemsCommentsPutRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -225,7 +212,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -233,23 +220,24 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.WorkItemsCommentsApi(api_client)
-    work_item_comment_put_model = testit_api_client.WorkItemCommentPutModel() # WorkItemCommentPutModel |  (optional)
+    api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
+    api_v2_work_items_comments_put_request = ApiV2WorkItemsCommentsPutRequest(None) # ApiV2WorkItemsCommentsPutRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Update work item comment
-        api_instance.api_v2_work_items_comments_put(work_item_comment_put_model=work_item_comment_put_model)
-    except Exception as e:
+        api_instance.api_v2_work_items_comments_put(api_v2_work_items_comments_put_request=api_v2_work_items_comments_put_request)
+    except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_put: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_item_comment_put_model** | [**WorkItemCommentPutModel**](WorkItemCommentPutModel.md)|  | [optional] 
+ **api_v2_work_items_comments_put_request** | [**ApiV2WorkItemsCommentsPutRequest**](ApiV2WorkItemsCommentsPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -264,7 +252,9 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -282,18 +272,17 @@ void (empty response body)
 
 Get work item comments count
 
-
-
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.rest import ApiException
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -306,7 +295,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -314,25 +303,24 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.WorkItemsCommentsApi(api_client)
-    id = 'id_example' # str | Unique or global ID of the work item
+    api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
+    id = "id_example" # str | Unique or global ID of the work item
 
+    # example passing only required values which don't have defaults set
     try:
         # Get work item comments count
         api_response = api_instance.api_v2_work_items_id_comments_count_get(id)
-        print("The response of WorkItemsCommentsApi->api_v2_work_items_id_comments_count_get:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_id_comments_count_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique or global ID of the work item | 
+ **id** | **str**| Unique or global ID of the work item |
 
 ### Return type
 
@@ -347,7 +335,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -361,23 +351,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_id_comments_get**
-> List[WorkItemCommentModel] api_v2_work_items_id_comments_get(id)
+> [WorkItemCommentModel] api_v2_work_items_id_comments_get(id)
 
 Get work item comments
-
-
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.work_item_comment_model import WorkItemCommentModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -390,7 +379,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -398,29 +387,28 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.WorkItemsCommentsApi(api_client)
-    id = 'id_example' # str | Unique or global ID of the work item
+    api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
+    id = "id_example" # str | Unique or global ID of the work item
 
+    # example passing only required values which don't have defaults set
     try:
         # Get work item comments
         api_response = api_instance.api_v2_work_items_id_comments_get(id)
-        print("The response of WorkItemsCommentsApi->api_v2_work_items_id_comments_get:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_id_comments_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Unique or global ID of the work item | 
+ **id** | **str**| Unique or global ID of the work item |
 
 ### Return type
 
-[**List[WorkItemCommentModel]**](WorkItemCommentModel.md)
+[**[WorkItemCommentModel]**](WorkItemCommentModel.md)
 
 ### Authorization
 
@@ -431,7 +419,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

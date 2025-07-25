@@ -13,32 +13,24 @@ Method | HTTP request | Description
 
 
 # **api_v2_projects_project_id_test_plans_analytics_get**
-> List[TestPlanWithAnalyticModel] api_v2_projects_project_id_test_plans_analytics_get(project_id, is_deleted=is_deleted, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
+> [TestPlanWithAnalyticModel] api_v2_projects_project_id_test_plans_analytics_get(project_id)
 
 Get TestPlans analytics
 
-
-Use case
-
-User sets project internal identifier
-
-User sets query params
-
-User runs method execution
-
-System return analytics
+ Use case  User sets project internal identifier  User sets query params  User runs method execution  System return analytics
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.test_plan_with_analytic_model import TestPlanWithAnalyticModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import project_test_plans_api
+from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -51,7 +43,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -59,43 +51,51 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.ProjectTestPlansApi(api_client)
-    project_id = 'project_id_example' # str | Project internal (UUID) identifier
+    api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
+    project_id = "projectId_example" # str | Project internal (UUID) identifier
     is_deleted = True # bool |  (optional)
-    must_update_cache = False # bool |  (optional) (default to False)
-    skip = 56 # int | Amount of items to be skipped (offset) (optional)
-    take = 56 # int | Amount of items to be taken (limit) (optional)
-    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = 'search_field_example' # str | Property name for searching (optional)
-    search_value = 'search_value_example' # str | Value for searching (optional)
+    must_update_cache = False # bool |  (optional) if omitted the server will use the default value of False
+    skip = 1 # int | Amount of items to be skipped (offset) (optional)
+    take = 1 # int | Amount of items to be taken (limit) (optional)
+    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = "SearchField_example" # str | Property name for searching (optional)
+    search_value = "SearchValue_example" # str | Value for searching (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Get TestPlans analytics
+        api_response = api_instance.api_v2_projects_project_id_test_plans_analytics_get(project_id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_analytics_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Get TestPlans analytics
         api_response = api_instance.api_v2_projects_project_id_test_plans_analytics_get(project_id, is_deleted=is_deleted, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
-        print("The response of ProjectTestPlansApi->api_v2_projects_project_id_test_plans_analytics_get:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_analytics_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project internal (UUID) identifier | 
- **is_deleted** | **bool**|  | [optional] 
- **must_update_cache** | **bool**|  | [optional] [default to False]
- **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
- **take** | **int**| Amount of items to be taken (limit) | [optional] 
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
- **search_field** | **str**| Property name for searching | [optional] 
- **search_value** | **str**| Value for searching | [optional] 
+ **project_id** | **str**| Project internal (UUID) identifier |
+ **is_deleted** | **bool**|  | [optional]
+ **must_update_cache** | **bool**|  | [optional] if omitted the server will use the default value of False
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional]
+ **take** | **int**| Amount of items to be taken (limit) | [optional]
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
+ **search_field** | **str**| Property name for searching | [optional]
+ **search_value** | **str**| Value for searching | [optional]
 
 ### Return type
 
-[**List[TestPlanWithAnalyticModel]**](TestPlanWithAnalyticModel.md)
+[**[TestPlanWithAnalyticModel]**](TestPlanWithAnalyticModel.md)
 
 ### Authorization
 
@@ -106,7 +106,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
@@ -120,23 +122,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_project_id_test_plans_delete_bulk_post**
-> List[str] api_v2_projects_project_id_test_plans_delete_bulk_post(project_id, test_plan_select_model=test_plan_select_model)
+> [str] api_v2_projects_project_id_test_plans_delete_bulk_post(project_id)
 
 Delete multiple test plans
-
-
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.test_plan_select_model import TestPlanSelectModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import project_test_plans_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -149,7 +150,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -157,31 +158,39 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.ProjectTestPlansApi(api_client)
-    project_id = 'project_id_example' # str | Unique or global ID of the project
-    test_plan_select_model = testit_api_client.TestPlanSelectModel() # TestPlanSelectModel |  (optional)
+    api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
+    project_id = "projectId_example" # str | Unique or global ID of the project
+    api_v2_projects_project_id_test_plans_delete_bulk_post_request = ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(None) # ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete multiple test plans
-        api_response = api_instance.api_v2_projects_project_id_test_plans_delete_bulk_post(project_id, test_plan_select_model=test_plan_select_model)
-        print("The response of ProjectTestPlansApi->api_v2_projects_project_id_test_plans_delete_bulk_post:\n")
+        api_response = api_instance.api_v2_projects_project_id_test_plans_delete_bulk_post(project_id)
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_delete_bulk_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete multiple test plans
+        api_response = api_instance.api_v2_projects_project_id_test_plans_delete_bulk_post(project_id, api_v2_projects_project_id_test_plans_delete_bulk_post_request=api_v2_projects_project_id_test_plans_delete_bulk_post_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_delete_bulk_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Unique or global ID of the project | 
- **test_plan_select_model** | [**TestPlanSelectModel**](TestPlanSelectModel.md)|  | [optional] 
+ **project_id** | **str**| Unique or global ID of the project |
+ **api_v2_projects_project_id_test_plans_delete_bulk_post_request** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md)|  | [optional]
 
 ### Return type
 
-**List[str]**
+**[str]**
 
 ### Authorization
 
@@ -192,7 +201,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -210,25 +221,19 @@ Name | Type | Description  | Notes
 
 Checks if TestPlan exists with the specified name exists for the project
 
-
-Use case
-
-User sets project internal or global identifier
-
-User runs method execution
-
-System purge delete project workitems
+ Use case  User sets project internal or global identifier  User runs method execution  System purge delete project workitems
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.rest import ApiException
+from testit_api_client.api import project_test_plans_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -241,7 +246,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -249,27 +254,26 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.ProjectTestPlansApi(api_client)
-    project_id = 'project_id_example' # str | Project internal (UUID) or global (integer) identifier
-    name = 'name_example' # str | TestPlan name to check
+    api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
+    project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
+    name = "name_example" # str | TestPlan name to check
 
+    # example passing only required values which don't have defaults set
     try:
         # Checks if TestPlan exists with the specified name exists for the project
         api_response = api_instance.api_v2_projects_project_id_test_plans_name_exists_get(project_id, name)
-        print("The response of ProjectTestPlansApi->api_v2_projects_project_id_test_plans_name_exists_get:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_name_exists_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
- **name** | **str**| TestPlan name to check | 
+ **project_id** | **str**| Project internal (UUID) or global (integer) identifier |
+ **name** | **str**| TestPlan name to check |
 
 ### Return type
 
@@ -284,7 +288,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -298,23 +304,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_project_id_test_plans_purge_bulk_post**
-> api_v2_projects_project_id_test_plans_purge_bulk_post(project_id, test_plan_select_model=test_plan_select_model)
+> api_v2_projects_project_id_test_plans_purge_bulk_post(project_id)
 
 Permanently delete multiple archived test plans
-
-
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.test_plan_select_model import TestPlanSelectModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import project_test_plans_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -327,7 +332,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -335,25 +340,33 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.ProjectTestPlansApi(api_client)
-    project_id = 'project_id_example' # str | Unique or global ID of the project
-    test_plan_select_model = testit_api_client.TestPlanSelectModel() # TestPlanSelectModel |  (optional)
+    api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
+    project_id = "projectId_example" # str | Unique or global ID of the project
+    api_v2_projects_project_id_test_plans_delete_bulk_post_request = ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(None) # ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
     try:
         # Permanently delete multiple archived test plans
-        api_instance.api_v2_projects_project_id_test_plans_purge_bulk_post(project_id, test_plan_select_model=test_plan_select_model)
-    except Exception as e:
+        api_instance.api_v2_projects_project_id_test_plans_purge_bulk_post(project_id)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_purge_bulk_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Permanently delete multiple archived test plans
+        api_instance.api_v2_projects_project_id_test_plans_purge_bulk_post(project_id, api_v2_projects_project_id_test_plans_delete_bulk_post_request=api_v2_projects_project_id_test_plans_delete_bulk_post_request)
+    except testit_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_purge_bulk_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Unique or global ID of the project | 
- **test_plan_select_model** | [**TestPlanSelectModel**](TestPlanSelectModel.md)|  | [optional] 
+ **project_id** | **str**| Unique or global ID of the project |
+ **api_v2_projects_project_id_test_plans_delete_bulk_post_request** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -368,7 +381,9 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
@@ -382,23 +397,22 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_project_id_test_plans_restore_bulk_post**
-> List[str] api_v2_projects_project_id_test_plans_restore_bulk_post(project_id, test_plan_select_model=test_plan_select_model)
+> [str] api_v2_projects_project_id_test_plans_restore_bulk_post(project_id)
 
 Restore multiple test plans
-
-
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.test_plan_select_model import TestPlanSelectModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import project_test_plans_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -411,7 +425,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -419,31 +433,39 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.ProjectTestPlansApi(api_client)
-    project_id = 'project_id_example' # str | Unique or global ID of the project
-    test_plan_select_model = testit_api_client.TestPlanSelectModel() # TestPlanSelectModel |  (optional)
+    api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
+    project_id = "projectId_example" # str | Unique or global ID of the project
+    api_v2_projects_project_id_test_plans_delete_bulk_post_request = ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(None) # ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
     try:
         # Restore multiple test plans
-        api_response = api_instance.api_v2_projects_project_id_test_plans_restore_bulk_post(project_id, test_plan_select_model=test_plan_select_model)
-        print("The response of ProjectTestPlansApi->api_v2_projects_project_id_test_plans_restore_bulk_post:\n")
+        api_response = api_instance.api_v2_projects_project_id_test_plans_restore_bulk_post(project_id)
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_restore_bulk_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Restore multiple test plans
+        api_response = api_instance.api_v2_projects_project_id_test_plans_restore_bulk_post(project_id, api_v2_projects_project_id_test_plans_delete_bulk_post_request=api_v2_projects_project_id_test_plans_delete_bulk_post_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_restore_bulk_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Unique or global ID of the project | 
- **test_plan_select_model** | [**TestPlanSelectModel**](TestPlanSelectModel.md)|  | [optional] 
+ **project_id** | **str**| Unique or global ID of the project |
+ **api_v2_projects_project_id_test_plans_delete_bulk_post_request** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md)|  | [optional]
 
 ### Return type
 
-**List[str]**
+**[str]**
 
 ### Authorization
 
@@ -454,7 +476,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -468,33 +492,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_project_id_test_plans_search_post**
-> List[TestPlanWithAnalyticModel] api_v2_projects_project_id_test_plans_search_post(project_id, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, project_test_plans_filter_model=project_test_plans_filter_model)
+> [TestPlanWithAnalyticModel] api_v2_projects_project_id_test_plans_search_post(project_id)
 
 Get Project TestPlans with analytics
 
-
-Use case
-
-User sets project internal or global identifier
-
-User sets request body
-
-User runs method execution
-
-System returns project testplans with analytics
+ Use case  User sets project internal or global identifier  User sets request body  User runs method execution  System returns project testplans with analytics
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.project_test_plans_filter_model import ProjectTestPlansFilterModel
-from testit_api_client.models.test_plan_with_analytic_model import TestPlanWithAnalyticModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import project_test_plans_api
+from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_projects_project_id_test_plans_search_post_request import ApiV2ProjectsProjectIdTestPlansSearchPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -507,7 +523,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -515,43 +531,51 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.ProjectTestPlansApi(api_client)
-    project_id = 'project_id_example' # str | Project internal (UUID) or global (integer) identifier
-    must_update_cache = False # bool |  (optional) (default to False)
-    skip = 56 # int | Amount of items to be skipped (offset) (optional)
-    take = 56 # int | Amount of items to be taken (limit) (optional)
-    order_by = 'order_by_example' # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    search_field = 'search_field_example' # str | Property name for searching (optional)
-    search_value = 'search_value_example' # str | Value for searching (optional)
-    project_test_plans_filter_model = testit_api_client.ProjectTestPlansFilterModel() # ProjectTestPlansFilterModel |  (optional)
+    api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
+    project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
+    must_update_cache = False # bool |  (optional) if omitted the server will use the default value of False
+    skip = 1 # int | Amount of items to be skipped (offset) (optional)
+    take = 1 # int | Amount of items to be taken (limit) (optional)
+    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = "SearchField_example" # str | Property name for searching (optional)
+    search_value = "SearchValue_example" # str | Value for searching (optional)
+    api_v2_projects_project_id_test_plans_search_post_request = ApiV2ProjectsProjectIdTestPlansSearchPostRequest(None) # ApiV2ProjectsProjectIdTestPlansSearchPostRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
     try:
         # Get Project TestPlans with analytics
-        api_response = api_instance.api_v2_projects_project_id_test_plans_search_post(project_id, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, project_test_plans_filter_model=project_test_plans_filter_model)
-        print("The response of ProjectTestPlansApi->api_v2_projects_project_id_test_plans_search_post:\n")
+        api_response = api_instance.api_v2_projects_project_id_test_plans_search_post(project_id)
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_search_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get Project TestPlans with analytics
+        api_response = api_instance.api_v2_projects_project_id_test_plans_search_post(project_id, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_test_plans_search_post_request=api_v2_projects_project_id_test_plans_search_post_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_search_post: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
- **must_update_cache** | **bool**|  | [optional] [default to False]
- **skip** | **int**| Amount of items to be skipped (offset) | [optional] 
- **take** | **int**| Amount of items to be taken (limit) | [optional] 
- **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] 
- **search_field** | **str**| Property name for searching | [optional] 
- **search_value** | **str**| Value for searching | [optional] 
- **project_test_plans_filter_model** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md)|  | [optional] 
+ **project_id** | **str**| Project internal (UUID) or global (integer) identifier |
+ **must_update_cache** | **bool**|  | [optional] if omitted the server will use the default value of False
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional]
+ **take** | **int**| Amount of items to be taken (limit) | [optional]
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
+ **search_field** | **str**| Property name for searching | [optional]
+ **search_value** | **str**| Value for searching | [optional]
+ **api_v2_projects_project_id_test_plans_search_post_request** | [**ApiV2ProjectsProjectIdTestPlansSearchPostRequest**](ApiV2ProjectsProjectIdTestPlansSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
-[**List[TestPlanWithAnalyticModel]**](TestPlanWithAnalyticModel.md)
+[**[TestPlanWithAnalyticModel]**](TestPlanWithAnalyticModel.md)
 
 ### Authorization
 
@@ -562,7 +586,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |

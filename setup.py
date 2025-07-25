@@ -2,14 +2,12 @@ from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "testit-api-client"
 
-VERSION = "6.3.0"
+VERSION = "7.0.0"
 
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
     "urllib3 >= 1.25.3, < 3.0.0",
     "python-dateutil",
-    "pydantic >= 1.10.5, < 2",
-    "aenum"
 ]
 setup(
     name=NAME,

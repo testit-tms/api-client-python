@@ -8,34 +8,24 @@ Method | HTTP request | Description
 
 
 # **get_configurations_by_project_id**
-> List[ConfigurationModel] get_configurations_by_project_id(project_id)
+> [ConfigurationModel] get_configurations_by_project_id(project_id)
 
 Get project configurations
 
-
-Use case
-
-User sets project internal or global identifier
-
-User runs method execution
-
-System search project
-
-System search all configurations related to project
-
-System returns array of found configurations (listed in response model)
+ Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.configuration_model import ConfigurationModel
-from testit_api_client.rest import ApiException
+from testit_api_client.api import project_configurations_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.configuration_model import ConfigurationModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -48,7 +38,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -56,29 +46,28 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.ProjectConfigurationsApi(api_client)
-    project_id = 'project_id_example' # str | Project internal (UUID) or global (integer) identifier
+    api_instance = project_configurations_api.ProjectConfigurationsApi(api_client)
+    project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
 
+    # example passing only required values which don't have defaults set
     try:
         # Get project configurations
         api_response = api_instance.get_configurations_by_project_id(project_id)
-        print("The response of ProjectConfigurationsApi->get_configurations_by_project_id:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling ProjectConfigurationsApi->get_configurations_by_project_id: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project internal (UUID) or global (integer) identifier | 
+ **project_id** | **str**| Project internal (UUID) or global (integer) identifier |
 
 ### Return type
 
-[**List[ConfigurationModel]**](ConfigurationModel.md)
+[**[ConfigurationModel]**](ConfigurationModel.md)
 
 ### Authorization
 
@@ -89,7 +78,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

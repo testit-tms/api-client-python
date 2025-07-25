@@ -8,23 +8,22 @@ Method | HTTP request | Description
 
 
 # **api_v2_users_exists_get**
-> UserCustomNameValidationResponse api_v2_users_exists_get(user_name=user_name)
-
-
+> UserCustomNameValidationResponse api_v2_users_exists_get()
 
 
 
 ### Example
 
 * Api Key Authentication (Bearer or PrivateToken):
+
 ```python
 import time
-import os
 import testit_api_client
-from testit_api_client.models.user_custom_name_validation_response import UserCustomNameValidationResponse
-from testit_api_client.rest import ApiException
+from testit_api_client.api import users_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.user_custom_name_validation_response import UserCustomNameValidationResponse
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
-
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = testit_api_client.Configuration(
@@ -37,7 +36,7 @@ configuration = testit_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
@@ -45,24 +44,24 @@ configuration.api_key['Bearer or PrivateToken'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = testit_api_client.UsersApi(api_client)
-    user_name = 'user_name_example' # str |  (optional)
+    api_instance = users_api.UsersApi(api_client)
+    user_name = "userName_example" # str |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.api_v2_users_exists_get(user_name=user_name)
-        print("The response of UsersApi->api_v2_users_exists_get:\n")
         pprint(api_response)
-    except Exception as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling UsersApi->api_v2_users_exists_get: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_name** | **str**|  | [optional] 
+ **user_name** | **str**|  | [optional]
 
 ### Return type
 
@@ -77,7 +76,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
