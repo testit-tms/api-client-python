@@ -1454,6 +1454,9 @@ def attempt_convert_item(input_value, valid_classes, path_to_item,
         # we do not handle keytype errors, json will take care
         # of this for us
         if configuration is None or not configuration.discard_unknown_keys:
+            # Check if input is None and return it directly
+            if type(input_value) == type(None):
+                return None
             raise get_type_error(input_value, path_to_item, valid_classes,
                                  key_type=key_type)
     for valid_class in valid_classes_coercible:

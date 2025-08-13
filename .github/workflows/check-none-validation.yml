@@ -1,0 +1,44 @@
+name: Check None Type Validation
+
+# Trigger the workflow on push and pull requests
+on:
+  push:
+    branches: [ main, master, develop ]
+    paths:
+      - 'src/testit_api_client/model_utils.py'
+  pull_request:
+    branches: [ main, master, develop ]
+    paths:
+      - 'src/testit_api_client/model_utils.py'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  check-none-validation:
+    name: Validate None Type Check Exists
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check for None type validation
+      run: |
+        echo "Checking for None type validation in model_utils.py..."
+        
+        # Check if the required None type validation exists
+        if grep -q "if type(input_value) == type(None):" src/testit_api_client/model_utils.py; then
+          echo "✅ SUCCESS: None type validation found in model_utils.py"
+          echo "Found line:"
+          grep -n "if type(input_value) == type(None):" src/testit_api_client/model_utils.py
+        else
+          echo "❌ FAILED: None type validation NOT found in model_utils.py"
+          echo ""
+          echo "Expected to find the line:"
+          echo "    if type(input_value) == type(None):"
+          echo ""
+          echo "This validation is required to handle None values properly in the API client."
+          echo "Please ensure this check exists in the validate_and_convert_types function."
+          exit 1
+        fi
