@@ -1,4 +1,4 @@
-# ProjectModel
+# ProjectApiResult
 
 
 ## Properties
@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **global_id** | **int** | Global ID of the project | 
 **type** | [**ProjectTypeModel**](ProjectTypeModel.md) |  | 
 **is_flaky_auto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | 
+**workflow_id** | **str** |  | 
 **description** | **str, none_type** | Description of the project | [optional] 
 **attributes_scheme** | [**[CustomAttributeModel], none_type**](CustomAttributeModel.md) | Collection of the project attributes | [optional] 
 **test_plans_attributes_scheme** | [**[CustomAttributeModel], none_type**](CustomAttributeModel.md) | Collection of the project test plans attributes | [optional] 

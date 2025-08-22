@@ -30,9 +30,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.previews_issue_link_api_model import PreviewsIssueLinkApiModel
     from testit_api_client.model.work_item_preview_api_model import WorkItemPreviewApiModel
-    globals()['PreviewsIssueLinkApiModel'] = PreviewsIssueLinkApiModel
     globals()['WorkItemPreviewApiModel'] = WorkItemPreviewApiModel
 
 
@@ -85,7 +83,6 @@ class CreateWorkItemPreviewsApiModel(ModelNormal):
             'section_id': (str,),  # noqa: E501
             'previews': ([WorkItemPreviewApiModel],),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
-            'link': (PreviewsIssueLinkApiModel,),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +94,6 @@ class CreateWorkItemPreviewsApiModel(ModelNormal):
         'section_id': 'sectionId',  # noqa: E501
         'previews': 'previews',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
-        'link': 'link',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,7 +142,6 @@ class CreateWorkItemPreviewsApiModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
-            link (PreviewsIssueLinkApiModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,7 +234,6 @@ class CreateWorkItemPreviewsApiModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
-            link (PreviewsIssueLinkApiModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
