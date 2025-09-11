@@ -355,6 +355,11 @@ class ParametersApi(object):
             params_map={
                 'all': [
                     'project_ids',
+                    'skip',
+                    'take',
+                    'order_by',
+                    'search_field',
+                    'search_value',
                 ],
                 'required': [],
                 'nullable': [
@@ -372,12 +377,32 @@ class ParametersApi(object):
                 'openapi_types': {
                     'project_ids':
                         ([str],),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'order_by':
+                        (str,),
+                    'search_field':
+                        (str,),
+                    'search_value':
+                        (str,),
                 },
                 'attribute_map': {
                     'project_ids': 'projectIds',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'order_by': 'OrderBy',
+                    'search_field': 'SearchField',
+                    'search_value': 'SearchValue',
                 },
                 'location_map': {
                     'project_ids': 'query',
+                    'skip': 'query',
+                    'take': 'query',
+                    'order_by': 'query',
+                    'search_field': 'query',
+                    'search_value': 'query',
                 },
                 'collection_format_map': {
                     'project_ids': 'multi',
@@ -1352,6 +1377,11 @@ class ParametersApi(object):
 
         Keyword Args:
             project_ids ([str]): [optional]
+            skip (int): Amount of items to be skipped (offset). [optional]
+            take (int): Amount of items to be taken (limit). [optional]
+            order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
+            search_field (str): Property name for searching. [optional]
+            search_value (str): Value for searching. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

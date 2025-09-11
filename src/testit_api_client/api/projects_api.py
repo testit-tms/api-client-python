@@ -25,12 +25,13 @@ from testit_api_client.model.api_v2_projects_restore_bulk_post_request import Ap
 from testit_api_client.model.api_v2_projects_search_post_request import ApiV2ProjectsSearchPostRequest
 from testit_api_client.model.api_v2_projects_shorts_post_request import ApiV2ProjectsShortsPostRequest
 from testit_api_client.model.auto_test_namespace_model import AutoTestNamespaceModel
+from testit_api_client.model.auto_test_result_reason_project_api_result import AutoTestResultReasonProjectApiResult
 from testit_api_client.model.create_project_request import CreateProjectRequest
 from testit_api_client.model.demo_project_api_result import DemoProjectApiResult
-from testit_api_client.model.failure_class_model import FailureClassModel
 from testit_api_client.model.filter_model import FilterModel
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_api_result import ProjectApiResult
 from testit_api_client.model.project_model import ProjectModel
 from testit_api_client.model.project_short_api_result_reply import ProjectShortApiResultReply
 from testit_api_client.model.project_short_model import ProjectShortModel
@@ -128,7 +129,6 @@ class ProjectsApi(object):
             },
             params_map={
                 'all': [
-                    'create_project_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -144,13 +144,10 @@ class ProjectsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'create_project_request':
-                        (CreateProjectRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'create_project_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -159,9 +156,7 @@ class ProjectsApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [
-                    'application/json'
-                ]
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -218,7 +213,7 @@ class ProjectsApi(object):
         )
         self.api_v2_projects_id_failure_classes_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([FailureClassModel],),
+                'response_type': ([AutoTestResultReasonProjectApiResult],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1097,7 +1092,7 @@ class ProjectsApi(object):
         )
         self.create_project_endpoint = _Endpoint(
             settings={
-                'response_type': (ProjectModel,),
+                'response_type': (ProjectApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1697,7 +1692,6 @@ class ProjectsApi(object):
 
 
         Keyword Args:
-            create_project_request (CreateProjectRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1893,7 +1887,7 @@ class ProjectsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [FailureClassModel]
+            [AutoTestResultReasonProjectApiResult]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -3138,7 +3132,7 @@ class ProjectsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ProjectModel
+            ProjectApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """

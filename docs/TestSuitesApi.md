@@ -903,7 +903,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_test_suite_by_id**
-> TestSuiteV2GetModel get_test_suite_by_id(id)
+> TestSuiteApiResult get_test_suite_by_id(id)
 
 Get TestSuite by Id
 
@@ -918,8 +918,8 @@ import time
 import testit_api_client
 from testit_api_client.api import test_suites_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.test_suite_api_result import TestSuiteApiResult
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -962,7 +962,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestSuiteV2GetModel**](TestSuiteV2GetModel.md)
+[**TestSuiteApiResult**](TestSuiteApiResult.md)
 
 ### Authorization
 
@@ -979,13 +979,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
-**404** |  Can&#39;t find a TestSuite with id! |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
+**404** |  Can&#39;t find a TestSuite with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -685,7 +685,7 @@ class ProjectAttributesApi(object):
             project_id (str): Project internal (UUID) or global (integer) identifier
 
         Keyword Args:
-            is_deleted (DeletionState): [optional] if omitted the server will use the default value of NotDeleted
+            is_deleted (DeletionState): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

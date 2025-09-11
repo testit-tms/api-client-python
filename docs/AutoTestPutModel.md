@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **name** | **str** | Name of the autotest | 
 **id** | **str, none_type** | Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId | [optional] 
 **work_item_ids_for_link_with_auto_test** | **[str], none_type** |  | [optional] 
+**work_item_ids** | **[str], none_type** |  | [optional] 
 **links** | [**[LinkPutModel], none_type**](LinkPutModel.md) | Collection of the autotest links | [optional] 
 **namespace** | **str, none_type** | Name of the autotest namespace | [optional] 
 **classname** | **str, none_type** | Name of the autotest class | [optional] 

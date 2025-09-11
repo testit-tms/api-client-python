@@ -84,8 +84,8 @@ class ExternalFormFieldModel(ModelNormal):
             'default_value': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'auto_complete_url': (str, none_type,),  # noqa: E501
             'control_type': (str, none_type,),  # noqa: E501
-            'min_length': (int, none_type,),  # noqa: E501
-            'max_length': (int, none_type,),  # noqa: E501
+            'min_length': (float, none_type,),  # noqa: E501
+            'max_length': (float, none_type,),  # noqa: E501
             'is_required': (bool, none_type,),  # noqa: E501
             'min': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'max': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
@@ -165,8 +165,8 @@ class ExternalFormFieldModel(ModelNormal):
             default_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             auto_complete_url (str, none_type): [optional]  # noqa: E501
             control_type (str, none_type): [optional]  # noqa: E501
-            min_length (int, none_type): [optional]  # noqa: E501
-            max_length (int, none_type): [optional]  # noqa: E501
+            min_length (float, none_type): [optional]  # noqa: E501
+            max_length (float, none_type): [optional]  # noqa: E501
             is_required (bool, none_type): [optional]  # noqa: E501
             min (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             max (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
@@ -267,8 +267,8 @@ class ExternalFormFieldModel(ModelNormal):
             default_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             auto_complete_url (str, none_type): [optional]  # noqa: E501
             control_type (str, none_type): [optional]  # noqa: E501
-            min_length (int, none_type): [optional]  # noqa: E501
-            max_length (int, none_type): [optional]  # noqa: E501
+            min_length (float, none_type): [optional]  # noqa: E501
+            max_length (float, none_type): [optional]  # noqa: E501
             is_required (bool, none_type): [optional]  # noqa: E501
             min (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             max (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501

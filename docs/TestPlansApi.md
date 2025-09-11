@@ -1739,7 +1739,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "id_example" # str | Test plan unique or global ID
+    id = "id_example" # str | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -1754,7 +1754,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan unique or global ID |
+ **id** | **str**|  |
 
 ### Return type
 
@@ -1774,14 +1774,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Last modification date does not exist |  -  |
+**204** | No Content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | Read permission for test plan is required |  -  |
+**403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
-**200** | Last modification date exists |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1801,6 +1800,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1858,15 +1858,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  -  |
+**200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
-**200** | Successful operation |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2380,18 +2378,17 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
-**404** | Can&#39;t find a Project with id |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
+**404** | Can&#39;t find a Project with id |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_test_suites_by_id**
-> [TestSuiteV2TreeModel] get_test_suites_by_id(id)
+> [TestSuiteHierarchyApiResult] get_test_suites_by_id(id)
 
 Get TestSuites Tree By Id
 
@@ -2406,7 +2403,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_plans_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_suite_v2_tree_model import TestSuiteV2TreeModel
+from testit_api_client.model.test_suite_hierarchy_api_result import TestSuiteHierarchyApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -2450,7 +2447,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[TestSuiteV2TreeModel]**](TestSuiteV2TreeModel.md)
+[**[TestSuiteHierarchyApiResult]**](TestSuiteHierarchyApiResult.md)
 
 ### Authorization
 

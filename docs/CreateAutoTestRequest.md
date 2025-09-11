@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **project_id** | **str** | Unique ID of the autotest project | 
 **name** | **str** | Name of the autotest | 
 **work_item_ids_for_link_with_auto_test** | **[str], none_type** | Specifies the IDs of work items to link your autotest to. You can specify several IDs. | [optional] 
+**work_item_ids** | **[str], none_type** | Specifies the IDs of work items to link your autotest to. You can specify several IDs. | [optional] 
 **should_create_work_item** | **bool, none_type** | Creates a test case linked to the autotest. | [optional] 
 **attributes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** | Key value pair of custom work item attributes | [optional] 
 **links** | [**[LinkPostModel], none_type**](LinkPostModel.md) | Collection of the autotest links | [optional] 

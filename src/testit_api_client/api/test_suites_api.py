@@ -30,6 +30,7 @@ from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.search_work_items_request import SearchWorkItemsRequest
 from testit_api_client.model.test_point_by_test_suite_model import TestPointByTestSuiteModel
 from testit_api_client.model.test_result_v2_short_model import TestResultV2ShortModel
+from testit_api_client.model.test_suite_api_result import TestSuiteApiResult
 from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
@@ -578,7 +579,7 @@ class TestSuitesApi(object):
         )
         self.get_test_suite_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (TestSuiteV2GetModel,),
+                'response_type': (TestSuiteApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1641,7 +1642,7 @@ class TestSuitesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            TestSuiteV2GetModel
+            TestSuiteApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """
