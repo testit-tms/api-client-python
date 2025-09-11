@@ -141,7 +141,6 @@ void (empty response body)
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.create_project_request import CreateProjectRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.demo_project_api_result import DemoProjectApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
@@ -167,12 +166,10 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
-    create_project_request = CreateProjectRequest(None) # CreateProjectRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+    # example, this endpoint has no required or optional parameters
     try:
-        api_response = api_instance.api_v2_projects_demo_post(create_project_request=create_project_request)
+        api_response = api_instance.api_v2_projects_demo_post()
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_demo_post: %s\n" % e)
@@ -180,10 +177,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_project_request** | [**CreateProjectRequest**](CreateProjectRequest.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -195,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -203,7 +197,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  -  |
+**200** | OK |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
@@ -296,7 +290,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_id_failure_classes_get**
-> [FailureClassModel] api_v2_projects_id_failure_classes_get(id)
+> [AutoTestResultReasonProjectApiResult] api_v2_projects_id_failure_classes_get(id)
 
 Get failure classes
 
@@ -308,7 +302,7 @@ Get failure classes
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.failure_class_model import FailureClassModel
+from testit_api_client.model.auto_test_result_reason_project_api_result import AutoTestResultReasonProjectApiResult
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -364,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[FailureClassModel]**](FailureClassModel.md)
+[**[AutoTestResultReasonProjectApiResult]**](AutoTestResultReasonProjectApiResult.md)
 
 ### Authorization
 
@@ -1651,7 +1645,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_project**
-> ProjectModel create_project()
+> ProjectApiResult create_project()
 
 Create project
 
@@ -1665,9 +1659,9 @@ Create project
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.project_model import ProjectModel
 from testit_api_client.model.create_project_request import CreateProjectRequest
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.project_api_result import ProjectApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1712,7 +1706,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**ProjectApiResult**](ProjectApiResult.md)
 
 ### Authorization
 
@@ -2082,13 +2076,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
-**404** | Project with provided ID was not found |  -  |
 **400** | ID is invalid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for projects is required |  -  |
+**404** | Project with provided ID was not found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -32,6 +32,7 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.test_plan_group_by_status import TestPlanGroupByStatus
     from testit_api_client.model.test_plan_group_by_status_code import TestPlanGroupByStatusCode
+    from testit_api_client.model.test_plan_group_by_status_type import TestPlanGroupByStatusType
     from testit_api_client.model.test_plan_group_by_test_suite import TestPlanGroupByTestSuite
     from testit_api_client.model.test_plan_group_by_tester import TestPlanGroupByTester
     from testit_api_client.model.test_plan_group_by_tester_and_status import TestPlanGroupByTesterAndStatus
@@ -39,6 +40,7 @@ def lazy_import():
     from testit_api_client.model.test_point_analytic_result import TestPointAnalyticResult
     globals()['TestPlanGroupByStatus'] = TestPlanGroupByStatus
     globals()['TestPlanGroupByStatusCode'] = TestPlanGroupByStatusCode
+    globals()['TestPlanGroupByStatusType'] = TestPlanGroupByStatusType
     globals()['TestPlanGroupByTestSuite'] = TestPlanGroupByTestSuite
     globals()['TestPlanGroupByTester'] = TestPlanGroupByTester
     globals()['TestPlanGroupByTesterAndStatus'] = TestPlanGroupByTesterAndStatus
@@ -106,6 +108,7 @@ class TestPlanWithAnalyticModelAnalytic(ModelComposed):
             'count_group_by_tester_and_status': ([TestPlanGroupByTesterAndStatus],),  # noqa: E501
             'count_group_by_status_code': ([TestPlanGroupByStatusCode],),  # noqa: E501
             'count_group_by_tester_and_status_code': ([TestPlanGroupByTesterAndStatusCode],),  # noqa: E501
+            'count_group_by_status_type': ([TestPlanGroupByStatusType],),  # noqa: E501
         }
 
     @cached_property
@@ -121,6 +124,7 @@ class TestPlanWithAnalyticModelAnalytic(ModelComposed):
         'count_group_by_tester_and_status': 'countGroupByTesterAndStatus',  # noqa: E501
         'count_group_by_status_code': 'countGroupByStatusCode',  # noqa: E501
         'count_group_by_tester_and_status_code': 'countGroupByTesterAndStatusCode',  # noqa: E501
+        'count_group_by_status_type': 'countGroupByStatusType',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,6 +143,7 @@ class TestPlanWithAnalyticModelAnalytic(ModelComposed):
             count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]):
             count_group_by_status_code ([TestPlanGroupByStatusCode]):
             count_group_by_tester_and_status_code ([TestPlanGroupByTesterAndStatusCode]):
+            count_group_by_status_type ([TestPlanGroupByStatusType]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -249,6 +254,7 @@ class TestPlanWithAnalyticModelAnalytic(ModelComposed):
             count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]):
             count_group_by_status_code ([TestPlanGroupByStatusCode]):
             count_group_by_tester_and_status_code ([TestPlanGroupByTesterAndStatusCode]):
+            count_group_by_status_type ([TestPlanGroupByStatusType]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

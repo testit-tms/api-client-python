@@ -15,11 +15,11 @@ Method | HTTP request | Description
 [**api_v2_work_items_id_version_version_id_actual_post**](WorkItemsApi.md#api_v2_work_items_id_version_version_id_actual_post) | **POST** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
 [**api_v2_work_items_links_urls_search_post**](WorkItemsApi.md#api_v2_work_items_links_urls_search_post) | **POST** /api/v2/workItems/links/urls/search | 
 [**api_v2_work_items_move_post**](WorkItemsApi.md#api_v2_work_items_move_post) | **POST** /api/v2/workItems/move | Move WorkItem to another section
+[**api_v2_work_items_post**](WorkItemsApi.md#api_v2_work_items_post) | **POST** /api/v2/workItems | Creates work item
 [**api_v2_work_items_search_post**](WorkItemsApi.md#api_v2_work_items_search_post) | **POST** /api/v2/workItems/search | Search for work items
 [**api_v2_work_items_shared_step_id_references_sections_post**](WorkItemsApi.md#api_v2_work_items_shared_step_id_references_sections_post) | **POST** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
 [**api_v2_work_items_shared_step_id_references_work_items_post**](WorkItemsApi.md#api_v2_work_items_shared_step_id_references_work_items_post) | **POST** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
 [**api_v2_work_items_shared_steps_shared_step_id_references_get**](WorkItemsApi.md#api_v2_work_items_shared_steps_shared_step_id_references_get) | **GET** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references
-[**create_work_item**](WorkItemsApi.md#create_work_item) | **POST** /api/v2/workItems | Create Test Case, Checklist or Shared Step
 [**delete_all_work_items_from_auto_test**](WorkItemsApi.md#delete_all_work_items_from_auto_test) | **DELETE** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId
 [**delete_work_item**](WorkItemsApi.md#delete_work_item) | **DELETE** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId
 [**get_auto_tests_for_work_item**](WorkItemsApi.md#get_auto_tests_for_work_item) | **GET** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId
@@ -1065,6 +1065,92 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **api_v2_work_items_post**
+> WorkItemApiResult api_v2_work_items_post()
+
+Creates work item
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import work_items_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.work_item_api_result import WorkItemApiResult
+from testit_api_client.model.api_v2_work_items_post_request import ApiV2WorkItemsPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = work_items_api.WorkItemsApi(api_client)
+    api_v2_work_items_post_request = ApiV2WorkItemsPostRequest(None) # ApiV2WorkItemsPostRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Creates work item
+        api_response = api_instance.api_v2_work_items_post(api_v2_work_items_post_request=api_v2_work_items_post_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling WorkItemsApi->api_v2_work_items_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_v2_work_items_post_request** | [**ApiV2WorkItemsPostRequest**](ApiV2WorkItemsPostRequest.md)|  | [optional]
+
+### Return type
+
+[**WorkItemApiResult**](WorkItemApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **api_v2_work_items_search_post**
 > [WorkItemShortApiResult] api_v2_work_items_search_post()
 
@@ -1458,94 +1544,6 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Can&#39;t find SharedStep with id |  -  |
-**409** | Conflict |  -  |
-**422** | Unprocessable Entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_work_item**
-> WorkItemModel create_work_item()
-
-Create Test Case, Checklist or Shared Step
-
- Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)
-
-### Example
-
-* Api Key Authentication (Bearer or PrivateToken):
-
-```python
-import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_model import WorkItemModel
-from testit_api_client.model.create_work_item_request import CreateWorkItemRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = work_items_api.WorkItemsApi(api_client)
-    create_work_item_request = CreateWorkItemRequest(None) # CreateWorkItemRequest |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Create Test Case, Checklist or Shared Step
-        api_response = api_instance.create_work_item(create_work_item_request=create_work_item_request)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling WorkItemsApi->create_work_item: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_work_item_request** | [**CreateWorkItemRequest**](CreateWorkItemRequest.md)|  | [optional]
-
-### Return type
-
-[**WorkItemModel**](WorkItemModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Successful operation |  -  |
-**400** |  Field is required  Priority is not a valid  Tags must be set  Duration should be a positive number  Should be empty for CheckList  Attribute value must be a valid guid for user scheme  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme |  -  |
-**401** | Unauthorized |  -  |
-**403** | Update permission for test library required |  -  |
-**404** |  Can&#39;t find section  Can&#39;t find project  Can&#39;t find attachmentIds  Project not found  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 

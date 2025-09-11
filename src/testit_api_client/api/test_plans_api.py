@@ -38,7 +38,7 @@ from testit_api_client.model.test_plan_with_test_suite_tree_model import TestPla
 from testit_api_client.model.test_point_analytic_result import TestPointAnalyticResult
 from testit_api_client.model.test_point_with_last_result_response_model import TestPointWithLastResultResponseModel
 from testit_api_client.model.test_run_api_result import TestRunApiResult
-from testit_api_client.model.test_suite_v2_tree_model import TestSuiteV2TreeModel
+from testit_api_client.model.test_suite_hierarchy_api_result import TestSuiteHierarchyApiResult
 from testit_api_client.model.update_test_plan_request import UpdateTestPlanRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -1575,7 +1575,7 @@ class TestPlansApi(object):
         )
         self.get_test_suites_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': ([TestSuiteV2TreeModel],),
+                'response_type': ([TestSuiteHierarchyApiResult],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -3346,7 +3346,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan unique or global ID
+            id (str):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4038,7 +4038,7 @@ class TestPlansApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [TestSuiteV2TreeModel]
+            [TestSuiteHierarchyApiResult]
                 If the method is called asynchronously, returns the request
                 thread.
         """

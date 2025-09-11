@@ -75,8 +75,6 @@ class DemoProjectApiResult(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'project_id': (str,),  # noqa: E501
-            'project_global_id': (int,),  # noqa: E501
             'job_id': (str,),  # noqa: E501
         }
 
@@ -86,8 +84,6 @@ class DemoProjectApiResult(ModelNormal):
 
 
     attribute_map = {
-        'project_id': 'projectId',  # noqa: E501
-        'project_global_id': 'projectGlobalId',  # noqa: E501
         'job_id': 'jobId',  # noqa: E501
     }
 
@@ -98,12 +94,10 @@ class DemoProjectApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, project_id, project_global_id, job_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, job_id, *args, **kwargs):  # noqa: E501
         """DemoProjectApiResult - a model defined in OpenAPI
 
         Args:
-            project_id (str): Demo project ID
-            project_global_id (int): Demo project global ID
             job_id (str): Job ID
 
         Keyword Args:
@@ -168,8 +162,6 @@ class DemoProjectApiResult(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.project_id = project_id
-        self.project_global_id = project_global_id
         self.job_id = job_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -191,12 +183,10 @@ class DemoProjectApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, project_id, project_global_id, job_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, job_id, *args, **kwargs):  # noqa: E501
         """DemoProjectApiResult - a model defined in OpenAPI
 
         Args:
-            project_id (str): Demo project ID
-            project_global_id (int): Demo project global ID
             job_id (str): Job ID
 
         Keyword Args:
@@ -259,8 +249,6 @@ class DemoProjectApiResult(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.project_id = project_id
-        self.project_global_id = project_global_id
         self.job_id = job_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

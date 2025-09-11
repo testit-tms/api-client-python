@@ -531,12 +531,17 @@ with testit_api_client.ApiClient(configuration) as api_client:
     project_ids = [
         "projectIds_example",
     ] # [str] |  (optional)
+    skip = 1 # int | Amount of items to be skipped (offset) (optional)
+    take = 1 # int | Amount of items to be taken (limit) (optional)
+    order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    search_field = "SearchField_example" # str | Property name for searching (optional)
+    search_value = "SearchValue_example" # str | Value for searching (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Get all parameter keys
-        api_response = api_instance.api_v2_parameters_keys_get(project_ids=project_ids)
+        api_response = api_instance.api_v2_parameters_keys_get(project_ids=project_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_keys_get: %s\n" % e)
@@ -548,6 +553,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_ids** | **[str]**|  | [optional]
+ **skip** | **int**| Amount of items to be skipped (offset) | [optional]
+ **take** | **int**| Amount of items to be taken (limit) | [optional]
+ **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
+ **search_field** | **str**| Property name for searching | [optional]
+ **search_value** | **str**| Value for searching | [optional]
 
 ### Return type
 
@@ -567,7 +577,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
+**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |

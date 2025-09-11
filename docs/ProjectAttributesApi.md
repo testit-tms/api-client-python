@@ -326,7 +326,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_attributes_api.ProjectAttributesApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
-    is_deleted = None # DeletionState |  (optional) if omitted the server will use the default value of NotDeleted
+    is_deleted = None # DeletionState |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -352,7 +352,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project internal (UUID) or global (integer) identifier |
- **is_deleted** | **DeletionState**|  | [optional] if omitted the server will use the default value of NotDeleted
+ **is_deleted** | **DeletionState**|  | [optional]
 
 ### Return type
 
