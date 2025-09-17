@@ -1645,7 +1645,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_project**
-> ProjectApiResult create_project()
+> ProjectModel create_project()
 
 Create project
 
@@ -1659,9 +1659,9 @@ Create project
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
+from testit_api_client.model.project_model import ProjectModel
 from testit_api_client.model.create_project_request import CreateProjectRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_api_result import ProjectApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1706,7 +1706,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectApiResult**](ProjectApiResult.md)
+[**ProjectModel**](ProjectModel.md)
 
 ### Authorization
 

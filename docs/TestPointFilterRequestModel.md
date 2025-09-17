@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **is_automated** | **bool, none_type** | Specifies a test point automation status to search for | [optional] 
 **name** | **str, none_type** | Specifies a test point name to search for | [optional] 
 **configuration_ids** | **[str], none_type** | Specifies a test point configuration IDs to search for | [optional] 
-**tester_ids** | **[str], none_type** | Specifies a test point assigned user IDs to search for | [optional] 
+**tester_ids** | **[str, none_type], none_type** | Specifies a test point assigned user IDs to search for | [optional] 
 **duration** | [**TestPlanTestPointsSearchApiModelDuration**](TestPlanTestPointsSearchApiModelDuration.md) |  | [optional] 
 **section_ids** | **[str], none_type** | Specifies a test point work item section IDs to search for | [optional] 
 **created_date** | [**TestPlanTestPointsSearchApiModelCreatedDate**](TestPlanTestPointsSearchApiModelCreatedDate.md) |  | [optional] 

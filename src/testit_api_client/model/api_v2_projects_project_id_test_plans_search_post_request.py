@@ -125,7 +125,7 @@ class ApiV2ProjectsProjectIdTestPlansSearchPostRequest(ModelComposed):
             'global_ids': ([int], none_type,),  # noqa: E501
             'is_locked': (bool, none_type,),  # noqa: E501
             'locked_date': (DateTimeRangeSelectorModel,),  # noqa: E501
-            'automatic_duration_timer': ([bool], none_type,),  # noqa: E501
+            'automatic_duration_timer': ([bool, none_type], none_type,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
             'start_date': (DateTimeRangeSelectorModel,),  # noqa: E501
@@ -206,7 +206,7 @@ class ApiV2ProjectsProjectIdTestPlansSearchPostRequest(ModelComposed):
             global_ids ([int], none_type): [optional]  # noqa: E501
             is_locked (bool, none_type): [optional]  # noqa: E501
             locked_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            automatic_duration_timer ([bool], none_type): [optional]  # noqa: E501
+            automatic_duration_timer ([bool, none_type], none_type): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
             created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             start_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
@@ -325,7 +325,7 @@ class ApiV2ProjectsProjectIdTestPlansSearchPostRequest(ModelComposed):
             global_ids ([int], none_type): [optional]  # noqa: E501
             is_locked (bool, none_type): [optional]  # noqa: E501
             locked_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            automatic_duration_timer ([bool], none_type): [optional]  # noqa: E501
+            automatic_duration_timer ([bool, none_type], none_type): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
             created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             start_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501

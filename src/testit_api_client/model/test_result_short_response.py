@@ -98,6 +98,7 @@ class TestResultShortResponse(ModelNormal):
             'links': ([LinkShort],),  # noqa: E501
             'attachments': ([AttachmentApiResult],),  # noqa: E501
             'rerun_completed_count': (int,),  # noqa: E501
+            'autotest_external_id': (str, none_type,),  # noqa: E501
             'outcome': (str, none_type,),  # noqa: E501
             'status': (TestStatusApiResult,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
@@ -125,6 +126,7 @@ class TestResultShortResponse(ModelNormal):
         'links': 'links',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'rerun_completed_count': 'rerunCompletedCount',  # noqa: E501
+        'autotest_external_id': 'autotestExternalId',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
         'status': 'status',  # noqa: E501
         'comment': 'comment',  # noqa: E501
@@ -189,6 +191,7 @@ class TestResultShortResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            autotest_external_id (str, none_type): External ID of autotest represented by the test result. [optional]  # noqa: E501
             outcome (str, none_type): Outcome of the test result. [optional]  # noqa: E501
             status (TestStatusApiResult): [optional]  # noqa: E501
             comment (str, none_type): Comment to the test result. [optional]  # noqa: E501
@@ -307,6 +310,7 @@ class TestResultShortResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            autotest_external_id (str, none_type): External ID of autotest represented by the test result. [optional]  # noqa: E501
             outcome (str, none_type): Outcome of the test result. [optional]  # noqa: E501
             status (TestStatusApiResult): [optional]  # noqa: E501
             comment (str, none_type): Comment to the test result. [optional]  # noqa: E501

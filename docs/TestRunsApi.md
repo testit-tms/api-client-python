@@ -823,7 +823,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_runs_id_test_results_last_modified_modification_date_get**
-> datetime api_v2_test_runs_id_test_results_last_modified_modification_date_get(id)
+> datetime, none_type api_v2_test_runs_id_test_results_last_modified_modification_date_get(id)
 
 Get modification date of last test result of the test run
 
@@ -879,7 +879,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**datetime**
+**datetime, none_type**
 
 ### Authorization
 

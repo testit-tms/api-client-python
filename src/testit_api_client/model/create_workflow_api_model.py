@@ -86,6 +86,7 @@ class CreateWorkflowApiModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'statuses': ([WorkflowStatusApiModel],),  # noqa: E501
             'is_default': (bool, none_type,),  # noqa: E501
+            'project_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -97,6 +98,7 @@ class CreateWorkflowApiModel(ModelNormal):
         'name': 'name',  # noqa: E501
         'statuses': 'statuses',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
+        'project_ids': 'projectIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,6 +147,7 @@ class CreateWorkflowApiModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             is_default (bool, none_type): [optional]  # noqa: E501
+            project_ids ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,6 +240,7 @@ class CreateWorkflowApiModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             is_default (bool, none_type): [optional]  # noqa: E501
+            project_ids ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

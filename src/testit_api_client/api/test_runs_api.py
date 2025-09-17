@@ -532,7 +532,7 @@ class TestRunsApi(object):
         )
         self.api_v2_test_runs_id_test_results_last_modified_modification_date_get_endpoint = _Endpoint(
             settings={
-                'response_type': (datetime,),
+                'response_type': (datetime, none_type,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -2108,7 +2108,7 @@ class TestRunsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            datetime
+            datetime, none_type
                 If the method is called asynchronously, returns the request
                 thread.
         """

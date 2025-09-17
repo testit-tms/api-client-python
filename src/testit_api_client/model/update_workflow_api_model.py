@@ -86,6 +86,7 @@ class UpdateWorkflowApiModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
             'statuses': ([WorkflowStatusApiModel],),  # noqa: E501
+            'project_ids': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -97,6 +98,7 @@ class UpdateWorkflowApiModel(ModelNormal):
         'name': 'name',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
         'statuses': 'statuses',  # noqa: E501
+        'project_ids': 'projectIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -106,13 +108,14 @@ class UpdateWorkflowApiModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, is_default, statuses, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, is_default, statuses, project_ids, *args, **kwargs):  # noqa: E501
         """UpdateWorkflowApiModel - a model defined in OpenAPI
 
         Args:
             name (str):
             is_default (bool):
             statuses ([WorkflowStatusApiModel]):
+            project_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -179,6 +182,7 @@ class UpdateWorkflowApiModel(ModelNormal):
         self.name = name
         self.is_default = is_default
         self.statuses = statuses
+        self.project_ids = project_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -199,13 +203,14 @@ class UpdateWorkflowApiModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, is_default, statuses, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, is_default, statuses, project_ids, *args, **kwargs):  # noqa: E501
         """UpdateWorkflowApiModel - a model defined in OpenAPI
 
         Args:
             name (str):
             is_default (bool):
             statuses ([WorkflowStatusApiModel]):
+            project_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -270,6 +275,7 @@ class UpdateWorkflowApiModel(ModelNormal):
         self.name = name
         self.is_default = is_default
         self.statuses = statuses
+        self.project_ids = project_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

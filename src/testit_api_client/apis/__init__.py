@@ -28,6 +28,7 @@ from testit_api_client.api.project_configurations_api import ProjectConfiguratio
 from testit_api_client.api.project_sections_api import ProjectSectionsApi
 from testit_api_client.api.project_settings_api import ProjectSettingsApi
 from testit_api_client.api.project_test_plan_attributes_api import ProjectTestPlanAttributesApi
+from testit_api_client.api.project_test_plan_test_points_api import ProjectTestPlanTestPointsApi
 from testit_api_client.api.project_test_plans_api import ProjectTestPlansApi
 from testit_api_client.api.project_work_items_api import ProjectWorkItemsApi
 from testit_api_client.api.projects_api import ProjectsApi

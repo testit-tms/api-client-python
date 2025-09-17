@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
+**description** | **str** |  | 
+**steps** | [**[WorkItemPreviewStepApiModel]**](WorkItemPreviewStepApiModel.md) |  | 
 **action** | **str** |  | 
 **expected** | **str** |  | 
 

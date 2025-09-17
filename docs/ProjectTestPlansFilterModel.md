@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **global_ids** | **[int], none_type** |  | [optional] 
 **is_locked** | **bool, none_type** |  | [optional] 
 **locked_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
-**automatic_duration_timer** | **[bool], none_type** |  | [optional] 
+**automatic_duration_timer** | **[bool, none_type], none_type** |  | [optional] 
 **created_by_ids** | **[str], none_type** |  | [optional] 
 **created_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **start_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 

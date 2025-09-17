@@ -25,7 +25,7 @@
 | 5.3.0   | 6.0.1.post530 |
 | 5.4.0   | 6.3.1.post540 |
 | 5.4.1   | 7.0.3.post541 |
-| Cloud   | 7.1.0         |
+| Cloud   | 7.1.1         |
 
 ## Installation & Usage
 ### pip install
@@ -172,6 +172,8 @@ Class | Method | HTTP request | Description
 *ProjectTestPlanAttributesApi* | [**get_custom_attribute_test_plan_project_relations**](docs/ProjectTestPlanAttributesApi.md#get_custom_attribute_test_plan_project_relations) | **GET** /api/v2/projects/{projectId}/testPlans/attributes | Get project&#39;s test plan attributes
 *ProjectTestPlanAttributesApi* | [**search_test_plan_attributes_in_project**](docs/ProjectTestPlanAttributesApi.md#search_test_plan_attributes_in_project) | **POST** /api/v2/projects/{projectId}/testPlans/attributes/search | Search for attributes used in the project test plans
 *ProjectTestPlanAttributesApi* | [**update_custom_attribute_test_plan_project_relations**](docs/ProjectTestPlanAttributesApi.md#update_custom_attribute_test_plan_project_relations) | **PUT** /api/v2/projects/{projectId}/testPlans/attributes | Update attribute of project&#39;s test plans
+*ProjectTestPlanTestPointsApi* | [**api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post**](docs/ProjectTestPlanTestPointsApi.md#api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post) | **POST** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/rerun | Rerun autotests.
+*ProjectTestPlanTestPointsApi* | [**api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_run_post**](docs/ProjectTestPlanTestPointsApi.md#api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_run_post) | **POST** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/run | Run autotests.
 *ProjectTestPlansApi* | [**api_v2_projects_project_id_test_plans_analytics_get**](docs/ProjectTestPlansApi.md#api_v2_projects_project_id_test_plans_analytics_get) | **GET** /api/v2/projects/{projectId}/testPlans/analytics | Get TestPlans analytics
 *ProjectTestPlansApi* | [**api_v2_projects_project_id_test_plans_delete_bulk_post**](docs/ProjectTestPlansApi.md#api_v2_projects_project_id_test_plans_delete_bulk_post) | **POST** /api/v2/projects/{projectId}/testPlans/delete/bulk | Delete multiple test plans
 *ProjectTestPlansApi* | [**api_v2_projects_project_id_test_plans_name_exists_get**](docs/ProjectTestPlansApi.md#api_v2_projects_project_id_test_plans_name_exists_get) | **GET** /api/v2/projects/{projectId}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project

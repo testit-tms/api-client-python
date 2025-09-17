@@ -77,7 +77,7 @@ class ParametersFilterApiModel(ModelNormal):
         return {
             'name': (str, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
-            'project_ids': ([str], none_type,),  # noqa: E501
+            'project_ids': ([str, none_type], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -134,7 +134,7 @@ class ParametersFilterApiModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             is_deleted (bool, none_type): [optional]  # noqa: E501
-            project_ids ([str], none_type): [optional]  # noqa: E501
+            project_ids ([str, none_type], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,7 +222,7 @@ class ParametersFilterApiModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             is_deleted (bool, none_type): [optional]  # noqa: E501
-            project_ids ([str], none_type): [optional]  # noqa: E501
+            project_ids ([str, none_type], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
