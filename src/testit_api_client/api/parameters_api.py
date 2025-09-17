@@ -192,7 +192,7 @@ class ParametersApi(object):
                     'is_deleted':
                         (bool,),
                     'project_ids':
-                        ([str],),
+                        ([str, none_type],),
                     'skip':
                         (int,),
                     'take':
@@ -376,7 +376,7 @@ class ParametersApi(object):
                 },
                 'openapi_types': {
                     'project_ids':
-                        ([str],),
+                        ([str, none_type],),
                     'skip':
                         (int,),
                     'take':
@@ -1126,7 +1126,7 @@ class ParametersApi(object):
             parameter_key_ids ([str]): [optional]
             name (str): [optional]
             is_deleted (bool): [optional]
-            project_ids ([str]): [optional]
+            project_ids ([str, none_type]): [optional]
             skip (int): Amount of items to be skipped (offset). [optional]
             take (int): Amount of items to be taken (limit). [optional]
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
@@ -1376,7 +1376,7 @@ class ParametersApi(object):
 
 
         Keyword Args:
-            project_ids ([str]): [optional]
+            project_ids ([str, none_type]): [optional]
             skip (int): Amount of items to be skipped (offset). [optional]
             take (int): Amount of items to be taken (limit). [optional]
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]

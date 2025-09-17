@@ -31,10 +31,14 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.test_plan_test_points_status_group_api_result import TestPlanTestPointsStatusGroupApiResult
+    from testit_api_client.model.test_plan_test_points_status_type_group_api_result import TestPlanTestPointsStatusTypeGroupApiResult
     from testit_api_client.model.test_plan_test_points_tester_and_status_group_api_result import TestPlanTestPointsTesterAndStatusGroupApiResult
+    from testit_api_client.model.test_plan_test_points_tester_and_status_type_group_api_result import TestPlanTestPointsTesterAndStatusTypeGroupApiResult
     from testit_api_client.model.test_plan_test_points_tester_group_api_result import TestPlanTestPointsTesterGroupApiResult
     globals()['TestPlanTestPointsStatusGroupApiResult'] = TestPlanTestPointsStatusGroupApiResult
+    globals()['TestPlanTestPointsStatusTypeGroupApiResult'] = TestPlanTestPointsStatusTypeGroupApiResult
     globals()['TestPlanTestPointsTesterAndStatusGroupApiResult'] = TestPlanTestPointsTesterAndStatusGroupApiResult
+    globals()['TestPlanTestPointsTesterAndStatusTypeGroupApiResult'] = TestPlanTestPointsTesterAndStatusTypeGroupApiResult
     globals()['TestPlanTestPointsTesterGroupApiResult'] = TestPlanTestPointsTesterGroupApiResult
 
 
@@ -85,9 +89,11 @@ class TestPlanTestPointsAnalyticsApiResult(ModelNormal):
         lazy_import()
         return {
             'count_group_by_status': ([TestPlanTestPointsStatusGroupApiResult],),  # noqa: E501
+            'count_group_by_tester_and_status': ([TestPlanTestPointsTesterAndStatusGroupApiResult],),  # noqa: E501
             'sum_group_by_tester': ([TestPlanTestPointsTesterGroupApiResult],),  # noqa: E501
             'count_group_by_tester': ([TestPlanTestPointsTesterGroupApiResult],),  # noqa: E501
-            'count_group_by_tester_and_status': ([TestPlanTestPointsTesterAndStatusGroupApiResult],),  # noqa: E501
+            'count_group_by_status_type': ([TestPlanTestPointsStatusTypeGroupApiResult],),  # noqa: E501
+            'count_group_by_tester_and_status_type': ([TestPlanTestPointsTesterAndStatusTypeGroupApiResult],),  # noqa: E501
         }
 
     @cached_property
@@ -97,9 +103,11 @@ class TestPlanTestPointsAnalyticsApiResult(ModelNormal):
 
     attribute_map = {
         'count_group_by_status': 'countGroupByStatus',  # noqa: E501
+        'count_group_by_tester_and_status': 'countGroupByTesterAndStatus',  # noqa: E501
         'sum_group_by_tester': 'sumGroupByTester',  # noqa: E501
         'count_group_by_tester': 'countGroupByTester',  # noqa: E501
-        'count_group_by_tester_and_status': 'countGroupByTesterAndStatus',  # noqa: E501
+        'count_group_by_status_type': 'countGroupByStatusType',  # noqa: E501
+        'count_group_by_tester_and_status_type': 'countGroupByTesterAndStatusType',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,14 +117,16 @@ class TestPlanTestPointsAnalyticsApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, count_group_by_status, sum_group_by_tester, count_group_by_tester, count_group_by_tester_and_status, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, count_group_by_status, count_group_by_tester_and_status, sum_group_by_tester, count_group_by_tester, count_group_by_status_type, count_group_by_tester_and_status_type, *args, **kwargs):  # noqa: E501
         """TestPlanTestPointsAnalyticsApiResult - a model defined in OpenAPI
 
         Args:
             count_group_by_status ([TestPlanTestPointsStatusGroupApiResult]):
+            count_group_by_tester_and_status ([TestPlanTestPointsTesterAndStatusGroupApiResult]):
             sum_group_by_tester ([TestPlanTestPointsTesterGroupApiResult]):
             count_group_by_tester ([TestPlanTestPointsTesterGroupApiResult]):
-            count_group_by_tester_and_status ([TestPlanTestPointsTesterAndStatusGroupApiResult]):
+            count_group_by_status_type ([TestPlanTestPointsStatusTypeGroupApiResult]):
+            count_group_by_tester_and_status_type ([TestPlanTestPointsTesterAndStatusTypeGroupApiResult]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -181,9 +191,11 @@ class TestPlanTestPointsAnalyticsApiResult(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.count_group_by_status = count_group_by_status
+        self.count_group_by_tester_and_status = count_group_by_tester_and_status
         self.sum_group_by_tester = sum_group_by_tester
         self.count_group_by_tester = count_group_by_tester
-        self.count_group_by_tester_and_status = count_group_by_tester_and_status
+        self.count_group_by_status_type = count_group_by_status_type
+        self.count_group_by_tester_and_status_type = count_group_by_tester_and_status_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -204,14 +216,16 @@ class TestPlanTestPointsAnalyticsApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, count_group_by_status, sum_group_by_tester, count_group_by_tester, count_group_by_tester_and_status, *args, **kwargs):  # noqa: E501
+    def __init__(self, count_group_by_status, count_group_by_tester_and_status, sum_group_by_tester, count_group_by_tester, count_group_by_status_type, count_group_by_tester_and_status_type, *args, **kwargs):  # noqa: E501
         """TestPlanTestPointsAnalyticsApiResult - a model defined in OpenAPI
 
         Args:
             count_group_by_status ([TestPlanTestPointsStatusGroupApiResult]):
+            count_group_by_tester_and_status ([TestPlanTestPointsTesterAndStatusGroupApiResult]):
             sum_group_by_tester ([TestPlanTestPointsTesterGroupApiResult]):
             count_group_by_tester ([TestPlanTestPointsTesterGroupApiResult]):
-            count_group_by_tester_and_status ([TestPlanTestPointsTesterAndStatusGroupApiResult]):
+            count_group_by_status_type ([TestPlanTestPointsStatusTypeGroupApiResult]):
+            count_group_by_tester_and_status_type ([TestPlanTestPointsTesterAndStatusTypeGroupApiResult]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -274,9 +288,11 @@ class TestPlanTestPointsAnalyticsApiResult(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.count_group_by_status = count_group_by_status
+        self.count_group_by_tester_and_status = count_group_by_tester_and_status
         self.sum_group_by_tester = sum_group_by_tester
         self.count_group_by_tester = count_group_by_tester
-        self.count_group_by_tester_and_status = count_group_by_tester_and_status
+        self.count_group_by_status_type = count_group_by_status_type
+        self.count_group_by_tester_and_status_type = count_group_by_tester_and_status_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

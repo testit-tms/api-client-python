@@ -84,9 +84,9 @@ class WorkflowStatusApiResult(ModelNormal):
             'name': (str,),  # noqa: E501
             'code': (str,),  # noqa: E501
             'type': (TestStatusApiType,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'is_system': (bool,),  # noqa: E501
             'priority': (int,),  # noqa: E501
-            'description': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,9 +99,9 @@ class WorkflowStatusApiResult(ModelNormal):
         'name': 'name',  # noqa: E501
         'code': 'code',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'is_system': 'isSystem',  # noqa: E501
         'priority': 'priority',  # noqa: E501
-        'description': 'description',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,7 +111,7 @@ class WorkflowStatusApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, code, type, is_system, priority, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, code, type, description, is_system, priority, *args, **kwargs):  # noqa: E501
         """WorkflowStatusApiResult - a model defined in OpenAPI
 
         Args:
@@ -119,6 +119,7 @@ class WorkflowStatusApiResult(ModelNormal):
             name (str):
             code (str):
             type (TestStatusApiType):
+            description (str, none_type):
             is_system (bool):
             priority (int):
 
@@ -153,7 +154,6 @@ class WorkflowStatusApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -189,6 +189,7 @@ class WorkflowStatusApiResult(ModelNormal):
         self.name = name
         self.code = code
         self.type = type
+        self.description = description
         self.is_system = is_system
         self.priority = priority
         for var_name, var_value in kwargs.items():
@@ -211,7 +212,7 @@ class WorkflowStatusApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, code, type, is_system, priority, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, code, type, description, is_system, priority, *args, **kwargs):  # noqa: E501
         """WorkflowStatusApiResult - a model defined in OpenAPI
 
         Args:
@@ -219,6 +220,7 @@ class WorkflowStatusApiResult(ModelNormal):
             name (str):
             code (str):
             type (TestStatusApiType):
+            description (str, none_type):
             is_system (bool):
             priority (int):
 
@@ -253,7 +255,6 @@ class WorkflowStatusApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -287,6 +288,7 @@ class WorkflowStatusApiResult(ModelNormal):
         self.name = name
         self.code = code
         self.type = type
+        self.description = description
         self.is_system = is_system
         self.priority = priority
         for var_name, var_value in kwargs.items():

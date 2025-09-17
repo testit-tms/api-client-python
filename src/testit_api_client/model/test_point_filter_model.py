@@ -112,7 +112,7 @@ class TestPointFilterModel(ModelNormal):
             'is_automated': (bool, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'configuration_ids': ([str], none_type,),  # noqa: E501
-            'tester_ids': ([str], none_type,),  # noqa: E501
+            'tester_ids': ([str, none_type], none_type,),  # noqa: E501
             'duration': (TestPlanTestPointsSearchApiModelDuration,),  # noqa: E501
             'section_ids': ([str], none_type,),  # noqa: E501
             'created_date': (TestPlanTestPointsSearchApiModelCreatedDate,),  # noqa: E501
@@ -213,7 +213,7 @@ class TestPointFilterModel(ModelNormal):
             is_automated (bool, none_type): Specifies a test point automation status to search for. [optional]  # noqa: E501
             name (str, none_type): Specifies a test point name to search for. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test point configuration IDs to search for. [optional]  # noqa: E501
-            tester_ids ([str], none_type): Specifies a test point assigned user IDs to search for. [optional]  # noqa: E501
+            tester_ids ([str, none_type], none_type): Specifies a test point assigned user IDs to search for. [optional]  # noqa: E501
             duration (TestPlanTestPointsSearchApiModelDuration): [optional]  # noqa: E501
             section_ids ([str], none_type): Specifies a test point work item section IDs to search for. [optional]  # noqa: E501
             created_date (TestPlanTestPointsSearchApiModelCreatedDate): [optional]  # noqa: E501
@@ -323,7 +323,7 @@ class TestPointFilterModel(ModelNormal):
             is_automated (bool, none_type): Specifies a test point automation status to search for. [optional]  # noqa: E501
             name (str, none_type): Specifies a test point name to search for. [optional]  # noqa: E501
             configuration_ids ([str], none_type): Specifies a test point configuration IDs to search for. [optional]  # noqa: E501
-            tester_ids ([str], none_type): Specifies a test point assigned user IDs to search for. [optional]  # noqa: E501
+            tester_ids ([str, none_type], none_type): Specifies a test point assigned user IDs to search for. [optional]  # noqa: E501
             duration (TestPlanTestPointsSearchApiModelDuration): [optional]  # noqa: E501
             section_ids ([str], none_type): Specifies a test point work item section IDs to search for. [optional]  # noqa: E501
             created_date (TestPlanTestPointsSearchApiModelCreatedDate): [optional]  # noqa: E501

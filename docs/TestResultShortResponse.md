@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **links** | [**[LinkShort]**](LinkShort.md) | Collection of links attached to the test result | 
 **attachments** | [**[AttachmentApiResult]**](AttachmentApiResult.md) | Collection of files attached to the test result | 
 **rerun_completed_count** | **int** | Run count | 
+**autotest_external_id** | **str, none_type** | External ID of autotest represented by the test result | [optional] 
 **outcome** | **str, none_type** | Outcome of the test result | [optional] 
 **status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **comment** | **str, none_type** | Comment to the test result | [optional] 

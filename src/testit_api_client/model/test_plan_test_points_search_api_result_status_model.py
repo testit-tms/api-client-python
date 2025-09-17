@@ -30,7 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.test_status_api_type import TestStatusApiType
     from testit_api_client.model.test_status_short_api_result import TestStatusShortApiResult
+    globals()['TestStatusApiType'] = TestStatusApiType
     globals()['TestStatusShortApiResult'] = TestStatusShortApiResult
 
 
@@ -90,6 +92,7 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'code': (str,),  # noqa: E501
+            'type': (TestStatusApiType,),  # noqa: E501
         }
 
     @cached_property
@@ -101,6 +104,7 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'code': 'code',  # noqa: E501
+        'type': 'type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,6 +119,7 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
             id (str):
             name (str):
             code (str):
+            type (TestStatusApiType):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -221,6 +226,7 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
             id (str):
             name (str):
             code (str):
+            type (TestStatusApiType):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

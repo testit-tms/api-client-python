@@ -31,7 +31,6 @@ from testit_api_client.model.demo_project_api_result import DemoProjectApiResult
 from testit_api_client.model.filter_model import FilterModel
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_api_result import ProjectApiResult
 from testit_api_client.model.project_model import ProjectModel
 from testit_api_client.model.project_short_api_result_reply import ProjectShortApiResultReply
 from testit_api_client.model.project_short_model import ProjectShortModel
@@ -1092,7 +1091,7 @@ class ProjectsApi(object):
         )
         self.create_project_endpoint = _Endpoint(
             settings={
-                'response_type': (ProjectApiResult,),
+                'response_type': (ProjectModel,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -3132,7 +3131,7 @@ class ProjectsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ProjectApiResult
+            ProjectModel
                 If the method is called asynchronously, returns the request
                 thread.
         """
