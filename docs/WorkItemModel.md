@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **created_date** | **datetime** |  | 
 **created_by_id** | **str** |  | 
 **global_id** | **int** |  | 
+**external_issues** | [**[ExternalIssueModel]**](ExternalIssueModel.md) |  | 
 **id** | **str** |  | 
 **section_id** | **str** |  | 
 **state** | [**WorkItemStates**](WorkItemStates.md) |  | 

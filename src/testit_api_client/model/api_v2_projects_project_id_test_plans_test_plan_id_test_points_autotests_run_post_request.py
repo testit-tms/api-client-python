@@ -30,12 +30,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.test_plan_test_points_auto_tests_rerun_api_model_extraction_model import TestPlanTestPointsAutoTestsRerunApiModelExtractionModel
+    from testit_api_client.model.test_plan_test_points_auto_tests_rerun_api_model_filter import TestPlanTestPointsAutoTestsRerunApiModelFilter
     from testit_api_client.model.test_plan_test_points_auto_tests_run_api_model import TestPlanTestPointsAutoTestsRunApiModel
-    from testit_api_client.model.test_plan_test_points_auto_tests_run_api_model_extraction_model import TestPlanTestPointsAutoTestsRunApiModelExtractionModel
-    from testit_api_client.model.test_plan_test_points_auto_tests_run_api_model_filter import TestPlanTestPointsAutoTestsRunApiModelFilter
+    globals()['TestPlanTestPointsAutoTestsRerunApiModelExtractionModel'] = TestPlanTestPointsAutoTestsRerunApiModelExtractionModel
+    globals()['TestPlanTestPointsAutoTestsRerunApiModelFilter'] = TestPlanTestPointsAutoTestsRerunApiModelFilter
     globals()['TestPlanTestPointsAutoTestsRunApiModel'] = TestPlanTestPointsAutoTestsRunApiModel
-    globals()['TestPlanTestPointsAutoTestsRunApiModelExtractionModel'] = TestPlanTestPointsAutoTestsRunApiModelExtractionModel
-    globals()['TestPlanTestPointsAutoTestsRunApiModelFilter'] = TestPlanTestPointsAutoTestsRunApiModelFilter
 
 
 class ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest(ModelComposed):
@@ -93,8 +93,8 @@ class ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest
         return {
             'webhook_ids': ([str],),  # noqa: E501
             'reset_not_actual_automated_test_points': (bool,),  # noqa: E501
-            'filter': (TestPlanTestPointsAutoTestsRunApiModelFilter,),  # noqa: E501
-            'extraction_model': (TestPlanTestPointsAutoTestsRunApiModelExtractionModel,),  # noqa: E501
+            'filter': (TestPlanTestPointsAutoTestsRerunApiModelFilter,),  # noqa: E501
+            'extraction_model': (TestPlanTestPointsAutoTestsRerunApiModelExtractionModel,),  # noqa: E501
             'build': (str, none_type,),  # noqa: E501
         }
 
@@ -152,8 +152,8 @@ class ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestPlanTestPointsAutoTestsRunApiModelFilter): [optional]  # noqa: E501
-            extraction_model (TestPlanTestPointsAutoTestsRunApiModelExtractionModel): [optional]  # noqa: E501
+            filter (TestPlanTestPointsAutoTestsRerunApiModelFilter): [optional]  # noqa: E501
+            extraction_model (TestPlanTestPointsAutoTestsRerunApiModelExtractionModel): [optional]  # noqa: E501
             build (str, none_type): Specifies the test run build.. [optional]  # noqa: E501
         """
 
@@ -260,8 +260,8 @@ class ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestPlanTestPointsAutoTestsRunApiModelFilter): [optional]  # noqa: E501
-            extraction_model (TestPlanTestPointsAutoTestsRunApiModelExtractionModel): [optional]  # noqa: E501
+            filter (TestPlanTestPointsAutoTestsRerunApiModelFilter): [optional]  # noqa: E501
+            extraction_model (TestPlanTestPointsAutoTestsRerunApiModelExtractionModel): [optional]  # noqa: E501
             build (str, none_type): Specifies the test run build.. [optional]  # noqa: E501
         """
 

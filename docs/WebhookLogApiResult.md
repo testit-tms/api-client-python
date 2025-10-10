@@ -1,19 +1,19 @@
-# WebHookLogModel
+# WebhookLogApiResult
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | 
+**is_deleted** | **bool** |  | 
 **web_hook_name** | **str** |  | 
-**event_type** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
+**event_type** | [**WebHookEventType**](WebHookEventType.md) |  | 
 **web_hook_id** | **str** |  | 
 **response_status_code** | **int** |  | 
 **project_id** | **str** |  | 
 **url** | **str** |  | 
-**request_type** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
+**request_type** | [**RequestType**](RequestType.md) |  | 
 **created_by_id** | **str** |  | 
-**id** | **str** | Unique ID of the entity | 
-**is_deleted** | **bool** | Indicates if the entity is deleted | 
 **request_body** | **str, none_type** |  | [optional] 
 **request_meta** | **str, none_type** |  | [optional] 
 **response_body** | **str, none_type** |  | [optional] 

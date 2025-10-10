@@ -32,6 +32,7 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
     from testit_api_client.model.auto_test_model import AutoTestModel
+    from testit_api_client.model.external_issue_api_result import ExternalIssueApiResult
     from testit_api_client.model.iteration_model import IterationModel
     from testit_api_client.model.link_model import LinkModel
     from testit_api_client.model.step_model import StepModel
@@ -42,6 +43,7 @@ def lazy_import():
     from testit_api_client.model.work_item_state_api_model import WorkItemStateApiModel
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AutoTestModel'] = AutoTestModel
+    globals()['ExternalIssueApiResult'] = ExternalIssueApiResult
     globals()['IterationModel'] = IterationModel
     globals()['LinkModel'] = LinkModel
     globals()['StepModel'] = StepModel
@@ -123,6 +125,7 @@ class WorkItemApiResult(ModelNormal):
             'auto_tests': ([AutoTestModel],),  # noqa: E501
             'attachments': ([AttachmentModel],),  # noqa: E501
             'links': ([LinkModel],),  # noqa: E501
+            'external_issues': ([ExternalIssueApiResult],),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
@@ -162,6 +165,7 @@ class WorkItemApiResult(ModelNormal):
         'auto_tests': 'autoTests',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'links': 'links',  # noqa: E501
+        'external_issues': 'externalIssues',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
@@ -177,7 +181,7 @@ class WorkItemApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, external_issues, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
         """WorkItemApiResult - a model defined in OpenAPI
 
         Args:
@@ -206,6 +210,7 @@ class WorkItemApiResult(ModelNormal):
             auto_tests ([AutoTestModel]): Automated tests associated with the work item
             attachments ([AttachmentModel]): Files attached to the work item
             links ([LinkModel]): Set of links related to the work item
+            external_issues ([ExternalIssueApiResult]): Set of external issues related to the work item
             created_date (datetime): Creation date of the work item
             created_by_id (str): Unique identifier of the work item creator
             is_deleted (bool): Indicates whether the work item is marked as deleted
@@ -300,6 +305,7 @@ class WorkItemApiResult(ModelNormal):
         self.auto_tests = auto_tests
         self.attachments = attachments
         self.links = links
+        self.external_issues = external_issues
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.is_deleted = is_deleted
@@ -323,7 +329,7 @@ class WorkItemApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, external_issues, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
         """WorkItemApiResult - a model defined in OpenAPI
 
         Args:
@@ -352,6 +358,7 @@ class WorkItemApiResult(ModelNormal):
             auto_tests ([AutoTestModel]): Automated tests associated with the work item
             attachments ([AttachmentModel]): Files attached to the work item
             links ([LinkModel]): Set of links related to the work item
+            external_issues ([ExternalIssueApiResult]): Set of external issues related to the work item
             created_date (datetime): Creation date of the work item
             created_by_id (str): Unique identifier of the work item creator
             is_deleted (bool): Indicates whether the work item is marked as deleted
@@ -444,6 +451,7 @@ class WorkItemApiResult(ModelNormal):
         self.auto_tests = auto_tests
         self.attachments = attachments
         self.links = links
+        self.external_issues = external_issues
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.is_deleted = is_deleted

@@ -20,6 +20,7 @@ from testit_api_client.api.background_jobs_api import BackgroundJobsApi
 from testit_api_client.api.configurations_api import ConfigurationsApi
 from testit_api_client.api.custom_attribute_templates_api import CustomAttributeTemplatesApi
 from testit_api_client.api.custom_attributes_api import CustomAttributesApi
+from testit_api_client.api.external_issues_api import ExternalIssuesApi
 from testit_api_client.api.notifications_api import NotificationsApi
 from testit_api_client.api.parameters_api import ParametersApi
 from testit_api_client.api.project_attribute_templates_api import ProjectAttributeTemplatesApi

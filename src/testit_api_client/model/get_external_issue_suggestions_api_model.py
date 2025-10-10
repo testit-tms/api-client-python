@@ -31,9 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.external_issue_api_field import ExternalIssueApiField
-    from testit_api_client.model.inquiry import Inquiry
+    from testit_api_client.model.get_external_issue_suggestions_api_model_inquiry import GetExternalIssueSuggestionsApiModelInquiry
     globals()['ExternalIssueApiField'] = ExternalIssueApiField
-    globals()['Inquiry'] = Inquiry
+    globals()['GetExternalIssueSuggestionsApiModelInquiry'] = GetExternalIssueSuggestionsApiModelInquiry
 
 
 class GetExternalIssueSuggestionsApiModel(ModelNormal):
@@ -83,7 +83,8 @@ class GetExternalIssueSuggestionsApiModel(ModelNormal):
         lazy_import()
         return {
             'field': (ExternalIssueApiField,),  # noqa: E501
-            'inquiry': (Inquiry,),  # noqa: E501
+            'project_ids': ([str], none_type,),  # noqa: E501
+            'inquiry': (GetExternalIssueSuggestionsApiModelInquiry,),  # noqa: E501
         }
 
     @cached_property
@@ -93,6 +94,7 @@ class GetExternalIssueSuggestionsApiModel(ModelNormal):
 
     attribute_map = {
         'field': 'field',  # noqa: E501
+        'project_ids': 'projectIds',  # noqa: E501
         'inquiry': 'inquiry',  # noqa: E501
     }
 
@@ -103,12 +105,11 @@ class GetExternalIssueSuggestionsApiModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, field, inquiry, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, field, *args, **kwargs):  # noqa: E501
         """GetExternalIssueSuggestionsApiModel - a model defined in OpenAPI
 
         Args:
             field (ExternalIssueApiField):
-            inquiry (Inquiry):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,6 +142,8 @@ class GetExternalIssueSuggestionsApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            project_ids ([str], none_type): List of project identifiers where external issue is available. [optional]  # noqa: E501
+            inquiry (GetExternalIssueSuggestionsApiModelInquiry): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,7 +176,6 @@ class GetExternalIssueSuggestionsApiModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.field = field
-        self.inquiry = inquiry
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,12 +196,11 @@ class GetExternalIssueSuggestionsApiModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, field, inquiry, *args, **kwargs):  # noqa: E501
+    def __init__(self, field, *args, **kwargs):  # noqa: E501
         """GetExternalIssueSuggestionsApiModel - a model defined in OpenAPI
 
         Args:
             field (ExternalIssueApiField):
-            inquiry (Inquiry):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -232,6 +233,8 @@ class GetExternalIssueSuggestionsApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            project_ids ([str], none_type): List of project identifiers where external issue is available. [optional]  # noqa: E501
+            inquiry (GetExternalIssueSuggestionsApiModelInquiry): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -262,7 +265,6 @@ class GetExternalIssueSuggestionsApiModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.field = field
-        self.inquiry = inquiry
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

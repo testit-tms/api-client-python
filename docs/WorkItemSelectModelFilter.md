@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name_or_id** | **str, none_type** | Name or identifier (UUID) of work item | [optional] 
 **include_ids** | **[str], none_type** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **exclude_ids** | **[str], none_type** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
+**external_metadata** | [**TestSuiteWorkItemsSearchModelExternalMetadata**](TestSuiteWorkItemsSearchModelExternalMetadata.md) |  | [optional] 
 **project_ids** | **[str], none_type** | Collection of project identifiers | [optional] 
 **links** | [**TestSuiteWorkItemsSearchModelLinks**](TestSuiteWorkItemsSearchModelLinks.md) |  | [optional] 
 **name** | **str, none_type** | Name of work item | [optional] 
