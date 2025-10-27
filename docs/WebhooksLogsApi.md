@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_v2_webhooks_logs_get**](WebhooksLogsApi.md#api_v2_webhooks_logs_get) | **GET** /api/v2/webhooks/logs | Get all webhook logs
+[**api_v2_webhooks_logs_get**](WebhooksLogsApi.md#api_v2_webhooks_logs_get) | **GET** /api/v2/webhooks/logs | Get last webhook logs
 [**api_v2_webhooks_logs_id_delete**](WebhooksLogsApi.md#api_v2_webhooks_logs_id_delete) | **DELETE** /api/v2/webhooks/logs/{id} | Delete webhook log by ID
 [**api_v2_webhooks_logs_id_get**](WebhooksLogsApi.md#api_v2_webhooks_logs_id_get) | **GET** /api/v2/webhooks/logs/{id} | Get webhook log by ID
 
 
 # **api_v2_webhooks_logs_get**
-> [WebHookLogModel] api_v2_webhooks_logs_get()
+> [WebhookLogApiResult] api_v2_webhooks_logs_get()
 
-Get all webhook logs
+Get last webhook logs
 
 ### Example
 
@@ -22,7 +22,7 @@ Get all webhook logs
 import time
 import testit_api_client
 from testit_api_client.api import webhooks_logs_api
-from testit_api_client.model.web_hook_log_model import WebHookLogModel
+from testit_api_client.model.webhook_log_api_result import WebhookLogApiResult
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -57,7 +57,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get all webhook logs
+        # Get last webhook logs
         api_response = api_instance.api_v2_webhooks_logs_get(project_id=project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
     except testit_api_client.ApiException as e:
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[WebHookLogModel]**](WebHookLogModel.md)
+[**[WebhookLogApiResult]**](WebhookLogApiResult.md)
 
 ### Authorization
 
@@ -95,13 +95,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**404** | Not Found |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -180,7 +179,7 @@ void (empty response body)
 **204** | No Content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**403** | System administrator permissions are required |  -  |
+**403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -188,7 +187,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_webhooks_logs_id_get**
-> WebHookLogModel api_v2_webhooks_logs_id_get(id)
+> WebhookLogApiResult api_v2_webhooks_logs_id_get(id)
 
 Get webhook log by ID
 
@@ -200,7 +199,7 @@ Get webhook log by ID
 import time
 import testit_api_client
 from testit_api_client.api import webhooks_logs_api
-from testit_api_client.model.web_hook_log_model import WebHookLogModel
+from testit_api_client.model.webhook_log_api_result import WebhookLogApiResult
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -245,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebHookLogModel**](WebHookLogModel.md)
+[**WebhookLogApiResult**](WebhookLogApiResult.md)
 
 ### Authorization
 
@@ -262,13 +261,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
-**404** | Not Found |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

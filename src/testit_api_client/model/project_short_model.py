@@ -88,7 +88,6 @@ class ProjectShortModel(ModelNormal):
             'created_by_id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'type': (ProjectTypeModel,),  # noqa: E501
-            'is_flaky_auto': (bool,),  # noqa: E501
             'workflow_id': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'test_cases_count': (int, none_type,),  # noqa: E501
@@ -97,6 +96,7 @@ class ProjectShortModel(ModelNormal):
             'auto_tests_count': (int, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
+            'is_flaky_auto': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -113,7 +113,6 @@ class ProjectShortModel(ModelNormal):
         'created_by_id': 'createdById',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
         'type': 'type',  # noqa: E501
-        'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
         'workflow_id': 'workflowId',  # noqa: E501
         'description': 'description',  # noqa: E501
         'test_cases_count': 'testCasesCount',  # noqa: E501
@@ -122,6 +121,7 @@ class ProjectShortModel(ModelNormal):
         'auto_tests_count': 'autoTestsCount',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
+        'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
     }
 
     read_only_vars = {
@@ -131,7 +131,7 @@ class ProjectShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, is_flaky_auto, workflow_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, workflow_id, *args, **kwargs):  # noqa: E501
         """ProjectShortModel - a model defined in OpenAPI
 
         Args:
@@ -143,7 +143,6 @@ class ProjectShortModel(ModelNormal):
             created_by_id (str): Unique ID of the project creator
             global_id (int): Global ID of the project
             type (ProjectTypeModel):
-            is_flaky_auto (bool): Indicates if the status \"Flaky/Stable\" sets automatically
             workflow_id (str):
 
         Keyword Args:
@@ -184,6 +183,7 @@ class ProjectShortModel(ModelNormal):
             auto_tests_count (int, none_type): Number of autotests in the project. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
+            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" sets automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,6 @@ class ProjectShortModel(ModelNormal):
         self.created_by_id = created_by_id
         self.global_id = global_id
         self.type = type
-        self.is_flaky_auto = is_flaky_auto
         self.workflow_id = workflow_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -245,7 +244,7 @@ class ProjectShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, is_flaky_auto, workflow_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, workflow_id, *args, **kwargs):  # noqa: E501
         """ProjectShortModel - a model defined in OpenAPI
 
         Args:
@@ -257,7 +256,6 @@ class ProjectShortModel(ModelNormal):
             created_by_id (str): Unique ID of the project creator
             global_id (int): Global ID of the project
             type (ProjectTypeModel):
-            is_flaky_auto (bool): Indicates if the status \"Flaky/Stable\" sets automatically
             workflow_id (str):
 
         Keyword Args:
@@ -298,6 +296,7 @@ class ProjectShortModel(ModelNormal):
             auto_tests_count (int, none_type): Number of autotests in the project. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
+            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" sets automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -335,7 +334,6 @@ class ProjectShortModel(ModelNormal):
         self.created_by_id = created_by_id
         self.global_id = global_id
         self.type = type
-        self.is_flaky_auto = is_flaky_auto
         self.workflow_id = workflow_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

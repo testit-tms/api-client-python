@@ -1762,7 +1762,7 @@ class TestResultsApi(object):
     ):
         """Upload and link attachment to TestResult  # noqa: E501
 
-         Use case  User sets testResultId  User attaches a file  System creates attachment and links it to the test result  System returns attachment identifier  # noqa: E501
+          Use case    User sets testResultId    User attaches a file    System creates attachment and links it to the test result    System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1847,7 +1847,7 @@ class TestResultsApi(object):
     ):
         """Remove attachment and unlink from TestResult  # noqa: E501
 
-         Use case  User sets testResultId and attachmentId  User attaches a file  User runs method execution  System deletes attachment and unlinks it from the test result  System returns attachment identifier  # noqa: E501
+          Use case    User sets testResultId and attachmentId    User attaches a file    User runs method execution    System deletes attachment and unlinks it from the test result    System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1934,7 +1934,7 @@ class TestResultsApi(object):
     ):
         """Get attachment of TestResult  # noqa: E501
 
-         Use case  User sets attachmentId and testResultId  [Optional] User sets resize configuration  User runs method execution  System search attachments by the attachmentId and the testResultId  [Optional] If resize configuration is set, System resizes the attachment according to the resize                     configuration  [Optional] Otherwise, System does not resize the attachment  System returns attachment as a file  # noqa: E501
+          Use case    User sets attachmentId and testResultId    [Optional] User sets resize configuration    User runs method execution    System search attachments by the attachmentId and the testResultId    [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration    [Optional] Otherwise, System does not resize the attachment    System returns attachment as a file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2026,7 +2026,7 @@ class TestResultsApi(object):
     ):
         """Get Metadata of TestResult's attachment  # noqa: E501
 
-         Use case  User sets attachmentId and testResultId  User runs method execution  System search attachment by the attachmentId and the testResultId  System returns attachment data  # noqa: E501
+          Use case    User sets attachmentId and testResultId    User runs method execution    System search attachment by the attachmentId and the testResultId    System returns attachment data  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2112,7 +2112,7 @@ class TestResultsApi(object):
     ):
         """Get all attachments of TestResult  # noqa: E501
 
-         Use case  User sets testResultId  User runs method execution  System search all attachments of the test result  System returns attachments enumeration  # noqa: E501
+          Use case    User sets testResultId    User runs method execution    System search all attachments of the test result    System returns attachments enumeration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

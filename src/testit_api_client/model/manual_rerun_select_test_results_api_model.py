@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.manual_rerun_test_result_api_model import ManualRerunTestResultApiModel
-    from testit_api_client.model.test_results_filter_api_model import TestResultsFilterApiModel
-    globals()['ManualRerunTestResultApiModel'] = ManualRerunTestResultApiModel
-    globals()['TestResultsFilterApiModel'] = TestResultsFilterApiModel
+    from testit_api_client.model.manual_rerun_select_test_results_api_model_extraction_model import ManualRerunSelectTestResultsApiModelExtractionModel
+    from testit_api_client.model.manual_rerun_select_test_results_api_model_filter import ManualRerunSelectTestResultsApiModelFilter
+    globals()['ManualRerunSelectTestResultsApiModelExtractionModel'] = ManualRerunSelectTestResultsApiModelExtractionModel
+    globals()['ManualRerunSelectTestResultsApiModelFilter'] = ManualRerunSelectTestResultsApiModelFilter
 
 
 class ManualRerunSelectTestResultsApiModel(ModelNormal):
@@ -82,8 +82,9 @@ class ManualRerunSelectTestResultsApiModel(ModelNormal):
         """
         lazy_import()
         return {
-            'filter': (TestResultsFilterApiModel,),  # noqa: E501
-            'extraction_model': (ManualRerunTestResultApiModel,),  # noqa: E501
+            'filter': (ManualRerunSelectTestResultsApiModelFilter,),  # noqa: E501
+            'extraction_model': (ManualRerunSelectTestResultsApiModelExtractionModel,),  # noqa: E501
+            'webhook_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class ManualRerunSelectTestResultsApiModel(ModelNormal):
     attribute_map = {
         'filter': 'filter',  # noqa: E501
         'extraction_model': 'extractionModel',  # noqa: E501
+        'webhook_ids': 'webhookIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,8 +139,9 @@ class ManualRerunSelectTestResultsApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestResultsFilterApiModel): [optional]  # noqa: E501
-            extraction_model (ManualRerunTestResultApiModel): [optional]  # noqa: E501
+            filter (ManualRerunSelectTestResultsApiModelFilter): [optional]  # noqa: E501
+            extraction_model (ManualRerunSelectTestResultsApiModelExtractionModel): [optional]  # noqa: E501
+            webhook_ids ([str], none_type): Webhook ids to rerun.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,8 +227,9 @@ class ManualRerunSelectTestResultsApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestResultsFilterApiModel): [optional]  # noqa: E501
-            extraction_model (ManualRerunTestResultApiModel): [optional]  # noqa: E501
+            filter (ManualRerunSelectTestResultsApiModelFilter): [optional]  # noqa: E501
+            extraction_model (ManualRerunSelectTestResultsApiModelExtractionModel): [optional]  # noqa: E501
+            webhook_ids ([str], none_type): Webhook ids to rerun.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -28,6 +28,7 @@ from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.tag_short_api_result import TagShortApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_group_model import WorkItemGroupModel
+from testit_api_client.model.work_item_index_api_result import WorkItemIndexApiResult
 from testit_api_client.model.work_item_short_api_result import WorkItemShortApiResult
 from testit_api_client.model.work_item_short_model import WorkItemShortModel
 
@@ -269,6 +270,94 @@ class ProjectWorkItemsApi(object):
                 },
                 'location_map': {
                     'project_id': 'path',
+                    'skip': 'query',
+                    'take': 'query',
+                    'order_by': 'query',
+                    'search_field': 'query',
+                    'search_value': 'query',
+                    'api_v2_projects_project_id_work_items_search_post_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.api_v2_projects_project_id_work_items_search_work_item_id_index_post_endpoint = _Endpoint(
+            settings={
+                'response_type': (WorkItemIndexApiResult,),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{projectId}/workItems/search/{workItemId}/index',
+                'operation_id': 'api_v2_projects_project_id_work_items_search_work_item_id_index_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                    'work_item_id',
+                    'skip',
+                    'take',
+                    'order_by',
+                    'search_field',
+                    'search_value',
+                    'api_v2_projects_project_id_work_items_search_post_request',
+                ],
+                'required': [
+                    'project_id',
+                    'work_item_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (str,),
+                    'work_item_id':
+                        (str,),
+                    'skip':
+                        (int,),
+                    'take':
+                        (int,),
+                    'order_by':
+                        (str,),
+                    'search_field':
+                        (str,),
+                    'search_value':
+                        (str,),
+                    'api_v2_projects_project_id_work_items_search_post_request':
+                        (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest,),
+                },
+                'attribute_map': {
+                    'project_id': 'projectId',
+                    'work_item_id': 'workItemId',
+                    'skip': 'Skip',
+                    'take': 'Take',
+                    'order_by': 'OrderBy',
+                    'search_field': 'SearchField',
+                    'search_value': 'SearchValue',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                    'work_item_id': 'path',
                     'skip': 'query',
                     'take': 'query',
                     'order_by': 'query',
@@ -702,6 +791,98 @@ class ProjectWorkItemsApi(object):
             project_id
         return self.api_v2_projects_project_id_work_items_search_post_endpoint.call_with_http_info(**kwargs)
 
+    def api_v2_projects_project_id_work_items_search_work_item_id_index_post(
+        self,
+        project_id,
+        work_item_id,
+        **kwargs
+    ):
+        """Get work item index (position) in a collection by its id.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_project_id_work_items_search_work_item_id_index_post(project_id, work_item_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            project_id (str): Internal (UUID) or global (integer) identifier
+            work_item_id (str):
+
+        Keyword Args:
+            skip (int): Amount of items to be skipped (offset). [optional]
+            take (int): Amount of items to be taken (limit). [optional]
+            order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
+            search_field (str): Property name for searching. [optional]
+            search_value (str): Value for searching. [optional]
+            api_v2_projects_project_id_work_items_search_post_request (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            WorkItemIndexApiResult
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['project_id'] = \
+            project_id
+        kwargs['work_item_id'] = \
+            work_item_id
+        return self.api_v2_projects_project_id_work_items_search_work_item_id_index_post_endpoint.call_with_http_info(**kwargs)
+
     def api_v2_projects_project_id_work_items_tags_get(
         self,
         project_id,
@@ -709,7 +890,7 @@ class ProjectWorkItemsApi(object):
     ):
         """Get WorkItems Tags  # noqa: E501
 
-         Use case  User sets project internal identifier  User runs method execution  System returns work items tags  # noqa: E501
+          Use case    User sets project internal identifier    User runs method execution    System returns work items tags  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -793,7 +974,7 @@ class ProjectWorkItemsApi(object):
     ):
         """Get project work items  # noqa: E501
 
-         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)  # noqa: E501
+          Use case    User sets project internal or global identifier    [Optional] User sets isDeleted field value    User runs method execution    System search project    [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project    [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted    If User did not set isDeleted field value, System search all  workitems related to project    System returns array of found workitems (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

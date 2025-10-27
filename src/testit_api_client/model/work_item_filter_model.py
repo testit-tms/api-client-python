@@ -33,6 +33,7 @@ def lazy_import():
     from testit_api_client.model.test_plan_test_points_search_api_model_work_item_created_date import TestPlanTestPointsSearchApiModelWorkItemCreatedDate
     from testit_api_client.model.test_plan_test_points_search_api_model_work_item_modified_date import TestPlanTestPointsSearchApiModelWorkItemModifiedDate
     from testit_api_client.model.test_suite_work_items_search_model_duration import TestSuiteWorkItemsSearchModelDuration
+    from testit_api_client.model.test_suite_work_items_search_model_external_metadata import TestSuiteWorkItemsSearchModelExternalMetadata
     from testit_api_client.model.test_suite_work_items_search_model_links import TestSuiteWorkItemsSearchModelLinks
     from testit_api_client.model.test_suite_work_items_search_model_median_duration import TestSuiteWorkItemsSearchModelMedianDuration
     from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
@@ -42,6 +43,7 @@ def lazy_import():
     globals()['TestPlanTestPointsSearchApiModelWorkItemCreatedDate'] = TestPlanTestPointsSearchApiModelWorkItemCreatedDate
     globals()['TestPlanTestPointsSearchApiModelWorkItemModifiedDate'] = TestPlanTestPointsSearchApiModelWorkItemModifiedDate
     globals()['TestSuiteWorkItemsSearchModelDuration'] = TestSuiteWorkItemsSearchModelDuration
+    globals()['TestSuiteWorkItemsSearchModelExternalMetadata'] = TestSuiteWorkItemsSearchModelExternalMetadata
     globals()['TestSuiteWorkItemsSearchModelLinks'] = TestSuiteWorkItemsSearchModelLinks
     globals()['TestSuiteWorkItemsSearchModelMedianDuration'] = TestSuiteWorkItemsSearchModelMedianDuration
     globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
@@ -108,6 +110,8 @@ class WorkItemFilterModel(ModelNormal):
         },
         ('tags',): {
         },
+        ('exclude_tags',): {
+        },
         ('auto_test_ids',): {
         },
     }
@@ -131,6 +135,7 @@ class WorkItemFilterModel(ModelNormal):
             'name_or_id': (str, none_type,),  # noqa: E501
             'include_ids': ([str], none_type,),  # noqa: E501
             'exclude_ids': ([str], none_type,),  # noqa: E501
+            'external_metadata': (TestSuiteWorkItemsSearchModelExternalMetadata,),  # noqa: E501
             'project_ids': ([str], none_type,),  # noqa: E501
             'links': (TestSuiteWorkItemsSearchModelLinks,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
@@ -151,6 +156,7 @@ class WorkItemFilterModel(ModelNormal):
             'median_duration': (TestSuiteWorkItemsSearchModelMedianDuration,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
+            'exclude_tags': ([str], none_type,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
             'work_item_version_ids': ([str], none_type,),  # noqa: E501
         }
@@ -164,6 +170,7 @@ class WorkItemFilterModel(ModelNormal):
         'name_or_id': 'nameOrId',  # noqa: E501
         'include_ids': 'includeIds',  # noqa: E501
         'exclude_ids': 'excludeIds',  # noqa: E501
+        'external_metadata': 'externalMetadata',  # noqa: E501
         'project_ids': 'projectIds',  # noqa: E501
         'links': 'links',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -184,6 +191,7 @@ class WorkItemFilterModel(ModelNormal):
         'median_duration': 'medianDuration',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'exclude_tags': 'excludeTags',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
         'work_item_version_ids': 'workItemVersionIds',  # noqa: E501
     }
@@ -232,6 +240,7 @@ class WorkItemFilterModel(ModelNormal):
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
+            external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
             project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
@@ -252,6 +261,7 @@ class WorkItemFilterModel(ModelNormal):
             median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
         """
@@ -342,6 +352,7 @@ class WorkItemFilterModel(ModelNormal):
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
+            external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
             project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
@@ -362,6 +373,7 @@ class WorkItemFilterModel(ModelNormal):
             median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
         """

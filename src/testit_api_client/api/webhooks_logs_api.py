@@ -23,7 +23,7 @@ from testit_api_client.model_utils import (  # noqa: F401
 )
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.web_hook_log_model import WebHookLogModel
+from testit_api_client.model.webhook_log_api_result import WebhookLogApiResult
 
 
 class WebhooksLogsApi(object):
@@ -39,7 +39,7 @@ class WebhooksLogsApi(object):
         self.api_client = api_client
         self.api_v2_webhooks_logs_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([WebHookLogModel],),
+                'response_type': ([WebhookLogApiResult],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -164,7 +164,7 @@ class WebhooksLogsApi(object):
         )
         self.api_v2_webhooks_logs_id_get_endpoint = _Endpoint(
             settings={
-                'response_type': (WebHookLogModel,),
+                'response_type': (WebhookLogApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -218,7 +218,7 @@ class WebhooksLogsApi(object):
         self,
         **kwargs
     ):
-        """Get all webhook logs  # noqa: E501
+        """Get last webhook logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -266,7 +266,7 @@ class WebhooksLogsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [WebHookLogModel]
+            [WebhookLogApiResult]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -428,7 +428,7 @@ class WebhooksLogsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            WebHookLogModel
+            WebhookLogApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """

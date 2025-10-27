@@ -355,7 +355,7 @@ class ConfigurationsApi(object):
         )
         self.api_v2_configurations_purge_bulk_post_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (int,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1213,7 +1213,7 @@ class ConfigurationsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            int
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1489,7 +1489,7 @@ class ConfigurationsApi(object):
     ):
         """Create Configuration  # noqa: E501
 
-         Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)  # noqa: E501
+          Use case    User sets configuration model (listed in the request example)    User runs method execution    System creates configuration    System returns created configuration (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1569,7 +1569,7 @@ class ConfigurationsApi(object):
     ):
         """Get configuration by internal or global ID  # noqa: E501
 
-         Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration  # noqa: E501
+          Use case    User sets configuration internal (guid format) or global (integer format) identifier    User runs method execution    System search configuration using the identifier    System returns configuration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

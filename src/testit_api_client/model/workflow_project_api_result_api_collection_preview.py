@@ -105,8 +105,8 @@ class WorkflowProjectApiResultApiCollectionPreview(ModelNormal):
         """WorkflowProjectApiResultApiCollectionPreview - a model defined in OpenAPI
 
         Args:
-            data ([WorkflowProjectApiResult]):
-            total_count (int):
+            data ([WorkflowProjectApiResult]): Preview items
+            total_count (int): Total count
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,8 +196,8 @@ class WorkflowProjectApiResultApiCollectionPreview(ModelNormal):
         """WorkflowProjectApiResultApiCollectionPreview - a model defined in OpenAPI
 
         Args:
-            data ([WorkflowProjectApiResult]):
-            total_count (int):
+            data ([WorkflowProjectApiResult]): Preview items
+            total_count (int): Total count
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

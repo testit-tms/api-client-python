@@ -115,6 +115,7 @@ class TestPlanTestPointsSearchApiModel(ModelNormal):
             'modified_date': (TestPlanTestPointsSearchApiModelModifiedDate,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
+            'exclude_tags': ([str], none_type,),  # noqa: E501
             'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
             'work_item_created_date': (TestPlanTestPointsSearchApiModelWorkItemCreatedDate,),  # noqa: E501
             'work_item_created_by_ids': ([str], none_type,),  # noqa: E501
@@ -145,6 +146,7 @@ class TestPlanTestPointsSearchApiModel(ModelNormal):
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_ids': 'modifiedByIds',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'exclude_tags': 'excludeTags',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'work_item_created_date': 'workItemCreatedDate',  # noqa: E501
         'work_item_created_by_ids': 'workItemCreatedByIds',  # noqa: E501
@@ -210,6 +212,7 @@ class TestPlanTestPointsSearchApiModel(ModelNormal):
             modified_date (TestPlanTestPointsSearchApiModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Specifies a test point tags to exclude to search for. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
             work_item_created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
             work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501
@@ -317,6 +320,7 @@ class TestPlanTestPointsSearchApiModel(ModelNormal):
             modified_date (TestPlanTestPointsSearchApiModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies a test point last editor IDs to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies a test point tags to search for. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Specifies a test point tags to exclude to search for. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Specifies a test point attributes to search for. [optional]  # noqa: E501
             work_item_created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
             work_item_created_by_ids ([str], none_type): Specifies a work item creator IDs to search for. [optional]  # noqa: E501

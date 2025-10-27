@@ -46,7 +46,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plan_test_points_api.ProjectTestPlanTestPointsApi(api_client)
-    project_id = "projectId_example" # str | 
+    project_id = "projectId_example" # str | Internal (UUID) or global (integer) identifier
     test_plan_id = "testPlanId_example" # str | 
     api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post_request = ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPostRequest(None) # ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPostRequest |  (optional)
 
@@ -71,7 +71,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**|  |
+ **project_id** | **str**| Internal (UUID) or global (integer) identifier |
  **test_plan_id** | **str**|  |
  **api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post_request** | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPostRequest**](ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPostRequest.md)|  | [optional]
 
@@ -142,7 +142,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plan_test_points_api.ProjectTestPlanTestPointsApi(api_client)
-    project_id = "projectId_example" # str | 
+    project_id = "projectId_example" # str | Internal (UUID) or global (integer) identifier
     test_plan_id = "testPlanId_example" # str | 
     api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_run_post_request = ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest(None) # ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest |  (optional)
 
@@ -169,7 +169,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**|  |
+ **project_id** | **str**| Internal (UUID) or global (integer) identifier |
  **test_plan_id** | **str**|  |
  **api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_run_post_request** | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest**](ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest.md)|  | [optional]
 

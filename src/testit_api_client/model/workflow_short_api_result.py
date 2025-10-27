@@ -84,6 +84,10 @@ class WorkflowShortApiResult(ModelNormal):
             'name': (str,),  # noqa: E501
             'is_system': (bool,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'modified_date': (datetime,),  # noqa: E501
+            'modified_by_id': (str,),  # noqa: E501
             'projects': (WorkflowShortApiResultProjects,),  # noqa: E501
         }
 
@@ -97,6 +101,10 @@ class WorkflowShortApiResult(ModelNormal):
         'name': 'name',  # noqa: E501
         'is_system': 'isSystem',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
         'projects': 'projects',  # noqa: E501
     }
 
@@ -107,7 +115,7 @@ class WorkflowShortApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, is_system, is_default, projects, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, is_system, is_default, created_date, created_by_id, modified_date, modified_by_id, projects, *args, **kwargs):  # noqa: E501
         """WorkflowShortApiResult - a model defined in OpenAPI
 
         Args:
@@ -115,6 +123,10 @@ class WorkflowShortApiResult(ModelNormal):
             name (str):
             is_system (bool):
             is_default (bool):
+            created_date (datetime):
+            created_by_id (str):
+            modified_date (datetime):
+            modified_by_id (str):
             projects (WorkflowShortApiResultProjects):
 
         Keyword Args:
@@ -183,6 +195,10 @@ class WorkflowShortApiResult(ModelNormal):
         self.name = name
         self.is_system = is_system
         self.is_default = is_default
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.modified_date = modified_date
+        self.modified_by_id = modified_by_id
         self.projects = projects
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -204,7 +220,7 @@ class WorkflowShortApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, is_system, is_default, projects, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, is_system, is_default, created_date, created_by_id, modified_date, modified_by_id, projects, *args, **kwargs):  # noqa: E501
         """WorkflowShortApiResult - a model defined in OpenAPI
 
         Args:
@@ -212,6 +228,10 @@ class WorkflowShortApiResult(ModelNormal):
             name (str):
             is_system (bool):
             is_default (bool):
+            created_date (datetime):
+            created_by_id (str):
+            modified_date (datetime):
+            modified_by_id (str):
             projects (WorkflowShortApiResultProjects):
 
         Keyword Args:
@@ -278,6 +298,10 @@ class WorkflowShortApiResult(ModelNormal):
         self.name = name
         self.is_system = is_system
         self.is_default = is_default
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.modified_date = modified_date
+        self.modified_by_id = modified_by_id
         self.projects = projects
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

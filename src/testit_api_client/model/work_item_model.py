@@ -32,6 +32,7 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
     from testit_api_client.model.auto_test_model import AutoTestModel
+    from testit_api_client.model.external_issue_model import ExternalIssueModel
     from testit_api_client.model.iteration_model import IterationModel
     from testit_api_client.model.link_model import LinkModel
     from testit_api_client.model.step_model import StepModel
@@ -42,6 +43,7 @@ def lazy_import():
     from testit_api_client.model.work_item_states import WorkItemStates
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AutoTestModel'] = AutoTestModel
+    globals()['ExternalIssueModel'] = ExternalIssueModel
     globals()['IterationModel'] = IterationModel
     globals()['LinkModel'] = LinkModel
     globals()['StepModel'] = StepModel
@@ -115,6 +117,7 @@ class WorkItemModel(ModelNormal):
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
+            'external_issues': ([ExternalIssueModel],),  # noqa: E501
             'id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
@@ -154,6 +157,7 @@ class WorkItemModel(ModelNormal):
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
+        'external_issues': 'externalIssues',  # noqa: E501
         'id': 'id',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
         'state': 'state',  # noqa: E501
@@ -184,7 +188,7 @@ class WorkItemModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, external_issues, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
@@ -198,6 +202,7 @@ class WorkItemModel(ModelNormal):
             created_date (datetime):
             created_by_id (str):
             global_id (int):
+            external_issues ([ExternalIssueModel]):
             id (str):
             section_id (str):
             state (WorkItemStates):
@@ -292,6 +297,7 @@ class WorkItemModel(ModelNormal):
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.global_id = global_id
+        self.external_issues = external_issues
         self.id = id
         self.section_id = section_id
         self.state = state
@@ -325,7 +331,7 @@ class WorkItemModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, external_issues, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
@@ -339,6 +345,7 @@ class WorkItemModel(ModelNormal):
             created_date (datetime):
             created_by_id (str):
             global_id (int):
+            external_issues ([ExternalIssueModel]):
             id (str):
             section_id (str):
             state (WorkItemStates):
@@ -431,6 +438,7 @@ class WorkItemModel(ModelNormal):
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.global_id = global_id
+        self.external_issues = external_issues
         self.id = id
         self.section_id = section_id
         self.state = state

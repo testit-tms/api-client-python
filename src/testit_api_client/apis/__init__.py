@@ -20,6 +20,7 @@ from testit_api_client.api.background_jobs_api import BackgroundJobsApi
 from testit_api_client.api.configurations_api import ConfigurationsApi
 from testit_api_client.api.custom_attribute_templates_api import CustomAttributeTemplatesApi
 from testit_api_client.api.custom_attributes_api import CustomAttributesApi
+from testit_api_client.api.external_issues_api import ExternalIssuesApi
 from testit_api_client.api.notifications_api import NotificationsApi
 from testit_api_client.api.parameters_api import ParametersApi
 from testit_api_client.api.project_attribute_templates_api import ProjectAttributeTemplatesApi
@@ -39,9 +40,11 @@ from testit_api_client.api.test_plans_api import TestPlansApi
 from testit_api_client.api.test_points_api import TestPointsApi
 from testit_api_client.api.test_results_api import TestResultsApi
 from testit_api_client.api.test_runs_api import TestRunsApi
+from testit_api_client.api.test_statuses_api import TestStatusesApi
 from testit_api_client.api.test_suites_api import TestSuitesApi
 from testit_api_client.api.users_api import UsersApi
 from testit_api_client.api.webhooks_api import WebhooksApi
 from testit_api_client.api.webhooks_logs_api import WebhooksLogsApi
 from testit_api_client.api.work_items_api import WorkItemsApi
 from testit_api_client.api.work_items_comments_api import WorkItemsCommentsApi
+from testit_api_client.api.workflows_api import WorkflowsApi

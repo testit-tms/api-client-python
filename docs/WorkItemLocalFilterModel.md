@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **median_duration** | [**TestSuiteWorkItemsSearchModelMedianDuration**](TestSuiteWorkItemsSearchModelMedianDuration.md) |  | [optional] 
 **is_automated** | **bool, none_type** | Is result must consist of only manual/automated work items | [optional] 
 **tags** | **[str], none_type** | Collection of tags | [optional] 
+**exclude_tags** | **[str], none_type** | Collection of tags to exclude | [optional] 
 **auto_test_ids** | **[str], none_type** | Collection of identifiers of linked autotests | [optional] 
 **work_item_version_ids** | **[str], none_type** | Collection of identifiers work items versions. | [optional] 
 

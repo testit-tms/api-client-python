@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_plan_test_points_extraction_api_model import TestPlanTestPointsExtractionApiModel
-    from testit_api_client.model.test_plan_test_points_search_api_model import TestPlanTestPointsSearchApiModel
-    globals()['TestPlanTestPointsExtractionApiModel'] = TestPlanTestPointsExtractionApiModel
-    globals()['TestPlanTestPointsSearchApiModel'] = TestPlanTestPointsSearchApiModel
+    from testit_api_client.model.test_plan_test_points_auto_tests_rerun_api_model_extraction_model import TestPlanTestPointsAutoTestsRerunApiModelExtractionModel
+    from testit_api_client.model.test_plan_test_points_auto_tests_rerun_api_model_filter import TestPlanTestPointsAutoTestsRerunApiModelFilter
+    globals()['TestPlanTestPointsAutoTestsRerunApiModelExtractionModel'] = TestPlanTestPointsAutoTestsRerunApiModelExtractionModel
+    globals()['TestPlanTestPointsAutoTestsRerunApiModelFilter'] = TestPlanTestPointsAutoTestsRerunApiModelFilter
 
 
 class TestPlanTestPointsAutoTestsRerunApiModel(ModelNormal):
@@ -82,8 +82,9 @@ class TestPlanTestPointsAutoTestsRerunApiModel(ModelNormal):
         """
         lazy_import()
         return {
-            'filter': (TestPlanTestPointsSearchApiModel,),  # noqa: E501
-            'extraction_model': (TestPlanTestPointsExtractionApiModel,),  # noqa: E501
+            'filter': (TestPlanTestPointsAutoTestsRerunApiModelFilter,),  # noqa: E501
+            'extraction_model': (TestPlanTestPointsAutoTestsRerunApiModelExtractionModel,),  # noqa: E501
+            'webhook_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class TestPlanTestPointsAutoTestsRerunApiModel(ModelNormal):
     attribute_map = {
         'filter': 'filter',  # noqa: E501
         'extraction_model': 'extractionModel',  # noqa: E501
+        'webhook_ids': 'webhookIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,8 +139,9 @@ class TestPlanTestPointsAutoTestsRerunApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestPlanTestPointsSearchApiModel): [optional]  # noqa: E501
-            extraction_model (TestPlanTestPointsExtractionApiModel): [optional]  # noqa: E501
+            filter (TestPlanTestPointsAutoTestsRerunApiModelFilter): [optional]  # noqa: E501
+            extraction_model (TestPlanTestPointsAutoTestsRerunApiModelExtractionModel): [optional]  # noqa: E501
+            webhook_ids ([str], none_type): Webhook ids to rerun.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,8 +227,9 @@ class TestPlanTestPointsAutoTestsRerunApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestPlanTestPointsSearchApiModel): [optional]  # noqa: E501
-            extraction_model (TestPlanTestPointsExtractionApiModel): [optional]  # noqa: E501
+            filter (TestPlanTestPointsAutoTestsRerunApiModelFilter): [optional]  # noqa: E501
+            extraction_model (TestPlanTestPointsAutoTestsRerunApiModelExtractionModel): [optional]  # noqa: E501
+            webhook_ids ([str], none_type): Webhook ids to rerun.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

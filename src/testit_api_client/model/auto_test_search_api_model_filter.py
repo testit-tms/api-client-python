@@ -84,6 +84,8 @@ class AutoTestSearchApiModelFilter(ModelComposed):
         },
         ('modified_by_ids',): {
         },
+        ('last_test_result_status_codes',): {
+        },
         ('last_test_result_configuration_ids',): {
         },
     }
@@ -128,7 +130,7 @@ class AutoTestSearchApiModelFilter(ModelComposed):
             'class_name': (str, none_type,),  # noqa: E501
             'is_empty_class_name': (bool, none_type,),  # noqa: E501
             'last_test_result_outcome': (AutotestResultOutcome,),  # noqa: E501
-            'last_test_result_status_code': (str, none_type,),  # noqa: E501
+            'last_test_result_status_codes': ([str], none_type,),  # noqa: E501
             'external_key': (str, none_type,),  # noqa: E501
             'last_test_result_configuration_ids': ([str], none_type,),  # noqa: E501
         }
@@ -156,7 +158,7 @@ class AutoTestSearchApiModelFilter(ModelComposed):
         'class_name': 'className',  # noqa: E501
         'is_empty_class_name': 'isEmptyClassName',  # noqa: E501
         'last_test_result_outcome': 'lastTestResultOutcome',  # noqa: E501
-        'last_test_result_status_code': 'lastTestResultStatusCode',  # noqa: E501
+        'last_test_result_status_codes': 'lastTestResultStatusCodes',  # noqa: E501
         'external_key': 'externalKey',  # noqa: E501
         'last_test_result_configuration_ids': 'lastTestResultConfigurationIds',  # noqa: E501
     }
@@ -217,7 +219,7 @@ class AutoTestSearchApiModelFilter(ModelComposed):
             class_name (str, none_type): Specifies an autotest class name to search for. [optional]  # noqa: E501
             is_empty_class_name (bool, none_type): Specifies an autotest class name presence status to search for. [optional]  # noqa: E501
             last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
-            last_test_result_status_code (str, none_type): Specifies an autotest status code of the last test result to search for. [optional]  # noqa: E501
+            last_test_result_status_codes ([str], none_type): Specifies an autotest status codes of the last test result to search for. [optional]  # noqa: E501
             external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
             last_test_result_configuration_ids ([str], none_type): Specifies an autotest configuration IDs of the last test result to search for. [optional]  # noqa: E501
         """
@@ -340,7 +342,7 @@ class AutoTestSearchApiModelFilter(ModelComposed):
             class_name (str, none_type): Specifies an autotest class name to search for. [optional]  # noqa: E501
             is_empty_class_name (bool, none_type): Specifies an autotest class name presence status to search for. [optional]  # noqa: E501
             last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
-            last_test_result_status_code (str, none_type): Specifies an autotest status code of the last test result to search for. [optional]  # noqa: E501
+            last_test_result_status_codes ([str], none_type): Specifies an autotest status codes of the last test result to search for. [optional]  # noqa: E501
             external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
             last_test_result_configuration_ids ([str], none_type): Specifies an autotest configuration IDs of the last test result to search for. [optional]  # noqa: E501
         """

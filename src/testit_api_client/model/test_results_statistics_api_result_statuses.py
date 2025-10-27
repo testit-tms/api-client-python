@@ -89,6 +89,7 @@ class TestResultsStatisticsApiResultStatuses(ModelComposed):
         return {
             'in_progress': (int,),  # noqa: E501
             'passed': (int,),  # noqa: E501
+            'succeeded': (int,),  # noqa: E501
             'failed': (int,),  # noqa: E501
             'skipped': (int,),  # noqa: E501
             'blocked': (int,),  # noqa: E501
@@ -103,6 +104,7 @@ class TestResultsStatisticsApiResultStatuses(ModelComposed):
     attribute_map = {
         'in_progress': 'inProgress',  # noqa: E501
         'passed': 'passed',  # noqa: E501
+        'succeeded': 'succeeded',  # noqa: E501
         'failed': 'failed',  # noqa: E501
         'skipped': 'skipped',  # noqa: E501
         'blocked': 'blocked',  # noqa: E501
@@ -120,6 +122,7 @@ class TestResultsStatisticsApiResultStatuses(ModelComposed):
         Keyword Args:
             in_progress (int): Number of test results which is running currently
             passed (int): Number of test results which successfully passed
+            succeeded (int): Number of successful test results
             failed (int): Number of test results which failed with an error
             skipped (int): Number of test results which did not run and were skipped
             blocked (int): Number of test results which cannot be launched
@@ -229,6 +232,7 @@ class TestResultsStatisticsApiResultStatuses(ModelComposed):
         Keyword Args:
             in_progress (int): Number of test results which is running currently
             passed (int): Number of test results which successfully passed
+            succeeded (int): Number of successful test results
             failed (int): Number of test results which failed with an error
             skipped (int): Number of test results which did not run and were skipped
             blocked (int): Number of test results which cannot be launched

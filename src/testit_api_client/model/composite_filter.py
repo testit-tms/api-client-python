@@ -30,7 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.i_filter import IFilter
     from testit_api_client.model.logical_operator import LogicalOperator
+    globals()['IFilter'] = IFilter
     globals()['LogicalOperator'] = LogicalOperator
 
 
@@ -80,7 +82,7 @@ class CompositeFilter(ModelNormal):
         """
         lazy_import()
         return {
-            'filters': ([dict],),  # noqa: E501
+            'filters': ([IFilter],),  # noqa: E501
             'operator': (LogicalOperator,),  # noqa: E501
         }
 
@@ -105,7 +107,7 @@ class CompositeFilter(ModelNormal):
         """CompositeFilter - a model defined in OpenAPI
 
         Args:
-            filters ([dict]):
+            filters ([IFilter]):
             operator (LogicalOperator):
 
         Keyword Args:
@@ -196,7 +198,7 @@ class CompositeFilter(ModelNormal):
         """CompositeFilter - a model defined in OpenAPI
 
         Args:
-            filters ([dict]):
+            filters ([IFilter]):
             operator (LogicalOperator):
 
         Keyword Args:

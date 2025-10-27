@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.work_item_id_model import WorkItemIdModel
-    globals()['WorkItemIdModel'] = WorkItemIdModel
+    from testit_api_client.model.work_item_id_api_model import WorkItemIdApiModel
+    globals()['WorkItemIdApiModel'] = WorkItemIdApiModel
 
 
 class LinkAutoTestToWorkItemRequest(ModelComposed):
@@ -62,9 +62,6 @@ class LinkAutoTestToWorkItemRequest(ModelComposed):
     }
 
     validations = {
-        ('id',): {
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -111,7 +108,7 @@ class LinkAutoTestToWorkItemRequest(ModelComposed):
         """LinkAutoTestToWorkItemRequest - a model defined in OpenAPI
 
         Keyword Args:
-            id (str): Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format
+            id (str): Work Item ID or Global ID
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -215,7 +212,7 @@ class LinkAutoTestToWorkItemRequest(ModelComposed):
         """LinkAutoTestToWorkItemRequest - a model defined in OpenAPI
 
         Keyword Args:
-            id (str): Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format
+            id (str): Work Item ID or Global ID
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -315,7 +312,7 @@ class LinkAutoTestToWorkItemRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              WorkItemIdModel,
+              WorkItemIdApiModel,
           ],
           'oneOf': [
           ],
