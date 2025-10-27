@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.auto_test_project_settings_post_model import AutoTestProjectSettingsPostModel
-    globals()['AutoTestProjectSettingsPostModel'] = AutoTestProjectSettingsPostModel
+    from testit_api_client.model.auto_test_project_settings_api_model import AutoTestProjectSettingsApiModel
+    globals()['AutoTestProjectSettingsApiModel'] = AutoTestProjectSettingsApiModel
 
 
 class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
@@ -340,7 +340,7 @@ class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AutoTestProjectSettingsPostModel,
+              AutoTestProjectSettingsApiModel,
           ],
           'oneOf': [
           ],

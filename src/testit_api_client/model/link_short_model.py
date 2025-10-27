@@ -78,6 +78,7 @@ class LinkShortModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'title': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -89,6 +90,7 @@ class LinkShortModel(ModelNormal):
         'id': 'id',  # noqa: E501
         'title': 'title',  # noqa: E501
         'url': 'url',  # noqa: E501
+        'type': 'type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,6 +139,7 @@ class LinkShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            type (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,6 +233,7 @@ class LinkShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            type (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

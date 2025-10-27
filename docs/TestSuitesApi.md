@@ -565,7 +565,7 @@ void (empty response body)
 
 Delete TestSuite
 
- Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
+  Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System deletes test suite    System returns no content response
 
 ### Example
 
@@ -638,7 +638,7 @@ void (empty response body)
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Delete permission for test plan required |  -  |
-**404** |  Can&#39;t find a TestSuite with id |  -  |
+**404** |   Can&#39;t find a TestSuite with id |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -649,7 +649,7 @@ void (empty response body)
 
 Get Configurations By Id
 
- Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
+  Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configurations related to the test points    System returns configurations array
 
 ### Example
 
@@ -724,7 +724,7 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** |  Can&#39;t find a TestSuite with id! |  -  |
+**404** |   Can&#39;t find a TestSuite with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -735,7 +735,7 @@ Name | Type | Description  | Notes
 
 Get TestPoints By Id
 
- Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
+  Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System returns test points array
 
 ### Example
 
@@ -810,7 +810,7 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** |  Can&#39;t find a TestSuite with id! |  -  |
+**404** |   Can&#39;t find a TestSuite with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -821,7 +821,7 @@ Name | Type | Description  | Notes
 
 Get TestResults By Id
 
- Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
+  Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search test results related to the test points    System returns test results array
 
 ### Example
 
@@ -896,7 +896,7 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** |  Can&#39;t find a TestSuite with id! |  -  |
+**404** |   Can&#39;t find a TestSuite with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -907,7 +907,7 @@ Name | Type | Description  | Notes
 
 Get TestSuite by Id
 
- Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
+  Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System returns test suite
 
 ### Example
 
@@ -982,7 +982,7 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**404** |  Can&#39;t find a TestSuite with id! |  -  |
+**404** |   Can&#39;t find a TestSuite with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -993,7 +993,7 @@ Name | Type | Description  | Notes
 
 Search WorkItems
 
- Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
+  Use case    User sets test suite identifier    [Optional] User sets filter    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search work items related to the test points    [Optional] User sets filter, system applies filter    System returns work items array
 
 ### Example
 
@@ -1101,7 +1101,7 @@ Name | Type | Description  | Notes
 
 Set Configurations By TestSuite Id
 
- Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
+  Use case    User sets test suite identifier    User sets collection of configuration identifiers    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configuration    System restores(if exist) or creates test points with listed configuration    System returns no content response
 
 ### Example
 
@@ -1183,10 +1183,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |  Some of Configurations do not exist in the project, or they are not active |  -  |
+**400** |   Some of Configurations do not exist in the project, or they are not active |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
-**404** |  Can&#39;t find a TestSuite with id |  -  |
+**404** |   Can&#39;t find a TestSuite with id |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 

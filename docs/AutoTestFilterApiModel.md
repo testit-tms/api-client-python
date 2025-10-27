@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **class_name** | **str, none_type** | Specifies an autotest class name to search for | [optional] 
 **is_empty_class_name** | **bool, none_type** | Specifies an autotest class name presence status to search for | [optional] 
 **last_test_result_outcome** | [**AutotestResultOutcome**](AutotestResultOutcome.md) |  | [optional] 
-**last_test_result_status_code** | **str, none_type** | Specifies an autotest status code of the last test result to search for | [optional] 
+**last_test_result_status_codes** | **[str], none_type** | Specifies an autotest status codes of the last test result to search for | [optional] 
 **external_key** | **str, none_type** | Specifies an autotest external key to search for | [optional] 
 **last_test_result_configuration_ids** | **[str], none_type** | Specifies an autotest configuration IDs of the last test result to search for | [optional] 
 

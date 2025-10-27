@@ -48,7 +48,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_attribute_templates_api.ProjectAttributeTemplatesApi(api_client)
-    project_id = "projectId_example" # str | 
+    project_id = "projectId_example" # str | Internal (UUID) or global (integer) identifier
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
     take = 1 # int | Amount of items to be taken (limit) (optional)
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -79,7 +79,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**|  |
+ **project_id** | **str**| Internal (UUID) or global (integer) identifier |
  **skip** | **int**| Amount of items to be skipped (offset) | [optional]
  **take** | **int**| Amount of items to be taken (limit) | [optional]
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 Delete CustomAttributeTemplate from Project
 
- Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
+  Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System delete attribute template from project
 
 ### Example
 
@@ -206,7 +206,7 @@ void (empty response body)
 
 Add CustomAttributeTemplate to Project
 
- Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
+  Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System add attribute template to project
 
 ### Example
 

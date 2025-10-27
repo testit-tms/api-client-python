@@ -26,7 +26,7 @@
 | 5.4.0   | 6.3.1.post540 |
 | 5.4.1   | 7.0.3.post541 |
 | 5.5.0   | 7.2.0.post550 |
-| Cloud   | 7.1.1         |
+| Cloud   | 7.2.0         |
 
 ## Installation & Usage
 ### pip install
@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
 *CustomAttributesApi* | [**api_v2_custom_attributes_global_post**](docs/CustomAttributesApi.md#api_v2_custom_attributes_global_post) | **POST** /api/v2/customAttributes/global | Create global attribute
 *CustomAttributesApi* | [**api_v2_custom_attributes_id_get**](docs/CustomAttributesApi.md#api_v2_custom_attributes_id_get) | **GET** /api/v2/customAttributes/{id} | Get attribute
 *CustomAttributesApi* | [**api_v2_custom_attributes_search_post**](docs/CustomAttributesApi.md#api_v2_custom_attributes_search_post) | **POST** /api/v2/customAttributes/search | Search for attributes
+*ExternalIssuesApi* | [**api_v2_external_issues_suggestions_post**](docs/ExternalIssuesApi.md#api_v2_external_issues_suggestions_post) | **POST** /api/v2/external-issues/suggestions | Returns list of suggestions from available external issues
 *NotificationsApi* | [**api_v2_notifications_count_get**](docs/NotificationsApi.md#api_v2_notifications_count_get) | **GET** /api/v2/notifications/count | Get unread Notifications total in last 7 days
 *NotificationsApi* | [**api_v2_notifications_get**](docs/NotificationsApi.md#api_v2_notifications_get) | **GET** /api/v2/notifications | Get all Notifications for current User
 *NotificationsApi* | [**api_v2_notifications_id_read_post**](docs/NotificationsApi.md#api_v2_notifications_id_read_post) | **POST** /api/v2/notifications/{id}/read | Set Notification as read
@@ -184,10 +185,10 @@ Class | Method | HTTP request | Description
 *ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_search_grouped_post**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_search_grouped_post) | **POST** /api/v2/projects/{projectId}/workItems/search/grouped | Search for work items and group results by attribute
 *ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_search_id_post**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_search_id_post) | **POST** /api/v2/projects/{projectId}/workItems/search/id | Search for work items and extract IDs only
 *ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_search_post**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_search_post) | **POST** /api/v2/projects/{projectId}/workItems/search | Search for work items
+*ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_search_work_item_id_index_post**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_search_work_item_id_index_post) | **POST** /api/v2/projects/{projectId}/workItems/search/{workItemId}/index | Get work item index (position) in a collection by its id.
 *ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_tags_get**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_tags_get) | **GET** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 *ProjectWorkItemsApi* | [**get_work_items_by_project_id**](docs/ProjectWorkItemsApi.md#get_work_items_by_project_id) | **GET** /api/v2/projects/{projectId}/workItems | Get project work items
-*ProjectsApi* | [**add_globa_attributes_to_project**](docs/ProjectsApi.md#add_globa_attributes_to_project) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-*ProjectsApi* | [**api_v2_projects_demo_post**](docs/ProjectsApi.md#api_v2_projects_demo_post) | **POST** /api/v2/projects/demo | 
+*ProjectsApi* | [**add_global_attributes_to_project**](docs/ProjectsApi.md#add_global_attributes_to_project) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
 *ProjectsApi* | [**api_v2_projects_id_delete**](docs/ProjectsApi.md#api_v2_projects_id_delete) | **DELETE** /api/v2/projects/{id} | Archive project
 *ProjectsApi* | [**api_v2_projects_id_failure_classes_get**](docs/ProjectsApi.md#api_v2_projects_id_failure_classes_get) | **GET** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsApi* | [**api_v2_projects_id_favorite_put**](docs/ProjectsApi.md#api_v2_projects_id_favorite_put) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -301,6 +302,13 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**start_test_run**](docs/TestRunsApi.md#start_test_run) | **POST** /api/v2/testRuns/{id}/start | Start TestRun
 *TestRunsApi* | [**stop_test_run**](docs/TestRunsApi.md#stop_test_run) | **POST** /api/v2/testRuns/{id}/stop | Stop TestRun
 *TestRunsApi* | [**update_empty**](docs/TestRunsApi.md#update_empty) | **PUT** /api/v2/testRuns | Update empty TestRun
+*TestStatusesApi* | [**api_v2_test_statuses_code_code_exists_get**](docs/TestStatusesApi.md#api_v2_test_statuses_code_code_exists_get) | **GET** /api/v2/testStatuses/code/{code}/exists | 
+*TestStatusesApi* | [**api_v2_test_statuses_id_delete**](docs/TestStatusesApi.md#api_v2_test_statuses_id_delete) | **DELETE** /api/v2/testStatuses/{id} | 
+*TestStatusesApi* | [**api_v2_test_statuses_id_get**](docs/TestStatusesApi.md#api_v2_test_statuses_id_get) | **GET** /api/v2/testStatuses/{id} | 
+*TestStatusesApi* | [**api_v2_test_statuses_id_put**](docs/TestStatusesApi.md#api_v2_test_statuses_id_put) | **PUT** /api/v2/testStatuses/{id} | 
+*TestStatusesApi* | [**api_v2_test_statuses_name_name_exists_get**](docs/TestStatusesApi.md#api_v2_test_statuses_name_name_exists_get) | **GET** /api/v2/testStatuses/name/{name}/exists | 
+*TestStatusesApi* | [**api_v2_test_statuses_post**](docs/TestStatusesApi.md#api_v2_test_statuses_post) | **POST** /api/v2/testStatuses | 
+*TestStatusesApi* | [**api_v2_test_statuses_search_post**](docs/TestStatusesApi.md#api_v2_test_statuses_search_post) | **POST** /api/v2/testStatuses/search | 
 *TestSuitesApi* | [**add_test_points_to_test_suite**](docs/TestSuitesApi.md#add_test_points_to_test_suite) | **POST** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_patch**](docs/TestSuitesApi.md#api_v2_test_suites_id_patch) | **PATCH** /api/v2/testSuites/{id} | Patch test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_refresh_post**](docs/TestSuitesApi.md#api_v2_test_suites_id_refresh_post) | **POST** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method
@@ -325,7 +333,7 @@ Class | Method | HTTP request | Description
 *WebhooksApi* | [**api_v2_webhooks_search_post**](docs/WebhooksApi.md#api_v2_webhooks_search_post) | **POST** /api/v2/webhooks/search | Search for webhooks
 *WebhooksApi* | [**api_v2_webhooks_special_variables_get**](docs/WebhooksApi.md#api_v2_webhooks_special_variables_get) | **GET** /api/v2/webhooks/specialVariables | Get special variables for webhook event type
 *WebhooksApi* | [**api_v2_webhooks_test_post**](docs/WebhooksApi.md#api_v2_webhooks_test_post) | **POST** /api/v2/webhooks/test | Test webhook&#39;s url
-*WebhooksLogsApi* | [**api_v2_webhooks_logs_get**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_get) | **GET** /api/v2/webhooks/logs | Get all webhook logs
+*WebhooksLogsApi* | [**api_v2_webhooks_logs_get**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_get) | **GET** /api/v2/webhooks/logs | Get last webhook logs
 *WebhooksLogsApi* | [**api_v2_webhooks_logs_id_delete**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_id_delete) | **DELETE** /api/v2/webhooks/logs/{id} | Delete webhook log by ID
 *WebhooksLogsApi* | [**api_v2_webhooks_logs_id_get**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_id_get) | **GET** /api/v2/webhooks/logs/{id} | Get webhook log by ID
 *WorkItemsApi* | [**api_v2_work_items_id_attachments_post**](docs/WorkItemsApi.md#api_v2_work_items_id_attachments_post) | **POST** /api/v2/workItems/{id}/attachments | Upload and link attachment to WorkItem
@@ -359,6 +367,14 @@ Class | Method | HTTP request | Description
 *WorkItemsCommentsApi* | [**api_v2_work_items_comments_put**](docs/WorkItemsCommentsApi.md#api_v2_work_items_comments_put) | **PUT** /api/v2/workItems/comments | Update work item comment
 *WorkItemsCommentsApi* | [**api_v2_work_items_id_comments_count_get**](docs/WorkItemsCommentsApi.md#api_v2_work_items_id_comments_count_get) | **GET** /api/v2/workItems/{id}/comments/count | Get work item comments count
 *WorkItemsCommentsApi* | [**api_v2_work_items_id_comments_get**](docs/WorkItemsCommentsApi.md#api_v2_work_items_id_comments_get) | **GET** /api/v2/workItems/{id}/comments | Get work item comments
+*WorkflowsApi* | [**api_v2_workflows_id_delete**](docs/WorkflowsApi.md#api_v2_workflows_id_delete) | **DELETE** /api/v2/workflows/{id} | 
+*WorkflowsApi* | [**api_v2_workflows_id_get**](docs/WorkflowsApi.md#api_v2_workflows_id_get) | **GET** /api/v2/workflows/{id} | 
+*WorkflowsApi* | [**api_v2_workflows_id_patch**](docs/WorkflowsApi.md#api_v2_workflows_id_patch) | **PATCH** /api/v2/workflows/{id} | 
+*WorkflowsApi* | [**api_v2_workflows_id_projects_search_post**](docs/WorkflowsApi.md#api_v2_workflows_id_projects_search_post) | **POST** /api/v2/workflows/{id}/projects/search | 
+*WorkflowsApi* | [**api_v2_workflows_id_put**](docs/WorkflowsApi.md#api_v2_workflows_id_put) | **PUT** /api/v2/workflows/{id} | 
+*WorkflowsApi* | [**api_v2_workflows_name_name_exists_get**](docs/WorkflowsApi.md#api_v2_workflows_name_name_exists_get) | **GET** /api/v2/workflows/name/{name}/exists | 
+*WorkflowsApi* | [**api_v2_workflows_post**](docs/WorkflowsApi.md#api_v2_workflows_post) | **POST** /api/v2/workflows | 
+*WorkflowsApi* | [**api_v2_workflows_search_post**](docs/WorkflowsApi.md#api_v2_workflows_search_post) | **POST** /api/v2/workflows/search | 
 
 
 ## Documentation For Models

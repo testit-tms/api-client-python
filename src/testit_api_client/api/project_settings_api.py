@@ -22,7 +22,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from testit_api_client.model.api_v2_projects_project_id_settings_autotests_post_request import ApiV2ProjectsProjectIdSettingsAutotestsPostRequest
-from testit_api_client.model.auto_test_project_settings_get_model import AutoTestProjectSettingsGetModel
+from testit_api_client.model.auto_test_project_settings_api_result import AutoTestProjectSettingsApiResult
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -97,7 +97,7 @@ class ProjectSettingsApi(object):
         )
         self.get_autotest_project_settings_endpoint = _Endpoint(
             settings={
-                'response_type': (AutoTestProjectSettingsGetModel,),
+                'response_type': (AutoTestProjectSettingsApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -161,7 +161,7 @@ class ProjectSettingsApi(object):
         >>> result = thread.get()
 
         Args:
-            project_id (str):
+            project_id (str): Internal (UUID) or global (integer) identifier
 
         Keyword Args:
             api_v2_projects_project_id_settings_autotests_post_request (ApiV2ProjectsProjectIdSettingsAutotestsPostRequest): [optional]
@@ -244,7 +244,7 @@ class ProjectSettingsApi(object):
         >>> result = thread.get()
 
         Args:
-            project_id (str):
+            project_id (str): Internal (UUID) or global (integer) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -279,7 +279,7 @@ class ProjectSettingsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            AutoTestProjectSettingsGetModel
+            AutoTestProjectSettingsApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -30,9 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.auto_test_result_reason_group_item_api_result_group import AutoTestResultReasonGroupItemApiResultGroup
+    from testit_api_client.model.failure_category_group_item_api_result_group import FailureCategoryGroupItemApiResultGroup
     from testit_api_client.model.project_failure_category_api_result import ProjectFailureCategoryApiResult
-    globals()['AutoTestResultReasonGroupItemApiResultGroup'] = AutoTestResultReasonGroupItemApiResultGroup
+    globals()['FailureCategoryGroupItemApiResultGroup'] = FailureCategoryGroupItemApiResultGroup
     globals()['ProjectFailureCategoryApiResult'] = ProjectFailureCategoryApiResult
 
 
@@ -83,7 +83,7 @@ class ProjectFailureCategoryGroupItemApiResult(ModelNormal):
         lazy_import()
         return {
             'items': ([ProjectFailureCategoryApiResult],),  # noqa: E501
-            'group': (AutoTestResultReasonGroupItemApiResultGroup,),  # noqa: E501
+            'group': (FailureCategoryGroupItemApiResultGroup,),  # noqa: E501
         }
 
     @cached_property
@@ -140,7 +140,7 @@ class ProjectFailureCategoryGroupItemApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            group (AutoTestResultReasonGroupItemApiResultGroup): [optional]  # noqa: E501
+            group (FailureCategoryGroupItemApiResultGroup): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,7 +230,7 @@ class ProjectFailureCategoryGroupItemApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            group (AutoTestResultReasonGroupItemApiResultGroup): [optional]  # noqa: E501
+            group (FailureCategoryGroupItemApiResultGroup): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

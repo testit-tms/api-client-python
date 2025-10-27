@@ -104,6 +104,8 @@ class WorkItemSearchQueryModel(ModelNormal):
         },
         ('tags',): {
         },
+        ('exclude_tags',): {
+        },
         ('auto_test_ids',): {
         },
     }
@@ -144,6 +146,7 @@ class WorkItemSearchQueryModel(ModelNormal):
             'median_duration': (TestSuiteWorkItemsSearchModelMedianDuration,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
+            'exclude_tags': ([str], none_type,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
             'work_item_version_ids': ([str], none_type,),  # noqa: E501
         }
@@ -174,6 +177,7 @@ class WorkItemSearchQueryModel(ModelNormal):
         'median_duration': 'medianDuration',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'exclude_tags': 'excludeTags',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
         'work_item_version_ids': 'workItemVersionIds',  # noqa: E501
     }
@@ -239,6 +243,7 @@ class WorkItemSearchQueryModel(ModelNormal):
             median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
         """
@@ -346,6 +351,7 @@ class WorkItemSearchQueryModel(ModelNormal):
             median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
         """

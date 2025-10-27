@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **class_name** | **str, none_type** |  | [optional] 
 **is_empty_class_name** | **bool, none_type** |  | [optional] 
 **last_test_result_outcome** | [**AutotestResultOutcome**](AutotestResultOutcome.md) |  | [optional] 
-**last_test_result_status_code** | **str, none_type** |  | [optional] 
+**last_test_result_status_codes** | **[str], none_type** |  | [optional] 
 **external_key** | **str, none_type** |  | [optional] 
 **last_test_result_configuration_ids** | **[str], none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

@@ -101,7 +101,7 @@ class AutoTestFilterModel(ModelNormal):
             'class_name': (str, none_type,),  # noqa: E501
             'is_empty_class_name': (bool, none_type,),  # noqa: E501
             'last_test_result_outcome': (AutotestResultOutcome,),  # noqa: E501
-            'last_test_result_status_code': (str, none_type,),  # noqa: E501
+            'last_test_result_status_codes': ([str], none_type,),  # noqa: E501
             'external_key': (str, none_type,),  # noqa: E501
             'last_test_result_configuration_ids': ([str], none_type,),  # noqa: E501
         }
@@ -129,7 +129,7 @@ class AutoTestFilterModel(ModelNormal):
         'class_name': 'className',  # noqa: E501
         'is_empty_class_name': 'isEmptyClassName',  # noqa: E501
         'last_test_result_outcome': 'lastTestResultOutcome',  # noqa: E501
-        'last_test_result_status_code': 'lastTestResultStatusCode',  # noqa: E501
+        'last_test_result_status_codes': 'lastTestResultStatusCodes',  # noqa: E501
         'external_key': 'externalKey',  # noqa: E501
         'last_test_result_configuration_ids': 'lastTestResultConfigurationIds',  # noqa: E501
     }
@@ -192,7 +192,7 @@ class AutoTestFilterModel(ModelNormal):
             class_name (str, none_type): [optional]  # noqa: E501
             is_empty_class_name (bool, none_type): [optional]  # noqa: E501
             last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
-            last_test_result_status_code (str, none_type): [optional]  # noqa: E501
+            last_test_result_status_codes ([str], none_type): [optional]  # noqa: E501
             external_key (str, none_type): [optional]  # noqa: E501
             last_test_result_configuration_ids ([str], none_type): [optional]  # noqa: E501
         """
@@ -297,7 +297,7 @@ class AutoTestFilterModel(ModelNormal):
             class_name (str, none_type): [optional]  # noqa: E501
             is_empty_class_name (bool, none_type): [optional]  # noqa: E501
             last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
-            last_test_result_status_code (str, none_type): [optional]  # noqa: E501
+            last_test_result_status_codes ([str], none_type): [optional]  # noqa: E501
             external_key (str, none_type): [optional]  # noqa: E501
             last_test_result_configuration_ids ([str], none_type): [optional]  # noqa: E501
         """

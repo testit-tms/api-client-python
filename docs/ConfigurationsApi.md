@@ -537,7 +537,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_configurations_purge_bulk_post**
-> api_v2_configurations_purge_bulk_post()
+> int api_v2_configurations_purge_bulk_post()
 
 Permanently delete multiple archived configurations
 
@@ -580,7 +580,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Permanently delete multiple archived configurations
-        api_instance.api_v2_configurations_purge_bulk_post(api_v2_configurations_purge_bulk_post_request=api_v2_configurations_purge_bulk_post_request)
+        api_response = api_instance.api_v2_configurations_purge_bulk_post(api_v2_configurations_purge_bulk_post_request=api_v2_configurations_purge_bulk_post_request)
+        pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_purge_bulk_post: %s\n" % e)
 ```
@@ -594,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**int**
 
 ### Authorization
 
@@ -890,7 +891,7 @@ Name | Type | Description  | Notes
 
 Create Configuration
 
- Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
+  Use case    User sets configuration model (listed in the request example)    User runs method execution    System creates configuration    System returns created configuration (listed in the response example)
 
 ### Example
 
@@ -978,7 +979,7 @@ Name | Type | Description  | Notes
 
 Get configuration by internal or global ID
 
- Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
+  Use case    User sets configuration internal (guid format) or global (integer format) identifier    User runs method execution    System search configuration using the identifier    System returns configuration
 
 ### Example
 

@@ -30,7 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.workflow_project_api_result import WorkflowProjectApiResult
     from testit_api_client.model.workflow_status_api_result import WorkflowStatusApiResult
+    globals()['WorkflowProjectApiResult'] = WorkflowProjectApiResult
     globals()['WorkflowStatusApiResult'] = WorkflowStatusApiResult
 
 
@@ -84,7 +86,12 @@ class WorkflowApiResult(ModelNormal):
             'name': (str,),  # noqa: E501
             'is_system': (bool,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'modified_date': (datetime,),  # noqa: E501
+            'modified_by_id': (str,),  # noqa: E501
             'statuses': ([WorkflowStatusApiResult],),  # noqa: E501
+            'projects': ([WorkflowProjectApiResult],),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +104,12 @@ class WorkflowApiResult(ModelNormal):
         'name': 'name',  # noqa: E501
         'is_system': 'isSystem',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
         'statuses': 'statuses',  # noqa: E501
+        'projects': 'projects',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,7 +119,7 @@ class WorkflowApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, is_system, is_default, statuses, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, is_system, is_default, created_date, created_by_id, modified_date, modified_by_id, statuses, projects, *args, **kwargs):  # noqa: E501
         """WorkflowApiResult - a model defined in OpenAPI
 
         Args:
@@ -115,7 +127,12 @@ class WorkflowApiResult(ModelNormal):
             name (str):
             is_system (bool):
             is_default (bool):
+            created_date (datetime):
+            created_by_id (str):
+            modified_date (datetime):
+            modified_by_id (str):
             statuses ([WorkflowStatusApiResult]):
+            projects ([WorkflowProjectApiResult]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -183,7 +200,12 @@ class WorkflowApiResult(ModelNormal):
         self.name = name
         self.is_system = is_system
         self.is_default = is_default
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.modified_date = modified_date
+        self.modified_by_id = modified_by_id
         self.statuses = statuses
+        self.projects = projects
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -204,7 +226,7 @@ class WorkflowApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, is_system, is_default, statuses, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, is_system, is_default, created_date, created_by_id, modified_date, modified_by_id, statuses, projects, *args, **kwargs):  # noqa: E501
         """WorkflowApiResult - a model defined in OpenAPI
 
         Args:
@@ -212,7 +234,12 @@ class WorkflowApiResult(ModelNormal):
             name (str):
             is_system (bool):
             is_default (bool):
+            created_date (datetime):
+            created_by_id (str):
+            modified_date (datetime):
+            modified_by_id (str):
             statuses ([WorkflowStatusApiResult]):
+            projects ([WorkflowProjectApiResult]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -278,7 +305,12 @@ class WorkflowApiResult(ModelNormal):
         self.name = name
         self.is_system = is_system
         self.is_default = is_default
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.modified_date = modified_date
+        self.modified_by_id = modified_by_id
         self.statuses = statuses
+        self.projects = projects
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

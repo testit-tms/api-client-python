@@ -35,6 +35,7 @@ def lazy_import():
     from testit_api_client.model.test_suite_work_items_search_model_duration import TestSuiteWorkItemsSearchModelDuration
     from testit_api_client.model.test_suite_work_items_search_model_median_duration import TestSuiteWorkItemsSearchModelMedianDuration
     from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
+    from testit_api_client.model.work_item_filter_api_model_external_metadata import WorkItemFilterApiModelExternalMetadata
     from testit_api_client.model.work_item_filter_api_model_links import WorkItemFilterApiModelLinks
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
@@ -44,6 +45,7 @@ def lazy_import():
     globals()['TestSuiteWorkItemsSearchModelDuration'] = TestSuiteWorkItemsSearchModelDuration
     globals()['TestSuiteWorkItemsSearchModelMedianDuration'] = TestSuiteWorkItemsSearchModelMedianDuration
     globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
+    globals()['WorkItemFilterApiModelExternalMetadata'] = WorkItemFilterApiModelExternalMetadata
     globals()['WorkItemFilterApiModelLinks'] = WorkItemFilterApiModelLinks
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
@@ -108,6 +110,8 @@ class WorkItemFilterApiModel(ModelNormal):
         },
         ('tags',): {
         },
+        ('exclude_tags',): {
+        },
         ('auto_test_ids',): {
         },
     }
@@ -150,9 +154,11 @@ class WorkItemFilterApiModel(ModelNormal):
             'median_duration': (TestSuiteWorkItemsSearchModelMedianDuration,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
+            'exclude_tags': ([str], none_type,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
             'work_item_version_ids': ([str], none_type,),  # noqa: E501
             'links': (WorkItemFilterApiModelLinks,),  # noqa: E501
+            'external_metadata': (WorkItemFilterApiModelExternalMetadata,),  # noqa: E501
         }
 
     @cached_property
@@ -183,9 +189,11 @@ class WorkItemFilterApiModel(ModelNormal):
         'median_duration': 'medianDuration',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'exclude_tags': 'excludeTags',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
         'work_item_version_ids': 'workItemVersionIds',  # noqa: E501
         'links': 'links',  # noqa: E501
+        'external_metadata': 'externalMetadata',  # noqa: E501
     }
 
     read_only_vars = {
@@ -251,9 +259,11 @@ class WorkItemFilterApiModel(ModelNormal):
             median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
             links (WorkItemFilterApiModelLinks): [optional]  # noqa: E501
+            external_metadata (WorkItemFilterApiModelExternalMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -361,9 +371,11 @@ class WorkItemFilterApiModel(ModelNormal):
             median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
             links (WorkItemFilterApiModelLinks): [optional]  # noqa: E501
+            external_metadata (WorkItemFilterApiModelExternalMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -122,7 +122,7 @@ class CreateEmptyRequest(ModelComposed):
         """CreateEmptyRequest - a model defined in OpenAPI
 
         Keyword Args:
-            project_id (str): Project unique identifier              This property is to link test run with a project
+            project_id (str): Project unique identifier                This property is to link test run with a project
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -231,7 +231,7 @@ class CreateEmptyRequest(ModelComposed):
         """CreateEmptyRequest - a model defined in OpenAPI
 
         Keyword Args:
-            project_id (str): Project unique identifier              This property is to link test run with a project
+            project_id (str): Project unique identifier                This property is to link test run with a project
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

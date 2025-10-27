@@ -112,8 +112,8 @@ class WorkflowShortApiResultProjects(ModelComposed):
         """WorkflowShortApiResultProjects - a model defined in OpenAPI
 
         Keyword Args:
-            data ([WorkflowProjectApiResult]):
-            total_count (int):
+            data ([WorkflowProjectApiResult]): Preview items
+            total_count (int): Total count
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -217,8 +217,8 @@ class WorkflowShortApiResultProjects(ModelComposed):
         """WorkflowShortApiResultProjects - a model defined in OpenAPI
 
         Keyword Args:
-            data ([WorkflowProjectApiResult]):
-            total_count (int):
+            data ([WorkflowProjectApiResult]): Preview items
+            total_count (int): Total count
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

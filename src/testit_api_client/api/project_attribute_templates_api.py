@@ -249,7 +249,7 @@ class ProjectAttributeTemplatesApi(object):
         >>> result = thread.get()
 
         Args:
-            project_id (str):
+            project_id (str): Internal (UUID) or global (integer) identifier
 
         Keyword Args:
             skip (int): Amount of items to be skipped (offset). [optional]
@@ -331,7 +331,7 @@ class ProjectAttributeTemplatesApi(object):
     ):
         """Delete CustomAttributeTemplate from Project  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project  # noqa: E501
+          Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System delete attribute template from project  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -418,7 +418,7 @@ class ProjectAttributeTemplatesApi(object):
     ):
         """Add CustomAttributeTemplate to Project  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project  # noqa: E501
+          Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System add attribute template to project  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

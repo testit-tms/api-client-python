@@ -115,7 +115,7 @@ class CreateEmptyTestRunApiModel(ModelNormal):
         """CreateEmptyTestRunApiModel - a model defined in OpenAPI
 
         Args:
-            project_id (str): Project unique identifier              This property is to link test run with a project
+            project_id (str): Project unique identifier                This property is to link test run with a project
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -209,7 +209,7 @@ class CreateEmptyTestRunApiModel(ModelNormal):
         """CreateEmptyTestRunApiModel - a model defined in OpenAPI
 
         Args:
-            project_id (str): Project unique identifier              This property is to link test run with a project
+            project_id (str): Project unique identifier                This property is to link test run with a project
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

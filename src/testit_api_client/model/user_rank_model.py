@@ -82,6 +82,8 @@ class UserRankModel(ModelNormal):
             'skipped_test_points': (int,),  # noqa: E501
             'blocked_test_points': (int,),  # noqa: E501
             'level_avatar_enabled': (bool,),  # noqa: E501
+            'succeeded_test_points': (int,),  # noqa: E501
+            'incomplete_test_points': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -97,6 +99,8 @@ class UserRankModel(ModelNormal):
         'skipped_test_points': 'skippedTestPoints',  # noqa: E501
         'blocked_test_points': 'blockedTestPoints',  # noqa: E501
         'level_avatar_enabled': 'levelAvatarEnabled',  # noqa: E501
+        'succeeded_test_points': 'succeededTestPoints',  # noqa: E501
+        'incomplete_test_points': 'incompleteTestPoints',  # noqa: E501
     }
 
     read_only_vars = {
@@ -106,7 +110,7 @@ class UserRankModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, score, work_items_created, passed_test_points, failed_test_points, skipped_test_points, blocked_test_points, level_avatar_enabled, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, score, work_items_created, passed_test_points, failed_test_points, skipped_test_points, blocked_test_points, level_avatar_enabled, succeeded_test_points, incomplete_test_points, *args, **kwargs):  # noqa: E501
         """UserRankModel - a model defined in OpenAPI
 
         Args:
@@ -117,6 +121,8 @@ class UserRankModel(ModelNormal):
             skipped_test_points (int):
             blocked_test_points (int):
             level_avatar_enabled (bool):
+            succeeded_test_points (int):
+            incomplete_test_points (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -187,6 +193,8 @@ class UserRankModel(ModelNormal):
         self.skipped_test_points = skipped_test_points
         self.blocked_test_points = blocked_test_points
         self.level_avatar_enabled = level_avatar_enabled
+        self.succeeded_test_points = succeeded_test_points
+        self.incomplete_test_points = incomplete_test_points
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -207,7 +215,7 @@ class UserRankModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, score, work_items_created, passed_test_points, failed_test_points, skipped_test_points, blocked_test_points, level_avatar_enabled, *args, **kwargs):  # noqa: E501
+    def __init__(self, score, work_items_created, passed_test_points, failed_test_points, skipped_test_points, blocked_test_points, level_avatar_enabled, succeeded_test_points, incomplete_test_points, *args, **kwargs):  # noqa: E501
         """UserRankModel - a model defined in OpenAPI
 
         Args:
@@ -218,6 +226,8 @@ class UserRankModel(ModelNormal):
             skipped_test_points (int):
             blocked_test_points (int):
             level_avatar_enabled (bool):
+            succeeded_test_points (int):
+            incomplete_test_points (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -286,6 +296,8 @@ class UserRankModel(ModelNormal):
         self.skipped_test_points = skipped_test_points
         self.blocked_test_points = blocked_test_points
         self.level_avatar_enabled = level_avatar_enabled
+        self.succeeded_test_points = succeeded_test_points
+        self.incomplete_test_points = incomplete_test_points
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

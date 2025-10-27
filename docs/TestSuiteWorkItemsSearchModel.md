@@ -5,10 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tag_names** | **[str], none_type** | Collection of tags | [optional] 
-**entity_types** | [**[WorkItemEntityTypes], none_type**](WorkItemEntityTypes.md) | Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
+**entity_types** | [**[WorkItemEntityTypes], none_type**](WorkItemEntityTypes.md) | Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
 **name_or_id** | **str, none_type** | Name or identifier (UUID) of work item | [optional] 
 **include_ids** | **[str], none_type** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **exclude_ids** | **[str], none_type** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
+**external_metadata** | [**TestSuiteWorkItemsSearchModelExternalMetadata**](TestSuiteWorkItemsSearchModelExternalMetadata.md) |  | [optional] 
 **project_ids** | **[str], none_type** | Collection of project identifiers | [optional] 
 **links** | [**TestSuiteWorkItemsSearchModelLinks**](TestSuiteWorkItemsSearchModelLinks.md) |  | [optional] 
 **name** | **str, none_type** | Name of work item | [optional] 
@@ -29,6 +30,7 @@ Name | Type | Description | Notes
 **median_duration** | [**TestSuiteWorkItemsSearchModelMedianDuration**](TestSuiteWorkItemsSearchModelMedianDuration.md) |  | [optional] 
 **is_automated** | **bool, none_type** | Is result must consist of only manual/automated work items | [optional] 
 **tags** | **[str], none_type** | Collection of tags | [optional] 
+**exclude_tags** | **[str], none_type** | Collection of tags to exclude | [optional] 
 **auto_test_ids** | **[str], none_type** | Collection of identifiers of linked autotests | [optional] 
 **work_item_version_ids** | **[str], none_type** | Collection of identifiers work items versions. | [optional] 
 

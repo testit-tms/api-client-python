@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **modified_date** | [**TestPlanTestPointsSearchApiModelModifiedDate**](TestPlanTestPointsSearchApiModelModifiedDate.md) |  | [optional] 
 **modified_by_ids** | **[str], none_type** | Specifies a test point last editor IDs to search for | [optional] 
 **tags** | **[str], none_type** | Specifies a test point tags to search for | [optional] 
+**exclude_tags** | **[str], none_type** | Specifies a test point tags to exclude to search for | [optional] 
 **attributes** | **{str: ([str], none_type)}, none_type** | Specifies a test point attributes to search for | [optional] 
 **work_item_created_date** | [**TestPlanTestPointsSearchApiModelWorkItemCreatedDate**](TestPlanTestPointsSearchApiModelWorkItemCreatedDate.md) |  | [optional] 
 **work_item_created_by_ids** | **[str], none_type** | Specifies a work item creator IDs to search for | [optional] 

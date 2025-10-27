@@ -181,7 +181,7 @@ class ProjectTestPlanTestPointsApi(object):
         >>> result = thread.get()
 
         Args:
-            project_id (str):
+            project_id (str): Internal (UUID) or global (integer) identifier
             test_plan_id (str):
 
         Keyword Args:
@@ -268,7 +268,7 @@ class ProjectTestPlanTestPointsApi(object):
         >>> result = thread.get()
 
         Args:
-            project_id (str):
+            project_id (str): Internal (UUID) or global (integer) identifier
             test_plan_id (str):
 
         Keyword Args:

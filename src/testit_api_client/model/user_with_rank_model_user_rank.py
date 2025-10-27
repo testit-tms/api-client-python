@@ -94,6 +94,8 @@ class UserWithRankModelUserRank(ModelComposed):
             'skipped_test_points': (int,),  # noqa: E501
             'blocked_test_points': (int,),  # noqa: E501
             'level_avatar_enabled': (bool,),  # noqa: E501
+            'succeeded_test_points': (int,),  # noqa: E501
+            'incomplete_test_points': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +111,8 @@ class UserWithRankModelUserRank(ModelComposed):
         'skipped_test_points': 'skippedTestPoints',  # noqa: E501
         'blocked_test_points': 'blockedTestPoints',  # noqa: E501
         'level_avatar_enabled': 'levelAvatarEnabled',  # noqa: E501
+        'succeeded_test_points': 'succeededTestPoints',  # noqa: E501
+        'incomplete_test_points': 'incompleteTestPoints',  # noqa: E501
     }
 
     read_only_vars = {
@@ -127,6 +131,8 @@ class UserWithRankModelUserRank(ModelComposed):
             skipped_test_points (int):
             blocked_test_points (int):
             level_avatar_enabled (bool):
+            succeeded_test_points (int):
+            incomplete_test_points (int):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -237,6 +243,8 @@ class UserWithRankModelUserRank(ModelComposed):
             skipped_test_points (int):
             blocked_test_points (int):
             level_avatar_enabled (bool):
+            succeeded_test_points (int):
+            incomplete_test_points (int):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

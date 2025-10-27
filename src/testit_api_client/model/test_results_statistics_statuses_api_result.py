@@ -77,6 +77,7 @@ class TestResultsStatisticsStatusesApiResult(ModelNormal):
         return {
             'in_progress': (int,),  # noqa: E501
             'passed': (int,),  # noqa: E501
+            'succeeded': (int,),  # noqa: E501
             'failed': (int,),  # noqa: E501
             'skipped': (int,),  # noqa: E501
             'blocked': (int,),  # noqa: E501
@@ -91,6 +92,7 @@ class TestResultsStatisticsStatusesApiResult(ModelNormal):
     attribute_map = {
         'in_progress': 'inProgress',  # noqa: E501
         'passed': 'passed',  # noqa: E501
+        'succeeded': 'succeeded',  # noqa: E501
         'failed': 'failed',  # noqa: E501
         'skipped': 'skipped',  # noqa: E501
         'blocked': 'blocked',  # noqa: E501
@@ -104,12 +106,13 @@ class TestResultsStatisticsStatusesApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, in_progress, passed, failed, skipped, blocked, incomplete, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, in_progress, passed, succeeded, failed, skipped, blocked, incomplete, *args, **kwargs):  # noqa: E501
         """TestResultsStatisticsStatusesApiResult - a model defined in OpenAPI
 
         Args:
             in_progress (int): Number of test results which is running currently
             passed (int): Number of test results which successfully passed
+            succeeded (int): Number of successful test results
             failed (int): Number of test results which failed with an error
             skipped (int): Number of test results which did not run and were skipped
             blocked (int): Number of test results which cannot be launched
@@ -179,6 +182,7 @@ class TestResultsStatisticsStatusesApiResult(ModelNormal):
 
         self.in_progress = in_progress
         self.passed = passed
+        self.succeeded = succeeded
         self.failed = failed
         self.skipped = skipped
         self.blocked = blocked
@@ -203,12 +207,13 @@ class TestResultsStatisticsStatusesApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, in_progress, passed, failed, skipped, blocked, incomplete, *args, **kwargs):  # noqa: E501
+    def __init__(self, in_progress, passed, succeeded, failed, skipped, blocked, incomplete, *args, **kwargs):  # noqa: E501
         """TestResultsStatisticsStatusesApiResult - a model defined in OpenAPI
 
         Args:
             in_progress (int): Number of test results which is running currently
             passed (int): Number of test results which successfully passed
+            succeeded (int): Number of successful test results
             failed (int): Number of test results which failed with an error
             skipped (int): Number of test results which did not run and were skipped
             blocked (int): Number of test results which cannot be launched
@@ -276,6 +281,7 @@ class TestResultsStatisticsStatusesApiResult(ModelNormal):
 
         self.in_progress = in_progress
         self.passed = passed
+        self.succeeded = succeeded
         self.failed = failed
         self.skipped = skipped
         self.blocked = blocked

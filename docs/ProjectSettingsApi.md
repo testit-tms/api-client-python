@@ -46,7 +46,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_settings_api.ProjectSettingsApi(api_client)
-    project_id = "projectId_example" # str | 
+    project_id = "projectId_example" # str | Internal (UUID) or global (integer) identifier
     api_v2_projects_project_id_settings_autotests_post_request = ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(None) # ApiV2ProjectsProjectIdSettingsAutotestsPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -70,7 +70,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**|  |
+ **project_id** | **str**| Internal (UUID) or global (integer) identifier |
  **api_v2_projects_project_id_settings_autotests_post_request** | [**ApiV2ProjectsProjectIdSettingsAutotestsPostRequest**](ApiV2ProjectsProjectIdSettingsAutotestsPostRequest.md)|  | [optional]
 
 ### Return type
@@ -102,7 +102,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_autotest_project_settings**
-> AutoTestProjectSettingsGetModel get_autotest_project_settings(project_id)
+> AutoTestProjectSettingsApiResult get_autotest_project_settings(project_id)
 
 Get autotest project settings.
 
@@ -114,8 +114,8 @@ Get autotest project settings.
 import time
 import testit_api_client
 from testit_api_client.api import project_settings_api
-from testit_api_client.model.auto_test_project_settings_get_model import AutoTestProjectSettingsGetModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.auto_test_project_settings_api_result import AutoTestProjectSettingsApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -139,7 +139,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_settings_api.ProjectSettingsApi(api_client)
-    project_id = "projectId_example" # str | 
+    project_id = "projectId_example" # str | Internal (UUID) or global (integer) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -155,11 +155,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**|  |
+ **project_id** | **str**| Internal (UUID) or global (integer) identifier |
 
 ### Return type
 
-[**AutoTestProjectSettingsGetModel**](AutoTestProjectSettingsGetModel.md)
+[**AutoTestProjectSettingsApiResult**](AutoTestProjectSettingsApiResult.md)
 
 ### Authorization
 

@@ -89,8 +89,6 @@ class WorkItemPreviewApiModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'steps': ([WorkItemPreviewStepApiModel],),  # noqa: E501
-            'action': (str,),  # noqa: E501
-            'expected': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,8 +100,6 @@ class WorkItemPreviewApiModel(ModelNormal):
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'steps': 'steps',  # noqa: E501
-        'action': 'action',  # noqa: E501
-        'expected': 'expected',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,15 +109,13 @@ class WorkItemPreviewApiModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, description, steps, action, expected, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, description, steps, *args, **kwargs):  # noqa: E501
         """WorkItemPreviewApiModel - a model defined in OpenAPI
 
         Args:
             name (str):
             description (str):
             steps ([WorkItemPreviewStepApiModel]):
-            action (str):
-            expected (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -188,8 +182,6 @@ class WorkItemPreviewApiModel(ModelNormal):
         self.name = name
         self.description = description
         self.steps = steps
-        self.action = action
-        self.expected = expected
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -210,15 +202,13 @@ class WorkItemPreviewApiModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, description, steps, action, expected, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, description, steps, *args, **kwargs):  # noqa: E501
         """WorkItemPreviewApiModel - a model defined in OpenAPI
 
         Args:
             name (str):
             description (str):
             steps ([WorkItemPreviewStepApiModel]):
-            action (str):
-            expected (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -283,8 +273,6 @@ class WorkItemPreviewApiModel(ModelNormal):
         self.name = name
         self.description = description
         self.steps = steps
-        self.action = action
-        self.expected = expected
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
