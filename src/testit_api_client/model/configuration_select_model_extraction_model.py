@@ -30,12 +30,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.configuration_extraction_api_model_ids import ConfigurationExtractionApiModelIds
+    from testit_api_client.model.configuration_extraction_api_model_project_ids import ConfigurationExtractionApiModelProjectIds
     from testit_api_client.model.configuration_extraction_model import ConfigurationExtractionModel
-    from testit_api_client.model.configuration_extraction_model_ids import ConfigurationExtractionModelIds
-    from testit_api_client.model.configuration_extraction_model_project_ids import ConfigurationExtractionModelProjectIds
+    globals()['ConfigurationExtractionApiModelIds'] = ConfigurationExtractionApiModelIds
+    globals()['ConfigurationExtractionApiModelProjectIds'] = ConfigurationExtractionApiModelProjectIds
     globals()['ConfigurationExtractionModel'] = ConfigurationExtractionModel
-    globals()['ConfigurationExtractionModelIds'] = ConfigurationExtractionModelIds
-    globals()['ConfigurationExtractionModelProjectIds'] = ConfigurationExtractionModelProjectIds
 
 
 class ConfigurationSelectModelExtractionModel(ModelComposed):
@@ -91,8 +91,8 @@ class ConfigurationSelectModelExtractionModel(ModelComposed):
         """
         lazy_import()
         return {
-            'ids': (ConfigurationExtractionModelIds,),  # noqa: E501
-            'project_ids': (ConfigurationExtractionModelProjectIds,),  # noqa: E501
+            'ids': (ConfigurationExtractionApiModelIds,),  # noqa: E501
+            'project_ids': (ConfigurationExtractionApiModelProjectIds,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class ConfigurationSelectModelExtractionModel(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids (ConfigurationExtractionModelIds): [optional]  # noqa: E501
-            project_ids (ConfigurationExtractionModelProjectIds): [optional]  # noqa: E501
+            ids (ConfigurationExtractionApiModelIds): [optional]  # noqa: E501
+            project_ids (ConfigurationExtractionApiModelProjectIds): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -249,8 +249,8 @@ class ConfigurationSelectModelExtractionModel(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids (ConfigurationExtractionModelIds): [optional]  # noqa: E501
-            project_ids (ConfigurationExtractionModelProjectIds): [optional]  # noqa: E501
+            ids (ConfigurationExtractionApiModelIds): [optional]  # noqa: E501
+            project_ids (ConfigurationExtractionApiModelProjectIds): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

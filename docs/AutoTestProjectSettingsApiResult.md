@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **flaky_test_run_count** | **int** | Last test run count for autotest flaky computing | 
 **rerun_enabled** | **bool** | Auto rerun enabled | 
 **rerun_attempts_count** | **int** | Auto rerun attempt count | 
+**work_item_updating_enabled** | **bool** | Autotest to work item updating enabled | 
+**work_item_updating_fields** | [**AutoTestProjectSettingsApiResultWorkItemUpdatingFields**](AutoTestProjectSettingsApiResultWorkItemUpdatingFields.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

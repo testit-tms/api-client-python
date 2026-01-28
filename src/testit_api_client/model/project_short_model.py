@@ -96,7 +96,6 @@ class ProjectShortModel(ModelNormal):
             'auto_tests_count': (int, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
-            'is_flaky_auto': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -121,7 +120,6 @@ class ProjectShortModel(ModelNormal):
         'auto_tests_count': 'autoTestsCount',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
-        'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
     }
 
     read_only_vars = {
@@ -183,7 +181,6 @@ class ProjectShortModel(ModelNormal):
             auto_tests_count (int, none_type): Number of autotests in the project. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
-            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" sets automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -296,7 +293,6 @@ class ProjectShortModel(ModelNormal):
             auto_tests_count (int, none_type): Number of autotests in the project. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
-            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" sets automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

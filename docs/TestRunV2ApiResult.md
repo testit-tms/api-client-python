@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **str** | Test run name | 
 **state_name** | [**TestRunState**](TestRunState.md) |  | 
 **status** | [**TestRunByAutoTestApiResultStatus**](TestRunByAutoTestApiResultStatus.md) |  | 
-**project_id** | **str** | Project unique identifier                This property is used to link test run with project. | 
+**project_id** | **str** | Project unique identifier              This property is used to link test run with project. | 
 **created_date** | **datetime** | Date and time of test run creation | 
 **created_by_id** | **str** | Unique identifier of user who created test run | 
 **attachments** | [**[AttachmentApiResult]**](AttachmentApiResult.md) | Collection of attachments related to the test run | 
@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **webhooks** | [**[NamedEntityApiModel]**](NamedEntityApiModel.md) | Enabled webhooks | 
 **run_count** | **int** | Run count | 
 **description** | **str, none_type** | Test run description | [optional] 
-**launch_source** | **str, none_type** | Test run launch source                Once launch source is specified it cannot be updated. | [optional] 
+**launch_source** | **str, none_type** | Test run launch source              Once launch source is specified it cannot be updated. | [optional] 
 **started_on** | **datetime, none_type** | Date and time of test run start | [optional] 
 **completed_on** | **datetime, none_type** | Date and time of test run end | [optional] 
-**test_plan_id** | **str, none_type** | Test plan unique identifier                This property is used to link test run with test plan. | [optional] 
+**test_plan_id** | **str, none_type** | Test plan unique identifier              This property is used to link test run with test plan. | [optional] 
 **test_results** | [**[TestResultV2GetModel], none_type**](TestResultV2GetModel.md) | Enumeration of test results related to test run | [optional] 
 **modified_date** | **datetime, none_type** | Date and time of last test run  modification | [optional] 
 **modified_by_id** | **str, none_type** | Unique identifier of user who applied last test run  modification | [optional] 

@@ -117,6 +117,7 @@ class AutoTestApiResult(ModelNormal):
             'stability_percentage': (int, none_type,),  # noqa: E501
             'links': ([LinkApiResult], none_type,),  # noqa: E501
             'labels': ([LabelApiResult], none_type,),  # noqa: E501
+            'tags': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -154,6 +155,7 @@ class AutoTestApiResult(ModelNormal):
         'stability_percentage': 'stabilityPercentage',  # noqa: E501
         'links': 'links',  # noqa: E501
         'labels': 'labels',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -228,6 +230,7 @@ class AutoTestApiResult(ModelNormal):
             stability_percentage (int, none_type): [optional]  # noqa: E501
             links ([LinkApiResult], none_type): [optional]  # noqa: E501
             labels ([LabelApiResult], none_type): [optional]  # noqa: E501
+            tags ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -353,6 +356,7 @@ class AutoTestApiResult(ModelNormal):
             stability_percentage (int, none_type): [optional]  # noqa: E501
             links ([LinkApiResult], none_type): [optional]  # noqa: E501
             labels ([LabelApiResult], none_type): [optional]  # noqa: E501
+            tags ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tag_names** | **[str], none_type** | Collection of tags | [optional] 
-**entity_types** | [**[WorkItemEntityTypes], none_type**](WorkItemEntityTypes.md) | Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
+**entity_types** | [**[WorkItemEntityTypes], none_type**](WorkItemEntityTypes.md) | Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
 **name_or_id** | **str, none_type** | Name or identifier (UUID) of work item | [optional] 
 **include_ids** | **[str], none_type** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **exclude_ids** | **[str], none_type** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 

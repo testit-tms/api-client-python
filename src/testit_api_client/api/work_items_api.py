@@ -1647,7 +1647,7 @@ class WorkItemsApi(object):
     ):
         """Upload and link attachment to WorkItem  # noqa: E501
 
-          Use case    User sets workItemId    User attaches a file    System creates attachment and links it to the work item    System returns attachment identifier  # noqa: E501
+         Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1731,7 +1731,7 @@ class WorkItemsApi(object):
     ):
         """Transform CheckList to TestCase  # noqa: E501
 
-          Use case    User sets checklist identifier    User runs method execution    System transform CheckList to TestCase  # noqa: E501
+         Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1814,7 +1814,7 @@ class WorkItemsApi(object):
     ):
         """Get change history of WorkItem  # noqa: E501
 
-          Use case    User sets work item identifier    User runs method execution    System return change history of WorkItem  # noqa: E501
+         Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1902,7 +1902,7 @@ class WorkItemsApi(object):
     ):
         """Delete like from WorkItem  # noqa: E501
 
-          Use case    User sets WorkItem identifier    User runs method execution    System delete like from WorkItem  # noqa: E501
+         Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1985,7 +1985,7 @@ class WorkItemsApi(object):
     ):
         """Set like to WorkItem  # noqa: E501
 
-          Use case    User sets WorkItem identifier    User runs method execution    System set like to WorkItem  # noqa: E501
+         Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2068,7 +2068,7 @@ class WorkItemsApi(object):
     ):
         """Get likes count of WorkItem  # noqa: E501
 
-          Use case    User sets WorkItem identifier    User runs method execution    System return likes count of WorkItem  # noqa: E501
+         Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2151,7 +2151,7 @@ class WorkItemsApi(object):
     ):
         """Get likes of WorkItem  # noqa: E501
 
-          Use case    User sets WorkItem identifier    User runs method execution    System return likes of WorkItem  # noqa: E501
+         Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2234,7 +2234,7 @@ class WorkItemsApi(object):
     ):
         """Get test results history of WorkItem  # noqa: E501
 
-          Use case    User sets WorkItem identifier    User runs method execution    System return test results history of WorkItem  # noqa: E501
+         Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2333,7 +2333,7 @@ class WorkItemsApi(object):
     ):
         """Set WorkItem as actual  # noqa: E501
 
-          Use case    User sets work item identifier    User runs method execution    System set WorkItem as actual  # noqa: E501
+         Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2501,7 +2501,7 @@ class WorkItemsApi(object):
     ):
         """Move WorkItem to another section  # noqa: E501
 
-          Use case    User sets WorkItem identifier    User runs method execution    System move WorkItem to another section  # noqa: E501
+         Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2742,7 +2742,7 @@ class WorkItemsApi(object):
     ):
         """Get SharedStep references in sections  # noqa: E501
 
-          Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references  # noqa: E501
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2831,7 +2831,7 @@ class WorkItemsApi(object):
     ):
         """Get SharedStep references in work items  # noqa: E501
 
-          Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references  # noqa: E501
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2920,7 +2920,7 @@ class WorkItemsApi(object):
     ):
         """Get SharedStep references  # noqa: E501
 
-          Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references  # noqa: E501
+         Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3003,7 +3003,7 @@ class WorkItemsApi(object):
     ):
         """Delete all links AutoTests from WorkItem by Id or GlobalId  # noqa: E501
 
-          Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search and delete all autotests, related to found work item    System returns no content response  # noqa: E501
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3011,7 +3011,7 @@ class WorkItemsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): WorkItem internal (guid format) or  global(integer format) identifier\"
+            id (str): WorkItem internal (guid format) or global(integer format) identifier\"
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -3086,7 +3086,7 @@ class WorkItemsApi(object):
     ):
         """Delete Test Case, Checklist or Shared Step by Id or GlobalId  # noqa: E501
 
-          Use case    User sets work item identifier    User runs method execution    System deletes work item    System returns no content response  # noqa: E501
+         Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3094,7 +3094,7 @@ class WorkItemsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): WorkItem internal (guid format) or  global(integer format) identifier\"
+            id (str): WorkItem internal (guid format) or global(integer format) identifier\"
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -3169,7 +3169,7 @@ class WorkItemsApi(object):
     ):
         """Get all AutoTests linked to WorkItem by Id or GlobalId  # noqa: E501
 
-          Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search all autotests, related to found work item    System returns list of found autotests  # noqa: E501
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3177,7 +3177,7 @@ class WorkItemsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): WorkItem internal (guid format) or  global(integer format) identifier\"
+            id (str): WorkItem internal (guid format) or global(integer format) identifier\"
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -3259,7 +3259,7 @@ class WorkItemsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): WorkItem internal (guid format) or  global(integer format) identifier\"
+            id (str): WorkItem internal (guid format) or global(integer format) identifier\"
 
         Keyword Args:
             version_id (str): WorkItem version (guid format) identifier. [optional]
@@ -3336,7 +3336,7 @@ class WorkItemsApi(object):
     ):
         """Get Test Case, Checklist or Shared Step by Id or GlobalId  # noqa: E501
 
-          Use case    User sets work item identifier    [Optional] User sets work item version identifier    [Optional] User sets work item version number    User runs method execution    System search work item by identifier    [Optional] if User sets work item version identifier, system search work item version by identifier.    [Optional] if user sets work item version number, system search work item version by number    Otherwise, system search last work item version    System returns work item  # noqa: E501
+         Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3344,7 +3344,7 @@ class WorkItemsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): WorkItem internal (guid format) or  global(integer format) identifier\"
+            id (str): WorkItem internal (guid format) or global(integer format) identifier\"
 
         Keyword Args:
             version_id (str): WorkItem version (guid format) identifier\". [optional]
@@ -3421,7 +3421,7 @@ class WorkItemsApi(object):
     ):
         """Get WorkItem chronology by Id or GlobalId  # noqa: E501
 
-          Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search test results of all autotests, related to found work item    System sort results by CompletedOn ascending, then by CreatedDate ascending    System returns sorted collection of test results  # noqa: E501
+         Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3504,7 +3504,7 @@ class WorkItemsApi(object):
     ):
         """Get WorkItem versions  # noqa: E501
 
-          Use case    User sets work item identifier    [Optional] User sets work item version identifier    User runs method execution    System search work item by identifier    [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item    System returns array of work item version models (listed in response example)  # noqa: E501
+         Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3512,11 +3512,11 @@ class WorkItemsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): WorkItem internal (guid format) or  global(integer format) identifier\"
+            id (str): WorkItem internal (guid format) or global(integer format) identifier\"
 
         Keyword Args:
-            work_item_version_id (str): WorkItem version (guid format)  identifier\". [optional]
-            version_number (int): WorkItem version (integer format)  number\". [optional]
+            work_item_version_id (str): WorkItem version (guid format) identifier\". [optional]
+            version_number (int): WorkItem version (integer format) number\". [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -3752,7 +3752,7 @@ class WorkItemsApi(object):
     ):
         """Update Test Case, Checklist or Shared Step  # noqa: E501
 
-          Use case    User sets work item properties (listed in request parameters)    User runs method execution    System updates work item by identifier    System returns updated work item model (listed in response parameters)  # noqa: E501
+         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

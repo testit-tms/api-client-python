@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **test_run_id** | **str** | Unique ID of test run where the test result is located | 
 **configuration_id** | **str** | Unique ID of configuration which the test result uses | 
 **configuration_name** | **str** | Name of configuration which the test result uses | 
+**status** | [**AutoTestResultHistoryApiResultStatus**](AutoTestResultHistoryApiResultStatus.md) |  | 
 **result_reasons** | [**[AutoTestResultReasonShort]**](AutoTestResultReasonShort.md) | Collection of result reasons which the test result have | 
 **date** | **datetime** | Date when the test result was completed or started or created | 
 **created_date** | **datetime** | Date when the test result has been created | 
@@ -18,7 +19,6 @@ Name | Type | Description | Notes
 **rerun_completed_count** | **int** | Run count | 
 **autotest_external_id** | **str, none_type** | External ID of autotest represented by the test result | [optional] 
 **outcome** | **str, none_type** | Outcome of the test result | [optional] 
-**status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **comment** | **str, none_type** | Comment to the test result | [optional] 
 **modified_date** | **datetime, none_type** | Date when the test result has been modified | [optional] 
 **started_on** | **datetime, none_type** | Date when the test result has been started | [optional] 

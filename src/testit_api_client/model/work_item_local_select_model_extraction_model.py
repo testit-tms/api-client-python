@@ -30,11 +30,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.configuration_extraction_model_project_ids import ConfigurationExtractionModelProjectIds
+    from testit_api_client.model.configuration_extraction_api_model_project_ids import ConfigurationExtractionApiModelProjectIds
     from testit_api_client.model.work_item_extraction_api_model_ids import WorkItemExtractionApiModelIds
     from testit_api_client.model.work_item_extraction_api_model_section_ids import WorkItemExtractionApiModelSectionIds
     from testit_api_client.model.work_item_extraction_model import WorkItemExtractionModel
-    globals()['ConfigurationExtractionModelProjectIds'] = ConfigurationExtractionModelProjectIds
+    globals()['ConfigurationExtractionApiModelProjectIds'] = ConfigurationExtractionApiModelProjectIds
     globals()['WorkItemExtractionApiModelIds'] = WorkItemExtractionApiModelIds
     globals()['WorkItemExtractionApiModelSectionIds'] = WorkItemExtractionApiModelSectionIds
     globals()['WorkItemExtractionModel'] = WorkItemExtractionModel
@@ -93,7 +93,7 @@ class WorkItemLocalSelectModelExtractionModel(ModelComposed):
         """
         lazy_import()
         return {
-            'project_ids': (ConfigurationExtractionModelProjectIds,),  # noqa: E501
+            'project_ids': (ConfigurationExtractionApiModelProjectIds,),  # noqa: E501
             'ids': (WorkItemExtractionApiModelIds,),  # noqa: E501
             'section_ids': (WorkItemExtractionApiModelSectionIds,),  # noqa: E501
         }
@@ -148,7 +148,7 @@ class WorkItemLocalSelectModelExtractionModel(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_ids (ConfigurationExtractionModelProjectIds): [optional]  # noqa: E501
+            project_ids (ConfigurationExtractionApiModelProjectIds): [optional]  # noqa: E501
             ids (WorkItemExtractionApiModelIds): [optional]  # noqa: E501
             section_ids (WorkItemExtractionApiModelSectionIds): [optional]  # noqa: E501
         """
@@ -254,7 +254,7 @@ class WorkItemLocalSelectModelExtractionModel(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_ids (ConfigurationExtractionModelProjectIds): [optional]  # noqa: E501
+            project_ids (ConfigurationExtractionApiModelProjectIds): [optional]  # noqa: E501
             ids (WorkItemExtractionApiModelIds): [optional]  # noqa: E501
             section_ids (WorkItemExtractionApiModelSectionIds): [optional]  # noqa: E501
         """

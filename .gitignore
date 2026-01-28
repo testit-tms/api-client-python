@@ -65,3 +65,7 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+README-NEW.md
+*.bak
+new/
+.swagger

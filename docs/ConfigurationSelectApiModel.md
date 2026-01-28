@@ -1,0 +1,12 @@
+# ConfigurationSelectApiModel
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**filter** | [**ConfigurationSelectApiModelFilter**](ConfigurationSelectApiModelFilter.md) |  | [optional] 
+**extraction_model** | [**ConfigurationSelectApiModelExtractionModel**](ConfigurationSelectApiModelExtractionModel.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

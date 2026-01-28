@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.external_service_category_api_result import ExternalServiceCategoryApiResult
-    globals()['ExternalServiceCategoryApiResult'] = ExternalServiceCategoryApiResult
+    from testit_api_client.model.api_external_service_category import ApiExternalServiceCategory
+    globals()['ApiExternalServiceCategory'] = ApiExternalServiceCategory
 
 
 class ExternalServiceMetadataApiResult(ModelNormal):
@@ -83,7 +83,7 @@ class ExternalServiceMetadataApiResult(ModelNormal):
             'name': (str,),  # noqa: E501
             'code': (str,),  # noqa: E501
             'icon_url': (str,),  # noqa: E501
-            'category': (ExternalServiceCategoryApiResult,),  # noqa: E501
+            'category': (ApiExternalServiceCategory,),  # noqa: E501
         }
 
     @cached_property
@@ -112,7 +112,7 @@ class ExternalServiceMetadataApiResult(ModelNormal):
             name (str): The name of the external service
             code (str): The code of the external service
             icon_url (str): The icon URL of the external service
-            category (ExternalServiceCategoryApiResult):
+            category (ApiExternalServiceCategory):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -207,7 +207,7 @@ class ExternalServiceMetadataApiResult(ModelNormal):
             name (str): The name of the external service
             code (str): The code of the external service
             icon_url (str): The icon URL of the external service
-            category (ExternalServiceCategoryApiResult):
+            category (ApiExternalServiceCategory):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

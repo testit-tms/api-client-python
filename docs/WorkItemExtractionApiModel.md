@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_ids** | [**ConfigurationExtractionModelProjectIds**](ConfigurationExtractionModelProjectIds.md) |  | [optional] 
+**project_ids** | [**ConfigurationExtractionApiModelProjectIds**](ConfigurationExtractionApiModelProjectIds.md) |  | [optional] 
 **ids** | [**WorkItemExtractionApiModelIds**](WorkItemExtractionApiModelIds.md) |  | [optional] 
 **section_ids** | [**WorkItemExtractionApiModelSectionIds**](WorkItemExtractionApiModelSectionIds.md) |  | [optional] 
 

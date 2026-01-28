@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **auto_tests_count** | **int, none_type** | Number of autotests in the project | [optional] 
 **modified_date** | **datetime, none_type** | Last modification date of the project | [optional] 
 **modified_by_id** | **str, none_type** | Unique ID of the project last editor | [optional] 
-**is_flaky_auto** | **bool, none_type** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

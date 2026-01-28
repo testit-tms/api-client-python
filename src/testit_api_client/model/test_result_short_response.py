@@ -31,13 +31,13 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.attachment_api_result import AttachmentApiResult
+    from testit_api_client.model.auto_test_result_history_api_result_status import AutoTestResultHistoryApiResultStatus
     from testit_api_client.model.auto_test_result_reason_short import AutoTestResultReasonShort
     from testit_api_client.model.link_short import LinkShort
-    from testit_api_client.model.test_status_api_result import TestStatusApiResult
     globals()['AttachmentApiResult'] = AttachmentApiResult
+    globals()['AutoTestResultHistoryApiResultStatus'] = AutoTestResultHistoryApiResultStatus
     globals()['AutoTestResultReasonShort'] = AutoTestResultReasonShort
     globals()['LinkShort'] = LinkShort
-    globals()['TestStatusApiResult'] = TestStatusApiResult
 
 
 class TestResultShortResponse(ModelNormal):
@@ -92,6 +92,7 @@ class TestResultShortResponse(ModelNormal):
             'test_run_id': (str,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
             'configuration_name': (str,),  # noqa: E501
+            'status': (AutoTestResultHistoryApiResultStatus,),  # noqa: E501
             'result_reasons': ([AutoTestResultReasonShort],),  # noqa: E501
             'date': (datetime,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
@@ -100,7 +101,6 @@ class TestResultShortResponse(ModelNormal):
             'rerun_completed_count': (int,),  # noqa: E501
             'autotest_external_id': (str, none_type,),  # noqa: E501
             'outcome': (str, none_type,),  # noqa: E501
-            'status': (TestStatusApiResult,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
@@ -120,6 +120,7 @@ class TestResultShortResponse(ModelNormal):
         'test_run_id': 'testRunId',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
         'configuration_name': 'configurationName',  # noqa: E501
+        'status': 'status',  # noqa: E501
         'result_reasons': 'resultReasons',  # noqa: E501
         'date': 'date',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
@@ -128,7 +129,6 @@ class TestResultShortResponse(ModelNormal):
         'rerun_completed_count': 'rerunCompletedCount',  # noqa: E501
         'autotest_external_id': 'autotestExternalId',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
-        'status': 'status',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
@@ -143,7 +143,7 @@ class TestResultShortResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, autotest_global_id, test_run_id, configuration_id, configuration_name, result_reasons, date, created_date, links, attachments, rerun_completed_count, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, autotest_global_id, test_run_id, configuration_id, configuration_name, status, result_reasons, date, created_date, links, attachments, rerun_completed_count, *args, **kwargs):  # noqa: E501
         """TestResultShortResponse - a model defined in OpenAPI
 
         Args:
@@ -153,6 +153,7 @@ class TestResultShortResponse(ModelNormal):
             test_run_id (str): Unique ID of test run where the test result is located
             configuration_id (str): Unique ID of configuration which the test result uses
             configuration_name (str): Name of configuration which the test result uses
+            status (AutoTestResultHistoryApiResultStatus):
             result_reasons ([AutoTestResultReasonShort]): Collection of result reasons which the test result have
             date (datetime): Date when the test result was completed or started or created
             created_date (datetime): Date when the test result has been created
@@ -193,7 +194,6 @@ class TestResultShortResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             autotest_external_id (str, none_type): External ID of autotest represented by the test result. [optional]  # noqa: E501
             outcome (str, none_type): Outcome of the test result. [optional]  # noqa: E501
-            status (TestStatusApiResult): [optional]  # noqa: E501
             comment (str, none_type): Comment to the test result. [optional]  # noqa: E501
             modified_date (datetime, none_type): Date when the test result has been modified. [optional]  # noqa: E501
             started_on (datetime, none_type): Date when the test result has been started. [optional]  # noqa: E501
@@ -236,6 +236,7 @@ class TestResultShortResponse(ModelNormal):
         self.test_run_id = test_run_id
         self.configuration_id = configuration_id
         self.configuration_name = configuration_name
+        self.status = status
         self.result_reasons = result_reasons
         self.date = date
         self.created_date = created_date
@@ -262,7 +263,7 @@ class TestResultShortResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, autotest_global_id, test_run_id, configuration_id, configuration_name, result_reasons, date, created_date, links, attachments, rerun_completed_count, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, autotest_global_id, test_run_id, configuration_id, configuration_name, status, result_reasons, date, created_date, links, attachments, rerun_completed_count, *args, **kwargs):  # noqa: E501
         """TestResultShortResponse - a model defined in OpenAPI
 
         Args:
@@ -272,6 +273,7 @@ class TestResultShortResponse(ModelNormal):
             test_run_id (str): Unique ID of test run where the test result is located
             configuration_id (str): Unique ID of configuration which the test result uses
             configuration_name (str): Name of configuration which the test result uses
+            status (AutoTestResultHistoryApiResultStatus):
             result_reasons ([AutoTestResultReasonShort]): Collection of result reasons which the test result have
             date (datetime): Date when the test result was completed or started or created
             created_date (datetime): Date when the test result has been created
@@ -312,7 +314,6 @@ class TestResultShortResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             autotest_external_id (str, none_type): External ID of autotest represented by the test result. [optional]  # noqa: E501
             outcome (str, none_type): Outcome of the test result. [optional]  # noqa: E501
-            status (TestStatusApiResult): [optional]  # noqa: E501
             comment (str, none_type): Comment to the test result. [optional]  # noqa: E501
             modified_date (datetime, none_type): Date when the test result has been modified. [optional]  # noqa: E501
             started_on (datetime, none_type): Date when the test result has been started. [optional]  # noqa: E501
@@ -353,6 +354,7 @@ class TestResultShortResponse(ModelNormal):
         self.test_run_id = test_run_id
         self.configuration_id = configuration_id
         self.configuration_name = configuration_name
+        self.status = status
         self.result_reasons = result_reasons
         self.date = date
         self.created_date = created_date

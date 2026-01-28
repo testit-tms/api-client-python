@@ -448,7 +448,7 @@ class ProjectTestPlansApi(object):
     ):
         """Get TestPlans analytics  # noqa: E501
 
-          Use case    User sets project internal identifier    User sets query params    User runs method execution    System return analytics  # noqa: E501
+         Use case  User sets project internal identifier  User sets query params  User runs method execution  System return analytics  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -622,7 +622,7 @@ class ProjectTestPlansApi(object):
     ):
         """Checks if TestPlan exists with the specified name exists for the project  # noqa: E501
 
-          Use case    User sets project internal or global identifier    User runs method execution    System purge delete project workitems  # noqa: E501
+         Use case  User sets project internal or global identifier  User runs method execution  System purge delete project workitems  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -874,7 +874,7 @@ class ProjectTestPlansApi(object):
     ):
         """Get Project TestPlans with analytics  # noqa: E501
 
-          Use case    User sets project internal or global identifier    User sets request body    User runs method execution    System returns project testplans with analytics  # noqa: E501
+         Use case  User sets project internal or global identifier  User sets request body  User runs method execution  System returns project testplans with analytics  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

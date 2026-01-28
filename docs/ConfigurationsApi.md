@@ -116,7 +116,7 @@ Delete multiple configurations
 import time
 import testit_api_client
 from testit_api_client.api import configurations_api
-from testit_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
+from testit_api_client.model.api_v2_configurations_delete_bulk_post_request import ApiV2ConfigurationsDeleteBulkPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -141,13 +141,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
-    api_v2_configurations_purge_bulk_post_request = ApiV2ConfigurationsPurgeBulkPostRequest(None) # ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
+    api_v2_configurations_delete_bulk_post_request = ApiV2ConfigurationsDeleteBulkPostRequest(None) # ApiV2ConfigurationsDeleteBulkPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Delete multiple configurations
-        api_response = api_instance.api_v2_configurations_delete_bulk_post(api_v2_configurations_purge_bulk_post_request=api_v2_configurations_purge_bulk_post_request)
+        api_response = api_instance.api_v2_configurations_delete_bulk_post(api_v2_configurations_delete_bulk_post_request=api_v2_configurations_delete_bulk_post_request)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_delete_bulk_post: %s\n" % e)
@@ -158,7 +158,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_v2_configurations_purge_bulk_post_request** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md)|  | [optional]
+ **api_v2_configurations_delete_bulk_post_request** | [**ApiV2ConfigurationsDeleteBulkPostRequest**](ApiV2ConfigurationsDeleteBulkPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -891,7 +891,7 @@ Name | Type | Description  | Notes
 
 Create Configuration
 
-  Use case    User sets configuration model (listed in the request example)    User runs method execution    System creates configuration    System returns created configuration (listed in the response example)
+ Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
 
 ### Example
 
@@ -979,7 +979,7 @@ Name | Type | Description  | Notes
 
 Get configuration by internal or global ID
 
-  Use case    User sets configuration internal (guid format) or global (integer format) identifier    User runs method execution    System search configuration using the identifier    System returns configuration
+ Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
 
 ### Example
 

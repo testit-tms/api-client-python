@@ -30,7 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.test_plan_test_points_status_code_group_api_result import TestPlanTestPointsStatusCodeGroupApiResult
     from testit_api_client.model.test_status_api_type import TestStatusApiType
+    globals()['TestPlanTestPointsStatusCodeGroupApiResult'] = TestPlanTestPointsStatusCodeGroupApiResult
     globals()['TestStatusApiType'] = TestStatusApiType
 
 
@@ -81,7 +83,7 @@ class TestPlanTestPointsStatusTypeGroupApiResult(ModelNormal):
         lazy_import()
         return {
             'status_type': (TestStatusApiType,),  # noqa: E501
-            'value': (int,),  # noqa: E501
+            'statuses': ([TestPlanTestPointsStatusCodeGroupApiResult],),  # noqa: E501
         }
 
     @cached_property
@@ -91,7 +93,7 @@ class TestPlanTestPointsStatusTypeGroupApiResult(ModelNormal):
 
     attribute_map = {
         'status_type': 'statusType',  # noqa: E501
-        'value': 'value',  # noqa: E501
+        'statuses': 'statuses',  # noqa: E501
     }
 
     read_only_vars = {
@@ -101,12 +103,12 @@ class TestPlanTestPointsStatusTypeGroupApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, status_type, value, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, status_type, statuses, *args, **kwargs):  # noqa: E501
         """TestPlanTestPointsStatusTypeGroupApiResult - a model defined in OpenAPI
 
         Args:
             status_type (TestStatusApiType):
-            value (int):
+            statuses ([TestPlanTestPointsStatusCodeGroupApiResult]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -171,7 +173,7 @@ class TestPlanTestPointsStatusTypeGroupApiResult(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.status_type = status_type
-        self.value = value
+        self.statuses = statuses
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -192,12 +194,12 @@ class TestPlanTestPointsStatusTypeGroupApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, status_type, value, *args, **kwargs):  # noqa: E501
+    def __init__(self, status_type, statuses, *args, **kwargs):  # noqa: E501
         """TestPlanTestPointsStatusTypeGroupApiResult - a model defined in OpenAPI
 
         Args:
             status_type (TestStatusApiType):
-            value (int):
+            statuses ([TestPlanTestPointsStatusCodeGroupApiResult]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,7 +262,7 @@ class TestPlanTestPointsStatusTypeGroupApiResult(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.status_type = status_type
-        self.value = value
+        self.statuses = statuses
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

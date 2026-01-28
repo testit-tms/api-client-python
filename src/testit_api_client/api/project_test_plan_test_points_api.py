@@ -21,9 +21,14 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request import ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest
 from testit_api_client.model.api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post_request import ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPostRequest
 from testit_api_client.model.api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_run_post_request import ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest
+from testit_api_client.model.api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request import ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest
+from testit_api_client.model.api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request import ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.test_plan_test_points_analytics_api_result import TestPlanTestPointsAnalyticsApiResult
+from testit_api_client.model.test_plan_test_points_group_search_api_result import TestPlanTestPointsGroupSearchApiResult
 from testit_api_client.model.test_run_name_api_result import TestRunNameApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -39,6 +44,69 @@ class ProjectTestPlanTestPointsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_endpoint = _Endpoint(
+            settings={
+                'response_type': (TestPlanTestPointsAnalyticsApiResult,),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/analytics',
+                'operation_id': 'api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                    'test_plan_id',
+                    'api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request',
+                ],
+                'required': [
+                    'project_id',
+                    'test_plan_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (str,),
+                    'test_plan_id':
+                        (str,),
+                    'api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request':
+                        (ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest,),
+                },
+                'attribute_map': {
+                    'project_id': 'projectId',
+                    'test_plan_id': 'testPlanId',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                    'test_plan_id': 'path',
+                    'api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -165,6 +233,219 @@ class ProjectTestPlanTestPointsApi(object):
             },
             api_client=api_client
         )
+        self.api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_endpoint = _Endpoint(
+            settings={
+                'response_type': (TestPlanTestPointsGroupSearchApiResult,),
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/grouping-search',
+                'operation_id': 'api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                    'test_plan_id',
+                    'api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request',
+                ],
+                'required': [
+                    'project_id',
+                    'test_plan_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (str,),
+                    'test_plan_id':
+                        (str,),
+                    'api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request':
+                        (ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest,),
+                },
+                'attribute_map': {
+                    'project_id': 'projectId',
+                    'test_plan_id': 'testPlanId',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                    'test_plan_id': 'path',
+                    'api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer or PrivateToken'
+                ],
+                'endpoint_path': '/api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/testers',
+                'operation_id': 'api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                    'test_plan_id',
+                    'api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request',
+                ],
+                'required': [
+                    'project_id',
+                    'test_plan_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (str,),
+                    'test_plan_id':
+                        (str,),
+                    'api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request':
+                        (ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest,),
+                },
+                'attribute_map': {
+                    'project_id': 'projectId',
+                    'test_plan_id': 'testPlanId',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                    'test_plan_id': 'path',
+                    'api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+
+    def api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post(
+        self,
+        project_id,
+        test_plan_id,
+        **kwargs
+    ):
+        """Get test points analytics.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post(project_id, test_plan_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            project_id (str): Internal (UUID) or global (integer) identifier
+            test_plan_id (str):
+
+        Keyword Args:
+            api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request (ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TestPlanTestPointsAnalyticsApiResult
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['project_id'] = \
+            project_id
+        kwargs['test_plan_id'] = \
+            test_plan_id
+        return self.api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_endpoint.call_with_http_info(**kwargs)
 
     def api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post(
         self,
@@ -339,4 +620,178 @@ class ProjectTestPlanTestPointsApi(object):
         kwargs['test_plan_id'] = \
             test_plan_id
         return self.api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_run_post_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post(
+        self,
+        project_id,
+        test_plan_id,
+        **kwargs
+    ):
+        """Search test points in test plan.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post(project_id, test_plan_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            project_id (str): Internal (UUID) or global (integer) identifier
+            test_plan_id (str):
+
+        Keyword Args:
+            api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request (ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TestPlanTestPointsGroupSearchApiResult
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['project_id'] = \
+            project_id
+        kwargs['test_plan_id'] = \
+            test_plan_id
+        return self.api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post(
+        self,
+        project_id,
+        test_plan_id,
+        **kwargs
+    ):
+        """Distribute test points between the users.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post(project_id, test_plan_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            project_id (str): Internal (UUID) or global (integer) identifier
+            test_plan_id (str):
+
+        Keyword Args:
+            api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request (ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['project_id'] = \
+            project_id
+        kwargs['test_plan_id'] = \
+            test_plan_id
+        return self.api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_endpoint.call_with_http_info(**kwargs)
 

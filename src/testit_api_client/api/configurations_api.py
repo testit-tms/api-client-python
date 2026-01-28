@@ -22,6 +22,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from testit_api_client.model.api_v2_configurations_create_by_parameters_post_request import ApiV2ConfigurationsCreateByParametersPostRequest
+from testit_api_client.model.api_v2_configurations_delete_bulk_post_request import ApiV2ConfigurationsDeleteBulkPostRequest
 from testit_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
 from testit_api_client.model.api_v2_configurations_put_request import ApiV2ConfigurationsPutRequest
 from testit_api_client.model.api_v2_configurations_search_post_request import ApiV2ConfigurationsSearchPostRequest
@@ -106,7 +107,7 @@ class ConfigurationsApi(object):
             },
             params_map={
                 'all': [
-                    'api_v2_configurations_purge_bulk_post_request',
+                    'api_v2_configurations_delete_bulk_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -122,13 +123,13 @@ class ConfigurationsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'api_v2_configurations_purge_bulk_post_request':
-                        (ApiV2ConfigurationsPurgeBulkPostRequest,),
+                    'api_v2_configurations_delete_bulk_post_request':
+                        (ApiV2ConfigurationsDeleteBulkPostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'api_v2_configurations_purge_bulk_post_request': 'body',
+                    'api_v2_configurations_delete_bulk_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -772,7 +773,7 @@ class ConfigurationsApi(object):
 
 
         Keyword Args:
-            api_v2_configurations_purge_bulk_post_request (ApiV2ConfigurationsPurgeBulkPostRequest): [optional]
+            api_v2_configurations_delete_bulk_post_request (ApiV2ConfigurationsDeleteBulkPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1489,7 +1490,7 @@ class ConfigurationsApi(object):
     ):
         """Create Configuration  # noqa: E501
 
-          Use case    User sets configuration model (listed in the request example)    User runs method execution    System creates configuration    System returns created configuration (listed in the response example)  # noqa: E501
+         Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1569,7 +1570,7 @@ class ConfigurationsApi(object):
     ):
         """Get configuration by internal or global ID  # noqa: E501
 
-          Use case    User sets configuration internal (guid format) or global (integer format) identifier    User runs method execution    System search configuration using the identifier    System returns configuration  # noqa: E501
+         Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

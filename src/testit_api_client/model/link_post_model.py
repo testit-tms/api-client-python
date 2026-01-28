@@ -87,7 +87,7 @@ class LinkPostModel(ModelNormal):
             'has_info': (bool,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'type': (LinkType, none_type,),  # noqa: E501
+            'type': (LinkType, none_type,),  # noqa: E501 run.sh autofix
         }
 
     @cached_property
