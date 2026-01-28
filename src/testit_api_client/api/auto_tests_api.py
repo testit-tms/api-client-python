@@ -26,12 +26,13 @@ from testit_api_client.model.api_v2_auto_tests_flaky_bulk_post_request import Ap
 from testit_api_client.model.api_v2_auto_tests_id_test_results_search_post_request import ApiV2AutoTestsIdTestResultsSearchPostRequest
 from testit_api_client.model.api_v2_auto_tests_search_post_request import ApiV2AutoTestsSearchPostRequest
 from testit_api_client.model.auto_test_api_result import AutoTestApiResult
-from testit_api_client.model.auto_test_average_duration_model import AutoTestAverageDurationModel
+from testit_api_client.model.auto_test_average_duration_api_result import AutoTestAverageDurationApiResult
 from testit_api_client.model.auto_test_bulk_delete_api_result import AutoTestBulkDeleteApiResult
+from testit_api_client.model.auto_test_create_api_model import AutoTestCreateApiModel
 from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.auto_test_post_model import AutoTestPostModel
-from testit_api_client.model.auto_test_put_model import AutoTestPutModel
 from testit_api_client.model.auto_test_result_history_api_result import AutoTestResultHistoryApiResult
+from testit_api_client.model.auto_test_update_api_model import AutoTestUpdateApiModel
+from testit_api_client.model.auto_test_work_item_identifier_api_result import AutoTestWorkItemIdentifierApiResult
 from testit_api_client.model.create_auto_test_request import CreateAutoTestRequest
 from testit_api_client.model.link_auto_test_to_work_item_request import LinkAutoTestToWorkItemRequest
 from testit_api_client.model.operation import Operation
@@ -40,7 +41,6 @@ from testit_api_client.model.test_result_chronology_model import TestResultChron
 from testit_api_client.model.test_run_by_auto_test_api_result import TestRunByAutoTestApiResult
 from testit_api_client.model.update_auto_test_request import UpdateAutoTestRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.work_item_identifier_model import WorkItemIdentifierModel
 
 
 class AutoTestsApi(object):
@@ -503,7 +503,7 @@ class AutoTestsApi(object):
         )
         self.create_auto_test_endpoint = _Endpoint(
             settings={
-                'response_type': (AutoTestModel,),
+                'response_type': (AutoTestApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -553,7 +553,7 @@ class AutoTestsApi(object):
         )
         self.create_multiple_endpoint = _Endpoint(
             settings={
-                'response_type': ([AutoTestModel],),
+                'response_type': ([AutoTestApiResult],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -564,7 +564,7 @@ class AutoTestsApi(object):
             },
             params_map={
                 'all': [
-                    'auto_test_post_model',
+                    'auto_test_create_api_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -572,21 +572,26 @@ class AutoTestsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'auto_test_create_api_model',
                 ]
             },
             root_map={
                 'validations': {
+                    ('auto_test_create_api_model',): {
+
+                        'min_items': 1,
+                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'auto_test_post_model':
-                        ([AutoTestPostModel],),
+                    'auto_test_create_api_model':
+                        ([AutoTestCreateApiModel],),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'auto_test_post_model': 'body',
+                    'auto_test_create_api_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -885,7 +890,7 @@ class AutoTestsApi(object):
         )
         self.get_auto_test_average_duration_endpoint = _Endpoint(
             settings={
-                'response_type': (AutoTestAverageDurationModel,),
+                'response_type': (AutoTestAverageDurationApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -936,7 +941,7 @@ class AutoTestsApi(object):
         )
         self.get_auto_test_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (AutoTestModel,),
+                'response_type': (AutoTestApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1089,7 +1094,7 @@ class AutoTestsApi(object):
         )
         self.get_work_items_linked_to_auto_test_endpoint = _Endpoint(
             settings={
-                'response_type': ([WorkItemIdentifierModel],),
+                'response_type': ([AutoTestWorkItemIdentifierApiResult],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1268,7 +1273,7 @@ class AutoTestsApi(object):
             },
             params_map={
                 'all': [
-                    'auto_test_put_model',
+                    'auto_test_update_api_model',
                 ],
                 'required': [],
                 'nullable': [
@@ -1284,13 +1289,13 @@ class AutoTestsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'auto_test_put_model':
-                        ([AutoTestPutModel],),
+                    'auto_test_update_api_model':
+                        ([AutoTestUpdateApiModel],),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'auto_test_put_model': 'body',
+                    'auto_test_update_api_model': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1390,7 +1395,7 @@ class AutoTestsApi(object):
     ):
         """Set \"Flaky\" status for multiple autotests  # noqa: E501
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control  # noqa: E501
+        User permissions for project: - Read only - Execute - Write - Full control  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1559,7 +1564,7 @@ class AutoTestsApi(object):
     ):
         """Get test results history for autotest  # noqa: E501
 
-          Use case    User sets autotest internal (guid format) or global (integer format) identifier    User sets getTestResultHistoryReportQuery (listed in the example)    User runs method execution    System search for test results using filters set by user in getTestResultHistoryReportQuery and id    System returns the enumeration of test results  # noqa: E501
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets getTestResultHistoryReportQuery (listed in the example)  User runs method execution  System search for test results using filters set by user in getTestResultHistoryReportQuery and id  System returns the enumeration of test results  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1648,7 +1653,7 @@ class AutoTestsApi(object):
     ):
         """Get identifiers of changed linked work items  # noqa: E501
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control  # noqa: E501
+        User permissions for project: - Read only - Execute - Write - Full control  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1732,7 +1737,7 @@ class AutoTestsApi(object):
     ):
         """Approve changes to work items linked to autotest  # noqa: E501
 
-        User permissions for project:  - Read only  - Execute  - Write  - Full control  # noqa: E501
+        User permissions for project: - Read only - Execute - Write - Full control  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1900,7 +1905,7 @@ class AutoTestsApi(object):
     ):
         """Create autotest  # noqa: E501
 
-          This method creates a new autotest.    To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.    Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.  # noqa: E501
+         This method creates a new autotest.  To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.  Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1942,7 +1947,7 @@ class AutoTestsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            AutoTestModel
+            AutoTestApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1979,7 +1984,7 @@ class AutoTestsApi(object):
     ):
         """Create multiple autotests  # noqa: E501
 
-          Use case    User sets autotest parameters (listed in the example) and runs method execution    System creates autotest    [Optional] If steps enumeration is set, system creates step items and relates them to autotest    [Optional] If setup enumeration is set, system creates setup items and relates them to autotest    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest    [Optional] If label enumeration is set, system creates labels and relates them to autotest    [Optional] If link enumeration is set, system creates links and relates them to autotest    System returns autotest model (example listed in response parameters)  # noqa: E501
+         Use case  User sets autotest parameters (listed in the example) and runs method execution  System creates autotest  [Optional] If steps enumeration is set, system creates step items and relates them to autotest  [Optional] If setup enumeration is set, system creates setup items and relates them to autotest  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  [Optional] If label enumeration is set, system creates labels and relates them to autotest  [Optional] If link enumeration is set, system creates links and relates them to autotest  System returns autotest model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1988,7 +1993,7 @@ class AutoTestsApi(object):
 
 
         Keyword Args:
-            auto_test_post_model ([AutoTestPostModel]): [optional]
+            auto_test_create_api_model ([AutoTestCreateApiModel]): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2021,7 +2026,7 @@ class AutoTestsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [AutoTestModel]
+            [AutoTestApiResult]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2059,7 +2064,7 @@ class AutoTestsApi(object):
     ):
         """Delete autotest  # noqa: E501
 
-          Use case    User sets autotest internal (guid format) or global (integer format) identifier and runs method execution    System finds the autotest by the identifier    System deletes autotest and returns no content response  # noqa: E501
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  System finds the autotest by the identifier  System deletes autotest and returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2142,7 +2147,7 @@ class AutoTestsApi(object):
     ):
         """Unlink autotest from work item  # noqa: E501
 
-          Use case    User sets autotest internal (guid format) or global (integer format) identifier    [Optional] User sets workitem internal (guid format) or global (integer format) identifier    User runs method execution    System finds the autotest by the autotest identifier    [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.    [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.    System returns no content response  # noqa: E501
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  [Optional] User sets workitem internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it             from autotest.  [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2329,7 +2334,7 @@ class AutoTestsApi(object):
     ):
         """Get average autotest duration  # noqa: E501
 
-          Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System calculates pass average duration and fail average duration of autotest from all related test results    System returns pass average duration and fail average duration for autotest  # noqa: E501
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System calculates pass average duration and fail average duration of autotest from all related test results  System returns pass average duration and fail average duration for autotest  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2372,7 +2377,7 @@ class AutoTestsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            AutoTestAverageDurationModel
+            AutoTestAverageDurationApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2412,7 +2417,7 @@ class AutoTestsApi(object):
     ):
         """Get autotest by internal or global ID  # noqa: E501
 
-          Use case    User sets autotest internal or global identifier and runs method execution    System returns autotest, which internal or global identifier equals the identifier value set in the previous action  # noqa: E501
+         Use case  User sets autotest internal or global identifier and runs method execution  System returns autotest, which internal or global identifier equals the identifier value set in the previous action  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2455,7 +2460,7 @@ class AutoTestsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            AutoTestModel
+            AutoTestApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2495,7 +2500,7 @@ class AutoTestsApi(object):
     ):
         """Get autotest chronology  # noqa: E501
 
-          Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System search all test results related to autotest (with default limit equal 100)    System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending    System returns test result chronology for autotest  # noqa: E501
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search all test results related to autotest (with default limit equal 100)  System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  System returns test result chronology for autotest  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2578,7 +2583,7 @@ class AutoTestsApi(object):
     ):
         """Get completed tests runs for autotests  # noqa: E501
 
-          Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System search for all test runs related to the autotest    System returns the enumeration of test runs  # noqa: E501
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search for all test runs related to the autotest  System returns the enumeration of test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2661,7 +2666,7 @@ class AutoTestsApi(object):
     ):
         """Get work items linked to autotest  # noqa: E501
 
-          This method links an autotest to a test case or a checklist.              A manual test case with a linked automated work item is marked in the test management system as an autotest.              You can run it from graphical user interface (GUI). To do that:    1. Open the project in GUI.                2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.                3. Select the autotest(s) you want to run using checkboxes.                4. In the toolbar above the test list, click <b>Run autotests</b>.  # noqa: E501
+         This method links an autotest to a test case or a checklist.             A manual test case with a linked automated work item is marked in the test management system as an autotest.             You can run it from graphical user interface (GUI). To do that:  1. Open the project in GUI.              2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.              3. Select the autotest(s) you want to run using checkboxes.              4. In the toolbar above the test list, click <b>Run autotests</b>.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2669,7 +2674,7 @@ class AutoTestsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID.
+            id (str): Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
 
         Keyword Args:
             is_deleted (bool): Specifies that a test is deleted or still relevant.. [optional]
@@ -2706,7 +2711,7 @@ class AutoTestsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [WorkItemIdentifierModel]
+            [AutoTestWorkItemIdentifierApiResult]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2746,7 +2751,7 @@ class AutoTestsApi(object):
     ):
         """Link autotest with work items  # noqa: E501
 
-          Use case    User sets autotest internal (guid format) or global (integer format) identifier    User sets work item internal (guid format) or global (integer format) identifier    User runs method execution    System finds the autotest by the autotest identifier    System finds the work item by the work item identifier    System relates the work item with the autotest and returns no content response  # noqa: E501
+         Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets work item internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  System finds the work item by the work item identifier  System relates the work item with the autotest and returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2829,7 +2834,7 @@ class AutoTestsApi(object):
     ):
         """Update autotest  # noqa: E501
 
-          Use case    User sets autotest updated parameters values (listed in the example) and runs method execution    System finds the autotest by the identifier    System updates autotest parameters    [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)    [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)    [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)    [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)    System updates autotest and returns no content response  # noqa: E501
+         Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2908,7 +2913,7 @@ class AutoTestsApi(object):
     ):
         """Update multiple autotests  # noqa: E501
 
-          Use case    User sets autotest updated parameters values (listed in the example) and runs method execution    System finds the autotest by the identifier    System updates autotest parameters    [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)    [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)    [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)    [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)    System updates autotest and returns no content response  # noqa: E501
+         Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2917,7 +2922,7 @@ class AutoTestsApi(object):
 
 
         Keyword Args:
-            auto_test_put_model ([AutoTestPutModel]): [optional]
+            auto_test_update_api_model ([AutoTestUpdateApiModel]): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

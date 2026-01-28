@@ -30,14 +30,14 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.auto_test_put_model import AutoTestPutModel
-    from testit_api_client.model.auto_test_step_model import AutoTestStepModel
-    from testit_api_client.model.label_post_model import LabelPostModel
-    from testit_api_client.model.link_put_model import LinkPutModel
-    globals()['AutoTestPutModel'] = AutoTestPutModel
-    globals()['AutoTestStepModel'] = AutoTestStepModel
-    globals()['LabelPostModel'] = LabelPostModel
-    globals()['LinkPutModel'] = LinkPutModel
+    from testit_api_client.model.auto_test_step_api_model import AutoTestStepApiModel
+    from testit_api_client.model.auto_test_update_api_model import AutoTestUpdateApiModel
+    from testit_api_client.model.label_api_model import LabelApiModel
+    from testit_api_client.model.link_update_api_model import LinkUpdateApiModel
+    globals()['AutoTestStepApiModel'] = AutoTestStepApiModel
+    globals()['AutoTestUpdateApiModel'] = AutoTestUpdateApiModel
+    globals()['LabelApiModel'] = LabelApiModel
+    globals()['LinkUpdateApiModel'] = LinkUpdateApiModel
 
 
 class UpdateAutoTestRequest(ModelComposed):
@@ -74,8 +74,6 @@ class UpdateAutoTestRequest(ModelComposed):
         ('name',): {
             'min_length': 1,
         },
-        ('work_item_ids_for_link_with_auto_test',): {
-        },
     }
 
     @cached_property
@@ -105,19 +103,19 @@ class UpdateAutoTestRequest(ModelComposed):
             'project_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'id': (str, none_type,),  # noqa: E501
-            'work_item_ids_for_link_with_auto_test': ([str], none_type,),  # noqa: E501
-            'work_item_ids': ([str], none_type,),  # noqa: E501
-            'links': ([LinkPutModel], none_type,),  # noqa: E501
+            'external_key': (str, none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'classname': (str, none_type,),  # noqa: E501
-            'steps': ([AutoTestStepModel], none_type,),  # noqa: E501
-            'setup': ([AutoTestStepModel], none_type,),  # noqa: E501
-            'teardown': ([AutoTestStepModel], none_type,),  # noqa: E501
+            'steps': ([AutoTestStepApiModel], none_type,),  # noqa: E501
+            'setup': ([AutoTestStepApiModel], none_type,),  # noqa: E501
+            'teardown': ([AutoTestStepApiModel], none_type,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'labels': ([LabelPostModel], none_type,),  # noqa: E501
+            'labels': ([LabelApiModel], none_type,),  # noqa: E501
+            'links': ([LinkUpdateApiModel], none_type,),  # noqa: E501
             'is_flaky': (bool, none_type,),  # noqa: E501
-            'external_key': (str, none_type,),  # noqa: E501
+            'work_item_ids_for_link_with_auto_test': ([str], none_type,),  # noqa: E501
+            'work_item_ids': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -130,9 +128,7 @@ class UpdateAutoTestRequest(ModelComposed):
         'project_id': 'projectId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'work_item_ids_for_link_with_auto_test': 'workItemIdsForLinkWithAutoTest',  # noqa: E501
-        'work_item_ids': 'workItemIds',  # noqa: E501
-        'links': 'links',  # noqa: E501
+        'external_key': 'externalKey',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
         'classname': 'classname',  # noqa: E501
         'steps': 'steps',  # noqa: E501
@@ -141,8 +137,10 @@ class UpdateAutoTestRequest(ModelComposed):
         'title': 'title',  # noqa: E501
         'description': 'description',  # noqa: E501
         'labels': 'labels',  # noqa: E501
+        'links': 'links',  # noqa: E501
         'is_flaky': 'isFlaky',  # noqa: E501
-        'external_key': 'externalKey',  # noqa: E501
+        'work_item_ids_for_link_with_auto_test': 'workItemIdsForLinkWithAutoTest',  # noqa: E501
+        'work_item_ids': 'workItemIds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -187,20 +185,20 @@ class UpdateAutoTestRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
-            work_item_ids_for_link_with_auto_test ([str], none_type): [optional]  # noqa: E501
-            work_item_ids ([str], none_type): [optional]  # noqa: E501
-            links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
+            id (str, none_type): Autotest unique internal identifier. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
             classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501
-            steps ([AutoTestStepModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
-            setup ([AutoTestStepModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
-            teardown ([AutoTestStepModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
+            steps ([AutoTestStepApiModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
+            setup ([AutoTestStepApiModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
+            teardown ([AutoTestStepApiModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
             title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
-            labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
+            labels ([LabelApiModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
+            links ([LinkUpdateApiModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
-            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
+            work_item_ids_for_link_with_auto_test ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
+            work_item_ids ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -307,20 +305,20 @@ class UpdateAutoTestRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
-            work_item_ids_for_link_with_auto_test ([str], none_type): [optional]  # noqa: E501
-            work_item_ids ([str], none_type): [optional]  # noqa: E501
-            links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
+            id (str, none_type): Autotest unique internal identifier. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
             classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501
-            steps ([AutoTestStepModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
-            setup ([AutoTestStepModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
-            teardown ([AutoTestStepModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
+            steps ([AutoTestStepApiModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
+            setup ([AutoTestStepApiModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
+            teardown ([AutoTestStepApiModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
             title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
-            labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
+            labels ([LabelApiModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
+            links ([LinkUpdateApiModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
-            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
+            work_item_ids_for_link_with_auto_test ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
+            work_item_ids ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -390,7 +388,7 @@ class UpdateAutoTestRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AutoTestPutModel,
+              AutoTestUpdateApiModel,
           ],
           'oneOf': [
           ],

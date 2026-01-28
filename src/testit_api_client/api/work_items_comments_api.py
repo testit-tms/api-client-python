@@ -300,7 +300,7 @@ class WorkItemsCommentsApi(object):
     ):
         """Delete WorkItem comment  # noqa: E501
 
-          Use case    User sets comment identifier    User runs method execution    System delete comment    System returns success status code  # noqa: E501
+         Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -382,7 +382,7 @@ class WorkItemsCommentsApi(object):
     ):
         """Create WorkItem comment  # noqa: E501
 
-          Use case    User sets comment properties (listed in request parameters)    User runs method execution    System creates comment    System returns comment model (listed in response parameters)  # noqa: E501
+         Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

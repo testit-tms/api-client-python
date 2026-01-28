@@ -96,11 +96,12 @@ class ReplaceProjectExternalServiceApiModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, new_external_service_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, new_external_service_id, settings, *args, **kwargs):  # noqa: E501
         """ReplaceProjectExternalServiceApiModel - a model defined in OpenAPI
 
         Args:
             new_external_service_id (str): The unique ID of the new external service that will replace the current one
+            settings (bool, date, datetime, dict, float, int, list, str, none_type): External service settings
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -133,7 +134,6 @@ class ReplaceProjectExternalServiceApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            settings (bool, date, datetime, dict, float, int, list, str, none_type): External service settings. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -166,6 +166,7 @@ class ReplaceProjectExternalServiceApiModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.new_external_service_id = new_external_service_id
+        self.settings = settings
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -186,11 +187,12 @@ class ReplaceProjectExternalServiceApiModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, new_external_service_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, new_external_service_id, settings, *args, **kwargs):  # noqa: E501
         """ReplaceProjectExternalServiceApiModel - a model defined in OpenAPI
 
         Args:
             new_external_service_id (str): The unique ID of the new external service that will replace the current one
+            settings (bool, date, datetime, dict, float, int, list, str, none_type): External service settings
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,7 +225,6 @@ class ReplaceProjectExternalServiceApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            settings (bool, date, datetime, dict, float, int, list, str, none_type): External service settings. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -254,6 +255,7 @@ class ReplaceProjectExternalServiceApiModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.new_external_service_id = new_external_service_id
+        self.settings = settings
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

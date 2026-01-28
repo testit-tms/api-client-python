@@ -157,7 +157,7 @@ class TestRunV2ApiResult(ModelNormal):
             name (str): Test run name
             state_name (TestRunState):
             status (TestRunByAutoTestApiResultStatus):
-            project_id (str): Project unique identifier                This property is used to link test run with project.
+            project_id (str): Project unique identifier              This property is used to link test run with project.
             created_date (datetime): Date and time of test run creation
             created_by_id (str): Unique identifier of user who created test run
             attachments ([AttachmentApiResult]): Collection of attachments related to the test run
@@ -197,10 +197,10 @@ class TestRunV2ApiResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Test run description. [optional]  # noqa: E501
-            launch_source (str, none_type): Test run launch source                Once launch source is specified it cannot be updated.. [optional]  # noqa: E501
+            launch_source (str, none_type): Test run launch source              Once launch source is specified it cannot be updated.. [optional]  # noqa: E501
             started_on (datetime, none_type): Date and time of test run start. [optional]  # noqa: E501
             completed_on (datetime, none_type): Date and time of test run end. [optional]  # noqa: E501
-            test_plan_id (str, none_type): Test plan unique identifier                This property is used to link test run with test plan.. [optional]  # noqa: E501
+            test_plan_id (str, none_type): Test plan unique identifier              This property is used to link test run with test plan.. [optional]  # noqa: E501
             test_results ([TestResultV2GetModel], none_type): Enumeration of test results related to test run. [optional]  # noqa: E501
             modified_date (datetime, none_type): Date and time of last test run  modification. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique identifier of user who applied last test run  modification. [optional]  # noqa: E501
@@ -276,7 +276,7 @@ class TestRunV2ApiResult(ModelNormal):
             name (str): Test run name
             state_name (TestRunState):
             status (TestRunByAutoTestApiResultStatus):
-            project_id (str): Project unique identifier                This property is used to link test run with project.
+            project_id (str): Project unique identifier              This property is used to link test run with project.
             created_date (datetime): Date and time of test run creation
             created_by_id (str): Unique identifier of user who created test run
             attachments ([AttachmentApiResult]): Collection of attachments related to the test run
@@ -316,10 +316,10 @@ class TestRunV2ApiResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Test run description. [optional]  # noqa: E501
-            launch_source (str, none_type): Test run launch source                Once launch source is specified it cannot be updated.. [optional]  # noqa: E501
+            launch_source (str, none_type): Test run launch source              Once launch source is specified it cannot be updated.. [optional]  # noqa: E501
             started_on (datetime, none_type): Date and time of test run start. [optional]  # noqa: E501
             completed_on (datetime, none_type): Date and time of test run end. [optional]  # noqa: E501
-            test_plan_id (str, none_type): Test plan unique identifier                This property is used to link test run with test plan.. [optional]  # noqa: E501
+            test_plan_id (str, none_type): Test plan unique identifier              This property is used to link test run with test plan.. [optional]  # noqa: E501
             test_results ([TestResultV2GetModel], none_type): Enumeration of test results related to test run. [optional]  # noqa: E501
             modified_date (datetime, none_type): Date and time of last test run  modification. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique identifier of user who applied last test run  modification. [optional]  # noqa: E501

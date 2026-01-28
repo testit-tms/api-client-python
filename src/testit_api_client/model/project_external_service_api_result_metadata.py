@@ -30,9 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.external_service_category_api_result import ExternalServiceCategoryApiResult
+    from testit_api_client.model.api_external_service_category import ApiExternalServiceCategory
     from testit_api_client.model.external_service_metadata_api_result import ExternalServiceMetadataApiResult
-    globals()['ExternalServiceCategoryApiResult'] = ExternalServiceCategoryApiResult
+    globals()['ApiExternalServiceCategory'] = ApiExternalServiceCategory
     globals()['ExternalServiceMetadataApiResult'] = ExternalServiceMetadataApiResult
 
 
@@ -92,7 +92,7 @@ class ProjectExternalServiceApiResultMetadata(ModelComposed):
             'name': (str,),  # noqa: E501
             'code': (str,),  # noqa: E501
             'icon_url': (str,),  # noqa: E501
-            'category': (ExternalServiceCategoryApiResult,),  # noqa: E501
+            'category': (ApiExternalServiceCategory,),  # noqa: E501
         }
 
     @cached_property
@@ -119,7 +119,7 @@ class ProjectExternalServiceApiResultMetadata(ModelComposed):
             name (str): The name of the external service
             code (str): The code of the external service
             icon_url (str): The icon URL of the external service
-            category (ExternalServiceCategoryApiResult):
+            category (ApiExternalServiceCategory):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -226,7 +226,7 @@ class ProjectExternalServiceApiResultMetadata(ModelComposed):
             name (str): The name of the external service
             code (str): The code of the external service
             icon_url (str): The icon URL of the external service
-            category (ExternalServiceCategoryApiResult):
+            category (ApiExternalServiceCategory):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

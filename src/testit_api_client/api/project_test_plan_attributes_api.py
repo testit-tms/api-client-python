@@ -356,7 +356,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Add attributes to project's test plans  # noqa: E501
 
-          Use case    User sets project internal or global identifier and attributes identifiers    User runs method execution    System updates project and add attributes to project for test plans    System returns no content response  # noqa: E501
+         Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -441,7 +441,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Delete attribute from project's test plans  # noqa: E501
 
-          Use case    User sets project internal or global identifier and attribute identifier    User runs method execution    System updates project and delete attribute from project for test plans    System returns no content response  # noqa: E501
+         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -527,7 +527,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Get project's test plan attributes  # noqa: E501
 
-          Use case    User runs method execution    System returns project for test plans attributes by project identifier  # noqa: E501
+         Use case  User runs method execution  System returns project for test plans attributes by project identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -698,7 +698,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Update attribute of project's test plans  # noqa: E501
 
-          Use case    User sets project internal or global identifier and attribute model    User runs method execution    System updates project and project attribute for test plan    System returns no content response  # noqa: E501
+         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

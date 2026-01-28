@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 Set \"Flaky\" status for multiple autotests
 
-User permissions for project:  - Read only  - Execute  - Write  - Full control
+User permissions for project: - Read only - Execute - Write - Full control
 
 ### Example
 
@@ -315,7 +315,7 @@ void (empty response body)
 
 Get test results history for autotest
 
-  Use case    User sets autotest internal (guid format) or global (integer format) identifier    User sets getTestResultHistoryReportQuery (listed in the example)    User runs method execution    System search for test results using filters set by user in getTestResultHistoryReportQuery and id    System returns the enumeration of test results
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets getTestResultHistoryReportQuery (listed in the example)  User runs method execution  System search for test results using filters set by user in getTestResultHistoryReportQuery and id  System returns the enumeration of test results
 
 ### Example
 
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 
 Get identifiers of changed linked work items
 
-User permissions for project:  - Read only  - Execute  - Write  - Full control
+User permissions for project: - Read only - Execute - Write - Full control
 
 ### Example
 
@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
 
 Approve changes to work items linked to autotest
 
-User permissions for project:  - Read only  - Execute  - Write  - Full control
+User permissions for project: - Read only - Execute - Write - Full control
 
 ### Example
 
@@ -686,11 +686,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_auto_test**
-> AutoTestModel create_auto_test()
+> AutoTestApiResult create_auto_test()
 
 Create autotest
 
-  This method creates a new autotest.    To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.    Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
+ This method creates a new autotest.  To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.  Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
 
 ### Example
 
@@ -701,8 +701,8 @@ import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
 from testit_api_client.model.create_auto_test_request import CreateAutoTestRequest
-from testit_api_client.model.auto_test_model import AutoTestModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.auto_test_api_result import AutoTestApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AutoTestModel**](AutoTestModel.md)
+[**AutoTestApiResult**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -764,21 +764,21 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
+**400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for autotests is required |  -  |
 **404** | Project with provided ID cannot be found |  -  |
 **409** | Autotest with the same external ID already exists is the project |  -  |
-**422** |   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
+**422** |  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_multiple**
-> [AutoTestModel] create_multiple()
+> [AutoTestApiResult] create_multiple()
 
 Create multiple autotests
 
-  Use case    User sets autotest parameters (listed in the example) and runs method execution    System creates autotest    [Optional] If steps enumeration is set, system creates step items and relates them to autotest    [Optional] If setup enumeration is set, system creates setup items and relates them to autotest    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest    [Optional] If label enumeration is set, system creates labels and relates them to autotest    [Optional] If link enumeration is set, system creates links and relates them to autotest    System returns autotest model (example listed in response parameters)
+ Use case  User sets autotest parameters (listed in the example) and runs method execution  System creates autotest  [Optional] If steps enumeration is set, system creates step items and relates them to autotest  [Optional] If setup enumeration is set, system creates setup items and relates them to autotest  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  [Optional] If label enumeration is set, system creates labels and relates them to autotest  [Optional] If link enumeration is set, system creates links and relates them to autotest  System returns autotest model (example listed in response parameters)
 
 ### Example
 
@@ -788,10 +788,10 @@ Create multiple autotests
 import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.auto_test_api_result import AutoTestApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.auto_test_post_model import AutoTestPostModel
+from testit_api_client.model.auto_test_create_api_model import AutoTestCreateApiModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -814,8 +814,58 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
-    auto_test_post_model = [
-        AutoTestPostModel(
+    auto_test_create_api_model = [
+        AutoTestCreateApiModel(
+            external_id="external_id_example",
+            external_key="external_key_example",
+            project_id="project_id_example",
+            name="name_example",
+            namespace="namespace_example",
+            classname="classname_example",
+            steps=[
+                AutoTestStepApiModel(
+                    title="title_example",
+                    description="description_example",
+                    steps=[
+                        AutoTestStepApiModel(),
+                    ],
+                ),
+            ],
+            setup=[
+                AutoTestStepApiModel(
+                    title="title_example",
+                    description="description_example",
+                    steps=[
+                        AutoTestStepApiModel(),
+                    ],
+                ),
+            ],
+            teardown=[
+                AutoTestStepApiModel(
+                    title="title_example",
+                    description="description_example",
+                    steps=[
+                        AutoTestStepApiModel(),
+                    ],
+                ),
+            ],
+            title="title_example",
+            description="description_example",
+            labels=[
+                LabelApiModel(
+                    name="name_example",
+                ),
+            ],
+            links=[
+                LinkCreateApiModel(
+                    title="title_example",
+                    url="url_example",
+                    description="description_example",
+                    type=None,
+                    has_info=True,
+                ),
+            ],
+            is_flaky=True,
             work_item_ids_for_link_with_auto_test=[
                 "work_item_ids_for_link_with_auto_test_example",
             ],
@@ -826,64 +876,14 @@ with testit_api_client.ApiClient(configuration) as api_client:
             attributes={
                 "key": None,
             },
-            external_id="external_id_example",
-            links=[
-                LinkPostModel(
-                    title="title_example",
-                    url="url_example",
-                    description="description_example",
-                    type=None,
-                    has_info=True,
-                ),
-            ],
-            project_id="project_id_example",
-            name="name_example",
-            namespace="namespace_example",
-            classname="classname_example",
-            steps=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            setup=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            teardown=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            title="title_example",
-            description="description_example",
-            labels=[
-                LabelPostModel(
-                    name="name_example",
-                ),
-            ],
-            is_flaky=True,
-            external_key="external_key_example",
         ),
-    ] # [AutoTestPostModel] |  (optional)
+    ] # [AutoTestCreateApiModel] |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create multiple autotests
-        api_response = api_instance.create_multiple(auto_test_post_model=auto_test_post_model)
+        api_response = api_instance.create_multiple(auto_test_create_api_model=auto_test_create_api_model)
         pprint(api_response)
     except testit_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->create_multiple: %s\n" % e)
@@ -894,11 +894,11 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_test_post_model** | [**[AutoTestPostModel]**](AutoTestPostModel.md)|  | [optional]
+ **auto_test_create_api_model** | [**[AutoTestCreateApiModel]**](AutoTestCreateApiModel.md)|  | [optional]
 
 ### Return type
 
-[**[AutoTestModel]**](AutoTestModel.md)
+[**[AutoTestApiResult]**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -915,12 +915,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
+**400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for autotests is required |  -  |
 **404** | Project with provided ID cannot be found |  -  |
 **409** | Autotest with the same external ID already exists is the project |  -  |
-**422** |   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
+**422** |  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -929,7 +929,7 @@ Name | Type | Description  | Notes
 
 Delete autotest
 
-  Use case    User sets autotest internal (guid format) or global (integer format) identifier and runs method execution    System finds the autotest by the identifier    System deletes autotest and returns no content response
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  System finds the autotest by the identifier  System deletes autotest and returns no content response
 
 ### Example
 
@@ -1013,7 +1013,7 @@ void (empty response body)
 
 Unlink autotest from work item
 
-  Use case    User sets autotest internal (guid format) or global (integer format) identifier    [Optional] User sets workitem internal (guid format) or global (integer format) identifier    User runs method execution    System finds the autotest by the autotest identifier    [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.    [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.    System returns no content response
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  [Optional] User sets workitem internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it             from autotest.  [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  System returns no content response
 
 ### Example
 
@@ -1096,7 +1096,7 @@ void (empty response body)
 **400** | Work item ID is invalid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for autotests is required |  -  |
-**404** |   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found |  -  |
+**404** |  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -1239,11 +1239,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_auto_test_average_duration**
-> AutoTestAverageDurationModel get_auto_test_average_duration(id)
+> AutoTestAverageDurationApiResult get_auto_test_average_duration(id)
 
 Get average autotest duration
 
-  Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System calculates pass average duration and fail average duration of autotest from all related test results    System returns pass average duration and fail average duration for autotest
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System calculates pass average duration and fail average duration of autotest from all related test results  System returns pass average duration and fail average duration for autotest
 
 ### Example
 
@@ -1255,7 +1255,7 @@ import testit_api_client
 from testit_api_client.api import auto_tests_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.auto_test_average_duration_model import AutoTestAverageDurationModel
+from testit_api_client.model.auto_test_average_duration_api_result import AutoTestAverageDurationApiResult
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1298,7 +1298,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AutoTestAverageDurationModel**](AutoTestAverageDurationModel.md)
+[**AutoTestAverageDurationApiResult**](AutoTestAverageDurationApiResult.md)
 
 ### Authorization
 
@@ -1325,11 +1325,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_auto_test_by_id**
-> AutoTestModel get_auto_test_by_id(id)
+> AutoTestApiResult get_auto_test_by_id(id)
 
 Get autotest by internal or global ID
 
-  Use case    User sets autotest internal or global identifier and runs method execution    System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+ Use case  User sets autotest internal or global identifier and runs method execution  System returns autotest, which internal or global identifier equals the identifier value set in the previous action
 
 ### Example
 
@@ -1339,8 +1339,8 @@ Get autotest by internal or global ID
 import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
 from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.auto_test_api_result import AutoTestApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1384,7 +1384,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AutoTestModel**](AutoTestModel.md)
+[**AutoTestApiResult**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -1415,7 +1415,7 @@ Name | Type | Description  | Notes
 
 Get autotest chronology
 
-  Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System search all test results related to autotest (with default limit equal 100)    System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending    System returns test result chronology for autotest
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search all test results related to autotest (with default limit equal 100)  System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  System returns test result chronology for autotest
 
 ### Example
 
@@ -1501,7 +1501,7 @@ Name | Type | Description  | Notes
 
 Get completed tests runs for autotests
 
-  Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System search for all test runs related to the autotest    System returns the enumeration of test runs
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search for all test runs related to the autotest  System returns the enumeration of test runs
 
 ### Example
 
@@ -1583,11 +1583,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_work_items_linked_to_auto_test**
-> [WorkItemIdentifierModel] get_work_items_linked_to_auto_test(id)
+> [AutoTestWorkItemIdentifierApiResult] get_work_items_linked_to_auto_test(id)
 
 Get work items linked to autotest
 
-  This method links an autotest to a test case or a checklist.              A manual test case with a linked automated work item is marked in the test management system as an autotest.              You can run it from graphical user interface (GUI). To do that:    1. Open the project in GUI.                2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.                3. Select the autotest(s) you want to run using checkboxes.                4. In the toolbar above the test list, click <b>Run autotests</b>.
+ This method links an autotest to a test case or a checklist.             A manual test case with a linked automated work item is marked in the test management system as an autotest.             You can run it from graphical user interface (GUI). To do that:  1. Open the project in GUI.              2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.              3. Select the autotest(s) you want to run using checkboxes.              4. In the toolbar above the test list, click <b>Run autotests</b>.
 
 ### Example
 
@@ -1598,7 +1598,7 @@ import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_identifier_model import WorkItemIdentifierModel
+from testit_api_client.model.auto_test_work_item_identifier_api_result import AutoTestWorkItemIdentifierApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1622,7 +1622,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
-    id = "id_example" # str | Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID.
+    id = "id_example" # str | Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
     is_deleted = True # bool | Specifies that a test is deleted or still relevant. (optional)
     is_work_item_deleted = False # bool | OBSOLETE: Use `isDeleted` instead (optional) if omitted the server will use the default value of False
 
@@ -1649,13 +1649,13 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID. |
+ **id** | **str**| Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. |
  **is_deleted** | **bool**| Specifies that a test is deleted or still relevant. | [optional]
  **is_work_item_deleted** | **bool**| OBSOLETE: Use &#x60;isDeleted&#x60; instead | [optional] if omitted the server will use the default value of False
 
 ### Return type
 
-[**[WorkItemIdentifierModel]**](WorkItemIdentifierModel.md)
+[**[AutoTestWorkItemIdentifierApiResult]**](AutoTestWorkItemIdentifierApiResult.md)
 
 ### Authorization
 
@@ -1686,7 +1686,7 @@ Name | Type | Description  | Notes
 
 Link autotest with work items
 
-  Use case    User sets autotest internal (guid format) or global (integer format) identifier    User sets work item internal (guid format) or global (integer format) identifier    User runs method execution    System finds the autotest by the autotest identifier    System finds the work item by the work item identifier    System relates the work item with the autotest and returns no content response
+ Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets work item internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  System finds the work item by the work item identifier  System relates the work item with the autotest and returns no content response
 
 ### Example
 
@@ -1767,10 +1767,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |   - Autotest cannot be linked to shared steps    - Autotest cannot be linked to work item from other project    - Work item ID is invalid |  -  |
+**400** |  - Autotest cannot be linked to shared steps  - Autotest cannot be linked to work item from other project  - Work item ID is invalid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for autotests is required |  -  |
-**404** |   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found |  -  |
+**404** |  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -1781,7 +1781,7 @@ void (empty response body)
 
 Update autotest
 
-  Use case    User sets autotest updated parameters values (listed in the example) and runs method execution    System finds the autotest by the identifier    System updates autotest parameters    [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)    [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)    [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)    [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)    System updates autotest and returns no content response
+ Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
 ### Example
 
@@ -1853,12 +1853,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
-**400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
+**400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for autotests is required |  -  |
-**404** |   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found |  -  |
+**404** |  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found |  -  |
 **409** | Autotest with the same external ID already exists is the project |  -  |
-**422** |   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
+**422** |  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
 **204** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1868,7 +1868,7 @@ void (empty response body)
 
 Update multiple autotests
 
-  Use case    User sets autotest updated parameters values (listed in the example) and runs method execution    System finds the autotest by the identifier    System updates autotest parameters    [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)    [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)    [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)    [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)    System updates autotest and returns no content response
+ Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
 
 ### Example
 
@@ -1879,7 +1879,7 @@ import time
 import testit_api_client
 from testit_api_client.api import auto_tests_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.auto_test_put_model import AutoTestPutModel
+from testit_api_client.model.auto_test_update_api_model import AutoTestUpdateApiModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1903,19 +1903,52 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
-    auto_test_put_model = [
-        AutoTestPutModel(
-            id="f227dd23-3343-4352-9c44-2f77031ccf1e",
-            work_item_ids_for_link_with_auto_test=[
-                "work_item_ids_for_link_with_auto_test_example",
-            ],
-            work_item_ids=[
-                "work_item_ids_example",
-            ],
+    auto_test_update_api_model = [
+        AutoTestUpdateApiModel(
+            id="id_example",
             external_id="external_id_example",
+            external_key="external_key_example",
+            project_id="project_id_example",
+            name="name_example",
+            namespace="namespace_example",
+            classname="classname_example",
+            steps=[
+                AutoTestStepApiModel(
+                    title="title_example",
+                    description="description_example",
+                    steps=[
+                        AutoTestStepApiModel(),
+                    ],
+                ),
+            ],
+            setup=[
+                AutoTestStepApiModel(
+                    title="title_example",
+                    description="description_example",
+                    steps=[
+                        AutoTestStepApiModel(),
+                    ],
+                ),
+            ],
+            teardown=[
+                AutoTestStepApiModel(
+                    title="title_example",
+                    description="description_example",
+                    steps=[
+                        AutoTestStepApiModel(),
+                    ],
+                ),
+            ],
+            title="title_example",
+            description="description_example",
+            labels=[
+                LabelApiModel(
+                    name="name_example",
+                ),
+            ],
             links=[
-                LinkPutModel(
-                    id="f227dd23-3343-4352-9c44-2f77031ccf1e",
+                LinkUpdateApiModel(
+                    id="id_example",
                     title="title_example",
                     url="url_example",
                     description="description_example",
@@ -1923,54 +1956,21 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     has_info=True,
                 ),
             ],
-            project_id="project_id_example",
-            name="name_example",
-            namespace="namespace_example",
-            classname="classname_example",
-            steps=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            setup=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            teardown=[
-                AutoTestStepModel(
-                    title="title_example",
-                    description="description_example",
-                    steps=[
-                        AutoTestStepModel(),
-                    ],
-                ),
-            ],
-            title="title_example",
-            description="description_example",
-            labels=[
-                LabelPostModel(
-                    name="name_example",
-                ),
-            ],
             is_flaky=True,
-            external_key="external_key_example",
+            work_item_ids_for_link_with_auto_test=[
+                "work_item_ids_for_link_with_auto_test_example",
+            ],
+            work_item_ids=[
+                "work_item_ids_example",
+            ],
         ),
-    ] # [AutoTestPutModel] |  (optional)
+    ] # [AutoTestUpdateApiModel] |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update multiple autotests
-        api_instance.update_multiple(auto_test_put_model=auto_test_put_model)
+        api_instance.update_multiple(auto_test_update_api_model=auto_test_update_api_model)
     except testit_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->update_multiple: %s\n" % e)
 ```
@@ -1980,7 +1980,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_test_put_model** | [**[AutoTestPutModel]**](AutoTestPutModel.md)|  | [optional]
+ **auto_test_update_api_model** | [**[AutoTestUpdateApiModel]**](AutoTestUpdateApiModel.md)|  | [optional]
 
 ### Return type
 
@@ -2001,12 +2001,12 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
+**400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for autotests is required |  -  |
-**404** |   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found |  -  |
+**404** |  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found |  -  |
 **409** | Autotest with the same external ID already exists is the project |  -  |
-**422** |   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
+**422** |  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

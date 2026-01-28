@@ -122,7 +122,7 @@ class TestResultResponse(ModelNormal):
             'message': (str, none_type,),  # noqa: E501
             'run_by_user_id': (str, none_type,),  # noqa: E501
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
-            'test_point': (TestPoint, none_type,),  # noqa: E501
+            'test_point': (TestPoint, none_type,),  # noqa: E501 run.sh autofix
             'auto_test': (AutoTest,),  # noqa: E501
             'auto_test_step_results': ([AutoTestStepResult], none_type,),  # noqa: E501
             'setup_results': ([AutoTestStepResult], none_type,),  # noqa: E501

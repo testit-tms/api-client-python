@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **start_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **end_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **tag_names** | **[str], none_type** |  | [optional] 
+**exclude_tag_names** | **[str], none_type** |  | [optional] 
 **attributes** | **{str: ([str], none_type)}, none_type** |  | [optional] 
 **is_deleted** | **bool, none_type** |  | [optional] 
 
