@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **stability_percentage** | **int, none_type** |  | [optional] 
 **links** | [**[LinkApiResult], none_type**](LinkApiResult.md) |  | [optional] 
 **labels** | [**[LabelApiResult], none_type**](LabelApiResult.md) |  | [optional] 
+**tags** | **[str], none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

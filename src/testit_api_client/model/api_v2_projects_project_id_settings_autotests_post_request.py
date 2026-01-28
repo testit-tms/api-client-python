@@ -31,7 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.auto_test_project_settings_api_model import AutoTestProjectSettingsApiModel
+    from testit_api_client.model.auto_test_project_settings_api_model_work_item_updating_fields import AutoTestProjectSettingsApiModelWorkItemUpdatingFields
     globals()['AutoTestProjectSettingsApiModel'] = AutoTestProjectSettingsApiModel
+    globals()['AutoTestProjectSettingsApiModelWorkItemUpdatingFields'] = AutoTestProjectSettingsApiModelWorkItemUpdatingFields
 
 
 class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
@@ -101,9 +103,11 @@ class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
         return {
             'rerun_enabled': (bool,),  # noqa: E501
             'rerun_attempts_count': (int,),  # noqa: E501
+            'work_item_updating_fields': (AutoTestProjectSettingsApiModelWorkItemUpdatingFields,),  # noqa: E501
             'is_flaky_auto': (bool,),  # noqa: E501
             'flaky_stability_percentage': (int,),  # noqa: E501
             'flaky_test_run_count': (int,),  # noqa: E501
+            'work_item_updating_enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -114,9 +118,11 @@ class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
     attribute_map = {
         'rerun_enabled': 'rerunEnabled',  # noqa: E501
         'rerun_attempts_count': 'rerunAttemptsCount',  # noqa: E501
+        'work_item_updating_fields': 'workItemUpdatingFields',  # noqa: E501
         'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
         'flaky_stability_percentage': 'flakyStabilityPercentage',  # noqa: E501
         'flaky_test_run_count': 'flakyTestRunCount',  # noqa: E501
+        'work_item_updating_enabled': 'workItemUpdatingEnabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -130,6 +136,7 @@ class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
         Keyword Args:
             rerun_enabled (bool): Auto rerun enabled
             rerun_attempts_count (int): Auto rerun attempt count
+            work_item_updating_fields (AutoTestProjectSettingsApiModelWorkItemUpdatingFields):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -163,6 +170,7 @@ class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
             is_flaky_auto (bool): Indicates if the status \"Flaky/Stable\" sets automatically. [optional] if omitted the server will use the default value of False  # noqa: E501
             flaky_stability_percentage (int): Stability percentage for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             flaky_test_run_count (int): Last test run count for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
+            work_item_updating_enabled (bool): Autotest to work item updating enabled. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,6 +246,7 @@ class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
         Keyword Args:
             rerun_enabled (bool): Auto rerun enabled
             rerun_attempts_count (int): Auto rerun attempt count
+            work_item_updating_fields (AutoTestProjectSettingsApiModelWorkItemUpdatingFields):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -271,6 +280,7 @@ class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
             is_flaky_auto (bool): Indicates if the status \"Flaky/Stable\" sets automatically. [optional] if omitted the server will use the default value of False  # noqa: E501
             flaky_stability_percentage (int): Stability percentage for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             flaky_test_run_count (int): Last test run count for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
+            work_item_updating_enabled (bool): Autotest to work item updating enabled. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -4,9 +4,110 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post**](ProjectTestPlanTestPointsApi.md#api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post) | **POST** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/analytics | Get test points analytics.
 [**api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post**](ProjectTestPlanTestPointsApi.md#api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post) | **POST** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/rerun | Rerun autotests.
 [**api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_run_post**](ProjectTestPlanTestPointsApi.md#api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_run_post) | **POST** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/run | Run autotests.
+[**api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post**](ProjectTestPlanTestPointsApi.md#api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post) | **POST** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/grouping-search | Search test points in test plan.
+[**api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post**](ProjectTestPlanTestPointsApi.md#api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post) | **POST** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/testers | Distribute test points between the users.
 
+
+# **api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post**
+> TestPlanTestPointsAnalyticsApiResult api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post(project_id, test_plan_id)
+
+Get test points analytics.
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import project_test_plan_test_points_api
+from testit_api_client.model.test_plan_test_points_analytics_api_result import TestPlanTestPointsAnalyticsApiResult
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request import ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = project_test_plan_test_points_api.ProjectTestPlanTestPointsApi(api_client)
+    project_id = "projectId_example" # str | Internal (UUID) or global (integer) identifier
+    test_plan_id = "testPlanId_example" # str | 
+    api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request = ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest(None) # ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get test points analytics.
+        api_response = api_instance.api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post(project_id, test_plan_id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlanTestPointsApi->api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get test points analytics.
+        api_response = api_instance.api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post(project_id, test_plan_id, api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request=api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlanTestPointsApi->api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**| Internal (UUID) or global (integer) identifier |
+ **test_plan_id** | **str**|  |
+ **api_v2_projects_project_id_test_plans_test_plan_id_test_points_analytics_post_request** | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest**](ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest.md)|  | [optional]
+
+### Return type
+
+[**TestPlanTestPointsAnalyticsApiResult**](TestPlanTestPointsAnalyticsApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post**
 > api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post(project_id, test_plan_id)
@@ -176,6 +277,199 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TestRunNameApiResult**](TestRunNameApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post**
+> TestPlanTestPointsGroupSearchApiResult api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post(project_id, test_plan_id)
+
+Search test points in test plan.
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import project_test_plan_test_points_api
+from testit_api_client.model.api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request import ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.test_plan_test_points_group_search_api_result import TestPlanTestPointsGroupSearchApiResult
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = project_test_plan_test_points_api.ProjectTestPlanTestPointsApi(api_client)
+    project_id = "projectId_example" # str | Internal (UUID) or global (integer) identifier
+    test_plan_id = "testPlanId_example" # str | 
+    api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request = ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest(None) # ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Search test points in test plan.
+        api_response = api_instance.api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post(project_id, test_plan_id)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlanTestPointsApi->api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Search test points in test plan.
+        api_response = api_instance.api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post(project_id, test_plan_id, api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request=api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlanTestPointsApi->api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**| Internal (UUID) or global (integer) identifier |
+ **test_plan_id** | **str**|  |
+ **api_v2_projects_project_id_test_plans_test_plan_id_test_points_grouping_search_post_request** | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest**](ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest.md)|  | [optional]
+
+### Return type
+
+[**TestPlanTestPointsGroupSearchApiResult**](TestPlanTestPointsGroupSearchApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post**
+> api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post(project_id, test_plan_id)
+
+Distribute test points between the users.
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import project_test_plan_test_points_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request import ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = project_test_plan_test_points_api.ProjectTestPlanTestPointsApi(api_client)
+    project_id = "projectId_example" # str | Internal (UUID) or global (integer) identifier
+    test_plan_id = "testPlanId_example" # str | 
+    api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request = ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest(None) # ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Distribute test points between the users.
+        api_instance.api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post(project_id, test_plan_id)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlanTestPointsApi->api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Distribute test points between the users.
+        api_instance.api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post(project_id, test_plan_id, api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request=api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling ProjectTestPlanTestPointsApi->api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**| Internal (UUID) or global (integer) identifier |
+ **test_plan_id** | **str**|  |
+ **api_v2_projects_project_id_test_plans_test_plan_id_test_points_testers_post_request** | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest**](ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

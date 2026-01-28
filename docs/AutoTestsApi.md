@@ -816,12 +816,15 @@ with testit_api_client.ApiClient(configuration) as api_client:
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     auto_test_create_api_model = [
         AutoTestCreateApiModel(
+            project_id="project_id_example",
             external_id="external_id_example",
             external_key="external_key_example",
-            project_id="project_id_example",
             name="name_example",
             namespace="namespace_example",
             classname="classname_example",
+            title="title_example",
+            description="description_example",
+            is_flaky=True,
             steps=[
                 AutoTestStepApiModel(
                     title="title_example",
@@ -849,8 +852,16 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     ],
                 ),
             ],
-            title="title_example",
-            description="description_example",
+            should_create_work_item=True,
+            work_item_ids=[
+                "work_item_ids_example",
+            ],
+            attributes={
+                "key": None,
+            },
+            work_item_ids_for_link_with_auto_test=[
+                "work_item_ids_for_link_with_auto_test_example",
+            ],
             labels=[
                 LabelApiModel(
                     name="name_example",
@@ -865,17 +876,9 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     has_info=True,
                 ),
             ],
-            is_flaky=True,
-            work_item_ids_for_link_with_auto_test=[
-                "work_item_ids_for_link_with_auto_test_example",
+            tags=[
+                "tags_example",
             ],
-            work_item_ids=[
-                "work_item_ids_example",
-            ],
-            should_create_work_item=True,
-            attributes={
-                "key": None,
-            },
         ),
     ] # [AutoTestCreateApiModel] |  (optional)
 
@@ -1906,12 +1909,15 @@ with testit_api_client.ApiClient(configuration) as api_client:
     auto_test_update_api_model = [
         AutoTestUpdateApiModel(
             id="id_example",
+            project_id="project_id_example",
             external_id="external_id_example",
             external_key="external_key_example",
-            project_id="project_id_example",
             name="name_example",
             namespace="namespace_example",
             classname="classname_example",
+            title="title_example",
+            description="description_example",
+            is_flaky=True,
             steps=[
                 AutoTestStepApiModel(
                     title="title_example",
@@ -1939,8 +1945,12 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     ],
                 ),
             ],
-            title="title_example",
-            description="description_example",
+            work_item_ids=[
+                "work_item_ids_example",
+            ],
+            work_item_ids_for_link_with_auto_test=[
+                "work_item_ids_for_link_with_auto_test_example",
+            ],
             labels=[
                 LabelApiModel(
                     name="name_example",
@@ -1956,12 +1966,8 @@ with testit_api_client.ApiClient(configuration) as api_client:
                     has_info=True,
                 ),
             ],
-            is_flaky=True,
-            work_item_ids_for_link_with_auto_test=[
-                "work_item_ids_for_link_with_auto_test_example",
-            ],
-            work_item_ids=[
-                "work_item_ids_example",
+            tags=[
+                "tags_example",
             ],
         ),
     ] # [AutoTestUpdateApiModel] |  (optional)
