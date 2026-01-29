@@ -61,6 +61,14 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
         ('task_key',): {
             'min_length': 1,
         },
+        ('temperature',): {
+            'inclusive_maximum': 1,
+            'inclusive_minimum': 0,
+        },
+        ('preview_limit',): {
+            'inclusive_maximum': 30,
+            'inclusive_minimum': 1,
+        },
     }
 
     additional_properties_type = None
@@ -81,6 +89,8 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
             'external_service_id': (str,),  # noqa: E501
             'task_key': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
+            'temperature': (float,),  # noqa: E501
+            'preview_limit': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +102,8 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
         'external_service_id': 'externalServiceId',  # noqa: E501
         'task_key': 'taskKey',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
+        'temperature': 'temperature',  # noqa: E501
+        'preview_limit': 'previewLimit',  # noqa: E501
     }
 
     read_only_vars = {
@@ -101,13 +113,15 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, external_service_id, task_key, section_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, external_service_id, task_key, section_id, temperature, preview_limit, *args, **kwargs):  # noqa: E501
         """GenerateWorkItemPreviewsApiModel - a model defined in OpenAPI
 
         Args:
             external_service_id (str):
             task_key (str):
             section_id (str):
+            temperature (float):
+            preview_limit (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -174,6 +188,8 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
         self.external_service_id = external_service_id
         self.task_key = task_key
         self.section_id = section_id
+        self.temperature = temperature
+        self.preview_limit = preview_limit
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,13 +210,15 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, external_service_id, task_key, section_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, external_service_id, task_key, section_id, temperature, preview_limit, *args, **kwargs):  # noqa: E501
         """GenerateWorkItemPreviewsApiModel - a model defined in OpenAPI
 
         Args:
             external_service_id (str):
             task_key (str):
             section_id (str):
+            temperature (float):
+            preview_limit (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -265,6 +283,8 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
         self.external_service_id = external_service_id
         self.task_key = task_key
         self.section_id = section_id
+        self.temperature = temperature
+        self.preview_limit = preview_limit
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

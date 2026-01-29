@@ -253,7 +253,7 @@ class SearchWorkItemsRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tag_names ([str], none_type): Collection of tags. [optional]  # noqa: E501
-            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item    Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
@@ -385,7 +385,7 @@ class SearchWorkItemsRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tag_names ([str], none_type): Collection of tags. [optional]  # noqa: E501
-            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item    Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501

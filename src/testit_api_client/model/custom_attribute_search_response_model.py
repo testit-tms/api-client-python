@@ -132,7 +132,7 @@ class CustomAttributeSearchResponseModel(ModelNormal):
             work_item_usage ([ProjectShortestModel]):
             test_plan_usage ([ProjectShortestModel]):
             id (str): Unique ID of the attribute
-            options ([CustomAttributeOptionModel]): Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
+            options ([CustomAttributeOptionModel]): Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
             type (CustomAttributeTypesEnum):
             is_deleted (bool): Indicates if the attribute is deleted
             name (str): Name of the attribute
@@ -239,7 +239,7 @@ class CustomAttributeSearchResponseModel(ModelNormal):
             work_item_usage ([ProjectShortestModel]):
             test_plan_usage ([ProjectShortestModel]):
             id (str): Unique ID of the attribute
-            options ([CustomAttributeOptionModel]): Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
+            options ([CustomAttributeOptionModel]): Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
             type (CustomAttributeTypesEnum):
             is_deleted (bool): Indicates if the attribute is deleted
             name (str): Name of the attribute

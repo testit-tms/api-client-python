@@ -92,6 +92,8 @@ class ApiV2ProjectsProjectIdTestPlansSearchPostRequest(ModelComposed):
         },
         ('tag_names',): {
         },
+        ('exclude_tag_names',): {
+        },
     }
 
     @cached_property
@@ -131,6 +133,7 @@ class ApiV2ProjectsProjectIdTestPlansSearchPostRequest(ModelComposed):
             'start_date': (DateTimeRangeSelectorModel,),  # noqa: E501
             'end_date': (DateTimeRangeSelectorModel,),  # noqa: E501
             'tag_names': ([str], none_type,),  # noqa: E501
+            'exclude_tag_names': ([str], none_type,),  # noqa: E501
             'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
         }
@@ -155,6 +158,7 @@ class ApiV2ProjectsProjectIdTestPlansSearchPostRequest(ModelComposed):
         'start_date': 'startDate',  # noqa: E501
         'end_date': 'endDate',  # noqa: E501
         'tag_names': 'tagNames',  # noqa: E501
+        'exclude_tag_names': 'excludeTagNames',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
     }
@@ -212,6 +216,7 @@ class ApiV2ProjectsProjectIdTestPlansSearchPostRequest(ModelComposed):
             start_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             end_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
+            exclude_tag_names ([str], none_type): [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): [optional]  # noqa: E501
             is_deleted (bool, none_type): [optional]  # noqa: E501
         """
@@ -331,6 +336,7 @@ class ApiV2ProjectsProjectIdTestPlansSearchPostRequest(ModelComposed):
             start_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             end_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
+            exclude_tag_names ([str], none_type): [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): [optional]  # noqa: E501
             is_deleted (bool, none_type): [optional]  # noqa: E501
         """
