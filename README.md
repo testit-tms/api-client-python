@@ -26,7 +26,12 @@
 | 5.4.0   | 6.3.1.post540 |
 | 5.4.1   | 7.0.3.post541 |
 | 5.5.0   | 7.2.0.post550 |
+| 5.6.0   | 7.4.0.post560 |
 | Cloud   | 7.2.0         |
+
+1. For current versions, see the releases tab. 
+2. Starting with 5.2, we have added a TMS postscript, which means that the utility is compatible with a specific enterprise version. 
+3. If you are in doubt about which version to use, check with the support staff. support@yoonion.ru
 
 ## Installation & Usage
 ### pip install
