@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Настройка переменных
-FILE_NAME="swagger5.6.json"
-NEW_VERSION="7.4.0.post560"
+FILE_NAME="cloud-swagger.json"
+NEW_VERSION="7.4.0"
 GENERATOR="openapi-generator-cli-6.6.0.jar"
 
 if [ ! -f ".swagger/$FILE_NAME" ]; then
@@ -99,6 +99,13 @@ if [ -f "src/testit_api_client/model/link_put_model.py" ]; then
     echo "Замена в link_put_model.py..."
     sed -i 's/'\''type'\'': (LinkType,),  # noqa: E501/'\''type'\'': (LinkType, none_type,),  # noqa: E501 run.sh autofix/' src/testit_api_client/model/link_put_model.py
 fi
+
+# Замена некорректного максимального значения long на правильное значение MaxValue для Int64
+# Это необходимо, потому что OpenAPI генератор иногда использует -9223372036854775616 либо 9223372036854776000 вместо правильного 9223372036854775807
+echo "Замена -9223372036854775616 на 9223372036854775807 в сгенерированных моделях..."
+find src/testit_api_client/model -name "*.py" -exec sed -i 's/-9223372036854775616/9223372036854775807/g' {} +
+
+
 
 # Частичное обновление README.md
 echo "Частичное обновление README.md..."
