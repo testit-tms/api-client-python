@@ -33,7 +33,6 @@ def lazy_import():
     from testit_api_client.model.test_plan_group_by_status import TestPlanGroupByStatus
     from testit_api_client.model.test_plan_group_by_status_code import TestPlanGroupByStatusCode
     from testit_api_client.model.test_plan_group_by_status_type import TestPlanGroupByStatusType
-    from testit_api_client.model.test_plan_group_by_test_suite import TestPlanGroupByTestSuite
     from testit_api_client.model.test_plan_group_by_tester import TestPlanGroupByTester
     from testit_api_client.model.test_plan_group_by_tester_and_status import TestPlanGroupByTesterAndStatus
     from testit_api_client.model.test_plan_group_by_tester_and_status_code import TestPlanGroupByTesterAndStatusCode
@@ -41,7 +40,6 @@ def lazy_import():
     globals()['TestPlanGroupByStatus'] = TestPlanGroupByStatus
     globals()['TestPlanGroupByStatusCode'] = TestPlanGroupByStatusCode
     globals()['TestPlanGroupByStatusType'] = TestPlanGroupByStatusType
-    globals()['TestPlanGroupByTestSuite'] = TestPlanGroupByTestSuite
     globals()['TestPlanGroupByTester'] = TestPlanGroupByTester
     globals()['TestPlanGroupByTesterAndStatus'] = TestPlanGroupByTesterAndStatus
     globals()['TestPlanGroupByTesterAndStatusCode'] = TestPlanGroupByTesterAndStatusCode
@@ -104,7 +102,6 @@ class TestPlanWithAnalyticModelAnalytic(ModelComposed):
             'count_group_by_status': ([TestPlanGroupByStatus],),  # noqa: E501
             'sum_group_by_tester': ([TestPlanGroupByTester],),  # noqa: E501
             'count_group_by_tester': ([TestPlanGroupByTester],),  # noqa: E501
-            'count_group_by_test_suite': ([TestPlanGroupByTestSuite],),  # noqa: E501
             'count_group_by_tester_and_status': ([TestPlanGroupByTesterAndStatus],),  # noqa: E501
             'count_group_by_status_code': ([TestPlanGroupByStatusCode],),  # noqa: E501
             'count_group_by_tester_and_status_code': ([TestPlanGroupByTesterAndStatusCode],),  # noqa: E501
@@ -120,7 +117,6 @@ class TestPlanWithAnalyticModelAnalytic(ModelComposed):
         'count_group_by_status': 'countGroupByStatus',  # noqa: E501
         'sum_group_by_tester': 'sumGroupByTester',  # noqa: E501
         'count_group_by_tester': 'countGroupByTester',  # noqa: E501
-        'count_group_by_test_suite': 'countGroupByTestSuite',  # noqa: E501
         'count_group_by_tester_and_status': 'countGroupByTesterAndStatus',  # noqa: E501
         'count_group_by_status_code': 'countGroupByStatusCode',  # noqa: E501
         'count_group_by_tester_and_status_code': 'countGroupByTesterAndStatusCode',  # noqa: E501
@@ -139,7 +135,6 @@ class TestPlanWithAnalyticModelAnalytic(ModelComposed):
             count_group_by_status ([TestPlanGroupByStatus]):
             sum_group_by_tester ([TestPlanGroupByTester]):
             count_group_by_tester ([TestPlanGroupByTester]):
-            count_group_by_test_suite ([TestPlanGroupByTestSuite]):
             count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]):
             count_group_by_status_code ([TestPlanGroupByStatusCode]):
             count_group_by_tester_and_status_code ([TestPlanGroupByTesterAndStatusCode]):
@@ -250,7 +245,6 @@ class TestPlanWithAnalyticModelAnalytic(ModelComposed):
             count_group_by_status ([TestPlanGroupByStatus]):
             sum_group_by_tester ([TestPlanGroupByTester]):
             count_group_by_tester ([TestPlanGroupByTester]):
-            count_group_by_test_suite ([TestPlanGroupByTestSuite]):
             count_group_by_tester_and_status ([TestPlanGroupByTesterAndStatus]):
             count_group_by_status_code ([TestPlanGroupByStatusCode]):
             count_group_by_tester_and_status_code ([TestPlanGroupByTesterAndStatusCode]):

@@ -113,6 +113,7 @@ class AutoTestSelectModelFilter(ModelComposed):
             'last_test_result_status_codes': ([str], none_type,),  # noqa: E501
             'external_key': (str, none_type,),  # noqa: E501
             'last_test_result_configuration_ids': ([str], none_type,),  # noqa: E501
+            'tags': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -141,6 +142,7 @@ class AutoTestSelectModelFilter(ModelComposed):
         'last_test_result_status_codes': 'lastTestResultStatusCodes',  # noqa: E501
         'external_key': 'externalKey',  # noqa: E501
         'last_test_result_configuration_ids': 'lastTestResultConfigurationIds',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -202,6 +204,7 @@ class AutoTestSelectModelFilter(ModelComposed):
             last_test_result_status_codes ([str], none_type): [optional]  # noqa: E501
             external_key (str, none_type): [optional]  # noqa: E501
             last_test_result_configuration_ids ([str], none_type): [optional]  # noqa: E501
+            tags ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -325,6 +328,7 @@ class AutoTestSelectModelFilter(ModelComposed):
             last_test_result_status_codes ([str], none_type): [optional]  # noqa: E501
             external_key (str, none_type): [optional]  # noqa: E501
             last_test_result_configuration_ids ([str], none_type): [optional]  # noqa: E501
+            tags ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -40,9 +40,11 @@ from testit_api_client.api.test_plans_api import TestPlansApi
 from testit_api_client.api.test_points_api import TestPointsApi
 from testit_api_client.api.test_results_api import TestResultsApi
 from testit_api_client.api.test_runs_api import TestRunsApi
+from testit_api_client.api.test_statuses_api import TestStatusesApi
 from testit_api_client.api.test_suites_api import TestSuitesApi
 from testit_api_client.api.users_api import UsersApi
 from testit_api_client.api.webhooks_api import WebhooksApi
 from testit_api_client.api.webhooks_logs_api import WebhooksLogsApi
 from testit_api_client.api.work_items_api import WorkItemsApi
 from testit_api_client.api.work_items_comments_api import WorkItemsCommentsApi
+from testit_api_client.api.workflows_api import WorkflowsApi
