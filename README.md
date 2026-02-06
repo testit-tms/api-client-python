@@ -27,7 +27,7 @@
 | 5.4.1   | 7.0.3.post541 |
 | 5.5.0   | 7.2.0.post550 |
 | 5.6.0   | 7.4.0.post560 |
-| Cloud   | 7.2.0         |
+| Cloud   | 7.5.0 +       |
 
 1. For current versions, see the releases tab. 
 2. Starting with 5.2, we have added a TMS postscript, which means that the utility is compatible with a specific enterprise version. 
