@@ -307,6 +307,13 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**start_test_run**](docs/TestRunsApi.md#start_test_run) | **POST** /api/v2/testRuns/{id}/start | Start TestRun
 *TestRunsApi* | [**stop_test_run**](docs/TestRunsApi.md#stop_test_run) | **POST** /api/v2/testRuns/{id}/stop | Stop TestRun
 *TestRunsApi* | [**update_empty**](docs/TestRunsApi.md#update_empty) | **PUT** /api/v2/testRuns | Update empty TestRun
+*TestStatusesApi* | [**api_v2_test_statuses_code_code_exists_get**](docs/TestStatusesApi.md#api_v2_test_statuses_code_code_exists_get) | **GET** /api/v2/testStatuses/code/{code}/exists | 
+*TestStatusesApi* | [**api_v2_test_statuses_id_delete**](docs/TestStatusesApi.md#api_v2_test_statuses_id_delete) | **DELETE** /api/v2/testStatuses/{id} | 
+*TestStatusesApi* | [**api_v2_test_statuses_id_get**](docs/TestStatusesApi.md#api_v2_test_statuses_id_get) | **GET** /api/v2/testStatuses/{id} | 
+*TestStatusesApi* | [**api_v2_test_statuses_id_put**](docs/TestStatusesApi.md#api_v2_test_statuses_id_put) | **PUT** /api/v2/testStatuses/{id} | 
+*TestStatusesApi* | [**api_v2_test_statuses_name_name_exists_get**](docs/TestStatusesApi.md#api_v2_test_statuses_name_name_exists_get) | **GET** /api/v2/testStatuses/name/{name}/exists | 
+*TestStatusesApi* | [**api_v2_test_statuses_post**](docs/TestStatusesApi.md#api_v2_test_statuses_post) | **POST** /api/v2/testStatuses | 
+*TestStatusesApi* | [**api_v2_test_statuses_search_post**](docs/TestStatusesApi.md#api_v2_test_statuses_search_post) | **POST** /api/v2/testStatuses/search | 
 *TestSuitesApi* | [**add_test_points_to_test_suite**](docs/TestSuitesApi.md#add_test_points_to_test_suite) | **POST** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_patch**](docs/TestSuitesApi.md#api_v2_test_suites_id_patch) | **PATCH** /api/v2/testSuites/{id} | Patch test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_refresh_post**](docs/TestSuitesApi.md#api_v2_test_suites_id_refresh_post) | **POST** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method
@@ -365,6 +372,14 @@ Class | Method | HTTP request | Description
 *WorkItemsCommentsApi* | [**api_v2_work_items_comments_put**](docs/WorkItemsCommentsApi.md#api_v2_work_items_comments_put) | **PUT** /api/v2/workItems/comments | Update work item comment
 *WorkItemsCommentsApi* | [**api_v2_work_items_id_comments_count_get**](docs/WorkItemsCommentsApi.md#api_v2_work_items_id_comments_count_get) | **GET** /api/v2/workItems/{id}/comments/count | Get work item comments count
 *WorkItemsCommentsApi* | [**api_v2_work_items_id_comments_get**](docs/WorkItemsCommentsApi.md#api_v2_work_items_id_comments_get) | **GET** /api/v2/workItems/{id}/comments | Get work item comments
+*WorkflowsApi* | [**api_v2_workflows_id_delete**](docs/WorkflowsApi.md#api_v2_workflows_id_delete) | **DELETE** /api/v2/workflows/{id} | 
+*WorkflowsApi* | [**api_v2_workflows_id_get**](docs/WorkflowsApi.md#api_v2_workflows_id_get) | **GET** /api/v2/workflows/{id} | 
+*WorkflowsApi* | [**api_v2_workflows_id_patch**](docs/WorkflowsApi.md#api_v2_workflows_id_patch) | **PATCH** /api/v2/workflows/{id} | 
+*WorkflowsApi* | [**api_v2_workflows_id_projects_search_post**](docs/WorkflowsApi.md#api_v2_workflows_id_projects_search_post) | **POST** /api/v2/workflows/{id}/projects/search | 
+*WorkflowsApi* | [**api_v2_workflows_id_put**](docs/WorkflowsApi.md#api_v2_workflows_id_put) | **PUT** /api/v2/workflows/{id} | 
+*WorkflowsApi* | [**api_v2_workflows_name_name_exists_get**](docs/WorkflowsApi.md#api_v2_workflows_name_name_exists_get) | **GET** /api/v2/workflows/name/{name}/exists | 
+*WorkflowsApi* | [**api_v2_workflows_post**](docs/WorkflowsApi.md#api_v2_workflows_post) | **POST** /api/v2/workflows | 
+*WorkflowsApi* | [**api_v2_workflows_search_post**](docs/WorkflowsApi.md#api_v2_workflows_search_post) | **POST** /api/v2/workflows/search | 
 
 
 ## Documentation For Models
@@ -423,6 +438,9 @@ Class | Method | HTTP request | Description
  - [ApiV2TestRunsIdTestResultsBulkPutRequest](docs/ApiV2TestRunsIdTestResultsBulkPutRequest.md)
  - [ApiV2TestRunsSearchPostRequest](docs/ApiV2TestRunsSearchPostRequest.md)
  - [ApiV2TestRunsUpdateMultiplePostRequest](docs/ApiV2TestRunsUpdateMultiplePostRequest.md)
+ - [ApiV2TestStatusesIdPutRequest](docs/ApiV2TestStatusesIdPutRequest.md)
+ - [ApiV2TestStatusesPostRequest](docs/ApiV2TestStatusesPostRequest.md)
+ - [ApiV2TestStatusesSearchPostRequest](docs/ApiV2TestStatusesSearchPostRequest.md)
  - [ApiV2TestSuitesPostRequest](docs/ApiV2TestSuitesPostRequest.md)
  - [ApiV2TestSuitesPutRequest](docs/ApiV2TestSuitesPutRequest.md)
  - [ApiV2WebhooksDeleteRequest](docs/ApiV2WebhooksDeleteRequest.md)
@@ -437,6 +455,10 @@ Class | Method | HTTP request | Description
  - [ApiV2WorkItemsPostRequest](docs/ApiV2WorkItemsPostRequest.md)
  - [ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest](docs/ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest.md)
  - [ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest](docs/ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.md)
+ - [ApiV2WorkflowsIdProjectsSearchPostRequest](docs/ApiV2WorkflowsIdProjectsSearchPostRequest.md)
+ - [ApiV2WorkflowsIdPutRequest](docs/ApiV2WorkflowsIdPutRequest.md)
+ - [ApiV2WorkflowsPostRequest](docs/ApiV2WorkflowsPostRequest.md)
+ - [ApiV2WorkflowsSearchPostRequest](docs/ApiV2WorkflowsSearchPostRequest.md)
  - [AssignAttachmentApiModel](docs/AssignAttachmentApiModel.md)
  - [AssignIterationApiModel](docs/AssignIterationApiModel.md)
  - [AttachmentApiResult](docs/AttachmentApiResult.md)
@@ -477,7 +499,9 @@ Class | Method | HTTP request | Description
  - [AutoTestNamespacesCountResponse](docs/AutoTestNamespacesCountResponse.md)
  - [AutoTestOutcome](docs/AutoTestOutcome.md)
  - [AutoTestProjectSettingsApiModel](docs/AutoTestProjectSettingsApiModel.md)
+ - [AutoTestProjectSettingsApiModelWorkItemUpdatingFields](docs/AutoTestProjectSettingsApiModelWorkItemUpdatingFields.md)
  - [AutoTestProjectSettingsApiResult](docs/AutoTestProjectSettingsApiResult.md)
+ - [AutoTestProjectSettingsApiResultWorkItemUpdatingFields](docs/AutoTestProjectSettingsApiResultWorkItemUpdatingFields.md)
  - [AutoTestRelatedToTestResult](docs/AutoTestRelatedToTestResult.md)
  - [AutoTestResultHistoryApiResult](docs/AutoTestResultHistoryApiResult.md)
  - [AutoTestResultHistoryApiResultStatus](docs/AutoTestResultHistoryApiResultStatus.md)
@@ -798,7 +822,6 @@ Class | Method | HTTP request | Description
  - [TestPlanGroupByStatus](docs/TestPlanGroupByStatus.md)
  - [TestPlanGroupByStatusCode](docs/TestPlanGroupByStatusCode.md)
  - [TestPlanGroupByStatusType](docs/TestPlanGroupByStatusType.md)
- - [TestPlanGroupByTestSuite](docs/TestPlanGroupByTestSuite.md)
  - [TestPlanGroupByTester](docs/TestPlanGroupByTester.md)
  - [TestPlanGroupByTesterAndStatus](docs/TestPlanGroupByTesterAndStatus.md)
  - [TestPlanGroupByTesterAndStatusCode](docs/TestPlanGroupByTesterAndStatusCode.md)
@@ -1086,6 +1109,8 @@ Class | Method | HTTP request | Description
  - [WorkItemStepChangeViewModel](docs/WorkItemStepChangeViewModel.md)
  - [WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel](docs/WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md)
  - [WorkItemStepChangeViewModelWorkItem](docs/WorkItemStepChangeViewModelWorkItem.md)
+ - [WorkItemUpdatingFieldsApiModel](docs/WorkItemUpdatingFieldsApiModel.md)
+ - [WorkItemUpdatingFieldsApiResult](docs/WorkItemUpdatingFieldsApiResult.md)
  - [WorkItemVersionModel](docs/WorkItemVersionModel.md)
  - [WorkflowApiResult](docs/WorkflowApiResult.md)
  - [WorkflowExistsByNameApiResult](docs/WorkflowExistsByNameApiResult.md)
