@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **exclude_tags** | **[str], none_type** | Collection of tags to exclude | [optional] 
 **auto_test_ids** | **[str], none_type** | Collection of identifiers of linked autotests | [optional] 
 **work_item_version_ids** | **[str], none_type** | Collection of identifiers work items versions. | [optional] 
+**links** | [**TestSuiteWorkItemsSearchModelLinks**](TestSuiteWorkItemsSearchModelLinks.md) |  | [optional] 
+**external_metadata** | [**TestSuiteWorkItemsSearchModelExternalMetadata**](TestSuiteWorkItemsSearchModelExternalMetadata.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

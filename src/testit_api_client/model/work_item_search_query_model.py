@@ -33,6 +33,7 @@ def lazy_import():
     from testit_api_client.model.test_plan_test_points_search_api_model_work_item_created_date import TestPlanTestPointsSearchApiModelWorkItemCreatedDate
     from testit_api_client.model.test_plan_test_points_search_api_model_work_item_modified_date import TestPlanTestPointsSearchApiModelWorkItemModifiedDate
     from testit_api_client.model.test_suite_work_items_search_model_duration import TestSuiteWorkItemsSearchModelDuration
+    from testit_api_client.model.test_suite_work_items_search_model_external_metadata import TestSuiteWorkItemsSearchModelExternalMetadata
     from testit_api_client.model.test_suite_work_items_search_model_links import TestSuiteWorkItemsSearchModelLinks
     from testit_api_client.model.test_suite_work_items_search_model_median_duration import TestSuiteWorkItemsSearchModelMedianDuration
     from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
@@ -42,6 +43,7 @@ def lazy_import():
     globals()['TestPlanTestPointsSearchApiModelWorkItemCreatedDate'] = TestPlanTestPointsSearchApiModelWorkItemCreatedDate
     globals()['TestPlanTestPointsSearchApiModelWorkItemModifiedDate'] = TestPlanTestPointsSearchApiModelWorkItemModifiedDate
     globals()['TestSuiteWorkItemsSearchModelDuration'] = TestSuiteWorkItemsSearchModelDuration
+    globals()['TestSuiteWorkItemsSearchModelExternalMetadata'] = TestSuiteWorkItemsSearchModelExternalMetadata
     globals()['TestSuiteWorkItemsSearchModelLinks'] = TestSuiteWorkItemsSearchModelLinks
     globals()['TestSuiteWorkItemsSearchModelMedianDuration'] = TestSuiteWorkItemsSearchModelMedianDuration
     globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
@@ -127,7 +129,6 @@ class WorkItemSearchQueryModel(ModelNormal):
         lazy_import()
         return {
             'project_ids': ([str], none_type,),  # noqa: E501
-            'links': (TestSuiteWorkItemsSearchModelLinks,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'ids': ([str], none_type,),  # noqa: E501
             'global_ids': ([int], none_type,),  # noqa: E501
@@ -149,6 +150,8 @@ class WorkItemSearchQueryModel(ModelNormal):
             'exclude_tags': ([str], none_type,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
             'work_item_version_ids': ([str], none_type,),  # noqa: E501
+            'links': (TestSuiteWorkItemsSearchModelLinks,),  # noqa: E501
+            'external_metadata': (TestSuiteWorkItemsSearchModelExternalMetadata,),  # noqa: E501
         }
 
     @cached_property
@@ -158,7 +161,6 @@ class WorkItemSearchQueryModel(ModelNormal):
 
     attribute_map = {
         'project_ids': 'projectIds',  # noqa: E501
-        'links': 'links',  # noqa: E501
         'name': 'name',  # noqa: E501
         'ids': 'ids',  # noqa: E501
         'global_ids': 'globalIds',  # noqa: E501
@@ -180,6 +182,8 @@ class WorkItemSearchQueryModel(ModelNormal):
         'exclude_tags': 'excludeTags',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
         'work_item_version_ids': 'workItemVersionIds',  # noqa: E501
+        'links': 'links',  # noqa: E501
+        'external_metadata': 'externalMetadata',  # noqa: E501
     }
 
     read_only_vars = {
@@ -224,7 +228,6 @@ class WorkItemSearchQueryModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
-            links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
@@ -246,6 +249,8 @@ class WorkItemSearchQueryModel(ModelNormal):
             exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
+            links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
+            external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -332,7 +337,6 @@ class WorkItemSearchQueryModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
-            links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
@@ -354,6 +358,8 @@ class WorkItemSearchQueryModel(ModelNormal):
             exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
+            links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
+            external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

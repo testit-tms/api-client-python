@@ -22467,7 +22467,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RerunsModel"
+                  "$ref": "#/components/schemas/RerunsApiResult"
                 }
               }
             }
@@ -28352,34 +28352,7 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/SearchWorkflowsApiModel"
-                  }
-                ]
-              }
-            },
             "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/SearchWorkflowsApiModel"
-                  }
-                ]
-              }
-            },
-            "text/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/SearchWorkflowsApiModel"
-                  }
-                ]
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "allOf": [
                   {
@@ -28394,17 +28367,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowShortApiResultReply"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowShortApiResultReply"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/WorkflowShortApiResultReply"
                 }
@@ -28494,17 +28457,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowApiResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowApiResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/WorkflowApiResult"
                 }
@@ -28590,34 +28543,7 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/UpdateWorkflowApiModel"
-                  }
-                ]
-              }
-            },
             "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/UpdateWorkflowApiModel"
-                  }
-                ]
-              }
-            },
-            "text/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/UpdateWorkflowApiModel"
-                  }
-                ]
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "allOf": [
                   {
@@ -28712,31 +28638,7 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Operation"
-                }
-              }
-            },
             "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Operation"
-                }
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Operation"
-                }
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -28912,34 +28814,7 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/SearchWorkflowProjectsApiModel"
-                  }
-                ]
-              }
-            },
             "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/SearchWorkflowProjectsApiModel"
-                  }
-                ]
-              }
-            },
-            "text/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/SearchWorkflowProjectsApiModel"
-                  }
-                ]
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "allOf": [
                   {
@@ -28954,17 +28829,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowProjectApiResultReply"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowProjectApiResultReply"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/WorkflowProjectApiResultReply"
                 }
@@ -29053,17 +28918,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowExistsByNameApiResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowExistsByNameApiResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/WorkflowExistsByNameApiResult"
                 }
@@ -29140,34 +28995,7 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/CreateWorkflowApiModel"
-                  }
-                ]
-              }
-            },
             "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/CreateWorkflowApiModel"
-                  }
-                ]
-              }
-            },
-            "text/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/CreateWorkflowApiModel"
-                  }
-                ]
-              }
-            },
-            "application/*+json": {
               "schema": {
                 "allOf": [
                   {
@@ -29182,17 +29010,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowApiResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WorkflowApiResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/WorkflowApiResult"
                 }
@@ -32312,7 +32130,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WorkItemCommentModel"
+                    "$ref": "#/components/schemas/WorkItemCommentApiResult"
                   }
                 }
               }
@@ -32487,7 +32305,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/WorkItemCommentPostModel"
+                    "$ref": "#/components/schemas/CreateWorkItemCommentApiModel"
                   }
                 ]
               }
@@ -32500,7 +32318,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WorkItemCommentModel"
+                  "$ref": "#/components/schemas/WorkItemCommentApiResult"
                 }
               }
             }
@@ -32578,7 +32396,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/WorkItemCommentPutModel"
+                    "$ref": "#/components/schemas/UpdateWorkItemCommentApiModel"
                   }
                 ]
               }
@@ -33891,6 +33709,15 @@
             },
             "description": "Specifies an autotest tags to search for",
             "nullable": true
+          },
+          "excludeTags": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Specifies an autotest tags to exclude",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -34021,6 +33848,13 @@
             "nullable": true
           },
           "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "excludeTags": {
             "type": "array",
             "items": {
               "type": "string"
@@ -34284,7 +34118,7 @@
             "type": "string",
             "description": "This property is used to link autotest with project",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "name": {
             "title": "Autotest name",
@@ -34338,27 +34172,27 @@
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last autotest modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdById": {
             "title": "Unique identifier of user who created autotest",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last autotest modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "labels": {
             "title": "Label of autotest",
@@ -35074,7 +34908,8 @@
               "$ref": "#/components/schemas/AutoTestStep"
             },
             "description": "Includes a nested step inside another step. The maximum nesting level is 15.",
-            "nullable": true
+            "nullable": true,
+            "example": "\n            [{ \"title\": \"string\", \"description\": \"string\", \"steps\": [{ \"title\": \"string\", \"description\": \"string\", }], }]\n            "
           }
         },
         "additionalProperties": false
@@ -35101,7 +34936,8 @@
               "$ref": "#/components/schemas/AutoTestStepApiModel"
             },
             "description": "Includes a nested step inside another step. The maximum nesting level is 15.",
-            "nullable": true
+            "nullable": true,
+            "example": "\n            [{ \"title\": \"string\", \"description\": \"string\", \"steps\": [{ \"title\": \"string\", \"description\": \"string\", }], }]\n            "
           }
         },
         "additionalProperties": false
@@ -35127,7 +34963,8 @@
               "$ref": "#/components/schemas/AutoTestStepApiResult"
             },
             "description": "Includes a nested step inside another step. The maximum nesting level is 15.",
-            "nullable": true
+            "nullable": true,
+            "example": "\n            [{ \"title\": \"string\", \"description\": \"string\", \"steps\": [{ \"title\": \"string\", \"description\": \"string\", }], }]\n            "
           }
         },
         "additionalProperties": false
@@ -35154,7 +34991,8 @@
               "$ref": "#/components/schemas/AutoTestStepModel"
             },
             "description": "Includes a nested step inside another step. The maximum nesting level is 15.",
-            "nullable": true
+            "nullable": true,
+            "example": "\n            [{ \"title\": \"string\", \"description\": \"string\", \"steps\": [{ \"title\": \"string\", \"description\": \"string\", }], }]\n            "
           }
         },
         "additionalProperties": false
@@ -35931,7 +35769,7 @@
             "type": "string",
             "description": "This property is used to link configuration with project",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "parameterIds": {
             "title": "Parameters unique identifiers",
@@ -36098,7 +35936,7 @@
             "type": "string",
             "description": "This property is used to link configuration with project",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "isDefault": {
             "title": "Boolean flag defines if the configuration must be used as default",
@@ -36115,27 +35953,27 @@
             "title": "Date and time of configuration creation",
             "type": "string",
             "format": "date-time",
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last configuration modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdById": {
             "title": "Unique identifier of user who created configuration",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last configuration modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "globalId": {
             "title": "Configuration Global unique identifier",
@@ -36211,7 +36049,7 @@
             "title": "Configuration internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "description": {
             "title": "Configuration description",
@@ -37101,6 +36939,27 @@
         },
         "additionalProperties": false
       },
+      "CreateWorkItemCommentApiModel": {
+        "required": [
+          "text",
+          "workItemId"
+        ],
+        "type": "object",
+        "properties": {
+          "workItemId": {
+            "type": "string",
+            "description": "ID of work item to comment",
+            "format": "uuid"
+          },
+          "text": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string",
+            "description": "Text of the comment"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateWorkItemPreviewsApiModel": {
         "required": [
           "previews",
@@ -37681,7 +37540,7 @@
             "title": "Custom attribute template internal unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "isDeleted": {
             "title": "Flag that defines if custom attribute template is deleted",
@@ -39786,7 +39645,7 @@
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "title": {
             "type": "string",
@@ -39869,7 +39728,7 @@
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "title": {
             "type": "string",
@@ -40423,7 +40282,7 @@
             "title": "Parameter internal unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           }
         },
         "additionalProperties": false
@@ -41770,29 +41629,7 @@
         },
         "additionalProperties": false
       },
-      "RerunTestResultModel": {
-        "required": [
-          "id",
-          "runNumber"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "outcome": {
-            "type": "string",
-            "nullable": true
-          },
-          "runNumber": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RerunsModel": {
+      "RerunsApiResult": {
         "required": [
           "rerunCount",
           "rerunTestResults"
@@ -41806,7 +41643,7 @@
           "rerunTestResults": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RerunTestResultModel"
+              "$ref": "#/components/schemas/RerunTestResultApiResult"
             }
           }
         },
@@ -42042,14 +41879,14 @@
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "parentId": {
             "title": "Parent section identifier",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "isDeleted": {
             "title": "Flag that defines if section is deleted",
@@ -42060,33 +41897,33 @@
             "title": "Section unique internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "createdDate": {
             "title": "Date and time of section creation",
             "type": "string",
             "format": "date-time",
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last section modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdById": {
             "title": "Unique identifier of user who created section",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last section modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "name": {
             "title": "Section name",
@@ -42142,20 +41979,20 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "projectId": {
             "title": "Project unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "parentId": {
             "title": "Parent section identifier",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "preconditionSteps": {
             "title": "Section precondition steps collection",
@@ -42201,20 +42038,20 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "projectId": {
             "title": "Project unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "parentId": {
             "title": "Parent section identifier",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "preconditionSteps": {
             "title": "Section precondition steps collection",
@@ -42253,7 +42090,7 @@
             "title": "Section unique internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "name": {
             "title": "Section name",
@@ -42301,14 +42138,14 @@
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "parentId": {
             "title": "Parent section identifier",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "isDeleted": {
             "title": "Flag that defines if section is deleted",
@@ -42319,33 +42156,33 @@
             "title": "Section unique internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "createdDate": {
             "title": "Date and time of section creation",
             "type": "string",
             "format": "date-time",
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last section modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdById": {
             "title": "Unique identifier of user who created section",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last section modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "name": {
             "title": "Section name",
@@ -42423,7 +42260,7 @@
             "title": "Shared step version identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "globalId": {
             "title": "Shared step global identifier",
@@ -42476,7 +42313,7 @@
             "title": "Workitem internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "globalId": {
             "title": "Workitem global identifier",
@@ -42513,28 +42350,28 @@
             "title": "Unique identifier of user who created workitem",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last workitem modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "createdDate": {
             "title": "Date and time of workitem creation",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last workitem modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "state": {
             "title": "WorkItem state",
@@ -42565,7 +42402,7 @@
             "type": "string",
             "description": "used for versioning changes in workitem",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "isAutomated": {
             "title": "Flag that workitem is automated",
@@ -42576,7 +42413,7 @@
             "title": "Workitems section identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "tags": {
             "title": "Collection of workitem tags",
@@ -42604,7 +42441,7 @@
             "title": "Section internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "name": {
             "title": "Workitem name",
@@ -42625,28 +42462,28 @@
             "title": "Unique identifier of user who created section",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last section modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "createdDate": {
             "title": "Date and time of section creation",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last section modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "isDeleted": {
             "title": "Flag that defines if section is archived",
@@ -42928,7 +42765,7 @@
             "title": "Step unique internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "action": {
             "title": "Action applied by user",
@@ -42959,7 +42796,7 @@
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           }
         },
         "additionalProperties": false
@@ -42996,7 +42833,7 @@
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           }
         },
         "additionalProperties": false
@@ -43011,7 +42848,7 @@
             "title": "Step unique internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "action": {
             "title": "Action applied by user",
@@ -43042,7 +42879,7 @@
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           }
         },
         "additionalProperties": false
@@ -43754,7 +43591,7 @@
             "description": "Set when test plan is starter (status changed to: In Progress)",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "completedOn": {
             "title": "Date and time of test plan end",
@@ -43762,34 +43599,34 @@
             "description": "set when test plan status is completed (status changed to: Completed)",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdDate": {
             "title": "Date and time of test plan creation",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last test plan modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdById": {
             "title": "Unique identifier of user who created test plan ",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last test plan modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "globalId": {
             "title": "Test plan  unique global identifier",
@@ -43808,13 +43645,13 @@
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "id": {
             "title": "Test plan unique internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "lockedById": {
             "title": "User who locked test plan modification internal identifier",
@@ -43843,7 +43680,7 @@
             "description": "Used for analytics",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "endDate": {
             "title": "Date and time of test plan end",
@@ -43851,7 +43688,7 @@
             "description": "Used for analytics",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "description": {
             "title": "Test plan description",
@@ -43873,7 +43710,7 @@
             "title": "Project unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "productName": {
             "title": "Name of the testing product",
@@ -45004,7 +44841,7 @@
             "description": "Set when test plan is starter (status changed to: In Progress)",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "completedOn": {
             "title": "Date and time of test plan end",
@@ -45012,34 +44849,34 @@
             "description": "set when test plan status is completed (status changed to: Completed)",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdDate": {
             "title": "Date and time of test plan creation",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last test plan modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdById": {
             "title": "Unique identifier of user who created test plan ",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last test plan modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "globalId": {
             "title": "Test plan  unique global identifier",
@@ -45058,13 +44895,13 @@
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "id": {
             "title": "Test plan unique internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "lockedById": {
             "title": "User who locked test plan modification internal identifier",
@@ -45093,7 +44930,7 @@
             "description": "Used for analytics",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "endDate": {
             "title": "Date and time of test plan end",
@@ -45101,7 +44938,7 @@
             "description": "Used for analytics",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "description": {
             "title": "Test plan description",
@@ -45123,7 +44960,7 @@
             "title": "Project unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "productName": {
             "title": "Name of the testing product",
@@ -45183,7 +45020,7 @@
             "description": "Set when test plan is starter (status changed to: In Progress)",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "completedOn": {
             "title": "Date and time of test plan end",
@@ -45191,34 +45028,34 @@
             "description": "set when test plan status is completed (status changed to: Completed)",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdDate": {
             "title": "Date and time of test plan creation",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last test plan modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdById": {
             "title": "Unique identifier of user who created test plan ",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last test plan modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "globalId": {
             "title": "Test plan  unique global identifier",
@@ -45237,13 +45074,13 @@
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "id": {
             "title": "Test plan unique internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "lockedById": {
             "title": "User who locked test plan modification internal identifier",
@@ -45272,7 +45109,7 @@
             "description": "Used for analytics",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "endDate": {
             "title": "Date and time of test plan end",
@@ -45280,7 +45117,7 @@
             "description": "Used for analytics",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "description": {
             "title": "Test plan description",
@@ -45302,7 +45139,7 @@
             "title": "Project unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "productName": {
             "title": "Name of the testing product",
@@ -46173,7 +46010,7 @@
             "title": "Test suite to which test point relates unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "id": {
             "type": "string",
@@ -47369,6 +47206,7 @@
         "required": [
           "attachments",
           "autotestGlobalId",
+          "autoTestTags",
           "configurationId",
           "configurationName",
           "createdDate",
@@ -47401,6 +47239,13 @@
             "type": "string",
             "description": "External ID of autotest represented by the test result",
             "nullable": true
+          },
+          "autoTestTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags of the autotest represented by the test result"
           },
           "testRunId": {
             "type": "string",
@@ -47583,7 +47428,7 @@
             "nullable": true
           },
           "durationInMs": {
-            "maximum": 9223372036854776000,
+            "maximum": 86400000,
             "minimum": 0,
             "type": "integer",
             "format": "int64",
@@ -47591,7 +47436,7 @@
             "deprecated": true
           },
           "duration": {
-            "maximum": 9223372036854776000,
+            "maximum": 86400000,
             "minimum": 0,
             "type": "integer",
             "format": "int64",
@@ -47661,32 +47506,32 @@
             "title": "Test result unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "configurationId": {
             "title": "Configuration related to test result unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "workItemVersionId": {
             "title": "Workitem version related to test result unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "autoTestId": {
             "title": "Auto test related to test result unique identifier",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "message": {
             "title": "Auto test message",
             "type": "string",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "traces": {
             "title": "Test result trace",
@@ -47699,35 +47544,35 @@
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "completedOn": {
             "title": "End date time from test result or from test run (if test run new state is In progress, Stopped or Completed)",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "runByUserId": {
             "title": "Unique identifier of user which run test result",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "stoppedByUserId": {
             "title": "Unique identifier of user which stopped test result",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "testPointId": {
             "title": "Test point related to test result unique identifier",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "testPoint": {
             "title": "Test point related to test result",
@@ -47742,7 +47587,7 @@
             "title": "Test run to which test result relates unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "outcome": {
             "title": "Test result outcome",
@@ -47805,32 +47650,32 @@
             "title": "Test result unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "configurationId": {
             "title": "Configuration related to test result unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "workItemVersionId": {
             "title": "Workitem version related to test result unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "autoTestId": {
             "title": "Auto test related to test result unique identifier",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "message": {
             "title": "Auto test message",
             "type": "string",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "traces": {
             "title": "Test result trace",
@@ -47843,35 +47688,35 @@
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "completedOn": {
             "title": "End date time from test result or from test run (if test run new state is In progress, Stopped or Completed)",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "runByUserId": {
             "title": "Unique identifier of user which run test result",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "stoppedByUserId": {
             "title": "Unique identifier of user which stopped test result",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "testPointId": {
             "title": "Test point related to test result unique identifier",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "testPoint": {
             "title": "Test point related to test result",
@@ -47886,7 +47731,7 @@
             "title": "Test run to which test result relates unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "outcome": {
             "title": "Test result outcome",
@@ -48008,6 +47853,22 @@
               "format": "int64"
             },
             "description": "Specifies an autotest global IDs to search results for",
+            "nullable": true
+          },
+          "autoTestTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Specifies autotest tags to include in the search.",
+            "nullable": true
+          },
+          "excludeAutoTestTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Specifies autotest tags to exclude from the search.",
             "nullable": true
           },
           "name": {
@@ -49747,15 +49608,6 @@
             "description": "Collection of identifiers of work items which need to be excluded from result regardless of filtering",
             "nullable": true
           },
-          "externalMetadata": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/WorkItemExternalMetadataFilterModel"
-              }
-            ],
-            "description": "Specifies work item filter by its external metadata",
-            "nullable": true
-          },
           "projectIds": {
             "uniqueItems": true,
             "type": "array",
@@ -49764,15 +49616,6 @@
               "format": "uuid"
             },
             "description": "Collection of project identifiers",
-            "nullable": true
-          },
-          "links": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/WorkItemLinkFilterModel"
-              }
-            ],
-            "description": "Specifies a work item filter by its links",
             "nullable": true
           },
           "name": {
@@ -49962,6 +49805,24 @@
               "format": "uuid"
             },
             "description": "Collection of identifiers work items versions.",
+            "nullable": true
+          },
+          "links": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkItemLinkFilterModel"
+              }
+            ],
+            "description": "Specifies a work item filter by its links",
+            "nullable": true
+          },
+          "externalMetadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkItemExternalMetadataFilterModel"
+              }
+            ],
+            "description": "Specifies work item filter by its external metadata",
             "nullable": true
           }
         },
@@ -50616,6 +50477,27 @@
         },
         "additionalProperties": false
       },
+      "UpdateWorkItemCommentApiModel": {
+        "required": [
+          "id",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the comment",
+            "format": "uuid"
+          },
+          "text": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string",
+            "description": "Text of the comment"
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateWorkflowApiModel": {
         "required": [
           "isDefault",
@@ -50673,131 +50555,6 @@
           "name": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserRankModel": {
-        "required": [
-          "blockedTestPoints",
-          "failedTestPoints",
-          "incompleteTestPoints",
-          "levelAvatarEnabled",
-          "passedTestPoints",
-          "score",
-          "skippedTestPoints",
-          "succeededTestPoints",
-          "workItemsCreated"
-        ],
-        "type": "object",
-        "properties": {
-          "score": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "workItemsCreated": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "passedTestPoints": {
-            "type": "integer",
-            "format": "int32",
-            "deprecated": true
-          },
-          "failedTestPoints": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "skippedTestPoints": {
-            "type": "integer",
-            "format": "int32",
-            "deprecated": true
-          },
-          "blockedTestPoints": {
-            "type": "integer",
-            "format": "int32",
-            "deprecated": true
-          },
-          "levelAvatarEnabled": {
-            "type": "boolean"
-          },
-          "succeededTestPoints": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "incompleteTestPoints": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserWithRankModel": {
-        "required": [
-          "avatarMetadata",
-          "avatarUrl",
-          "displayName",
-          "firstName",
-          "id",
-          "isActiveStatusByEntity",
-          "isDeleted",
-          "isDisabled",
-          "lastName",
-          "middleName",
-          "userName",
-          "userRank",
-          "userType"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "middleName": {
-            "type": "string"
-          },
-          "userName": {
-            "type": "string"
-          },
-          "displayName": {
-            "type": "string"
-          },
-          "userType": {
-            "type": "string"
-          },
-          "avatarUrl": {
-            "type": "string"
-          },
-          "avatarMetadata": {
-            "type": "string"
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "isDisabled": {
-            "type": "boolean"
-          },
-          "providerId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "isActiveStatusByEntity": {
-            "type": "boolean"
-          },
-          "userRank": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/UserRankModel"
-              }
-            ]
           }
         },
         "additionalProperties": false
@@ -51706,6 +51463,7 @@
       "WorkItemChangeModel": {
         "required": [
           "createdById",
+          "createdDate",
           "id",
           "newVersionId",
           "oldVersionId",
@@ -51742,6 +51500,15 @@
             "format": "uuid"
           },
           "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifiedById": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "modifiedDate": {
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -51940,87 +51707,45 @@
         },
         "additionalProperties": false
       },
-      "WorkItemCommentModel": {
+      "WorkItemCommentApiResult": {
         "required": [
           "createdById",
           "createdDate",
           "id",
-          "text",
-          "user"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "text": {
-            "type": "string"
-          },
-          "user": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/UserWithRankModel"
-              }
-            ]
-          },
-          "createdById": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "modifiedById": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "createdDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "modifiedDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WorkItemCommentPostModel": {
-        "required": [
-          "text",
-          "workItemId"
-        ],
-        "type": "object",
-        "properties": {
-          "text": {
-            "maxLength": 1024,
-            "minLength": 1,
-            "type": "string"
-          },
-          "workItemId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
-      "WorkItemCommentPutModel": {
-        "required": [
-          "id",
+          "modifiedById",
+          "modifiedDate",
           "text"
         ],
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the comment",
+            "format": "uuid"
+          },
           "text": {
-            "maxLength": 1024,
-            "minLength": 1,
             "type": "string",
             "description": "Text of the comment"
           },
-          "id": {
+          "createdById": {
             "type": "string",
-            "description": "Unique ID of the comment",
+            "description": "ID of user created comment",
             "format": "uuid"
+          },
+          "modifiedById": {
+            "type": "string",
+            "description": "ID of user modified comment",
+            "format": "uuid"
+          },
+          "createdDate": {
+            "type": "string",
+            "description": "Comment created date",
+            "format": "date-time"
+          },
+          "modifiedDate": {
+            "type": "string",
+            "description": "Comment modified date",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -52514,15 +52239,6 @@
             "description": "Collection of identifiers of work items which need to be excluded from result regardless of filtering",
             "nullable": true
           },
-          "externalMetadata": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/WorkItemExternalMetadataFilterModel"
-              }
-            ],
-            "description": "Specifies work item filter by its external metadata",
-            "nullable": true
-          },
           "projectIds": {
             "uniqueItems": true,
             "type": "array",
@@ -52531,15 +52247,6 @@
               "format": "uuid"
             },
             "description": "Collection of project identifiers",
-            "nullable": true
-          },
-          "links": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/WorkItemLinkFilterModel"
-              }
-            ],
-            "description": "Specifies a work item filter by its links",
             "nullable": true
           },
           "name": {
@@ -52729,6 +52436,24 @@
               "format": "uuid"
             },
             "description": "Collection of identifiers work items versions.",
+            "nullable": true
+          },
+          "links": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkItemLinkFilterModel"
+              }
+            ],
+            "description": "Specifies a work item filter by its links",
+            "nullable": true
+          },
+          "externalMetadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkItemExternalMetadataFilterModel"
+              }
+            ],
+            "description": "Specifies work item filter by its external metadata",
             "nullable": true
           }
         },
@@ -53264,6 +52989,24 @@
             },
             "description": "Collection of identifiers work items versions.",
             "nullable": true
+          },
+          "links": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkItemLinkFilterModel"
+              }
+            ],
+            "description": "Specifies a work item filter by its links",
+            "nullable": true
+          },
+          "externalMetadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkItemExternalMetadataFilterModel"
+              }
+            ],
+            "description": "Specifies work item filter by its external metadata",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -53328,7 +53071,7 @@
             "type": "string",
             "description": "used for versioning changes in workitem",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "medianDuration": {
             "title": "Workitem median duration",
@@ -53346,7 +53089,7 @@
             "title": "Project where workitem is located unique identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "entityTypeName": {
             "allOf": [
@@ -53410,27 +53153,27 @@
             "title": "Date and time of workitem creation",
             "type": "string",
             "format": "date-time",
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedDate": {
             "title": "Date and time of last workitem modification",
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "createdById": {
             "title": "Unique identifier of user who created workitem",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied last workitem modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "globalId": {
             "title": "Shared step global identifier",
@@ -53448,13 +53191,13 @@
             "title": "Workitem internal identifier",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "sectionId": {
             "title": "Internal identifier of section where workitem is located ",
             "type": "string",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "description": {
             "title": "Workitem description",
@@ -53659,15 +53402,6 @@
             "description": "Collection of project identifiers",
             "nullable": true
           },
-          "links": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/WorkItemLinkFilterModel"
-              }
-            ],
-            "description": "Specifies a work item filter by its links",
-            "nullable": true
-          },
           "name": {
             "maxLength": 255,
             "minLength": 0,
@@ -53855,6 +53589,24 @@
               "format": "uuid"
             },
             "description": "Collection of identifiers work items versions.",
+            "nullable": true
+          },
+          "links": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkItemLinkFilterModel"
+              }
+            ],
+            "description": "Specifies a work item filter by its links",
+            "nullable": true
+          },
+          "externalMetadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkItemExternalMetadataFilterModel"
+              }
+            ],
+            "description": "Specifies work item filter by its external metadata",
             "nullable": true
           }
         },
@@ -54449,7 +54201,7 @@
             "type": "string",
             "description": "used for versioning changes in workitem",
             "format": "uuid",
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           },
           "versionNumber": {
             "title": "Workitem version number",
@@ -54463,14 +54215,14 @@
             "type": "string",
             "format": "date-time",
             "nullable": true,
-            "example": "2026-02-05T15:13:18.6574769+00:00"
+            "example": "2026-01-27T05:43:09.5774479+00:00"
           },
           "modifiedById": {
             "title": "Unique identifier of user who applied workitem version modification",
             "type": "string",
             "format": "uuid",
             "nullable": true,
-            "example": "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5"
+            "example": "39d127a1-a511-473f-8b21-f75b747a9420"
           }
         },
         "additionalProperties": false
@@ -54749,6 +54501,128 @@
   "security": [
     {
       "Bearer or PrivateToken": [ ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "AI services API"
+    },
+    {
+      "name": "Attachments"
+    },
+    {
+      "name": "AutoTests"
+    },
+    {
+      "name": "BackgroundJobs"
+    },
+    {
+      "name": "Configurations"
+    },
+    {
+      "name": "CustomAttributes"
+    },
+    {
+      "name": "CustomAttributeTemplates"
+    },
+    {
+      "name": "ExternalIssues"
+    },
+    {
+      "name": "ExternalServices"
+    },
+    {
+      "name": "FailureCategories"
+    },
+    {
+      "name": "Notifications"
+    },
+    {
+      "name": "Parameters"
+    },
+    {
+      "name": "Project attribute templates"
+    },
+    {
+      "name": "Project attributes"
+    },
+    {
+      "name": "Project configurations"
+    },
+    {
+      "name": "Project external services"
+    },
+    {
+      "name": "Project failure categories"
+    },
+    {
+      "name": "Project sections"
+    },
+    {
+      "name": "Project settings"
+    },
+    {
+      "name": "Project test plan attributes"
+    },
+    {
+      "name": "Project test plan test points"
+    },
+    {
+      "name": "Project test plans"
+    },
+    {
+      "name": "Project work items"
+    },
+    {
+      "name": "Projects"
+    },
+    {
+      "name": "Search"
+    },
+    {
+      "name": "Sections"
+    },
+    {
+      "name": "Tags"
+    },
+    {
+      "name": "TestPlans"
+    },
+    {
+      "name": "TestPoints"
+    },
+    {
+      "name": "TestResults"
+    },
+    {
+      "name": "TestRuns"
+    },
+    {
+      "name": "TestStatuses"
+    },
+    {
+      "name": "TestSuites"
+    },
+    {
+      "name": "Users"
+    },
+    {
+      "name": "UserStorages"
+    },
+    {
+      "name": "Webhooks"
+    },
+    {
+      "name": "WebhooksLogs"
+    },
+    {
+      "name": "Workflows"
+    },
+    {
+      "name": "WorkItems"
+    },
+    {
+      "name": "WorkItemsComments"
     }
   ]
 }

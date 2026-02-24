@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **external_key** | **str, none_type** |  | [optional] 
 **last_test_result_configuration_ids** | **[str], none_type** |  | [optional] 
 **tags** | **[str], none_type** |  | [optional] 
+**exclude_tags** | **[str], none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

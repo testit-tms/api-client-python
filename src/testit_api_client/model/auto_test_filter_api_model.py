@@ -88,6 +88,8 @@ class AutoTestFilterApiModel(ModelNormal):
         },
         ('tags',): {
         },
+        ('exclude_tags',): {
+        },
     }
 
     additional_properties_type = None
@@ -127,6 +129,7 @@ class AutoTestFilterApiModel(ModelNormal):
             'external_key': (str, none_type,),  # noqa: E501
             'last_test_result_configuration_ids': ([str], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
+            'exclude_tags': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -156,6 +159,7 @@ class AutoTestFilterApiModel(ModelNormal):
         'external_key': 'externalKey',  # noqa: E501
         'last_test_result_configuration_ids': 'lastTestResultConfigurationIds',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'exclude_tags': 'excludeTags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -220,6 +224,7 @@ class AutoTestFilterApiModel(ModelNormal):
             external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
             last_test_result_configuration_ids ([str], none_type): Specifies an autotest configuration IDs of the last test result to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies an autotest tags to search for. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Specifies an autotest tags to exclude. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -326,6 +331,7 @@ class AutoTestFilterApiModel(ModelNormal):
             external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
             last_test_result_configuration_ids ([str], none_type): Specifies an autotest configuration IDs of the last test result to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies an autotest tags to search for. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Specifies an autotest tags to exclude. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

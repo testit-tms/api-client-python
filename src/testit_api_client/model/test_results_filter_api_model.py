@@ -107,6 +107,8 @@ class TestResultsFilterApiModel(ModelNormal):
             'namespace': (str, none_type,),  # noqa: E501
             'class_name': (str, none_type,),  # noqa: E501
             'auto_test_global_ids': ([int], none_type,),  # noqa: E501
+            'auto_test_tags': ([str], none_type,),  # noqa: E501
+            'exclude_auto_test_tags': ([str], none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'created_date': (TestResultsFilterApiModelCreatedDate,),  # noqa: E501
             'modified_date': (TestResultsFilterApiModelModifiedDate,),  # noqa: E501
@@ -130,6 +132,8 @@ class TestResultsFilterApiModel(ModelNormal):
         'namespace': 'namespace',  # noqa: E501
         'class_name': 'className',  # noqa: E501
         'auto_test_global_ids': 'autoTestGlobalIds',  # noqa: E501
+        'auto_test_tags': 'autoTestTags',  # noqa: E501
+        'exclude_auto_test_tags': 'excludeAutoTestTags',  # noqa: E501
         'name': 'name',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
@@ -188,6 +192,8 @@ class TestResultsFilterApiModel(ModelNormal):
             namespace (str, none_type): Specifies a test result namespace to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies a test result class name to search for. [optional]  # noqa: E501
             auto_test_global_ids ([int], none_type): Specifies an autotest global IDs to search results for. [optional]  # noqa: E501
+            auto_test_tags ([str], none_type): Specifies autotest tags to include in the search.. [optional]  # noqa: E501
+            exclude_auto_test_tags ([str], none_type): Specifies autotest tags to exclude from the search.. [optional]  # noqa: E501
             name (str, none_type): Specifies an autotest name to search results for. [optional]  # noqa: E501
             created_date (TestResultsFilterApiModelCreatedDate): [optional]  # noqa: E501
             modified_date (TestResultsFilterApiModelModifiedDate): [optional]  # noqa: E501
@@ -288,6 +294,8 @@ class TestResultsFilterApiModel(ModelNormal):
             namespace (str, none_type): Specifies a test result namespace to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies a test result class name to search for. [optional]  # noqa: E501
             auto_test_global_ids ([int], none_type): Specifies an autotest global IDs to search results for. [optional]  # noqa: E501
+            auto_test_tags ([str], none_type): Specifies autotest tags to include in the search.. [optional]  # noqa: E501
+            exclude_auto_test_tags ([str], none_type): Specifies autotest tags to exclude from the search.. [optional]  # noqa: E501
             name (str, none_type): Specifies an autotest name to search results for. [optional]  # noqa: E501
             created_date (TestResultsFilterApiModelCreatedDate): [optional]  # noqa: E501
             modified_date (TestResultsFilterApiModelModifiedDate): [optional]  # noqa: E501

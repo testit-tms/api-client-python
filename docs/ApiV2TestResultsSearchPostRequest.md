@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **namespace** | **str, none_type** | Specifies a test result namespace to search for | [optional] 
 **class_name** | **str, none_type** | Specifies a test result class name to search for | [optional] 
 **auto_test_global_ids** | **[int], none_type** | Specifies an autotest global IDs to search results for | [optional] 
+**auto_test_tags** | **[str], none_type** | Specifies autotest tags to include in the search. | [optional] 
+**exclude_auto_test_tags** | **[str], none_type** | Specifies autotest tags to exclude from the search. | [optional] 
 **name** | **str, none_type** | Specifies an autotest name to search results for | [optional] 
 **created_date** | [**TestResultsFilterApiModelCreatedDate**](TestResultsFilterApiModelCreatedDate.md) |  | [optional] 
 **modified_date** | [**TestResultsFilterApiModelModifiedDate**](TestResultsFilterApiModelModifiedDate.md) |  | [optional] 

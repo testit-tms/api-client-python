@@ -30,7 +30,7 @@ from testit_api_client.model.defect_api_model import DefectApiModel
 from testit_api_client.model.get_external_form_api_result import GetExternalFormApiResult
 from testit_api_client.model.image_resize_type import ImageResizeType
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.reruns_model import RerunsModel
+from testit_api_client.model.reruns_api_result import RerunsApiResult
 from testit_api_client.model.test_result_response import TestResultResponse
 from testit_api_client.model.test_result_short_response import TestResultShortResponse
 from testit_api_client.model.test_results_statistics_api_result import TestResultsStatisticsApiResult
@@ -431,7 +431,7 @@ class TestResultsApi(object):
         )
         self.api_v2_test_results_id_reruns_get_endpoint = _Endpoint(
             settings={
-                'response_type': (RerunsModel,),
+                'response_type': (RerunsApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -1561,7 +1561,7 @@ class TestResultsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            RerunsModel
+            RerunsApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """

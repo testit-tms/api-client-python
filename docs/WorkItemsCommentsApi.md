@@ -96,7 +96,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_comments_post**
-> WorkItemCommentModel api_v2_work_items_comments_post()
+> WorkItemCommentApiResult api_v2_work_items_comments_post()
 
 Create WorkItem comment
 
@@ -111,8 +111,8 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_comments_api
 from testit_api_client.model.api_v2_work_items_comments_post_request import ApiV2WorkItemsCommentsPostRequest
+from testit_api_client.model.work_item_comment_api_result import WorkItemCommentApiResult
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkItemCommentModel**](WorkItemCommentModel.md)
+[**WorkItemCommentApiResult**](WorkItemCommentApiResult.md)
 
 ### Authorization
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_work_items_id_comments_get**
-> [WorkItemCommentModel] api_v2_work_items_id_comments_get(id)
+> [WorkItemCommentApiResult] api_v2_work_items_id_comments_get(id)
 
 Get work item comments
 
@@ -363,8 +363,8 @@ Get work item comments
 import time
 import testit_api_client
 from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.work_item_comment_api_result import WorkItemCommentApiResult
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[WorkItemCommentModel]**](WorkItemCommentModel.md)
+[**[WorkItemCommentApiResult]**](WorkItemCommentApiResult.md)
 
 ### Authorization
 

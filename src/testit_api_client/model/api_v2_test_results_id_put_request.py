@@ -75,11 +75,11 @@ class ApiV2TestResultsIdPutRequest(ModelComposed):
 
     validations = {
         ('duration_in_ms',): {
-            'inclusive_maximum': 9223372036854775807,
+            'inclusive_maximum': 86400000,
             'inclusive_minimum': 0,
         },
         ('duration',): {
-            'inclusive_maximum': 9223372036854775807,
+            'inclusive_maximum': 86400000,
             'inclusive_minimum': 0,
         },
     }

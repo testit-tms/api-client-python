@@ -25,7 +25,7 @@ from testit_api_client.model.api_v2_work_items_comments_post_request import ApiV
 from testit_api_client.model.api_v2_work_items_comments_put_request import ApiV2WorkItemsCommentsPutRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
+from testit_api_client.model.work_item_comment_api_result import WorkItemCommentApiResult
 
 
 class WorkItemsCommentsApi(object):
@@ -92,7 +92,7 @@ class WorkItemsCommentsApi(object):
         )
         self.api_v2_work_items_comments_post_endpoint = _Endpoint(
             settings={
-                'response_type': (WorkItemCommentModel,),
+                'response_type': (WorkItemCommentApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -243,7 +243,7 @@ class WorkItemsCommentsApi(object):
         )
         self.api_v2_work_items_id_comments_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([WorkItemCommentModel],),
+                'response_type': ([WorkItemCommentApiResult],),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -424,7 +424,7 @@ class WorkItemsCommentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            WorkItemCommentModel
+            WorkItemCommentApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -664,7 +664,7 @@ class WorkItemsCommentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [WorkItemCommentModel]
+            [WorkItemCommentApiResult]
                 If the method is called asynchronously, returns the request
                 thread.
         """
