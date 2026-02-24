@@ -639,7 +639,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_results_id_reruns_get**
-> RerunsModel api_v2_test_results_id_reruns_get(id)
+> RerunsApiResult api_v2_test_results_id_reruns_get(id)
 
 Get reruns
 
@@ -652,7 +652,7 @@ import time
 import testit_api_client
 from testit_api_client.api import test_results_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.reruns_model import RerunsModel
+from testit_api_client.model.reruns_api_result import RerunsApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RerunsModel**](RerunsModel.md)
+[**RerunsApiResult**](RerunsApiResult.md)
 
 ### Authorization
 

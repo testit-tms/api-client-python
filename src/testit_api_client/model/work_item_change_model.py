@@ -86,7 +86,9 @@ class WorkItemChangeModel(ModelNormal):
             'new_version_id': (str,),  # noqa: E501
             'work_item_changed_fields': (WorkItemChangeModelWorkItemChangedFields,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +104,8 @@ class WorkItemChangeModel(ModelNormal):
         'work_item_changed_fields': 'workItemChangedFields',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,7 +115,7 @@ class WorkItemChangeModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, work_item_id, old_version_id, new_version_id, work_item_changed_fields, created_by_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, work_item_id, old_version_id, new_version_id, work_item_changed_fields, created_by_id, created_date, *args, **kwargs):  # noqa: E501
         """WorkItemChangeModel - a model defined in OpenAPI
 
         Args:
@@ -121,6 +125,7 @@ class WorkItemChangeModel(ModelNormal):
             new_version_id (str):
             work_item_changed_fields (WorkItemChangeModelWorkItemChangedFields):
             created_by_id (str):
+            created_date (datetime):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -153,7 +158,8 @@ class WorkItemChangeModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            modified_by_id (str, none_type): [optional]  # noqa: E501
+            modified_date (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -191,6 +197,7 @@ class WorkItemChangeModel(ModelNormal):
         self.new_version_id = new_version_id
         self.work_item_changed_fields = work_item_changed_fields
         self.created_by_id = created_by_id
+        self.created_date = created_date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -211,7 +218,7 @@ class WorkItemChangeModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, work_item_id, old_version_id, new_version_id, work_item_changed_fields, created_by_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, work_item_id, old_version_id, new_version_id, work_item_changed_fields, created_by_id, created_date, *args, **kwargs):  # noqa: E501
         """WorkItemChangeModel - a model defined in OpenAPI
 
         Args:
@@ -221,6 +228,7 @@ class WorkItemChangeModel(ModelNormal):
             new_version_id (str):
             work_item_changed_fields (WorkItemChangeModelWorkItemChangedFields):
             created_by_id (str):
+            created_date (datetime):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -253,7 +261,8 @@ class WorkItemChangeModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime, none_type): [optional]  # noqa: E501
+            modified_by_id (str, none_type): [optional]  # noqa: E501
+            modified_date (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -289,6 +298,7 @@ class WorkItemChangeModel(ModelNormal):
         self.new_version_id = new_version_id
         self.work_item_changed_fields = work_item_changed_fields
         self.created_by_id = created_by_id
+        self.created_date = created_date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

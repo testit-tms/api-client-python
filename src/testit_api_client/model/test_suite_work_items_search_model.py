@@ -141,9 +141,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             'name_or_id': (str, none_type,),  # noqa: E501
             'include_ids': ([str], none_type,),  # noqa: E501
             'exclude_ids': ([str], none_type,),  # noqa: E501
-            'external_metadata': (TestSuiteWorkItemsSearchModelExternalMetadata,),  # noqa: E501
             'project_ids': ([str], none_type,),  # noqa: E501
-            'links': (TestSuiteWorkItemsSearchModelLinks,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'ids': ([str], none_type,),  # noqa: E501
             'global_ids': ([int], none_type,),  # noqa: E501
@@ -165,6 +163,8 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             'exclude_tags': ([str], none_type,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
             'work_item_version_ids': ([str], none_type,),  # noqa: E501
+            'links': (TestSuiteWorkItemsSearchModelLinks,),  # noqa: E501
+            'external_metadata': (TestSuiteWorkItemsSearchModelExternalMetadata,),  # noqa: E501
         }
 
     @cached_property
@@ -178,9 +178,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
         'name_or_id': 'nameOrId',  # noqa: E501
         'include_ids': 'includeIds',  # noqa: E501
         'exclude_ids': 'excludeIds',  # noqa: E501
-        'external_metadata': 'externalMetadata',  # noqa: E501
         'project_ids': 'projectIds',  # noqa: E501
-        'links': 'links',  # noqa: E501
         'name': 'name',  # noqa: E501
         'ids': 'ids',  # noqa: E501
         'global_ids': 'globalIds',  # noqa: E501
@@ -202,6 +200,8 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
         'exclude_tags': 'excludeTags',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
         'work_item_version_ids': 'workItemVersionIds',  # noqa: E501
+        'links': 'links',  # noqa: E501
+        'external_metadata': 'externalMetadata',  # noqa: E501
     }
 
     read_only_vars = {
@@ -250,9 +250,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
-            external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
             project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
-            links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
@@ -274,6 +272,8 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
+            links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
+            external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -364,9 +364,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
-            external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
             project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
-            links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
@@ -388,6 +386,8 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             exclude_tags ([str], none_type): Collection of tags to exclude. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
+            links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
+            external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
