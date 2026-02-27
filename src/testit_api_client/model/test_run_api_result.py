@@ -104,6 +104,7 @@ class TestRunApiResult(ModelNormal):
             'test_results': ([TestResultApiResult],),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'tags': ([str],),  # noqa: E501
             'started_date': (datetime, none_type,),  # noqa: E501
             'completed_date': (datetime, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -138,6 +139,7 @@ class TestRunApiResult(ModelNormal):
         'test_results': 'testResults',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
         'started_date': 'startedDate',  # noqa: E501
         'completed_date': 'completedDate',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -159,7 +161,7 @@ class TestRunApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, is_deleted, build, state_name, status, project_id, auto_tests, auto_tests_count, test_suite_ids, is_automated, analytic, test_results, created_date, created_by_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_deleted, build, state_name, status, project_id, auto_tests, auto_tests_count, test_suite_ids, is_automated, analytic, test_results, created_date, created_by_id, tags, *args, **kwargs):  # noqa: E501
         """TestRunApiResult - a model defined in OpenAPI
 
         Args:
@@ -177,6 +179,7 @@ class TestRunApiResult(ModelNormal):
             test_results ([TestResultApiResult]):
             created_date (datetime):
             created_by_id (str):
+            tags ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -266,6 +269,7 @@ class TestRunApiResult(ModelNormal):
         self.test_results = test_results
         self.created_date = created_date
         self.created_by_id = created_by_id
+        self.tags = tags
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -286,7 +290,7 @@ class TestRunApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, is_deleted, build, state_name, status, project_id, auto_tests, auto_tests_count, test_suite_ids, is_automated, analytic, test_results, created_date, created_by_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_deleted, build, state_name, status, project_id, auto_tests, auto_tests_count, test_suite_ids, is_automated, analytic, test_results, created_date, created_by_id, tags, *args, **kwargs):  # noqa: E501
         """TestRunApiResult - a model defined in OpenAPI
 
         Args:
@@ -304,6 +308,7 @@ class TestRunApiResult(ModelNormal):
             test_results ([TestResultApiResult]):
             created_date (datetime):
             created_by_id (str):
+            tags ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -391,6 +396,7 @@ class TestRunApiResult(ModelNormal):
         self.test_results = test_results
         self.created_date = created_date
         self.created_by_id = created_by_id
+        self.tags = tags
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

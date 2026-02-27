@@ -22,6 +22,7 @@ from testit_api_client.api.custom_attribute_templates_api import CustomAttribute
 from testit_api_client.api.custom_attributes_api import CustomAttributesApi
 from testit_api_client.api.external_issues_api import ExternalIssuesApi
 from testit_api_client.api.notifications_api import NotificationsApi
+from testit_api_client.api.open_id_connections_api import OpenIdConnectionsApi
 from testit_api_client.api.parameters_api import ParametersApi
 from testit_api_client.api.project_attribute_templates_api import ProjectAttributeTemplatesApi
 from testit_api_client.api.project_attributes_api import ProjectAttributesApi

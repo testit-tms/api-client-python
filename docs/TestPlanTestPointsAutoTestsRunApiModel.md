@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **filter** | [**TestPlanTestPointsAutoTestsRerunApiModelFilter**](TestPlanTestPointsAutoTestsRerunApiModelFilter.md) |  | [optional] 
 **extraction_model** | [**TestPlanTestPointsAutoTestsRerunApiModelExtractionModel**](TestPlanTestPointsAutoTestsRerunApiModelExtractionModel.md) |  | [optional] 
 **build** | **str, none_type** | Specifies the test run build. | [optional] 
+**tags** | **[str], none_type** | Tags of the test run. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

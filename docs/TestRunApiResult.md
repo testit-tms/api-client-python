@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **test_results** | [**[TestResultApiResult]**](TestResultApiResult.md) |  | 
 **created_date** | **datetime** |  | 
 **created_by_id** | **str** |  | 
+**tags** | **[str]** |  | 
 **started_date** | **datetime, none_type** |  | [optional] 
 **completed_date** | **datetime, none_type** |  | [optional] 
 **description** | **str, none_type** |  | [optional] 

@@ -96,6 +96,7 @@ class ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest
             'filter': (TestPlanTestPointsAutoTestsRerunApiModelFilter,),  # noqa: E501
             'extraction_model': (TestPlanTestPointsAutoTestsRerunApiModelExtractionModel,),  # noqa: E501
             'build': (str, none_type,),  # noqa: E501
+            'tags': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +110,7 @@ class ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest
         'filter': 'filter',  # noqa: E501
         'extraction_model': 'extractionModel',  # noqa: E501
         'build': 'build',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -155,6 +157,7 @@ class ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest
             filter (TestPlanTestPointsAutoTestsRerunApiModelFilter): [optional]  # noqa: E501
             extraction_model (TestPlanTestPointsAutoTestsRerunApiModelExtractionModel): [optional]  # noqa: E501
             build (str, none_type): Specifies the test run build.. [optional]  # noqa: E501
+            tags ([str], none_type): Tags of the test run.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -263,6 +266,7 @@ class ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest
             filter (TestPlanTestPointsAutoTestsRerunApiModelFilter): [optional]  # noqa: E501
             extraction_model (TestPlanTestPointsAutoTestsRerunApiModelExtractionModel): [optional]  # noqa: E501
             build (str, none_type): Specifies the test run build.. [optional]  # noqa: E501
+            tags ([str], none_type): Tags of the test run.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -6874,6 +6874,88 @@
         }
       }
     },
+    "/api/v2/openid-connections": {
+      "get": {
+        "tags": [
+          "OpenIdConnections"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OpenIdConnectionClientShortModel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/parameters": {
       "get": {
         "tags": [
@@ -36252,6 +36334,14 @@
             },
             "description": "Collection of links to relate to the test run",
             "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of tags to assign to the test run",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -36630,6 +36720,14 @@
             },
             "description": "Collection of links to relate to the test run",
             "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of tags to assign to the test run",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -36681,6 +36779,14 @@
               "$ref": "#/components/schemas/CreateLinkApiModel"
             },
             "description": "Collection of links to relate to the test run",
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of tags to assign to the test run",
             "nullable": true
           },
           "testPointSelectors": {
@@ -36741,6 +36847,14 @@
               "$ref": "#/components/schemas/CreateLinkApiModel"
             },
             "description": "Collection of links to relate to the test run",
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of tags to assign to the test run",
             "nullable": true
           },
           "configurationIds": {
@@ -40087,6 +40201,49 @@
         ],
         "type": "string"
       },
+      "OpenIdConnectionClientShortModel": {
+        "required": [
+          "id",
+          "isEnabled"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "settings": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OpenIdConnectionSettingsShortClientModel"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OpenIdConnectionSettingsShortClientModel": {
+        "type": "object",
+        "properties": {
+          "authority": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Operation": {
         "type": "object",
         "properties": {
@@ -41757,6 +41914,22 @@
               "format": "uuid"
             },
             "nullable": true
+          },
+          "tags": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "excludeTags": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -43003,7 +43176,7 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "Tag name"
+            "description": "Name of the tag"
           }
         },
         "additionalProperties": false
@@ -44033,6 +44206,14 @@
           "resetNotActualAutomatedTestPoints": {
             "type": "boolean",
             "description": "Reset test point status when actual work item does not automated."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags of the test run.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -48171,6 +48352,7 @@
           "projectId",
           "stateName",
           "status",
+          "tags",
           "testResults",
           "testSuiteIds"
         ],
@@ -48306,6 +48488,12 @@
           "createdByUserName": {
             "type": "string",
             "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": false
@@ -48512,6 +48700,22 @@
             },
             "description": "Specifies a test result configuration IDs to search for",
             "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Specifies a test run tags to search for",
+            "nullable": true
+          },
+          "excludeTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Specifies a test run excluded tags to search for",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -48623,6 +48827,7 @@
           "state",
           "statistics",
           "status",
+          "tags",
           "testResultsConfigurations"
         ],
         "type": "object",
@@ -48704,6 +48909,13 @@
               "$ref": "#/components/schemas/ConfigurationShortApiResult"
             },
             "description": "Test results configurations"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of tags associated with the test run"
           }
         },
         "additionalProperties": false
@@ -48856,6 +49068,7 @@
           "runCount",
           "stateName",
           "status",
+          "tags",
           "webhooks"
         ],
         "type": "object",
@@ -48987,6 +49200,13 @@
             "type": "integer",
             "description": "Run count",
             "format": "int32"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of tags associated with the test run"
           }
         },
         "additionalProperties": false
@@ -49870,6 +50090,14 @@
             },
             "description": "Collection of links related to the test run",
             "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of tags to assign to the test run",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -50068,6 +50296,31 @@
         },
         "additionalProperties": false
       },
+      "UpdateMultipleTagsApiModel": {
+        "required": [
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActionUpdate"
+              }
+            ],
+            "description": "The action that specifies which operation should be performed on the supplied tags."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TagApiModel"
+            },
+            "description": "The collection of tag names to be processed.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateMultipleTestRunsApiModel": {
         "required": [
           "selectModel"
@@ -50103,6 +50356,15 @@
               }
             ],
             "description": "Set of links",
+            "nullable": true
+          },
+          "tagUpdateScheme": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UpdateMultipleTagsApiModel"
+              }
+            ],
+            "description": "Set of tags",
             "nullable": true
           }
         },
@@ -54536,6 +54798,9 @@
     },
     {
       "name": "Notifications"
+    },
+    {
+      "name": "OpenIdConnections"
     },
     {
       "name": "Parameters"

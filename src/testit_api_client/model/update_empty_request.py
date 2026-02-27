@@ -100,6 +100,7 @@ class UpdateEmptyRequest(ModelComposed):
             'launch_source': (str, none_type,),  # noqa: E501
             'attachments': ([AssignAttachmentApiModel], none_type,),  # noqa: E501
             'links': ([UpdateLinkApiModel], none_type,),  # noqa: E501
+            'tags': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class UpdateEmptyRequest(ModelComposed):
         'launch_source': 'launchSource',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'links': 'links',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -161,6 +163,7 @@ class UpdateEmptyRequest(ModelComposed):
             launch_source (str, none_type): Test run launch source              Once launch source is specified it cannot be updated. [optional]  # noqa: E501
             attachments ([AssignAttachmentApiModel], none_type): Collection of attachments related to the test run. [optional]  # noqa: E501
             links ([UpdateLinkApiModel], none_type): Collection of links related to the test run. [optional]  # noqa: E501
+            tags ([str], none_type): Collection of tags to assign to the test run. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -270,6 +273,7 @@ class UpdateEmptyRequest(ModelComposed):
             launch_source (str, none_type): Test run launch source              Once launch source is specified it cannot be updated. [optional]  # noqa: E501
             attachments ([AssignAttachmentApiModel], none_type): Collection of attachments related to the test run. [optional]  # noqa: E501
             links ([UpdateLinkApiModel], none_type): Collection of links related to the test run. [optional]  # noqa: E501
+            tags ([str], none_type): Collection of tags to assign to the test run. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

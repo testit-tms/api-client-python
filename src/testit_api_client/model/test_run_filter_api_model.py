@@ -107,6 +107,8 @@ class TestRunFilterApiModel(ModelNormal):
             'failure_category': ([FailureCategory], none_type,),  # noqa: E501
             'completed_date': (TestRunFilterApiModelCompletedDate,),  # noqa: E501
             'test_results_configuration_ids': ([str], none_type,),  # noqa: E501
+            'tags': ([str], none_type,),  # noqa: E501
+            'exclude_tags': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -130,6 +132,8 @@ class TestRunFilterApiModel(ModelNormal):
         'failure_category': 'failureCategory',  # noqa: E501
         'completed_date': 'completedDate',  # noqa: E501
         'test_results_configuration_ids': 'testResultsConfigurationIds',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
+        'exclude_tags': 'excludeTags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -188,6 +192,8 @@ class TestRunFilterApiModel(ModelNormal):
             failure_category ([FailureCategory], none_type): Specifies failure categories. [optional]  # noqa: E501
             completed_date (TestRunFilterApiModelCompletedDate): [optional]  # noqa: E501
             test_results_configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
+            tags ([str], none_type): Specifies a test run tags to search for. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Specifies a test run excluded tags to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -288,6 +294,8 @@ class TestRunFilterApiModel(ModelNormal):
             failure_category ([FailureCategory], none_type): Specifies failure categories. [optional]  # noqa: E501
             completed_date (TestRunFilterApiModelCompletedDate): [optional]  # noqa: E501
             test_results_configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
+            tags ([str], none_type): Specifies a test run tags to search for. [optional]  # noqa: E501
+            exclude_tags ([str], none_type): Specifies a test run excluded tags to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
