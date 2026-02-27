@@ -78,6 +78,10 @@ class ApiV2TestPlansIdTestRunsSearchPostRequest(ModelComposed):
         },
         ('modified_by_ids',): {
         },
+        ('tags',): {
+        },
+        ('exclude_tags',): {
+        },
     }
 
     @cached_property
@@ -110,6 +114,8 @@ class ApiV2TestPlansIdTestRunsSearchPostRequest(ModelComposed):
             'completed_date': (DateTimeRangeSelectorModel,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
+            'tags': ([str], none_type,),  # noqa: E501
+            'exclude_tags': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -125,6 +131,8 @@ class ApiV2TestPlansIdTestRunsSearchPostRequest(ModelComposed):
         'completed_date': 'completedDate',  # noqa: E501
         'created_by_ids': 'createdByIds',  # noqa: E501
         'modified_by_ids': 'modifiedByIds',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
+        'exclude_tags': 'excludeTags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -173,6 +181,8 @@ class ApiV2TestPlansIdTestRunsSearchPostRequest(ModelComposed):
             completed_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): [optional]  # noqa: E501
+            tags ([str], none_type): [optional]  # noqa: E501
+            exclude_tags ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -283,6 +293,8 @@ class ApiV2TestPlansIdTestRunsSearchPostRequest(ModelComposed):
             completed_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             created_by_ids ([str], none_type): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): [optional]  # noqa: E501
+            tags ([str], none_type): [optional]  # noqa: E501
+            exclude_tags ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

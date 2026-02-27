@@ -34,10 +34,12 @@ def lazy_import():
     from testit_api_client.model.update_multiple_test_runs_api_model_attachment_update_scheme import UpdateMultipleTestRunsApiModelAttachmentUpdateScheme
     from testit_api_client.model.update_multiple_test_runs_api_model_link_update_scheme import UpdateMultipleTestRunsApiModelLinkUpdateScheme
     from testit_api_client.model.update_multiple_test_runs_api_model_select_model import UpdateMultipleTestRunsApiModelSelectModel
+    from testit_api_client.model.update_multiple_test_runs_api_model_tag_update_scheme import UpdateMultipleTestRunsApiModelTagUpdateScheme
     globals()['UpdateMultipleTestRunsApiModel'] = UpdateMultipleTestRunsApiModel
     globals()['UpdateMultipleTestRunsApiModelAttachmentUpdateScheme'] = UpdateMultipleTestRunsApiModelAttachmentUpdateScheme
     globals()['UpdateMultipleTestRunsApiModelLinkUpdateScheme'] = UpdateMultipleTestRunsApiModelLinkUpdateScheme
     globals()['UpdateMultipleTestRunsApiModelSelectModel'] = UpdateMultipleTestRunsApiModelSelectModel
+    globals()['UpdateMultipleTestRunsApiModelTagUpdateScheme'] = UpdateMultipleTestRunsApiModelTagUpdateScheme
 
 
 class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
@@ -97,6 +99,7 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
             'description': (str, none_type,),  # noqa: E501
             'attachment_update_scheme': (UpdateMultipleTestRunsApiModelAttachmentUpdateScheme,),  # noqa: E501
             'link_update_scheme': (UpdateMultipleTestRunsApiModelLinkUpdateScheme,),  # noqa: E501
+            'tag_update_scheme': (UpdateMultipleTestRunsApiModelTagUpdateScheme,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +112,7 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
         'description': 'description',  # noqa: E501
         'attachment_update_scheme': 'attachmentUpdateScheme',  # noqa: E501
         'link_update_scheme': 'linkUpdateScheme',  # noqa: E501
+        'tag_update_scheme': 'tagUpdateScheme',  # noqa: E501
     }
 
     read_only_vars = {
@@ -154,6 +158,7 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
             description (str, none_type): Test run description. [optional]  # noqa: E501
             attachment_update_scheme (UpdateMultipleTestRunsApiModelAttachmentUpdateScheme): [optional]  # noqa: E501
             link_update_scheme (UpdateMultipleTestRunsApiModelLinkUpdateScheme): [optional]  # noqa: E501
+            tag_update_scheme (UpdateMultipleTestRunsApiModelTagUpdateScheme): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,6 +266,7 @@ class ApiV2TestRunsUpdateMultiplePostRequest(ModelComposed):
             description (str, none_type): Test run description. [optional]  # noqa: E501
             attachment_update_scheme (UpdateMultipleTestRunsApiModelAttachmentUpdateScheme): [optional]  # noqa: E501
             link_update_scheme (UpdateMultipleTestRunsApiModelLinkUpdateScheme): [optional]  # noqa: E501
+            tag_update_scheme (UpdateMultipleTestRunsApiModelTagUpdateScheme): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

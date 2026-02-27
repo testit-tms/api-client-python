@@ -97,6 +97,7 @@ class CreateTestRunAndFillByWorkItemsApiModel(ModelNormal):
             'launch_source': (str, none_type,),  # noqa: E501
             'attachments': ([AssignAttachmentApiModel], none_type,),  # noqa: E501
             'links': ([CreateLinkApiModel], none_type,),  # noqa: E501
+            'tags': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class CreateTestRunAndFillByWorkItemsApiModel(ModelNormal):
         'launch_source': 'launchSource',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'links': 'links',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -168,6 +170,7 @@ class CreateTestRunAndFillByWorkItemsApiModel(ModelNormal):
             launch_source (str, none_type): Specifies the test run launch source.. [optional]  # noqa: E501
             attachments ([AssignAttachmentApiModel], none_type): Collection of attachment ids to relate to the test run. [optional]  # noqa: E501
             links ([CreateLinkApiModel], none_type): Collection of links to relate to the test run. [optional]  # noqa: E501
+            tags ([str], none_type): Collection of tags to assign to the test run. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -268,6 +271,7 @@ class CreateTestRunAndFillByWorkItemsApiModel(ModelNormal):
             launch_source (str, none_type): Specifies the test run launch source.. [optional]  # noqa: E501
             attachments ([AssignAttachmentApiModel], none_type): Collection of attachment ids to relate to the test run. [optional]  # noqa: E501
             links ([CreateLinkApiModel], none_type): Collection of links to relate to the test run. [optional]  # noqa: E501
+            tags ([str], none_type): Collection of tags to assign to the test run. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

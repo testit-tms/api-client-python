@@ -101,6 +101,7 @@ class TestRunV2ApiResult(ModelNormal):
             'links': ([LinkApiResult],),  # noqa: E501
             'webhooks': ([NamedEntityApiModel],),  # noqa: E501
             'run_count': (int,),  # noqa: E501
+            'tags': ([str],),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
@@ -130,6 +131,7 @@ class TestRunV2ApiResult(ModelNormal):
         'links': 'links',  # noqa: E501
         'webhooks': 'webhooks',  # noqa: E501
         'run_count': 'runCount',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
         'description': 'description',  # noqa: E501
         'launch_source': 'launchSource',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
@@ -149,7 +151,7 @@ class TestRunV2ApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, state_name, status, project_id, created_date, created_by_id, attachments, links, webhooks, run_count, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, state_name, status, project_id, created_date, created_by_id, attachments, links, webhooks, run_count, tags, *args, **kwargs):  # noqa: E501
         """TestRunV2ApiResult - a model defined in OpenAPI
 
         Args:
@@ -164,6 +166,7 @@ class TestRunV2ApiResult(ModelNormal):
             links ([LinkApiResult]): Collection of links related to the test run
             webhooks ([NamedEntityApiModel]): Enabled webhooks
             run_count (int): Run count
+            tags ([str]): Collection of tags associated with the test run
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -248,6 +251,7 @@ class TestRunV2ApiResult(ModelNormal):
         self.links = links
         self.webhooks = webhooks
         self.run_count = run_count
+        self.tags = tags
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -268,7 +272,7 @@ class TestRunV2ApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, state_name, status, project_id, created_date, created_by_id, attachments, links, webhooks, run_count, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, state_name, status, project_id, created_date, created_by_id, attachments, links, webhooks, run_count, tags, *args, **kwargs):  # noqa: E501
         """TestRunV2ApiResult - a model defined in OpenAPI
 
         Args:
@@ -283,6 +287,7 @@ class TestRunV2ApiResult(ModelNormal):
             links ([LinkApiResult]): Collection of links related to the test run
             webhooks ([NamedEntityApiModel]): Enabled webhooks
             run_count (int): Run count
+            tags ([str]): Collection of tags associated with the test run
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -365,6 +370,7 @@ class TestRunV2ApiResult(ModelNormal):
         self.links = links
         self.webhooks = webhooks
         self.run_count = run_count
+        self.tags = tags
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

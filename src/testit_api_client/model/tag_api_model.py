@@ -102,7 +102,7 @@ class TagApiModel(ModelNormal):
         """TagApiModel - a model defined in OpenAPI
 
         Args:
-            name (str): Tag name
+            name (str): Name of the tag
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -191,7 +191,7 @@ class TagApiModel(ModelNormal):
         """TagApiModel - a model defined in OpenAPI
 
         Args:
-            name (str): Tag name
+            name (str): Name of the tag
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

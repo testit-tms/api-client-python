@@ -96,6 +96,7 @@ class TestRunShortApiResult(ModelNormal):
             'auto_tests_count': (int,),  # noqa: E501
             'statistics': (TestRunShortApiResultStatistics,),  # noqa: E501
             'test_results_configurations': ([ConfigurationShortApiResult],),  # noqa: E501
+            'tags': ([str],),  # noqa: E501
             'started_date': (datetime, none_type,),  # noqa: E501
             'completed_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -117,6 +118,7 @@ class TestRunShortApiResult(ModelNormal):
         'auto_tests_count': 'autoTestsCount',  # noqa: E501
         'statistics': 'statistics',  # noqa: E501
         'test_results_configurations': 'testResultsConfigurations',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
         'started_date': 'startedDate',  # noqa: E501
         'completed_date': 'completedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
@@ -129,7 +131,7 @@ class TestRunShortApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, state, status, created_date, created_by_id, is_deleted, auto_tests_count, statistics, test_results_configurations, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, state, status, created_date, created_by_id, is_deleted, auto_tests_count, statistics, test_results_configurations, tags, *args, **kwargs):  # noqa: E501
         """TestRunShortApiResult - a model defined in OpenAPI
 
         Args:
@@ -143,6 +145,7 @@ class TestRunShortApiResult(ModelNormal):
             auto_tests_count (int): Number of AutoTests run in the test run
             statistics (TestRunShortApiResultStatistics):
             test_results_configurations ([ConfigurationShortApiResult]): Test results configurations
+            tags ([str]): Collection of tags associated with the test run
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -219,6 +222,7 @@ class TestRunShortApiResult(ModelNormal):
         self.auto_tests_count = auto_tests_count
         self.statistics = statistics
         self.test_results_configurations = test_results_configurations
+        self.tags = tags
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -239,7 +243,7 @@ class TestRunShortApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, state, status, created_date, created_by_id, is_deleted, auto_tests_count, statistics, test_results_configurations, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, state, status, created_date, created_by_id, is_deleted, auto_tests_count, statistics, test_results_configurations, tags, *args, **kwargs):  # noqa: E501
         """TestRunShortApiResult - a model defined in OpenAPI
 
         Args:
@@ -253,6 +257,7 @@ class TestRunShortApiResult(ModelNormal):
             auto_tests_count (int): Number of AutoTests run in the test run
             statistics (TestRunShortApiResultStatistics):
             test_results_configurations ([ConfigurationShortApiResult]): Test results configurations
+            tags ([str]): Collection of tags associated with the test run
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -327,6 +332,7 @@ class TestRunShortApiResult(ModelNormal):
         self.auto_tests_count = auto_tests_count
         self.statistics = statistics
         self.test_results_configurations = test_results_configurations
+        self.tags = tags
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

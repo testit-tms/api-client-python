@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **failure_category** | [**[FailureCategory], none_type**](FailureCategory.md) | Specifies failure categories | [optional] 
 **completed_date** | [**TestRunFilterApiModelCompletedDate**](TestRunFilterApiModelCompletedDate.md) |  | [optional] 
 **test_results_configuration_ids** | **[str], none_type** | Specifies a test result configuration IDs to search for | [optional] 
+**tags** | **[str], none_type** | Specifies a test run tags to search for | [optional] 
+**exclude_tags** | **[str], none_type** | Specifies a test run excluded tags to search for | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

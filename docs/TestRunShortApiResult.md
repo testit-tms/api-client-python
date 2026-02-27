@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **auto_tests_count** | **int** | Number of AutoTests run in the test run | 
 **statistics** | [**TestRunShortApiResultStatistics**](TestRunShortApiResultStatistics.md) |  | 
 **test_results_configurations** | [**[ConfigurationShortApiResult]**](ConfigurationShortApiResult.md) | Test results configurations | 
+**tags** | **[str]** | Collection of tags associated with the test run | 
 **started_date** | **datetime, none_type** | Date when the test run was started | [optional] 
 **completed_date** | **datetime, none_type** | Completion date of the test run | [optional] 
 **modified_by_id** | **str, none_type** | Unique ID of user who modified the test run last time | [optional] 
