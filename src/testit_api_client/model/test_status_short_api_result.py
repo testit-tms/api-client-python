@@ -81,8 +81,8 @@ class TestStatusShortApiResult(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'code': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'type': (TestStatusApiType,),  # noqa: E501
         }
 
@@ -93,8 +93,8 @@ class TestStatusShortApiResult(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'code': 'code',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
 
@@ -105,13 +105,13 @@ class TestStatusShortApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, code, type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, code, name, type, *args, **kwargs):  # noqa: E501
         """TestStatusShortApiResult - a model defined in OpenAPI
 
         Args:
-            id (str):
-            name (str):
-            code (str):
+            id (str): Identifier of the test status.
+            code (str): Code representing the test status.
+            name (str): Name of the test status.
             type (TestStatusApiType):
 
         Keyword Args:
@@ -177,8 +177,8 @@ class TestStatusShortApiResult(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
-        self.name = name
         self.code = code
+        self.name = name
         self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -200,13 +200,13 @@ class TestStatusShortApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, code, type, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, code, name, type, *args, **kwargs):  # noqa: E501
         """TestStatusShortApiResult - a model defined in OpenAPI
 
         Args:
-            id (str):
-            name (str):
-            code (str):
+            id (str): Identifier of the test status.
+            code (str): Code representing the test status.
+            name (str): Name of the test status.
             type (TestStatusApiType):
 
         Keyword Args:
@@ -270,8 +270,8 @@ class TestStatusShortApiResult(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
-        self.name = name
         self.code = code
+        self.name = name
         self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

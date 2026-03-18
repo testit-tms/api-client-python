@@ -32,10 +32,10 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.test_plan_test_points_search_api_model_work_item_created_date import TestPlanTestPointsSearchApiModelWorkItemCreatedDate
     from testit_api_client.model.test_plan_test_points_search_api_model_work_item_modified_date import TestPlanTestPointsSearchApiModelWorkItemModifiedDate
-    from testit_api_client.model.test_suite_work_items_search_model_duration import TestSuiteWorkItemsSearchModelDuration
     from testit_api_client.model.test_suite_work_items_search_model_median_duration import TestSuiteWorkItemsSearchModelMedianDuration
     from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
     from testit_api_client.model.work_item_filter_api_model import WorkItemFilterApiModel
+    from testit_api_client.model.work_item_filter_api_model_duration import WorkItemFilterApiModelDuration
     from testit_api_client.model.work_item_filter_api_model_external_metadata import WorkItemFilterApiModelExternalMetadata
     from testit_api_client.model.work_item_filter_api_model_links import WorkItemFilterApiModelLinks
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
@@ -43,10 +43,10 @@ def lazy_import():
     from testit_api_client.model.work_item_states import WorkItemStates
     globals()['TestPlanTestPointsSearchApiModelWorkItemCreatedDate'] = TestPlanTestPointsSearchApiModelWorkItemCreatedDate
     globals()['TestPlanTestPointsSearchApiModelWorkItemModifiedDate'] = TestPlanTestPointsSearchApiModelWorkItemModifiedDate
-    globals()['TestSuiteWorkItemsSearchModelDuration'] = TestSuiteWorkItemsSearchModelDuration
     globals()['TestSuiteWorkItemsSearchModelMedianDuration'] = TestSuiteWorkItemsSearchModelMedianDuration
     globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
     globals()['WorkItemFilterApiModel'] = WorkItemFilterApiModel
+    globals()['WorkItemFilterApiModelDuration'] = WorkItemFilterApiModelDuration
     globals()['WorkItemFilterApiModelExternalMetadata'] = WorkItemFilterApiModelExternalMetadata
     globals()['WorkItemFilterApiModelLinks'] = WorkItemFilterApiModelLinks
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
@@ -159,7 +159,7 @@ class WorkItemSelectApiModelFilter(ModelComposed):
             'types': ([WorkItemEntityTypes], none_type,),  # noqa: E501
             'created_date': (TestPlanTestPointsSearchApiModelWorkItemCreatedDate,),  # noqa: E501
             'modified_date': (TestPlanTestPointsSearchApiModelWorkItemModifiedDate,),  # noqa: E501
-            'duration': (TestSuiteWorkItemsSearchModelDuration,),  # noqa: E501
+            'duration': (WorkItemFilterApiModelDuration,),  # noqa: E501
             'median_duration': (TestSuiteWorkItemsSearchModelMedianDuration,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
@@ -262,7 +262,7 @@ class WorkItemSelectApiModelFilter(ModelComposed):
             types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
             created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
             modified_date (TestPlanTestPointsSearchApiModelWorkItemModifiedDate): [optional]  # noqa: E501
-            duration (TestSuiteWorkItemsSearchModelDuration): [optional]  # noqa: E501
+            duration (WorkItemFilterApiModelDuration): [optional]  # noqa: E501
             median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
@@ -392,7 +392,7 @@ class WorkItemSelectApiModelFilter(ModelComposed):
             types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
             created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
             modified_date (TestPlanTestPointsSearchApiModelWorkItemModifiedDate): [optional]  # noqa: E501
-            duration (TestSuiteWorkItemsSearchModelDuration): [optional]  # noqa: E501
+            duration (WorkItemFilterApiModelDuration): [optional]  # noqa: E501
             median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501

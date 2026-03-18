@@ -33,11 +33,11 @@ def lazy_import():
     from testit_api_client.model.attachment_api_result import AttachmentApiResult
     from testit_api_client.model.auto_test_result_history_api_result_status import AutoTestResultHistoryApiResultStatus
     from testit_api_client.model.auto_test_result_reason_short import AutoTestResultReasonShort
-    from testit_api_client.model.link_short import LinkShort
+    from testit_api_client.model.test_result_link_api_result import TestResultLinkApiResult
     globals()['AttachmentApiResult'] = AttachmentApiResult
     globals()['AutoTestResultHistoryApiResultStatus'] = AutoTestResultHistoryApiResultStatus
     globals()['AutoTestResultReasonShort'] = AutoTestResultReasonShort
-    globals()['LinkShort'] = LinkShort
+    globals()['TestResultLinkApiResult'] = TestResultLinkApiResult
 
 
 class TestResultShortResponse(ModelNormal):
@@ -97,7 +97,7 @@ class TestResultShortResponse(ModelNormal):
             'result_reasons': ([AutoTestResultReasonShort],),  # noqa: E501
             'date': (datetime,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
-            'links': ([LinkShort],),  # noqa: E501
+            'links': ([TestResultLinkApiResult],),  # noqa: E501
             'attachments': ([AttachmentApiResult],),  # noqa: E501
             'rerun_completed_count': (int,),  # noqa: E501
             'autotest_external_id': (str, none_type,),  # noqa: E501
@@ -160,7 +160,7 @@ class TestResultShortResponse(ModelNormal):
             result_reasons ([AutoTestResultReasonShort]): Collection of result reasons which the test result have
             date (datetime): Date when the test result was completed or started or created
             created_date (datetime): Date when the test result has been created
-            links ([LinkShort]): Collection of links attached to the test result
+            links ([TestResultLinkApiResult]): Collection of links attached to the test result
             attachments ([AttachmentApiResult]): Collection of files attached to the test result
             rerun_completed_count (int): Run count
 
@@ -282,7 +282,7 @@ class TestResultShortResponse(ModelNormal):
             result_reasons ([AutoTestResultReasonShort]): Collection of result reasons which the test result have
             date (datetime): Date when the test result was completed or started or created
             created_date (datetime): Date when the test result has been created
-            links ([LinkShort]): Collection of links attached to the test result
+            links ([TestResultLinkApiResult]): Collection of links attached to the test result
             attachments ([AttachmentApiResult]): Collection of files attached to the test result
             rerun_completed_count (int): Run count
 

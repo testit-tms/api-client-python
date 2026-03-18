@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **failure_class_ids** | **[str], none_type** |  | [optional] 
 **outcome** | [**TestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **status_code** | **str, none_type** |  | [optional] 
+**status_type** | [**TestStatusType**](TestStatusType.md) |  | [optional] 
 **comment** | **str, none_type** |  | [optional] 
 **links** | [**[Link], none_type**](Link.md) |  | [optional] 
 **step_results** | [**[StepResultApiModel], none_type**](StepResultApiModel.md) |  | [optional] 

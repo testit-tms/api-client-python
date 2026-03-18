@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **types** | [**[WorkItemEntityTypes], none_type**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
 **created_date** | [**TestPlanTestPointsSearchApiModelWorkItemCreatedDate**](TestPlanTestPointsSearchApiModelWorkItemCreatedDate.md) |  | [optional] 
 **modified_date** | [**TestPlanTestPointsSearchApiModelWorkItemModifiedDate**](TestPlanTestPointsSearchApiModelWorkItemModifiedDate.md) |  | [optional] 
-**duration** | [**TestSuiteWorkItemsSearchModelDuration**](TestSuiteWorkItemsSearchModelDuration.md) |  | [optional] 
+**duration** | [**WorkItemFilterApiModelDuration**](WorkItemFilterApiModelDuration.md) |  | [optional] 
 **median_duration** | [**TestSuiteWorkItemsSearchModelMedianDuration**](TestSuiteWorkItemsSearchModelMedianDuration.md) |  | [optional] 
 **is_automated** | **bool, none_type** | Is result must consist of only manual/automated work items | [optional] 
 **tags** | **[str], none_type** | Collection of tags | [optional] 

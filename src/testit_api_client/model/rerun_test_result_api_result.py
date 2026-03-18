@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.auto_test_result_history_api_result_status import AutoTestResultHistoryApiResultStatus
-    globals()['AutoTestResultHistoryApiResultStatus'] = AutoTestResultHistoryApiResultStatus
+    from testit_api_client.model.rerun_test_result_api_result_status import RerunTestResultApiResultStatus
+    globals()['RerunTestResultApiResultStatus'] = RerunTestResultApiResultStatus
 
 
 class RerunTestResultApiResult(ModelNormal):
@@ -82,7 +82,7 @@ class RerunTestResultApiResult(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'outcome': (str,),  # noqa: E501
-            'status': (AutoTestResultHistoryApiResultStatus,),  # noqa: E501
+            'status': (RerunTestResultApiResultStatus,),  # noqa: E501
             'run_number': (int,),  # noqa: E501
         }
 
@@ -109,10 +109,10 @@ class RerunTestResultApiResult(ModelNormal):
         """RerunTestResultApiResult - a model defined in OpenAPI
 
         Args:
-            id (str):
-            outcome (str):
-            status (AutoTestResultHistoryApiResultStatus):
-            run_number (int):
+            id (str): Identifier of the rerun result.
+            outcome (str): Status of the autotest run.
+            status (RerunTestResultApiResultStatus):
+            run_number (int): Number of the run (e.g., 1 for the first attempt).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -204,10 +204,10 @@ class RerunTestResultApiResult(ModelNormal):
         """RerunTestResultApiResult - a model defined in OpenAPI
 
         Args:
-            id (str):
-            outcome (str):
-            status (AutoTestResultHistoryApiResultStatus):
-            run_number (int):
+            id (str): Identifier of the rerun result.
+            outcome (str): Status of the autotest run.
+            status (RerunTestResultApiResultStatus):
+            run_number (int): Number of the run (e.g., 1 for the first attempt).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
