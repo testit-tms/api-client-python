@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **result_reasons** | [**[AutoTestResultReasonShort]**](AutoTestResultReasonShort.md) | Collection of result reasons which the test result have | 
 **date** | **datetime** | Date when the test result was completed or started or created | 
 **created_date** | **datetime** | Date when the test result has been created | 
-**links** | [**[LinkShort]**](LinkShort.md) | Collection of links attached to the test result | 
+**links** | [**[TestResultLinkApiResult]**](TestResultLinkApiResult.md) | Collection of links attached to the test result | 
 **attachments** | [**[AttachmentApiResult]**](AttachmentApiResult.md) | Collection of files attached to the test result | 
 **rerun_completed_count** | **int** | Run count | 
 **autotest_external_id** | **str, none_type** | External ID of autotest represented by the test result | [optional] 

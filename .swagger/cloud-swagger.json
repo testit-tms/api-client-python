@@ -34681,42 +34681,6 @@
         },
         "additionalProperties": false
       },
-      "AutoTestResultReasonsCountItemModel": {
-        "required": [
-          "count",
-          "failureCategory"
-        ],
-        "type": "object",
-        "properties": {
-          "failureCategory": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AvailableFailureCategory"
-              }
-            ]
-          },
-          "count": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AutoTestResultReasonsCountModel": {
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AutoTestResultReasonsCountItemModel"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
       "AutoTestResultsForTestRunModel": {
         "required": [
           "autoTestExternalId",
@@ -34762,7 +34726,16 @@
           },
           "statusCode": {
             "type": "string",
-            "description": "Specifies the result of the autotest execution.",
+            "description": "Specifies code of result status of the autotest execution.",
+            "nullable": true
+          },
+          "statusType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TestStatusType"
+              }
+            ],
+            "description": "Specifies type of result status of the autotest execution.",
             "nullable": true
           },
           "message": {
@@ -36240,10 +36213,12 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "Identifier of the configuration.",
             "format": "uuid"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the configuration."
           }
         },
         "additionalProperties": false
@@ -38868,34 +38843,49 @@
         "required": [
           "externalServiceId",
           "previewLimit",
-          "sectionId",
-          "taskKey",
           "temperature"
         ],
         "type": "object",
         "properties": {
           "externalServiceId": {
             "type": "string",
+            "description": "The ID of the external AI service to be used for generation.",
             "format": "uuid"
           },
           "taskKey": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "sectionId": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
-            "format": "uuid"
+            "description": "The key of the issue in an issue tracker (e.g., JIRA-123).",
+            "nullable": true,
+            "deprecated": true
+          },
+          "issueKey": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The key of the issue in an issue tracker (e.g., JIRA-123).",
+            "nullable": true
+          },
+          "userContext": {
+            "maxLength": 30000,
+            "minLength": 0,
+            "type": "string",
+            "description": "Additional user context or description of the issue if no issue key is provided.",
+            "nullable": true
           },
           "temperature": {
             "maximum": 1,
             "minimum": 0,
             "type": "number",
+            "description": "Controls randomness of the AI model output.",
             "format": "float"
           },
           "previewLimit": {
             "maximum": 30,
             "minimum": 1,
             "type": "integer",
+            "description": "Number of work item previews to generate.",
             "format": "int32"
           }
         },
@@ -39871,22 +39861,6 @@
           "hasInfo": {
             "title": "Flag defines if link relates to integrated jira service",
             "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LinkShort": {
-        "required": [
-          "name",
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
           }
         },
         "additionalProperties": false
@@ -41767,20 +41741,24 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "Identifier of the rerun result.",
             "format": "uuid"
           },
           "outcome": {
-            "type": "string"
+            "type": "string",
+            "description": "Status of the autotest run."
           },
           "status": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/TestStatusApiResult"
+                "$ref": "#/components/schemas/TestStatusShortApiResult"
               }
-            ]
+            ],
+            "description": "Status of the autotest run."
           },
           "runNumber": {
             "type": "integer",
+            "description": "Number of the run (e.g., 1 for the first attempt).",
             "format": "int32"
           }
         },
@@ -44926,7 +44904,7 @@
           },
           "duration": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "state": {
             "allOf": [
@@ -47100,6 +47078,56 @@
         },
         "additionalProperties": false
       },
+      "TestResultLinkApiResult": {
+        "required": [
+          "hasInfo",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Link unique identifier",
+            "format": "uuid",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "description": "Link name.",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "description": "Address can be specified without protocol, but necessarily with the domain."
+          },
+          "description": {
+            "type": "string",
+            "description": "Link description.",
+            "nullable": true
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LinkType"
+              }
+            ],
+            "description": "Specifies the type of the link.",
+            "nullable": true
+          },
+          "hasInfo": {
+            "type": "boolean",
+            "description": "Flag defines if link relates to integrated jira service"
+          },
+          "name": {
+            "type": "string",
+            "description": "Link name. Backward compatibility.",
+            "nullable": true,
+            "readOnly": true,
+            "deprecated": true
+          }
+        },
+        "additionalProperties": false
+      },
       "TestResultOutcome": {
         "enum": [
           "InProgress",
@@ -47505,7 +47533,7 @@
           "links": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LinkShort"
+              "$ref": "#/components/schemas/TestResultLinkApiResult"
             },
             "description": "Collection of links attached to the test result"
           },
@@ -47581,6 +47609,14 @@
           },
           "statusCode": {
             "type": "string",
+            "nullable": true
+          },
+          "statusType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TestStatusType"
+              }
+            ],
             "nullable": true
           },
           "comment": {
@@ -49328,13 +49364,16 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "Identifier of the test status.",
             "format": "uuid"
           },
-          "name": {
-            "type": "string"
-          },
           "code": {
-            "type": "string"
+            "type": "string",
+            "description": "Code representing the test status."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the test status."
           },
           "type": {
             "allOf": [
@@ -49342,7 +49381,7 @@
                 "$ref": "#/components/schemas/TestStatusApiType"
               }
             ],
-            "description": "Collection of possible status types"
+            "description": "Type of the test status (e.g., Passed, Failed)."
           }
         },
         "additionalProperties": false
@@ -49970,7 +50009,7 @@
           "duration": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Int32RangeSelectorModel"
+                "$ref": "#/components/schemas/Int64RangeSelectorModel"
               }
             ],
             "description": "Specifies a work item duration range to search for",
@@ -52643,7 +52682,7 @@
           "duration": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Int32RangeSelectorModel"
+                "$ref": "#/components/schemas/Int64RangeSelectorModel"
               }
             ],
             "description": "Specifies a work item duration range to search for",
@@ -53195,7 +53234,7 @@
           "duration": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Int32RangeSelectorModel"
+                "$ref": "#/components/schemas/Int64RangeSelectorModel"
               }
             ],
             "description": "Specifies a work item duration range to search for",
@@ -53796,7 +53835,7 @@
           "duration": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Int32RangeSelectorModel"
+                "$ref": "#/components/schemas/Int64RangeSelectorModel"
               }
             ],
             "description": "Specifies a work item duration range to search for",
@@ -54000,7 +54039,7 @@
           "duration": {
             "type": "integer",
             "description": "Work Item duration",
-            "format": "int32"
+            "format": "int64"
           },
           "medianDuration": {
             "type": "integer",

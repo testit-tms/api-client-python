@@ -30,8 +30,8 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.int32_range_selector_model import Int32RangeSelectorModel
-    globals()['Int32RangeSelectorModel'] = Int32RangeSelectorModel
+    from testit_api_client.model.int64_range_selector_model import Int64RangeSelectorModel
+    globals()['Int64RangeSelectorModel'] = Int64RangeSelectorModel
 
 
 class TestSuiteWorkItemsSearchModelDuration(ModelComposed):
@@ -316,7 +316,7 @@ class TestSuiteWorkItemsSearchModelDuration(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              Int32RangeSelectorModel,
+              Int64RangeSelectorModel,
           ],
           'oneOf': [
           ],

@@ -90,8 +90,8 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'code': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'type': (TestStatusApiType,),  # noqa: E501
         }
 
@@ -102,8 +102,8 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'code': 'code',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
 
@@ -116,9 +116,9 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
         """TestPlanTestPointsSearchApiResultStatusModel - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
-            name (str):
-            code (str):
+            id (str): Identifier of the test status.
+            code (str): Code representing the test status.
+            name (str): Name of the test status.
             type (TestStatusApiType):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -223,9 +223,9 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
         """TestPlanTestPointsSearchApiResultStatusModel - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
-            name (str):
-            code (str):
+            id (str): Identifier of the test status.
+            code (str): Code representing the test status.
+            name (str): Name of the test status.
             type (TestStatusApiType):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

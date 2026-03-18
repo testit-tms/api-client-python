@@ -36,12 +36,14 @@ def lazy_import():
     from testit_api_client.model.step_result_api_model import StepResultApiModel
     from testit_api_client.model.test_result_outcome import TestResultOutcome
     from testit_api_client.model.test_result_step_comment_update_request import TestResultStepCommentUpdateRequest
+    from testit_api_client.model.test_status_type import TestStatusType
     globals()['AttachmentUpdateRequest'] = AttachmentUpdateRequest
     globals()['AutoTestStepResultUpdateRequest'] = AutoTestStepResultUpdateRequest
     globals()['Link'] = Link
     globals()['StepResultApiModel'] = StepResultApiModel
     globals()['TestResultOutcome'] = TestResultOutcome
     globals()['TestResultStepCommentUpdateRequest'] = TestResultStepCommentUpdateRequest
+    globals()['TestStatusType'] = TestStatusType
 
 
 class TestResultUpdateV2Request(ModelNormal):
@@ -101,6 +103,7 @@ class TestResultUpdateV2Request(ModelNormal):
             'failure_class_ids': ([str], none_type,),  # noqa: E501
             'outcome': (TestResultOutcome,),  # noqa: E501
             'status_code': (str, none_type,),  # noqa: E501
+            'status_type': (TestStatusType,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([Link], none_type,),  # noqa: E501
             'step_results': ([StepResultApiModel], none_type,),  # noqa: E501
@@ -123,6 +126,7 @@ class TestResultUpdateV2Request(ModelNormal):
         'failure_class_ids': 'failureClassIds',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
         'status_code': 'statusCode',  # noqa: E501
+        'status_type': 'statusType',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'links': 'links',  # noqa: E501
         'step_results': 'stepResults',  # noqa: E501
@@ -180,6 +184,7 @@ class TestResultUpdateV2Request(ModelNormal):
             failure_class_ids ([str], none_type): [optional]  # noqa: E501
             outcome (TestResultOutcome): [optional]  # noqa: E501
             status_code (str, none_type): [optional]  # noqa: E501
+            status_type (TestStatusType): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([Link], none_type): [optional]  # noqa: E501
             step_results ([StepResultApiModel], none_type): [optional]  # noqa: E501
@@ -279,6 +284,7 @@ class TestResultUpdateV2Request(ModelNormal):
             failure_class_ids ([str], none_type): [optional]  # noqa: E501
             outcome (TestResultOutcome): [optional]  # noqa: E501
             status_code (str, none_type): [optional]  # noqa: E501
+            status_type (TestStatusType): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([Link], none_type): [optional]  # noqa: E501
             step_results ([StepResultApiModel], none_type): [optional]  # noqa: E501

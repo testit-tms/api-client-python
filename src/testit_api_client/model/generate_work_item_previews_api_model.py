@@ -58,9 +58,6 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
     }
 
     validations = {
-        ('task_key',): {
-            'min_length': 1,
-        },
         ('temperature',): {
             'inclusive_maximum': 1,
             'inclusive_minimum': 0,
@@ -68,6 +65,18 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
         ('preview_limit',): {
             'inclusive_maximum': 30,
             'inclusive_minimum': 1,
+        },
+        ('task_key',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
+        ('issue_key',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
+        ('user_context',): {
+            'max_length': 30000,
+            'min_length': 0,
         },
     }
 
@@ -87,10 +96,11 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
         """
         return {
             'external_service_id': (str,),  # noqa: E501
-            'task_key': (str,),  # noqa: E501
-            'section_id': (str,),  # noqa: E501
             'temperature': (float,),  # noqa: E501
             'preview_limit': (int,),  # noqa: E501
+            'task_key': (str, none_type,),  # noqa: E501
+            'issue_key': (str, none_type,),  # noqa: E501
+            'user_context': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -100,10 +110,11 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
 
     attribute_map = {
         'external_service_id': 'externalServiceId',  # noqa: E501
-        'task_key': 'taskKey',  # noqa: E501
-        'section_id': 'sectionId',  # noqa: E501
         'temperature': 'temperature',  # noqa: E501
         'preview_limit': 'previewLimit',  # noqa: E501
+        'task_key': 'taskKey',  # noqa: E501
+        'issue_key': 'issueKey',  # noqa: E501
+        'user_context': 'userContext',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,15 +124,13 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, external_service_id, task_key, section_id, temperature, preview_limit, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, external_service_id, temperature, preview_limit, *args, **kwargs):  # noqa: E501
         """GenerateWorkItemPreviewsApiModel - a model defined in OpenAPI
 
         Args:
-            external_service_id (str):
-            task_key (str):
-            section_id (str):
-            temperature (float):
-            preview_limit (int):
+            external_service_id (str): The ID of the external AI service to be used for generation.
+            temperature (float): Controls randomness of the AI model output.
+            preview_limit (int): Number of work item previews to generate.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -154,6 +163,9 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            task_key (str, none_type): The key of the issue in an issue tracker (e.g., JIRA-123).. [optional]  # noqa: E501
+            issue_key (str, none_type): The key of the issue in an issue tracker (e.g., JIRA-123).. [optional]  # noqa: E501
+            user_context (str, none_type): Additional user context or description of the issue if no issue key is provided.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -186,8 +198,6 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.external_service_id = external_service_id
-        self.task_key = task_key
-        self.section_id = section_id
         self.temperature = temperature
         self.preview_limit = preview_limit
         for var_name, var_value in kwargs.items():
@@ -210,15 +220,13 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, external_service_id, task_key, section_id, temperature, preview_limit, *args, **kwargs):  # noqa: E501
+    def __init__(self, external_service_id, temperature, preview_limit, *args, **kwargs):  # noqa: E501
         """GenerateWorkItemPreviewsApiModel - a model defined in OpenAPI
 
         Args:
-            external_service_id (str):
-            task_key (str):
-            section_id (str):
-            temperature (float):
-            preview_limit (int):
+            external_service_id (str): The ID of the external AI service to be used for generation.
+            temperature (float): Controls randomness of the AI model output.
+            preview_limit (int): Number of work item previews to generate.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -251,6 +259,9 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            task_key (str, none_type): The key of the issue in an issue tracker (e.g., JIRA-123).. [optional]  # noqa: E501
+            issue_key (str, none_type): The key of the issue in an issue tracker (e.g., JIRA-123).. [optional]  # noqa: E501
+            user_context (str, none_type): Additional user context or description of the issue if no issue key is provided.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,8 +292,6 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.external_service_id = external_service_id
-        self.task_key = task_key
-        self.section_id = section_id
         self.temperature = temperature
         self.preview_limit = preview_limit
         for var_name, var_value in kwargs.items():

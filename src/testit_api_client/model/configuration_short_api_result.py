@@ -100,8 +100,8 @@ class ConfigurationShortApiResult(ModelNormal):
         """ConfigurationShortApiResult - a model defined in OpenAPI
 
         Args:
-            id (str):
-            name (str):
+            id (str): Identifier of the configuration.
+            name (str): Name of the configuration.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -191,8 +191,8 @@ class ConfigurationShortApiResult(ModelNormal):
         """ConfigurationShortApiResult - a model defined in OpenAPI
 
         Args:
-            id (str):
-            name (str):
+            id (str): Identifier of the configuration.
+            name (str): Name of the configuration.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

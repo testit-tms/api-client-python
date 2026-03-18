@@ -110,8 +110,8 @@ class TestPlanTestPointsSearchApiResultConfiguration(ModelComposed):
         """TestPlanTestPointsSearchApiResultConfiguration - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
-            name (str):
+            id (str): Identifier of the configuration.
+            name (str): Name of the configuration.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -215,8 +215,8 @@ class TestPlanTestPointsSearchApiResultConfiguration(ModelComposed):
         """TestPlanTestPointsSearchApiResultConfiguration - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
-            name (str):
+            id (str): Identifier of the configuration.
+            name (str): Name of the configuration.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

@@ -1840,6 +1840,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
             auto_test_external_id="auto_test_external_id_example",
             outcome=None,
             status_code="status_code_example",
+            status_type=None,
             message="message_example",
             traces="traces_example",
             started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),

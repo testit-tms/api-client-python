@@ -35,11 +35,13 @@ def lazy_import():
     from testit_api_client.model.available_test_result_outcome import AvailableTestResultOutcome
     from testit_api_client.model.failure_category_model import FailureCategoryModel
     from testit_api_client.model.link_post_model import LinkPostModel
+    from testit_api_client.model.test_status_type import TestStatusType
     globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['AttachmentPutModelAutoTestStepResultsModel'] = AttachmentPutModelAutoTestStepResultsModel
     globals()['AvailableTestResultOutcome'] = AvailableTestResultOutcome
     globals()['FailureCategoryModel'] = FailureCategoryModel
     globals()['LinkPostModel'] = LinkPostModel
+    globals()['TestStatusType'] = TestStatusType
 
 
 class AutoTestResultsForTestRunModel(ModelNormal):
@@ -101,6 +103,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
             'failure_reason_names': ([FailureCategoryModel], none_type,),  # noqa: E501
             'outcome': (AvailableTestResultOutcome,),  # noqa: E501
             'status_code': (str, none_type,),  # noqa: E501
+            'status_type': (TestStatusType,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'traces': (str, none_type,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
@@ -126,6 +129,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
         'failure_reason_names': 'failureReasonNames',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
         'status_code': 'statusCode',  # noqa: E501
+        'status_type': 'statusType',  # noqa: E501
         'message': 'message',  # noqa: E501
         'traces': 'traces',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
@@ -187,7 +191,8 @@ class AutoTestResultsForTestRunModel(ModelNormal):
             links ([LinkPostModel], none_type): Specifies the links in the autotest.. [optional]  # noqa: E501
             failure_reason_names ([FailureCategoryModel], none_type): Specifies the cause of autotest failure.. [optional]  # noqa: E501
             outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
-            status_code (str, none_type): Specifies the result of the autotest execution.. [optional]  # noqa: E501
+            status_code (str, none_type): Specifies code of result status of the autotest execution.. [optional]  # noqa: E501
+            status_type (TestStatusType): [optional]  # noqa: E501
             message (str, none_type): A comment for the result.. [optional]  # noqa: E501
             traces (str, none_type): An extended comment or a stack trace.. [optional]  # noqa: E501
             started_on (datetime, none_type): Test run start date.. [optional]  # noqa: E501
@@ -293,7 +298,8 @@ class AutoTestResultsForTestRunModel(ModelNormal):
             links ([LinkPostModel], none_type): Specifies the links in the autotest.. [optional]  # noqa: E501
             failure_reason_names ([FailureCategoryModel], none_type): Specifies the cause of autotest failure.. [optional]  # noqa: E501
             outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
-            status_code (str, none_type): Specifies the result of the autotest execution.. [optional]  # noqa: E501
+            status_code (str, none_type): Specifies code of result status of the autotest execution.. [optional]  # noqa: E501
+            status_type (TestStatusType): [optional]  # noqa: E501
             message (str, none_type): A comment for the result.. [optional]  # noqa: E501
             traces (str, none_type): An extended comment or a stack trace.. [optional]  # noqa: E501
             started_on (datetime, none_type): Test run start date.. [optional]  # noqa: E501

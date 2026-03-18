@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
-**code** | **str** |  | 
+**id** | **str** | Identifier of the test status. | 
+**code** | **str** | Code representing the test status. | 
+**name** | **str** | Name of the test status. | 
 **type** | [**TestStatusApiType**](TestStatusApiType.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
