@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **created_by_id** | **str** |  | 
 **global_id** | **int** |  | 
 **external_issues** | [**[ExternalIssueModel]**](ExternalIssueModel.md) |  | 
+**parameters** | [**[WorkItemParameterKeyModel]**](WorkItemParameterKeyModel.md) |  | 
 **id** | **str** |  | 
 **section_id** | **str** |  | 
 **state** | [**WorkItemStates**](WorkItemStates.md) |  | 

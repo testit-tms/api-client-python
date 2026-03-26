@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **attachments** | [**[AttachmentModel]**](AttachmentModel.md) | Files attached to the work item | 
 **links** | [**[LinkModel]**](LinkModel.md) | Set of links related to the work item | 
 **external_issues** | [**[ExternalIssueApiResult]**](ExternalIssueApiResult.md) | Set of external issues related to the work item | 
+**parameters** | [**[WorkItemParameterKeyApiResult]**](WorkItemParameterKeyApiResult.md) | Set of parameters related to the work item | 
 **created_date** | **datetime** | Creation date of the work item | 
 **created_by_id** | **str** | Unique identifier of the work item creator | 
 **is_deleted** | **bool** | Indicates whether the work item is marked as deleted | 

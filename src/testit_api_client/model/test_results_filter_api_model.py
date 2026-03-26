@@ -37,6 +37,7 @@ def lazy_import():
     from testit_api_client.model.test_results_filter_api_model_duration import TestResultsFilterApiModelDuration
     from testit_api_client.model.test_results_filter_api_model_modified_date import TestResultsFilterApiModelModifiedDate
     from testit_api_client.model.test_results_filter_api_model_started_on import TestResultsFilterApiModelStartedOn
+    from testit_api_client.model.test_status_api_type import TestStatusApiType
     globals()['FailureCategoryModel'] = FailureCategoryModel
     globals()['TestResultOutcome'] = TestResultOutcome
     globals()['TestResultsFilterApiModelCompletedOn'] = TestResultsFilterApiModelCompletedOn
@@ -44,6 +45,7 @@ def lazy_import():
     globals()['TestResultsFilterApiModelDuration'] = TestResultsFilterApiModelDuration
     globals()['TestResultsFilterApiModelModifiedDate'] = TestResultsFilterApiModelModifiedDate
     globals()['TestResultsFilterApiModelStartedOn'] = TestResultsFilterApiModelStartedOn
+    globals()['TestStatusApiType'] = TestStatusApiType
 
 
 class TestResultsFilterApiModel(ModelNormal):
@@ -103,6 +105,7 @@ class TestResultsFilterApiModel(ModelNormal):
             'configuration_ids': ([str], none_type,),  # noqa: E501
             'outcomes': ([TestResultOutcome], none_type,),  # noqa: E501
             'status_codes': ([str], none_type,),  # noqa: E501
+            'status_types': ([TestStatusApiType], none_type,),  # noqa: E501
             'failure_categories': ([FailureCategoryModel], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'class_name': (str, none_type,),  # noqa: E501
@@ -128,6 +131,7 @@ class TestResultsFilterApiModel(ModelNormal):
         'configuration_ids': 'configurationIds',  # noqa: E501
         'outcomes': 'outcomes',  # noqa: E501
         'status_codes': 'statusCodes',  # noqa: E501
+        'status_types': 'statusTypes',  # noqa: E501
         'failure_categories': 'failureCategories',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
         'class_name': 'className',  # noqa: E501
@@ -188,6 +192,7 @@ class TestResultsFilterApiModel(ModelNormal):
             configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
             outcomes ([TestResultOutcome], none_type): Specifies a test result outcomes to search for. [optional]  # noqa: E501
             status_codes ([str], none_type): Specifies a test result status codes to search for. [optional]  # noqa: E501
+            status_types ([TestStatusApiType], none_type): Specifies a test result status types to search for. [optional]  # noqa: E501
             failure_categories ([FailureCategoryModel], none_type): Specifies a test result failure categories to search for. [optional]  # noqa: E501
             namespace (str, none_type): Specifies a test result namespace to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies a test result class name to search for. [optional]  # noqa: E501
@@ -290,6 +295,7 @@ class TestResultsFilterApiModel(ModelNormal):
             configuration_ids ([str], none_type): Specifies a test result configuration IDs to search for. [optional]  # noqa: E501
             outcomes ([TestResultOutcome], none_type): Specifies a test result outcomes to search for. [optional]  # noqa: E501
             status_codes ([str], none_type): Specifies a test result status codes to search for. [optional]  # noqa: E501
+            status_types ([TestStatusApiType], none_type): Specifies a test result status types to search for. [optional]  # noqa: E501
             failure_categories ([FailureCategoryModel], none_type): Specifies a test result failure categories to search for. [optional]  # noqa: E501
             namespace (str, none_type): Specifies a test result namespace to search for. [optional]  # noqa: E501
             class_name (str, none_type): Specifies a test result class name to search for. [optional]  # noqa: E501

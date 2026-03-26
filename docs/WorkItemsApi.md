@@ -1902,7 +1902,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_work_item_by_id**
-> WorkItemModel get_work_item_by_id(id)
+> WorkItemApiResult get_work_item_by_id(id)
 
 Get Test Case, Checklist or Shared Step by Id or GlobalId
 
@@ -1917,7 +1917,7 @@ import time
 import testit_api_client
 from testit_api_client.api import work_items_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_model import WorkItemModel
+from testit_api_client.model.work_item_api_result import WorkItemApiResult
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -1974,7 +1974,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkItemModel**](WorkItemModel.md)
+[**WorkItemApiResult**](WorkItemApiResult.md)
 
 ### Authorization
 

@@ -38,6 +38,7 @@ def lazy_import():
     from testit_api_client.model.step_model import StepModel
     from testit_api_client.model.tag_model import TagModel
     from testit_api_client.model.work_item_entity_type_api_model import WorkItemEntityTypeApiModel
+    from testit_api_client.model.work_item_parameter_key_api_result import WorkItemParameterKeyApiResult
     from testit_api_client.model.work_item_priority_api_model import WorkItemPriorityApiModel
     from testit_api_client.model.work_item_source_type_api_model import WorkItemSourceTypeApiModel
     from testit_api_client.model.work_item_state_api_model import WorkItemStateApiModel
@@ -49,6 +50,7 @@ def lazy_import():
     globals()['StepModel'] = StepModel
     globals()['TagModel'] = TagModel
     globals()['WorkItemEntityTypeApiModel'] = WorkItemEntityTypeApiModel
+    globals()['WorkItemParameterKeyApiResult'] = WorkItemParameterKeyApiResult
     globals()['WorkItemPriorityApiModel'] = WorkItemPriorityApiModel
     globals()['WorkItemSourceTypeApiModel'] = WorkItemSourceTypeApiModel
     globals()['WorkItemStateApiModel'] = WorkItemStateApiModel
@@ -126,6 +128,7 @@ class WorkItemApiResult(ModelNormal):
             'attachments': ([AttachmentModel],),  # noqa: E501
             'links': ([LinkModel],),  # noqa: E501
             'external_issues': ([ExternalIssueApiResult],),  # noqa: E501
+            'parameters': ([WorkItemParameterKeyApiResult],),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
@@ -166,6 +169,7 @@ class WorkItemApiResult(ModelNormal):
         'attachments': 'attachments',  # noqa: E501
         'links': 'links',  # noqa: E501
         'external_issues': 'externalIssues',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
@@ -181,7 +185,7 @@ class WorkItemApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, external_issues, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, external_issues, parameters, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
         """WorkItemApiResult - a model defined in OpenAPI
 
         Args:
@@ -211,6 +215,7 @@ class WorkItemApiResult(ModelNormal):
             attachments ([AttachmentModel]): Files attached to the work item
             links ([LinkModel]): Set of links related to the work item
             external_issues ([ExternalIssueApiResult]): Set of external issues related to the work item
+            parameters ([WorkItemParameterKeyApiResult]): Set of parameters related to the work item
             created_date (datetime): Creation date of the work item
             created_by_id (str): Unique identifier of the work item creator
             is_deleted (bool): Indicates whether the work item is marked as deleted
@@ -306,6 +311,7 @@ class WorkItemApiResult(ModelNormal):
         self.attachments = attachments
         self.links = links
         self.external_issues = external_issues
+        self.parameters = parameters
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.is_deleted = is_deleted
@@ -329,7 +335,7 @@ class WorkItemApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, external_issues, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, external_issues, parameters, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
         """WorkItemApiResult - a model defined in OpenAPI
 
         Args:
@@ -359,6 +365,7 @@ class WorkItemApiResult(ModelNormal):
             attachments ([AttachmentModel]): Files attached to the work item
             links ([LinkModel]): Set of links related to the work item
             external_issues ([ExternalIssueApiResult]): Set of external issues related to the work item
+            parameters ([WorkItemParameterKeyApiResult]): Set of parameters related to the work item
             created_date (datetime): Creation date of the work item
             created_by_id (str): Unique identifier of the work item creator
             is_deleted (bool): Indicates whether the work item is marked as deleted
@@ -452,6 +459,7 @@ class WorkItemApiResult(ModelNormal):
         self.attachments = attachments
         self.links = links
         self.external_issues = external_issues
+        self.parameters = parameters
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.is_deleted = is_deleted
