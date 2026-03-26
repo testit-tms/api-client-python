@@ -38,6 +38,7 @@ def lazy_import():
     from testit_api_client.model.create_work_item_api_model import CreateWorkItemApiModel
     from testit_api_client.model.tag_model import TagModel
     from testit_api_client.model.work_item_entity_type_api_model import WorkItemEntityTypeApiModel
+    from testit_api_client.model.work_item_parameter_key_api_model import WorkItemParameterKeyApiModel
     from testit_api_client.model.work_item_priority_api_model import WorkItemPriorityApiModel
     from testit_api_client.model.work_item_state_api_model import WorkItemStateApiModel
     globals()['AssignAttachmentApiModel'] = AssignAttachmentApiModel
@@ -48,6 +49,7 @@ def lazy_import():
     globals()['CreateWorkItemApiModel'] = CreateWorkItemApiModel
     globals()['TagModel'] = TagModel
     globals()['WorkItemEntityTypeApiModel'] = WorkItemEntityTypeApiModel
+    globals()['WorkItemParameterKeyApiModel'] = WorkItemParameterKeyApiModel
     globals()['WorkItemPriorityApiModel'] = WorkItemPriorityApiModel
     globals()['WorkItemStateApiModel'] = WorkItemStateApiModel
 
@@ -130,6 +132,7 @@ class ApiV2WorkItemsPostRequest(ModelComposed):
             'iterations': ([AssignIterationApiModel], none_type,),  # noqa: E501
             'auto_tests': ([AutoTestIdModel], none_type,),  # noqa: E501
             'attachments': ([AssignAttachmentApiModel], none_type,),  # noqa: E501
+            'parameters': ([WorkItemParameterKeyApiModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -155,6 +158,7 @@ class ApiV2WorkItemsPostRequest(ModelComposed):
         'iterations': 'iterations',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
     }
 
     read_only_vars = {
@@ -213,6 +217,7 @@ class ApiV2WorkItemsPostRequest(ModelComposed):
             iterations ([AssignIterationApiModel], none_type): Associated iterations linked to the work item. [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): Automated tests associated with the work item. [optional]  # noqa: E501
             attachments ([AssignAttachmentApiModel], none_type): Files attached to the work item. [optional]  # noqa: E501
+            parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys related to the work item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -333,6 +338,7 @@ class ApiV2WorkItemsPostRequest(ModelComposed):
             iterations ([AssignIterationApiModel], none_type): Associated iterations linked to the work item. [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): Automated tests associated with the work item. [optional]  # noqa: E501
             attachments ([AssignAttachmentApiModel], none_type): Files attached to the work item. [optional]  # noqa: E501
+            parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys related to the work item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

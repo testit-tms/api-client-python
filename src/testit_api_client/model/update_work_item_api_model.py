@@ -36,6 +36,7 @@ def lazy_import():
     from testit_api_client.model.tag_model import TagModel
     from testit_api_client.model.update_link_api_model import UpdateLinkApiModel
     from testit_api_client.model.update_step_api_model import UpdateStepApiModel
+    from testit_api_client.model.work_item_parameter_key_api_model import WorkItemParameterKeyApiModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     from testit_api_client.model.work_item_states import WorkItemStates
@@ -45,6 +46,7 @@ def lazy_import():
     globals()['TagModel'] = TagModel
     globals()['UpdateLinkApiModel'] = UpdateLinkApiModel
     globals()['UpdateStepApiModel'] = UpdateStepApiModel
+    globals()['WorkItemParameterKeyApiModel'] = WorkItemParameterKeyApiModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
     globals()['WorkItemStates'] = WorkItemStates
@@ -120,6 +122,7 @@ class UpdateWorkItemApiModel(ModelNormal):
             'source_type': (WorkItemSourceTypeModel,),  # noqa: E501
             'iterations': ([AssignIterationApiModel], none_type,),  # noqa: E501
             'auto_tests': ([AutoTestIdModel], none_type,),  # noqa: E501
+            'parameters': ([WorkItemParameterKeyApiModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -145,6 +148,7 @@ class UpdateWorkItemApiModel(ModelNormal):
         'source_type': 'sourceType',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
     }
 
     read_only_vars = {
@@ -207,6 +211,7 @@ class UpdateWorkItemApiModel(ModelNormal):
             source_type (WorkItemSourceTypeModel): [optional]  # noqa: E501
             iterations ([AssignIterationApiModel], none_type): Collection of parameter id sets. [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): Collection of autotest internal ids. [optional]  # noqa: E501
+            parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys related to the work item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -324,6 +329,7 @@ class UpdateWorkItemApiModel(ModelNormal):
             source_type (WorkItemSourceTypeModel): [optional]  # noqa: E501
             iterations ([AssignIterationApiModel], none_type): Collection of parameter id sets. [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): Collection of autotest internal ids. [optional]  # noqa: E501
+            parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys related to the work item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

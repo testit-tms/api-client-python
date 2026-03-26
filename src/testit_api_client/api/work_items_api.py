@@ -1316,7 +1316,7 @@ class WorkItemsApi(object):
         )
         self.get_work_item_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (WorkItemModel,),
+                'response_type': (WorkItemApiResult,),
                 'auth': [
                     'Bearer or PrivateToken'
                 ],
@@ -3381,7 +3381,7 @@ class WorkItemsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            WorkItemModel
+            WorkItemApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """

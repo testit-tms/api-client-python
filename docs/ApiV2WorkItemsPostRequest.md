@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **iterations** | [**[AssignIterationApiModel], none_type**](AssignIterationApiModel.md) | Associated iterations linked to the work item | [optional] 
 **auto_tests** | [**[AutoTestIdModel], none_type**](AutoTestIdModel.md) | Automated tests associated with the work item | [optional] 
 **attachments** | [**[AssignAttachmentApiModel], none_type**](AssignAttachmentApiModel.md) | Files attached to the work item | [optional] 
+**parameters** | [**[WorkItemParameterKeyApiModel], none_type**](WorkItemParameterKeyApiModel.md) | Set of parameter keys related to the work item | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **source_type** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | [optional] 
 **iterations** | [**[AssignIterationApiModel], none_type**](AssignIterationApiModel.md) | Collection of parameter id sets | [optional] 
 **auto_tests** | [**[AutoTestIdModel], none_type**](AutoTestIdModel.md) | Collection of autotest internal ids | [optional] 
+**parameters** | [**[WorkItemParameterKeyApiModel], none_type**](WorkItemParameterKeyApiModel.md) | Set of parameter keys related to the work item | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

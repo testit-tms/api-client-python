@@ -29209,7 +29209,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WorkItemModel"
+                  "$ref": "#/components/schemas/WorkItemApiResult"
                 }
               }
             }
@@ -37024,6 +37024,14 @@
               "$ref": "#/components/schemas/CreateLinkApiModel"
             },
             "description": "Set of links related to the work item"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkItemParameterKeyApiModel"
+            },
+            "description": "Set of parameter keys related to the work item",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -41195,6 +41203,7 @@
           },
           "workflowId": {
             "type": "string",
+            "description": "Identifier of current workflow",
             "format": "uuid"
           }
         },
@@ -48041,6 +48050,14 @@
             "description": "Specifies a test result status codes to search for",
             "nullable": true
           },
+          "statusTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TestStatusApiType"
+            },
+            "description": "Specifies a test result status types to search for",
+            "nullable": true
+          },
           "failureCategories": {
             "type": "array",
             "items": {
@@ -50774,6 +50791,14 @@
             },
             "description": "Collection of autotest internal ids",
             "nullable": true
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkItemParameterKeyApiModel"
+            },
+            "description": "Set of parameter keys related to the work item",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -51550,6 +51575,7 @@
           "links",
           "medianDuration",
           "name",
+          "parameters",
           "postconditionSteps",
           "preconditionSteps",
           "priority",
@@ -51731,6 +51757,13 @@
               "$ref": "#/components/schemas/ExternalIssueApiResult"
             },
             "description": "Set of external issues related to the work item"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkItemParameterKeyApiResult"
+            },
+            "description": "Set of parameters related to the work item"
           },
           "createdDate": {
             "type": "string",
@@ -53353,6 +53386,7 @@
           "links",
           "medianDuration",
           "name",
+          "parameters",
           "postconditionSteps",
           "preconditionSteps",
           "priority",
@@ -53488,6 +53522,12 @@
               "$ref": "#/components/schemas/ExternalIssueModel"
             }
           },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkItemParameterKeyModel"
+            }
+          },
           "id": {
             "title": "Workitem internal identifier",
             "type": "string",
@@ -53608,6 +53648,46 @@
             "type": "string",
             "format": "uuid",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkItemParameterKeyApiModel": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the parameter key to assign",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkItemParameterKeyApiResult": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkItemParameterKeyModel": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false

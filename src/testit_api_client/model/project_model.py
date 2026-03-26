@@ -147,7 +147,7 @@ class ProjectModel(ModelNormal):
             created_by_id (str): Unique ID of the project creator
             global_id (int): Global ID of the project
             type (ProjectTypeModel):
-            workflow_id (str):
+            workflow_id (str): Identifier of current workflow
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -261,7 +261,7 @@ class ProjectModel(ModelNormal):
             created_by_id (str): Unique ID of the project creator
             global_id (int): Global ID of the project
             type (ProjectTypeModel):
-            workflow_id (str):
+            workflow_id (str): Identifier of current workflow
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
