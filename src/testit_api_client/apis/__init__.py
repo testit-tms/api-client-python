@@ -34,6 +34,7 @@ from testit_api_client.api.project_test_plan_test_points_api import ProjectTestP
 from testit_api_client.api.project_test_plans_api import ProjectTestPlansApi
 from testit_api_client.api.project_work_items_api import ProjectWorkItemsApi
 from testit_api_client.api.projects_api import ProjectsApi
+from testit_api_client.api.roles_api import RolesApi
 from testit_api_client.api.search_api import SearchApi
 from testit_api_client.api.sections_api import SectionsApi
 from testit_api_client.api.tags_api import TagsApi
@@ -43,6 +44,7 @@ from testit_api_client.api.test_results_api import TestResultsApi
 from testit_api_client.api.test_runs_api import TestRunsApi
 from testit_api_client.api.test_statuses_api import TestStatusesApi
 from testit_api_client.api.test_suites_api import TestSuitesApi
+from testit_api_client.api.user_role_assignments_api import UserRoleAssignmentsApi
 from testit_api_client.api.users_api import UsersApi
 from testit_api_client.api.webhooks_api import WebhooksApi
 from testit_api_client.api.webhooks_logs_api import WebhooksLogsApi

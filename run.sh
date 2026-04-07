@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Настройка переменных
-FILE_NAME="cloud-swagger.json"
-NEW_VERSION="7.5.5"
+FILE_NAME="5.7-swagger.json"
+NEW_VERSION="7.5.5.post570"
 GENERATOR="openapi-generator-cli-6.6.0.jar"
 
 if [ ! -f ".swagger/$FILE_NAME" ]; then

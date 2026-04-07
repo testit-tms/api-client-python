@@ -666,7 +666,7 @@ class AttachmentsApi(object):
     ):
         """Upload new attachment file  # noqa: E501
 
-        File size is restricted to 50 MB (52 428 800 bytes)  # noqa: E501
+        File size is restricted to 1 GB (1 073 741 824 bytes)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
