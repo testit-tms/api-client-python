@@ -51,7 +51,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}/test-points',
                 'operation_id': 'add_test_points_to_test_suite',
@@ -108,7 +109,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}',
                 'operation_id': 'api_v2_test_suites_id_patch',
@@ -165,7 +167,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}/refresh',
                 'operation_id': 'api_v2_test_suites_id_refresh_post',
@@ -216,7 +219,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}/workItems',
                 'operation_id': 'api_v2_test_suites_id_work_items_post',
@@ -277,7 +281,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': (TestSuiteV2GetModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites',
                 'operation_id': 'api_v2_test_suites_post',
@@ -327,7 +332,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites',
                 'operation_id': 'api_v2_test_suites_put',
@@ -377,7 +383,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}',
                 'operation_id': 'delete_test_suite',
@@ -428,7 +435,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': ([ConfigurationModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}/configurations',
                 'operation_id': 'get_configurations_by_test_suite_id',
@@ -479,7 +487,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': ([TestPointByTestSuiteModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}/testPoints',
                 'operation_id': 'get_test_points_by_id',
@@ -530,7 +539,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': ([TestResultV2ShortModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}/testResults',
                 'operation_id': 'get_test_results_by_id',
@@ -581,7 +591,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': (TestSuiteApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}',
                 'operation_id': 'get_test_suite_by_id',
@@ -632,7 +643,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': ([WorkItemShortModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}/workItems/search',
                 'operation_id': 'search_work_items',
@@ -714,7 +726,8 @@ class TestSuitesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testSuites/{id}/configurations',
                 'operation_id': 'set_configurations_by_test_suite_id',

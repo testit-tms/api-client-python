@@ -32,7 +32,7 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.attachment_update_request import AttachmentUpdateRequest
     from testit_api_client.model.auto_test_step_result_update_request import AutoTestStepResultUpdateRequest
-    from testit_api_client.model.link import Link
+    from testit_api_client.model.create_link_api_model import CreateLinkApiModel
     from testit_api_client.model.step_result_api_model import StepResultApiModel
     from testit_api_client.model.test_result_outcome import TestResultOutcome
     from testit_api_client.model.test_result_step_comment_update_request import TestResultStepCommentUpdateRequest
@@ -40,7 +40,7 @@ def lazy_import():
     from testit_api_client.model.test_status_type import TestStatusType
     globals()['AttachmentUpdateRequest'] = AttachmentUpdateRequest
     globals()['AutoTestStepResultUpdateRequest'] = AutoTestStepResultUpdateRequest
-    globals()['Link'] = Link
+    globals()['CreateLinkApiModel'] = CreateLinkApiModel
     globals()['StepResultApiModel'] = StepResultApiModel
     globals()['TestResultOutcome'] = TestResultOutcome
     globals()['TestResultStepCommentUpdateRequest'] = TestResultStepCommentUpdateRequest
@@ -114,7 +114,7 @@ class ApiV2TestResultsIdPutRequest(ModelComposed):
             'status_code': (str, none_type,),  # noqa: E501
             'status_type': (TestStatusType,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
-            'links': ([Link], none_type,),  # noqa: E501
+            'links': ([CreateLinkApiModel], none_type,),  # noqa: E501
             'step_results': ([StepResultApiModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentUpdateRequest], none_type,),  # noqa: E501
             'duration_in_ms': (int, none_type,),  # noqa: E501
@@ -193,7 +193,7 @@ class ApiV2TestResultsIdPutRequest(ModelComposed):
             status_code (str, none_type): [optional]  # noqa: E501
             status_type (TestStatusType): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
-            links ([Link], none_type): [optional]  # noqa: E501
+            links ([CreateLinkApiModel], none_type): [optional]  # noqa: E501
             step_results ([StepResultApiModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentUpdateRequest], none_type): [optional]  # noqa: E501
             duration_in_ms (int, none_type): [optional]  # noqa: E501
@@ -311,7 +311,7 @@ class ApiV2TestResultsIdPutRequest(ModelComposed):
             status_code (str, none_type): [optional]  # noqa: E501
             status_type (TestStatusType): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
-            links ([Link], none_type): [optional]  # noqa: E501
+            links ([CreateLinkApiModel], none_type): [optional]  # noqa: E501
             step_results ([StepResultApiModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentUpdateRequest], none_type): [optional]  # noqa: E501
             duration_in_ms (int, none_type): [optional]  # noqa: E501

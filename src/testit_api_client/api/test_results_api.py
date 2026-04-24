@@ -52,7 +52,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': (GetExternalFormApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/external-projects/{externalProjectId}/defects/external-forms',
                 'operation_id': 'api_v2_test_results_external_projects_external_project_id_defects_external_forms_post',
@@ -109,7 +110,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': (DefectApiModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/external-projects/{externalProjectId}/defects',
                 'operation_id': 'api_v2_test_results_external_projects_external_project_id_defects_post',
@@ -166,7 +168,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': (TestResultResponse,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/aggregated',
                 'operation_id': 'api_v2_test_results_id_aggregated_get',
@@ -217,7 +220,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/{attachmentId}',
                 'operation_id': 'api_v2_test_results_id_attachments_attachment_id_put',
@@ -274,7 +278,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': ([AttachmentApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/info',
                 'operation_id': 'api_v2_test_results_id_attachments_info_get',
@@ -325,7 +330,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': (TestResultResponse,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}',
                 'operation_id': 'api_v2_test_results_id_get',
@@ -376,7 +382,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}',
                 'operation_id': 'api_v2_test_results_id_put',
@@ -433,7 +440,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': (RerunsApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/reruns',
                 'operation_id': 'api_v2_test_results_id_reruns_get',
@@ -484,7 +492,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': ([TestResultShortResponse],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/search',
                 'operation_id': 'api_v2_test_results_search_post',
@@ -559,7 +568,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': (TestResultsStatisticsApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/statistics/filter',
                 'operation_id': 'api_v2_test_results_statistics_filter_post',
@@ -609,7 +619,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments',
                 'operation_id': 'create_attachment',
@@ -667,7 +678,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/{attachmentId}',
                 'operation_id': 'delete_attachment',
@@ -724,7 +736,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/{attachmentId}',
                 'operation_id': 'download_attachment',
@@ -826,7 +839,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': (AttachmentApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/{attachmentId}/info',
                 'operation_id': 'get_attachment',
@@ -883,7 +897,8 @@ class TestResultsApi(object):
             settings={
                 'response_type': ([AttachmentApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments',
                 'operation_id': 'get_attachments',

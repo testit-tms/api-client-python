@@ -44,7 +44,8 @@ class TestPointsApi(object):
             settings={
                 'response_type': ([TestRunApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testPoints/{id}/testRuns',
                 'operation_id': 'api_v2_test_points_id_test_runs_get',
@@ -95,7 +96,8 @@ class TestPointsApi(object):
             settings={
                 'response_type': (WorkItemModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testPoints/{id}/workItem',
                 'operation_id': 'api_v2_test_points_id_work_item_get',
@@ -146,7 +148,8 @@ class TestPointsApi(object):
             settings={
                 'response_type': ([str],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testPoints/search/id',
                 'operation_id': 'api_v2_test_points_search_id_post',
@@ -221,7 +224,8 @@ class TestPointsApi(object):
             settings={
                 'response_type': ([TestPointShortResponseModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testPoints/search',
                 'operation_id': 'api_v2_test_points_search_post',

@@ -46,7 +46,8 @@ class CustomAttributesApi(object):
             settings={
                 'response_type': (CustomAttributeValidationResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/exists',
                 'operation_id': 'api_v2_custom_attributes_exists_get',
@@ -100,7 +101,8 @@ class CustomAttributesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/global/{id}',
                 'operation_id': 'api_v2_custom_attributes_global_id_delete',
@@ -151,7 +153,8 @@ class CustomAttributesApi(object):
             settings={
                 'response_type': (CustomAttributeModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/global/{id}',
                 'operation_id': 'api_v2_custom_attributes_global_id_put',
@@ -208,7 +211,8 @@ class CustomAttributesApi(object):
             settings={
                 'response_type': (CustomAttributeModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/global',
                 'operation_id': 'api_v2_custom_attributes_global_post',
@@ -258,7 +262,8 @@ class CustomAttributesApi(object):
             settings={
                 'response_type': (CustomAttributeModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/{id}',
                 'operation_id': 'api_v2_custom_attributes_id_get',
@@ -309,7 +314,8 @@ class CustomAttributesApi(object):
             settings={
                 'response_type': ([CustomAttributeSearchResponseModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/search',
                 'operation_id': 'api_v2_custom_attributes_search_post',

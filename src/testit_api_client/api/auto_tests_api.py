@@ -58,7 +58,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': (AutoTestBulkDeleteApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests',
                 'operation_id': 'api_v2_auto_tests_delete',
@@ -108,7 +109,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/flaky/bulk',
                 'operation_id': 'api_v2_auto_tests_flaky_bulk_post',
@@ -183,7 +185,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}',
                 'operation_id': 'api_v2_auto_tests_id_patch',
@@ -240,7 +243,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': ([AutoTestResultHistoryApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}/testResults/search',
                 'operation_id': 'api_v2_auto_tests_id_test_results_search_post',
@@ -322,7 +326,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': ([str],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}/workItems/changed/id',
                 'operation_id': 'api_v2_auto_tests_id_work_items_changed_id_get',
@@ -373,7 +378,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}/workItems/changed/{workItemId}/approve',
                 'operation_id': 'api_v2_auto_tests_id_work_items_changed_work_item_id_approve_post',
@@ -430,7 +436,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': ([AutoTestApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/search',
                 'operation_id': 'api_v2_auto_tests_search_post',
@@ -505,7 +512,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': (AutoTestApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests',
                 'operation_id': 'create_auto_test',
@@ -555,7 +563,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': ([AutoTestApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/bulk',
                 'operation_id': 'create_multiple',
@@ -610,7 +619,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}',
                 'operation_id': 'delete_auto_test',
@@ -661,7 +671,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}/workItems',
                 'operation_id': 'delete_auto_test_link_from_work_item',
@@ -717,7 +728,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': ([AutoTestModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests',
                 'operation_id': 'get_all_auto_tests',
@@ -892,7 +904,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': (AutoTestAverageDurationApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}/averageDuration',
                 'operation_id': 'get_auto_test_average_duration',
@@ -943,7 +956,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': (AutoTestApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}',
                 'operation_id': 'get_auto_test_by_id',
@@ -994,7 +1008,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': ([TestResultChronologyModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}/chronology',
                 'operation_id': 'get_auto_test_chronology',
@@ -1045,7 +1060,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': ([TestRunByAutoTestApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}/testRuns',
                 'operation_id': 'get_test_runs',
@@ -1096,7 +1112,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': ([AutoTestWorkItemIdentifierApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}/workItems',
                 'operation_id': 'get_work_items_linked_to_auto_test',
@@ -1157,7 +1174,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/{id}/workItems',
                 'operation_id': 'link_auto_test_to_work_item',
@@ -1214,7 +1232,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests',
                 'operation_id': 'update_auto_test',
@@ -1264,7 +1283,8 @@ class AutoTestsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/autoTests/bulk',
                 'operation_id': 'update_multiple',

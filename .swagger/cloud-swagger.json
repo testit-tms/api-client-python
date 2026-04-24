@@ -15585,7 +15585,8 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/api/v2/sections/{id}": {
@@ -18542,7 +18543,7 @@
             }
           },
           "422": {
-            "description": "Can't put a SharedStep in the TestSuite",
+            "description": "Can't put a SharedSteps in the TestSuite",
             "content": {
               "application/json": {
                 "schema": {
@@ -19934,7 +19935,8 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/api/v2/testPlans/{id}/unlock/request": {
@@ -22326,7 +22328,8 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/api/v2/testResults/external-projects/{externalProjectId}/defects": {
@@ -22429,7 +22432,8 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/api/v2/testResults/{id}/aggregated": {
@@ -33041,7 +33045,7 @@
           "links": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Link"
+              "$ref": "#/components/schemas/LinkApiResult"
             },
             "description": "Collection of the autotest links",
             "nullable": true
@@ -36378,6 +36382,7 @@
       "CreateLinkApiModel": {
         "required": [
           "hasInfo",
+          "type",
           "url"
         ],
         "type": "object",
@@ -36403,8 +36408,7 @@
                 "$ref": "#/components/schemas/LinkType"
               }
             ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
+            "description": "Specifies the type of the link."
           },
           "hasInfo": {
             "type": "boolean",
@@ -38860,14 +38864,6 @@
             "description": "The ID of the external AI service to be used for generation.",
             "format": "uuid"
           },
-          "taskKey": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "description": "The key of the issue in an issue tracker (e.g., JIRA-123).",
-            "nullable": true,
-            "deprecated": true
-          },
           "issueKey": {
             "maxLength": 255,
             "minLength": 0,
@@ -39619,50 +39615,6 @@
         },
         "additionalProperties": false
       },
-      "Link": {
-        "required": [
-          "hasInfo",
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Link unique identifier",
-            "format": "uuid",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "description": "Link name.",
-            "nullable": true
-          },
-          "url": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Address can be specified without protocol, but necessarily with the domain."
-          },
-          "description": {
-            "type": "string",
-            "description": "Link description.",
-            "nullable": true
-          },
-          "type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LinkType"
-              }
-            ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
-          },
-          "hasInfo": {
-            "type": "boolean",
-            "description": "Flag defines if link relates to integrated jira service"
-          }
-        },
-        "additionalProperties": false
-      },
       "LinkApiResult": {
         "required": [
           "hasInfo",
@@ -39748,6 +39700,7 @@
       "LinkModel": {
         "required": [
           "hasInfo",
+          "type",
           "url"
         ],
         "type": "object",
@@ -39780,8 +39733,7 @@
                 "$ref": "#/components/schemas/LinkType"
               }
             ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
+            "description": "Specifies the type of the link."
           },
           "hasInfo": {
             "title": "Flag defines if link relates to integrated jira service",
@@ -39793,6 +39745,7 @@
       "LinkPostModel": {
         "required": [
           "hasInfo",
+          "type",
           "url"
         ],
         "type": "object",
@@ -39818,8 +39771,7 @@
                 "$ref": "#/components/schemas/LinkType"
               }
             ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
+            "description": "Specifies the type of the link."
           },
           "hasInfo": {
             "title": "Flag defines if link relates to integrated jira service",
@@ -39831,6 +39783,7 @@
       "LinkPutModel": {
         "required": [
           "hasInfo",
+          "type",
           "url"
         ],
         "type": "object",
@@ -39863,8 +39816,7 @@
                 "$ref": "#/components/schemas/LinkType"
               }
             ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
+            "description": "Specifies the type of the link."
           },
           "hasInfo": {
             "title": "Flag defines if link relates to integrated jira service",
@@ -39876,8 +39828,6 @@
       "LinkShortApiResult": {
         "required": [
           "id",
-          "title",
-          "type",
           "url"
         ],
         "type": "object",
@@ -39887,13 +39837,15 @@
             "format": "uuid"
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "url": {
             "type": "string"
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -39901,7 +39853,6 @@
       "LinkShortModel": {
         "required": [
           "id",
-          "title",
           "url"
         ],
         "type": "object",
@@ -39911,7 +39862,8 @@
             "format": "uuid"
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "type": {
             "type": "string",
@@ -40422,6 +40374,11 @@
             "type": "string",
             "format": "uuid",
             "example": "39d127a1-a511-473f-8b21-f75b747a9420"
+          },
+          "sharedStepId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -40467,6 +40424,11 @@
           "id": {
             "type": "string",
             "format": "uuid"
+          },
+          "sharedStepId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           },
           "parameterKeyId": {
             "type": "string",
@@ -40626,7 +40588,8 @@
           "isFavorite",
           "name",
           "type",
-          "workflowId"
+          "workflowId",
+          "workItemsCount"
         ],
         "type": "object",
         "properties": {
@@ -40663,6 +40626,11 @@
             },
             "description": "Collection of the project test plans attributes",
             "nullable": true
+          },
+          "workItemsCount": {
+            "type": "integer",
+            "description": "Number of work items in the project",
+            "format": "int32"
           },
           "testCasesCount": {
             "type": "integer",
@@ -41100,7 +41068,8 @@
           "isFavorite",
           "name",
           "type",
-          "workflowId"
+          "workflowId",
+          "workItemsCount"
         ],
         "type": "object",
         "properties": {
@@ -41137,6 +41106,11 @@
             },
             "description": "Collection of the project test plans attributes",
             "nullable": true
+          },
+          "workItemsCount": {
+            "type": "integer",
+            "description": "Number of work items in the project",
+            "format": "int32"
           },
           "testCasesCount": {
             "type": "integer",
@@ -41322,7 +41296,8 @@
           "isFavorite",
           "name",
           "type",
-          "workflowId"
+          "workflowId",
+          "workItemsCount"
         ],
         "type": "object",
         "properties": {
@@ -41343,6 +41318,11 @@
           "isFavorite": {
             "type": "boolean",
             "description": "Indicates if the project is marked as favorite"
+          },
+          "workItemsCount": {
+            "type": "integer",
+            "description": "Number of test cases in the project",
+            "format": "int32"
           },
           "testCasesCount": {
             "type": "integer",
@@ -42772,7 +42752,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/WorkItemTypeModel"
             },
             "description": "Collection of types of work item\n\nAllowed values: `TestCases`, `CheckLists`, `SharedSteps`",
             "nullable": true
@@ -47220,7 +47200,7 @@
           "links": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Link"
+              "$ref": "#/components/schemas/LinkApiResult"
             },
             "nullable": true
           },
@@ -47635,7 +47615,7 @@
           "links": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Link"
+              "$ref": "#/components/schemas/CreateLinkApiModel"
             },
             "nullable": true
           },
@@ -49854,7 +49834,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkItemEntityTypes"
+              "$ref": "#/components/schemas/WorkItemTypeModel"
             },
             "description": "Collection of types of work item\n\nAllowed values: `TestCases`, `CheckLists`, `SharedSteps`",
             "nullable": true
@@ -50000,7 +49980,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkItemEntityTypes"
+              "$ref": "#/components/schemas/WorkItemTypeModel"
             },
             "description": "Collection of types of work item",
             "nullable": true
@@ -50264,6 +50244,7 @@
       "UpdateLinkApiModel": {
         "required": [
           "hasInfo",
+          "type",
           "url"
         ],
         "type": "object",
@@ -50295,8 +50276,7 @@
                 "$ref": "#/components/schemas/LinkType"
               }
             ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
+            "description": "Specifies the type of the link."
           },
           "hasInfo": {
             "type": "boolean",
@@ -52092,14 +52072,6 @@
         ],
         "type": "string"
       },
-      "WorkItemEntityTypes": {
-        "enum": [
-          "TestCases",
-          "CheckLists",
-          "SharedSteps"
-        ],
-        "type": "string"
-      },
       "WorkItemExternalMetadataFieldFilterApiModel": {
         "required": [
           "externalServiceId",
@@ -52441,7 +52413,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkItemEntityTypes"
+              "$ref": "#/components/schemas/WorkItemTypeModel"
             },
             "description": "Collection of types of work item",
             "nullable": true
@@ -52689,7 +52661,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkItemEntityTypes"
+              "$ref": "#/components/schemas/WorkItemTypeModel"
             },
             "description": "Collection of types of work item",
             "nullable": true
@@ -53121,7 +53093,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkItemEntityTypes"
+              "$ref": "#/components/schemas/WorkItemTypeModel"
             },
             "nullable": true
           },
@@ -53241,7 +53213,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkItemEntityTypes"
+              "$ref": "#/components/schemas/WorkItemTypeModel"
             },
             "description": "Collection of types of work item",
             "nullable": true
@@ -53429,7 +53401,7 @@
           "entityTypeName": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/WorkItemEntityTypes"
+                "$ref": "#/components/schemas/WorkItemTypeModel"
               }
             ]
           },
@@ -53484,6 +53456,18 @@
             },
             "nullable": true
           },
+          "externalIssues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalIssueModel"
+            }
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkItemParameterKeyModel"
+            }
+          },
           "createdDate": {
             "title": "Date and time of workitem creation",
             "type": "string",
@@ -53515,18 +53499,6 @@
             "type": "integer",
             "format": "int64",
             "example": 1000
-          },
-          "externalIssues": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ExternalIssueModel"
-            }
-          },
-          "parameters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WorkItemParameterKeyModel"
-            }
           },
           "id": {
             "title": "Workitem internal identifier",
@@ -53889,7 +53861,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WorkItemEntityTypes"
+              "$ref": "#/components/schemas/WorkItemTypeModel"
             },
             "description": "Collection of types of work item",
             "nullable": true
@@ -54255,8 +54227,11 @@
             "example": "Performance test"
           },
           "entityTypeName": {
-            "minLength": 1,
-            "type": "string",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkItemTypeModel"
+              }
+            ],
             "description": "Work Item type. Possible values: CheckLists, SharedSteps, TestCases",
             "example": "TestCases"
           },
@@ -54485,6 +54460,14 @@
           }
         },
         "additionalProperties": false
+      },
+      "WorkItemTypeModel": {
+        "enum": [
+          "TestCases",
+          "CheckLists",
+          "SharedSteps"
+        ],
+        "type": "string"
       },
       "WorkItemUpdatingFieldsApiModel": {
         "type": "object",
@@ -54871,17 +54854,24 @@
       }
     },
     "securitySchemes": {
-      "Bearer or PrivateToken": {
+      "PrivateToken": {
         "type": "apiKey",
-        "description": "JWT Authorization header using the Bearer scheme. Example: value: \"PrivateToken {API Secret Key}\" or value: \"Bearer {Bearer Token}\"",
+        "description": "API token authorization. Example: value: \"PrivateToken {API Secret Key}\"",
         "name": "Authorization",
         "in": "header"
+      },
+      "Session Cookie": {
+        "type": "apiKey",
+        "description": "Session-based authorization via Web UI. If you are already logged in, the browser will attach the cookie automatically — no need to fill in the Value field.",
+        "name": "backoffice",
+        "in": "cookie"
       }
     }
   },
   "security": [
     {
-      "Bearer or PrivateToken": [ ]
+      "PrivateToken": [ ],
+      "Session Cookie": [ ]
     }
   ],
   "tags": [

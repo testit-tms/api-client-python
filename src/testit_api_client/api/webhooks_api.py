@@ -50,7 +50,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks',
                 'operation_id': 'api_v2_webhooks_delete',
@@ -100,7 +101,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': ([WebHookModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks',
                 'operation_id': 'api_v2_webhooks_get',
@@ -149,7 +151,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks/{id}',
                 'operation_id': 'api_v2_webhooks_id_delete',
@@ -200,7 +203,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': (WebHookModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks/{id}',
                 'operation_id': 'api_v2_webhooks_id_get',
@@ -251,7 +255,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': (WebHookModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks/{id}',
                 'operation_id': 'api_v2_webhooks_id_put',
@@ -308,7 +313,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': (WebHookModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks',
                 'operation_id': 'api_v2_webhooks_post',
@@ -358,7 +364,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': (WebhooksUpdateApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks',
                 'operation_id': 'api_v2_webhooks_put',
@@ -408,7 +415,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': ([WebHookModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks/search',
                 'operation_id': 'api_v2_webhooks_search_post',
@@ -483,7 +491,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': ([str],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks/specialVariables',
                 'operation_id': 'api_v2_webhooks_special_variables_get',
@@ -537,7 +546,8 @@ class WebhooksApi(object):
             settings={
                 'response_type': (WebhookResponse,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks/test',
                 'operation_id': 'api_v2_webhooks_test_post',

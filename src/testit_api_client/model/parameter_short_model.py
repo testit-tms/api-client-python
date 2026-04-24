@@ -88,6 +88,7 @@ class ParameterShortModel(ModelNormal):
             'value': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_ids': ([str],),  # noqa: E501
+            'shared_step_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -101,6 +102,7 @@ class ParameterShortModel(ModelNormal):
         'value': 'value',  # noqa: E501
         'name': 'name',  # noqa: E501
         'project_ids': 'projectIds',  # noqa: E501
+        'shared_step_id': 'sharedStepId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,6 +153,7 @@ class ParameterShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            shared_step_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,6 +251,7 @@ class ParameterShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            shared_step_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

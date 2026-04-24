@@ -41,7 +41,8 @@ class UsersApi(object):
             settings={
                 'response_type': (UserCustomNameValidationResponse,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/users/exists',
                 'operation_id': 'api_v2_users_exists_get',

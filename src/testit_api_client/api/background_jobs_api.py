@@ -43,7 +43,8 @@ class BackgroundJobsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/completed',
                 'operation_id': 'api_v2_background_jobs_completed_delete',
@@ -87,7 +88,8 @@ class BackgroundJobsApi(object):
             settings={
                 'response_type': ([BackgroundJobGetModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs',
                 'operation_id': 'api_v2_background_jobs_get',
@@ -156,7 +158,8 @@ class BackgroundJobsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/{id}/cancel',
                 'operation_id': 'api_v2_background_jobs_id_cancel_post',
@@ -207,7 +210,8 @@ class BackgroundJobsApi(object):
             settings={
                 'response_type': (BackgroundJobGetModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/{id}',
                 'operation_id': 'api_v2_background_jobs_id_get',
@@ -258,7 +262,8 @@ class BackgroundJobsApi(object):
             settings={
                 'response_type': (BackgroundJobState,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/{id}/status',
                 'operation_id': 'api_v2_background_jobs_id_status_get',
@@ -309,7 +314,8 @@ class BackgroundJobsApi(object):
             settings={
                 'response_type': ([BackgroundJobGetModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/search',
                 'operation_id': 'api_v2_background_jobs_search_post',

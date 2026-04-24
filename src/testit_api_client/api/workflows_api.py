@@ -49,7 +49,8 @@ class WorkflowsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}',
                 'operation_id': 'api_v2_workflows_id_delete',
@@ -100,7 +101,8 @@ class WorkflowsApi(object):
             settings={
                 'response_type': (WorkflowApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}',
                 'operation_id': 'api_v2_workflows_id_get',
@@ -151,7 +153,8 @@ class WorkflowsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}',
                 'operation_id': 'api_v2_workflows_id_patch',
@@ -208,7 +211,8 @@ class WorkflowsApi(object):
             settings={
                 'response_type': (WorkflowProjectApiResultReply,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}/projects/search',
                 'operation_id': 'api_v2_workflows_id_projects_search_post',
@@ -265,7 +269,8 @@ class WorkflowsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}',
                 'operation_id': 'api_v2_workflows_id_put',
@@ -322,7 +327,8 @@ class WorkflowsApi(object):
             settings={
                 'response_type': (WorkflowExistsByNameApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workflows/name/{name}/exists',
                 'operation_id': 'api_v2_workflows_name_name_exists_get',
@@ -373,7 +379,8 @@ class WorkflowsApi(object):
             settings={
                 'response_type': (WorkflowApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workflows',
                 'operation_id': 'api_v2_workflows_post',
@@ -423,7 +430,8 @@ class WorkflowsApi(object):
             settings={
                 'response_type': (WorkflowShortApiResultReply,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workflows/search',
                 'operation_id': 'api_v2_workflows_search_post',

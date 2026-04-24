@@ -48,7 +48,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': ([str],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/createByParameters',
                 'operation_id': 'api_v2_configurations_create_by_parameters_post',
@@ -98,7 +99,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/delete/bulk',
                 'operation_id': 'api_v2_configurations_delete_bulk_post',
@@ -148,7 +150,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}',
                 'operation_id': 'api_v2_configurations_id_delete',
@@ -199,7 +202,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}',
                 'operation_id': 'api_v2_configurations_id_patch',
@@ -256,7 +260,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}/purge',
                 'operation_id': 'api_v2_configurations_id_purge_post',
@@ -307,7 +312,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}/restore',
                 'operation_id': 'api_v2_configurations_id_restore_post',
@@ -358,7 +364,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/purge/bulk',
                 'operation_id': 'api_v2_configurations_purge_bulk_post',
@@ -408,7 +415,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations',
                 'operation_id': 'api_v2_configurations_put',
@@ -458,7 +466,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/restore/bulk',
                 'operation_id': 'api_v2_configurations_restore_bulk_post',
@@ -508,7 +517,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': ([ConfigurationModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/search',
                 'operation_id': 'api_v2_configurations_search_post',
@@ -583,7 +593,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': (ConfigurationModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations',
                 'operation_id': 'create_configuration',
@@ -633,7 +644,8 @@ class ConfigurationsApi(object):
             settings={
                 'response_type': (ConfigurationModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}',
                 'operation_id': 'get_configuration_by_id',

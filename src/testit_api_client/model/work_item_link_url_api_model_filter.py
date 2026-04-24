@@ -30,10 +30,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
     from testit_api_client.model.work_item_link_url_filter_api_model import WorkItemLinkUrlFilterApiModel
-    globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
+    from testit_api_client.model.work_item_type_model import WorkItemTypeModel
     globals()['WorkItemLinkUrlFilterApiModel'] = WorkItemLinkUrlFilterApiModel
+    globals()['WorkItemTypeModel'] = WorkItemTypeModel
 
 
 class WorkItemLinkUrlApiModelFilter(ModelComposed):
@@ -91,7 +91,7 @@ class WorkItemLinkUrlApiModelFilter(ModelComposed):
         """
         lazy_import()
         return {
-            'types': ([WorkItemEntityTypes], none_type,),  # noqa: E501
+            'types': ([WorkItemTypeModel], none_type,),  # noqa: E501
             'search_url': (str, none_type,),  # noqa: E501
         }
 
@@ -144,7 +144,7 @@ class WorkItemLinkUrlApiModelFilter(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            types ([WorkItemEntityTypes], none_type): [optional]  # noqa: E501
+            types ([WorkItemTypeModel], none_type): [optional]  # noqa: E501
             search_url (str, none_type): [optional]  # noqa: E501
         """
 
@@ -249,7 +249,7 @@ class WorkItemLinkUrlApiModelFilter(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            types ([WorkItemEntityTypes], none_type): [optional]  # noqa: E501
+            types ([WorkItemTypeModel], none_type): [optional]  # noqa: E501
             search_url (str, none_type): [optional]  # noqa: E501
         """
 

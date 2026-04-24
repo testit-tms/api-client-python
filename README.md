@@ -691,7 +691,6 @@ Class | Method | HTTP request | Description
  - [LabelShortModel](docs/LabelShortModel.md)
  - [LastTestResultApiResult](docs/LastTestResultApiResult.md)
  - [LastTestResultModel](docs/LastTestResultModel.md)
- - [Link](docs/Link.md)
  - [LinkApiResult](docs/LinkApiResult.md)
  - [LinkAutoTestToWorkItemRequest](docs/LinkAutoTestToWorkItemRequest.md)
  - [LinkCreateApiModel](docs/LinkCreateApiModel.md)
@@ -1053,7 +1052,6 @@ Class | Method | HTTP request | Description
  - [WorkItemChangedFieldsViewModelTags](docs/WorkItemChangedFieldsViewModelTags.md)
  - [WorkItemCommentApiResult](docs/WorkItemCommentApiResult.md)
  - [WorkItemEntityTypeApiModel](docs/WorkItemEntityTypeApiModel.md)
- - [WorkItemEntityTypes](docs/WorkItemEntityTypes.md)
  - [WorkItemExternalMetadataFieldFilterApiModel](docs/WorkItemExternalMetadataFieldFilterApiModel.md)
  - [WorkItemExternalMetadataFieldFilterModel](docs/WorkItemExternalMetadataFieldFilterModel.md)
  - [WorkItemExternalMetadataFilterApiModel](docs/WorkItemExternalMetadataFilterApiModel.md)
@@ -1113,6 +1111,7 @@ Class | Method | HTTP request | Description
  - [WorkItemStepChangeViewModel](docs/WorkItemStepChangeViewModel.md)
  - [WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel](docs/WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md)
  - [WorkItemStepChangeViewModelWorkItem](docs/WorkItemStepChangeViewModelWorkItem.md)
+ - [WorkItemTypeModel](docs/WorkItemTypeModel.md)
  - [WorkItemUpdatingFieldsApiModel](docs/WorkItemUpdatingFieldsApiModel.md)
  - [WorkItemUpdatingFieldsApiResult](docs/WorkItemUpdatingFieldsApiResult.md)
  - [WorkItemVersionModel](docs/WorkItemVersionModel.md)
@@ -1133,12 +1132,19 @@ Class | Method | HTTP request | Description
 
 
 Authentication schemes defined for the API:
-<a id="Bearer or PrivateToken"></a>
-### Bearer or PrivateToken
+<a id="PrivateToken"></a>
+### PrivateToken
 
 - **Type**: API key
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
+
+<a id="Session Cookie"></a>
+### Session Cookie
+
+- **Type**: API key
+- **API key parameter name**: backoffice
+- **Location**: 
 
 
 ## Author

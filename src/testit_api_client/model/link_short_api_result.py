@@ -76,9 +76,9 @@ class LinkShortApiResult(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
-            'title': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
+            'title': (str, none_type,),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -88,8 +88,8 @@ class LinkShortApiResult(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'title': 'title',  # noqa: E501
         'url': 'url',  # noqa: E501
+        'title': 'title',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
 
@@ -100,14 +100,12 @@ class LinkShortApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, title, url, type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, url, *args, **kwargs):  # noqa: E501
         """LinkShortApiResult - a model defined in OpenAPI
 
         Args:
             id (str):
-            title (str):
             url (str):
-            type (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -140,6 +138,8 @@ class LinkShortApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            title (str, none_type): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,9 +172,7 @@ class LinkShortApiResult(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
-        self.title = title
         self.url = url
-        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -195,14 +193,12 @@ class LinkShortApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, title, url, type, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, url, *args, **kwargs):  # noqa: E501
         """LinkShortApiResult - a model defined in OpenAPI
 
         Args:
             id (str):
-            title (str):
             url (str):
-            type (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,6 +231,8 @@ class LinkShortApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            title (str, none_type): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,9 +263,7 @@ class LinkShortApiResult(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
-        self.title = title
         self.url = url
-        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

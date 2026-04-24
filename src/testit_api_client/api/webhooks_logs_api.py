@@ -41,7 +41,8 @@ class WebhooksLogsApi(object):
             settings={
                 'response_type': ([WebhookLogApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks/logs',
                 'operation_id': 'api_v2_webhooks_logs_get',
@@ -115,7 +116,8 @@ class WebhooksLogsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks/logs/{id}',
                 'operation_id': 'api_v2_webhooks_logs_id_delete',
@@ -166,7 +168,8 @@ class WebhooksLogsApi(object):
             settings={
                 'response_type': (WebhookLogApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/webhooks/logs/{id}',
                 'operation_id': 'api_v2_webhooks_logs_id_get',

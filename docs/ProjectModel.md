@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** | Unique ID of the project | 
 **name** | **str** | Name of the project | 
 **is_favorite** | **bool** | Indicates if the project is marked as favorite | 
+**work_items_count** | **int** | Number of work items in the project | 
 **is_deleted** | **bool** | Indicates if the project is deleted | 
 **created_date** | **datetime** | Creation date of the project | 
 **created_by_id** | **str** | Unique ID of the project creator | 

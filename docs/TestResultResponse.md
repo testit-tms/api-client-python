@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **outcome** | [**TestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **comment** | **str, none_type** |  | [optional] 
-**links** | [**[Link], none_type**](Link.md) |  | [optional] 
+**links** | [**[LinkApiResult], none_type**](LinkApiResult.md) |  | [optional] 
 **step_results** | [**[StepResultApiModel], none_type**](StepResultApiModel.md) |  | [optional] 
 **attachments** | [**[AttachmentApiResult], none_type**](AttachmentApiResult.md) |  | [optional] 
 **auto_test_id** | **str, none_type** |  | [optional] 

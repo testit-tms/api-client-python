@@ -39,7 +39,8 @@ Delete multiple test runs
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -60,11 +61,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -95,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -124,7 +131,8 @@ Get autotest classes and namespaces in test run
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -145,11 +153,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -179,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -210,7 +224,8 @@ Delete test run
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -230,11 +245,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -263,7 +284,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -294,7 +315,8 @@ Permanently delete test run from archive
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -314,11 +336,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -347,7 +375,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -376,7 +404,8 @@ Manual autotests rerun in test run
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -398,11 +427,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -443,7 +478,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -474,7 +509,8 @@ Restore test run from the archive
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -494,11 +530,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -527,7 +569,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -556,7 +598,8 @@ Search for the test run test results and build statistics
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -578,11 +621,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -623,7 +672,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -652,7 +701,8 @@ Get test results from the test run grouped by test points
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -673,11 +723,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -707,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -736,7 +792,8 @@ Partial edit of multiple test results in the test run
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -757,11 +814,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -800,7 +863,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -829,7 +892,8 @@ Get modification date of last test result of the test run
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -849,11 +913,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -883,7 +953,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -914,7 +984,8 @@ Permanently delete multiple test runs from archive
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -935,11 +1006,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -970,7 +1047,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1001,7 +1078,8 @@ Restore multiple test runs from the archive
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1022,11 +1100,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1057,7 +1141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1086,7 +1170,8 @@ Search for test runs
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1108,11 +1193,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1153,7 +1244,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1182,7 +1273,8 @@ Update multiple test runs
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1203,11 +1295,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1237,7 +1335,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1268,7 +1366,8 @@ Complete TestRun
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1288,11 +1387,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1321,7 +1426,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1352,7 +1457,8 @@ This method creates a test run based on an autotest and a configuration. The dif
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1374,11 +1480,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1409,7 +1521,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1440,7 +1552,8 @@ This method creates a test run based on a combination of a configuration and a w
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1462,11 +1575,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1497,7 +1616,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1528,7 +1647,8 @@ This method creates a test run based on a combination of configuration and work 
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1550,11 +1670,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1585,7 +1711,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1616,7 +1742,8 @@ Create empty TestRun
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1638,11 +1765,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1673,7 +1806,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1704,7 +1837,8 @@ Get TestRun by Id
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1725,11 +1859,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1759,7 +1899,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1790,7 +1930,8 @@ This method sends test results to the test management system.
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -1811,11 +1952,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -1958,7 +2105,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -1989,7 +2136,8 @@ Start TestRun
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -2009,11 +2157,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -2042,7 +2196,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -2073,7 +2227,8 @@ Stop TestRun
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -2093,11 +2248,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -2126,7 +2287,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 
@@ -2157,7 +2318,8 @@ Update empty TestRun
 
 ### Example
 
-* Api Key Authentication (Bearer or PrivateToken):
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Session Cookie):
 
 ```python
 import time
@@ -2178,11 +2340,17 @@ configuration = testit_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Session Cookie
+configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -2212,7 +2380,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
 
 ### HTTP request headers
 

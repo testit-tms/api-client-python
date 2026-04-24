@@ -76,6 +76,7 @@ class ParameterIterationModel(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
+            'shared_step_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -85,6 +86,7 @@ class ParameterIterationModel(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'shared_step_id': 'sharedStepId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -131,6 +133,7 @@ class ParameterIterationModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            shared_step_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,6 +223,7 @@ class ParameterIterationModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            shared_step_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

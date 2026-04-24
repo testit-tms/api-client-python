@@ -33,7 +33,7 @@ def lazy_import():
     from testit_api_client.model.attachment_api_result import AttachmentApiResult
     from testit_api_client.model.auto_test import AutoTest
     from testit_api_client.model.auto_test_step_result import AutoTestStepResult
-    from testit_api_client.model.link import Link
+    from testit_api_client.model.link_api_result import LinkApiResult
     from testit_api_client.model.step_comment_api_model import StepCommentApiModel
     from testit_api_client.model.step_result_api_model import StepResultApiModel
     from testit_api_client.model.test_point import TestPoint
@@ -42,7 +42,7 @@ def lazy_import():
     globals()['AttachmentApiResult'] = AttachmentApiResult
     globals()['AutoTest'] = AutoTest
     globals()['AutoTestStepResult'] = AutoTestStepResult
-    globals()['Link'] = Link
+    globals()['LinkApiResult'] = LinkApiResult
     globals()['StepCommentApiModel'] = StepCommentApiModel
     globals()['StepResultApiModel'] = StepResultApiModel
     globals()['TestPoint'] = TestPoint
@@ -110,7 +110,7 @@ class TestResultResponse(ModelNormal):
             'outcome': (TestResultOutcome,),  # noqa: E501
             'status': (TestStatusApiResult,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
-            'links': ([Link], none_type,),  # noqa: E501
+            'links': ([LinkApiResult], none_type,),  # noqa: E501
             'step_results': ([StepResultApiModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentApiResult], none_type,),  # noqa: E501
             'auto_test_id': (str, none_type,),  # noqa: E501
@@ -231,7 +231,7 @@ class TestResultResponse(ModelNormal):
             outcome (TestResultOutcome): [optional]  # noqa: E501
             status (TestStatusApiResult): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
-            links ([Link], none_type): [optional]  # noqa: E501
+            links ([LinkApiResult], none_type): [optional]  # noqa: E501
             step_results ([StepResultApiModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentApiResult], none_type): [optional]  # noqa: E501
             auto_test_id (str, none_type): [optional]  # noqa: E501
@@ -360,7 +360,7 @@ class TestResultResponse(ModelNormal):
             outcome (TestResultOutcome): [optional]  # noqa: E501
             status (TestStatusApiResult): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
-            links ([Link], none_type): [optional]  # noqa: E501
+            links ([LinkApiResult], none_type): [optional]  # noqa: E501
             step_results ([StepResultApiModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentApiResult], none_type): [optional]  # noqa: E501
             auto_test_id (str, none_type): [optional]  # noqa: E501

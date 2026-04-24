@@ -42,7 +42,8 @@ class AttachmentsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/attachments/{id}',
                 'operation_id': 'api_v2_attachments_id_delete',
@@ -93,7 +94,8 @@ class AttachmentsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/attachments/{id}',
                 'operation_id': 'api_v2_attachments_id_get',
@@ -189,7 +191,8 @@ class AttachmentsApi(object):
             settings={
                 'response_type': (AttachmentModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/attachments/{id}/metadata',
                 'operation_id': 'api_v2_attachments_id_metadata_get',
@@ -240,7 +243,8 @@ class AttachmentsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/attachments/occupiedFileStorageSize',
                 'operation_id': 'api_v2_attachments_occupied_file_storage_size_get',
@@ -284,7 +288,8 @@ class AttachmentsApi(object):
             settings={
                 'response_type': (AttachmentModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/attachments',
                 'operation_id': 'api_v2_attachments_post',

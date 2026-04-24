@@ -33,7 +33,6 @@ def lazy_import():
     from testit_api_client.model.test_plan_test_points_search_api_model_work_item_created_date import TestPlanTestPointsSearchApiModelWorkItemCreatedDate
     from testit_api_client.model.test_plan_test_points_search_api_model_work_item_modified_date import TestPlanTestPointsSearchApiModelWorkItemModifiedDate
     from testit_api_client.model.test_suite_work_items_search_model_median_duration import TestSuiteWorkItemsSearchModelMedianDuration
-    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
     from testit_api_client.model.work_item_filter_api_model import WorkItemFilterApiModel
     from testit_api_client.model.work_item_filter_api_model_duration import WorkItemFilterApiModelDuration
     from testit_api_client.model.work_item_filter_api_model_external_metadata import WorkItemFilterApiModelExternalMetadata
@@ -41,10 +40,10 @@ def lazy_import():
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     from testit_api_client.model.work_item_states import WorkItemStates
+    from testit_api_client.model.work_item_type_model import WorkItemTypeModel
     globals()['TestPlanTestPointsSearchApiModelWorkItemCreatedDate'] = TestPlanTestPointsSearchApiModelWorkItemCreatedDate
     globals()['TestPlanTestPointsSearchApiModelWorkItemModifiedDate'] = TestPlanTestPointsSearchApiModelWorkItemModifiedDate
     globals()['TestSuiteWorkItemsSearchModelMedianDuration'] = TestSuiteWorkItemsSearchModelMedianDuration
-    globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
     globals()['WorkItemFilterApiModel'] = WorkItemFilterApiModel
     globals()['WorkItemFilterApiModelDuration'] = WorkItemFilterApiModelDuration
     globals()['WorkItemFilterApiModelExternalMetadata'] = WorkItemFilterApiModelExternalMetadata
@@ -52,6 +51,7 @@ def lazy_import():
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
     globals()['WorkItemStates'] = WorkItemStates
+    globals()['WorkItemTypeModel'] = WorkItemTypeModel
 
 
 class WorkItemSelectApiModelFilter(ModelComposed):
@@ -156,7 +156,7 @@ class WorkItemSelectApiModelFilter(ModelComposed):
             'states': ([WorkItemStates], none_type,),  # noqa: E501
             'priorities': ([WorkItemPriorityModel], none_type,),  # noqa: E501
             'source_types': ([WorkItemSourceTypeModel], none_type,),  # noqa: E501
-            'types': ([WorkItemEntityTypes], none_type,),  # noqa: E501
+            'types': ([WorkItemTypeModel], none_type,),  # noqa: E501
             'created_date': (TestPlanTestPointsSearchApiModelWorkItemCreatedDate,),  # noqa: E501
             'modified_date': (TestPlanTestPointsSearchApiModelWorkItemModifiedDate,),  # noqa: E501
             'duration': (WorkItemFilterApiModelDuration,),  # noqa: E501
@@ -259,7 +259,7 @@ class WorkItemSelectApiModelFilter(ModelComposed):
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
             source_types ([WorkItemSourceTypeModel], none_type): Source type of work item (manual creation or AI generated). [optional]  # noqa: E501
-            types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
+            types ([WorkItemTypeModel], none_type): Collection of types of work item. [optional]  # noqa: E501
             created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
             modified_date (TestPlanTestPointsSearchApiModelWorkItemModifiedDate): [optional]  # noqa: E501
             duration (WorkItemFilterApiModelDuration): [optional]  # noqa: E501
@@ -389,7 +389,7 @@ class WorkItemSelectApiModelFilter(ModelComposed):
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
             source_types ([WorkItemSourceTypeModel], none_type): Source type of work item (manual creation or AI generated). [optional]  # noqa: E501
-            types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
+            types ([WorkItemTypeModel], none_type): Collection of types of work item. [optional]  # noqa: E501
             created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
             modified_date (TestPlanTestPointsSearchApiModelWorkItemModifiedDate): [optional]  # noqa: E501
             duration (WorkItemFilterApiModelDuration): [optional]  # noqa: E501

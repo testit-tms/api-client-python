@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **states** | [**[WorkItemStates], none_type**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **priorities** | [**[WorkItemPriorityModel], none_type**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
 **source_types** | [**[WorkItemSourceTypeModel], none_type**](WorkItemSourceTypeModel.md) | Collection of priorities of work item | [optional] 
-**types** | [**[WorkItemEntityTypes], none_type**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
+**types** | [**[WorkItemTypeModel], none_type**](WorkItemTypeModel.md) | Collection of types of work item | [optional] 
 **created_date** | [**TestPlanTestPointsSearchApiModelWorkItemCreatedDate**](TestPlanTestPointsSearchApiModelWorkItemCreatedDate.md) |  | [optional] 
 **modified_date** | [**TestPlanTestPointsSearchApiModelWorkItemModifiedDate**](TestPlanTestPointsSearchApiModelWorkItemModifiedDate.md) |  | [optional] 
 **duration** | [**TestSuiteWorkItemsSearchModelDuration**](TestSuiteWorkItemsSearchModelDuration.md) |  | [optional] 

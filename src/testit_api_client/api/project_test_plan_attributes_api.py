@@ -44,7 +44,8 @@ class ProjectTestPlanAttributesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes',
                 'operation_id': 'create_custom_attribute_test_plan_project_relations',
@@ -105,7 +106,8 @@ class ProjectTestPlanAttributesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes/{attributeId}',
                 'operation_id': 'delete_custom_attribute_test_plan_project_relations',
@@ -162,7 +164,8 @@ class ProjectTestPlanAttributesApi(object):
             settings={
                 'response_type': ([CustomAttributeModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes',
                 'operation_id': 'get_custom_attribute_test_plan_project_relations',
@@ -213,7 +216,8 @@ class ProjectTestPlanAttributesApi(object):
             settings={
                 'response_type': ([CustomAttributeGetModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes/search',
                 'operation_id': 'search_test_plan_attributes_in_project',
@@ -295,7 +299,8 @@ class ProjectTestPlanAttributesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes',
                 'operation_id': 'update_custom_attribute_test_plan_project_relations',

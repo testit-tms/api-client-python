@@ -35,11 +35,13 @@ def lazy_import():
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     from testit_api_client.model.work_item_states import WorkItemStates
+    from testit_api_client.model.work_item_type_model import WorkItemTypeModel
     globals()['IterationModel'] = IterationModel
     globals()['LinkShortModel'] = LinkShortModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
     globals()['WorkItemStates'] = WorkItemStates
+    globals()['WorkItemTypeModel'] = WorkItemTypeModel
 
 
 class WorkItemShortModel(ModelNormal):
@@ -73,9 +75,6 @@ class WorkItemShortModel(ModelNormal):
         ('name',): {
             'min_length': 1,
         },
-        ('entity_type_name',): {
-            'min_length': 1,
-        },
         ('section_name',): {
             'min_length': 1,
         },
@@ -101,7 +100,7 @@ class WorkItemShortModel(ModelNormal):
             'version_id': (str,),  # noqa: E501
             'version_number': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'entity_type_name': (str,),  # noqa: E501
+            'entity_type_name': (WorkItemTypeModel,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
             'section_name': (str,),  # noqa: E501
@@ -170,7 +169,7 @@ class WorkItemShortModel(ModelNormal):
             version_id (str): Work Item version identifier
             version_number (int): Work Item version number
             name (str): Work Item name
-            entity_type_name (str): Work Item type. Possible values: CheckLists, SharedSteps, TestCases
+            entity_type_name (WorkItemTypeModel):
             project_id (str): Project unique identifier
             section_id (str): Identifier of Section where Work Item is located
             section_name (str): Section name of Work Item
@@ -299,7 +298,7 @@ class WorkItemShortModel(ModelNormal):
             version_id (str): Work Item version identifier
             version_number (int): Work Item version number
             name (str): Work Item name
-            entity_type_name (str): Work Item type. Possible values: CheckLists, SharedSteps, TestCases
+            entity_type_name (WorkItemTypeModel):
             project_id (str): Project unique identifier
             section_id (str): Identifier of Section where Work Item is located
             section_name (str): Section name of Work Item

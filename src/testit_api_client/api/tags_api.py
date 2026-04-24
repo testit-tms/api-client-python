@@ -44,7 +44,8 @@ class TagsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/tags',
                 'operation_id': 'api_v2_tags_delete',
@@ -97,7 +98,8 @@ class TagsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/tags/{id}',
                 'operation_id': 'api_v2_tags_id_delete',
@@ -148,7 +150,8 @@ class TagsApi(object):
             settings={
                 'response_type': (TagApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/tags',
                 'operation_id': 'api_v2_tags_post',
@@ -201,7 +204,8 @@ class TagsApi(object):
             settings={
                 'response_type': (TagApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/tags',
                 'operation_id': 'api_v2_tags_put',
@@ -259,7 +263,8 @@ class TagsApi(object):
             settings={
                 'response_type': ([TagApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/tags/search',
                 'operation_id': 'api_v2_tags_search_get',
@@ -328,7 +333,8 @@ class TagsApi(object):
             settings={
                 'response_type': ([TagApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/tags/testPlansTags',
                 'operation_id': 'api_v2_tags_test_plans_tags_get',

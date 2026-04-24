@@ -83,6 +83,7 @@ class ProjectShortModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'is_favorite': (bool,),  # noqa: E501
+            'work_items_count': (int,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
@@ -107,6 +108,7 @@ class ProjectShortModel(ModelNormal):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'is_favorite': 'isFavorite',  # noqa: E501
+        'work_items_count': 'workItemsCount',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
@@ -129,13 +131,14 @@ class ProjectShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, workflow_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, is_favorite, work_items_count, is_deleted, created_date, created_by_id, global_id, type, workflow_id, *args, **kwargs):  # noqa: E501
         """ProjectShortModel - a model defined in OpenAPI
 
         Args:
             id (str): Unique ID of the project
             name (str): Name of the project
             is_favorite (bool): Indicates if the project is marked as favorite
+            work_items_count (int): Number of test cases in the project
             is_deleted (bool): Indicates if the project is deleted
             created_date (datetime): Creation date of the project
             created_by_id (str): Unique ID of the project creator
@@ -215,6 +218,7 @@ class ProjectShortModel(ModelNormal):
         self.id = id
         self.name = name
         self.is_favorite = is_favorite
+        self.work_items_count = work_items_count
         self.is_deleted = is_deleted
         self.created_date = created_date
         self.created_by_id = created_by_id
@@ -241,13 +245,14 @@ class ProjectShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, is_favorite, is_deleted, created_date, created_by_id, global_id, type, workflow_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, is_favorite, work_items_count, is_deleted, created_date, created_by_id, global_id, type, workflow_id, *args, **kwargs):  # noqa: E501
         """ProjectShortModel - a model defined in OpenAPI
 
         Args:
             id (str): Unique ID of the project
             name (str): Name of the project
             is_favorite (bool): Indicates if the project is marked as favorite
+            work_items_count (int): Number of test cases in the project
             is_deleted (bool): Indicates if the project is deleted
             created_date (datetime): Creation date of the project
             created_by_id (str): Unique ID of the project creator
@@ -325,6 +330,7 @@ class ProjectShortModel(ModelNormal):
         self.id = id
         self.name = name
         self.is_favorite = is_favorite
+        self.work_items_count = work_items_count
         self.is_deleted = is_deleted
         self.created_date = created_date
         self.created_by_id = created_by_id

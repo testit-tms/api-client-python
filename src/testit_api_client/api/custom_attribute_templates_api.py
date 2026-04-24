@@ -46,7 +46,8 @@ class CustomAttributeTemplatesApi(object):
             settings={
                 'response_type': (CustomAttributeTemplateValidationResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/exists',
                 'operation_id': 'api_v2_custom_attributes_templates_exists_get',
@@ -95,7 +96,8 @@ class CustomAttributeTemplatesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{id}/customAttributes/exclude',
                 'operation_id': 'api_v2_custom_attributes_templates_id_custom_attributes_exclude_post',
@@ -156,7 +158,8 @@ class CustomAttributeTemplatesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{id}/customAttributes/include',
                 'operation_id': 'api_v2_custom_attributes_templates_id_custom_attributes_include_post',
@@ -217,7 +220,8 @@ class CustomAttributeTemplatesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{id}',
                 'operation_id': 'api_v2_custom_attributes_templates_id_delete',
@@ -268,7 +272,8 @@ class CustomAttributeTemplatesApi(object):
             settings={
                 'response_type': (CustomAttributeTemplateModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{id}',
                 'operation_id': 'api_v2_custom_attributes_templates_id_get',
@@ -319,7 +324,8 @@ class CustomAttributeTemplatesApi(object):
             settings={
                 'response_type': (CustomAttributeTemplateModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{name}',
                 'operation_id': 'api_v2_custom_attributes_templates_name_get',
@@ -370,7 +376,8 @@ class CustomAttributeTemplatesApi(object):
             settings={
                 'response_type': (CustomAttributeTemplateModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates',
                 'operation_id': 'api_v2_custom_attributes_templates_post',
@@ -420,7 +427,8 @@ class CustomAttributeTemplatesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates',
                 'operation_id': 'api_v2_custom_attributes_templates_put',
@@ -470,7 +478,8 @@ class CustomAttributeTemplatesApi(object):
             settings={
                 'response_type': ([SearchCustomAttributeTemplateGetModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/search',
                 'operation_id': 'api_v2_custom_attributes_templates_search_post',

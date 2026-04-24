@@ -42,7 +42,8 @@ class SearchApi(object):
             settings={
                 'response_type': (GlobalSearchResponse,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/search/globalSearch',
                 'operation_id': 'api_v2_search_global_search_post',
