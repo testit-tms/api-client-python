@@ -42,7 +42,8 @@ class ExternalIssuesApi(object):
             settings={
                 'response_type': (ExternalIssueApiFieldSuggestionReply,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/external-issues/suggestions',
                 'operation_id': 'api_v2_external_issues_suggestions_post',

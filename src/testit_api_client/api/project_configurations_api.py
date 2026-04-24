@@ -41,7 +41,8 @@ class ProjectConfigurationsApi(object):
             settings={
                 'response_type': ([ConfigurationModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/configurations',
                 'operation_id': 'get_configurations_by_project_id',

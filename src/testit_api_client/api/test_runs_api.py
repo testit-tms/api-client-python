@@ -58,7 +58,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns',
                 'operation_id': 'api_v2_test_runs_delete',
@@ -108,7 +109,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (AutoTestNamespacesCountResponse,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/autoTestsNamespaces',
                 'operation_id': 'api_v2_test_runs_id_auto_tests_namespaces_get',
@@ -159,7 +161,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}',
                 'operation_id': 'api_v2_test_runs_id_delete',
@@ -210,7 +213,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/purge',
                 'operation_id': 'api_v2_test_runs_id_purge_post',
@@ -261,7 +265,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (ManualRerunApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/reruns',
                 'operation_id': 'api_v2_test_runs_id_reruns_post',
@@ -318,7 +323,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/restore',
                 'operation_id': 'api_v2_test_runs_id_restore_post',
@@ -369,7 +375,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (TestResultsStatisticsApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/statistics/filter',
                 'operation_id': 'api_v2_test_runs_id_statistics_filter_post',
@@ -426,7 +433,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': ([TestPointResultApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testPoints/results',
                 'operation_id': 'api_v2_test_runs_id_test_points_results_get',
@@ -477,7 +485,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testResults/bulk',
                 'operation_id': 'api_v2_test_runs_id_test_results_bulk_put',
@@ -534,7 +543,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (datetime, none_type,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testResults/lastModified/modificationDate',
                 'operation_id': 'api_v2_test_runs_id_test_results_last_modified_modification_date_get',
@@ -585,7 +595,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/purge/bulk',
                 'operation_id': 'api_v2_test_runs_purge_bulk_post',
@@ -635,7 +646,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/restore/bulk',
                 'operation_id': 'api_v2_test_runs_restore_bulk_post',
@@ -685,7 +697,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': ([TestRunShortApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/search',
                 'operation_id': 'api_v2_test_runs_search_post',
@@ -760,7 +773,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/updateMultiple',
                 'operation_id': 'api_v2_test_runs_update_multiple_post',
@@ -810,7 +824,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/complete',
                 'operation_id': 'complete_test_run',
@@ -861,7 +876,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/byAutoTests',
                 'operation_id': 'create_and_fill_by_auto_tests',
@@ -911,7 +927,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/byConfigurations',
                 'operation_id': 'create_and_fill_by_configurations',
@@ -961,7 +978,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/byWorkItems',
                 'operation_id': 'create_and_fill_by_work_items',
@@ -1011,7 +1029,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns',
                 'operation_id': 'create_empty',
@@ -1061,7 +1080,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}',
                 'operation_id': 'get_test_run_by_id',
@@ -1112,7 +1132,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': ([str],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testResults',
                 'operation_id': 'set_auto_test_results_for_test_run',
@@ -1169,7 +1190,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/start',
                 'operation_id': 'start_test_run',
@@ -1220,7 +1242,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/stop',
                 'operation_id': 'stop_test_run',
@@ -1271,7 +1294,8 @@ class TestRunsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/testRuns',
                 'operation_id': 'update_empty',

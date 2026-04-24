@@ -41,7 +41,8 @@ class OpenIdConnectionsApi(object):
             settings={
                 'response_type': ([OpenIdConnectionClientShortModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/openid-connections',
                 'operation_id': 'api_v2_openid_connections_get',

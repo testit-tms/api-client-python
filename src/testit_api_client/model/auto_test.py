@@ -33,11 +33,11 @@ def lazy_import():
     from testit_api_client.model.auto_test_last_test_result_configuration import AutoTestLastTestResultConfiguration
     from testit_api_client.model.auto_test_step import AutoTestStep
     from testit_api_client.model.label import Label
-    from testit_api_client.model.link import Link
+    from testit_api_client.model.link_api_result import LinkApiResult
     globals()['AutoTestLastTestResultConfiguration'] = AutoTestLastTestResultConfiguration
     globals()['AutoTestStep'] = AutoTestStep
     globals()['Label'] = Label
-    globals()['Link'] = Link
+    globals()['LinkApiResult'] = LinkApiResult
 
 
 class AutoTest(ModelNormal):
@@ -101,7 +101,7 @@ class AutoTest(ModelNormal):
             'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'links': ([Link], none_type,),  # noqa: E501
+            'links': ([LinkApiResult], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'classname': (str, none_type,),  # noqa: E501
             'steps': ([AutoTestStep], none_type,),  # noqa: E501
@@ -210,7 +210,7 @@ class AutoTest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            links ([Link], none_type): Collection of the autotest links. [optional]  # noqa: E501
+            links ([LinkApiResult], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
             classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501
             steps ([AutoTestStep], none_type): Collection of the autotest steps. [optional]  # noqa: E501
@@ -334,7 +334,7 @@ class AutoTest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            links ([Link], none_type): Collection of the autotest links. [optional]  # noqa: E501
+            links ([LinkApiResult], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
             classname (str, none_type): Name of the autotest class. [optional]  # noqa: E501
             steps ([AutoTestStep], none_type): Collection of the autotest steps. [optional]  # noqa: E501

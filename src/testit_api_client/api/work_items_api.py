@@ -61,7 +61,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/attachments',
                 'operation_id': 'api_v2_work_items_id_attachments_post',
@@ -119,7 +120,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': (WorkItemModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/checkList/transformTo/testCase',
                 'operation_id': 'api_v2_work_items_id_check_list_transform_to_test_case_post',
@@ -170,7 +172,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([WorkItemChangeModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/history',
                 'operation_id': 'api_v2_work_items_id_history_get',
@@ -246,7 +249,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/like',
                 'operation_id': 'api_v2_work_items_id_like_delete',
@@ -297,7 +301,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/like',
                 'operation_id': 'api_v2_work_items_id_like_post',
@@ -348,7 +353,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/likes/count',
                 'operation_id': 'api_v2_work_items_id_likes_count_get',
@@ -399,7 +405,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([WorkItemLikeModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/likes',
                 'operation_id': 'api_v2_work_items_id_likes_get',
@@ -450,7 +457,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([TestResultHistoryReportApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/testResults/history',
                 'operation_id': 'api_v2_work_items_id_test_results_history_get',
@@ -582,7 +590,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': (WorkItemModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/version/{versionId}/actual',
                 'operation_id': 'api_v2_work_items_id_version_version_id_actual_post',
@@ -639,7 +648,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': (SearchWorkItemLinkUrlsApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/links/urls/search',
                 'operation_id': 'api_v2_work_items_links_urls_search_post',
@@ -714,7 +724,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': (WorkItemShortModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/move',
                 'operation_id': 'api_v2_work_items_move_post',
@@ -764,7 +775,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': (WorkItemApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems',
                 'operation_id': 'api_v2_work_items_post',
@@ -814,7 +826,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([WorkItemShortApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/search',
                 'operation_id': 'api_v2_work_items_search_post',
@@ -889,7 +902,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([SharedStepReferenceSectionModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{sharedStepId}/references/sections',
                 'operation_id': 'api_v2_work_items_shared_step_id_references_sections_post',
@@ -971,7 +985,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([SharedStepReferenceModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{sharedStepId}/references/workItems',
                 'operation_id': 'api_v2_work_items_shared_step_id_references_work_items_post',
@@ -1053,7 +1068,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([SharedStepReferenceModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/sharedSteps/{sharedStepId}/references',
                 'operation_id': 'api_v2_work_items_shared_steps_shared_step_id_references_get',
@@ -1104,7 +1120,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/autoTests',
                 'operation_id': 'delete_all_work_items_from_auto_test',
@@ -1155,7 +1172,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}',
                 'operation_id': 'delete_work_item',
@@ -1206,7 +1224,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([AutoTestModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/autoTests',
                 'operation_id': 'get_auto_tests_for_work_item',
@@ -1257,7 +1276,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([IterationModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/iterations',
                 'operation_id': 'get_iterations',
@@ -1318,7 +1338,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': (WorkItemApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}',
                 'operation_id': 'get_work_item_by_id',
@@ -1379,7 +1400,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([TestResultChronologyModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/chronology',
                 'operation_id': 'get_work_item_chronology',
@@ -1430,7 +1452,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': ([WorkItemVersionModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/versions',
                 'operation_id': 'get_work_item_versions',
@@ -1491,7 +1514,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/purge',
                 'operation_id': 'purge_work_item',
@@ -1542,7 +1566,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/restore',
                 'operation_id': 'restore_work_item',
@@ -1593,7 +1618,8 @@ class WorkItemsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems',
                 'operation_id': 'update_work_item',

@@ -393,13 +393,22 @@ conf = testit_api_client.Configuration(
         :return: The Auth Settings information dict.
         """
         auth = {}
-        if 'Bearer or PrivateToken' in self.api_key:
-            auth['Bearer or PrivateToken'] = {
+        if 'PrivateToken' in self.api_key:
+            auth['PrivateToken'] = {
                 'type': 'api_key',
                 'in': 'header',
                 'key': 'Authorization',
                 'value': self.get_api_key_with_prefix(
-                    'Bearer or PrivateToken',
+                    'PrivateToken',
+                ),
+            }
+        if 'Session Cookie' in self.api_key:
+            auth['Session Cookie'] = {
+                'type': 'api_key',
+                'in': 'cookie',
+                'key': 'backoffice',
+                'value': self.get_api_key_with_prefix(
+                    'Session Cookie',
                 ),
             }
         return auth
@@ -413,7 +422,7 @@ conf = testit_api_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v2.0\n"\
-               "SDK Package Version: 7.5.5".\
+               "SDK Package Version: 7.5.6".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **median_duration** | **int** | used for getting a median duration of all autotests related to this workitem | 
 **is_deleted** | **bool** |  | 
 **project_id** | **str** |  | 
-**entity_type_name** | [**WorkItemEntityTypes**](WorkItemEntityTypes.md) |  | 
+**entity_type_name** | [**WorkItemTypeModel**](WorkItemTypeModel.md) |  | 
 **is_automated** | **bool** |  | 
 **version_number** | **int** | used for define chronology of workitem state in each version | 
+**external_issues** | [**[ExternalIssueModel]**](ExternalIssueModel.md) |  | 
+**parameters** | [**[WorkItemParameterKeyModel]**](WorkItemParameterKeyModel.md) |  | 
 **created_date** | **datetime** |  | 
 **created_by_id** | **str** |  | 
 **global_id** | **int** |  | 
-**external_issues** | [**[ExternalIssueModel]**](ExternalIssueModel.md) |  | 
-**parameters** | [**[WorkItemParameterKeyModel]**](WorkItemParameterKeyModel.md) |  | 
 **id** | **str** |  | 
 **section_id** | **str** |  | 
 **state** | [**WorkItemStates**](WorkItemStates.md) |  | 

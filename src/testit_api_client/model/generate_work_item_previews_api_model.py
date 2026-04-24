@@ -66,10 +66,6 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
             'inclusive_maximum': 30,
             'inclusive_minimum': 1,
         },
-        ('task_key',): {
-            'max_length': 255,
-            'min_length': 0,
-        },
         ('issue_key',): {
             'max_length': 255,
             'min_length': 0,
@@ -98,7 +94,6 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
             'external_service_id': (str,),  # noqa: E501
             'temperature': (float,),  # noqa: E501
             'preview_limit': (int,),  # noqa: E501
-            'task_key': (str, none_type,),  # noqa: E501
             'issue_key': (str, none_type,),  # noqa: E501
             'user_context': (str, none_type,),  # noqa: E501
         }
@@ -112,7 +107,6 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
         'external_service_id': 'externalServiceId',  # noqa: E501
         'temperature': 'temperature',  # noqa: E501
         'preview_limit': 'previewLimit',  # noqa: E501
-        'task_key': 'taskKey',  # noqa: E501
         'issue_key': 'issueKey',  # noqa: E501
         'user_context': 'userContext',  # noqa: E501
     }
@@ -163,7 +157,6 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            task_key (str, none_type): The key of the issue in an issue tracker (e.g., JIRA-123).. [optional]  # noqa: E501
             issue_key (str, none_type): The key of the issue in an issue tracker (e.g., JIRA-123).. [optional]  # noqa: E501
             user_context (str, none_type): Additional user context or description of the issue if no issue key is provided.. [optional]  # noqa: E501
         """
@@ -259,7 +252,6 @@ class GenerateWorkItemPreviewsApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            task_key (str, none_type): The key of the issue in an issue tracker (e.g., JIRA-123).. [optional]  # noqa: E501
             issue_key (str, none_type): The key of the issue in an issue tracker (e.g., JIRA-123).. [optional]  # noqa: E501
             user_context (str, none_type): Additional user context or description of the issue if no issue key is provided.. [optional]  # noqa: E501
         """

@@ -37,11 +37,11 @@ def lazy_import():
     from testit_api_client.model.link_model import LinkModel
     from testit_api_client.model.step_model import StepModel
     from testit_api_client.model.tag_model import TagModel
-    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
     from testit_api_client.model.work_item_parameter_key_model import WorkItemParameterKeyModel
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     from testit_api_client.model.work_item_states import WorkItemStates
+    from testit_api_client.model.work_item_type_model import WorkItemTypeModel
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AutoTestModel'] = AutoTestModel
     globals()['ExternalIssueModel'] = ExternalIssueModel
@@ -49,11 +49,11 @@ def lazy_import():
     globals()['LinkModel'] = LinkModel
     globals()['StepModel'] = StepModel
     globals()['TagModel'] = TagModel
-    globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
     globals()['WorkItemParameterKeyModel'] = WorkItemParameterKeyModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
     globals()['WorkItemStates'] = WorkItemStates
+    globals()['WorkItemTypeModel'] = WorkItemTypeModel
 
 
 class WorkItemModel(ModelNormal):
@@ -113,14 +113,14 @@ class WorkItemModel(ModelNormal):
             'median_duration': (int,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'entity_type_name': (WorkItemEntityTypes,),  # noqa: E501
+            'entity_type_name': (WorkItemTypeModel,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
             'version_number': (int,),  # noqa: E501
+            'external_issues': ([ExternalIssueModel],),  # noqa: E501
+            'parameters': ([WorkItemParameterKeyModel],),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
-            'external_issues': ([ExternalIssueModel],),  # noqa: E501
-            'parameters': ([WorkItemParameterKeyModel],),  # noqa: E501
             'id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
@@ -157,11 +157,11 @@ class WorkItemModel(ModelNormal):
         'entity_type_name': 'entityTypeName',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'version_number': 'versionNumber',  # noqa: E501
+        'external_issues': 'externalIssues',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
         'global_id': 'globalId',  # noqa: E501
-        'external_issues': 'externalIssues',  # noqa: E501
-        'parameters': 'parameters',  # noqa: E501
         'id': 'id',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
         'state': 'state',  # noqa: E501
@@ -192,7 +192,7 @@ class WorkItemModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, external_issues, parameters, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, external_issues, parameters, created_date, created_by_id, global_id, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
@@ -200,14 +200,14 @@ class WorkItemModel(ModelNormal):
             median_duration (int): used for getting a median duration of all autotests related to this workitem
             is_deleted (bool):
             project_id (str):
-            entity_type_name (WorkItemEntityTypes):
+            entity_type_name (WorkItemTypeModel):
             is_automated (bool):
             version_number (int): used for define chronology of workitem state in each version
+            external_issues ([ExternalIssueModel]):
+            parameters ([WorkItemParameterKeyModel]):
             created_date (datetime):
             created_by_id (str):
             global_id (int):
-            external_issues ([ExternalIssueModel]):
-            parameters ([WorkItemParameterKeyModel]):
             id (str):
             section_id (str):
             state (WorkItemStates):
@@ -299,11 +299,11 @@ class WorkItemModel(ModelNormal):
         self.entity_type_name = entity_type_name
         self.is_automated = is_automated
         self.version_number = version_number
+        self.external_issues = external_issues
+        self.parameters = parameters
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.global_id = global_id
-        self.external_issues = external_issues
-        self.parameters = parameters
         self.id = id
         self.section_id = section_id
         self.state = state
@@ -337,7 +337,7 @@ class WorkItemModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, external_issues, parameters, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, external_issues, parameters, created_date, created_by_id, global_id, id, section_id, state, priority, source_type, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
@@ -345,14 +345,14 @@ class WorkItemModel(ModelNormal):
             median_duration (int): used for getting a median duration of all autotests related to this workitem
             is_deleted (bool):
             project_id (str):
-            entity_type_name (WorkItemEntityTypes):
+            entity_type_name (WorkItemTypeModel):
             is_automated (bool):
             version_number (int): used for define chronology of workitem state in each version
+            external_issues ([ExternalIssueModel]):
+            parameters ([WorkItemParameterKeyModel]):
             created_date (datetime):
             created_by_id (str):
             global_id (int):
-            external_issues ([ExternalIssueModel]):
-            parameters ([WorkItemParameterKeyModel]):
             id (str):
             section_id (str):
             state (WorkItemStates):
@@ -442,11 +442,11 @@ class WorkItemModel(ModelNormal):
         self.entity_type_name = entity_type_name
         self.is_automated = is_automated
         self.version_number = version_number
+        self.external_issues = external_issues
+        self.parameters = parameters
         self.created_date = created_date
         self.created_by_id = created_by_id
         self.global_id = global_id
-        self.external_issues = external_issues
-        self.parameters = parameters
         self.id = id
         self.section_id = section_id
         self.state = state

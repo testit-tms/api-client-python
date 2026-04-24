@@ -1,4 +1,4 @@
-# WorkItemEntityTypes
+# WorkItemTypeModel
 
 
 ## Properties

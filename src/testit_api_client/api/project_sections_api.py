@@ -41,7 +41,8 @@ class ProjectSectionsApi(object):
             settings={
                 'response_type': ([SectionModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/sections',
                 'operation_id': 'get_sections_by_project_id',

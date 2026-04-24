@@ -37,10 +37,10 @@ def lazy_import():
     from testit_api_client.model.test_suite_work_items_search_model_external_metadata import TestSuiteWorkItemsSearchModelExternalMetadata
     from testit_api_client.model.test_suite_work_items_search_model_links import TestSuiteWorkItemsSearchModelLinks
     from testit_api_client.model.test_suite_work_items_search_model_median_duration import TestSuiteWorkItemsSearchModelMedianDuration
-    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     from testit_api_client.model.work_item_states import WorkItemStates
+    from testit_api_client.model.work_item_type_model import WorkItemTypeModel
     globals()['TestPlanTestPointsSearchApiModelWorkItemCreatedDate'] = TestPlanTestPointsSearchApiModelWorkItemCreatedDate
     globals()['TestPlanTestPointsSearchApiModelWorkItemModifiedDate'] = TestPlanTestPointsSearchApiModelWorkItemModifiedDate
     globals()['TestSuiteWorkItemsSearchModel'] = TestSuiteWorkItemsSearchModel
@@ -48,10 +48,10 @@ def lazy_import():
     globals()['TestSuiteWorkItemsSearchModelExternalMetadata'] = TestSuiteWorkItemsSearchModelExternalMetadata
     globals()['TestSuiteWorkItemsSearchModelLinks'] = TestSuiteWorkItemsSearchModelLinks
     globals()['TestSuiteWorkItemsSearchModelMedianDuration'] = TestSuiteWorkItemsSearchModelMedianDuration
-    globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
     globals()['WorkItemStates'] = WorkItemStates
+    globals()['WorkItemTypeModel'] = WorkItemTypeModel
 
 
 class SearchWorkItemsRequest(ModelComposed):
@@ -146,7 +146,7 @@ class SearchWorkItemsRequest(ModelComposed):
         lazy_import()
         return {
             'tag_names': ([str], none_type,),  # noqa: E501
-            'entity_types': ([WorkItemEntityTypes], none_type,),  # noqa: E501
+            'entity_types': ([WorkItemTypeModel], none_type,),  # noqa: E501
             'name_or_id': (str, none_type,),  # noqa: E501
             'include_ids': ([str], none_type,),  # noqa: E501
             'exclude_ids': ([str], none_type,),  # noqa: E501
@@ -162,7 +162,7 @@ class SearchWorkItemsRequest(ModelComposed):
             'states': ([WorkItemStates], none_type,),  # noqa: E501
             'priorities': ([WorkItemPriorityModel], none_type,),  # noqa: E501
             'source_types': ([WorkItemSourceTypeModel], none_type,),  # noqa: E501
-            'types': ([WorkItemEntityTypes], none_type,),  # noqa: E501
+            'types': ([WorkItemTypeModel], none_type,),  # noqa: E501
             'created_date': (TestPlanTestPointsSearchApiModelWorkItemCreatedDate,),  # noqa: E501
             'modified_date': (TestPlanTestPointsSearchApiModelWorkItemModifiedDate,),  # noqa: E501
             'duration': (TestSuiteWorkItemsSearchModelDuration,),  # noqa: E501
@@ -253,7 +253,7 @@ class SearchWorkItemsRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tag_names ([str], none_type): Collection of tags. [optional]  # noqa: E501
-            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([WorkItemTypeModel], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
@@ -269,7 +269,7 @@ class SearchWorkItemsRequest(ModelComposed):
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
             source_types ([WorkItemSourceTypeModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
-            types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
+            types ([WorkItemTypeModel], none_type): Collection of types of work item. [optional]  # noqa: E501
             created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
             modified_date (TestPlanTestPointsSearchApiModelWorkItemModifiedDate): [optional]  # noqa: E501
             duration (TestSuiteWorkItemsSearchModelDuration): [optional]  # noqa: E501
@@ -385,7 +385,7 @@ class SearchWorkItemsRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tag_names ([str], none_type): Collection of tags. [optional]  # noqa: E501
-            entity_types ([WorkItemEntityTypes], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([WorkItemTypeModel], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             name_or_id (str, none_type): Name or identifier (UUID) of work item. [optional]  # noqa: E501
             include_ids ([str], none_type): Collection of identifiers of work items which need to be included in result regardless of filtering. [optional]  # noqa: E501
             exclude_ids ([str], none_type): Collection of identifiers of work items which need to be excluded from result regardless of filtering. [optional]  # noqa: E501
@@ -401,7 +401,7 @@ class SearchWorkItemsRequest(ModelComposed):
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
             source_types ([WorkItemSourceTypeModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
-            types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
+            types ([WorkItemTypeModel], none_type): Collection of types of work item. [optional]  # noqa: E501
             created_date (TestPlanTestPointsSearchApiModelWorkItemCreatedDate): [optional]  # noqa: E501
             modified_date (TestPlanTestPointsSearchApiModelWorkItemModifiedDate): [optional]  # noqa: E501
             duration (TestSuiteWorkItemsSearchModelDuration): [optional]  # noqa: E501

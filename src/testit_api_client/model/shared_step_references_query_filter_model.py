@@ -34,10 +34,12 @@ def lazy_import():
     from testit_api_client.model.shared_step_reference_sections_query_filter_model_modified_date import SharedStepReferenceSectionsQueryFilterModelModifiedDate
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     from testit_api_client.model.work_item_states import WorkItemStates
+    from testit_api_client.model.work_item_type_model import WorkItemTypeModel
     globals()['SharedStepReferenceSectionsQueryFilterModelCreatedDate'] = SharedStepReferenceSectionsQueryFilterModelCreatedDate
     globals()['SharedStepReferenceSectionsQueryFilterModelModifiedDate'] = SharedStepReferenceSectionsQueryFilterModelModifiedDate
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemStates'] = WorkItemStates
+    globals()['WorkItemTypeModel'] = WorkItemTypeModel
 
 
 class SharedStepReferencesQueryFilterModel(ModelNormal):
@@ -109,7 +111,7 @@ class SharedStepReferencesQueryFilterModel(ModelNormal):
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'states': ([WorkItemStates], none_type,),  # noqa: E501
             'priorities': ([WorkItemPriorityModel], none_type,),  # noqa: E501
-            'entity_types': ([str], none_type,),  # noqa: E501
+            'entity_types': ([WorkItemTypeModel], none_type,),  # noqa: E501
             'created_date': (SharedStepReferenceSectionsQueryFilterModelCreatedDate,),  # noqa: E501
             'modified_date': (SharedStepReferenceSectionsQueryFilterModelModifiedDate,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
@@ -184,7 +186,7 @@ class SharedStepReferencesQueryFilterModel(ModelNormal):
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
-            entity_types ([str], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([WorkItemTypeModel], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             created_date (SharedStepReferenceSectionsQueryFilterModelCreatedDate): [optional]  # noqa: E501
             modified_date (SharedStepReferenceSectionsQueryFilterModelModifiedDate): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
@@ -281,7 +283,7 @@ class SharedStepReferencesQueryFilterModel(ModelNormal):
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
-            entity_types ([str], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
+            entity_types ([WorkItemTypeModel], none_type): Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
             created_date (SharedStepReferenceSectionsQueryFilterModelCreatedDate): [optional]  # noqa: E501
             modified_date (SharedStepReferenceSectionsQueryFilterModelModifiedDate): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501

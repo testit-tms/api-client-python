@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **id** | **str** | Unique ID of the autotest | 
 **created_date** | **datetime** | Creation date of the autotest | 
 **created_by_id** | **str** | Unique ID of the project creator | 
-**links** | [**[Link], none_type**](Link.md) | Collection of the autotest links | [optional] 
+**links** | [**[LinkApiResult], none_type**](LinkApiResult.md) | Collection of the autotest links | [optional] 
 **namespace** | **str, none_type** | Name of the autotest namespace | [optional] 
 **classname** | **str, none_type** | Name of the autotest class | [optional] 
 **steps** | [**[AutoTestStep], none_type**](AutoTestStep.md) | Collection of the autotest steps | [optional] 

@@ -43,7 +43,8 @@ class WorkItemsCommentsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/comments/{commentId}',
                 'operation_id': 'api_v2_work_items_comments_comment_id_delete',
@@ -94,7 +95,8 @@ class WorkItemsCommentsApi(object):
             settings={
                 'response_type': (WorkItemCommentApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/comments',
                 'operation_id': 'api_v2_work_items_comments_post',
@@ -144,7 +146,8 @@ class WorkItemsCommentsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/comments',
                 'operation_id': 'api_v2_work_items_comments_put',
@@ -194,7 +197,8 @@ class WorkItemsCommentsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/comments/count',
                 'operation_id': 'api_v2_work_items_id_comments_count_get',
@@ -245,7 +249,8 @@ class WorkItemsCommentsApi(object):
             settings={
                 'response_type': ([WorkItemCommentApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/comments',
                 'operation_id': 'api_v2_work_items_id_comments_get',

@@ -58,7 +58,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/globalAttributes',
                 'operation_id': 'add_global_attributes_to_project',
@@ -119,7 +120,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': (DemoProjectApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/demo',
                 'operation_id': 'api_v2_projects_demo_post',
@@ -163,7 +165,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}',
                 'operation_id': 'api_v2_projects_id_delete',
@@ -214,7 +217,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': ([FailureCategoryApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/failureClasses',
                 'operation_id': 'api_v2_projects_id_failure_classes_get',
@@ -270,7 +274,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/favorite',
                 'operation_id': 'api_v2_projects_id_favorite_put',
@@ -321,7 +326,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': ([FilterModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/filters',
                 'operation_id': 'api_v2_projects_id_filters_get',
@@ -372,7 +378,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}',
                 'operation_id': 'api_v2_projects_id_patch',
@@ -429,7 +436,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/purge',
                 'operation_id': 'api_v2_projects_id_purge_post',
@@ -480,7 +488,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/restore',
                 'operation_id': 'api_v2_projects_id_restore_post',
@@ -531,7 +540,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testPlans/attribute/{attributeId}',
                 'operation_id': 'api_v2_projects_id_test_plans_attribute_attribute_id_delete',
@@ -588,7 +598,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testPlans/attribute',
                 'operation_id': 'api_v2_projects_id_test_plans_attribute_put',
@@ -645,7 +656,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': ([TestRunApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testRuns/full',
                 'operation_id': 'api_v2_projects_id_test_runs_full_get',
@@ -766,7 +778,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': (bool,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/name/{name}/exists',
                 'operation_id': 'api_v2_projects_name_name_exists_get',
@@ -817,7 +830,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/purge/bulk',
                 'operation_id': 'api_v2_projects_purge_bulk_post',
@@ -867,7 +881,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': (int,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/restore/bulk',
                 'operation_id': 'api_v2_projects_restore_bulk_post',
@@ -917,7 +932,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': ([ProjectShortModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/search',
                 'operation_id': 'api_v2_projects_search_post',
@@ -992,7 +1008,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': (ProjectShortApiResultReply,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/shorts',
                 'operation_id': 'api_v2_projects_shorts_post',
@@ -1042,7 +1059,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': (ProjectApiResult,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects',
                 'operation_id': 'create_project',
@@ -1092,7 +1110,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/autoTests',
                 'operation_id': 'delete_project_auto_tests',
@@ -1143,7 +1162,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': ([ProjectShortModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects',
                 'operation_id': 'get_all_projects',
@@ -1222,7 +1242,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': ([AutoTestNamespaceApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/autoTestsNamespaces',
                 'operation_id': 'get_auto_tests_namespaces',
@@ -1273,7 +1294,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': (ProjectModel,),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}',
                 'operation_id': 'get_project_by_id',
@@ -1324,7 +1346,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': ([TestPlanModel],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testPlans',
                 'operation_id': 'get_test_plans_by_project_id',
@@ -1380,7 +1403,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': ([TestRunV2ApiResult],),
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testRuns',
                 'operation_id': 'get_test_runs_by_project_id',
@@ -1495,7 +1519,8 @@ class ProjectsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
-                    'Bearer or PrivateToken'
+                    'PrivateToken',
+                    'Session Cookie'
                 ],
                 'endpoint_path': '/api/v2/projects',
                 'operation_id': 'update_project',
