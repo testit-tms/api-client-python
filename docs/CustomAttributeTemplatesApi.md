@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Session Cookie):
+* Api Key Authentication (Identity.Application):
 
 ```python
 import time
@@ -50,11 +50,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Session Cookie
-configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+# Configure API key authorization: Identity.Application
+configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
+# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -116,7 +116,7 @@ Exclude CustomAttributes from CustomAttributeTemplate
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Session Cookie):
+* Api Key Authentication (Identity.Application):
 
 ```python
 import time
@@ -142,11 +142,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Session Cookie
-configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+# Configure API key authorization: Identity.Application
+configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
+# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -187,7 +187,7 @@ void (empty response body)
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -219,7 +219,7 @@ Include CustomAttributes to CustomAttributeTemplate
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Session Cookie):
+* Api Key Authentication (Identity.Application):
 
 ```python
 import time
@@ -245,11 +245,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Session Cookie
-configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+# Configure API key authorization: Identity.Application
+configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
+# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -290,7 +290,7 @@ void (empty response body)
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -322,7 +322,7 @@ Delete CustomAttributeTemplate
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Session Cookie):
+* Api Key Authentication (Identity.Application):
 
 ```python
 import time
@@ -348,11 +348,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Session Cookie
-configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+# Configure API key authorization: Identity.Application
+configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
+# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -381,7 +381,7 @@ void (empty response body)
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -413,7 +413,7 @@ Get CustomAttributeTemplate by ID
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Session Cookie):
+* Api Key Authentication (Identity.Application):
 
 ```python
 import time
@@ -440,11 +440,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Session Cookie
-configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+# Configure API key authorization: Identity.Application
+configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
+# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -506,7 +506,7 @@ Get CustomAttributeTemplate by name
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Session Cookie):
+* Api Key Authentication (Identity.Application):
 
 ```python
 import time
@@ -533,11 +533,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Session Cookie
-configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+# Configure API key authorization: Identity.Application
+configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
+# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -567,7 +567,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -599,7 +599,7 @@ Create CustomAttributeTemplate
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Session Cookie):
+* Api Key Authentication (Identity.Application):
 
 ```python
 import time
@@ -627,11 +627,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Session Cookie
-configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+# Configure API key authorization: Identity.Application
+configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
+# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -662,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -692,7 +692,7 @@ Update custom attributes template
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Session Cookie):
+* Api Key Authentication (Identity.Application):
 
 ```python
 import time
@@ -719,11 +719,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Session Cookie
-configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+# Configure API key authorization: Identity.Application
+configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
+# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -753,7 +753,7 @@ void (empty response body)
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -785,7 +785,7 @@ Search CustomAttributeTemplates
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Session Cookie):
+* Api Key Authentication (Identity.Application):
 
 ```python
 import time
@@ -813,11 +813,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Session Cookie
-configuration.api_key['Session Cookie'] = 'YOUR_API_KEY'
+# Configure API key authorization: Identity.Application
+configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session Cookie'] = 'Bearer'
+# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -858,7 +858,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Session Cookie](../README.md#Session Cookie)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 

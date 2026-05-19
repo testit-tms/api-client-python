@@ -42,7 +42,7 @@ class OpenIdConnectionsApi(object):
                 'response_type': ([OpenIdConnectionClientShortModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/openid-connections',
                 'operation_id': 'api_v2_openid_connections_get',

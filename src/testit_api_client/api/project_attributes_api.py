@@ -47,7 +47,7 @@ class ProjectAttributesApi(object):
                 'response_type': (CustomAttributeModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes',
                 'operation_id': 'create_projects_attribute',
@@ -105,7 +105,7 @@ class ProjectAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes/{attributeId}',
                 'operation_id': 'delete_projects_attribute',
@@ -163,7 +163,7 @@ class ProjectAttributesApi(object):
                 'response_type': (CustomAttributeModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes/{attributeId}',
                 'operation_id': 'get_attribute_by_project_id',
@@ -221,7 +221,7 @@ class ProjectAttributesApi(object):
                 'response_type': ([CustomAttributeModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes',
                 'operation_id': 'get_attributes_by_project_id',
@@ -278,7 +278,7 @@ class ProjectAttributesApi(object):
                 'response_type': ([CustomAttributeGetModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes/search',
                 'operation_id': 'search_attributes_in_project',
@@ -361,7 +361,7 @@ class ProjectAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes',
                 'operation_id': 'update_projects_attribute',

@@ -27,14 +27,13 @@ from testit_api_client.model.api_v2_projects_shorts_post_request import ApiV2Pro
 from testit_api_client.model.auto_test_namespace_api_result import AutoTestNamespaceApiResult
 from testit_api_client.model.create_project_request import CreateProjectRequest
 from testit_api_client.model.demo_project_api_result import DemoProjectApiResult
+from testit_api_client.model.detailed_project_api_result import DetailedProjectApiResult
 from testit_api_client.model.failure_category_api_result import FailureCategoryApiResult
 from testit_api_client.model.filter_model import FilterModel
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.project_api_result import ProjectApiResult
-from testit_api_client.model.project_model import ProjectModel
 from testit_api_client.model.project_short_api_result_reply import ProjectShortApiResultReply
-from testit_api_client.model.project_short_model import ProjectShortModel
 from testit_api_client.model.test_plan_model import TestPlanModel
 from testit_api_client.model.test_run_api_result import TestRunApiResult
 from testit_api_client.model.test_run_v2_api_result import TestRunV2ApiResult
@@ -59,7 +58,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/globalAttributes',
                 'operation_id': 'add_global_attributes_to_project',
@@ -121,7 +120,7 @@ class ProjectsApi(object):
                 'response_type': (DemoProjectApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/demo',
                 'operation_id': 'api_v2_projects_demo_post',
@@ -166,7 +165,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}',
                 'operation_id': 'api_v2_projects_id_delete',
@@ -218,7 +217,7 @@ class ProjectsApi(object):
                 'response_type': ([FailureCategoryApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/failureClasses',
                 'operation_id': 'api_v2_projects_id_failure_classes_get',
@@ -275,7 +274,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/favorite',
                 'operation_id': 'api_v2_projects_id_favorite_put',
@@ -327,7 +326,7 @@ class ProjectsApi(object):
                 'response_type': ([FilterModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/filters',
                 'operation_id': 'api_v2_projects_id_filters_get',
@@ -379,7 +378,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}',
                 'operation_id': 'api_v2_projects_id_patch',
@@ -437,7 +436,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/purge',
                 'operation_id': 'api_v2_projects_id_purge_post',
@@ -489,7 +488,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/restore',
                 'operation_id': 'api_v2_projects_id_restore_post',
@@ -541,7 +540,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testPlans/attribute/{attributeId}',
                 'operation_id': 'api_v2_projects_id_test_plans_attribute_attribute_id_delete',
@@ -599,7 +598,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testPlans/attribute',
                 'operation_id': 'api_v2_projects_id_test_plans_attribute_put',
@@ -657,7 +656,7 @@ class ProjectsApi(object):
                 'response_type': ([TestRunApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testRuns/full',
                 'operation_id': 'api_v2_projects_id_test_runs_full_get',
@@ -779,7 +778,7 @@ class ProjectsApi(object):
                 'response_type': (bool,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/name/{name}/exists',
                 'operation_id': 'api_v2_projects_name_name_exists_get',
@@ -831,7 +830,7 @@ class ProjectsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/purge/bulk',
                 'operation_id': 'api_v2_projects_purge_bulk_post',
@@ -882,7 +881,7 @@ class ProjectsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/restore/bulk',
                 'operation_id': 'api_v2_projects_restore_bulk_post',
@@ -930,10 +929,10 @@ class ProjectsApi(object):
         )
         self.api_v2_projects_search_post_endpoint = _Endpoint(
             settings={
-                'response_type': ([ProjectShortModel],),
+                'response_type': ([ProjectApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/search',
                 'operation_id': 'api_v2_projects_search_post',
@@ -1009,7 +1008,7 @@ class ProjectsApi(object):
                 'response_type': (ProjectShortApiResultReply,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/shorts',
                 'operation_id': 'api_v2_projects_shorts_post',
@@ -1060,7 +1059,7 @@ class ProjectsApi(object):
                 'response_type': (ProjectApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects',
                 'operation_id': 'create_project',
@@ -1111,7 +1110,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/autoTests',
                 'operation_id': 'delete_project_auto_tests',
@@ -1160,10 +1159,10 @@ class ProjectsApi(object):
         )
         self.get_all_projects_endpoint = _Endpoint(
             settings={
-                'response_type': ([ProjectShortModel],),
+                'response_type': ([ProjectApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects',
                 'operation_id': 'get_all_projects',
@@ -1243,7 +1242,7 @@ class ProjectsApi(object):
                 'response_type': ([AutoTestNamespaceApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/autoTestsNamespaces',
                 'operation_id': 'get_auto_tests_namespaces',
@@ -1292,10 +1291,10 @@ class ProjectsApi(object):
         )
         self.get_project_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (ProjectModel,),
+                'response_type': (DetailedProjectApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}',
                 'operation_id': 'get_project_by_id',
@@ -1347,7 +1346,7 @@ class ProjectsApi(object):
                 'response_type': ([TestPlanModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testPlans',
                 'operation_id': 'get_test_plans_by_project_id',
@@ -1404,7 +1403,7 @@ class ProjectsApi(object):
                 'response_type': ([TestRunV2ApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{id}/testRuns',
                 'operation_id': 'get_test_runs_by_project_id',
@@ -1520,7 +1519,7 @@ class ProjectsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects',
                 'operation_id': 'update_project',
@@ -2864,7 +2863,7 @@ class ProjectsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [ProjectShortModel]
+            [ProjectApiResult]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -3189,7 +3188,7 @@ class ProjectsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [ProjectShortModel]
+            [ProjectApiResult]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -3353,7 +3352,7 @@ class ProjectsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ProjectModel
+            DetailedProjectApiResult
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -3393,7 +3392,7 @@ class ProjectsApi(object):
     ):
         """Get project test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)  # noqa: E501
+         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                     project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                     are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

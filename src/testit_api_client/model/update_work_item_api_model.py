@@ -37,9 +37,8 @@ def lazy_import():
     from testit_api_client.model.update_link_api_model import UpdateLinkApiModel
     from testit_api_client.model.update_step_api_model import UpdateStepApiModel
     from testit_api_client.model.work_item_parameter_key_api_model import WorkItemParameterKeyApiModel
-    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
-    from testit_api_client.model.work_item_states import WorkItemStates
+    from testit_api_client.model.work_item_priority_api_model import WorkItemPriorityApiModel
+    from testit_api_client.model.work_item_state_api_model import WorkItemStateApiModel
     globals()['AssignAttachmentApiModel'] = AssignAttachmentApiModel
     globals()['AssignIterationApiModel'] = AssignIterationApiModel
     globals()['AutoTestIdModel'] = AutoTestIdModel
@@ -47,9 +46,8 @@ def lazy_import():
     globals()['UpdateLinkApiModel'] = UpdateLinkApiModel
     globals()['UpdateStepApiModel'] = UpdateStepApiModel
     globals()['WorkItemParameterKeyApiModel'] = WorkItemParameterKeyApiModel
-    globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
-    globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
-    globals()['WorkItemStates'] = WorkItemStates
+    globals()['WorkItemPriorityApiModel'] = WorkItemPriorityApiModel
+    globals()['WorkItemStateApiModel'] = WorkItemStateApiModel
 
 
 class UpdateWorkItemApiModel(ModelNormal):
@@ -80,12 +78,13 @@ class UpdateWorkItemApiModel(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
         ('duration',): {
             'inclusive_maximum': 86400000,
             'inclusive_minimum': 0,
-        },
-        ('name',): {
-            'min_length': 1,
         },
     }
 
@@ -107,21 +106,20 @@ class UpdateWorkItemApiModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'section_id': (str,),  # noqa: E501
-            'state': (WorkItemStates,),  # noqa: E501
-            'priority': (WorkItemPriorityModel,),  # noqa: E501
-            'steps': ([UpdateStepApiModel],),  # noqa: E501
-            'precondition_steps': ([UpdateStepApiModel],),  # noqa: E501
-            'postcondition_steps': ([UpdateStepApiModel],),  # noqa: E501
-            'duration': (int,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'tags': ([TagModel],),  # noqa: E501
-            'links': ([UpdateLinkApiModel],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'attachments': ([AssignAttachmentApiModel],),  # noqa: E501
+            'duration': (int,),  # noqa: E501
+            'state': (WorkItemStateApiModel,),  # noqa: E501
+            'priority': (WorkItemPriorityApiModel,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'source_type': (WorkItemSourceTypeModel,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'tags': ([TagModel], none_type,),  # noqa: E501
+            'precondition_steps': ([UpdateStepApiModel], none_type,),  # noqa: E501
+            'steps': ([UpdateStepApiModel], none_type,),  # noqa: E501
+            'postcondition_steps': ([UpdateStepApiModel], none_type,),  # noqa: E501
             'iterations': ([AssignIterationApiModel], none_type,),  # noqa: E501
             'auto_tests': ([AutoTestIdModel], none_type,),  # noqa: E501
+            'attachments': ([AssignAttachmentApiModel], none_type,),  # noqa: E501
+            'links': ([UpdateLinkApiModel], none_type,),  # noqa: E501
             'parameters': ([WorkItemParameterKeyApiModel], none_type,),  # noqa: E501
         }
 
@@ -133,21 +131,20 @@ class UpdateWorkItemApiModel(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'section_id': 'sectionId',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
-        'steps': 'steps',  # noqa: E501
-        'precondition_steps': 'preconditionSteps',  # noqa: E501
-        'postcondition_steps': 'postconditionSteps',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'tags': 'tags',  # noqa: E501
-        'links': 'links',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'attachments': 'attachments',  # noqa: E501
-        'description': 'description',  # noqa: E501
-        'source_type': 'sourceType',  # noqa: E501
+        'precondition_steps': 'preconditionSteps',  # noqa: E501
+        'steps': 'steps',  # noqa: E501
+        'postcondition_steps': 'postconditionSteps',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
+        'links': 'links',  # noqa: E501
         'parameters': 'parameters',  # noqa: E501
     }
 
@@ -158,23 +155,16 @@ class UpdateWorkItemApiModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, section_id, state, priority, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, attachments, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, section_id, name, duration, state, priority, *args, **kwargs):  # noqa: E501
         """UpdateWorkItemApiModel - a model defined in OpenAPI
 
         Args:
-            id (str): Workitem internal identifier
-            section_id (str): Internal identifier of section where workitem is located
-            state (WorkItemStates):
-            priority (WorkItemPriorityModel):
-            steps ([UpdateStepApiModel]): Collection of workitem steps
-            precondition_steps ([UpdateStepApiModel]): Collection of workitem precondtion steps
-            postcondition_steps ([UpdateStepApiModel]): Collection of workitem postcondition steps
-            duration (int): Workitem duration in milliseconds
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key value pair of custom workitem attributes
-            tags ([TagModel]): Collection of workitem tags
-            links ([UpdateLinkApiModel]): Collection of workitem links
-            name (str): Workitem name
-            attachments ([AssignAttachmentApiModel]):
+            id (str): Unique identifier of the work item
+            section_id (str): Unique identifier of the section within a project
+            name (str): Name of the work item
+            duration (int): Duration of the work item in milliseconds
+            state (WorkItemStateApiModel):
+            priority (WorkItemPriorityApiModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -207,11 +197,17 @@ class UpdateWorkItemApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): Workitem description. [optional]  # noqa: E501
-            source_type (WorkItemSourceTypeModel): [optional]  # noqa: E501
-            iterations ([AssignIterationApiModel], none_type): Collection of parameter id sets. [optional]  # noqa: E501
-            auto_tests ([AutoTestIdModel], none_type): Collection of autotest internal ids. [optional]  # noqa: E501
-            parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys related to the work item. [optional]  # noqa: E501
+            description (str, none_type): Description of the work item. [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Set of custom attributes associated with the work item. [optional]  # noqa: E501
+            tags ([TagModel], none_type): Set of tags applied to the work item. [optional]  # noqa: E501
+            precondition_steps ([UpdateStepApiModel], none_type): Set of precondition steps that must be executed before the main steps. [optional]  # noqa: E501
+            steps ([UpdateStepApiModel], none_type): Set of main steps or actions defined for the work item. [optional]  # noqa: E501
+            postcondition_steps ([UpdateStepApiModel], none_type): Set of postcondition steps that are executed after completing the main steps. [optional]  # noqa: E501
+            iterations ([AssignIterationApiModel], none_type): Set of iterations associated with the work item. [optional]  # noqa: E501
+            auto_tests ([AutoTestIdModel], none_type): Set of automated tests linked to the work item. [optional]  # noqa: E501
+            attachments ([AssignAttachmentApiModel], none_type): Set of files attached to the work item. [optional]  # noqa: E501
+            links ([UpdateLinkApiModel], none_type): Set of links related to the work item. [optional]  # noqa: E501
+            parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys associated with the work item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,17 +241,10 @@ class UpdateWorkItemApiModel(ModelNormal):
 
         self.id = id
         self.section_id = section_id
+        self.name = name
+        self.duration = duration
         self.state = state
         self.priority = priority
-        self.steps = steps
-        self.precondition_steps = precondition_steps
-        self.postcondition_steps = postcondition_steps
-        self.duration = duration
-        self.attributes = attributes
-        self.tags = tags
-        self.links = links
-        self.name = name
-        self.attachments = attachments
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -276,23 +265,16 @@ class UpdateWorkItemApiModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, section_id, state, priority, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, attachments, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, section_id, name, duration, state, priority, *args, **kwargs):  # noqa: E501
         """UpdateWorkItemApiModel - a model defined in OpenAPI
 
         Args:
-            id (str): Workitem internal identifier
-            section_id (str): Internal identifier of section where workitem is located
-            state (WorkItemStates):
-            priority (WorkItemPriorityModel):
-            steps ([UpdateStepApiModel]): Collection of workitem steps
-            precondition_steps ([UpdateStepApiModel]): Collection of workitem precondtion steps
-            postcondition_steps ([UpdateStepApiModel]): Collection of workitem postcondition steps
-            duration (int): Workitem duration in milliseconds
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key value pair of custom workitem attributes
-            tags ([TagModel]): Collection of workitem tags
-            links ([UpdateLinkApiModel]): Collection of workitem links
-            name (str): Workitem name
-            attachments ([AssignAttachmentApiModel]):
+            id (str): Unique identifier of the work item
+            section_id (str): Unique identifier of the section within a project
+            name (str): Name of the work item
+            duration (int): Duration of the work item in milliseconds
+            state (WorkItemStateApiModel):
+            priority (WorkItemPriorityApiModel):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -325,11 +307,17 @@ class UpdateWorkItemApiModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): Workitem description. [optional]  # noqa: E501
-            source_type (WorkItemSourceTypeModel): [optional]  # noqa: E501
-            iterations ([AssignIterationApiModel], none_type): Collection of parameter id sets. [optional]  # noqa: E501
-            auto_tests ([AutoTestIdModel], none_type): Collection of autotest internal ids. [optional]  # noqa: E501
-            parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys related to the work item. [optional]  # noqa: E501
+            description (str, none_type): Description of the work item. [optional]  # noqa: E501
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Set of custom attributes associated with the work item. [optional]  # noqa: E501
+            tags ([TagModel], none_type): Set of tags applied to the work item. [optional]  # noqa: E501
+            precondition_steps ([UpdateStepApiModel], none_type): Set of precondition steps that must be executed before the main steps. [optional]  # noqa: E501
+            steps ([UpdateStepApiModel], none_type): Set of main steps or actions defined for the work item. [optional]  # noqa: E501
+            postcondition_steps ([UpdateStepApiModel], none_type): Set of postcondition steps that are executed after completing the main steps. [optional]  # noqa: E501
+            iterations ([AssignIterationApiModel], none_type): Set of iterations associated with the work item. [optional]  # noqa: E501
+            auto_tests ([AutoTestIdModel], none_type): Set of automated tests linked to the work item. [optional]  # noqa: E501
+            attachments ([AssignAttachmentApiModel], none_type): Set of files attached to the work item. [optional]  # noqa: E501
+            links ([UpdateLinkApiModel], none_type): Set of links related to the work item. [optional]  # noqa: E501
+            parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys associated with the work item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -361,17 +349,10 @@ class UpdateWorkItemApiModel(ModelNormal):
 
         self.id = id
         self.section_id = section_id
+        self.name = name
+        self.duration = duration
         self.state = state
         self.priority = priority
-        self.steps = steps
-        self.precondition_steps = precondition_steps
-        self.postcondition_steps = postcondition_steps
-        self.duration = duration
-        self.attributes = attributes
-        self.tags = tags
-        self.links = links
-        self.name = name
-        self.attachments = attachments
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

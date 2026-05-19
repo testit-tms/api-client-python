@@ -30,9 +30,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.custom_attribute_api_result import CustomAttributeApiResult
     from testit_api_client.model.project_type import ProjectType
-    globals()['CustomAttributeApiResult'] = CustomAttributeApiResult
     globals()['ProjectType'] = ProjectType
 
 
@@ -93,15 +91,12 @@ class ProjectApiResult(ModelNormal):
             'type': (ProjectType,),  # noqa: E501
             'workflow_id': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'attributes_scheme': ([CustomAttributeApiResult], none_type,),  # noqa: E501
-            'test_plans_attributes_scheme': ([CustomAttributeApiResult], none_type,),  # noqa: E501
             'test_cases_count': (int, none_type,),  # noqa: E501
             'shared_steps_count': (int, none_type,),  # noqa: E501
             'check_lists_count': (int, none_type,),  # noqa: E501
             'auto_tests_count': (int, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
-            'is_flaky_auto': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -121,15 +116,12 @@ class ProjectApiResult(ModelNormal):
         'type': 'type',  # noqa: E501
         'workflow_id': 'workflowId',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'attributes_scheme': 'attributesScheme',  # noqa: E501
-        'test_plans_attributes_scheme': 'testPlansAttributesScheme',  # noqa: E501
         'test_cases_count': 'testCasesCount',  # noqa: E501
         'shared_steps_count': 'sharedStepsCount',  # noqa: E501
         'check_lists_count': 'checkListsCount',  # noqa: E501
         'auto_tests_count': 'autoTestsCount',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
-        'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
     }
 
     read_only_vars = {
@@ -186,15 +178,12 @@ class ProjectApiResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the project. [optional]  # noqa: E501
-            attributes_scheme ([CustomAttributeApiResult], none_type): Collection of the project attributes. [optional]  # noqa: E501
-            test_plans_attributes_scheme ([CustomAttributeApiResult], none_type): Collection of the project test plans attributes. [optional]  # noqa: E501
             test_cases_count (int, none_type): Number of test cases in the project. [optional]  # noqa: E501
             shared_steps_count (int, none_type): Number of shared steps in the project. [optional]  # noqa: E501
             check_lists_count (int, none_type): Number of checklists in the project. [optional]  # noqa: E501
             auto_tests_count (int, none_type): Number of autotests in the project. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
-            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" inits automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -303,15 +292,12 @@ class ProjectApiResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the project. [optional]  # noqa: E501
-            attributes_scheme ([CustomAttributeApiResult], none_type): Collection of the project attributes. [optional]  # noqa: E501
-            test_plans_attributes_scheme ([CustomAttributeApiResult], none_type): Collection of the project test plans attributes. [optional]  # noqa: E501
             test_cases_count (int, none_type): Number of test cases in the project. [optional]  # noqa: E501
             shared_steps_count (int, none_type): Number of shared steps in the project. [optional]  # noqa: E501
             check_lists_count (int, none_type): Number of checklists in the project. [optional]  # noqa: E501
             auto_tests_count (int, none_type): Number of autotests in the project. [optional]  # noqa: E501
             modified_date (datetime, none_type): Last modification date of the project. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique ID of the project last editor. [optional]  # noqa: E501
-            is_flaky_auto (bool, none_type): Indicates if the status \"Flaky/Stable\" inits automatically. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

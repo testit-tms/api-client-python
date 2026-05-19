@@ -12874,7 +12874,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProjectShortModel"
+                    "$ref": "#/components/schemas/ProjectApiResult"
                   }
                 }
               }
@@ -13218,7 +13218,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProjectShortModel"
+                    "$ref": "#/components/schemas/ProjectApiResult"
                   }
                 }
               }
@@ -13313,7 +13313,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProjectModel"
+                  "$ref": "#/components/schemas/DetailedProjectApiResult"
                 }
               }
             }
@@ -14290,7 +14290,7 @@
           "Projects"
         ],
         "summary": "Get project test plans",
-        "description": "\nUse case\n\nUser sets project internal or global identifier\n\n[Optional] User sets isDeleted field value\n\nUser runs method execution\n\nSystem search project\n\n[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project\n\n[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted\n\n[Optional] If User did not set isDeleted field value, System search all v related to project\n\nSystem returns array of found test plans (listed in response model)",
+        "description": "\nUse case\n\nUser sets project internal or global identifier\n\n[Optional] User sets isDeleted field value\n\nUser runs method execution\n\nSystem search project\n\n[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to\n                    project\n\n[Optional] If User sets isDeleted field value as false, System search all test plans related to project which\n                    are not deleted\n\n[Optional] If User did not set isDeleted field value, System search all v related to project\n\nSystem returns array of found test plans (listed in response model)",
         "operationId": "GetTestPlansByProjectId",
         "parameters": [
           {
@@ -22226,6 +22226,102 @@
             }
           }
         }
+      },
+      "patch": {
+        "tags": [
+          "TestResults"
+        ],
+        "summary": "Patch test result by ID",
+        "description": "See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Test result unique ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Only edits from assigned user are allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v2/testResults/external-projects/{externalProjectId}/defects/external-forms": {
@@ -23432,6 +23528,103 @@
       }
     },
     "/api/v2/testRuns/{id}": {
+      "patch": {
+        "tags": [
+          "TestRuns"
+        ],
+        "summary": "Patch test run",
+        "description": "See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Test Run internal identifier (GUID format)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Update permission for test library required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
       "get": {
         "tags": [
           "TestRuns"
@@ -29280,6 +29473,103 @@
           }
         }
       },
+      "patch": {
+        "tags": [
+          "WorkItems"
+        ],
+        "summary": "Patch Test Case, Checklist or Shared Step",
+        "description": "See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "WorkItem internal (guid format) or\nglobal(integer format) identifier\"",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Internal (UUID) or global (integer) identifier"
+            },
+            "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Update permission for test library required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "tags": [
           "WorkItems"
@@ -29582,7 +29872,6 @@
         ],
         "summary": "Update Test Case, Checklist or Shared Step",
         "description": "\nUse case\n\nUser sets work item properties (listed in request parameters)\n\nUser runs method execution\n\nSystem updates work item by identifier\n\nSystem returns updated work item model (listed in response parameters)",
-        "operationId": "UpdateWorkItem",
         "requestBody": {
           "content": {
             "application/json": {
@@ -32714,6 +33003,20 @@
         },
         "additionalProperties": false
       },
+      "AssignAutoTestCaseIdApiModel": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID of the automated test case",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "AssignIterationApiModel": {
         "required": [
           "id",
@@ -33416,6 +33719,33 @@
           "inProgressCount": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AutoTestCaseApiModel": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the automated test case",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AutoTestCaseModel": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -36897,18 +37227,12 @@
       },
       "CreateWorkItemApiModel": {
         "required": [
-          "attributes",
           "duration",
           "entityTypeName",
-          "links",
           "name",
-          "postconditionSteps",
-          "preconditionSteps",
           "priority",
           "projectId",
-          "state",
-          "steps",
-          "tags"
+          "state"
         ],
         "type": "object",
         "properties": {
@@ -36955,7 +37279,7 @@
                 "$ref": "#/components/schemas/WorkItemStateApiModel"
               }
             ],
-            "description": "State of the work item"
+            "description": "Current state of the work item"
           },
           "priority": {
             "allOf": [
@@ -36963,47 +37287,52 @@
                 "$ref": "#/components/schemas/WorkItemPriorityApiModel"
               }
             ],
-            "description": "Priority level of the work item"
+            "description": "Priority level assigned to the work item"
           },
           "attributes": {
             "type": "object",
             "additionalProperties": { },
-            "description": "Set of custom attributes associated with the work item"
+            "description": "Set of custom attributes associated with the work item",
+            "nullable": true
           },
           "tags": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TagModel"
             },
-            "description": "Set of tags applied to the work item"
+            "description": "Set of tags applied to the work item",
+            "nullable": true
           },
           "preconditionSteps": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateStepApiModel"
             },
-            "description": "Set of precondition steps that need to be executed before starting the main steps"
+            "description": "Set of precondition steps that must be executed before the main steps",
+            "nullable": true
           },
           "steps": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateStepApiModel"
             },
-            "description": "Main steps or actions defined for the work item"
+            "description": "Set of main steps or actions defined for the work item",
+            "nullable": true
           },
           "postconditionSteps": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateStepApiModel"
             },
-            "description": "Set of postcondition steps that are executed after completing the main steps"
+            "description": "Set of postcondition steps that are executed after completing the main steps",
+            "nullable": true
           },
           "iterations": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AssignIterationApiModel"
             },
-            "description": "Associated iterations linked to the work item",
+            "description": "Set of iterations associated with the work item",
             "nullable": true
           },
           "autoTests": {
@@ -37011,7 +37340,7 @@
             "items": {
               "$ref": "#/components/schemas/AutoTestIdModel"
             },
-            "description": "Automated tests associated with the work item",
+            "description": "Set of automated tests linked to the work item",
             "nullable": true
           },
           "attachments": {
@@ -37019,7 +37348,7 @@
             "items": {
               "$ref": "#/components/schemas/AssignAttachmentApiModel"
             },
-            "description": "Files attached to the work item",
+            "description": "Set of files attached to the work item",
             "nullable": true
           },
           "links": {
@@ -37027,14 +37356,15 @@
             "items": {
               "$ref": "#/components/schemas/CreateLinkApiModel"
             },
-            "description": "Set of links related to the work item"
+            "description": "Set of links related to the work item",
+            "nullable": true
           },
           "parameters": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/WorkItemParameterKeyApiModel"
             },
-            "description": "Set of parameter keys related to the work item",
+            "description": "Set of parameter keys associated with the work item",
             "nullable": true
           }
         },
@@ -37860,6 +38190,131 @@
           "jobId": {
             "type": "string",
             "description": "Job ID",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetailedProjectApiResult": {
+        "required": [
+          "createdById",
+          "createdDate",
+          "globalId",
+          "id",
+          "isDeleted",
+          "isFavorite",
+          "name",
+          "type",
+          "workflowId",
+          "workItemsCount"
+        ],
+        "type": "object",
+        "properties": {
+          "attributesScheme": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeApiResult"
+            },
+            "description": "Collection of the project attributes",
+            "nullable": true
+          },
+          "testPlansAttributesScheme": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeApiResult"
+            },
+            "description": "Collection of the project test plans attributes",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique ID of the project",
+            "format": "uuid"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the project",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the project"
+          },
+          "isFavorite": {
+            "type": "boolean",
+            "description": "Indicates if the project is marked as favorite"
+          },
+          "workItemsCount": {
+            "type": "integer",
+            "description": "Number of work items in the project",
+            "format": "int32"
+          },
+          "testCasesCount": {
+            "type": "integer",
+            "description": "Number of test cases in the project",
+            "format": "int32",
+            "nullable": true
+          },
+          "sharedStepsCount": {
+            "type": "integer",
+            "description": "Number of shared steps in the project",
+            "format": "int32",
+            "nullable": true
+          },
+          "checkListsCount": {
+            "type": "integer",
+            "description": "Number of checklists in the project",
+            "format": "int32",
+            "nullable": true
+          },
+          "autoTestsCount": {
+            "type": "integer",
+            "description": "Number of autotests in the project",
+            "format": "int32",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Indicates if the project is deleted"
+          },
+          "createdDate": {
+            "type": "string",
+            "description": "Creation date of the project",
+            "format": "date-time"
+          },
+          "modifiedDate": {
+            "type": "string",
+            "description": "Last modification date of the project",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdById": {
+            "type": "string",
+            "description": "Unique ID of the project creator",
+            "format": "uuid"
+          },
+          "modifiedById": {
+            "type": "string",
+            "description": "Unique ID of the project last editor",
+            "format": "uuid",
+            "nullable": true
+          },
+          "globalId": {
+            "type": "integer",
+            "description": "Global ID of the project",
+            "format": "int64"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProjectType"
+              }
+            ],
+            "description": "Type of the project"
+          },
+          "workflowId": {
+            "type": "string",
+            "description": "ID of the workflow used in project",
             "format": "uuid"
           }
         },
@@ -39289,6 +39744,22 @@
         },
         "additionalProperties": false
       },
+      "GuidNullableChangedFieldViewModel": {
+        "type": "object",
+        "properties": {
+          "oldValue": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "newValue": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "IFilter": {
         "type": "object",
         "oneOf": [
@@ -39618,6 +40089,7 @@
       "LinkApiResult": {
         "required": [
           "hasInfo",
+          "type",
           "url"
         ],
         "type": "object",
@@ -39648,8 +40120,7 @@
                 "$ref": "#/components/schemas/LinkType"
               }
             ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
+            "description": "Specifies the type of the link."
           },
           "hasInfo": {
             "type": "boolean",
@@ -39661,6 +40132,7 @@
       "LinkCreateApiModel": {
         "required": [
           "hasInfo",
+          "type",
           "url"
         ],
         "type": "object",
@@ -39686,8 +40158,7 @@
                 "$ref": "#/components/schemas/LinkType"
               }
             ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
+            "description": "Specifies the type of the link."
           },
           "hasInfo": {
             "type": "boolean",
@@ -39853,6 +40324,7 @@
       "LinkShortModel": {
         "required": [
           "id",
+          "type",
           "url"
         ],
         "type": "object",
@@ -39866,8 +40338,11 @@
             "nullable": true
           },
           "type": {
-            "type": "string",
-            "nullable": true
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LinkType"
+              }
+            ]
           },
           "url": {
             "type": "string"
@@ -39889,6 +40364,7 @@
       "LinkUpdateApiModel": {
         "required": [
           "hasInfo",
+          "type",
           "url"
         ],
         "type": "object",
@@ -39920,8 +40396,7 @@
                 "$ref": "#/components/schemas/LinkType"
               }
             ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
+            "description": "Specifies the type of the link."
           },
           "hasInfo": {
             "type": "boolean",
@@ -40611,22 +41086,6 @@
             "type": "boolean",
             "description": "Indicates if the project is marked as favorite"
           },
-          "attributesScheme": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeApiResult"
-            },
-            "description": "Collection of the project attributes",
-            "nullable": true
-          },
-          "testPlansAttributesScheme": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeApiResult"
-            },
-            "description": "Collection of the project test plans attributes",
-            "nullable": true
-          },
           "workItemsCount": {
             "type": "integer",
             "description": "Number of work items in the project",
@@ -40694,12 +41153,6 @@
               }
             ],
             "description": "Type of the project"
-          },
-          "isFlakyAuto": {
-            "type": "boolean",
-            "description": "Indicates if the status \"Flaky/Stable\" inits automatically",
-            "nullable": true,
-            "deprecated": true
           },
           "workflowId": {
             "type": "string",
@@ -41058,131 +41511,6 @@
         },
         "additionalProperties": false
       },
-      "ProjectModel": {
-        "required": [
-          "createdById",
-          "createdDate",
-          "globalId",
-          "id",
-          "isDeleted",
-          "isFavorite",
-          "name",
-          "type",
-          "workflowId",
-          "workItemsCount"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Unique ID of the project",
-            "format": "uuid"
-          },
-          "description": {
-            "type": "string",
-            "description": "Description of the project",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the project"
-          },
-          "isFavorite": {
-            "type": "boolean",
-            "description": "Indicates if the project is marked as favorite"
-          },
-          "attributesScheme": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeModel"
-            },
-            "description": "Collection of the project attributes",
-            "nullable": true
-          },
-          "testPlansAttributesScheme": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeModel"
-            },
-            "description": "Collection of the project test plans attributes",
-            "nullable": true
-          },
-          "workItemsCount": {
-            "type": "integer",
-            "description": "Number of work items in the project",
-            "format": "int32"
-          },
-          "testCasesCount": {
-            "type": "integer",
-            "description": "Number of test cases in the project",
-            "format": "int32",
-            "nullable": true
-          },
-          "sharedStepsCount": {
-            "type": "integer",
-            "description": "Number of shared steps in the project",
-            "format": "int32",
-            "nullable": true
-          },
-          "checkListsCount": {
-            "type": "integer",
-            "description": "Number of checklists in the project",
-            "format": "int32",
-            "nullable": true
-          },
-          "autoTestsCount": {
-            "type": "integer",
-            "description": "Number of autotests in the project",
-            "format": "int32",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean",
-            "description": "Indicates if the project is deleted"
-          },
-          "createdDate": {
-            "type": "string",
-            "description": "Creation date of the project",
-            "format": "date-time"
-          },
-          "modifiedDate": {
-            "type": "string",
-            "description": "Last modification date of the project",
-            "format": "date-time",
-            "nullable": true
-          },
-          "createdById": {
-            "type": "string",
-            "description": "Unique ID of the project creator",
-            "format": "uuid"
-          },
-          "modifiedById": {
-            "type": "string",
-            "description": "Unique ID of the project last editor",
-            "format": "uuid",
-            "nullable": true
-          },
-          "globalId": {
-            "type": "integer",
-            "description": "Global ID of the project",
-            "format": "int64"
-          },
-          "type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ProjectTypeModel"
-              }
-            ],
-            "description": "Type of the project"
-          },
-          "workflowId": {
-            "type": "string",
-            "description": "Identifier of current workflow",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
       "ProjectNameApiResult": {
         "required": [
           "id",
@@ -41282,114 +41610,6 @@
           "totalCount": {
             "type": "integer",
             "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProjectShortModel": {
-        "required": [
-          "createdById",
-          "createdDate",
-          "globalId",
-          "id",
-          "isDeleted",
-          "isFavorite",
-          "name",
-          "type",
-          "workflowId",
-          "workItemsCount"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Unique ID of the project",
-            "format": "uuid"
-          },
-          "description": {
-            "type": "string",
-            "description": "Description of the project",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the project"
-          },
-          "isFavorite": {
-            "type": "boolean",
-            "description": "Indicates if the project is marked as favorite"
-          },
-          "workItemsCount": {
-            "type": "integer",
-            "description": "Number of test cases in the project",
-            "format": "int32"
-          },
-          "testCasesCount": {
-            "type": "integer",
-            "description": "Number of test cases in the project",
-            "format": "int32",
-            "nullable": true
-          },
-          "sharedStepsCount": {
-            "type": "integer",
-            "description": "Number of shared steps in the project",
-            "format": "int32",
-            "nullable": true
-          },
-          "checkListsCount": {
-            "type": "integer",
-            "description": "Number of checklists in the project",
-            "format": "int32",
-            "nullable": true
-          },
-          "autoTestsCount": {
-            "type": "integer",
-            "description": "Number of autotests in the project",
-            "format": "int32",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean",
-            "description": "Indicates if the project is deleted"
-          },
-          "createdDate": {
-            "type": "string",
-            "description": "Creation date of the project",
-            "format": "date-time"
-          },
-          "modifiedDate": {
-            "type": "string",
-            "description": "Last modification date of the project",
-            "format": "date-time",
-            "nullable": true
-          },
-          "createdById": {
-            "type": "string",
-            "description": "Unique ID of the project creator",
-            "format": "uuid"
-          },
-          "modifiedById": {
-            "type": "string",
-            "description": "Unique ID of the project last editor",
-            "format": "uuid",
-            "nullable": true
-          },
-          "globalId": {
-            "type": "integer",
-            "description": "Global ID of the project",
-            "format": "int64"
-          },
-          "type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ProjectTypeModel"
-              }
-            ],
-            "description": "Type of the project"
-          },
-          "workflowId": {
-            "type": "string",
-            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -47070,6 +47290,7 @@
       "TestResultLinkApiResult": {
         "required": [
           "hasInfo",
+          "type",
           "url"
         ],
         "type": "object",
@@ -47100,8 +47321,7 @@
                 "$ref": "#/components/schemas/LinkType"
               }
             ],
-            "description": "Specifies the type of the link.",
-            "nullable": true
+            "description": "Specifies the type of the link."
           },
           "hasInfo": {
             "type": "boolean",
@@ -50645,57 +50865,79 @@
       },
       "UpdateWorkItemApiModel": {
         "required": [
-          "attachments",
-          "attributes",
           "duration",
           "id",
-          "links",
           "name",
-          "postconditionSteps",
-          "preconditionSteps",
           "priority",
           "sectionId",
-          "state",
-          "steps",
-          "tags"
+          "state"
         ],
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "description": "Workitem internal identifier",
+            "description": "Unique identifier of the work item",
             "format": "uuid"
           },
           "sectionId": {
             "type": "string",
-            "description": "Internal identifier of section where workitem is located",
+            "description": "Unique identifier of the section within a project",
             "format": "uuid"
+          },
+          "name": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Name of the work item"
           },
           "description": {
             "type": "string",
-            "description": "Workitem description",
+            "description": "Description of the work item",
             "nullable": true
+          },
+          "duration": {
+            "maximum": 86400000,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Duration of the work item in milliseconds",
+            "format": "int64"
           },
           "state": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/WorkItemStates"
+                "$ref": "#/components/schemas/WorkItemStateApiModel"
               }
-            ]
+            ],
+            "description": "Current state of the work item"
           },
           "priority": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/WorkItemPriorityModel"
-              }
-            ]
-          },
-          "sourceType": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/WorkItemSourceTypeModel"
+                "$ref": "#/components/schemas/WorkItemPriorityApiModel"
               }
             ],
+            "description": "Priority level assigned to the work item"
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": { },
+            "description": "Set of custom attributes associated with the work item",
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TagModel"
+            },
+            "description": "Set of tags applied to the work item",
+            "nullable": true
+          },
+          "preconditionSteps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateStepApiModel"
+            },
+            "description": "Set of precondition steps that must be executed before the main steps",
             "nullable": true
           },
           "steps": {
@@ -50703,65 +50945,23 @@
             "items": {
               "$ref": "#/components/schemas/UpdateStepApiModel"
             },
-            "description": "Collection of workitem steps"
-          },
-          "preconditionSteps": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UpdateStepApiModel"
-            },
-            "description": "Collection of workitem precondtion steps"
+            "description": "Set of main steps or actions defined for the work item",
+            "nullable": true
           },
           "postconditionSteps": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UpdateStepApiModel"
             },
-            "description": "Collection of workitem postcondition steps"
-          },
-          "duration": {
-            "maximum": 86400000,
-            "minimum": 0,
-            "type": "integer",
-            "description": "Workitem duration in milliseconds",
-            "format": "int64"
-          },
-          "attributes": {
-            "type": "object",
-            "additionalProperties": { },
-            "description": "Key value pair of custom workitem attributes"
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TagModel"
-            },
-            "description": "Collection of workitem tags"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UpdateLinkApiModel"
-            },
-            "description": "Collection of workitem links"
-          },
-          "name": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Workitem name"
-          },
-          "attachments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AssignAttachmentApiModel"
-            }
+            "description": "Set of postcondition steps that are executed after completing the main steps",
+            "nullable": true
           },
           "iterations": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AssignIterationApiModel"
             },
-            "description": "Collection of parameter id sets",
+            "description": "Set of iterations associated with the work item",
             "nullable": true
           },
           "autoTests": {
@@ -50769,7 +50969,23 @@
             "items": {
               "$ref": "#/components/schemas/AutoTestIdModel"
             },
-            "description": "Collection of autotest internal ids",
+            "description": "Set of automated tests linked to the work item",
+            "nullable": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssignAttachmentApiModel"
+            },
+            "description": "Set of files attached to the work item",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateLinkApiModel"
+            },
+            "description": "Set of links related to the work item",
             "nullable": true
           },
           "parameters": {
@@ -50777,7 +50993,7 @@
             "items": {
               "$ref": "#/components/schemas/WorkItemParameterKeyApiModel"
             },
-            "description": "Set of parameter keys related to the work item",
+            "description": "Set of parameter keys associated with the work item",
             "nullable": true
           }
         },
@@ -51865,6 +52081,7 @@
           "isAutomated",
           "isDeleted",
           "links",
+          "parentId",
           "postconditionSteps",
           "preconditionSteps",
           "priority",
@@ -52015,6 +52232,13 @@
             "allOf": [
               {
                 "$ref": "#/components/schemas/StringChangedFieldViewModel"
+              }
+            ]
+          },
+          "parentId": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GuidNullableChangedFieldViewModel"
               }
             ]
           }
@@ -54860,7 +55084,7 @@
         "name": "Authorization",
         "in": "header"
       },
-      "Session Cookie": {
+      "Identity.Application": {
         "type": "apiKey",
         "description": "Session-based authorization via Web UI. If you are already logged in, the browser will attach the cookie automatically — no need to fill in the Value field.",
         "name": "backoffice",
@@ -54871,7 +55095,7 @@
   "security": [
     {
       "PrivateToken": [ ],
-      "Session Cookie": [ ]
+      "Identity.Application": [ ]
     }
   ],
   "tags": [

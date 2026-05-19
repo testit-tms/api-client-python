@@ -59,7 +59,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/test-points/withSections',
                 'operation_id': 'add_test_points_with_sections',
@@ -117,7 +117,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/workItems/withSections',
                 'operation_id': 'add_work_items_with_sections',
@@ -179,7 +179,7 @@ class TestPlansApi(object):
                 'response_type': (TestPointAnalyticResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/analytics',
                 'operation_id': 'api_v2_test_plans_id_analytics_get',
@@ -231,7 +231,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanWithTestSuiteTreeModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/autobalance',
                 'operation_id': 'api_v2_test_plans_id_autobalance_post',
@@ -293,7 +293,7 @@ class TestPlansApi(object):
                 'response_type': ([ConfigurationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/configurations',
                 'operation_id': 'api_v2_test_plans_id_configurations_get',
@@ -345,7 +345,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/export/testPoints/xlsx',
                 'operation_id': 'api_v2_test_plans_id_export_test_points_xlsx_post',
@@ -408,7 +408,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/export/testResultHistory/xlsx',
                 'operation_id': 'api_v2_test_plans_id_export_test_result_history_xlsx_post',
@@ -480,7 +480,7 @@ class TestPlansApi(object):
                 'response_type': ([TestPlanChangeModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/history',
                 'operation_id': 'api_v2_test_plans_id_history_get',
@@ -557,7 +557,7 @@ class TestPlansApi(object):
                 'response_type': ([TestPlanLink],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/links',
                 'operation_id': 'api_v2_test_plans_id_links_get',
@@ -624,7 +624,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}',
                 'operation_id': 'api_v2_test_plans_id_patch',
@@ -682,7 +682,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanSummaryModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/summaries',
                 'operation_id': 'api_v2_test_plans_id_summaries_get',
@@ -734,7 +734,7 @@ class TestPlansApi(object):
                 'response_type': ([TestPointWithLastResultResponseModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testPoints/lastResults',
                 'operation_id': 'api_v2_test_plans_id_test_points_last_results_get',
@@ -816,7 +816,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testPoints/reset',
                 'operation_id': 'api_v2_test_plans_id_test_points_reset_post',
@@ -878,7 +878,7 @@ class TestPlansApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testPoints/tester',
                 'operation_id': 'api_v2_test_plans_id_test_points_tester_delete',
@@ -936,7 +936,7 @@ class TestPlansApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testPoints/tester/{userId}',
                 'operation_id': 'api_v2_test_plans_id_test_points_tester_user_id_post',
@@ -1000,7 +1000,7 @@ class TestPlansApi(object):
                 'response_type': ([TestRunApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testRuns',
                 'operation_id': 'api_v2_test_plans_id_test_runs_get',
@@ -1097,7 +1097,7 @@ class TestPlansApi(object):
                 'response_type': ([TestRunApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testRuns/search',
                 'operation_id': 'api_v2_test_plans_id_test_runs_search_post',
@@ -1180,7 +1180,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testRuns/testResults/lastModified/modifiedDate',
                 'operation_id': 'api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get',
@@ -1232,7 +1232,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/unlock/request',
                 'operation_id': 'api_v2_test_plans_id_unlock_request_post',
@@ -1284,7 +1284,7 @@ class TestPlansApi(object):
                 'response_type': ([TestPlanShortModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/shorts',
                 'operation_id': 'api_v2_test_plans_shorts_post',
@@ -1344,7 +1344,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/clone',
                 'operation_id': 'clone',
@@ -1396,7 +1396,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/complete',
                 'operation_id': 'complete',
@@ -1448,7 +1448,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans',
                 'operation_id': 'create_test_plan',
@@ -1499,7 +1499,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}',
                 'operation_id': 'delete_test_plan',
@@ -1551,7 +1551,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}',
                 'operation_id': 'get_test_plan_by_id',
@@ -1603,7 +1603,7 @@ class TestPlansApi(object):
                 'response_type': ([TestSuiteHierarchyApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testSuites',
                 'operation_id': 'get_test_suites_by_id',
@@ -1655,7 +1655,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/pause',
                 'operation_id': 'pause',
@@ -1707,7 +1707,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/purge',
                 'operation_id': 'purge_test_plan',
@@ -1759,7 +1759,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/restore',
                 'operation_id': 'restore_test_plan',
@@ -1811,7 +1811,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/start',
                 'operation_id': 'start',
@@ -1863,7 +1863,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testPlans',
                 'operation_id': 'update_test_plan',

@@ -402,13 +402,13 @@ conf = testit_api_client.Configuration(
                     'PrivateToken',
                 ),
             }
-        if 'Session Cookie' in self.api_key:
-            auth['Session Cookie'] = {
+        if 'Identity.Application' in self.api_key:
+            auth['Identity.Application'] = {
                 'type': 'api_key',
                 'in': 'cookie',
                 'key': 'backoffice',
                 'value': self.get_api_key_with_prefix(
-                    'Session Cookie',
+                    'Identity.Application',
                 ),
             }
         return auth
@@ -422,7 +422,7 @@ conf = testit_api_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v2.0\n"\
-               "SDK Package Version: 7.5.6".\
+               "SDK Package Version: 7.5.7".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

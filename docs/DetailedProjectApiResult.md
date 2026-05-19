@@ -1,4 +1,4 @@
-# ProjectShortModel
+# DetailedProjectApiResult
 
 
 ## Properties
@@ -7,13 +7,15 @@ Name | Type | Description | Notes
 **id** | **str** | Unique ID of the project | 
 **name** | **str** | Name of the project | 
 **is_favorite** | **bool** | Indicates if the project is marked as favorite | 
-**work_items_count** | **int** | Number of test cases in the project | 
+**work_items_count** | **int** | Number of work items in the project | 
 **is_deleted** | **bool** | Indicates if the project is deleted | 
 **created_date** | **datetime** | Creation date of the project | 
 **created_by_id** | **str** | Unique ID of the project creator | 
 **global_id** | **int** | Global ID of the project | 
-**type** | [**ProjectTypeModel**](ProjectTypeModel.md) |  | 
-**workflow_id** | **str** |  | 
+**type** | [**ProjectType**](ProjectType.md) |  | 
+**workflow_id** | **str** | ID of the workflow used in project | 
+**attributes_scheme** | [**[CustomAttributeApiResult], none_type**](CustomAttributeApiResult.md) | Collection of the project attributes | [optional] 
+**test_plans_attributes_scheme** | [**[CustomAttributeApiResult], none_type**](CustomAttributeApiResult.md) | Collection of the project test plans attributes | [optional] 
 **description** | **str, none_type** | Description of the project | [optional] 
 **test_cases_count** | **int, none_type** | Number of test cases in the project | [optional] 
 **shared_steps_count** | **int, none_type** | Number of shared steps in the project | [optional] 

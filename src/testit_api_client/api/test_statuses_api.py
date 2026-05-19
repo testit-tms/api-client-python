@@ -46,7 +46,7 @@ class TestStatusesApi(object):
                 'response_type': (bool,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testStatuses/code/{code}/exists',
                 'operation_id': 'api_v2_test_statuses_code_code_exists_get',
@@ -100,7 +100,7 @@ class TestStatusesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testStatuses/{id}',
                 'operation_id': 'api_v2_test_statuses_id_delete',
@@ -152,7 +152,7 @@ class TestStatusesApi(object):
                 'response_type': (TestStatusApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testStatuses/{id}',
                 'operation_id': 'api_v2_test_statuses_id_get',
@@ -206,7 +206,7 @@ class TestStatusesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testStatuses/{id}',
                 'operation_id': 'api_v2_test_statuses_id_put',
@@ -267,7 +267,7 @@ class TestStatusesApi(object):
                 'response_type': (bool,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testStatuses/name/{name}/exists',
                 'operation_id': 'api_v2_test_statuses_name_name_exists_get',
@@ -321,7 +321,7 @@ class TestStatusesApi(object):
                 'response_type': (TestStatusApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testStatuses',
                 'operation_id': 'api_v2_test_statuses_post',
@@ -377,7 +377,7 @@ class TestStatusesApi(object):
                 'response_type': (TestStatusApiResultReply,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testStatuses/search',
                 'operation_id': 'api_v2_test_statuses_search_post',

@@ -44,7 +44,7 @@ class ProjectTestPlanTestPointsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/rerun',
                 'operation_id': 'api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_rerun_post',
@@ -108,7 +108,7 @@ class ProjectTestPlanTestPointsApi(object):
                 'response_type': (TestRunNameApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/run',
                 'operation_id': 'api_v2_projects_project_id_test_plans_test_plan_id_test_points_autotests_run_post',

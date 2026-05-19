@@ -44,7 +44,7 @@ class NotificationsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/notifications/count',
                 'operation_id': 'api_v2_notifications_count_get',
@@ -94,7 +94,7 @@ class NotificationsApi(object):
                 'response_type': ([NotificationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/notifications',
                 'operation_id': 'api_v2_notifications_get',
@@ -169,7 +169,7 @@ class NotificationsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/notifications/{id}/read',
                 'operation_id': 'api_v2_notifications_id_read_post',
@@ -221,7 +221,7 @@ class NotificationsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/notifications/read',
                 'operation_id': 'api_v2_notifications_read_post',
@@ -266,7 +266,7 @@ class NotificationsApi(object):
                 'response_type': ([NotificationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/notifications/search',
                 'operation_id': 'api_v2_notifications_search_post',

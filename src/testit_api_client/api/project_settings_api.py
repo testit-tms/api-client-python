@@ -43,7 +43,7 @@ class ProjectSettingsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/settings/autotests',
                 'operation_id': 'api_v2_projects_project_id_settings_autotests_post',
@@ -101,7 +101,7 @@ class ProjectSettingsApi(object):
                 'response_type': (AutoTestProjectSettingsApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/settings/autotests',
                 'operation_id': 'get_autotest_project_settings',

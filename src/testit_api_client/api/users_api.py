@@ -42,7 +42,7 @@ class UsersApi(object):
                 'response_type': (UserCustomNameValidationResponse,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/users/exists',
                 'operation_id': 'api_v2_users_exists_get',

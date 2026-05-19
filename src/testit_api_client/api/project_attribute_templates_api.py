@@ -43,7 +43,7 @@ class ProjectAttributeTemplatesApi(object):
                 'response_type': ([ProjectCustomAttributeTemplateGetModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes/templates/search',
                 'operation_id': 'api_v2_projects_project_id_attributes_templates_search_post',
@@ -126,7 +126,7 @@ class ProjectAttributeTemplatesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes/templates/{templateId}',
                 'operation_id': 'api_v2_projects_project_id_attributes_templates_template_id_delete',
@@ -184,7 +184,7 @@ class ProjectAttributeTemplatesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes/templates/{templateId}',
                 'operation_id': 'api_v2_projects_project_id_attributes_templates_template_id_post',

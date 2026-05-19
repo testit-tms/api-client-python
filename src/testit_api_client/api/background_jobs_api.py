@@ -44,7 +44,7 @@ class BackgroundJobsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/completed',
                 'operation_id': 'api_v2_background_jobs_completed_delete',
@@ -89,7 +89,7 @@ class BackgroundJobsApi(object):
                 'response_type': ([BackgroundJobGetModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs',
                 'operation_id': 'api_v2_background_jobs_get',
@@ -159,7 +159,7 @@ class BackgroundJobsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/{id}/cancel',
                 'operation_id': 'api_v2_background_jobs_id_cancel_post',
@@ -211,7 +211,7 @@ class BackgroundJobsApi(object):
                 'response_type': (BackgroundJobGetModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/{id}',
                 'operation_id': 'api_v2_background_jobs_id_get',
@@ -263,7 +263,7 @@ class BackgroundJobsApi(object):
                 'response_type': (BackgroundJobState,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/{id}/status',
                 'operation_id': 'api_v2_background_jobs_id_status_get',
@@ -315,7 +315,7 @@ class BackgroundJobsApi(object):
                 'response_type': ([BackgroundJobGetModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/backgroundJobs/search',
                 'operation_id': 'api_v2_background_jobs_search_post',

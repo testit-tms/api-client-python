@@ -276,6 +276,7 @@ Class | Method | HTTP request | Description
 *TestResultsApi* | [**api_v2_test_results_id_attachments_attachment_id_put**](docs/TestResultsApi.md#api_v2_test_results_id_attachments_attachment_id_put) | **PUT** /api/v2/testResults/{id}/attachments/{attachmentId} | Attach file to the test result
 *TestResultsApi* | [**api_v2_test_results_id_attachments_info_get**](docs/TestResultsApi.md#api_v2_test_results_id_attachments_info_get) | **GET** /api/v2/testResults/{id}/attachments/info | Get test result attachments meta-information
 *TestResultsApi* | [**api_v2_test_results_id_get**](docs/TestResultsApi.md#api_v2_test_results_id_get) | **GET** /api/v2/testResults/{id} | Get test result by ID
+*TestResultsApi* | [**api_v2_test_results_id_patch**](docs/TestResultsApi.md#api_v2_test_results_id_patch) | **PATCH** /api/v2/testResults/{id} | Patch test result by ID
 *TestResultsApi* | [**api_v2_test_results_id_put**](docs/TestResultsApi.md#api_v2_test_results_id_put) | **PUT** /api/v2/testResults/{id} | Edit test result by ID
 *TestResultsApi* | [**api_v2_test_results_id_reruns_get**](docs/TestResultsApi.md#api_v2_test_results_id_reruns_get) | **GET** /api/v2/testResults/{id}/reruns | Get reruns
 *TestResultsApi* | [**api_v2_test_results_search_post**](docs/TestResultsApi.md#api_v2_test_results_search_post) | **POST** /api/v2/testResults/search | Search for test results
@@ -288,6 +289,7 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**api_v2_test_runs_delete**](docs/TestRunsApi.md#api_v2_test_runs_delete) | **DELETE** /api/v2/testRuns | Delete multiple test runs
 *TestRunsApi* | [**api_v2_test_runs_id_auto_tests_namespaces_get**](docs/TestRunsApi.md#api_v2_test_runs_id_auto_tests_namespaces_get) | **GET** /api/v2/testRuns/{id}/autoTestsNamespaces | Get autotest classes and namespaces in test run
 *TestRunsApi* | [**api_v2_test_runs_id_delete**](docs/TestRunsApi.md#api_v2_test_runs_id_delete) | **DELETE** /api/v2/testRuns/{id} | Delete test run
+*TestRunsApi* | [**api_v2_test_runs_id_patch**](docs/TestRunsApi.md#api_v2_test_runs_id_patch) | **PATCH** /api/v2/testRuns/{id} | Patch test run
 *TestRunsApi* | [**api_v2_test_runs_id_purge_post**](docs/TestRunsApi.md#api_v2_test_runs_id_purge_post) | **POST** /api/v2/testRuns/{id}/purge | Permanently delete test run from archive
 *TestRunsApi* | [**api_v2_test_runs_id_reruns_post**](docs/TestRunsApi.md#api_v2_test_runs_id_reruns_post) | **POST** /api/v2/testRuns/{id}/reruns | Manual autotests rerun in test run
 *TestRunsApi* | [**api_v2_test_runs_id_restore_post**](docs/TestRunsApi.md#api_v2_test_runs_id_restore_post) | **POST** /api/v2/testRuns/{id}/restore | Restore test run from the archive
@@ -350,11 +352,13 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**api_v2_work_items_id_like_post**](docs/WorkItemsApi.md#api_v2_work_items_id_like_post) | **POST** /api/v2/workItems/{id}/like | Set like to WorkItem
 *WorkItemsApi* | [**api_v2_work_items_id_likes_count_get**](docs/WorkItemsApi.md#api_v2_work_items_id_likes_count_get) | **GET** /api/v2/workItems/{id}/likes/count | Get likes count of WorkItem
 *WorkItemsApi* | [**api_v2_work_items_id_likes_get**](docs/WorkItemsApi.md#api_v2_work_items_id_likes_get) | **GET** /api/v2/workItems/{id}/likes | Get likes of WorkItem
+*WorkItemsApi* | [**api_v2_work_items_id_patch**](docs/WorkItemsApi.md#api_v2_work_items_id_patch) | **PATCH** /api/v2/workItems/{id} | Patch Test Case, Checklist or Shared Step
 *WorkItemsApi* | [**api_v2_work_items_id_test_results_history_get**](docs/WorkItemsApi.md#api_v2_work_items_id_test_results_history_get) | **GET** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem
 *WorkItemsApi* | [**api_v2_work_items_id_version_version_id_actual_post**](docs/WorkItemsApi.md#api_v2_work_items_id_version_version_id_actual_post) | **POST** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
 *WorkItemsApi* | [**api_v2_work_items_links_urls_search_post**](docs/WorkItemsApi.md#api_v2_work_items_links_urls_search_post) | **POST** /api/v2/workItems/links/urls/search | 
 *WorkItemsApi* | [**api_v2_work_items_move_post**](docs/WorkItemsApi.md#api_v2_work_items_move_post) | **POST** /api/v2/workItems/move | Move WorkItem to another section
 *WorkItemsApi* | [**api_v2_work_items_post**](docs/WorkItemsApi.md#api_v2_work_items_post) | **POST** /api/v2/workItems | Creates work item
+*WorkItemsApi* | [**api_v2_work_items_put**](docs/WorkItemsApi.md#api_v2_work_items_put) | **PUT** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 *WorkItemsApi* | [**api_v2_work_items_search_post**](docs/WorkItemsApi.md#api_v2_work_items_search_post) | **POST** /api/v2/workItems/search | Search for work items
 *WorkItemsApi* | [**api_v2_work_items_shared_step_id_references_sections_post**](docs/WorkItemsApi.md#api_v2_work_items_shared_step_id_references_sections_post) | **POST** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
 *WorkItemsApi* | [**api_v2_work_items_shared_step_id_references_work_items_post**](docs/WorkItemsApi.md#api_v2_work_items_shared_step_id_references_work_items_post) | **POST** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
@@ -368,7 +372,6 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**get_work_item_versions**](docs/WorkItemsApi.md#get_work_item_versions) | **GET** /api/v2/workItems/{id}/versions | Get WorkItem versions
 *WorkItemsApi* | [**purge_work_item**](docs/WorkItemsApi.md#purge_work_item) | **POST** /api/v2/workItems/{id}/purge | Permanently delete test case, checklist or shared steps from archive
 *WorkItemsApi* | [**restore_work_item**](docs/WorkItemsApi.md#restore_work_item) | **POST** /api/v2/workItems/{id}/restore | Restore test case, checklist or shared steps from archive
-*WorkItemsApi* | [**update_work_item**](docs/WorkItemsApi.md#update_work_item) | **PUT** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 *WorkItemsCommentsApi* | [**api_v2_work_items_comments_comment_id_delete**](docs/WorkItemsCommentsApi.md#api_v2_work_items_comments_comment_id_delete) | **DELETE** /api/v2/workItems/comments/{commentId} | Delete WorkItem comment
 *WorkItemsCommentsApi* | [**api_v2_work_items_comments_post**](docs/WorkItemsCommentsApi.md#api_v2_work_items_comments_post) | **POST** /api/v2/workItems/comments | Create WorkItem comment
 *WorkItemsCommentsApi* | [**api_v2_work_items_comments_put**](docs/WorkItemsCommentsApi.md#api_v2_work_items_comments_put) | **PUT** /api/v2/workItems/comments | Update work item comment
@@ -455,6 +458,7 @@ Class | Method | HTTP request | Description
  - [ApiV2WorkItemsLinksUrlsSearchPostRequest](docs/ApiV2WorkItemsLinksUrlsSearchPostRequest.md)
  - [ApiV2WorkItemsMovePostRequest](docs/ApiV2WorkItemsMovePostRequest.md)
  - [ApiV2WorkItemsPostRequest](docs/ApiV2WorkItemsPostRequest.md)
+ - [ApiV2WorkItemsPutRequest](docs/ApiV2WorkItemsPutRequest.md)
  - [ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest](docs/ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest.md)
  - [ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest](docs/ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.md)
  - [ApiV2WorkflowsIdProjectsSearchPostRequest](docs/ApiV2WorkflowsIdProjectsSearchPostRequest.md)
@@ -462,6 +466,7 @@ Class | Method | HTTP request | Description
  - [ApiV2WorkflowsPostRequest](docs/ApiV2WorkflowsPostRequest.md)
  - [ApiV2WorkflowsSearchPostRequest](docs/ApiV2WorkflowsSearchPostRequest.md)
  - [AssignAttachmentApiModel](docs/AssignAttachmentApiModel.md)
+ - [AssignAutoTestCaseIdApiModel](docs/AssignAutoTestCaseIdApiModel.md)
  - [AssignIterationApiModel](docs/AssignIterationApiModel.md)
  - [AttachmentApiResult](docs/AttachmentApiResult.md)
  - [AttachmentChangeViewModel](docs/AttachmentChangeViewModel.md)
@@ -477,6 +482,8 @@ Class | Method | HTTP request | Description
  - [AutoTestBulkDeleteApiModel](docs/AutoTestBulkDeleteApiModel.md)
  - [AutoTestBulkDeleteApiModelAutoTestSelect](docs/AutoTestBulkDeleteApiModelAutoTestSelect.md)
  - [AutoTestBulkDeleteApiResult](docs/AutoTestBulkDeleteApiResult.md)
+ - [AutoTestCaseApiModel](docs/AutoTestCaseApiModel.md)
+ - [AutoTestCaseModel](docs/AutoTestCaseModel.md)
  - [AutoTestChangeViewModel](docs/AutoTestChangeViewModel.md)
  - [AutoTestChangeViewModelArrayChangedFieldViewModel](docs/AutoTestChangeViewModelArrayChangedFieldViewModel.md)
  - [AutoTestClassCountApiModel](docs/AutoTestClassCountApiModel.md)
@@ -618,6 +625,7 @@ Class | Method | HTTP request | Description
  - [DefectApiModel](docs/DefectApiModel.md)
  - [DeletionState](docs/DeletionState.md)
  - [DemoProjectApiResult](docs/DemoProjectApiResult.md)
+ - [DetailedProjectApiResult](docs/DetailedProjectApiResult.md)
  - [EnableProjectExternalServiceApiModel](docs/EnableProjectExternalServiceApiModel.md)
  - [ExternalFormAllowedValueModel](docs/ExternalFormAllowedValueModel.md)
  - [ExternalFormCreateModel](docs/ExternalFormCreateModel.md)
@@ -676,6 +684,7 @@ Class | Method | HTTP request | Description
  - [GlobalSearchResponse](docs/GlobalSearchResponse.md)
  - [GuidChangedFieldViewModel](docs/GuidChangedFieldViewModel.md)
  - [GuidExtractionModel](docs/GuidExtractionModel.md)
+ - [GuidNullableChangedFieldViewModel](docs/GuidNullableChangedFieldViewModel.md)
  - [IFilter](docs/IFilter.md)
  - [ImageResizeType](docs/ImageResizeType.md)
  - [Inquiry](docs/Inquiry.md)
@@ -744,12 +753,10 @@ Class | Method | HTTP request | Description
  - [ProjectFailureCategoryApiResult](docs/ProjectFailureCategoryApiResult.md)
  - [ProjectFailureCategoryGroupItemApiResult](docs/ProjectFailureCategoryGroupItemApiResult.md)
  - [ProjectFailureCategoryGroupItemApiResultReply](docs/ProjectFailureCategoryGroupItemApiResultReply.md)
- - [ProjectModel](docs/ProjectModel.md)
  - [ProjectNameApiResult](docs/ProjectNameApiResult.md)
  - [ProjectSelectModel](docs/ProjectSelectModel.md)
  - [ProjectShortApiResult](docs/ProjectShortApiResult.md)
  - [ProjectShortApiResultReply](docs/ProjectShortApiResultReply.md)
- - [ProjectShortModel](docs/ProjectShortModel.md)
  - [ProjectShortestModel](docs/ProjectShortestModel.md)
  - [ProjectTestPlansFilterModel](docs/ProjectTestPlansFilterModel.md)
  - [ProjectType](docs/ProjectType.md)
@@ -1010,7 +1017,6 @@ Class | Method | HTTP request | Description
  - [UpdateTestStatusApiModel](docs/UpdateTestStatusApiModel.md)
  - [UpdateWorkItemApiModel](docs/UpdateWorkItemApiModel.md)
  - [UpdateWorkItemCommentApiModel](docs/UpdateWorkItemCommentApiModel.md)
- - [UpdateWorkItemRequest](docs/UpdateWorkItemRequest.md)
  - [UpdateWorkflowApiModel](docs/UpdateWorkflowApiModel.md)
  - [UserCustomNameValidationResponse](docs/UserCustomNameValidationResponse.md)
  - [UserNameApiResult](docs/UserNameApiResult.md)
@@ -1046,6 +1052,7 @@ Class | Method | HTTP request | Description
  - [WorkItemChangedFieldsViewModelGlobalId](docs/WorkItemChangedFieldsViewModelGlobalId.md)
  - [WorkItemChangedFieldsViewModelIsDeleted](docs/WorkItemChangedFieldsViewModelIsDeleted.md)
  - [WorkItemChangedFieldsViewModelLinks](docs/WorkItemChangedFieldsViewModelLinks.md)
+ - [WorkItemChangedFieldsViewModelParentId](docs/WorkItemChangedFieldsViewModelParentId.md)
  - [WorkItemChangedFieldsViewModelProjectId](docs/WorkItemChangedFieldsViewModelProjectId.md)
  - [WorkItemChangedFieldsViewModelState](docs/WorkItemChangedFieldsViewModelState.md)
  - [WorkItemChangedFieldsViewModelSteps](docs/WorkItemChangedFieldsViewModelSteps.md)
@@ -1139,8 +1146,8 @@ Authentication schemes defined for the API:
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
 
-<a id="Session Cookie"></a>
-### Session Cookie
+<a id="Identity.Application"></a>
+### Identity.Application
 
 - **Type**: API key
 - **API key parameter name**: backoffice

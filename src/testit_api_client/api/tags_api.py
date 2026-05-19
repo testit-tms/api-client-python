@@ -45,7 +45,7 @@ class TagsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/tags',
                 'operation_id': 'api_v2_tags_delete',
@@ -99,7 +99,7 @@ class TagsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/tags/{id}',
                 'operation_id': 'api_v2_tags_id_delete',
@@ -151,7 +151,7 @@ class TagsApi(object):
                 'response_type': (TagApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/tags',
                 'operation_id': 'api_v2_tags_post',
@@ -205,7 +205,7 @@ class TagsApi(object):
                 'response_type': (TagApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/tags',
                 'operation_id': 'api_v2_tags_put',
@@ -264,7 +264,7 @@ class TagsApi(object):
                 'response_type': ([TagApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/tags/search',
                 'operation_id': 'api_v2_tags_search_get',
@@ -334,7 +334,7 @@ class TagsApi(object):
                 'response_type': ([TagApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/tags/testPlansTags',
                 'operation_id': 'api_v2_tags_test_plans_tags_get',

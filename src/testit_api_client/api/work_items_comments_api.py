@@ -44,7 +44,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/comments/{commentId}',
                 'operation_id': 'api_v2_work_items_comments_comment_id_delete',
@@ -96,7 +96,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': (WorkItemCommentApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/comments',
                 'operation_id': 'api_v2_work_items_comments_post',
@@ -147,7 +147,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/comments',
                 'operation_id': 'api_v2_work_items_comments_put',
@@ -198,7 +198,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/comments/count',
                 'operation_id': 'api_v2_work_items_id_comments_count_get',
@@ -250,7 +250,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': ([WorkItemCommentApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/comments',
                 'operation_id': 'api_v2_work_items_id_comments_get',

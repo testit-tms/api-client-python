@@ -42,7 +42,7 @@ class ProjectSectionsApi(object):
                 'response_type': ([SectionModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/sections',
                 'operation_id': 'get_sections_by_project_id',

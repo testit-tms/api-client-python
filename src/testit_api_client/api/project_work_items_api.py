@@ -49,7 +49,7 @@ class ProjectWorkItemsApi(object):
                 'response_type': ([WorkItemGroupModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/workItems/search/grouped',
                 'operation_id': 'api_v2_projects_project_id_work_items_search_grouped_post',
@@ -132,7 +132,7 @@ class ProjectWorkItemsApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/workItems/search/id',
                 'operation_id': 'api_v2_projects_project_id_work_items_search_id_post',
@@ -215,7 +215,7 @@ class ProjectWorkItemsApi(object):
                 'response_type': ([WorkItemShortApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/workItems/search',
                 'operation_id': 'api_v2_projects_project_id_work_items_search_post',
@@ -298,7 +298,7 @@ class ProjectWorkItemsApi(object):
                 'response_type': (WorkItemIndexApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/workItems/search/{workItemId}/index',
                 'operation_id': 'api_v2_projects_project_id_work_items_search_work_item_id_index_post',
@@ -387,7 +387,7 @@ class ProjectWorkItemsApi(object):
                 'response_type': ([TagShortApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/workItems/tags',
                 'operation_id': 'api_v2_projects_project_id_work_items_tags_get',
@@ -444,7 +444,7 @@ class ProjectWorkItemsApi(object):
                 'response_type': ([WorkItemShortModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/workItems',
                 'operation_id': 'get_work_items_by_project_id',

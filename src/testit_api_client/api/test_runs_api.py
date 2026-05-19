@@ -34,6 +34,7 @@ from testit_api_client.model.create_and_fill_by_configurations_request import Cr
 from testit_api_client.model.create_and_fill_by_work_items_request import CreateAndFillByWorkItemsRequest
 from testit_api_client.model.create_empty_request import CreateEmptyRequest
 from testit_api_client.model.manual_rerun_api_result import ManualRerunApiResult
+from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_point_result_api_result import TestPointResultApiResult
 from testit_api_client.model.test_results_statistics_api_result import TestResultsStatisticsApiResult
@@ -59,7 +60,7 @@ class TestRunsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns',
                 'operation_id': 'api_v2_test_runs_delete',
@@ -110,7 +111,7 @@ class TestRunsApi(object):
                 'response_type': (AutoTestNamespacesCountResponse,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/autoTestsNamespaces',
                 'operation_id': 'api_v2_test_runs_id_auto_tests_namespaces_get',
@@ -162,7 +163,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}',
                 'operation_id': 'api_v2_test_runs_id_delete',
@@ -209,12 +210,70 @@ class TestRunsApi(object):
             },
             api_client=api_client
         )
+        self.api_v2_test_runs_id_patch_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'PrivateToken',
+                    'Identity.Application'
+                ],
+                'endpoint_path': '/api/v2/testRuns/{id}',
+                'operation_id': 'api_v2_test_runs_id_patch',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'operation',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'operation':
+                        ([Operation],),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'operation': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.api_v2_test_runs_id_purge_post_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/purge',
                 'operation_id': 'api_v2_test_runs_id_purge_post',
@@ -266,7 +325,7 @@ class TestRunsApi(object):
                 'response_type': (ManualRerunApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/reruns',
                 'operation_id': 'api_v2_test_runs_id_reruns_post',
@@ -324,7 +383,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/restore',
                 'operation_id': 'api_v2_test_runs_id_restore_post',
@@ -376,7 +435,7 @@ class TestRunsApi(object):
                 'response_type': (TestResultsStatisticsApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/statistics/filter',
                 'operation_id': 'api_v2_test_runs_id_statistics_filter_post',
@@ -434,7 +493,7 @@ class TestRunsApi(object):
                 'response_type': ([TestPointResultApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testPoints/results',
                 'operation_id': 'api_v2_test_runs_id_test_points_results_get',
@@ -486,7 +545,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testResults/bulk',
                 'operation_id': 'api_v2_test_runs_id_test_results_bulk_put',
@@ -544,7 +603,7 @@ class TestRunsApi(object):
                 'response_type': (datetime, none_type,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testResults/lastModified/modificationDate',
                 'operation_id': 'api_v2_test_runs_id_test_results_last_modified_modification_date_get',
@@ -596,7 +655,7 @@ class TestRunsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/purge/bulk',
                 'operation_id': 'api_v2_test_runs_purge_bulk_post',
@@ -647,7 +706,7 @@ class TestRunsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/restore/bulk',
                 'operation_id': 'api_v2_test_runs_restore_bulk_post',
@@ -698,7 +757,7 @@ class TestRunsApi(object):
                 'response_type': ([TestRunShortApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/search',
                 'operation_id': 'api_v2_test_runs_search_post',
@@ -774,7 +833,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/updateMultiple',
                 'operation_id': 'api_v2_test_runs_update_multiple_post',
@@ -825,7 +884,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/complete',
                 'operation_id': 'complete_test_run',
@@ -877,7 +936,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/byAutoTests',
                 'operation_id': 'create_and_fill_by_auto_tests',
@@ -928,7 +987,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/byConfigurations',
                 'operation_id': 'create_and_fill_by_configurations',
@@ -979,7 +1038,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/byWorkItems',
                 'operation_id': 'create_and_fill_by_work_items',
@@ -1030,7 +1089,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns',
                 'operation_id': 'create_empty',
@@ -1081,7 +1140,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}',
                 'operation_id': 'get_test_run_by_id',
@@ -1133,7 +1192,7 @@ class TestRunsApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testResults',
                 'operation_id': 'set_auto_test_results_for_test_run',
@@ -1191,7 +1250,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/start',
                 'operation_id': 'start_test_run',
@@ -1243,7 +1302,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/stop',
                 'operation_id': 'stop_test_run',
@@ -1295,7 +1354,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/testRuns',
                 'operation_id': 'update_empty',
@@ -1585,6 +1644,90 @@ class TestRunsApi(object):
         kwargs['id'] = \
             id
         return self.api_v2_test_runs_id_delete_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_test_runs_id_patch(
+        self,
+        id,
+        **kwargs
+    ):
+        """Patch test run  # noqa: E501
+
+        See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_test_runs_id_patch(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Test Run internal identifier (GUID format)
+
+        Keyword Args:
+            operation ([Operation]): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.api_v2_test_runs_id_patch_endpoint.call_with_http_info(**kwargs)
 
     def api_v2_test_runs_id_purge_post(
         self,

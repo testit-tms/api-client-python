@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **global_id** | [**WorkItemChangedFieldsViewModelGlobalId**](WorkItemChangedFieldsViewModelGlobalId.md) |  | 
 **version_number** | [**WorkItemChangedFieldsViewModelDuration**](WorkItemChangedFieldsViewModelDuration.md) |  | 
 **entity_type_name** | [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  | 
+**parent_id** | [**WorkItemChangedFieldsViewModelParentId**](WorkItemChangedFieldsViewModelParentId.md) |  | 
 **name** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
 **description** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

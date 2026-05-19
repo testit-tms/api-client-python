@@ -42,7 +42,7 @@ class ProjectConfigurationsApi(object):
                 'response_type': ([ConfigurationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/configurations',
                 'operation_id': 'get_configurations_by_project_id',

@@ -43,7 +43,7 @@ class ExternalIssuesApi(object):
                 'response_type': (ExternalIssueApiFieldSuggestionReply,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/external-issues/suggestions',
                 'operation_id': 'api_v2_external_issues_suggestions_post',

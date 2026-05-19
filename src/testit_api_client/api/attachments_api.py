@@ -43,7 +43,7 @@ class AttachmentsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/attachments/{id}',
                 'operation_id': 'api_v2_attachments_id_delete',
@@ -95,7 +95,7 @@ class AttachmentsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/attachments/{id}',
                 'operation_id': 'api_v2_attachments_id_get',
@@ -192,7 +192,7 @@ class AttachmentsApi(object):
                 'response_type': (AttachmentModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/attachments/{id}/metadata',
                 'operation_id': 'api_v2_attachments_id_metadata_get',
@@ -244,7 +244,7 @@ class AttachmentsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/attachments/occupiedFileStorageSize',
                 'operation_id': 'api_v2_attachments_occupied_file_storage_size_get',
@@ -289,7 +289,7 @@ class AttachmentsApi(object):
                 'response_type': (AttachmentModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/attachments',
                 'operation_id': 'api_v2_attachments_post',

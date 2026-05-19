@@ -39,6 +39,7 @@ def lazy_import():
     from testit_api_client.model.work_item_changed_fields_view_model_global_id import WorkItemChangedFieldsViewModelGlobalId
     from testit_api_client.model.work_item_changed_fields_view_model_is_deleted import WorkItemChangedFieldsViewModelIsDeleted
     from testit_api_client.model.work_item_changed_fields_view_model_links import WorkItemChangedFieldsViewModelLinks
+    from testit_api_client.model.work_item_changed_fields_view_model_parent_id import WorkItemChangedFieldsViewModelParentId
     from testit_api_client.model.work_item_changed_fields_view_model_project_id import WorkItemChangedFieldsViewModelProjectId
     from testit_api_client.model.work_item_changed_fields_view_model_state import WorkItemChangedFieldsViewModelState
     from testit_api_client.model.work_item_changed_fields_view_model_steps import WorkItemChangedFieldsViewModelSteps
@@ -52,6 +53,7 @@ def lazy_import():
     globals()['WorkItemChangedFieldsViewModelGlobalId'] = WorkItemChangedFieldsViewModelGlobalId
     globals()['WorkItemChangedFieldsViewModelIsDeleted'] = WorkItemChangedFieldsViewModelIsDeleted
     globals()['WorkItemChangedFieldsViewModelLinks'] = WorkItemChangedFieldsViewModelLinks
+    globals()['WorkItemChangedFieldsViewModelParentId'] = WorkItemChangedFieldsViewModelParentId
     globals()['WorkItemChangedFieldsViewModelProjectId'] = WorkItemChangedFieldsViewModelProjectId
     globals()['WorkItemChangedFieldsViewModelState'] = WorkItemChangedFieldsViewModelState
     globals()['WorkItemChangedFieldsViewModelSteps'] = WorkItemChangedFieldsViewModelSteps
@@ -129,6 +131,7 @@ class WorkItemChangeModelWorkItemChangedFields(ModelComposed):
             'global_id': (WorkItemChangedFieldsViewModelGlobalId,),  # noqa: E501
             'version_number': (WorkItemChangedFieldsViewModelDuration,),  # noqa: E501
             'entity_type_name': (WorkItemChangedFieldsViewModelState,),  # noqa: E501
+            'parent_id': (WorkItemChangedFieldsViewModelParentId,),  # noqa: E501
             'name': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
             'description': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
         }
@@ -157,6 +160,7 @@ class WorkItemChangeModelWorkItemChangedFields(ModelComposed):
         'global_id': 'globalId',  # noqa: E501
         'version_number': 'versionNumber',  # noqa: E501
         'entity_type_name': 'entityTypeName',  # noqa: E501
+        'parent_id': 'parentId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
     }
@@ -188,6 +192,7 @@ class WorkItemChangeModelWorkItemChangedFields(ModelComposed):
             global_id (WorkItemChangedFieldsViewModelGlobalId):
             version_number (WorkItemChangedFieldsViewModelDuration):
             entity_type_name (WorkItemChangedFieldsViewModelState):
+            parent_id (WorkItemChangedFieldsViewModelParentId):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -311,6 +316,7 @@ class WorkItemChangeModelWorkItemChangedFields(ModelComposed):
             global_id (WorkItemChangedFieldsViewModelGlobalId):
             version_number (WorkItemChangedFieldsViewModelDuration):
             entity_type_name (WorkItemChangedFieldsViewModelState):
+            parent_id (WorkItemChangedFieldsViewModelParentId):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

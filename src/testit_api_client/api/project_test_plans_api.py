@@ -44,7 +44,7 @@ class ProjectTestPlansApi(object):
                 'response_type': ([TestPlanWithAnalyticModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/analytics',
                 'operation_id': 'api_v2_projects_project_id_test_plans_analytics_get',
@@ -131,7 +131,7 @@ class ProjectTestPlansApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/delete/bulk',
                 'operation_id': 'api_v2_projects_project_id_test_plans_delete_bulk_post',
@@ -189,7 +189,7 @@ class ProjectTestPlansApi(object):
                 'response_type': (bool,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/{name}/exists',
                 'operation_id': 'api_v2_projects_project_id_test_plans_name_exists_get',
@@ -247,7 +247,7 @@ class ProjectTestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/purge/bulk',
                 'operation_id': 'api_v2_projects_project_id_test_plans_purge_bulk_post',
@@ -305,7 +305,7 @@ class ProjectTestPlansApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/restore/bulk',
                 'operation_id': 'api_v2_projects_project_id_test_plans_restore_bulk_post',
@@ -363,7 +363,7 @@ class ProjectTestPlansApi(object):
                 'response_type': ([TestPlanWithAnalyticModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/search',
                 'operation_id': 'api_v2_projects_project_id_test_plans_search_post',

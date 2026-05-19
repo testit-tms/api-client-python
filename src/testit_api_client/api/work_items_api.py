@@ -25,17 +25,18 @@ from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_r
 from testit_api_client.model.api_v2_work_items_links_urls_search_post_request import ApiV2WorkItemsLinksUrlsSearchPostRequest
 from testit_api_client.model.api_v2_work_items_move_post_request import ApiV2WorkItemsMovePostRequest
 from testit_api_client.model.api_v2_work_items_post_request import ApiV2WorkItemsPostRequest
+from testit_api_client.model.api_v2_work_items_put_request import ApiV2WorkItemsPutRequest
 from testit_api_client.model.api_v2_work_items_shared_step_id_references_sections_post_request import ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
 from testit_api_client.model.api_v2_work_items_shared_step_id_references_work_items_post_request import ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
 from testit_api_client.model.auto_test_model import AutoTestModel
 from testit_api_client.model.iteration_model import IterationModel
+from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.search_work_item_link_urls_api_result import SearchWorkItemLinkUrlsApiResult
 from testit_api_client.model.shared_step_reference_model import SharedStepReferenceModel
 from testit_api_client.model.shared_step_reference_section_model import SharedStepReferenceSectionModel
 from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
 from testit_api_client.model.test_result_history_report_api_result import TestResultHistoryReportApiResult
-from testit_api_client.model.update_work_item_request import UpdateWorkItemRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.work_item_api_result import WorkItemApiResult
 from testit_api_client.model.work_item_change_model import WorkItemChangeModel
@@ -62,7 +63,7 @@ class WorkItemsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/attachments',
                 'operation_id': 'api_v2_work_items_id_attachments_post',
@@ -121,7 +122,7 @@ class WorkItemsApi(object):
                 'response_type': (WorkItemModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/checkList/transformTo/testCase',
                 'operation_id': 'api_v2_work_items_id_check_list_transform_to_test_case_post',
@@ -173,7 +174,7 @@ class WorkItemsApi(object):
                 'response_type': ([WorkItemChangeModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/history',
                 'operation_id': 'api_v2_work_items_id_history_get',
@@ -250,7 +251,7 @@ class WorkItemsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/like',
                 'operation_id': 'api_v2_work_items_id_like_delete',
@@ -302,7 +303,7 @@ class WorkItemsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/like',
                 'operation_id': 'api_v2_work_items_id_like_post',
@@ -354,7 +355,7 @@ class WorkItemsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/likes/count',
                 'operation_id': 'api_v2_work_items_id_likes_count_get',
@@ -406,7 +407,7 @@ class WorkItemsApi(object):
                 'response_type': ([WorkItemLikeModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/likes',
                 'operation_id': 'api_v2_work_items_id_likes_get',
@@ -453,12 +454,70 @@ class WorkItemsApi(object):
             },
             api_client=api_client
         )
+        self.api_v2_work_items_id_patch_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'PrivateToken',
+                    'Identity.Application'
+                ],
+                'endpoint_path': '/api/v2/workItems/{id}',
+                'operation_id': 'api_v2_work_items_id_patch',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'operation',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'operation':
+                        ([Operation],),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'operation': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.api_v2_work_items_id_test_results_history_get_endpoint = _Endpoint(
             settings={
                 'response_type': ([TestResultHistoryReportApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/testResults/history',
                 'operation_id': 'api_v2_work_items_id_test_results_history_get',
@@ -591,7 +650,7 @@ class WorkItemsApi(object):
                 'response_type': (WorkItemModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/version/{versionId}/actual',
                 'operation_id': 'api_v2_work_items_id_version_version_id_actual_post',
@@ -649,7 +708,7 @@ class WorkItemsApi(object):
                 'response_type': (SearchWorkItemLinkUrlsApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/links/urls/search',
                 'operation_id': 'api_v2_work_items_links_urls_search_post',
@@ -725,7 +784,7 @@ class WorkItemsApi(object):
                 'response_type': (WorkItemShortModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/move',
                 'operation_id': 'api_v2_work_items_move_post',
@@ -776,7 +835,7 @@ class WorkItemsApi(object):
                 'response_type': (WorkItemApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems',
                 'operation_id': 'api_v2_work_items_post',
@@ -822,12 +881,63 @@ class WorkItemsApi(object):
             },
             api_client=api_client
         )
+        self.api_v2_work_items_put_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'PrivateToken',
+                    'Identity.Application'
+                ],
+                'endpoint_path': '/api/v2/workItems',
+                'operation_id': 'api_v2_work_items_put',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'api_v2_work_items_put_request',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'api_v2_work_items_put_request':
+                        (ApiV2WorkItemsPutRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'api_v2_work_items_put_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.api_v2_work_items_search_post_endpoint = _Endpoint(
             settings={
                 'response_type': ([WorkItemShortApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/search',
                 'operation_id': 'api_v2_work_items_search_post',
@@ -903,7 +1013,7 @@ class WorkItemsApi(object):
                 'response_type': ([SharedStepReferenceSectionModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{sharedStepId}/references/sections',
                 'operation_id': 'api_v2_work_items_shared_step_id_references_sections_post',
@@ -986,7 +1096,7 @@ class WorkItemsApi(object):
                 'response_type': ([SharedStepReferenceModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{sharedStepId}/references/workItems',
                 'operation_id': 'api_v2_work_items_shared_step_id_references_work_items_post',
@@ -1069,7 +1179,7 @@ class WorkItemsApi(object):
                 'response_type': ([SharedStepReferenceModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/sharedSteps/{sharedStepId}/references',
                 'operation_id': 'api_v2_work_items_shared_steps_shared_step_id_references_get',
@@ -1121,7 +1231,7 @@ class WorkItemsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/autoTests',
                 'operation_id': 'delete_all_work_items_from_auto_test',
@@ -1173,7 +1283,7 @@ class WorkItemsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}',
                 'operation_id': 'delete_work_item',
@@ -1225,7 +1335,7 @@ class WorkItemsApi(object):
                 'response_type': ([AutoTestModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/autoTests',
                 'operation_id': 'get_auto_tests_for_work_item',
@@ -1277,7 +1387,7 @@ class WorkItemsApi(object):
                 'response_type': ([IterationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/iterations',
                 'operation_id': 'get_iterations',
@@ -1339,7 +1449,7 @@ class WorkItemsApi(object):
                 'response_type': (WorkItemApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}',
                 'operation_id': 'get_work_item_by_id',
@@ -1401,7 +1511,7 @@ class WorkItemsApi(object):
                 'response_type': ([TestResultChronologyModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/chronology',
                 'operation_id': 'get_work_item_chronology',
@@ -1453,7 +1563,7 @@ class WorkItemsApi(object):
                 'response_type': ([WorkItemVersionModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/versions',
                 'operation_id': 'get_work_item_versions',
@@ -1515,7 +1625,7 @@ class WorkItemsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/purge',
                 'operation_id': 'purge_work_item',
@@ -1567,7 +1677,7 @@ class WorkItemsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/restore',
                 'operation_id': 'restore_work_item',
@@ -1611,57 +1721,6 @@ class WorkItemsApi(object):
                     'application/json'
                 ],
                 'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.update_work_item_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'PrivateToken',
-                    'Session Cookie'
-                ],
-                'endpoint_path': '/api/v2/workItems',
-                'operation_id': 'update_work_item',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'update_work_item_request',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'update_work_item_request':
-                        (UpdateWorkItemRequest,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'update_work_item_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
             },
             api_client=api_client
         )
@@ -2253,6 +2312,90 @@ class WorkItemsApi(object):
             id
         return self.api_v2_work_items_id_likes_get_endpoint.call_with_http_info(**kwargs)
 
+    def api_v2_work_items_id_patch(
+        self,
+        id,
+        **kwargs
+    ):
+        """Patch Test Case, Checklist or Shared Step  # noqa: E501
+
+        See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_work_items_id_patch(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): WorkItem internal (guid format) or global(integer format) identifier\"
+
+        Keyword Args:
+            operation ([Operation]): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.api_v2_work_items_id_patch_endpoint.call_with_http_info(**kwargs)
+
     def api_v2_work_items_id_test_results_history_get(
         self,
         id,
@@ -2677,6 +2820,85 @@ class WorkItemsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.api_v2_work_items_post_endpoint.call_with_http_info(**kwargs)
+
+    def api_v2_work_items_put(
+        self,
+        **kwargs
+    ):
+        """Update Test Case, Checklist or Shared Step  # noqa: E501
+
+         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_work_items_put(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            api_v2_work_items_put_request (ApiV2WorkItemsPutRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.api_v2_work_items_put_endpoint.call_with_http_info(**kwargs)
 
     def api_v2_work_items_search_post(
         self,
@@ -3771,83 +3993,4 @@ class WorkItemsApi(object):
         kwargs['id'] = \
             id
         return self.restore_work_item_endpoint.call_with_http_info(**kwargs)
-
-    def update_work_item(
-        self,
-        **kwargs
-    ):
-        """Update Test Case, Checklist or Shared Step  # noqa: E501
-
-         Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.update_work_item(async_req=True)
-        >>> result = thread.get()
-
-
-        Keyword Args:
-            update_work_item_request (UpdateWorkItemRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        return self.update_work_item_endpoint.call_with_http_info(**kwargs)
 

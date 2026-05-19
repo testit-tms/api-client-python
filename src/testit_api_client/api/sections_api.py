@@ -49,7 +49,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/sections/{id}',
                 'operation_id': 'api_v2_sections_id_patch',
@@ -107,7 +107,7 @@ class SectionsApi(object):
                 'response_type': (SectionWithStepsModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/sections',
                 'operation_id': 'create_section',
@@ -158,7 +158,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/sections/{id}',
                 'operation_id': 'delete_section',
@@ -210,7 +210,7 @@ class SectionsApi(object):
                 'response_type': (SectionWithStepsModel,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/sections/{id}',
                 'operation_id': 'get_section_by_id',
@@ -267,7 +267,7 @@ class SectionsApi(object):
                 'response_type': ([WorkItemShortModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/sections/{id}/workItems',
                 'operation_id': 'get_work_items_by_section_id',
@@ -360,7 +360,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/sections/move',
                 'operation_id': 'move',
@@ -411,7 +411,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/sections/rename',
                 'operation_id': 'rename',
@@ -462,7 +462,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/sections',
                 'operation_id': 'update_section',

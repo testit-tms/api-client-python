@@ -49,7 +49,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/bulk',
                 'operation_id': 'api_v2_parameters_bulk_post',
@@ -100,7 +100,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/bulk',
                 'operation_id': 'api_v2_parameters_bulk_put',
@@ -151,7 +151,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterGroupApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/groups',
                 'operation_id': 'api_v2_parameters_groups_get',
@@ -247,7 +247,7 @@ class ParametersApi(object):
                 'response_type': (bool,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/key/name/{name}/exists',
                 'operation_id': 'api_v2_parameters_key_name_name_exists_get',
@@ -299,7 +299,7 @@ class ParametersApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/{key}/values',
                 'operation_id': 'api_v2_parameters_key_values_get',
@@ -351,7 +351,7 @@ class ParametersApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/keys',
                 'operation_id': 'api_v2_parameters_keys_get',
@@ -427,7 +427,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterGroupApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/search/groups',
                 'operation_id': 'api_v2_parameters_search_groups_post',
@@ -503,7 +503,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/search',
                 'operation_id': 'api_v2_parameters_search_post',
@@ -579,7 +579,7 @@ class ParametersApi(object):
                 'response_type': (ParameterApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters',
                 'operation_id': 'create_parameter',
@@ -630,7 +630,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/name/{name}',
                 'operation_id': 'delete_by_name',
@@ -687,7 +687,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/keyId/{keyId}',
                 'operation_id': 'delete_by_parameter_key_id',
@@ -739,7 +739,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/{id}',
                 'operation_id': 'delete_parameter',
@@ -791,7 +791,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters',
                 'operation_id': 'get_all_parameters',
@@ -866,7 +866,7 @@ class ParametersApi(object):
                 'response_type': (ParameterApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters/{id}',
                 'operation_id': 'get_parameter_by_id',
@@ -918,7 +918,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/parameters',
                 'operation_id': 'update_parameter',

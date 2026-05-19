@@ -38,6 +38,7 @@ def lazy_import():
     from testit_api_client.model.work_item_changed_fields_view_model_global_id import WorkItemChangedFieldsViewModelGlobalId
     from testit_api_client.model.work_item_changed_fields_view_model_is_deleted import WorkItemChangedFieldsViewModelIsDeleted
     from testit_api_client.model.work_item_changed_fields_view_model_links import WorkItemChangedFieldsViewModelLinks
+    from testit_api_client.model.work_item_changed_fields_view_model_parent_id import WorkItemChangedFieldsViewModelParentId
     from testit_api_client.model.work_item_changed_fields_view_model_project_id import WorkItemChangedFieldsViewModelProjectId
     from testit_api_client.model.work_item_changed_fields_view_model_state import WorkItemChangedFieldsViewModelState
     from testit_api_client.model.work_item_changed_fields_view_model_steps import WorkItemChangedFieldsViewModelSteps
@@ -50,6 +51,7 @@ def lazy_import():
     globals()['WorkItemChangedFieldsViewModelGlobalId'] = WorkItemChangedFieldsViewModelGlobalId
     globals()['WorkItemChangedFieldsViewModelIsDeleted'] = WorkItemChangedFieldsViewModelIsDeleted
     globals()['WorkItemChangedFieldsViewModelLinks'] = WorkItemChangedFieldsViewModelLinks
+    globals()['WorkItemChangedFieldsViewModelParentId'] = WorkItemChangedFieldsViewModelParentId
     globals()['WorkItemChangedFieldsViewModelProjectId'] = WorkItemChangedFieldsViewModelProjectId
     globals()['WorkItemChangedFieldsViewModelState'] = WorkItemChangedFieldsViewModelState
     globals()['WorkItemChangedFieldsViewModelSteps'] = WorkItemChangedFieldsViewModelSteps
@@ -120,6 +122,7 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
             'global_id': (WorkItemChangedFieldsViewModelGlobalId,),  # noqa: E501
             'version_number': (WorkItemChangedFieldsViewModelDuration,),  # noqa: E501
             'entity_type_name': (WorkItemChangedFieldsViewModelState,),  # noqa: E501
+            'parent_id': (WorkItemChangedFieldsViewModelParentId,),  # noqa: E501
             'name': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
             'description': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
         }
@@ -148,6 +151,7 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
         'global_id': 'globalId',  # noqa: E501
         'version_number': 'versionNumber',  # noqa: E501
         'entity_type_name': 'entityTypeName',  # noqa: E501
+        'parent_id': 'parentId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
     }
@@ -159,7 +163,7 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, is_deleted, project_id, is_automated, section_id, state, priority, duration, attributes, steps, precondition_steps, postcondition_steps, auto_tests, attachments, tags, links, global_id, version_number, entity_type_name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, is_deleted, project_id, is_automated, section_id, state, priority, duration, attributes, steps, precondition_steps, postcondition_steps, auto_tests, attachments, tags, links, global_id, version_number, entity_type_name, parent_id, *args, **kwargs):  # noqa: E501
         """WorkItemChangedFieldsViewModel - a model defined in OpenAPI
 
         Args:
@@ -181,6 +185,7 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
             global_id (WorkItemChangedFieldsViewModelGlobalId):
             version_number (WorkItemChangedFieldsViewModelDuration):
             entity_type_name (WorkItemChangedFieldsViewModelState):
+            parent_id (WorkItemChangedFieldsViewModelParentId):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -264,6 +269,7 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
         self.global_id = global_id
         self.version_number = version_number
         self.entity_type_name = entity_type_name
+        self.parent_id = parent_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -284,7 +290,7 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, is_deleted, project_id, is_automated, section_id, state, priority, duration, attributes, steps, precondition_steps, postcondition_steps, auto_tests, attachments, tags, links, global_id, version_number, entity_type_name, *args, **kwargs):  # noqa: E501
+    def __init__(self, is_deleted, project_id, is_automated, section_id, state, priority, duration, attributes, steps, precondition_steps, postcondition_steps, auto_tests, attachments, tags, links, global_id, version_number, entity_type_name, parent_id, *args, **kwargs):  # noqa: E501
         """WorkItemChangedFieldsViewModel - a model defined in OpenAPI
 
         Args:
@@ -306,6 +312,7 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
             global_id (WorkItemChangedFieldsViewModelGlobalId):
             version_number (WorkItemChangedFieldsViewModelDuration):
             entity_type_name (WorkItemChangedFieldsViewModelState):
+            parent_id (WorkItemChangedFieldsViewModelParentId):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -387,6 +394,7 @@ class WorkItemChangedFieldsViewModel(ModelNormal):
         self.global_id = global_id
         self.version_number = version_number
         self.entity_type_name = entity_type_name
+        self.parent_id = parent_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

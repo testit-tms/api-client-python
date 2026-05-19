@@ -45,7 +45,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes',
                 'operation_id': 'create_custom_attribute_test_plan_project_relations',
@@ -107,7 +107,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes/{attributeId}',
                 'operation_id': 'delete_custom_attribute_test_plan_project_relations',
@@ -165,7 +165,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': ([CustomAttributeModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes',
                 'operation_id': 'get_custom_attribute_test_plan_project_relations',
@@ -217,7 +217,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': ([CustomAttributeGetModel],),
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes/search',
                 'operation_id': 'search_test_plan_attributes_in_project',
@@ -300,7 +300,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Session Cookie'
+                    'Identity.Application'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes',
                 'operation_id': 'update_custom_attribute_test_plan_project_relations',
