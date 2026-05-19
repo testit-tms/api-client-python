@@ -135,7 +135,7 @@ class WorkItemApiResult(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
-            'autoTestCases': ([str]),
+            'autoTestCases': ([str, none_type]),
         }
 
     @cached_property
