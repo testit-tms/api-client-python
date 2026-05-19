@@ -135,6 +135,7 @@ class WorkItemApiResult(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
+            'autoTestCases': ([str]),
         }
 
     @cached_property
@@ -176,6 +177,7 @@ class WorkItemApiResult(ModelNormal):
         'description': 'description',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
+        'autoTestCases': 'autoTestCases',  # noqa: E501
     }
 
     read_only_vars = {
