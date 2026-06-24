@@ -22,7 +22,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from testit_api_client.model.api_v2_external_issues_suggestions_post_request import ApiV2ExternalIssuesSuggestionsPostRequest
-from testit_api_client.model.external_issue_api_field_suggestion_reply import ExternalIssueApiFieldSuggestionReply
+from testit_api_client.model.external_issue_api_field_suggestion_i_reply import ExternalIssueApiFieldSuggestionIReply
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
@@ -40,7 +40,7 @@ class ExternalIssuesApi(object):
         self.api_client = api_client
         self.api_v2_external_issues_suggestions_post_endpoint = _Endpoint(
             settings={
-                'response_type': (ExternalIssueApiFieldSuggestionReply,),
+                'response_type': (ExternalIssueApiFieldSuggestionIReply,),
                 'auth': [
                     'PrivateToken',
                     'Identity.Application'
@@ -137,7 +137,7 @@ class ExternalIssuesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ExternalIssueApiFieldSuggestionReply
+            ExternalIssueApiFieldSuggestionIReply
                 If the method is called asynchronously, returns the request
                 thread.
         """

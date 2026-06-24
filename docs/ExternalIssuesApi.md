@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_external_issues_suggestions_post**
-> ExternalIssueApiFieldSuggestionReply api_v2_external_issues_suggestions_post()
+> ExternalIssueApiFieldSuggestionIReply api_v2_external_issues_suggestions_post()
 
 Returns list of suggestions from available external issues
 
@@ -23,7 +23,7 @@ import testit_api_client
 from testit_api_client.api import external_issues_api
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.api_v2_external_issues_suggestions_post_request import ApiV2ExternalIssuesSuggestionsPostRequest
-from testit_api_client.model.external_issue_api_field_suggestion_reply import ExternalIssueApiFieldSuggestionReply
+from testit_api_client.model.external_issue_api_field_suggestion_i_reply import ExternalIssueApiFieldSuggestionIReply
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExternalIssueApiFieldSuggestionReply**](ExternalIssueApiFieldSuggestionReply.md)
+[**ExternalIssueApiFieldSuggestionIReply**](ExternalIssueApiFieldSuggestionIReply.md)
 
 ### Authorization
 

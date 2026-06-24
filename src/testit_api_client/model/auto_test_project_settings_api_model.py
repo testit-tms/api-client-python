@@ -74,6 +74,14 @@ class AutoTestProjectSettingsApiModel(ModelNormal):
             'inclusive_maximum': 1000,
             'inclusive_minimum': 1,
         },
+        ('test_runs_retention_period_days',): {
+            'inclusive_maximum': 1000,
+            'inclusive_minimum': 0,
+        },
+        ('max_active_test_runs_count',): {
+            'inclusive_maximum': 10000,
+            'inclusive_minimum': 0,
+        },
     }
 
     additional_properties_type = None
@@ -95,10 +103,14 @@ class AutoTestProjectSettingsApiModel(ModelNormal):
             'rerun_enabled': (bool,),  # noqa: E501
             'rerun_attempts_count': (int,),  # noqa: E501
             'work_item_updating_fields': (AutoTestProjectSettingsApiModelWorkItemUpdatingFields,),  # noqa: E501
+            'archive_outdated_test_runs_enabled': (bool,),  # noqa: E501
+            'test_runs_archive_limit_enabled': (bool,),  # noqa: E501
             'is_flaky_auto': (bool,),  # noqa: E501
             'flaky_stability_percentage': (int,),  # noqa: E501
             'flaky_test_run_count': (int,),  # noqa: E501
             'work_item_updating_enabled': (bool,),  # noqa: E501
+            'test_runs_retention_period_days': (int,),  # noqa: E501
+            'max_active_test_runs_count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -110,10 +122,14 @@ class AutoTestProjectSettingsApiModel(ModelNormal):
         'rerun_enabled': 'rerunEnabled',  # noqa: E501
         'rerun_attempts_count': 'rerunAttemptsCount',  # noqa: E501
         'work_item_updating_fields': 'workItemUpdatingFields',  # noqa: E501
+        'archive_outdated_test_runs_enabled': 'archiveOutdatedTestRunsEnabled',  # noqa: E501
+        'test_runs_archive_limit_enabled': 'testRunsArchiveLimitEnabled',  # noqa: E501
         'is_flaky_auto': 'isFlakyAuto',  # noqa: E501
         'flaky_stability_percentage': 'flakyStabilityPercentage',  # noqa: E501
         'flaky_test_run_count': 'flakyTestRunCount',  # noqa: E501
         'work_item_updating_enabled': 'workItemUpdatingEnabled',  # noqa: E501
+        'test_runs_retention_period_days': 'testRunsRetentionPeriodDays',  # noqa: E501
+        'max_active_test_runs_count': 'maxActiveTestRunsCount',  # noqa: E501
     }
 
     read_only_vars = {
@@ -123,13 +139,15 @@ class AutoTestProjectSettingsApiModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, rerun_enabled, rerun_attempts_count, work_item_updating_fields, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, rerun_enabled, rerun_attempts_count, work_item_updating_fields, archive_outdated_test_runs_enabled, test_runs_archive_limit_enabled, *args, **kwargs):  # noqa: E501
         """AutoTestProjectSettingsApiModel - a model defined in OpenAPI
 
         Args:
             rerun_enabled (bool): Auto rerun enabled
             rerun_attempts_count (int): Auto rerun attempt count
             work_item_updating_fields (AutoTestProjectSettingsApiModelWorkItemUpdatingFields):
+            archive_outdated_test_runs_enabled (bool): Indicates whether archiving of outdated test runs is enabled for the project.
+            test_runs_archive_limit_enabled (bool): Indicates whether a limit is enforced on the number of archived test runs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -166,6 +184,8 @@ class AutoTestProjectSettingsApiModel(ModelNormal):
             flaky_stability_percentage (int): Stability percentage for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             flaky_test_run_count (int): Last test run count for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             work_item_updating_enabled (bool): Autotest to work item updating enabled. [optional] if omitted the server will use the default value of False  # noqa: E501
+            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period, outdated test runs may be archived based on project settings. [optional] if omitted the server will use the default value of 180  # noqa: E501
+            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded, older test runs are automatically archived. [optional] if omitted the server will use the default value of 500  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -200,6 +220,8 @@ class AutoTestProjectSettingsApiModel(ModelNormal):
         self.rerun_enabled = rerun_enabled
         self.rerun_attempts_count = rerun_attempts_count
         self.work_item_updating_fields = work_item_updating_fields
+        self.archive_outdated_test_runs_enabled = archive_outdated_test_runs_enabled
+        self.test_runs_archive_limit_enabled = test_runs_archive_limit_enabled
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -220,13 +242,15 @@ class AutoTestProjectSettingsApiModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, rerun_enabled, rerun_attempts_count, work_item_updating_fields, *args, **kwargs):  # noqa: E501
+    def __init__(self, rerun_enabled, rerun_attempts_count, work_item_updating_fields, archive_outdated_test_runs_enabled, test_runs_archive_limit_enabled, *args, **kwargs):  # noqa: E501
         """AutoTestProjectSettingsApiModel - a model defined in OpenAPI
 
         Args:
             rerun_enabled (bool): Auto rerun enabled
             rerun_attempts_count (int): Auto rerun attempt count
             work_item_updating_fields (AutoTestProjectSettingsApiModelWorkItemUpdatingFields):
+            archive_outdated_test_runs_enabled (bool): Indicates whether archiving of outdated test runs is enabled for the project.
+            test_runs_archive_limit_enabled (bool): Indicates whether a limit is enforced on the number of archived test runs.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -263,6 +287,8 @@ class AutoTestProjectSettingsApiModel(ModelNormal):
             flaky_stability_percentage (int): Stability percentage for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             flaky_test_run_count (int): Last test run count for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             work_item_updating_enabled (bool): Autotest to work item updating enabled. [optional] if omitted the server will use the default value of False  # noqa: E501
+            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period, outdated test runs may be archived based on project settings. [optional] if omitted the server will use the default value of 180  # noqa: E501
+            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded, older test runs are automatically archived. [optional] if omitted the server will use the default value of 500  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -295,6 +321,8 @@ class AutoTestProjectSettingsApiModel(ModelNormal):
         self.rerun_enabled = rerun_enabled
         self.rerun_attempts_count = rerun_attempts_count
         self.work_item_updating_fields = work_item_updating_fields
+        self.archive_outdated_test_runs_enabled = archive_outdated_test_runs_enabled
+        self.test_runs_archive_limit_enabled = test_runs_archive_limit_enabled
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -34,7 +34,6 @@ from testit_api_client.api.project_test_plan_test_points_api import ProjectTestP
 from testit_api_client.api.project_test_plans_api import ProjectTestPlansApi
 from testit_api_client.api.project_work_items_api import ProjectWorkItemsApi
 from testit_api_client.api.projects_api import ProjectsApi
-from testit_api_client.api.search_api import SearchApi
 from testit_api_client.api.sections_api import SectionsApi
 from testit_api_client.api.tags_api import TagsApi
 from testit_api_client.api.test_plans_api import TestPlansApi

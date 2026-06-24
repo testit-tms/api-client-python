@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **order** | [**[Order]**](Order.md) |  | 
+**group** | [**Group**](Group.md) |  | [optional] 
 **filter** | [**CompositeFilter**](CompositeFilter.md) |  | [optional] 
 **page** | [**Page**](Page.md) |  | [optional] 
 

@@ -30,8 +30,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.get_xlsx_test_points_by_test_plan_model import GetXlsxTestPointsByTestPlanModel
-    globals()['GetXlsxTestPointsByTestPlanModel'] = GetXlsxTestPointsByTestPlanModel
+    from testit_api_client.model.get_xlsx_test_points_by_test_plan_api_model import GetXlsxTestPointsByTestPlanApiModel
+    from testit_api_client.model.order import Order
+    from testit_api_client.model.test_plan_test_points_search_api_model import TestPlanTestPointsSearchApiModel
+    globals()['GetXlsxTestPointsByTestPlanApiModel'] = GetXlsxTestPointsByTestPlanApiModel
+    globals()['Order'] = Order
+    globals()['TestPlanTestPointsSearchApiModel'] = TestPlanTestPointsSearchApiModel
 
 
 class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
@@ -100,7 +104,9 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
             'include_modified_by': (bool,),  # noqa: E501
             'include_tags': (bool,),  # noqa: E501
             'include_iterations': (bool,),  # noqa: E501
+            'order': ([Order],),  # noqa: E501
             'custom_attributes_ids': ([str], none_type,),  # noqa: E501
+            'filter': (TestPlanTestPointsSearchApiModel,),  # noqa: E501
             'configuration_ids': ([str], none_type,),  # noqa: E501
         }
 
@@ -123,7 +129,9 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
         'include_modified_by': 'includeModifiedBy',  # noqa: E501
         'include_tags': 'includeTags',  # noqa: E501
         'include_iterations': 'includeIterations',  # noqa: E501
+        'order': 'order',  # noqa: E501
         'custom_attributes_ids': 'customAttributesIds',  # noqa: E501
+        'filter': 'filter',  # noqa: E501
         'configuration_ids': 'configurationIds',  # noqa: E501
     }
 
@@ -149,6 +157,7 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
             include_modified_by (bool):
             include_tags (bool):
             include_iterations (bool):
+            order ([Order]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -180,6 +189,7 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             custom_attributes_ids ([str], none_type): [optional]  # noqa: E501
+            filter (TestPlanTestPointsSearchApiModel): [optional]  # noqa: E501
             configuration_ids ([str], none_type): [optional]  # noqa: E501
         """
 
@@ -267,6 +277,7 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
             include_modified_by (bool):
             include_tags (bool):
             include_iterations (bool):
+            order ([Order]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -298,6 +309,7 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             custom_attributes_ids ([str], none_type): [optional]  # noqa: E501
+            filter (TestPlanTestPointsSearchApiModel): [optional]  # noqa: E501
             configuration_ids ([str], none_type): [optional]  # noqa: E501
         """
 
@@ -368,7 +380,7 @@ class ApiV2TestPlansIdExportTestPointsXlsxPostRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              GetXlsxTestPointsByTestPlanModel,
+              GetXlsxTestPointsByTestPlanApiModel,
           ],
           'oneOf': [
           ],

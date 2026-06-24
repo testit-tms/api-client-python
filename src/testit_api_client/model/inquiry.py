@@ -31,9 +31,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.composite_filter import CompositeFilter
+    from testit_api_client.model.group import Group
     from testit_api_client.model.order import Order
     from testit_api_client.model.page import Page
     globals()['CompositeFilter'] = CompositeFilter
+    globals()['Group'] = Group
     globals()['Order'] = Order
     globals()['Page'] = Page
 
@@ -85,6 +87,7 @@ class Inquiry(ModelNormal):
         lazy_import()
         return {
             'order': ([Order],),  # noqa: E501
+            'group': (Group,),  # noqa: E501
             'filter': (CompositeFilter,),  # noqa: E501
             'page': (Page,),  # noqa: E501
         }
@@ -96,6 +99,7 @@ class Inquiry(ModelNormal):
 
     attribute_map = {
         'order': 'order',  # noqa: E501
+        'group': 'group',  # noqa: E501
         'filter': 'filter',  # noqa: E501
         'page': 'page',  # noqa: E501
     }
@@ -144,6 +148,7 @@ class Inquiry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            group (Group): [optional]  # noqa: E501
             filter (CompositeFilter): [optional]  # noqa: E501
             page (Page): [optional]  # noqa: E501
         """
@@ -235,6 +240,7 @@ class Inquiry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            group (Group): [optional]  # noqa: E501
             filter (CompositeFilter): [optional]  # noqa: E501
             page (Page): [optional]  # noqa: E501
         """

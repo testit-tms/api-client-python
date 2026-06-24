@@ -33,7 +33,7 @@ from testit_api_client.model.filter_model import FilterModel
 from testit_api_client.model.operation import Operation
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.project_api_result import ProjectApiResult
-from testit_api_client.model.project_short_api_result_reply import ProjectShortApiResultReply
+from testit_api_client.model.project_short_api_result_i_reply import ProjectShortApiResultIReply
 from testit_api_client.model.test_plan_model import TestPlanModel
 from testit_api_client.model.test_run_api_result import TestRunApiResult
 from testit_api_client.model.test_run_v2_api_result import TestRunV2ApiResult
@@ -1005,7 +1005,7 @@ class ProjectsApi(object):
         )
         self.api_v2_projects_shorts_post_endpoint = _Endpoint(
             settings={
-                'response_type': (ProjectShortApiResultReply,),
+                'response_type': (ProjectShortApiResultIReply,),
                 'auth': [
                     'PrivateToken',
                     'Identity.Application'
@@ -2942,7 +2942,7 @@ class ProjectsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ProjectShortApiResultReply
+            ProjectShortApiResultIReply
                 If the method is called asynchronously, returns the request
                 thread.
         """

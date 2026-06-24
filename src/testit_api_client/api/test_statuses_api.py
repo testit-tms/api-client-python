@@ -26,7 +26,7 @@ from testit_api_client.model.api_v2_test_statuses_post_request import ApiV2TestS
 from testit_api_client.model.api_v2_test_statuses_search_post_request import ApiV2TestStatusesSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.test_status_api_result import TestStatusApiResult
-from testit_api_client.model.test_status_api_result_reply import TestStatusApiResultReply
+from testit_api_client.model.test_status_api_result_i_reply import TestStatusApiResultIReply
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
@@ -374,7 +374,7 @@ class TestStatusesApi(object):
         )
         self.api_v2_test_statuses_search_post_endpoint = _Endpoint(
             settings={
-                'response_type': (TestStatusApiResultReply,),
+                'response_type': (TestStatusApiResultIReply,),
                 'auth': [
                     'PrivateToken',
                     'Identity.Application'
@@ -965,7 +965,7 @@ class TestStatusesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            TestStatusApiResultReply
+            TestStatusApiResultIReply
                 If the method is called asynchronously, returns the request
                 thread.
         """

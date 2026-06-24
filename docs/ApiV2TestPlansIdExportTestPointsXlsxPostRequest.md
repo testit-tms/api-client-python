@@ -17,7 +17,9 @@ Name | Type | Description | Notes
 **include_modified_by** | **bool** |  | 
 **include_tags** | **bool** |  | 
 **include_iterations** | **bool** |  | 
+**order** | [**[Order]**](Order.md) |  | 
 **custom_attributes_ids** | **[str], none_type** |  | [optional] 
+**filter** | [**TestPlanTestPointsSearchApiModel**](TestPlanTestPointsSearchApiModel.md) |  | [optional] 
 **configuration_ids** | **[str], none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
