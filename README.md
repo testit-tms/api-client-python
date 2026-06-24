@@ -220,7 +220,6 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**get_test_plans_by_project_id**](docs/ProjectsApi.md#get_test_plans_by_project_id) | **GET** /api/v2/projects/{id}/testPlans | Get project test plans
 *ProjectsApi* | [**get_test_runs_by_project_id**](docs/ProjectsApi.md#get_test_runs_by_project_id) | **GET** /api/v2/projects/{id}/testRuns | Get project test runs
 *ProjectsApi* | [**update_project**](docs/ProjectsApi.md#update_project) | **PUT** /api/v2/projects | Update project
-*SearchApi* | [**api_v2_search_global_search_post**](docs/SearchApi.md#api_v2_search_global_search_post) | **POST** /api/v2/search/globalSearch | 
 *SectionsApi* | [**api_v2_sections_id_patch**](docs/SectionsApi.md#api_v2_sections_id_patch) | **PATCH** /api/v2/sections/{id} | Patch section
 *SectionsApi* | [**create_section**](docs/SectionsApi.md#create_section) | **POST** /api/v2/sections | Create section
 *SectionsApi* | [**delete_section**](docs/SectionsApi.md#delete_section) | **DELETE** /api/v2/sections/{id} | Delete section
@@ -390,6 +389,10 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AIServiceModelApiResult](docs/AIServiceModelApiResult.md)
+ - [AIServiceModelApiResultGroup](docs/AIServiceModelApiResultGroup.md)
+ - [AIServiceModelApiResultGroupKey](docs/AIServiceModelApiResultGroupKey.md)
+ - [AIServiceModelApiResultGroupedReply](docs/AIServiceModelApiResultGroupedReply.md)
+ - [AIServiceModelApiResultIReply](docs/AIServiceModelApiResultIReply.md)
  - [AIServiceModelApiResultReply](docs/AIServiceModelApiResultReply.md)
  - [ActionUpdate](docs/ActionUpdate.md)
  - [ApiExternalServiceCategory](docs/ApiExternalServiceCategory.md)
@@ -425,7 +428,6 @@ Class | Method | HTTP request | Description
  - [ApiV2ProjectsRestoreBulkPostRequest](docs/ApiV2ProjectsRestoreBulkPostRequest.md)
  - [ApiV2ProjectsSearchPostRequest](docs/ApiV2ProjectsSearchPostRequest.md)
  - [ApiV2ProjectsShortsPostRequest](docs/ApiV2ProjectsShortsPostRequest.md)
- - [ApiV2SearchGlobalSearchPostRequest](docs/ApiV2SearchGlobalSearchPostRequest.md)
  - [ApiV2TagsDeleteRequest](docs/ApiV2TagsDeleteRequest.md)
  - [ApiV2TagsPostRequest](docs/ApiV2TagsPostRequest.md)
  - [ApiV2TagsPutRequest](docs/ApiV2TagsPutRequest.md)
@@ -635,6 +637,9 @@ Class | Method | HTTP request | Description
  - [ExternalIssueApiField](docs/ExternalIssueApiField.md)
  - [ExternalIssueApiFieldSuggestion](docs/ExternalIssueApiFieldSuggestion.md)
  - [ExternalIssueApiFieldSuggestionExternalService](docs/ExternalIssueApiFieldSuggestionExternalService.md)
+ - [ExternalIssueApiFieldSuggestionGroup](docs/ExternalIssueApiFieldSuggestionGroup.md)
+ - [ExternalIssueApiFieldSuggestionGroupedReply](docs/ExternalIssueApiFieldSuggestionGroupedReply.md)
+ - [ExternalIssueApiFieldSuggestionIReply](docs/ExternalIssueApiFieldSuggestionIReply.md)
  - [ExternalIssueApiFieldSuggestionReply](docs/ExternalIssueApiFieldSuggestionReply.md)
  - [ExternalIssueApiMetadata](docs/ExternalIssueApiMetadata.md)
  - [ExternalIssueApiMetadataPriority](docs/ExternalIssueApiMetadataPriority.md)
@@ -676,12 +681,11 @@ Class | Method | HTTP request | Description
  - [GetExternalIssueSuggestionsApiModel](docs/GetExternalIssueSuggestionsApiModel.md)
  - [GetExternalIssueSuggestionsApiModelInquiry](docs/GetExternalIssueSuggestionsApiModelInquiry.md)
  - [GetShortProjectsApiModel](docs/GetShortProjectsApiModel.md)
- - [GetXlsxTestPointsByTestPlanModel](docs/GetXlsxTestPointsByTestPlanModel.md)
+ - [GetXlsxTestPointsByTestPlanApiModel](docs/GetXlsxTestPointsByTestPlanApiModel.md)
  - [GlobalCustomAttributePostModel](docs/GlobalCustomAttributePostModel.md)
  - [GlobalCustomAttributeUpdateModel](docs/GlobalCustomAttributeUpdateModel.md)
- - [GlobalSearchItemResult](docs/GlobalSearchItemResult.md)
- - [GlobalSearchRequest](docs/GlobalSearchRequest.md)
- - [GlobalSearchResponse](docs/GlobalSearchResponse.md)
+ - [Group](docs/Group.md)
+ - [GroupKey](docs/GroupKey.md)
  - [GuidChangedFieldViewModel](docs/GuidChangedFieldViewModel.md)
  - [GuidExtractionModel](docs/GuidExtractionModel.md)
  - [GuidNullableChangedFieldViewModel](docs/GuidNullableChangedFieldViewModel.md)
@@ -756,6 +760,9 @@ Class | Method | HTTP request | Description
  - [ProjectNameApiResult](docs/ProjectNameApiResult.md)
  - [ProjectSelectModel](docs/ProjectSelectModel.md)
  - [ProjectShortApiResult](docs/ProjectShortApiResult.md)
+ - [ProjectShortApiResultGroup](docs/ProjectShortApiResultGroup.md)
+ - [ProjectShortApiResultGroupedReply](docs/ProjectShortApiResultGroupedReply.md)
+ - [ProjectShortApiResultIReply](docs/ProjectShortApiResultIReply.md)
  - [ProjectShortApiResultReply](docs/ProjectShortApiResultReply.md)
  - [ProjectShortestModel](docs/ProjectShortestModel.md)
  - [ProjectTestPlansFilterModel](docs/ProjectTestPlansFilterModel.md)
@@ -967,6 +974,9 @@ Class | Method | HTTP request | Description
  - [TestRunTestResultsSelectModelTestResultIdsExtractionModel](docs/TestRunTestResultsSelectModelTestResultIdsExtractionModel.md)
  - [TestRunV2ApiResult](docs/TestRunV2ApiResult.md)
  - [TestStatusApiResult](docs/TestStatusApiResult.md)
+ - [TestStatusApiResultGroup](docs/TestStatusApiResultGroup.md)
+ - [TestStatusApiResultGroupedReply](docs/TestStatusApiResultGroupedReply.md)
+ - [TestStatusApiResultIReply](docs/TestStatusApiResultIReply.md)
  - [TestStatusApiResultReply](docs/TestStatusApiResultReply.md)
  - [TestStatusApiType](docs/TestStatusApiType.md)
  - [TestStatusModel](docs/TestStatusModel.md)
@@ -1126,8 +1136,14 @@ Class | Method | HTTP request | Description
  - [WorkflowExistsByNameApiResult](docs/WorkflowExistsByNameApiResult.md)
  - [WorkflowProjectApiResult](docs/WorkflowProjectApiResult.md)
  - [WorkflowProjectApiResultApiCollectionPreview](docs/WorkflowProjectApiResultApiCollectionPreview.md)
+ - [WorkflowProjectApiResultGroup](docs/WorkflowProjectApiResultGroup.md)
+ - [WorkflowProjectApiResultGroupedReply](docs/WorkflowProjectApiResultGroupedReply.md)
+ - [WorkflowProjectApiResultIReply](docs/WorkflowProjectApiResultIReply.md)
  - [WorkflowProjectApiResultReply](docs/WorkflowProjectApiResultReply.md)
  - [WorkflowShortApiResult](docs/WorkflowShortApiResult.md)
+ - [WorkflowShortApiResultGroup](docs/WorkflowShortApiResultGroup.md)
+ - [WorkflowShortApiResultGroupedReply](docs/WorkflowShortApiResultGroupedReply.md)
+ - [WorkflowShortApiResultIReply](docs/WorkflowShortApiResultIReply.md)
  - [WorkflowShortApiResultProjects](docs/WorkflowShortApiResultProjects.md)
  - [WorkflowShortApiResultReply](docs/WorkflowShortApiResultReply.md)
  - [WorkflowStatusApiModel](docs/WorkflowStatusApiModel.md)

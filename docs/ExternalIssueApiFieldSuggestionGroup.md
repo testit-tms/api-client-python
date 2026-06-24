@@ -1,14 +1,12 @@
-# GlobalSearchItemResult
+# ExternalIssueApiFieldSuggestionGroup
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resource_type** | **str** |  | 
-**resource_id** | **str** |  | 
-**name** | **str** |  | 
-**project_global_id** | **int** |  | 
-**global_id** | **int, none_type** |  | [optional] 
+**key** | [**AIServiceModelApiResultGroupKey**](AIServiceModelApiResultGroupKey.md) |  | 
+**data** | [**[ExternalIssueApiFieldSuggestion]**](ExternalIssueApiFieldSuggestion.md) |  | 
+**total_count** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

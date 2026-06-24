@@ -30,8 +30,8 @@ from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from testit_api_client.model.workflow_api_result import WorkflowApiResult
 from testit_api_client.model.workflow_exists_by_name_api_result import WorkflowExistsByNameApiResult
-from testit_api_client.model.workflow_project_api_result_reply import WorkflowProjectApiResultReply
-from testit_api_client.model.workflow_short_api_result_reply import WorkflowShortApiResultReply
+from testit_api_client.model.workflow_project_api_result_i_reply import WorkflowProjectApiResultIReply
+from testit_api_client.model.workflow_short_api_result_i_reply import WorkflowShortApiResultIReply
 
 
 class WorkflowsApi(object):
@@ -209,7 +209,7 @@ class WorkflowsApi(object):
         )
         self.api_v2_workflows_id_projects_search_post_endpoint = _Endpoint(
             settings={
-                'response_type': (WorkflowProjectApiResultReply,),
+                'response_type': (WorkflowProjectApiResultIReply,),
                 'auth': [
                     'PrivateToken',
                     'Identity.Application'
@@ -428,7 +428,7 @@ class WorkflowsApi(object):
         )
         self.api_v2_workflows_search_post_endpoint = _Endpoint(
             settings={
-                'response_type': (WorkflowShortApiResultReply,),
+                'response_type': (WorkflowShortApiResultIReply,),
                 'auth': [
                     'PrivateToken',
                     'Identity.Application'
@@ -776,7 +776,7 @@ class WorkflowsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            WorkflowProjectApiResultReply
+            WorkflowProjectApiResultIReply
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1099,7 +1099,7 @@ class WorkflowsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            WorkflowShortApiResultReply
+            WorkflowShortApiResultIReply
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -1,4 +1,4 @@
-# GetXlsxTestPointsByTestPlanModel
+# GetXlsxTestPointsByTestPlanApiModel
 
 
 ## Properties
@@ -17,7 +17,9 @@ Name | Type | Description | Notes
 **include_modified_by** | **bool** |  | 
 **include_tags** | **bool** |  | 
 **include_iterations** | **bool** |  | 
+**order** | [**[Order]**](Order.md) |  | 
 **custom_attributes_ids** | **[str], none_type** |  | [optional] 
+**filter** | [**TestPlanTestPointsSearchApiModel**](TestPlanTestPointsSearchApiModel.md) |  | [optional] 
 **configuration_ids** | **[str], none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_test_statuses_search_post**
-> TestStatusApiResultReply api_v2_test_statuses_search_post()
+> TestStatusApiResultIReply api_v2_test_statuses_search_post()
 
 
 
@@ -574,8 +574,8 @@ import time
 import testit_api_client
 from testit_api_client.api import test_statuses_api
 from testit_api_client.model.api_v2_test_statuses_search_post_request import ApiV2TestStatusesSearchPostRequest
+from testit_api_client.model.test_status_api_result_i_reply import TestStatusApiResultIReply
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_status_api_result_reply import TestStatusApiResultReply
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestStatusApiResultReply**](TestStatusApiResultReply.md)
+[**TestStatusApiResultIReply**](TestStatusApiResultIReply.md)
 
 ### Authorization
 

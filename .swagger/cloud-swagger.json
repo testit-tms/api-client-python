@@ -6222,7 +6222,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExternalIssueApiFieldSuggestionReply"
+                  "$ref": "#/components/schemas/ExternalIssueApiFieldSuggestionIReply"
                 }
               }
             }
@@ -14916,7 +14916,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProjectShortApiResultReply"
+                  "$ref": "#/components/schemas/ProjectShortApiResultIReply"
                 }
               }
             }
@@ -15494,99 +15494,6 @@
             }
           }
         }
-      }
-    },
-    "/api/v2/search/globalSearch": {
-      "post": {
-        "tags": [
-          "Search"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/GlobalSearchRequest"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GlobalSearchResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable Entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": true
       }
     },
     "/api/v2/sections/{id}": {
@@ -19577,7 +19484,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetXlsxTestPointsByTestPlanModel"
+                    "$ref": "#/components/schemas/GetXlsxTestPointsByTestPlanApiModel"
                   }
                 ]
               }
@@ -25179,17 +25086,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/TestStatusApiResultReply"
+                  "$ref": "#/components/schemas/TestStatusApiResultIReply"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TestStatusApiResultReply"
+                  "$ref": "#/components/schemas/TestStatusApiResultIReply"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TestStatusApiResultReply"
+                  "$ref": "#/components/schemas/TestStatusApiResultIReply"
                 }
               }
             }
@@ -28648,7 +28555,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WorkflowShortApiResultReply"
+                  "$ref": "#/components/schemas/WorkflowShortApiResultIReply"
                 }
               }
             }
@@ -29110,7 +29017,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WorkflowProjectApiResultReply"
+                  "$ref": "#/components/schemas/WorkflowProjectApiResultIReply"
                 }
               }
             }
@@ -32953,6 +32860,76 @@
         },
         "additionalProperties": false
       },
+      "AIServiceModelApiResultGroup": {
+        "required": [
+          "data",
+          "key",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GroupKey"
+              }
+            ]
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AIServiceModelApiResult"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AIServiceModelApiResultGroupedReply": {
+        "required": [
+          "groups",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AIServiceModelApiResultGroup"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AIServiceModelApiResultIReply": {
+        "required": [
+          "totalCount"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AIServiceModelApiResultReply"
+          },
+          {
+            "$ref": "#/components/schemas/AIServiceModelApiResultGroupedReply"
+          }
+        ],
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
       "AIServiceModelApiResultReply": {
         "required": [
           "data",
@@ -34091,6 +34068,7 @@
               }
             ],
             "description": "Specifies an autotest outcome of the last test result to search for",
+            "format": "Enumeration",
             "nullable": true
           },
           "lastTestResultStatusCodes": {
@@ -34706,8 +34684,10 @@
       },
       "AutoTestProjectSettingsApiModel": {
         "required": [
+          "archiveOutdatedTestRunsEnabled",
           "rerunAttemptsCount",
           "rerunEnabled",
+          "testRunsArchiveLimitEnabled",
           "workItemUpdatingFields"
         ],
         "type": "object",
@@ -34756,18 +34736,46 @@
               }
             ],
             "description": "Autotest to work item updating fields"
+          },
+          "archiveOutdatedTestRunsEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether archiving of outdated test runs is enabled for the project."
+          },
+          "testRunsArchiveLimitEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether a limit is enforced on the number of archived test runs."
+          },
+          "testRunsRetentionPeriodDays": {
+            "maximum": 1000,
+            "minimum": 0,
+            "type": "integer",
+            "description": " The retention period in days for test runs. After this period,\noutdated test runs may be archived based on project settings",
+            "format": "int32",
+            "default": 180
+          },
+          "maxActiveTestRunsCount": {
+            "maximum": 10000,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Maximum number of active test runs to keep. When this limit is exceeded,\nolder test runs are automatically archived",
+            "format": "int32",
+            "default": 500
           }
         },
         "additionalProperties": false
       },
       "AutoTestProjectSettingsApiResult": {
         "required": [
+          "archiveOutdatedTestRunsEnabled",
           "flakyStabilityPercentage",
           "flakyTestRunCount",
           "isFlakyAuto",
+          "maxActiveTestRunsCount",
           "projectId",
           "rerunAttemptsCount",
           "rerunEnabled",
+          "testRunsArchiveLimitEnabled",
+          "testRunsRetentionPeriodDays",
           "workItemUpdatingEnabled",
           "workItemUpdatingFields"
         ],
@@ -34812,6 +34820,24 @@
               }
             ],
             "description": "Autotest to work item updating fields"
+          },
+          "archiveOutdatedTestRunsEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether archiving of outdated test runs is enabled for the project."
+          },
+          "testRunsArchiveLimitEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether a limit is enforced on the number of archived test runs."
+          },
+          "testRunsRetentionPeriodDays": {
+            "type": "integer",
+            "description": " The retention period in days for test runs. After this period,\noutdated test runs may be archived based on project settings",
+            "format": "int32"
+          },
+          "maxActiveTestRunsCount": {
+            "type": "integer",
+            "description": "Maximum number of active test runs to keep. When this limit is exceeded,\nolder test runs are automatically archived",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -36673,7 +36699,8 @@
                 "$ref": "#/components/schemas/FailureCategory"
               }
             ],
-            "description": "Category type"
+            "description": "Category type",
+            "format": "Enumeration"
           },
           "failureClassRegexes": {
             "type": "array",
@@ -36826,7 +36853,8 @@
                 "$ref": "#/components/schemas/FailureCategory"
               }
             ],
-            "description": "Category type"
+            "description": "Category type",
+            "format": "Enumeration"
           },
           "failureClassRegexes": {
             "type": "array",
@@ -37207,7 +37235,8 @@
                 "$ref": "#/components/schemas/TestStatusApiType"
               }
             ],
-            "description": "Type of the status"
+            "description": "Type of the status",
+            "format": "Enumeration"
           },
           "code": {
             "maxLength": 100,
@@ -37264,7 +37293,8 @@
                 "$ref": "#/components/schemas/WorkItemEntityTypeApiModel"
               }
             ],
-            "description": "Type of entity associated with this work item"
+            "description": "Type of entity associated with this work item",
+            "format": "Enumeration"
           },
           "duration": {
             "maximum": 86400000,
@@ -37279,7 +37309,8 @@
                 "$ref": "#/components/schemas/WorkItemStateApiModel"
               }
             ],
-            "description": "Current state of the work item"
+            "description": "Current state of the work item",
+            "format": "Enumeration"
           },
           "priority": {
             "allOf": [
@@ -37287,7 +37318,8 @@
                 "$ref": "#/components/schemas/WorkItemPriorityApiModel"
               }
             ],
-            "description": "Priority level assigned to the work item"
+            "description": "Priority level assigned to the work item",
+            "format": "Enumeration"
           },
           "attributes": {
             "type": "object",
@@ -37463,8 +37495,10 @@
           "isEnabled",
           "isGlobal",
           "isRequired",
+          "isSystem",
           "name",
           "options",
+          "targets",
           "type"
         ],
         "type": "object",
@@ -37508,6 +37542,17 @@
           "isGlobal": {
             "type": "boolean",
             "description": "Indicates if the attribute is available across all projects"
+          },
+          "isSystem": {
+            "type": "boolean",
+            "description": "Indicates if the attribute is system"
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of the attribute targets\n\n\nDefines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)"
           }
         },
         "additionalProperties": false
@@ -37599,8 +37644,10 @@
           "isEnabled",
           "isGlobal",
           "isRequired",
+          "isSystem",
           "name",
           "options",
+          "targets",
           "type"
         ],
         "type": "object",
@@ -37609,6 +37656,13 @@
             "type": "string",
             "description": "Unique ID of the attribute",
             "format": "uuid"
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of the attribute targets\n\n\nDefines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)"
           },
           "options": {
             "type": "array",
@@ -37628,6 +37682,10 @@
           "isDeleted": {
             "type": "boolean",
             "description": "Indicates if the attribute is deleted"
+          },
+          "isSystem": {
+            "type": "boolean",
+            "description": "Indicates if the attribute is system"
           },
           "name": {
             "maxLength": 255,
@@ -37754,7 +37812,8 @@
                 "$ref": "#/components/schemas/CustomAttributeTypesEnum"
               }
             ],
-            "description": "Type of attribute"
+            "description": "Type of attribute",
+            "format": "Enumeration"
           },
           "name": {
             "maxLength": 255,
@@ -37808,7 +37867,8 @@
                 "$ref": "#/components/schemas/CustomAttributeTypesEnum"
               }
             ],
-            "description": "Type of the attribute"
+            "description": "Type of the attribute",
+            "format": "Enumeration"
           },
           "isDeleted": {
             "type": "boolean",
@@ -37894,8 +37954,10 @@
           "isEnabled",
           "isGlobal",
           "isRequired",
+          "isSystem",
           "name",
           "options",
+          "targets",
           "testPlanUsage",
           "type",
           "workItemUsage"
@@ -37919,6 +37981,13 @@
             "description": "Unique ID of the attribute",
             "format": "uuid"
           },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of the attribute targets\n\n\nDefines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)"
+          },
           "options": {
             "type": "array",
             "items": {
@@ -37937,6 +38006,10 @@
           "isDeleted": {
             "type": "boolean",
             "description": "Indicates if the attribute is deleted"
+          },
+          "isSystem": {
+            "type": "boolean",
+            "description": "Indicates if the attribute is system"
           },
           "name": {
             "maxLength": 255,
@@ -38527,6 +38600,76 @@
               }
             ],
             "description": "Associated external service with this value"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExternalIssueApiFieldSuggestionGroup": {
+        "required": [
+          "data",
+          "key",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GroupKey"
+              }
+            ]
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalIssueApiFieldSuggestion"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExternalIssueApiFieldSuggestionGroupedReply": {
+        "required": [
+          "groups",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalIssueApiFieldSuggestionGroup"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExternalIssueApiFieldSuggestionIReply": {
+        "required": [
+          "totalCount"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ExternalIssueApiFieldSuggestionReply"
+          },
+          {
+            "$ref": "#/components/schemas/ExternalIssueApiFieldSuggestionGroupedReply"
+          }
+        ],
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -39470,7 +39613,7 @@
         },
         "additionalProperties": false
       },
-      "GetXlsxTestPointsByTestPlanModel": {
+      "GetXlsxTestPointsByTestPlanApiModel": {
         "required": [
           "includeAuthor",
           "includeAutomated",
@@ -39484,7 +39627,8 @@
           "includeSection",
           "includeSourceType",
           "includeStatus",
-          "includeTags"
+          "includeTags",
+          "order"
         ],
         "type": "object",
         "properties": {
@@ -39535,13 +39679,28 @@
             },
             "nullable": true
           },
+          "filter": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TestPlanTestPointsSearchApiModel"
+              }
+            ],
+            "nullable": true
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            }
+          },
           "configurationIds": {
             "type": "array",
             "items": {
               "type": "string",
               "format": "uuid"
             },
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           }
         },
         "additionalProperties": false
@@ -39583,7 +39742,8 @@
                 "$ref": "#/components/schemas/CustomAttributeTypesEnum"
               }
             ],
-            "description": "Type of attribute"
+            "description": "Type of attribute",
+            "format": "Enumeration"
           }
         },
         "additionalProperties": false
@@ -39621,85 +39781,35 @@
         },
         "additionalProperties": false
       },
-      "GlobalSearchItemResult": {
+      "Group": {
         "required": [
-          "name",
-          "projectGlobalId",
-          "resourceId",
-          "resourceType"
+          "field"
         ],
         "type": "object",
         "properties": {
-          "resourceType": {
+          "field": {
             "type": "string"
           },
-          "resourceId": {
+          "displayField": {
             "type": "string",
-            "format": "uuid"
-          },
-          "globalId": {
-            "type": "integer",
-            "format": "int64",
             "nullable": true
-          },
-          "name": {
-            "type": "string"
-          },
-          "projectGlobalId": {
-            "type": "integer",
-            "format": "int64"
           }
         },
         "additionalProperties": false
       },
-      "GlobalSearchRequest": {
+      "GroupKey": {
         "required": [
-          "query",
-          "skip",
-          "take"
+          "value"
         ],
         "type": "object",
         "properties": {
-          "query": {
-            "type": "string"
-          },
-          "resourceType": {
+          "value": {
             "type": "string",
             "nullable": true
           },
-          "take": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "skip": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GlobalSearchResponse": {
-        "required": [
-          "availableResourceTypes",
-          "moreResultsAvailable",
-          "results"
-        ],
-        "type": "object",
-        "properties": {
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GlobalSearchItemResult"
-            }
-          },
-          "moreResultsAvailable": {
-            "type": "boolean"
-          },
-          "availableResourceTypes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "displayValue": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -39775,6 +39885,10 @@
         ],
         "additionalProperties": false
       },
+      "IJsonMapProvider": {
+        "type": "object",
+        "additionalProperties": false
+      },
       "ImageResizeType": {
         "enum": [
           "Crop",
@@ -39784,10 +39898,19 @@
       },
       "Inquiry": {
         "required": [
+          "jsonMapProvider",
           "order"
         ],
         "type": "object",
         "properties": {
+          "group": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Group"
+              }
+            ],
+            "nullable": true
+          },
           "filter": {
             "allOf": [
               {
@@ -41590,6 +41713,76 @@
           "isFavorite": {
             "type": "boolean",
             "description": "Indicates if the project is marked as favorite"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProjectShortApiResultGroup": {
+        "required": [
+          "data",
+          "key",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GroupKey"
+              }
+            ]
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectShortApiResult"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProjectShortApiResultGroupedReply": {
+        "required": [
+          "groups",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectShortApiResultGroup"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProjectShortApiResultIReply": {
+        "required": [
+          "totalCount"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ProjectShortApiResultReply"
+          },
+          {
+            "$ref": "#/components/schemas/ProjectShortApiResultGroupedReply"
+          }
+        ],
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -49502,6 +49695,76 @@
         },
         "additionalProperties": false
       },
+      "TestStatusApiResultGroup": {
+        "required": [
+          "data",
+          "key",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GroupKey"
+              }
+            ]
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TestStatusApiResult"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestStatusApiResultGroupedReply": {
+        "required": [
+          "groups",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TestStatusApiResultGroup"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestStatusApiResultIReply": {
+        "required": [
+          "totalCount"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TestStatusApiResultReply"
+          },
+          {
+            "$ref": "#/components/schemas/TestStatusApiResultGroupedReply"
+          }
+        ],
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
       "TestStatusApiResultReply": {
         "required": [
           "data",
@@ -50382,7 +50645,8 @@
                 "$ref": "#/components/schemas/FailureCategory"
               }
             ],
-            "description": "Category type"
+            "description": "Category type",
+            "format": "Enumeration"
           },
           "failureClassRegexes": {
             "type": "array",
@@ -50428,7 +50692,8 @@
                 "$ref": "#/components/schemas/FailureCategory"
               }
             ],
-            "description": "Category type"
+            "description": "Category type",
+            "format": "Enumeration"
           },
           "failureClassRegexes": {
             "type": "array",
@@ -50908,7 +51173,8 @@
                 "$ref": "#/components/schemas/WorkItemStateApiModel"
               }
             ],
-            "description": "Current state of the work item"
+            "description": "Current state of the work item",
+            "format": "Enumeration"
           },
           "priority": {
             "allOf": [
@@ -50916,7 +51182,8 @@
                 "$ref": "#/components/schemas/WorkItemPriorityApiModel"
               }
             ],
-            "description": "Priority level assigned to the work item"
+            "description": "Priority level assigned to the work item",
+            "format": "Enumeration"
           },
           "attributes": {
             "type": "object",
@@ -51347,7 +51614,8 @@
                 "$ref": "#/components/schemas/WebHookEventTypeModel"
               }
             ],
-            "description": "Type of event which triggers the webhook"
+            "description": "Type of event which triggers the webhook",
+            "format": "Enumeration"
           },
           "description": {
             "type": "string",
@@ -51365,7 +51633,8 @@
                 "$ref": "#/components/schemas/RequestTypeModel"
               }
             ],
-            "description": "Request method of the webhook"
+            "description": "Request method of the webhook",
+            "format": "Enumeration"
           },
           "shouldSendBody": {
             "type": "boolean",
@@ -51428,7 +51697,8 @@
                 "$ref": "#/components/schemas/RequestTypeModel"
               }
             ],
-            "description": "Request method of the webhook"
+            "description": "Request method of the webhook",
+            "format": "Enumeration"
           },
           "url": {
             "minLength": 1,
@@ -53010,7 +53280,8 @@
               {
                 "$ref": "#/components/schemas/WorkItemGroupType"
               }
-            ]
+            ],
+            "format": "Enumeration"
           },
           "customAttributeId": {
             "type": "string",
@@ -53627,7 +53898,8 @@
               {
                 "$ref": "#/components/schemas/WorkItemTypeModel"
               }
-            ]
+            ],
+            "format": "Enumeration"
           },
           "isAutomated": {
             "title": "Flag that defines if workitem is automated",
@@ -53747,21 +54019,24 @@
               {
                 "$ref": "#/components/schemas/WorkItemStates"
               }
-            ]
+            ],
+            "format": "Enumeration"
           },
           "priority": {
             "allOf": [
               {
                 "$ref": "#/components/schemas/WorkItemPriorityModel"
               }
-            ]
+            ],
+            "format": "Enumeration"
           },
           "sourceType": {
             "allOf": [
               {
                 "$ref": "#/components/schemas/WorkItemSourceTypeModel"
               }
-            ]
+            ],
+            "format": "Enumeration"
           },
           "steps": {
             "title": "Collection of workitem steps",
@@ -54921,6 +55196,76 @@
         },
         "additionalProperties": false
       },
+      "WorkflowProjectApiResultGroup": {
+        "required": [
+          "data",
+          "key",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GroupKey"
+              }
+            ]
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowProjectApiResult"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkflowProjectApiResultGroupedReply": {
+        "required": [
+          "groups",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowProjectApiResultGroup"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkflowProjectApiResultIReply": {
+        "required": [
+          "totalCount"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/WorkflowProjectApiResultReply"
+          },
+          {
+            "$ref": "#/components/schemas/WorkflowProjectApiResultGroupedReply"
+          }
+        ],
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
       "WorkflowProjectApiResultReply": {
         "required": [
           "data",
@@ -54990,6 +55335,76 @@
                 "$ref": "#/components/schemas/WorkflowProjectApiResultApiCollectionPreview"
               }
             ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkflowShortApiResultGroup": {
+        "required": [
+          "data",
+          "key",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GroupKey"
+              }
+            ]
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowShortApiResult"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkflowShortApiResultGroupedReply": {
+        "required": [
+          "groups",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowShortApiResultGroup"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkflowShortApiResultIReply": {
+        "required": [
+          "totalCount"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/WorkflowShortApiResultReply"
+          },
+          {
+            "$ref": "#/components/schemas/WorkflowShortApiResultGroupedReply"
+          }
+        ],
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -55173,9 +55588,6 @@
     },
     {
       "name": "Projects"
-    },
-    {
-      "name": "Search"
     },
     {
       "name": "Sections"

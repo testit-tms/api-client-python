@@ -300,7 +300,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_workflows_id_projects_search_post**
-> WorkflowProjectApiResultReply api_v2_workflows_id_projects_search_post(id)
+> WorkflowProjectApiResultIReply api_v2_workflows_id_projects_search_post(id)
 
 
 
@@ -314,7 +314,7 @@ import time
 import testit_api_client
 from testit_api_client.api import workflows_api
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.workflow_project_api_result_reply import WorkflowProjectApiResultReply
+from testit_api_client.model.workflow_project_api_result_i_reply import WorkflowProjectApiResultIReply
 from testit_api_client.model.api_v2_workflows_id_projects_search_post_request import ApiV2WorkflowsIdProjectsSearchPostRequest
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkflowProjectApiResultReply**](WorkflowProjectApiResultReply.md)
+[**WorkflowProjectApiResultIReply**](WorkflowProjectApiResultIReply.md)
 
 ### Authorization
 
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_workflows_search_post**
-> WorkflowShortApiResultReply api_v2_workflows_search_post()
+> WorkflowShortApiResultIReply api_v2_workflows_search_post()
 
 
 
@@ -696,7 +696,7 @@ import testit_api_client
 from testit_api_client.api import workflows_api
 from testit_api_client.model.api_v2_workflows_search_post_request import ApiV2WorkflowsSearchPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.workflow_short_api_result_reply import WorkflowShortApiResultReply
+from testit_api_client.model.workflow_short_api_result_i_reply import WorkflowShortApiResultIReply
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -746,7 +746,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkflowShortApiResultReply**](WorkflowShortApiResultReply.md)
+[**WorkflowShortApiResultIReply**](WorkflowShortApiResultIReply.md)
 
 ### Authorization
 

@@ -1582,7 +1582,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_projects_shorts_post**
-> ProjectShortApiResultReply api_v2_projects_shorts_post()
+> ProjectShortApiResultIReply api_v2_projects_shorts_post()
 
 Get projects short models
 
@@ -1597,7 +1597,7 @@ Get projects short models
 import time
 import testit_api_client
 from testit_api_client.api import projects_api
-from testit_api_client.model.project_short_api_result_reply import ProjectShortApiResultReply
+from testit_api_client.model.project_short_api_result_i_reply import ProjectShortApiResultIReply
 from testit_api_client.model.api_v2_projects_shorts_post_request import ApiV2ProjectsShortsPostRequest
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
@@ -1650,7 +1650,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectShortApiResultReply**](ProjectShortApiResultReply.md)
+[**ProjectShortApiResultIReply**](ProjectShortApiResultIReply.md)
 
 ### Authorization
 
