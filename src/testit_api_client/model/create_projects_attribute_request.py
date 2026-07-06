@@ -161,7 +161,7 @@ class CreateProjectsAttributeRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options   Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
+            options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options      Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -270,7 +270,7 @@ class CreateProjectsAttributeRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options   Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
+            options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options      Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -60,7 +60,7 @@ class TestRunsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns',
                 'operation_id': 'api_v2_test_runs_delete',
@@ -111,7 +111,7 @@ class TestRunsApi(object):
                 'response_type': (AutoTestNamespacesCountResponse,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/autoTestsNamespaces',
                 'operation_id': 'api_v2_test_runs_id_auto_tests_namespaces_get',
@@ -163,7 +163,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}',
                 'operation_id': 'api_v2_test_runs_id_delete',
@@ -215,7 +215,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}',
                 'operation_id': 'api_v2_test_runs_id_patch',
@@ -273,7 +273,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/purge',
                 'operation_id': 'api_v2_test_runs_id_purge_post',
@@ -325,7 +325,7 @@ class TestRunsApi(object):
                 'response_type': (ManualRerunApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/reruns',
                 'operation_id': 'api_v2_test_runs_id_reruns_post',
@@ -383,7 +383,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/restore',
                 'operation_id': 'api_v2_test_runs_id_restore_post',
@@ -435,7 +435,7 @@ class TestRunsApi(object):
                 'response_type': (TestResultsStatisticsApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/statistics/filter',
                 'operation_id': 'api_v2_test_runs_id_statistics_filter_post',
@@ -493,7 +493,7 @@ class TestRunsApi(object):
                 'response_type': ([TestPointResultApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testPoints/results',
                 'operation_id': 'api_v2_test_runs_id_test_points_results_get',
@@ -545,7 +545,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testResults/bulk',
                 'operation_id': 'api_v2_test_runs_id_test_results_bulk_put',
@@ -603,7 +603,7 @@ class TestRunsApi(object):
                 'response_type': (datetime, none_type,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testResults/lastModified/modificationDate',
                 'operation_id': 'api_v2_test_runs_id_test_results_last_modified_modification_date_get',
@@ -655,7 +655,7 @@ class TestRunsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/purge/bulk',
                 'operation_id': 'api_v2_test_runs_purge_bulk_post',
@@ -706,7 +706,7 @@ class TestRunsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/restore/bulk',
                 'operation_id': 'api_v2_test_runs_restore_bulk_post',
@@ -757,7 +757,7 @@ class TestRunsApi(object):
                 'response_type': ([TestRunShortApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/search',
                 'operation_id': 'api_v2_test_runs_search_post',
@@ -833,7 +833,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/updateMultiple',
                 'operation_id': 'api_v2_test_runs_update_multiple_post',
@@ -884,7 +884,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/complete',
                 'operation_id': 'complete_test_run',
@@ -936,7 +936,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/byAutoTests',
                 'operation_id': 'create_and_fill_by_auto_tests',
@@ -987,7 +987,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/byConfigurations',
                 'operation_id': 'create_and_fill_by_configurations',
@@ -1038,7 +1038,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/byWorkItems',
                 'operation_id': 'create_and_fill_by_work_items',
@@ -1089,7 +1089,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns',
                 'operation_id': 'create_empty',
@@ -1140,7 +1140,7 @@ class TestRunsApi(object):
                 'response_type': (TestRunV2ApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}',
                 'operation_id': 'get_test_run_by_id',
@@ -1192,7 +1192,7 @@ class TestRunsApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/testResults',
                 'operation_id': 'set_auto_test_results_for_test_run',
@@ -1250,7 +1250,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/start',
                 'operation_id': 'start_test_run',
@@ -1302,7 +1302,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns/{id}/stop',
                 'operation_id': 'stop_test_run',
@@ -1354,7 +1354,7 @@ class TestRunsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testRuns',
                 'operation_id': 'update_empty',
@@ -1407,7 +1407,7 @@ class TestRunsApi(object):
     ):
         """Delete multiple test runs  # noqa: E501
 
-         Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs  # noqa: E501
+          Use case    User sets selection parameters of test runs    System search and delete collection of test runs    System returns the number of deleted test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1569,7 +1569,7 @@ class TestRunsApi(object):
     ):
         """Delete test run  # noqa: E501
 
-         Use case  User sets test run internal (guid format) identifier  System search and delete test run  # noqa: E501
+          Use case    User sets test run internal (guid format) identifier    System search and delete test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1736,7 +1736,7 @@ class TestRunsApi(object):
     ):
         """Permanently delete test run from archive  # noqa: E501
 
-         Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run  # noqa: E501
+          Use case    User sets archived test run internal (guid format) identifier    System search and purge archived test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1902,7 +1902,7 @@ class TestRunsApi(object):
     ):
         """Restore test run from the archive  # noqa: E501
 
-         Use case  User sets archived test run internal (guid format) identifier  System search and restore test run  # noqa: E501
+          Use case    User sets archived test run internal (guid format) identifier    System search and restore test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2314,7 +2314,7 @@ class TestRunsApi(object):
     ):
         """Permanently delete multiple test runs from archive  # noqa: E501
 
-         Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs  # noqa: E501
+          Use case    User sets selection parameters of archived test runs    System search and delete collection of archived test runs    System returns the number of deleted archived test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2393,7 +2393,7 @@ class TestRunsApi(object):
     ):
         """Restore multiple test runs from the archive  # noqa: E501
 
-         Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs  # noqa: E501
+          Use case    User sets selection parameters of archived test runs    System search and restore collection of archived test runs    System returns the number of restored test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2634,7 +2634,7 @@ class TestRunsApi(object):
     ):
         """Complete TestRun  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response  # noqa: E501
+          Use case    User sets test run identifier    User runs method execution    System completes test run    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2716,7 +2716,7 @@ class TestRunsApi(object):
     ):
         """Create test runs based on autotests and configurations  # noqa: E501
 
-        This method creates a test run based on an autotest and a configuration. The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is that in this method there is no need to create a test plan and work items (test cases and checklists).  # noqa: E501
+        This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2795,7 +2795,7 @@ class TestRunsApi(object):
     ):
         """Create test runs picking the needed test points  # noqa: E501
 
-        This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a jagged array within the \"<b>testPointSelectors</b>\" parameter.  # noqa: E501
+        This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2874,7 +2874,7 @@ class TestRunsApi(object):
     ):
         """Create test run based on configurations and work items  # noqa: E501
 
-        This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  # noqa: E501
+        This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2953,7 +2953,7 @@ class TestRunsApi(object):
     ):
         """Create empty TestRun  # noqa: E501
 
-         Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model  # noqa: E501
+          Use case    User sets test run model (listed in the request example)    User runs method execution    System creates test run    System returns test run model  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3033,7 +3033,7 @@ class TestRunsApi(object):
     ):
         """Get TestRun by Id  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run  # noqa: E501
+          Use case    User sets test run identifier    User runs method execution    System finds test run    System returns test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3200,7 +3200,7 @@ class TestRunsApi(object):
     ):
         """Start TestRun  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response  # noqa: E501
+          Use case    User sets test run identifier    User runs method execution    System starts test run    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3283,7 +3283,7 @@ class TestRunsApi(object):
     ):
         """Stop TestRun  # noqa: E501
 
-         Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response  # noqa: E501
+          Use case    User sets test run identifier    User runs method execution    System stops test run    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3365,7 +3365,7 @@ class TestRunsApi(object):
     ):
         """Update empty TestRun  # noqa: E501
 
-         Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response  # noqa: E501
+          Use case    User sets test run properties (listed in the request example)    User runs method execution    System updates test run    System returns returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

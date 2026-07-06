@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **flaky_stability_percentage** | **int** | Stability percentage for autotest flaky computing | [optional]  if omitted the server will use the default value of 100
 **flaky_test_run_count** | **int** | Last test run count for autotest flaky computing | [optional]  if omitted the server will use the default value of 100
 **work_item_updating_enabled** | **bool** | Autotest to work item updating enabled | [optional]  if omitted the server will use the default value of False
-**test_runs_retention_period_days** | **int** |  The retention period in days for test runs. After this period, outdated test runs may be archived based on project settings | [optional]  if omitted the server will use the default value of 180
-**max_active_test_runs_count** | **int** | Maximum number of active test runs to keep. When this limit is exceeded, older test runs are automatically archived | [optional]  if omitted the server will use the default value of 500
+**test_runs_retention_period_days** | **int** |  The retention period in days for test runs. After this period,  outdated test runs may be archived based on project settings | [optional]  if omitted the server will use the default value of 180
+**max_active_test_runs_count** | **int** | Maximum number of active test runs to keep. When this limit is exceeded,  older test runs are automatically archived | [optional]  if omitted the server will use the default value of 500
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

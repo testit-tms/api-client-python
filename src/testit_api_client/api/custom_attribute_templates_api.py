@@ -47,7 +47,7 @@ class CustomAttributeTemplatesApi(object):
                 'response_type': (CustomAttributeTemplateValidationResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/exists',
                 'operation_id': 'api_v2_custom_attributes_templates_exists_get',
@@ -97,7 +97,7 @@ class CustomAttributeTemplatesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{id}/customAttributes/exclude',
                 'operation_id': 'api_v2_custom_attributes_templates_id_custom_attributes_exclude_post',
@@ -159,7 +159,7 @@ class CustomAttributeTemplatesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{id}/customAttributes/include',
                 'operation_id': 'api_v2_custom_attributes_templates_id_custom_attributes_include_post',
@@ -221,7 +221,7 @@ class CustomAttributeTemplatesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{id}',
                 'operation_id': 'api_v2_custom_attributes_templates_id_delete',
@@ -273,7 +273,7 @@ class CustomAttributeTemplatesApi(object):
                 'response_type': (CustomAttributeTemplateModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{id}',
                 'operation_id': 'api_v2_custom_attributes_templates_id_get',
@@ -325,7 +325,7 @@ class CustomAttributeTemplatesApi(object):
                 'response_type': (CustomAttributeTemplateModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/{name}',
                 'operation_id': 'api_v2_custom_attributes_templates_name_get',
@@ -377,7 +377,7 @@ class CustomAttributeTemplatesApi(object):
                 'response_type': (CustomAttributeTemplateModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates',
                 'operation_id': 'api_v2_custom_attributes_templates_post',
@@ -428,7 +428,7 @@ class CustomAttributeTemplatesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates',
                 'operation_id': 'api_v2_custom_attributes_templates_put',
@@ -479,7 +479,7 @@ class CustomAttributeTemplatesApi(object):
                 'response_type': ([SearchCustomAttributeTemplateGetModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/customAttributes/templates/search',
                 'operation_id': 'api_v2_custom_attributes_templates_search_post',
@@ -636,7 +636,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Exclude CustomAttributes from CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte  # noqa: E501
+          Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System delete attributes from attributes tempalte  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -720,7 +720,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Include CustomAttributes to CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte  # noqa: E501
+          Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System add attributes to attributes tempalte  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -804,7 +804,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Delete CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response  # noqa: E501
+          Use case    User sets attribute template internal identifier    User runs method execution    System search and delete attribute template    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -887,7 +887,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Get CustomAttributeTemplate by ID  # noqa: E501
 
-         Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)  # noqa: E501
+          Use case    User sets attribute template internal identifier    User runs method execution    System return attribute template (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -970,7 +970,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Get CustomAttributeTemplate by name  # noqa: E501
 
-         Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)  # noqa: E501
+          Use case    User sets attribute template name    User runs method execution    System search and return list of attribute templates (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1052,7 +1052,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Create CustomAttributeTemplate  # noqa: E501
 
-         Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)  # noqa: E501
+          Use case    User sets attribute template parameters (listed in request example)    User runs method execution    System creates attribute template    System returns attribute template model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1209,7 +1209,7 @@ class CustomAttributeTemplatesApi(object):
     ):
         """Search CustomAttributeTemplates  # noqa: E501
 
-         Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)  # noqa: E501
+          Use case    User sets search params model (listed in request example)    User runs method execution    System return attribute templates (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -44,7 +44,7 @@ class NotificationsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/notifications/count',
                 'operation_id': 'api_v2_notifications_count_get',
@@ -94,7 +94,7 @@ class NotificationsApi(object):
                 'response_type': ([NotificationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/notifications',
                 'operation_id': 'api_v2_notifications_get',
@@ -169,7 +169,7 @@ class NotificationsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/notifications/{id}/read',
                 'operation_id': 'api_v2_notifications_id_read_post',
@@ -221,7 +221,7 @@ class NotificationsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/notifications/read',
                 'operation_id': 'api_v2_notifications_read_post',
@@ -266,7 +266,7 @@ class NotificationsApi(object):
                 'response_type': ([NotificationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/notifications/search',
                 'operation_id': 'api_v2_notifications_search_post',
@@ -344,7 +344,7 @@ class NotificationsApi(object):
     ):
         """Get unread Notifications total in last 7 days  # noqa: E501
 
-         Use case  User runs method execution  System returns unread notifications total (listed in the response example)  # noqa: E501
+          Use case    User runs method execution    System returns unread notifications total (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -423,7 +423,7 @@ class NotificationsApi(object):
     ):
         """Get all Notifications for current User  # noqa: E501
 
-         Use case  User runs method execution  System returns notifications (listed in the response example)  # noqa: E501
+          Use case    User runs method execution    System returns notifications (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -508,7 +508,7 @@ class NotificationsApi(object):
     ):
         """Set Notification as read  # noqa: E501
 
-         Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read  # noqa: E501
+          Use case    User sets notification internal (guid format) identifier    User runs method execution    System set notification as read  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -590,7 +590,7 @@ class NotificationsApi(object):
     ):
         """Set all Notifications as read  # noqa: E501
 
-         Use case  User runs method execution  System set all notifications as read  # noqa: E501
+          Use case    User runs method execution    System set all notifications as read  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -668,7 +668,7 @@ class NotificationsApi(object):
     ):
         """Search Notifications for current User  # noqa: E501
 
-         Use case  User set filter and runs method execution  System returns notifications (listed in the response example)  # noqa: E501
+          Use case    User set filter and runs method execution    System returns notifications (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

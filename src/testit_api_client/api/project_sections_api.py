@@ -42,7 +42,7 @@ class ProjectSectionsApi(object):
                 'response_type': ([SectionModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/sections',
                 'operation_id': 'get_sections_by_project_id',
@@ -122,7 +122,7 @@ class ProjectSectionsApi(object):
     ):
         """Get project sections  # noqa: E501
 
-         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)  # noqa: E501
+          Use case    User sets project internal or global identifier and runs method execution    System search project    System search all sections related to the project    System returns array of sections (listed in response)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -124,7 +124,7 @@ class CustomAttributeApiResult(ModelNormal):
 
         Args:
             id (str): Unique ID of the attribute
-            options ([CustomAttributeOptionApiResult]): Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
+            options ([CustomAttributeOptionApiResult]): Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
             type (CustomAttributeType):
             is_deleted (bool): Indicates if the attribute is deleted
             name (str): Name of the attribute
@@ -132,7 +132,7 @@ class CustomAttributeApiResult(ModelNormal):
             is_required (bool): Indicates if the attribute value is mandatory to specify
             is_global (bool): Indicates if the attribute is available across all projects
             is_system (bool): Indicates if the attribute is system
-            targets ([str]): Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+            targets ([str]): Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -231,7 +231,7 @@ class CustomAttributeApiResult(ModelNormal):
 
         Args:
             id (str): Unique ID of the attribute
-            options ([CustomAttributeOptionApiResult]): Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
+            options ([CustomAttributeOptionApiResult]): Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
             type (CustomAttributeType):
             is_deleted (bool): Indicates if the attribute is deleted
             name (str): Name of the attribute
@@ -239,7 +239,7 @@ class CustomAttributeApiResult(ModelNormal):
             is_required (bool): Indicates if the attribute value is mandatory to specify
             is_global (bool): Indicates if the attribute is available across all projects
             is_system (bool): Indicates if the attribute is system
-            targets ([str]): Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+            targets ([str]): Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

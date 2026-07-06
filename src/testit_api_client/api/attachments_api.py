@@ -43,7 +43,7 @@ class AttachmentsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/attachments/{id}',
                 'operation_id': 'api_v2_attachments_id_delete',
@@ -95,7 +95,7 @@ class AttachmentsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/attachments/{id}',
                 'operation_id': 'api_v2_attachments_id_get',
@@ -192,7 +192,7 @@ class AttachmentsApi(object):
                 'response_type': (AttachmentModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/attachments/{id}/metadata',
                 'operation_id': 'api_v2_attachments_id_metadata_get',
@@ -244,7 +244,7 @@ class AttachmentsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/attachments/occupiedFileStorageSize',
                 'operation_id': 'api_v2_attachments_occupied_file_storage_size_get',
@@ -289,7 +289,7 @@ class AttachmentsApi(object):
                 'response_type': (AttachmentModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/attachments',
                 'operation_id': 'api_v2_attachments_post',
@@ -671,7 +671,7 @@ class AttachmentsApi(object):
     ):
         """Upload new attachment file  # noqa: E501
 
-        File size is restricted to 50 MB (52 428 800 bytes)  # noqa: E501
+        File size is restricted to 1 GB (1 073 741 824 bytes)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

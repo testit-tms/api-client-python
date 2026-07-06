@@ -16,12 +16,12 @@ Method | HTTP request | Description
 
 Add attributes to project's test plans
 
- Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
+  Use case    User sets project internal or global identifier and attributes identifiers    User runs method execution    System updates project and add attributes to project for test plans    System returns no content response
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -47,11 +47,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -92,7 +92,7 @@ void (empty response body)
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -105,7 +105,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |  Attributes must be global |  -  |
+**400** |   Attributes must be global |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for project settings is required |  -  |
 **404** | Not Found |  -  |
@@ -119,12 +119,12 @@ void (empty response body)
 
 Delete attribute from project's test plans
 
- Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
+  Use case    User sets project internal or global identifier and attribute identifier    User runs method execution    System updates project and delete attribute from project for test plans    System returns no content response
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -150,11 +150,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -185,7 +185,7 @@ void (empty response body)
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -212,12 +212,12 @@ void (empty response body)
 
 Get project's test plan attributes
 
- Use case  User runs method execution  System returns project for test plans attributes by project identifier
+  Use case    User runs method execution    System returns project for test plans attributes by project identifier
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -244,11 +244,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -308,7 +308,7 @@ Search for attributes used in the project test plans
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -336,11 +336,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -418,12 +418,12 @@ Name | Type | Description  | Notes
 
 Update attribute of project's test plans
 
- Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
+  Use case    User sets project internal or global identifier and attribute model    User runs method execution    System updates project and project attribute for test plan    System returns no content response
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -450,11 +450,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -493,7 +493,7 @@ void (empty response body)
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 

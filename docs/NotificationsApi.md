@@ -16,12 +16,12 @@ Method | HTTP request | Description
 
 Get unread Notifications total in last 7 days
 
- Use case  User runs method execution  System returns unread notifications total (listed in the response example)
+  Use case    User runs method execution    System returns unread notifications total (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -47,11 +47,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -109,12 +109,12 @@ Name | Type | Description  | Notes
 
 Get all Notifications for current User
 
- Use case  User runs method execution  System returns notifications (listed in the response example)
+  Use case    User runs method execution    System returns notifications (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -142,11 +142,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found |  -  |
+**400** |   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
@@ -214,12 +214,12 @@ Name | Type | Description  | Notes
 
 Set Notification as read
 
- Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
+  Use case    User sets notification internal (guid format) identifier    User runs method execution    System set notification as read
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -245,11 +245,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -278,7 +278,7 @@ void (empty response body)
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -306,12 +306,12 @@ void (empty response body)
 
 Set all Notifications as read
 
- Use case  User runs method execution  System set all notifications as read
+  Use case    User runs method execution    System set all notifications as read
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -337,11 +337,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -366,7 +366,7 @@ void (empty response body)
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -394,12 +394,12 @@ void (empty response body)
 
 Search Notifications for current User
 
- Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
+  Use case    User set filter and runs method execution    System returns notifications (listed in the response example)
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -427,11 +427,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 

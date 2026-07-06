@@ -49,7 +49,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/bulk',
                 'operation_id': 'api_v2_parameters_bulk_post',
@@ -100,7 +100,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/bulk',
                 'operation_id': 'api_v2_parameters_bulk_put',
@@ -151,7 +151,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterGroupApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/groups',
                 'operation_id': 'api_v2_parameters_groups_get',
@@ -247,7 +247,7 @@ class ParametersApi(object):
                 'response_type': (bool,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/key/name/{name}/exists',
                 'operation_id': 'api_v2_parameters_key_name_name_exists_get',
@@ -299,7 +299,7 @@ class ParametersApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/{key}/values',
                 'operation_id': 'api_v2_parameters_key_values_get',
@@ -351,7 +351,7 @@ class ParametersApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/keys',
                 'operation_id': 'api_v2_parameters_keys_get',
@@ -427,7 +427,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterGroupApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/search/groups',
                 'operation_id': 'api_v2_parameters_search_groups_post',
@@ -503,7 +503,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/search',
                 'operation_id': 'api_v2_parameters_search_post',
@@ -579,7 +579,7 @@ class ParametersApi(object):
                 'response_type': (ParameterApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters',
                 'operation_id': 'create_parameter',
@@ -630,7 +630,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/name/{name}',
                 'operation_id': 'delete_by_name',
@@ -687,7 +687,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/keyId/{keyId}',
                 'operation_id': 'delete_by_parameter_key_id',
@@ -739,7 +739,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/{id}',
                 'operation_id': 'delete_parameter',
@@ -791,7 +791,7 @@ class ParametersApi(object):
                 'response_type': ([ParameterApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters',
                 'operation_id': 'get_all_parameters',
@@ -866,7 +866,7 @@ class ParametersApi(object):
                 'response_type': (ParameterApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters/{id}',
                 'operation_id': 'get_parameter_by_id',
@@ -918,7 +918,7 @@ class ParametersApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/parameters',
                 'operation_id': 'update_parameter',
@@ -971,7 +971,7 @@ class ParametersApi(object):
     ):
         """Create multiple parameters  # noqa: E501
 
-         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)  # noqa: E501
+          Use case    User sets list of parameter model (listed in the request example)    User runs method execution    System creates parameters    System returns list of parameter model (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1050,7 +1050,7 @@ class ParametersApi(object):
     ):
         """Update multiple parameters  # noqa: E501
 
-         Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters  # noqa: E501
+          Use case    User sets list of parameter model (listed in the request example)    User runs method execution    System updates parameters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1129,7 +1129,7 @@ class ParametersApi(object):
     ):
         """Get parameters as group  # noqa: E501
 
-         Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)  # noqa: E501
+          Use case    User runs method execution    System search parameters    System returns parameters models as groups (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1217,7 +1217,7 @@ class ParametersApi(object):
     ):
         """Check existence parameter key in system  # noqa: E501
 
-         Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system  # noqa: E501
+          Use case    User sets name of parameter key    User runs method execution    System search parameter key    System returns the flag for the existence of the parameter key in the system  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1300,7 +1300,7 @@ class ParametersApi(object):
     ):
         """Get all parameter key values  # noqa: E501
 
-         Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter  # noqa: E501
+          Use case    User sets parameter key (string format)    User runs method execution    System search parameter values using the key    System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1382,7 +1382,7 @@ class ParametersApi(object):
     ):
         """Get all parameter keys  # noqa: E501
 
-         Use case  User runs method execution  System search all parameter keys  System returns parameter keys  # noqa: E501
+          Use case    User runs method execution    System search all parameter keys    System returns parameter keys  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1632,7 +1632,7 @@ class ParametersApi(object):
     ):
         """Create parameter  # noqa: E501
 
-         Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model  # noqa: E501
+          Use case    User sets parameter model (listed in the request example)    User runs method execution    System creates parameter    System returns parameter model  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1878,7 +1878,7 @@ class ParametersApi(object):
     ):
         """Delete parameter  # noqa: E501
 
-         Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter  # noqa: E501
+          Use case    User sets parameter internal (guid format) identifier    System search and delete parameter    System returns deleted parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1960,7 +1960,7 @@ class ParametersApi(object):
     ):
         """Get all parameters  # noqa: E501
 
-         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)  # noqa: E501
+          Use case    [Optional] User sets isDeleted field value    [Optional] If User sets isDeleted field value as true, System search all deleted parameters    [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted    If User did not set isDeleted field value, System search all parameters    System returns array of all found parameters(listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2045,7 +2045,7 @@ class ParametersApi(object):
     ):
         """Get parameter by ID  # noqa: E501
 
-         Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter  # noqa: E501
+          Use case    User sets parameter internal (guid format) identifier    User runs method execution    System search parameter using the identifier    System returns parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2127,7 +2127,7 @@ class ParametersApi(object):
     ):
         """Update parameter  # noqa: E501
 
-         Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response  # noqa: E501
+          Use case    User sets parameter updated properties(listed in the request example)    User runs method execution    System updated parameter using updated properties    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

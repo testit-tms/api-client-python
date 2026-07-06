@@ -59,7 +59,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/test-points/withSections',
                 'operation_id': 'add_test_points_with_sections',
@@ -117,7 +117,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/workItems/withSections',
                 'operation_id': 'add_work_items_with_sections',
@@ -179,7 +179,7 @@ class TestPlansApi(object):
                 'response_type': (TestPointAnalyticResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/analytics',
                 'operation_id': 'api_v2_test_plans_id_analytics_get',
@@ -231,7 +231,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanWithTestSuiteTreeModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/autobalance',
                 'operation_id': 'api_v2_test_plans_id_autobalance_post',
@@ -293,7 +293,7 @@ class TestPlansApi(object):
                 'response_type': ([ConfigurationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/configurations',
                 'operation_id': 'api_v2_test_plans_id_configurations_get',
@@ -345,7 +345,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/export/testPoints/xlsx',
                 'operation_id': 'api_v2_test_plans_id_export_test_points_xlsx_post',
@@ -408,7 +408,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/export/testResultHistory/xlsx',
                 'operation_id': 'api_v2_test_plans_id_export_test_result_history_xlsx_post',
@@ -480,7 +480,7 @@ class TestPlansApi(object):
                 'response_type': ([TestPlanChangeModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/history',
                 'operation_id': 'api_v2_test_plans_id_history_get',
@@ -557,7 +557,7 @@ class TestPlansApi(object):
                 'response_type': ([TestPlanLink],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/links',
                 'operation_id': 'api_v2_test_plans_id_links_get',
@@ -624,7 +624,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}',
                 'operation_id': 'api_v2_test_plans_id_patch',
@@ -682,7 +682,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanSummaryModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/summaries',
                 'operation_id': 'api_v2_test_plans_id_summaries_get',
@@ -734,7 +734,7 @@ class TestPlansApi(object):
                 'response_type': ([TestPointWithLastResultResponseModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testPoints/lastResults',
                 'operation_id': 'api_v2_test_plans_id_test_points_last_results_get',
@@ -816,7 +816,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testPoints/reset',
                 'operation_id': 'api_v2_test_plans_id_test_points_reset_post',
@@ -878,7 +878,7 @@ class TestPlansApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testPoints/tester',
                 'operation_id': 'api_v2_test_plans_id_test_points_tester_delete',
@@ -936,7 +936,7 @@ class TestPlansApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testPoints/tester/{userId}',
                 'operation_id': 'api_v2_test_plans_id_test_points_tester_user_id_post',
@@ -1000,7 +1000,7 @@ class TestPlansApi(object):
                 'response_type': ([TestRunApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testRuns',
                 'operation_id': 'api_v2_test_plans_id_test_runs_get',
@@ -1097,7 +1097,7 @@ class TestPlansApi(object):
                 'response_type': ([TestRunApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testRuns/search',
                 'operation_id': 'api_v2_test_plans_id_test_runs_search_post',
@@ -1180,7 +1180,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testRuns/testResults/lastModified/modifiedDate',
                 'operation_id': 'api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get',
@@ -1232,7 +1232,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/unlock/request',
                 'operation_id': 'api_v2_test_plans_id_unlock_request_post',
@@ -1284,7 +1284,7 @@ class TestPlansApi(object):
                 'response_type': ([TestPlanShortModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/shorts',
                 'operation_id': 'api_v2_test_plans_shorts_post',
@@ -1344,7 +1344,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/clone',
                 'operation_id': 'clone',
@@ -1396,7 +1396,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/complete',
                 'operation_id': 'complete',
@@ -1448,7 +1448,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans',
                 'operation_id': 'create_test_plan',
@@ -1499,7 +1499,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}',
                 'operation_id': 'delete_test_plan',
@@ -1551,7 +1551,7 @@ class TestPlansApi(object):
                 'response_type': (TestPlanModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}',
                 'operation_id': 'get_test_plan_by_id',
@@ -1603,7 +1603,7 @@ class TestPlansApi(object):
                 'response_type': ([TestSuiteHierarchyApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/testSuites',
                 'operation_id': 'get_test_suites_by_id',
@@ -1655,7 +1655,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/pause',
                 'operation_id': 'pause',
@@ -1707,7 +1707,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/purge',
                 'operation_id': 'purge_test_plan',
@@ -1759,7 +1759,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/restore',
                 'operation_id': 'restore_test_plan',
@@ -1811,7 +1811,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans/{id}/start',
                 'operation_id': 'start',
@@ -1863,7 +1863,7 @@ class TestPlansApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testPlans',
                 'operation_id': 'update_test_plan',
@@ -1924,7 +1924,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             api_v2_projects_project_id_work_items_search_id_post_request (ApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest): Filter object to retrieve work items for test-suite's project. [optional]
@@ -2000,7 +2000,7 @@ class TestPlansApi(object):
     ):
         """Add WorkItems to TestPlan with Sections as TestSuites  # noqa: E501
 
-         Use case  User sets TestPlan identifier  User sets WorkItem identifiers (listed in request example)  User runs method execution  System added WorkItems and Sections to TestPlan  System returns no content response  # noqa: E501
+          Use case    User sets TestPlan identifier    User sets WorkItem identifiers (listed in request example)    User runs method execution    System added WorkItems and Sections to TestPlan    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2008,7 +2008,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             request_body ([str]): [optional]
@@ -2084,7 +2084,7 @@ class TestPlansApi(object):
     ):
         """Get analytics by TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System returns analytics by test plan  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System returns analytics by test plan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2092,7 +2092,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -2250,7 +2250,7 @@ class TestPlansApi(object):
     ):
         """Get TestPlan configurations  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System return test plan configurations  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System return test plan configurations  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2258,7 +2258,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -2333,7 +2333,7 @@ class TestPlansApi(object):
     ):
         """Export TestPoints from TestPlan in xls format  # noqa: E501
 
-         Use case  User sets test plan identifier  User sets filter model (listed in request example)  User runs method execution  System return export xlsx file  # noqa: E501
+          Use case    User sets test plan identifier    User sets filter model (listed in request example)    User runs method execution    System return export xlsx file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2341,7 +2341,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             time_zone_offset_in_minutes (int): [optional]
@@ -2418,7 +2418,7 @@ class TestPlansApi(object):
     ):
         """Export TestResults history from TestPlan in xls format  # noqa: E501
 
-         Use case  User sets test plan identifier  User sets filter model (listed in request example)  User runs method execution  System return export xlsx file  # noqa: E501
+          Use case    User sets test plan identifier    User sets filter model (listed in request example)    User runs method execution    System return export xlsx file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2426,7 +2426,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             must_return_only_last_test_result (bool): [optional]
@@ -2505,7 +2505,7 @@ class TestPlansApi(object):
     ):
         """Get TestPlan history  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System return test plan history  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System return test plan history  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2513,7 +2513,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             skip (int): Amount of items to be skipped (offset). [optional]
@@ -2593,7 +2593,7 @@ class TestPlansApi(object):
     ):
         """Get Links of TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User sets pagination filter (listed in request example)  User runs method execution  System returns links of TestPlan  # noqa: E501
+          Use case    User sets test plan identifier    User sets pagination filter (listed in request example)    User runs method execution    System returns links of TestPlan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2601,7 +2601,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             skip (int): [optional]
@@ -2763,7 +2763,7 @@ class TestPlansApi(object):
     ):
         """Get summary by TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System returns summary by test plan  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System returns summary by test plan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2771,7 +2771,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -2846,7 +2846,7 @@ class TestPlansApi(object):
     ):
         """Get TestPoints with last result from TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User sets filter (listed in request example)  User runs method execution  System return test points with last result from test plan  # noqa: E501
+          Use case    User sets test plan identifier    User sets filter (listed in request example)    User runs method execution    System return test points with last result from test plan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2854,7 +2854,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             tester_id (str): [optional]
@@ -2935,7 +2935,7 @@ class TestPlansApi(object):
     ):
         """Reset TestPoints status of TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User sets test points identifiers  User runs method execution  System reset test points statuses of test plan  # noqa: E501
+          Use case    User sets test plan identifier    User sets test points identifiers    User runs method execution    System reset test points statuses of test plan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2943,7 +2943,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             request_body ([str]): [optional]
@@ -3189,7 +3189,7 @@ class TestPlansApi(object):
     ):
         """Get TestRuns of TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User sets TestRun status filter (listed in request example)  User runs method execution  System returns TestRuns for TestPlan  # noqa: E501
+          Use case    User sets test plan identifier    User sets TestRun status filter (listed in request example)    User runs method execution    System returns TestRuns for TestPlan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3197,7 +3197,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             not_started (bool): [optional]
@@ -3281,7 +3281,7 @@ class TestPlansApi(object):
     ):
         """Search TestRuns of TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User sets TestRuns filter (listed in request example)  User runs method execution  System returns TestRuns for TestPlan  # noqa: E501
+          Use case    User sets test plan identifier    User sets TestRuns filter (listed in request example)    User runs method execution    System returns TestRuns for TestPlan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3289,7 +3289,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             skip (int): Amount of items to be skipped (offset). [optional]
@@ -3452,7 +3452,7 @@ class TestPlansApi(object):
     ):
         """Send unlock TestPlan notification  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System send unlock test plan notification  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System send unlock test plan notification  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3460,7 +3460,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -3534,7 +3534,7 @@ class TestPlansApi(object):
     ):
         """Get TestPlans short models by Project identifiers  # noqa: E501
 
-         Use case  User sets projects identifiers  User runs method execution  System return test plans short models (listed in response example)  # noqa: E501
+          Use case    User sets projects identifiers    User runs method execution    System return test plans short models (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3615,7 +3615,7 @@ class TestPlansApi(object):
     ):
         """Clone TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System clones test plan  System returns test plan (listed in response example)  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System clones test plan    System returns test plan (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3623,7 +3623,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -3698,7 +3698,7 @@ class TestPlansApi(object):
     ):
         """Complete TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System completes the test plan and updates test plan status  System returns no content response  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System completes the test plan and updates test plan status    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3706,7 +3706,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -3780,7 +3780,7 @@ class TestPlansApi(object):
     ):
         """Create TestPlan  # noqa: E501
 
-         Use case  User sets test plan properties (listed in request example)  User runs method execution  System creates test plan  System returns test plan (listed in response example)  # noqa: E501
+          Use case    User sets test plan properties (listed in request example)    User runs method execution    System creates test plan    System returns test plan (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3860,7 +3860,7 @@ class TestPlansApi(object):
     ):
         """Delete TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System delete test plan  System returns no content response  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System delete test plan    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3868,7 +3868,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -3943,7 +3943,7 @@ class TestPlansApi(object):
     ):
         """Get TestPlan by Id  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System search  test plan by the identifier  System returns test plan  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System search  test plan by the identifier    System returns test plan  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3951,7 +3951,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4026,7 +4026,7 @@ class TestPlansApi(object):
     ):
         """Get TestSuites Tree By Id  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System finds test suites related to the test plan  System returns test suites as a tree model (listed in response example)  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System finds test suites related to the test plan    System returns test suites as a tree model (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4034,7 +4034,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4109,7 +4109,7 @@ class TestPlansApi(object):
     ):
         """Pause TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System pauses the test plan and updates test plan status  System returns no content response  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System pauses the test plan and updates test plan status    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4117,7 +4117,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4274,7 +4274,7 @@ class TestPlansApi(object):
     ):
         """Restore TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System restores test plan  System returns no content response  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System restores test plan    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4282,7 +4282,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4357,7 +4357,7 @@ class TestPlansApi(object):
     ):
         """Start TestPlan  # noqa: E501
 
-         Use case  User sets test plan identifier  User runs method execution  System starts the test plan and updates test plan status  System returns no content response  # noqa: E501
+          Use case    User sets test plan identifier    User runs method execution    System starts the test plan and updates test plan status    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4365,7 +4365,7 @@ class TestPlansApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Test plan internal (guid format) or global (int format) identifier
+            id (str): Test plan internal (guid format) or global (int  format) identifier
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4439,7 +4439,7 @@ class TestPlansApi(object):
     ):
         """Update TestPlan  # noqa: E501
 
-         Use case  User sets test plan properties(listed in request example)  User runs method execution  System updates test plan  System returns no content response  # noqa: E501
+          Use case    User sets test plan properties(listed in request example)    User runs method execution    System updates test plan    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

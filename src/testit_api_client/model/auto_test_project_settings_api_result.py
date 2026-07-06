@@ -135,8 +135,8 @@ class AutoTestProjectSettingsApiResult(ModelNormal):
             work_item_updating_fields (AutoTestProjectSettingsApiResultWorkItemUpdatingFields):
             archive_outdated_test_runs_enabled (bool): Indicates whether archiving of outdated test runs is enabled for the project.
             test_runs_archive_limit_enabled (bool): Indicates whether a limit is enforced on the number of archived test runs.
-            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period, outdated test runs may be archived based on project settings
-            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded, older test runs are automatically archived
+            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period,  outdated test runs may be archived based on project settings
+            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded,  older test runs are automatically archived
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -246,8 +246,8 @@ class AutoTestProjectSettingsApiResult(ModelNormal):
             work_item_updating_fields (AutoTestProjectSettingsApiResultWorkItemUpdatingFields):
             archive_outdated_test_runs_enabled (bool): Indicates whether archiving of outdated test runs is enabled for the project.
             test_runs_archive_limit_enabled (bool): Indicates whether a limit is enforced on the number of archived test runs.
-            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period, outdated test runs may be archived based on project settings
-            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded, older test runs are automatically archived
+            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period,  outdated test runs may be archived based on project settings
+            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded,  older test runs are automatically archived
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

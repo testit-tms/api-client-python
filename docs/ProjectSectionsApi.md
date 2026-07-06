@@ -12,12 +12,12 @@ Method | HTTP request | Description
 
 Get project sections
 
- Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)
+  Use case    User sets project internal or global identifier and runs method execution    System search project    System search all sections related to the project    System returns array of sections (listed in response)
 
 ### Example
 
 * Api Key Authentication (PrivateToken):
-* Api Key Authentication (Identity.Application):
+* Api Key Authentication (Cookies):
 
 ```python
 import time
@@ -44,11 +44,11 @@ configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['PrivateToken'] = 'Bearer'
 
-# Configure API key authorization: Identity.Application
-configuration.api_key['Identity.Application'] = 'YOUR_API_KEY'
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Identity.Application'] = 'Bearer'
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with testit_api_client.ApiClient(configuration) as api_client:
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 

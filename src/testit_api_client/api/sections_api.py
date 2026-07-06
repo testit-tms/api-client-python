@@ -49,7 +49,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/sections/{id}',
                 'operation_id': 'api_v2_sections_id_patch',
@@ -107,7 +107,7 @@ class SectionsApi(object):
                 'response_type': (SectionWithStepsModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/sections',
                 'operation_id': 'create_section',
@@ -158,7 +158,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/sections/{id}',
                 'operation_id': 'delete_section',
@@ -210,7 +210,7 @@ class SectionsApi(object):
                 'response_type': (SectionWithStepsModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/sections/{id}',
                 'operation_id': 'get_section_by_id',
@@ -267,7 +267,7 @@ class SectionsApi(object):
                 'response_type': ([WorkItemShortModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/sections/{id}/workItems',
                 'operation_id': 'get_work_items_by_section_id',
@@ -360,7 +360,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/sections/move',
                 'operation_id': 'move',
@@ -411,7 +411,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/sections/rename',
                 'operation_id': 'rename',
@@ -462,7 +462,7 @@ class SectionsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/sections',
                 'operation_id': 'update_section',
@@ -599,7 +599,7 @@ class SectionsApi(object):
     ):
         """Create section  # noqa: E501
 
-         Use case  User sets section properties (listed in request example)  User runs method execution  System creates section property values  System returns section (listed in response example)  # noqa: E501
+          Use case    User sets section properties (listed in request example)    User runs method execution    System creates section property values    System returns section (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -679,7 +679,7 @@ class SectionsApi(object):
     ):
         """Delete section  # noqa: E501
 
-         Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search and delete nested sections of the found section  System search and delete workitems related to the found nested sections  System deletes initial section and related workitem  System returns no content response  # noqa: E501
+          Use case    User sets section identifier    User runs method execution    System search section by the identifier    System search and delete nested sections of the found section    System search and delete workitems related to the found nested sections    System deletes initial section and related workitem    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -762,7 +762,7 @@ class SectionsApi(object):
     ):
         """Get section  # noqa: E501
 
-         Use case  User sets section internal (guid format) identifier  User runs method execution  System search section by the section identifier  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns section  # noqa: E501
+          Use case    User sets section internal (guid format) identifier    User runs method execution    System search section by the section identifier    [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.    System returns section  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -846,7 +846,7 @@ class SectionsApi(object):
     ):
         """Get section work items  # noqa: E501
 
-         Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search work items related to the section  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns work item collection  # noqa: E501
+          Use case    User sets section identifier    User runs method execution    System search section by the identifier    System search work items related to the section    [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.    System returns work item collection  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1014,7 +1014,7 @@ class SectionsApi(object):
     ):
         """Rename section  # noqa: E501
 
-         Use case  User sets section identifier and new name (listed in request example)  User runs method execution  System search section by the identifier  System updates section name using the new name  System returns no content response  # noqa: E501
+          Use case    User sets section identifier and new name (listed in request example)    User runs method execution    System search section by the identifier    System updates section name using the new name    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1093,7 +1093,7 @@ class SectionsApi(object):
     ):
         """Update section  # noqa: E501
 
-         Use case  User sets section properties (listed in request example)  User runs method execution  System search section by the identifier  System updates section using the property values  System returns no content response  # noqa: E501
+          Use case    User sets section properties (listed in request example)    User runs method execution    System search section by the identifier    System updates section using the property values    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

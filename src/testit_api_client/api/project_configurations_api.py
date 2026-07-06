@@ -42,7 +42,7 @@ class ProjectConfigurationsApi(object):
                 'response_type': ([ConfigurationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/configurations',
                 'operation_id': 'get_configurations_by_project_id',
@@ -97,7 +97,7 @@ class ProjectConfigurationsApi(object):
     ):
         """Get project configurations  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)  # noqa: E501
+          Use case    User sets project internal or global identifier    User runs method execution    System search project    System search all configurations related to project    System returns array of found configurations (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -54,7 +54,7 @@ class TestResultsApi(object):
                 'response_type': (GetExternalFormApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/external-projects/{externalProjectId}/defects/external-forms',
                 'operation_id': 'api_v2_test_results_external_projects_external_project_id_defects_external_forms_post',
@@ -112,7 +112,7 @@ class TestResultsApi(object):
                 'response_type': (DefectApiModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/external-projects/{externalProjectId}/defects',
                 'operation_id': 'api_v2_test_results_external_projects_external_project_id_defects_post',
@@ -170,7 +170,7 @@ class TestResultsApi(object):
                 'response_type': (TestResultResponse,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/aggregated',
                 'operation_id': 'api_v2_test_results_id_aggregated_get',
@@ -222,7 +222,7 @@ class TestResultsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/{attachmentId}',
                 'operation_id': 'api_v2_test_results_id_attachments_attachment_id_put',
@@ -280,7 +280,7 @@ class TestResultsApi(object):
                 'response_type': ([AttachmentApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/info',
                 'operation_id': 'api_v2_test_results_id_attachments_info_get',
@@ -332,7 +332,7 @@ class TestResultsApi(object):
                 'response_type': (TestResultResponse,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}',
                 'operation_id': 'api_v2_test_results_id_get',
@@ -384,7 +384,7 @@ class TestResultsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}',
                 'operation_id': 'api_v2_test_results_id_patch',
@@ -442,7 +442,7 @@ class TestResultsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}',
                 'operation_id': 'api_v2_test_results_id_put',
@@ -500,7 +500,7 @@ class TestResultsApi(object):
                 'response_type': (RerunsApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/reruns',
                 'operation_id': 'api_v2_test_results_id_reruns_get',
@@ -552,7 +552,7 @@ class TestResultsApi(object):
                 'response_type': ([TestResultShortResponse],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/search',
                 'operation_id': 'api_v2_test_results_search_post',
@@ -628,7 +628,7 @@ class TestResultsApi(object):
                 'response_type': (TestResultsStatisticsApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/statistics/filter',
                 'operation_id': 'api_v2_test_results_statistics_filter_post',
@@ -679,7 +679,7 @@ class TestResultsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments',
                 'operation_id': 'create_attachment',
@@ -738,7 +738,7 @@ class TestResultsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/{attachmentId}',
                 'operation_id': 'delete_attachment',
@@ -796,7 +796,7 @@ class TestResultsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/{attachmentId}',
                 'operation_id': 'download_attachment',
@@ -899,7 +899,7 @@ class TestResultsApi(object):
                 'response_type': (AttachmentApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments/{attachmentId}/info',
                 'operation_id': 'get_attachment',
@@ -957,7 +957,7 @@ class TestResultsApi(object):
                 'response_type': ([AttachmentApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/testResults/{id}/attachments',
                 'operation_id': 'get_attachments',
@@ -1920,7 +1920,7 @@ class TestResultsApi(object):
     ):
         """Upload and link attachment to TestResult  # noqa: E501
 
-         Use case  User sets testResultId  User attaches a file  System creates attachment and links it to the test result  System returns attachment identifier  # noqa: E501
+          Use case    User sets testResultId    User attaches a file    System creates attachment and links it to the test result    System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2005,7 +2005,7 @@ class TestResultsApi(object):
     ):
         """Remove attachment and unlink from TestResult  # noqa: E501
 
-         Use case  User sets testResultId and attachmentId  User attaches a file  User runs method execution  System deletes attachment and unlinks it from the test result  System returns attachment identifier  # noqa: E501
+          Use case    User sets testResultId and attachmentId    User attaches a file    User runs method execution    System deletes attachment and unlinks it from the test result    System returns attachment identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2092,7 +2092,7 @@ class TestResultsApi(object):
     ):
         """Get attachment of TestResult  # noqa: E501
 
-         Use case  User sets attachmentId and testResultId  [Optional] User sets resize configuration  User runs method execution  System search attachments by the attachmentId and the testResultId  [Optional] If resize configuration is set, System resizes the attachment according to the resize                     configuration  [Optional] Otherwise, System does not resize the attachment  System returns attachment as a file  # noqa: E501
+          Use case    User sets attachmentId and testResultId    [Optional] User sets resize configuration    User runs method execution    System search attachments by the attachmentId and the testResultId    [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration    [Optional] Otherwise, System does not resize the attachment    System returns attachment as a file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2184,7 +2184,7 @@ class TestResultsApi(object):
     ):
         """Get Metadata of TestResult's attachment  # noqa: E501
 
-         Use case  User sets attachmentId and testResultId  User runs method execution  System search attachment by the attachmentId and the testResultId  System returns attachment data  # noqa: E501
+          Use case    User sets attachmentId and testResultId    User runs method execution    System search attachment by the attachmentId and the testResultId    System returns attachment data  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2270,7 +2270,7 @@ class TestResultsApi(object):
     ):
         """Get all attachments of TestResult  # noqa: E501
 
-         Use case  User sets testResultId  User runs method execution  System search all attachments of the test result  System returns attachments enumeration  # noqa: E501
+          Use case    User sets testResultId    User runs method execution    System search all attachments of the test result    System returns attachments enumeration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

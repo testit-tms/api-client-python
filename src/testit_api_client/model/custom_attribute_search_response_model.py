@@ -136,8 +136,8 @@ class CustomAttributeSearchResponseModel(ModelNormal):
             work_item_usage ([ProjectShortestModel]):
             test_plan_usage ([ProjectShortestModel]):
             id (str): Unique ID of the attribute
-            targets ([str]): Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
-            options ([CustomAttributeOptionModel]): Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
+            targets ([str]): Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+            options ([CustomAttributeOptionModel]): Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
             type (CustomAttributeTypesEnum):
             is_deleted (bool): Indicates if the attribute is deleted
             is_system (bool): Indicates if the attribute is system
@@ -247,8 +247,8 @@ class CustomAttributeSearchResponseModel(ModelNormal):
             work_item_usage ([ProjectShortestModel]):
             test_plan_usage ([ProjectShortestModel]):
             id (str): Unique ID of the attribute
-            targets ([str]): Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
-            options ([CustomAttributeOptionModel]): Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
+            targets ([str]): Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+            options ([CustomAttributeOptionModel]): Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
             type (CustomAttributeTypesEnum):
             is_deleted (bool): Indicates if the attribute is deleted
             is_system (bool): Indicates if the attribute is system

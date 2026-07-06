@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **work_item_usage** | [**[ProjectShortestModel]**](ProjectShortestModel.md) |  | 
 **test_plan_usage** | [**[ProjectShortestModel]**](ProjectShortestModel.md) |  | 
 **id** | **str** | Unique ID of the attribute | 
-**targets** | **[str]** | Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans) | 
-**options** | [**[CustomAttributeOptionModel]**](CustomAttributeOptionModel.md) | Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
+**targets** | **[str]** | Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans) | 
+**options** | [**[CustomAttributeOptionModel]**](CustomAttributeOptionModel.md) | Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
 **type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) |  | 
 **is_deleted** | **bool** | Indicates if the attribute is deleted | 
 **is_system** | **bool** | Indicates if the attribute is system | 

@@ -45,7 +45,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes',
                 'operation_id': 'create_custom_attribute_test_plan_project_relations',
@@ -107,7 +107,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes/{attributeId}',
                 'operation_id': 'delete_custom_attribute_test_plan_project_relations',
@@ -165,7 +165,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': ([CustomAttributeModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes',
                 'operation_id': 'get_custom_attribute_test_plan_project_relations',
@@ -217,7 +217,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': ([CustomAttributeGetModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes/search',
                 'operation_id': 'search_test_plan_attributes_in_project',
@@ -300,7 +300,7 @@ class ProjectTestPlanAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/testPlans/attributes',
                 'operation_id': 'update_custom_attribute_test_plan_project_relations',
@@ -361,7 +361,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Add attributes to project's test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response  # noqa: E501
+          Use case    User sets project internal or global identifier and attributes identifiers    User runs method execution    System updates project and add attributes to project for test plans    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -446,7 +446,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Delete attribute from project's test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response  # noqa: E501
+          Use case    User sets project internal or global identifier and attribute identifier    User runs method execution    System updates project and delete attribute from project for test plans    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -532,7 +532,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Get project's test plan attributes  # noqa: E501
 
-         Use case  User runs method execution  System returns project for test plans attributes by project identifier  # noqa: E501
+          Use case    User runs method execution    System returns project for test plans attributes by project identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -703,7 +703,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Update attribute of project's test plans  # noqa: E501
 
-         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response  # noqa: E501
+          Use case    User sets project internal or global identifier and attribute model    User runs method execution    System updates project and project attribute for test plan    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

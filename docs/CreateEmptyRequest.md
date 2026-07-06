@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **str** | Project unique identifier              This property is to link test run with a project | 
+**project_id** | **str** | Project unique identifier                This property is to link test run with a project | 
 **name** | **str, none_type** | Test run name | [optional] 
 **description** | **str, none_type** | Test run description | [optional] 
 **launch_source** | **str, none_type** | Test run launch source | [optional] 

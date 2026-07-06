@@ -50,7 +50,7 @@ class WorkflowsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}',
                 'operation_id': 'api_v2_workflows_id_delete',
@@ -102,7 +102,7 @@ class WorkflowsApi(object):
                 'response_type': (WorkflowApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}',
                 'operation_id': 'api_v2_workflows_id_get',
@@ -154,7 +154,7 @@ class WorkflowsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}',
                 'operation_id': 'api_v2_workflows_id_patch',
@@ -212,7 +212,7 @@ class WorkflowsApi(object):
                 'response_type': (WorkflowProjectApiResultIReply,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}/projects/search',
                 'operation_id': 'api_v2_workflows_id_projects_search_post',
@@ -270,7 +270,7 @@ class WorkflowsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workflows/{id}',
                 'operation_id': 'api_v2_workflows_id_put',
@@ -328,7 +328,7 @@ class WorkflowsApi(object):
                 'response_type': (WorkflowExistsByNameApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workflows/name/{name}/exists',
                 'operation_id': 'api_v2_workflows_name_name_exists_get',
@@ -380,7 +380,7 @@ class WorkflowsApi(object):
                 'response_type': (WorkflowApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workflows',
                 'operation_id': 'api_v2_workflows_post',
@@ -431,7 +431,7 @@ class WorkflowsApi(object):
                 'response_type': (WorkflowShortApiResultIReply,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workflows/search',
                 'operation_id': 'api_v2_workflows_search_post',

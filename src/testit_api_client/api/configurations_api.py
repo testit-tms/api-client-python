@@ -49,7 +49,7 @@ class ConfigurationsApi(object):
                 'response_type': ([str],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/createByParameters',
                 'operation_id': 'api_v2_configurations_create_by_parameters_post',
@@ -100,7 +100,7 @@ class ConfigurationsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/delete/bulk',
                 'operation_id': 'api_v2_configurations_delete_bulk_post',
@@ -151,7 +151,7 @@ class ConfigurationsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}',
                 'operation_id': 'api_v2_configurations_id_delete',
@@ -203,7 +203,7 @@ class ConfigurationsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}',
                 'operation_id': 'api_v2_configurations_id_patch',
@@ -261,7 +261,7 @@ class ConfigurationsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}/purge',
                 'operation_id': 'api_v2_configurations_id_purge_post',
@@ -313,7 +313,7 @@ class ConfigurationsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}/restore',
                 'operation_id': 'api_v2_configurations_id_restore_post',
@@ -365,7 +365,7 @@ class ConfigurationsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/purge/bulk',
                 'operation_id': 'api_v2_configurations_purge_bulk_post',
@@ -416,7 +416,7 @@ class ConfigurationsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations',
                 'operation_id': 'api_v2_configurations_put',
@@ -467,7 +467,7 @@ class ConfigurationsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/restore/bulk',
                 'operation_id': 'api_v2_configurations_restore_bulk_post',
@@ -518,7 +518,7 @@ class ConfigurationsApi(object):
                 'response_type': ([ConfigurationModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/search',
                 'operation_id': 'api_v2_configurations_search_post',
@@ -594,7 +594,7 @@ class ConfigurationsApi(object):
                 'response_type': (ConfigurationModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations',
                 'operation_id': 'create_configuration',
@@ -645,7 +645,7 @@ class ConfigurationsApi(object):
                 'response_type': (ConfigurationModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/configurations/{id}',
                 'operation_id': 'get_configuration_by_id',
@@ -1502,7 +1502,7 @@ class ConfigurationsApi(object):
     ):
         """Create Configuration  # noqa: E501
 
-         Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)  # noqa: E501
+          Use case    User sets configuration model (listed in the request example)    User runs method execution    System creates configuration    System returns created configuration (listed in the response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1582,7 +1582,7 @@ class ConfigurationsApi(object):
     ):
         """Get configuration by internal or global ID  # noqa: E501
 
-         Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration  # noqa: E501
+          Use case    User sets configuration internal (guid format) or global (integer format) identifier    User runs method execution    System search configuration using the identifier    System returns configuration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -189,8 +189,8 @@ class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
             flaky_stability_percentage (int): Stability percentage for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             flaky_test_run_count (int): Last test run count for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             work_item_updating_enabled (bool): Autotest to work item updating enabled. [optional] if omitted the server will use the default value of False  # noqa: E501
-            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period, outdated test runs may be archived based on project settings. [optional] if omitted the server will use the default value of 180  # noqa: E501
-            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded, older test runs are automatically archived. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period,  outdated test runs may be archived based on project settings. [optional] if omitted the server will use the default value of 180  # noqa: E501
+            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded,  older test runs are automatically archived. [optional] if omitted the server will use the default value of 500  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -303,8 +303,8 @@ class ApiV2ProjectsProjectIdSettingsAutotestsPostRequest(ModelComposed):
             flaky_stability_percentage (int): Stability percentage for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             flaky_test_run_count (int): Last test run count for autotest flaky computing. [optional] if omitted the server will use the default value of 100  # noqa: E501
             work_item_updating_enabled (bool): Autotest to work item updating enabled. [optional] if omitted the server will use the default value of False  # noqa: E501
-            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period, outdated test runs may be archived based on project settings. [optional] if omitted the server will use the default value of 180  # noqa: E501
-            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded, older test runs are automatically archived. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            test_runs_retention_period_days (int):  The retention period in days for test runs. After this period,  outdated test runs may be archived based on project settings. [optional] if omitted the server will use the default value of 180  # noqa: E501
+            max_active_test_runs_count (int): Maximum number of active test runs to keep. When this limit is exceeded,  older test runs are automatically archived. [optional] if omitted the server will use the default value of 500  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

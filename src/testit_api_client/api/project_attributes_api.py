@@ -47,7 +47,7 @@ class ProjectAttributesApi(object):
                 'response_type': (CustomAttributeModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes',
                 'operation_id': 'create_projects_attribute',
@@ -105,7 +105,7 @@ class ProjectAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes/{attributeId}',
                 'operation_id': 'delete_projects_attribute',
@@ -163,7 +163,7 @@ class ProjectAttributesApi(object):
                 'response_type': (CustomAttributeModel,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes/{attributeId}',
                 'operation_id': 'get_attribute_by_project_id',
@@ -221,7 +221,7 @@ class ProjectAttributesApi(object):
                 'response_type': ([CustomAttributeModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes',
                 'operation_id': 'get_attributes_by_project_id',
@@ -278,7 +278,7 @@ class ProjectAttributesApi(object):
                 'response_type': ([CustomAttributeGetModel],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes/search',
                 'operation_id': 'search_attributes_in_project',
@@ -361,7 +361,7 @@ class ProjectAttributesApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/projects/{projectId}/attributes',
                 'operation_id': 'update_projects_attribute',
@@ -422,7 +422,7 @@ class ProjectAttributesApi(object):
     ):
         """Create project attribute  # noqa: E501
 
-         Use case  User sets attribute parameters (listed in request example) and runs method execution  System search project  System creates attribute and relates it to the project  System returns project attribute properties (example listed in response parameters)  # noqa: E501
+          Use case    User sets attribute parameters (listed in request example) and runs method execution    System search project    System creates attribute and relates it to the project    System returns project attribute properties (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -507,7 +507,7 @@ class ProjectAttributesApi(object):
     ):
         """Delete project attribute  # noqa: E501
 
-         Use case  User sets project identifier and runs method execution  User sets attribute identifier  User runs method execution  System search project  System search and delete attribute  System returns no content response  # noqa: E501
+          Use case    User sets project identifier and runs method execution    User sets attribute identifier    User runs method execution    System search project    System search and delete attribute    System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -594,7 +594,7 @@ class ProjectAttributesApi(object):
     ):
         """Get project attribute  # noqa: E501
 
-         Use case  User sets project internal or global identifier  User sets project attribute identifier  User runs method execution  System search project  System search project attribute  System returns project attribute (listed in response model)  # noqa: E501
+          Use case    User sets project internal or global identifier    User sets project attribute identifier    User runs method execution    System search project    System search project attribute    System returns project attribute (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -680,7 +680,7 @@ class ProjectAttributesApi(object):
     ):
         """Get project attributes  # noqa: E501
 
-         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all attributes related to project  System returns array of found attributes (listed in response model)  # noqa: E501
+          Use case    User sets project internal or global identifier    [Optional] User sets isDeleted field value    User runs method execution    System search project    [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project    [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted    [Optional] If User did not set isDeleted field value, System search all attributes related to project    System returns array of found attributes (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

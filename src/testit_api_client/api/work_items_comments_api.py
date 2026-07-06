@@ -44,7 +44,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workItems/comments/{commentId}',
                 'operation_id': 'api_v2_work_items_comments_comment_id_delete',
@@ -96,7 +96,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': (WorkItemCommentApiResult,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workItems/comments',
                 'operation_id': 'api_v2_work_items_comments_post',
@@ -147,7 +147,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': None,
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workItems/comments',
                 'operation_id': 'api_v2_work_items_comments_put',
@@ -198,7 +198,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': (int,),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/comments/count',
                 'operation_id': 'api_v2_work_items_id_comments_count_get',
@@ -250,7 +250,7 @@ class WorkItemsCommentsApi(object):
                 'response_type': ([WorkItemCommentApiResult],),
                 'auth': [
                     'PrivateToken',
-                    'Identity.Application'
+                    'Cookies'
                 ],
                 'endpoint_path': '/api/v2/workItems/{id}/comments',
                 'operation_id': 'api_v2_work_items_id_comments_get',
@@ -305,7 +305,7 @@ class WorkItemsCommentsApi(object):
     ):
         """Delete WorkItem comment  # noqa: E501
 
-         Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code  # noqa: E501
+          Use case    User sets comment identifier    User runs method execution    System delete comment    System returns success status code  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -387,7 +387,7 @@ class WorkItemsCommentsApi(object):
     ):
         """Create WorkItem comment  # noqa: E501
 
-         Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)  # noqa: E501
+          Use case    User sets comment properties (listed in request parameters)    User runs method execution    System creates comment    System returns comment model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

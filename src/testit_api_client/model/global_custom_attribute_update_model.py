@@ -146,7 +146,7 @@ class GlobalCustomAttributeUpdateModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options ([CustomAttributeOptionModel], none_type): Collection of attribute options   Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
+            options ([CustomAttributeOptionModel], none_type): Collection of attribute options      Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
             is_enabled (bool, none_type): Indicates whether the attribute is available. [optional]  # noqa: E501
             is_required (bool, none_type): Indicates whether the attribute value is mandatory to specify. [optional]  # noqa: E501
         """
@@ -238,7 +238,7 @@ class GlobalCustomAttributeUpdateModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options ([CustomAttributeOptionModel], none_type): Collection of attribute options   Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
+            options ([CustomAttributeOptionModel], none_type): Collection of attribute options      Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
             is_enabled (bool, none_type): Indicates whether the attribute is available. [optional]  # noqa: E501
             is_required (bool, none_type): Indicates whether the attribute value is mandatory to specify. [optional]  # noqa: E501
         """
