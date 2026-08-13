@@ -97,7 +97,6 @@ class UpdateSectionRequest(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'project_id': (str,),  # noqa: E501
             'attachments': ([AttachmentPutModel],),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
             'precondition_steps': ([StepPutModel], none_type,),  # noqa: E501
@@ -112,7 +111,6 @@ class UpdateSectionRequest(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'project_id': 'projectId',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
         'precondition_steps': 'preconditionSteps',  # noqa: E501
@@ -130,7 +128,6 @@ class UpdateSectionRequest(ModelComposed):
         Keyword Args:
             id (str):
             name (str):
-            project_id (str):
             attachments ([AttachmentPutModel]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -240,7 +237,6 @@ class UpdateSectionRequest(ModelComposed):
         Keyword Args:
             id (str):
             name (str):
-            project_id (str):
             attachments ([AttachmentPutModel]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

@@ -22,7 +22,6 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from testit_api_client.model.create_projects_attribute_request import CreateProjectsAttributeRequest
-from testit_api_client.model.custom_attribute_get_model import CustomAttributeGetModel
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
 from testit_api_client.model.deletion_state import DeletionState
 from testit_api_client.model.problem_details import ProblemDetails
@@ -275,7 +274,7 @@ class ProjectAttributesApi(object):
         )
         self.search_attributes_in_project_endpoint = _Endpoint(
             settings={
-                'response_type': ([CustomAttributeGetModel],),
+                'response_type': ([CustomAttributeModel],),
                 'auth': [
                     'PrivateToken',
                     'Identity.Application'
@@ -812,7 +811,7 @@ class ProjectAttributesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [CustomAttributeGetModel]
+            [CustomAttributeModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """

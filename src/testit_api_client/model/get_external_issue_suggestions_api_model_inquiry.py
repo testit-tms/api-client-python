@@ -33,11 +33,13 @@ def lazy_import():
     from testit_api_client.model.composite_filter import CompositeFilter
     from testit_api_client.model.group import Group
     from testit_api_client.model.inquiry import Inquiry
+    from testit_api_client.model.mode import Mode
     from testit_api_client.model.order import Order
     from testit_api_client.model.page import Page
     globals()['CompositeFilter'] = CompositeFilter
     globals()['Group'] = Group
     globals()['Inquiry'] = Inquiry
+    globals()['Mode'] = Mode
     globals()['Order'] = Order
     globals()['Page'] = Page
 
@@ -96,6 +98,7 @@ class GetExternalIssueSuggestionsApiModelInquiry(ModelComposed):
         lazy_import()
         return {
             'order': ([Order],),  # noqa: E501
+            'mode': (Mode,),  # noqa: E501
             'group': (Group,),  # noqa: E501
             'filter': (CompositeFilter,),  # noqa: E501
             'page': (Page,),  # noqa: E501
@@ -108,6 +111,7 @@ class GetExternalIssueSuggestionsApiModelInquiry(ModelComposed):
 
     attribute_map = {
         'order': 'order',  # noqa: E501
+        'mode': 'mode',  # noqa: E501
         'group': 'group',  # noqa: E501
         'filter': 'filter',  # noqa: E501
         'page': 'page',  # noqa: E501
@@ -123,6 +127,7 @@ class GetExternalIssueSuggestionsApiModelInquiry(ModelComposed):
 
         Keyword Args:
             order ([Order]):
+            mode (Mode):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -230,6 +235,7 @@ class GetExternalIssueSuggestionsApiModelInquiry(ModelComposed):
 
         Keyword Args:
             order ([Order]):
+            mode (Mode):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
