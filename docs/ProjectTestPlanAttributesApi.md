@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_test_plan_attributes_in_project**
-> [CustomAttributeGetModel] search_test_plan_attributes_in_project(project_id)
+> [CustomAttributeModel] search_test_plan_attributes_in_project(project_id)
 
 Search for attributes used in the project test plans
 
@@ -314,9 +314,9 @@ Search for attributes used in the project test plans
 import time
 import testit_api_client
 from testit_api_client.api import project_test_plan_attributes_api
-from testit_api_client.model.custom_attribute_get_model import CustomAttributeGetModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.search_attributes_in_project_request import SearchAttributesInProjectRequest
+from testit_api_client.model.custom_attribute_model import CustomAttributeModel
 from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[CustomAttributeGetModel]**](CustomAttributeGetModel.md)
+[**[CustomAttributeModel]**](CustomAttributeModel.md)
 
 ### Authorization
 

@@ -91,15 +91,17 @@ class CustomAttributeSearchResponseModel(ModelNormal):
             'work_item_usage': ([ProjectShortestModel],),  # noqa: E501
             'test_plan_usage': ([ProjectShortestModel],),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'targets': ([str],),  # noqa: E501
-            'options': ([CustomAttributeOptionModel],),  # noqa: E501
             'type': (CustomAttributeTypesEnum,),  # noqa: E501
+            'options': ([CustomAttributeOptionModel],),  # noqa: E501
+            'targets': ([str],),  # noqa: E501
+            'is_read_only': (bool,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'is_system': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'is_required': (bool,),  # noqa: E501
             'is_global': (bool,),  # noqa: E501
+            'code': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -111,15 +113,17 @@ class CustomAttributeSearchResponseModel(ModelNormal):
         'work_item_usage': 'workItemUsage',  # noqa: E501
         'test_plan_usage': 'testPlanUsage',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'targets': 'targets',  # noqa: E501
-        'options': 'options',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'options': 'options',  # noqa: E501
+        'targets': 'targets',  # noqa: E501
+        'is_read_only': 'isReadOnly',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'is_system': 'isSystem',  # noqa: E501
         'name': 'name',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
         'is_required': 'isRequired',  # noqa: E501
         'is_global': 'isGlobal',  # noqa: E501
+        'code': 'code',  # noqa: E501
     }
 
     read_only_vars = {
@@ -129,18 +133,19 @@ class CustomAttributeSearchResponseModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, work_item_usage, test_plan_usage, id, targets, options, type, is_deleted, is_system, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, work_item_usage, test_plan_usage, id, type, options, targets, is_read_only, is_deleted, is_system, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
         """CustomAttributeSearchResponseModel - a model defined in OpenAPI
 
         Args:
             work_item_usage ([ProjectShortestModel]):
             test_plan_usage ([ProjectShortestModel]):
-            id (str): Unique ID of the attribute
-            targets ([str]): Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
-            options ([CustomAttributeOptionModel]): Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
+            id (str): Unique ID of the attribute.
             type (CustomAttributeTypesEnum):
-            is_deleted (bool): Indicates if the attribute is deleted
-            is_system (bool): Indicates if the attribute is system
+            options ([CustomAttributeOptionModel]): Collection of the attribute options.
+            targets ([str]): Collection of the attribute targets.   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans).
+            is_read_only (bool): Indicates if the attribute is read-only.
+            is_deleted (bool): Indicates if the attribute is deleted.
+            is_system (bool): Indicates if the attribute is system.
             name (str): Name of the attribute
             is_enabled (bool): Indicates if the attribute is enabled
             is_required (bool): Indicates if the attribute value is mandatory to specify
@@ -177,6 +182,7 @@ class CustomAttributeSearchResponseModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            code (str, none_type): Optional code identifier for the attribute.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -211,9 +217,10 @@ class CustomAttributeSearchResponseModel(ModelNormal):
         self.work_item_usage = work_item_usage
         self.test_plan_usage = test_plan_usage
         self.id = id
-        self.targets = targets
-        self.options = options
         self.type = type
+        self.options = options
+        self.targets = targets
+        self.is_read_only = is_read_only
         self.is_deleted = is_deleted
         self.is_system = is_system
         self.name = name
@@ -240,18 +247,19 @@ class CustomAttributeSearchResponseModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, work_item_usage, test_plan_usage, id, targets, options, type, is_deleted, is_system, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
+    def __init__(self, work_item_usage, test_plan_usage, id, type, options, targets, is_read_only, is_deleted, is_system, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
         """CustomAttributeSearchResponseModel - a model defined in OpenAPI
 
         Args:
             work_item_usage ([ProjectShortestModel]):
             test_plan_usage ([ProjectShortestModel]):
-            id (str): Unique ID of the attribute
-            targets ([str]): Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
-            options ([CustomAttributeOptionModel]): Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
+            id (str): Unique ID of the attribute.
             type (CustomAttributeTypesEnum):
-            is_deleted (bool): Indicates if the attribute is deleted
-            is_system (bool): Indicates if the attribute is system
+            options ([CustomAttributeOptionModel]): Collection of the attribute options.
+            targets ([str]): Collection of the attribute targets.   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans).
+            is_read_only (bool): Indicates if the attribute is read-only.
+            is_deleted (bool): Indicates if the attribute is deleted.
+            is_system (bool): Indicates if the attribute is system.
             name (str): Name of the attribute
             is_enabled (bool): Indicates if the attribute is enabled
             is_required (bool): Indicates if the attribute value is mandatory to specify
@@ -288,6 +296,7 @@ class CustomAttributeSearchResponseModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            code (str, none_type): Optional code identifier for the attribute.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -320,9 +329,10 @@ class CustomAttributeSearchResponseModel(ModelNormal):
         self.work_item_usage = work_item_usage
         self.test_plan_usage = test_plan_usage
         self.id = id
-        self.targets = targets
-        self.options = options
         self.type = type
+        self.options = options
+        self.targets = targets
+        self.is_read_only = is_read_only
         self.is_deleted = is_deleted
         self.is_system = is_system
         self.name = name
