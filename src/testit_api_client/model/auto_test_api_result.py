@@ -30,11 +30,13 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.auto_test_api_result_layer import AutoTestApiResultLayer
     from testit_api_client.model.auto_test_step_api_result import AutoTestStepApiResult
     from testit_api_client.model.configuration_short_api_result import ConfigurationShortApiResult
     from testit_api_client.model.label_api_result import LabelApiResult
     from testit_api_client.model.link_api_result import LinkApiResult
     from testit_api_client.model.test_status_api_result import TestStatusApiResult
+    globals()['AutoTestApiResultLayer'] = AutoTestApiResultLayer
     globals()['AutoTestStepApiResult'] = AutoTestStepApiResult
     globals()['ConfigurationShortApiResult'] = ConfigurationShortApiResult
     globals()['LabelApiResult'] = LabelApiResult
@@ -115,6 +117,7 @@ class AutoTestApiResult(ModelNormal):
             'last_test_result_outcome': (str, none_type,),  # noqa: E501
             'last_test_result_status': (TestStatusApiResult,),  # noqa: E501
             'stability_percentage': (int, none_type,),  # noqa: E501
+            'layer': (AutoTestApiResultLayer,),  # noqa: E501
             'links': ([LinkApiResult], none_type,),  # noqa: E501
             'labels': ([LabelApiResult], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
@@ -153,6 +156,7 @@ class AutoTestApiResult(ModelNormal):
         'last_test_result_outcome': 'lastTestResultOutcome',  # noqa: E501
         'last_test_result_status': 'lastTestResultStatus',  # noqa: E501
         'stability_percentage': 'stabilityPercentage',  # noqa: E501
+        'layer': 'layer',  # noqa: E501
         'links': 'links',  # noqa: E501
         'labels': 'labels',  # noqa: E501
         'tags': 'tags',  # noqa: E501
@@ -228,6 +232,7 @@ class AutoTestApiResult(ModelNormal):
             last_test_result_outcome (str, none_type): [optional]  # noqa: E501
             last_test_result_status (TestStatusApiResult): [optional]  # noqa: E501
             stability_percentage (int, none_type): [optional]  # noqa: E501
+            layer (AutoTestApiResultLayer): [optional]  # noqa: E501
             links ([LinkApiResult], none_type): [optional]  # noqa: E501
             labels ([LabelApiResult], none_type): [optional]  # noqa: E501
             tags ([str], none_type): [optional]  # noqa: E501
@@ -354,6 +359,7 @@ class AutoTestApiResult(ModelNormal):
             last_test_result_outcome (str, none_type): [optional]  # noqa: E501
             last_test_result_status (TestStatusApiResult): [optional]  # noqa: E501
             stability_percentage (int, none_type): [optional]  # noqa: E501
+            layer (AutoTestApiResultLayer): [optional]  # noqa: E501
             links ([LinkApiResult], none_type): [optional]  # noqa: E501
             labels ([LabelApiResult], none_type): [optional]  # noqa: E501
             tags ([str], none_type): [optional]  # noqa: E501

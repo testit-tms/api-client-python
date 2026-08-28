@@ -102,6 +102,7 @@ class UpdateAutoTestRequest(ModelComposed):
             'project_id': (str,),  # noqa: E501
             'external_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'reset_layer': (bool,),  # noqa: E501
             'id': (str, none_type,),  # noqa: E501
             'external_key': (str, none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
@@ -128,6 +129,7 @@ class UpdateAutoTestRequest(ModelComposed):
         'project_id': 'projectId',  # noqa: E501
         'external_id': 'externalId',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'reset_layer': 'resetLayer',  # noqa: E501
         'id': 'id',  # noqa: E501
         'external_key': 'externalKey',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
@@ -157,6 +159,7 @@ class UpdateAutoTestRequest(ModelComposed):
             project_id (str): Unique ID of the autotest project
             external_id (str): External ID of the autotest
             name (str): Name of the autotest
+            reset_layer (bool): Indicates if the autotest layer should be reset.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -278,6 +281,7 @@ class UpdateAutoTestRequest(ModelComposed):
             project_id (str): Unique ID of the autotest project
             external_id (str): External ID of the autotest
             name (str): Name of the autotest
+            reset_layer (bool): Indicates if the autotest layer should be reset.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

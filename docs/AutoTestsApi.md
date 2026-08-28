@@ -2058,6 +2058,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
             title="title_example",
             description="description_example",
             is_flaky=True,
+            reset_layer=True,
             steps=[
                 AutoTestStepApiModel(
                     title="title_example",

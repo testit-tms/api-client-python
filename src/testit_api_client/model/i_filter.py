@@ -35,11 +35,13 @@ def lazy_import():
     from testit_api_client.model.collection_operator import CollectionOperator
     from testit_api_client.model.composite_filter import CompositeFilter
     from testit_api_client.model.filter import Filter
+    from testit_api_client.model.filter_value import FilterValue
     globals()['CollectionFilter'] = CollectionFilter
     globals()['CollectionFilterFilter'] = CollectionFilterFilter
     globals()['CollectionOperator'] = CollectionOperator
     globals()['CompositeFilter'] = CompositeFilter
     globals()['Filter'] = Filter
+    globals()['FilterValue'] = FilterValue
 
 
 class IFilter(ModelComposed):
@@ -88,9 +90,9 @@ class IFilter(ModelComposed):
         """
         lazy_import()
         return {
-            'value': (str, none_type,),  # noqa: E501
             'filters': ([IFilter],),  # noqa: E501
             'operator': (CollectionOperator,),  # noqa: E501
+            'value': (FilterValue,),  # noqa: E501
             'field': (str,),  # noqa: E501
             'filter': (CollectionFilterFilter,),  # noqa: E501
         }
@@ -101,9 +103,9 @@ class IFilter(ModelComposed):
 
 
     attribute_map = {
-        'value': 'value',  # noqa: E501
         'filters': 'filters',  # noqa: E501
         'operator': 'operator',  # noqa: E501
+        'value': 'value',  # noqa: E501
         'field': 'field',  # noqa: E501
         'filter': 'filter',  # noqa: E501
     }
@@ -148,9 +150,9 @@ class IFilter(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
             filters ([IFilter]): [optional]  # noqa: E501
             operator (CollectionOperator): [optional]  # noqa: E501
+            value (FilterValue): [optional]  # noqa: E501
             field (str): [optional]  # noqa: E501
             filter (CollectionFilterFilter): [optional]  # noqa: E501
         """
@@ -256,9 +258,9 @@ class IFilter(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
             filters ([IFilter]): [optional]  # noqa: E501
             operator (CollectionOperator): [optional]  # noqa: E501
+            value (FilterValue): [optional]  # noqa: E501
             field (str): [optional]  # noqa: E501
             filter (CollectionFilterFilter): [optional]  # noqa: E501
         """
