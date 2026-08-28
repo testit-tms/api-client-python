@@ -21707,7 +21707,8 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/api/v2/testPlans/{id}/test-points/withSections": {
@@ -21809,7 +21810,8 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/api/v2/testPlans/{id}/autobalance": {
@@ -26565,6 +26567,100 @@
           },
           "404": {
             "description": "Some autotests do not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/testRuns/byAutoTestCases": {
+      "post": {
+        "tags": [
+          "TestRuns"
+        ],
+        "summary": "Create TestRun filled with autotests linked to work items of type \"AutoTestCases\" selected by the filter",
+        "requestBody": {
+          "description": "Test run model with a filter for work items of type \"AutoTestCases\" and configuration IDs",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateTestRunAndFillByAutoTestCasesApiModel"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestRunV2ApiResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
             "content": {
               "application/json": {
                 "schema": {
@@ -37050,6 +37146,15 @@
             "format": "int64",
             "nullable": true
           },
+          "layer": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LayerApiResult"
+              }
+            ],
+            "description": "Model of auto test layer for use in responses.",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -39054,7 +39159,8 @@
         "required": [
           "externalId",
           "name",
-          "projectId"
+          "projectId",
+          "resetLayer"
         ],
         "type": "object",
         "properties": {
@@ -39108,6 +39214,10 @@
             "type": "boolean",
             "description": "Indicates if the autotest is marked as flaky",
             "nullable": true
+          },
+          "resetLayer": {
+            "type": "boolean",
+            "description": "Indicates if the autotest layer should be reset."
           },
           "steps": {
             "type": "array",
@@ -39496,7 +39606,8 @@
           "PurgeEntities",
           "DeleteCompletedJobs",
           "CopySections",
-          "DeleteSection"
+          "DeleteSection",
+          "ImportAutoTestsReport"
         ],
         "type": "string"
       },
@@ -39832,6 +39943,344 @@
           "isDeleted": {
             "type": "boolean",
             "description": "Indicates if the entity is deleted"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterApiModel": {
+        "required": [
+          "name",
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Name of the configuration parameter, must be unique"
+          },
+          "values": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigurationParameterValueApiModel"
+            },
+            "description": "List of possible configuration parameter values"
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigurationParameterProjectApiModel"
+            },
+            "description": "List of projects to which configuration parameter should be assigned",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterApiResult": {
+        "required": [
+          "createdById",
+          "createdDate",
+          "id",
+          "isDeleted",
+          "modifiedById",
+          "modifiedDate",
+          "name",
+          "projects",
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifier of the configuration parameter",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the configuration parameter"
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Is configuration parameter deleted?"
+          },
+          "createdDate": {
+            "type": "string",
+            "description": "Date of configuration parameter creation",
+            "format": "date-time"
+          },
+          "createdById": {
+            "type": "string",
+            "description": "Identifier of user who created configuration parameter",
+            "format": "uuid"
+          },
+          "modifiedDate": {
+            "type": "string",
+            "description": "Date of configuration parameter modification",
+            "format": "date-time"
+          },
+          "modifiedById": {
+            "type": "string",
+            "description": "Identifier of user who modified configuration parameter",
+            "format": "uuid"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigurationParameterValueApiResult"
+            },
+            "description": "List of configuration parameter values"
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectNameApiResult"
+            },
+            "description": "List of assigned projects"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterPreviewApiResult": {
+        "required": [
+          "createdById",
+          "createdDate",
+          "id",
+          "isDeleted",
+          "modifiedById",
+          "modifiedDate",
+          "name",
+          "projects",
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifier of the configuration parameter",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the configuration parameter"
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Is configuration parameter deleted?"
+          },
+          "createdDate": {
+            "type": "string",
+            "description": "Date of configuration parameter creation",
+            "format": "date-time"
+          },
+          "createdById": {
+            "type": "string",
+            "description": "Identifier of user who created configuration parameter",
+            "format": "uuid"
+          },
+          "modifiedDate": {
+            "type": "string",
+            "description": "Date of configuration parameter modification",
+            "format": "date-time"
+          },
+          "modifiedById": {
+            "type": "string",
+            "description": "Identifier of user who modified configuration parameter",
+            "format": "uuid"
+          },
+          "values": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ConfigurationParameterValueApiResultApiCollectionPreview"
+              }
+            ],
+            "description": "Preview of configuration parameter values"
+          },
+          "projects": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProjectNameApiResultApiCollectionPreview"
+              }
+            ],
+            "description": "Preview of assigned projects"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterPreviewApiResultCountReply": {
+        "required": [
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterPreviewApiResultGroup": {
+        "required": [
+          "data",
+          "key",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GroupKey"
+              }
+            ]
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigurationParameterPreviewApiResult"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterPreviewApiResultGroupedReply": {
+        "required": [
+          "groups",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigurationParameterPreviewApiResultGroup"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterPreviewApiResultIReply": {
+        "required": [
+          "totalCount"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ConfigurationParameterPreviewApiResultReply"
+          },
+          {
+            "$ref": "#/components/schemas/ConfigurationParameterPreviewApiResultGroupedReply"
+          },
+          {
+            "$ref": "#/components/schemas/ConfigurationParameterPreviewApiResultCountReply"
+          }
+        ],
+        "properties": {
+          "totalCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterPreviewApiResultReply": {
+        "required": [
+          "data",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigurationParameterPreviewApiResult"
+            }
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterProjectApiModel": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifier of project",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterValueApiModel": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Value of the configuration parameter"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterValueApiResult": {
+        "required": [
+          "id",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifier of the configuration parameter value",
+            "format": "uuid"
+          },
+          "value": {
+            "type": "string",
+            "description": "Value of the configuration parameter"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigurationParameterValueApiResultApiCollectionPreview": {
+        "required": [
+          "data",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigurationParameterValueApiResult"
+            },
+            "description": "Preview items"
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Total count",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -40420,6 +40869,71 @@
                 "$ref": "#/components/schemas/TestSuiteTestPlanApiModel"
               }
             ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTestRunAndFillByAutoTestCasesApiModel": {
+        "required": [
+          "configurationIds",
+          "option",
+          "projectId"
+        ],
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "description": "Specifies the GUID of the project, in which a test run will be created.",
+            "format": "uuid"
+          },
+          "filter": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CompositeFilter"
+              }
+            ],
+            "description": "Specifies the filter for selecting autotests, from which test points are created.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Specifies the name of the test run.",
+            "nullable": true
+          },
+          "configurationIds": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs."
+          },
+          "description": {
+            "type": "string",
+            "description": "Specifies the test run description.",
+            "nullable": true
+          },
+          "launchSource": {
+            "type": "string",
+            "description": "Specifies the test run launch source.",
+            "nullable": true
+          },
+          "option": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TestRunLaunchOptionApiModel"
+              }
+            ],
+            "description": "Specifies the test run launch options."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Collection of tags to assign to the test run",
             "nullable": true
           }
         },
@@ -41712,30 +42226,30 @@
           "workItemsCount": {
             "type": "integer",
             "description": "Number of work items in the project",
-            "format": "int32"
+            "format": "int64"
           },
           "testCasesCount": {
             "type": "integer",
             "description": "Number of test cases in the project",
-            "format": "int32",
+            "format": "int64",
             "nullable": true
           },
           "sharedStepsCount": {
             "type": "integer",
             "description": "Number of shared steps in the project",
-            "format": "int32",
+            "format": "int64",
             "nullable": true
           },
           "checkListsCount": {
             "type": "integer",
             "description": "Number of checklists in the project",
-            "format": "int32",
+            "format": "int64",
             "nullable": true
           },
           "autoTestsCount": {
             "type": "integer",
             "description": "Number of autotests in the project",
-            "format": "int32",
+            "format": "int64",
             "nullable": true
           },
           "isDeleted": {
@@ -42758,10 +43272,10 @@
         },
         "additionalProperties": false
       },
-      "Filter": {
+      "FieldFilter": {
         "required": [
-          "field",
-          "operator"
+          "operator",
+          "value"
         ],
         "type": "object",
         "properties": {
@@ -42775,6 +43289,31 @@
           "value": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Filter": {
+        "required": [
+          "field",
+          "operator",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "operator": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterOperator"
+              }
+            ]
+          },
+          "value": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/JsonElement"
+              }
+            ]
           },
           "field": {
             "type": "string",
@@ -43462,6 +44001,36 @@
         },
         "additionalProperties": false
       },
+      "JsonElement": {
+        "required": [
+          "valueKind"
+        ],
+        "type": "object",
+        "properties": {
+          "valueKind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/JsonValueKind"
+              }
+            ],
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonValueKind": {
+        "enum": [
+          "Undefined",
+          "Object",
+          "Array",
+          "String",
+          "Number",
+          "True",
+          "False",
+          "Null"
+        ],
+        "type": "string"
+      },
       "Label": {
         "required": [
           "globalId",
@@ -43626,6 +44195,62 @@
           }
         },
         "additionalProperties": false
+      },
+      "LayerApiModel": {
+        "required": [
+          "name",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Name of the test pyramid layer.\n            \nAvailable layers:\n            \n* Unit\n* Component\n* API\n* UI\n* E2E\n* Contract"
+          },
+          "source": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LayerSource"
+              }
+            ],
+            "description": "Source of the test pyramid layer."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Model of auto test layer for use in requests."
+      },
+      "LayerApiResult": {
+        "required": [
+          "name",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the test pyramid layer."
+          },
+          "source": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LayerSource"
+              }
+            ],
+            "description": "Source of the test pyramid layer."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Model of auto test layer for use in responses."
+      },
+      "LayerSource": {
+        "enum": [
+          "Manual",
+          "Report",
+          "Run",
+          "Rule"
+        ],
+        "type": "string"
       },
       "LinkApiResult": {
         "required": [
@@ -44637,30 +45262,30 @@
           "workItemsCount": {
             "type": "integer",
             "description": "Number of work items in the project",
-            "format": "int32"
+            "format": "int64"
           },
           "testCasesCount": {
             "type": "integer",
             "description": "Number of test cases in the project",
-            "format": "int32",
+            "format": "int64",
             "nullable": true
           },
           "sharedStepsCount": {
             "type": "integer",
             "description": "Number of shared steps in the project",
-            "format": "int32",
+            "format": "int64",
             "nullable": true
           },
           "checkListsCount": {
             "type": "integer",
             "description": "Number of checklists in the project",
-            "format": "int32",
+            "format": "int64",
             "nullable": true
           },
           "autoTestsCount": {
             "type": "integer",
             "description": "Number of autotests in the project",
-            "format": "int32",
+            "format": "int64",
             "nullable": true
           },
           "isDeleted": {
@@ -45076,6 +45701,28 @@
         },
         "additionalProperties": false
       },
+      "ProjectNameApiResultApiCollectionPreview": {
+        "required": [
+          "data",
+          "totalCount"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectNameApiResult"
+            },
+            "description": "Preview items"
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Total count",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "ProjectSelectModel": {
         "type": "object",
         "properties": {
@@ -45457,7 +46104,7 @@
           "testCasesCount": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Int32RangeSelectorModel"
+                "$ref": "#/components/schemas/Int64RangeSelectorModel"
               }
             ],
             "description": "Specifies a project range of test cases count to search for",
@@ -45466,7 +46113,7 @@
           "checklistsCount": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Int32RangeSelectorModel"
+                "$ref": "#/components/schemas/Int64RangeSelectorModel"
               }
             ],
             "description": "Specifies a project range of checklists count to search for",
@@ -45475,7 +46122,7 @@
           "sharedStepsCount": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Int32RangeSelectorModel"
+                "$ref": "#/components/schemas/Int64RangeSelectorModel"
               }
             ],
             "description": "Specifies a project range of shared steps count to search for",
@@ -45484,7 +46131,7 @@
           "autotestsCount": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Int32RangeSelectorModel"
+                "$ref": "#/components/schemas/Int64RangeSelectorModel"
               }
             ],
             "description": "Specifies a project range of autotests count to search for",
@@ -45623,6 +46270,86 @@
             "items": {
               "$ref": "#/components/schemas/RerunTestResultApiResult"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScheduleAutoTestsReportImportApiModel": {
+        "required": [
+          "attachmentId"
+        ],
+        "type": "object",
+        "properties": {
+          "attachmentId": {
+            "type": "string",
+            "description": "Identifier of attachment with JUnit XML to import",
+            "format": "uuid"
+          },
+          "configurationId": {
+            "type": "string",
+            "description": "Identifier of configuration. Uses default configuration in project if omitted.",
+            "format": "uuid",
+            "nullable": true
+          },
+          "layerName": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Name of test pyramid layer to set. Uses rules if omitted.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScheduleAutoTestsReportImportsApiModel": {
+        "required": [
+          "reports"
+        ],
+        "type": "object",
+        "properties": {
+          "reports": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScheduleAutoTestsReportImportApiModel"
+            },
+            "description": "Collection of reports to import."
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchConfigurationParametersApiModel": {
+        "type": "object",
+        "properties": {
+          "projectIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "inquiry": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Inquiry"
+              }
+            ],
+            "nullable": true
+          },
+          "valuesFilters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldFilter"
+            },
+            "nullable": true
+          },
+          "projectsFilters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldFilter"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -52651,6 +53378,31 @@
         },
         "additionalProperties": false
       },
+      "TestRunLaunchOptionApiModel": {
+        "required": [
+          "webhookIds"
+        ],
+        "type": "object",
+        "properties": {
+          "customParameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Customers test run parameters.",
+            "nullable": true
+          },
+          "webhookIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Enabled webhooks."
+          }
+        },
+        "additionalProperties": false
+      },
       "TestRunNameApiResult": {
         "required": [
           "id",
@@ -59005,10 +59757,16 @@
       "name": "Attachments"
     },
     {
+      "name": "Auto tests - Project"
+    },
+    {
       "name": "AutoTests"
     },
     {
       "name": "BackgroundJobs"
+    },
+    {
+      "name": "ConfigurationParameters"
     },
     {
       "name": "Configurations"

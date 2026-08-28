@@ -71,6 +71,7 @@ class BackgroundJobType(ModelSimple):
             'DELETECOMPLETEDJOBS': "DeleteCompletedJobs",
             'COPYSECTIONS': "CopySections",
             'DELETESECTION': "DeleteSection",
+            'IMPORTAUTOTESTSREPORT': "ImportAutoTestsReport",
         },
     }
 
@@ -122,10 +123,10 @@ class BackgroundJobType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["ExportXlsxTestResultsByTestPlan", "ExportXlsxWorkItemsByProject", "ExportXlsxTestPointsByTestPlan", "ExportXlsxWorkItemLinks", "ExportJsonProject", "ExportZipProject", "ExportJsonProjectWithTestPlans", "ExportZipProjectWithTestPlans", "ImportJsonProject", "ImportZipProject", "ImportXlsxProject", "ImportTestRailXmlProject", "PurgeProject", "ExportProjects", "ImportProjects", "PurgeEntities", "DeleteCompletedJobs", "CopySections", "DeleteSection", ]  # noqa: E501
+            args[0] (str):, must be one of ["ExportXlsxTestResultsByTestPlan", "ExportXlsxWorkItemsByProject", "ExportXlsxTestPointsByTestPlan", "ExportXlsxWorkItemLinks", "ExportJsonProject", "ExportZipProject", "ExportJsonProjectWithTestPlans", "ExportZipProjectWithTestPlans", "ImportJsonProject", "ImportZipProject", "ImportXlsxProject", "ImportTestRailXmlProject", "PurgeProject", "ExportProjects", "ImportProjects", "PurgeEntities", "DeleteCompletedJobs", "CopySections", "DeleteSection", "ImportAutoTestsReport", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["ExportXlsxTestResultsByTestPlan", "ExportXlsxWorkItemsByProject", "ExportXlsxTestPointsByTestPlan", "ExportXlsxWorkItemLinks", "ExportJsonProject", "ExportZipProject", "ExportJsonProjectWithTestPlans", "ExportZipProjectWithTestPlans", "ImportJsonProject", "ImportZipProject", "ImportXlsxProject", "ImportTestRailXmlProject", "PurgeProject", "ExportProjects", "ImportProjects", "PurgeEntities", "DeleteCompletedJobs", "CopySections", "DeleteSection", ]  # noqa: E501
+            value (str):, must be one of ["ExportXlsxTestResultsByTestPlan", "ExportXlsxWorkItemsByProject", "ExportXlsxTestPointsByTestPlan", "ExportXlsxWorkItemLinks", "ExportJsonProject", "ExportZipProject", "ExportJsonProjectWithTestPlans", "ExportZipProjectWithTestPlans", "ImportJsonProject", "ImportZipProject", "ImportXlsxProject", "ImportTestRailXmlProject", "PurgeProject", "ExportProjects", "ImportProjects", "PurgeEntities", "DeleteCompletedJobs", "CopySections", "DeleteSection", "ImportAutoTestsReport", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -216,10 +217,10 @@ class BackgroundJobType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["ExportXlsxTestResultsByTestPlan", "ExportXlsxWorkItemsByProject", "ExportXlsxTestPointsByTestPlan", "ExportXlsxWorkItemLinks", "ExportJsonProject", "ExportZipProject", "ExportJsonProjectWithTestPlans", "ExportZipProjectWithTestPlans", "ImportJsonProject", "ImportZipProject", "ImportXlsxProject", "ImportTestRailXmlProject", "PurgeProject", "ExportProjects", "ImportProjects", "PurgeEntities", "DeleteCompletedJobs", "CopySections", "DeleteSection", ]  # noqa: E501
+            args[0] (str):, must be one of ["ExportXlsxTestResultsByTestPlan", "ExportXlsxWorkItemsByProject", "ExportXlsxTestPointsByTestPlan", "ExportXlsxWorkItemLinks", "ExportJsonProject", "ExportZipProject", "ExportJsonProjectWithTestPlans", "ExportZipProjectWithTestPlans", "ImportJsonProject", "ImportZipProject", "ImportXlsxProject", "ImportTestRailXmlProject", "PurgeProject", "ExportProjects", "ImportProjects", "PurgeEntities", "DeleteCompletedJobs", "CopySections", "DeleteSection", "ImportAutoTestsReport", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["ExportXlsxTestResultsByTestPlan", "ExportXlsxWorkItemsByProject", "ExportXlsxTestPointsByTestPlan", "ExportXlsxWorkItemLinks", "ExportJsonProject", "ExportZipProject", "ExportJsonProjectWithTestPlans", "ExportZipProjectWithTestPlans", "ImportJsonProject", "ImportZipProject", "ImportXlsxProject", "ImportTestRailXmlProject", "PurgeProject", "ExportProjects", "ImportProjects", "PurgeEntities", "DeleteCompletedJobs", "CopySections", "DeleteSection", ]  # noqa: E501
+            value (str):, must be one of ["ExportXlsxTestResultsByTestPlan", "ExportXlsxWorkItemsByProject", "ExportXlsxTestPointsByTestPlan", "ExportXlsxWorkItemLinks", "ExportJsonProject", "ExportZipProject", "ExportJsonProjectWithTestPlans", "ExportZipProjectWithTestPlans", "ImportJsonProject", "ImportZipProject", "ImportXlsxProject", "ImportTestRailXmlProject", "PurgeProject", "ExportProjects", "ImportProjects", "PurgeEntities", "DeleteCompletedJobs", "CopySections", "DeleteSection", "ImportAutoTestsReport", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
