@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **attachments** | [**[AssignAttachmentApiModel], none_type**](AssignAttachmentApiModel.md) | Collection of attachment ids to relate to the test run | [optional] 
 **links** | [**[CreateLinkApiModel], none_type**](CreateLinkApiModel.md) | Collection of links to relate to the test run | [optional] 
 **tags** | **[str], none_type** | Collection of tags to assign to the test run | [optional] 
+**option** | [**CreateTestRunAndFillByAutoTestsApiModelOption**](CreateTestRunAndFillByAutoTestsApiModelOption.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,7 +2,7 @@
 
 # Настройка переменных
 FILE_NAME="cloud-swagger.json"
-NEW_VERSION="7.6.1"
+NEW_VERSION="7.7.0"
 GENERATOR="openapi-generator-cli-6.6.0.jar"
 
 if [ ! -f ".swagger/$FILE_NAME" ]; then

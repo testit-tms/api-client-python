@@ -102,7 +102,6 @@ class UpdateAutoTestRequest(ModelComposed):
             'project_id': (str,),  # noqa: E501
             'external_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'reset_layer': (bool,),  # noqa: E501
             'id': (str, none_type,),  # noqa: E501
             'external_key': (str, none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
@@ -110,6 +109,7 @@ class UpdateAutoTestRequest(ModelComposed):
             'title': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'is_flaky': (bool, none_type,),  # noqa: E501
+            'reset_layer': (bool, none_type,),  # noqa: E501
             'steps': ([AutoTestStepApiModel], none_type,),  # noqa: E501
             'setup': ([AutoTestStepApiModel], none_type,),  # noqa: E501
             'teardown': ([AutoTestStepApiModel], none_type,),  # noqa: E501
@@ -129,7 +129,6 @@ class UpdateAutoTestRequest(ModelComposed):
         'project_id': 'projectId',  # noqa: E501
         'external_id': 'externalId',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'reset_layer': 'resetLayer',  # noqa: E501
         'id': 'id',  # noqa: E501
         'external_key': 'externalKey',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
@@ -137,6 +136,7 @@ class UpdateAutoTestRequest(ModelComposed):
         'title': 'title',  # noqa: E501
         'description': 'description',  # noqa: E501
         'is_flaky': 'isFlaky',  # noqa: E501
+        'reset_layer': 'resetLayer',  # noqa: E501
         'steps': 'steps',  # noqa: E501
         'setup': 'setup',  # noqa: E501
         'teardown': 'teardown',  # noqa: E501
@@ -159,7 +159,6 @@ class UpdateAutoTestRequest(ModelComposed):
             project_id (str): Unique ID of the autotest project
             external_id (str): External ID of the autotest
             name (str): Name of the autotest
-            reset_layer (bool): Indicates if the autotest layer should be reset.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -197,6 +196,7 @@ class UpdateAutoTestRequest(ModelComposed):
             title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            reset_layer (bool, none_type): Indicates if the autotest layer should be reset.. [optional]  # noqa: E501
             steps ([AutoTestStepApiModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
             setup ([AutoTestStepApiModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
             teardown ([AutoTestStepApiModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
@@ -281,7 +281,6 @@ class UpdateAutoTestRequest(ModelComposed):
             project_id (str): Unique ID of the autotest project
             external_id (str): External ID of the autotest
             name (str): Name of the autotest
-            reset_layer (bool): Indicates if the autotest layer should be reset.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -319,6 +318,7 @@ class UpdateAutoTestRequest(ModelComposed):
             title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            reset_layer (bool, none_type): Indicates if the autotest layer should be reset.. [optional]  # noqa: E501
             steps ([AutoTestStepApiModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
             setup ([AutoTestStepApiModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
             teardown ([AutoTestStepApiModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501

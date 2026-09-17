@@ -89,6 +89,7 @@ class CustomAttributeApiResult(ModelNormal):
             'name': (str,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'is_required': (bool,),  # noqa: E501
+            'is_read_only': (bool,),  # noqa: E501
             'is_global': (bool,),  # noqa: E501
             'is_system': (bool,),  # noqa: E501
             'targets': ([str],),  # noqa: E501
@@ -107,6 +108,7 @@ class CustomAttributeApiResult(ModelNormal):
         'name': 'name',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
         'is_required': 'isRequired',  # noqa: E501
+        'is_read_only': 'isReadOnly',  # noqa: E501
         'is_global': 'isGlobal',  # noqa: E501
         'is_system': 'isSystem',  # noqa: E501
         'targets': 'targets',  # noqa: E501
@@ -119,7 +121,7 @@ class CustomAttributeApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, options, type, is_deleted, name, is_enabled, is_required, is_global, is_system, targets, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, options, type, is_deleted, name, is_enabled, is_required, is_read_only, is_global, is_system, targets, *args, **kwargs):  # noqa: E501
         """CustomAttributeApiResult - a model defined in OpenAPI
 
         Args:
@@ -130,6 +132,7 @@ class CustomAttributeApiResult(ModelNormal):
             name (str): Name of the attribute
             is_enabled (bool): Indicates if the attribute is enabled
             is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_read_only (bool): Indicates if the attribute value is read-only
             is_global (bool): Indicates if the attribute is available across all projects
             is_system (bool): Indicates if the attribute is system
             targets ([str]): Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
@@ -203,6 +206,7 @@ class CustomAttributeApiResult(ModelNormal):
         self.name = name
         self.is_enabled = is_enabled
         self.is_required = is_required
+        self.is_read_only = is_read_only
         self.is_global = is_global
         self.is_system = is_system
         self.targets = targets
@@ -226,7 +230,7 @@ class CustomAttributeApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, options, type, is_deleted, name, is_enabled, is_required, is_global, is_system, targets, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, options, type, is_deleted, name, is_enabled, is_required, is_read_only, is_global, is_system, targets, *args, **kwargs):  # noqa: E501
         """CustomAttributeApiResult - a model defined in OpenAPI
 
         Args:
@@ -237,6 +241,7 @@ class CustomAttributeApiResult(ModelNormal):
             name (str): Name of the attribute
             is_enabled (bool): Indicates if the attribute is enabled
             is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_read_only (bool): Indicates if the attribute value is read-only
             is_global (bool): Indicates if the attribute is available across all projects
             is_system (bool): Indicates if the attribute is system
             targets ([str]): Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
@@ -308,6 +313,7 @@ class CustomAttributeApiResult(ModelNormal):
         self.name = name
         self.is_enabled = is_enabled
         self.is_required = is_required
+        self.is_read_only = is_read_only
         self.is_global = is_global
         self.is_system = is_system
         self.targets = targets

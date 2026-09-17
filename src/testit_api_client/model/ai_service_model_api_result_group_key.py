@@ -30,7 +30,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.filter_value import FilterValue
     from testit_api_client.model.group_key import GroupKey
+    globals()['FilterValue'] = FilterValue
     globals()['GroupKey'] = GroupKey
 
 
@@ -87,7 +89,7 @@ class AIServiceModelApiResultGroupKey(ModelComposed):
         """
         lazy_import()
         return {
-            'value': (str, none_type,),  # noqa: E501
+            'value': (FilterValue,),  # noqa: E501
             'display_value': (str, none_type,),  # noqa: E501
         }
 
@@ -110,7 +112,7 @@ class AIServiceModelApiResultGroupKey(ModelComposed):
         """AIServiceModelApiResultGroupKey - a model defined in OpenAPI
 
         Keyword Args:
-            value (str, none_type):
+            value (FilterValue):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -215,7 +217,7 @@ class AIServiceModelApiResultGroupKey(ModelComposed):
         """AIServiceModelApiResultGroupKey - a model defined in OpenAPI
 
         Keyword Args:
-            value (str, none_type):
+            value (FilterValue):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

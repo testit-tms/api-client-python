@@ -114,6 +114,8 @@ class WorkItemFilterApiModel(ModelNormal):
         },
         ('auto_test_ids',): {
         },
+        ('layers',): {
+        },
     }
 
     additional_properties_type = None
@@ -159,6 +161,7 @@ class WorkItemFilterApiModel(ModelNormal):
             'work_item_version_ids': ([str], none_type,),  # noqa: E501
             'links': (WorkItemFilterApiModelLinks,),  # noqa: E501
             'external_metadata': (WorkItemFilterApiModelExternalMetadata,),  # noqa: E501
+            'layers': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -194,6 +197,7 @@ class WorkItemFilterApiModel(ModelNormal):
         'work_item_version_ids': 'workItemVersionIds',  # noqa: E501
         'links': 'links',  # noqa: E501
         'external_metadata': 'externalMetadata',  # noqa: E501
+        'layers': 'layers',  # noqa: E501
     }
 
     read_only_vars = {
@@ -264,6 +268,7 @@ class WorkItemFilterApiModel(ModelNormal):
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
             links (WorkItemFilterApiModelLinks): [optional]  # noqa: E501
             external_metadata (WorkItemFilterApiModelExternalMetadata): [optional]  # noqa: E501
+            layers ([str], none_type): Specifies auto test case layers to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -376,6 +381,7 @@ class WorkItemFilterApiModel(ModelNormal):
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
             links (WorkItemFilterApiModelLinks): [optional]  # noqa: E501
             external_metadata (WorkItemFilterApiModelExternalMetadata): [optional]  # noqa: E501
+            layers ([str], none_type): Specifies auto test case layers to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
