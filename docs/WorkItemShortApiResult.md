@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **created_date** | **datetime, none_type** | Date and time of Work Item creation | [optional] 
 **modified_date** | **datetime, none_type** | Date and time of the latest modification of Work Item | [optional] 
 **tag_names** | **[str], none_type** | Array of tag names of Work Item | [optional] 
+**layer** | [**WorkItemShortApiResultLayer**](WorkItemShortApiResultLayer.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

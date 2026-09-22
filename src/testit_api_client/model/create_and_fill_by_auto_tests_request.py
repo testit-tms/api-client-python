@@ -33,9 +33,11 @@ def lazy_import():
     from testit_api_client.model.assign_attachment_api_model import AssignAttachmentApiModel
     from testit_api_client.model.create_link_api_model import CreateLinkApiModel
     from testit_api_client.model.create_test_run_and_fill_by_auto_tests_api_model import CreateTestRunAndFillByAutoTestsApiModel
+    from testit_api_client.model.create_test_run_and_fill_by_auto_tests_api_model_option import CreateTestRunAndFillByAutoTestsApiModelOption
     globals()['AssignAttachmentApiModel'] = AssignAttachmentApiModel
     globals()['CreateLinkApiModel'] = CreateLinkApiModel
     globals()['CreateTestRunAndFillByAutoTestsApiModel'] = CreateTestRunAndFillByAutoTestsApiModel
+    globals()['CreateTestRunAndFillByAutoTestsApiModelOption'] = CreateTestRunAndFillByAutoTestsApiModelOption
 
 
 class CreateAndFillByAutoTestsRequest(ModelComposed):
@@ -106,6 +108,7 @@ class CreateAndFillByAutoTestsRequest(ModelComposed):
             'attachments': ([AssignAttachmentApiModel], none_type,),  # noqa: E501
             'links': ([CreateLinkApiModel], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
+            'option': (CreateTestRunAndFillByAutoTestsApiModelOption,),  # noqa: E501
         }
 
     @cached_property
@@ -123,6 +126,7 @@ class CreateAndFillByAutoTestsRequest(ModelComposed):
         'attachments': 'attachments',  # noqa: E501
         'links': 'links',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'option': 'option',  # noqa: E501
     }
 
     read_only_vars = {
@@ -173,6 +177,7 @@ class CreateAndFillByAutoTestsRequest(ModelComposed):
             attachments ([AssignAttachmentApiModel], none_type): Collection of attachment ids to relate to the test run. [optional]  # noqa: E501
             links ([CreateLinkApiModel], none_type): Collection of links to relate to the test run. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags to assign to the test run. [optional]  # noqa: E501
+            option (CreateTestRunAndFillByAutoTestsApiModelOption): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -285,6 +290,7 @@ class CreateAndFillByAutoTestsRequest(ModelComposed):
             attachments ([AssignAttachmentApiModel], none_type): Collection of attachment ids to relate to the test run. [optional]  # noqa: E501
             links ([CreateLinkApiModel], none_type): Collection of links to relate to the test run. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags to assign to the test run. [optional]  # noqa: E501
+            option (CreateTestRunAndFillByAutoTestsApiModelOption): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **project_id** | **str** | Unique ID of the autotest project | 
 **external_id** | **str** | External ID of the autotest | 
 **name** | **str** | Name of the autotest | 
-**reset_layer** | **bool** | Indicates if the autotest layer should be reset. | 
 **id** | **str, none_type** | Autotest unique internal identifier | [optional] 
 **external_key** | **str, none_type** | External key of the autotest | [optional] 
 **namespace** | **str, none_type** | Name of the autotest namespace | [optional] 
@@ -15,6 +14,7 @@ Name | Type | Description | Notes
 **title** | **str, none_type** | Name of the autotest in autotest&#39;s card | [optional] 
 **description** | **str, none_type** | Description of the autotest in autotest&#39;s card | [optional] 
 **is_flaky** | **bool, none_type** | Indicates if the autotest is marked as flaky | [optional] 
+**reset_layer** | **bool, none_type** | Indicates if the autotest layer should be reset. | [optional] 
 **steps** | [**[AutoTestStepApiModel], none_type**](AutoTestStepApiModel.md) | Collection of the autotest steps | [optional] 
 **setup** | [**[AutoTestStepApiModel], none_type**](AutoTestStepApiModel.md) | Collection of the autotest setup steps | [optional] 
 **teardown** | [**[AutoTestStepApiModel], none_type**](AutoTestStepApiModel.md) | Collection of the autotest teardown steps | [optional] 

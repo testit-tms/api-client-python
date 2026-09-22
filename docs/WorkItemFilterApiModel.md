@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **work_item_version_ids** | **[str], none_type** | Collection of identifiers work items versions. | [optional] 
 **links** | [**WorkItemFilterApiModelLinks**](WorkItemFilterApiModelLinks.md) |  | [optional] 
 **external_metadata** | [**WorkItemFilterApiModelExternalMetadata**](WorkItemFilterApiModelExternalMetadata.md) |  | [optional] 
+**layers** | **[str], none_type** | Specifies auto test case layers to search for | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
