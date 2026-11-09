@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **last_test_result_configuration_ids** | **[str], none_type** |  | [optional] 
 **tags** | **[str], none_type** |  | [optional] 
 **exclude_tags** | **[str], none_type** |  | [optional] 
+**layers** | **[str], none_type** |  | [optional] 
+**layer_sources** | [**[LayerSource], none_type**](LayerSource.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

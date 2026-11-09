@@ -31,7 +31,9 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.filter_operator import FilterOperator
+    from testit_api_client.model.filter_value import FilterValue
     globals()['FilterOperator'] = FilterOperator
+    globals()['FilterValue'] = FilterValue
 
 
 class Filter(ModelNormal):
@@ -81,8 +83,8 @@ class Filter(ModelNormal):
         lazy_import()
         return {
             'operator': (FilterOperator,),  # noqa: E501
+            'value': (FilterValue,),  # noqa: E501
             'field': (str,),  # noqa: E501
-            'value': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -92,8 +94,8 @@ class Filter(ModelNormal):
 
     attribute_map = {
         'operator': 'operator',  # noqa: E501
-        'field': 'field',  # noqa: E501
         'value': 'value',  # noqa: E501
+        'field': 'field',  # noqa: E501
     }
 
     read_only_vars = {
@@ -104,11 +106,12 @@ class Filter(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, operator, field, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, operator, value, field, *args, **kwargs):  # noqa: E501
         """Filter - a model defined in OpenAPI
 
         Args:
             operator (FilterOperator):
+            value (FilterValue):
             field (str):
 
         Keyword Args:
@@ -142,7 +145,6 @@ class Filter(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -175,6 +177,7 @@ class Filter(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.operator = operator
+        self.value = value
         self.field = field
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -196,11 +199,12 @@ class Filter(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, operator, *args, **kwargs):  # noqa: E501
+    def __init__(self, operator, value, *args, **kwargs):  # noqa: E501
         """Filter - a model defined in OpenAPI
 
         Args:
             operator (FilterOperator):
+            value (FilterValue):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -232,7 +236,6 @@ class Filter(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -263,6 +266,7 @@ class Filter(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.operator = operator
+        self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -31,10 +31,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.auto_test_create_api_model import AutoTestCreateApiModel
+    from testit_api_client.model.auto_test_create_api_model_layer import AutoTestCreateApiModelLayer
     from testit_api_client.model.auto_test_step_api_model import AutoTestStepApiModel
     from testit_api_client.model.label_api_model import LabelApiModel
     from testit_api_client.model.link_create_api_model import LinkCreateApiModel
     globals()['AutoTestCreateApiModel'] = AutoTestCreateApiModel
+    globals()['AutoTestCreateApiModelLayer'] = AutoTestCreateApiModelLayer
     globals()['AutoTestStepApiModel'] = AutoTestStepApiModel
     globals()['LabelApiModel'] = LabelApiModel
     globals()['LinkCreateApiModel'] = LinkCreateApiModel
@@ -108,9 +110,11 @@ class CreateAutoTestRequest(ModelComposed):
             'title': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'is_flaky': (bool, none_type,),  # noqa: E501
+            'layer': (AutoTestCreateApiModelLayer,),  # noqa: E501
             'steps': ([AutoTestStepApiModel], none_type,),  # noqa: E501
             'setup': ([AutoTestStepApiModel], none_type,),  # noqa: E501
             'teardown': ([AutoTestStepApiModel], none_type,),  # noqa: E501
+            'manual_test_id': (str, none_type,),  # noqa: E501
             'should_create_work_item': (bool, none_type,),  # noqa: E501
             'work_item_ids': ([str], none_type,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
@@ -135,9 +139,11 @@ class CreateAutoTestRequest(ModelComposed):
         'title': 'title',  # noqa: E501
         'description': 'description',  # noqa: E501
         'is_flaky': 'isFlaky',  # noqa: E501
+        'layer': 'layer',  # noqa: E501
         'steps': 'steps',  # noqa: E501
         'setup': 'setup',  # noqa: E501
         'teardown': 'teardown',  # noqa: E501
+        'manual_test_id': 'manualTestId',  # noqa: E501
         'should_create_work_item': 'shouldCreateWorkItem',  # noqa: E501
         'work_item_ids': 'workItemIds',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
@@ -195,9 +201,11 @@ class CreateAutoTestRequest(ModelComposed):
             title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            layer (AutoTestCreateApiModelLayer): [optional]  # noqa: E501
             steps ([AutoTestStepApiModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
             setup ([AutoTestStepApiModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
             teardown ([AutoTestStepApiModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
+            manual_test_id (str, none_type): ID of the manual test to be linked with the autotest. [optional]  # noqa: E501
             should_create_work_item (bool, none_type): Creates a test case linked to the autotest.. [optional]  # noqa: E501
             work_item_ids ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Key value pair of custom work item attributes. [optional]  # noqa: E501
@@ -317,9 +325,11 @@ class CreateAutoTestRequest(ModelComposed):
             title (str, none_type): Name of the autotest in autotest's card. [optional]  # noqa: E501
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            layer (AutoTestCreateApiModelLayer): [optional]  # noqa: E501
             steps ([AutoTestStepApiModel], none_type): Collection of the autotest steps. [optional]  # noqa: E501
             setup ([AutoTestStepApiModel], none_type): Collection of the autotest setup steps. [optional]  # noqa: E501
             teardown ([AutoTestStepApiModel], none_type): Collection of the autotest teardown steps. [optional]  # noqa: E501
+            manual_test_id (str, none_type): ID of the manual test to be linked with the autotest. [optional]  # noqa: E501
             should_create_work_item (bool, none_type): Creates a test case linked to the autotest.. [optional]  # noqa: E501
             work_item_ids ([str], none_type): Specifies the IDs of work items to link your autotest to. You can specify several IDs.. [optional]  # noqa: E501
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Key value pair of custom work item attributes. [optional]  # noqa: E501

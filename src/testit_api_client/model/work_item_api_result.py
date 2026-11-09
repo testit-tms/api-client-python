@@ -31,24 +31,28 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
+    from testit_api_client.model.auto_test_case_api_model import AutoTestCaseApiModel
     from testit_api_client.model.auto_test_model import AutoTestModel
     from testit_api_client.model.external_issue_api_result import ExternalIssueApiResult
     from testit_api_client.model.iteration_model import IterationModel
     from testit_api_client.model.link_model import LinkModel
     from testit_api_client.model.step_model import StepModel
     from testit_api_client.model.tag_model import TagModel
+    from testit_api_client.model.work_item_api_result_layer import WorkItemApiResultLayer
     from testit_api_client.model.work_item_entity_type_api_model import WorkItemEntityTypeApiModel
     from testit_api_client.model.work_item_parameter_key_api_result import WorkItemParameterKeyApiResult
     from testit_api_client.model.work_item_priority_api_model import WorkItemPriorityApiModel
     from testit_api_client.model.work_item_source_type_api_model import WorkItemSourceTypeApiModel
     from testit_api_client.model.work_item_state_api_model import WorkItemStateApiModel
     globals()['AttachmentModel'] = AttachmentModel
+    globals()['AutoTestCaseApiModel'] = AutoTestCaseApiModel
     globals()['AutoTestModel'] = AutoTestModel
     globals()['ExternalIssueApiResult'] = ExternalIssueApiResult
     globals()['IterationModel'] = IterationModel
     globals()['LinkModel'] = LinkModel
     globals()['StepModel'] = StepModel
     globals()['TagModel'] = TagModel
+    globals()['WorkItemApiResultLayer'] = WorkItemApiResultLayer
     globals()['WorkItemEntityTypeApiModel'] = WorkItemEntityTypeApiModel
     globals()['WorkItemParameterKeyApiResult'] = WorkItemParameterKeyApiResult
     globals()['WorkItemPriorityApiModel'] = WorkItemPriorityApiModel
@@ -125,6 +129,7 @@ class WorkItemApiResult(ModelNormal):
             'postcondition_steps': ([StepModel],),  # noqa: E501
             'iterations': ([IterationModel],),  # noqa: E501
             'auto_tests': ([AutoTestModel],),  # noqa: E501
+            'auto_test_cases': ([AutoTestCaseApiModel],),  # noqa: E501
             'attachments': ([AttachmentModel],),  # noqa: E501
             'links': ([LinkModel],),  # noqa: E501
             'external_issues': ([ExternalIssueApiResult],),  # noqa: E501
@@ -133,9 +138,11 @@ class WorkItemApiResult(ModelNormal):
             'created_by_id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
+            'external_id': (str, none_type,),  # noqa: E501
+            'manual_test_id': (str, none_type,),  # noqa: E501
+            'layer': (WorkItemApiResultLayer,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
-            'autoTestCases': ([str, none_type], none_type,),
         }
 
     @cached_property
@@ -167,6 +174,7 @@ class WorkItemApiResult(ModelNormal):
         'postcondition_steps': 'postconditionSteps',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
+        'auto_test_cases': 'autoTestCases',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'links': 'links',  # noqa: E501
         'external_issues': 'externalIssues',  # noqa: E501
@@ -175,9 +183,11 @@ class WorkItemApiResult(ModelNormal):
         'created_by_id': 'createdById',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'external_id': 'externalId',  # noqa: E501
+        'manual_test_id': 'manualTestId',  # noqa: E501
+        'layer': 'layer',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
-        'autoTestCases': 'autoTestCases',  # noqa: E501
     }
 
     read_only_vars = {
@@ -187,7 +197,7 @@ class WorkItemApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, external_issues, parameters, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, auto_test_cases, attachments, links, external_issues, parameters, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
         """WorkItemApiResult - a model defined in OpenAPI
 
         Args:
@@ -214,6 +224,7 @@ class WorkItemApiResult(ModelNormal):
             postcondition_steps ([StepModel]): Set of postcondition steps that are executed after completing the main steps
             iterations ([IterationModel]): Associated iterations linked to the work item
             auto_tests ([AutoTestModel]): Automated tests associated with the work item
+            auto_test_cases ([AutoTestCaseApiModel]): Set of automated test cases linked to the work item
             attachments ([AttachmentModel]): Files attached to the work item
             links ([LinkModel]): Set of links related to the work item
             external_issues ([ExternalIssueApiResult]): Set of external issues related to the work item
@@ -254,6 +265,9 @@ class WorkItemApiResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the work item. [optional]  # noqa: E501
+            external_id (str, none_type): External identifier of the work item from external systems. [optional]  # noqa: E501
+            manual_test_id (str, none_type): Identifier of the linked manual test. [optional]  # noqa: E501
+            layer (WorkItemApiResultLayer): [optional]  # noqa: E501
             modified_date (datetime, none_type): Modification date of the work item. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique identifier of the work item modifier. [optional]  # noqa: E501
         """
@@ -310,6 +324,7 @@ class WorkItemApiResult(ModelNormal):
         self.postcondition_steps = postcondition_steps
         self.iterations = iterations
         self.auto_tests = auto_tests
+        self.auto_test_cases = auto_test_cases
         self.attachments = attachments
         self.links = links
         self.external_issues = external_issues
@@ -337,7 +352,7 @@ class WorkItemApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, attachments, links, external_issues, parameters, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, global_id, version_id, version_number, project_id, section_id, name, source_type, entity_type_name, duration, median_duration, state, priority, is_automated, attributes, tags, section_precondition_steps, section_postcondition_steps, precondition_steps, steps, postcondition_steps, iterations, auto_tests, auto_test_cases, attachments, links, external_issues, parameters, created_date, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
         """WorkItemApiResult - a model defined in OpenAPI
 
         Args:
@@ -364,6 +379,7 @@ class WorkItemApiResult(ModelNormal):
             postcondition_steps ([StepModel]): Set of postcondition steps that are executed after completing the main steps
             iterations ([IterationModel]): Associated iterations linked to the work item
             auto_tests ([AutoTestModel]): Automated tests associated with the work item
+            auto_test_cases ([AutoTestCaseApiModel]): Set of automated test cases linked to the work item
             attachments ([AttachmentModel]): Files attached to the work item
             links ([LinkModel]): Set of links related to the work item
             external_issues ([ExternalIssueApiResult]): Set of external issues related to the work item
@@ -404,6 +420,9 @@ class WorkItemApiResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the work item. [optional]  # noqa: E501
+            external_id (str, none_type): External identifier of the work item from external systems. [optional]  # noqa: E501
+            manual_test_id (str, none_type): Identifier of the linked manual test. [optional]  # noqa: E501
+            layer (WorkItemApiResultLayer): [optional]  # noqa: E501
             modified_date (datetime, none_type): Modification date of the work item. [optional]  # noqa: E501
             modified_by_id (str, none_type): Unique identifier of the work item modifier. [optional]  # noqa: E501
         """
@@ -458,6 +477,7 @@ class WorkItemApiResult(ModelNormal):
         self.postcondition_steps = postcondition_steps
         self.iterations = iterations
         self.auto_tests = auto_tests
+        self.auto_test_cases = auto_test_cases
         self.attachments = attachments
         self.links = links
         self.external_issues = external_issues

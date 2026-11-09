@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tag_names** | **[str], none_type** | Collection of tags | [optional] 
-**entity_types** | [**[WorkItemTypeModel], none_type**](WorkItemTypeModel.md) | Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
+**entity_types** | [**[WorkItemTypeModel], none_type**](WorkItemTypeModel.md) | Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
 **name_or_id** | **str, none_type** | Name or identifier (UUID) of work item | [optional] 
 **include_ids** | **[str], none_type** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **exclude_ids** | **[str], none_type** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **attributes** | **{str: ([str], none_type)}, none_type** | Custom attributes of work item | [optional] 
 **is_deleted** | **bool, none_type** | Is result must consist of only actual/deleted work items | [optional] 
 **section_ids** | **[str], none_type** | Collection of section identifiers | [optional] 
+**namespace_ids** | **[str], none_type** | Collection of namespace identifiers | [optional] 
 **created_by_ids** | **[str], none_type** | Collection of identifiers of users who created work item | [optional] 
 **modified_by_ids** | **[str], none_type** | Collection of identifiers of users who applied last modification to work item | [optional] 
 **states** | [**[WorkItemStates], none_type**](WorkItemStates.md) | Collection of states of work item | [optional] 
@@ -33,6 +34,7 @@ Name | Type | Description | Notes
 **work_item_version_ids** | **[str], none_type** | Collection of identifiers work items versions. | [optional] 
 **links** | [**TestSuiteWorkItemsSearchModelLinks**](TestSuiteWorkItemsSearchModelLinks.md) |  | [optional] 
 **external_metadata** | [**TestSuiteWorkItemsSearchModelExternalMetadata**](TestSuiteWorkItemsSearchModelExternalMetadata.md) |  | [optional] 
+**external_id** | **str, none_type** | External identifier of the work item | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

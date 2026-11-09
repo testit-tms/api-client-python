@@ -21,7 +21,6 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.custom_attribute_get_model import CustomAttributeGetModel
 from testit_api_client.model.custom_attribute_model import CustomAttributeModel
 from testit_api_client.model.problem_details import ProblemDetails
 from testit_api_client.model.search_attributes_in_project_request import SearchAttributesInProjectRequest
@@ -214,7 +213,7 @@ class ProjectTestPlanAttributesApi(object):
         )
         self.search_test_plan_attributes_in_project_endpoint = _Endpoint(
             settings={
-                'response_type': ([CustomAttributeGetModel],),
+                'response_type': ([CustomAttributeModel],),
                 'auth': [
                     'PrivateToken',
                     'Cookies'
@@ -361,7 +360,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Add attributes to project's test plans  # noqa: E501
 
-          Use case    User sets project internal or global identifier and attributes identifiers    User runs method execution    System updates project and add attributes to project for test plans    System returns no content response  # noqa: E501
+         Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -446,7 +445,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Delete attribute from project's test plans  # noqa: E501
 
-          Use case    User sets project internal or global identifier and attribute identifier    User runs method execution    System updates project and delete attribute from project for test plans    System returns no content response  # noqa: E501
+         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -532,7 +531,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Get project's test plan attributes  # noqa: E501
 
-          Use case    User runs method execution    System returns project for test plans attributes by project identifier  # noqa: E501
+         Use case  User runs method execution  System returns project for test plans attributes by project identifier  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -663,7 +662,7 @@ class ProjectTestPlanAttributesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [CustomAttributeGetModel]
+            [CustomAttributeModel]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -703,7 +702,7 @@ class ProjectTestPlanAttributesApi(object):
     ):
         """Update attribute of project's test plans  # noqa: E501
 
-          Use case    User sets project internal or global identifier and attribute model    User runs method execution    System updates project and project attribute for test plan    System returns no content response  # noqa: E501
+         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

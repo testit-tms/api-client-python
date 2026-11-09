@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Get unread Notifications total in last 7 days
 
-  Use case    User runs method execution    System returns unread notifications total (listed in the response example)
+ Use case  User runs method execution  System returns unread notifications total (listed in the response example)
 
 ### Example
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 Get all Notifications for current User
 
-  Use case    User runs method execution    System returns notifications (listed in the response example)
+ Use case  User runs method execution  System returns notifications (listed in the response example)
 
 ### Example
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** |   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found |  -  |
+**400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 Set Notification as read
 
-  Use case    User sets notification internal (guid format) identifier    User runs method execution    System set notification as read
+ Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
 
 ### Example
 
@@ -306,7 +306,7 @@ void (empty response body)
 
 Set all Notifications as read
 
-  Use case    User runs method execution    System set all notifications as read
+ Use case  User runs method execution  System set all notifications as read
 
 ### Example
 
@@ -394,7 +394,7 @@ void (empty response body)
 
 Search Notifications for current User
 
-  Use case    User set filter and runs method execution    System returns notifications (listed in the response example)
+ Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
 
 ### Example
 

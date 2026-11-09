@@ -32,10 +32,12 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.composite_filter import CompositeFilter
     from testit_api_client.model.group import Group
+    from testit_api_client.model.mode import Mode
     from testit_api_client.model.order import Order
     from testit_api_client.model.page import Page
     globals()['CompositeFilter'] = CompositeFilter
     globals()['Group'] = Group
+    globals()['Mode'] = Mode
     globals()['Order'] = Order
     globals()['Page'] = Page
 
@@ -87,6 +89,7 @@ class Inquiry(ModelNormal):
         lazy_import()
         return {
             'order': ([Order],),  # noqa: E501
+            'mode': (Mode,),  # noqa: E501
             'group': (Group,),  # noqa: E501
             'filter': (CompositeFilter,),  # noqa: E501
             'page': (Page,),  # noqa: E501
@@ -99,6 +102,7 @@ class Inquiry(ModelNormal):
 
     attribute_map = {
         'order': 'order',  # noqa: E501
+        'mode': 'mode',  # noqa: E501
         'group': 'group',  # noqa: E501
         'filter': 'filter',  # noqa: E501
         'page': 'page',  # noqa: E501
@@ -111,11 +115,12 @@ class Inquiry(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, order, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, order, mode, *args, **kwargs):  # noqa: E501
         """Inquiry - a model defined in OpenAPI
 
         Args:
             order ([Order]):
+            mode (Mode):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -183,6 +188,7 @@ class Inquiry(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.order = order
+        self.mode = mode
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -203,11 +209,12 @@ class Inquiry(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, order, *args, **kwargs):  # noqa: E501
+    def __init__(self, order, mode, *args, **kwargs):  # noqa: E501
         """Inquiry - a model defined in OpenAPI
 
         Args:
             order ([Order]):
+            mode (Mode):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -273,6 +280,7 @@ class Inquiry(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.order = order
+        self.mode = mode
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

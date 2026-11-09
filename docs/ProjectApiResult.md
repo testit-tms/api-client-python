@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **global_id** | **int** | Global ID of the project | 
 **type** | [**ProjectType**](ProjectType.md) |  | 
 **workflow_id** | **str** | ID of the workflow used in project | 
+**test_strategy** | [**TestStrategy**](TestStrategy.md) |  | 
+**test_case_coverage_mode** | [**TestCaseCoverageMode**](TestCaseCoverageMode.md) |  | 
 **description** | **str, none_type** | Description of the project | [optional] 
 **test_cases_count** | **int, none_type** | Number of test cases in the project | [optional] 
 **shared_steps_count** | **int, none_type** | Number of shared steps in the project | [optional] 

@@ -21,6 +21,7 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from testit_api_client.model.api_v2_test_runs_by_auto_test_cases_post_request import ApiV2TestRunsByAutoTestCasesPostRequest
 from testit_api_client.model.api_v2_test_runs_delete_request import ApiV2TestRunsDeleteRequest
 from testit_api_client.model.api_v2_test_runs_id_reruns_post_request import ApiV2TestRunsIdRerunsPostRequest
 from testit_api_client.model.api_v2_test_runs_id_statistics_filter_post_request import ApiV2TestRunsIdStatisticsFilterPostRequest
@@ -55,6 +56,57 @@ class TestRunsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.api_v2_test_runs_by_auto_test_cases_post_endpoint = _Endpoint(
+            settings={
+                'response_type': (TestRunV2ApiResult,),
+                'auth': [
+                    'PrivateToken',
+                    'Cookies'
+                ],
+                'endpoint_path': '/api/v2/testRuns/byAutoTestCases',
+                'operation_id': 'api_v2_test_runs_by_auto_test_cases_post',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'api_v2_test_runs_by_auto_test_cases_post_request',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'api_v2_test_runs_by_auto_test_cases_post_request':
+                        (ApiV2TestRunsByAutoTestCasesPostRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'api_v2_test_runs_by_auto_test_cases_post_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.api_v2_test_runs_delete_endpoint = _Endpoint(
             settings={
                 'response_type': (int,),
@@ -1401,13 +1453,91 @@ class TestRunsApi(object):
             api_client=api_client
         )
 
+    def api_v2_test_runs_by_auto_test_cases_post(
+        self,
+        **kwargs
+    ):
+        """Create TestRun filled with autotests linked to work items of type \"AutoTestCases\" selected by the filter  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.api_v2_test_runs_by_auto_test_cases_post(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            api_v2_test_runs_by_auto_test_cases_post_request (ApiV2TestRunsByAutoTestCasesPostRequest): Test run model with a filter for work items of type \"AutoTestCases\" and configuration IDs. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TestRunV2ApiResult
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.api_v2_test_runs_by_auto_test_cases_post_endpoint.call_with_http_info(**kwargs)
+
     def api_v2_test_runs_delete(
         self,
         **kwargs
     ):
         """Delete multiple test runs  # noqa: E501
 
-          Use case    User sets selection parameters of test runs    System search and delete collection of test runs    System returns the number of deleted test runs  # noqa: E501
+         Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1569,7 +1699,7 @@ class TestRunsApi(object):
     ):
         """Delete test run  # noqa: E501
 
-          Use case    User sets test run internal (guid format) identifier    System search and delete test run  # noqa: E501
+         Use case  User sets test run internal (guid format) identifier  System search and delete test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1736,7 +1866,7 @@ class TestRunsApi(object):
     ):
         """Permanently delete test run from archive  # noqa: E501
 
-          Use case    User sets archived test run internal (guid format) identifier    System search and purge archived test run  # noqa: E501
+         Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1902,7 +2032,7 @@ class TestRunsApi(object):
     ):
         """Restore test run from the archive  # noqa: E501
 
-          Use case    User sets archived test run internal (guid format) identifier    System search and restore test run  # noqa: E501
+         Use case  User sets archived test run internal (guid format) identifier  System search and restore test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2314,7 +2444,7 @@ class TestRunsApi(object):
     ):
         """Permanently delete multiple test runs from archive  # noqa: E501
 
-          Use case    User sets selection parameters of archived test runs    System search and delete collection of archived test runs    System returns the number of deleted archived test runs  # noqa: E501
+         Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2393,7 +2523,7 @@ class TestRunsApi(object):
     ):
         """Restore multiple test runs from the archive  # noqa: E501
 
-          Use case    User sets selection parameters of archived test runs    System search and restore collection of archived test runs    System returns the number of restored test runs  # noqa: E501
+         Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2634,7 +2764,7 @@ class TestRunsApi(object):
     ):
         """Complete TestRun  # noqa: E501
 
-          Use case    User sets test run identifier    User runs method execution    System completes test run    System returns no content response  # noqa: E501
+         Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2716,7 +2846,7 @@ class TestRunsApi(object):
     ):
         """Create test runs based on autotests and configurations  # noqa: E501
 
-        This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).  # noqa: E501
+        This method creates a test run based on an autotest and a configuration. The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is that in this method there is no need to create a test plan and work items (test cases and checklists).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2795,7 +2925,7 @@ class TestRunsApi(object):
     ):
         """Create test runs picking the needed test points  # noqa: E501
 
-        This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.  # noqa: E501
+        This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a jagged array within the \"<b>testPointSelectors</b>\" parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2874,7 +3004,7 @@ class TestRunsApi(object):
     ):
         """Create test run based on configurations and work items  # noqa: E501
 
-        This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.  # noqa: E501
+        This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2953,7 +3083,7 @@ class TestRunsApi(object):
     ):
         """Create empty TestRun  # noqa: E501
 
-          Use case    User sets test run model (listed in the request example)    User runs method execution    System creates test run    System returns test run model  # noqa: E501
+         Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3033,7 +3163,7 @@ class TestRunsApi(object):
     ):
         """Get TestRun by Id  # noqa: E501
 
-          Use case    User sets test run identifier    User runs method execution    System finds test run    System returns test run  # noqa: E501
+         Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3200,7 +3330,7 @@ class TestRunsApi(object):
     ):
         """Start TestRun  # noqa: E501
 
-          Use case    User sets test run identifier    User runs method execution    System starts test run    System returns no content response  # noqa: E501
+         Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3283,7 +3413,7 @@ class TestRunsApi(object):
     ):
         """Stop TestRun  # noqa: E501
 
-          Use case    User sets test run identifier    User runs method execution    System stops test run    System returns no content response  # noqa: E501
+         Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3365,7 +3495,7 @@ class TestRunsApi(object):
     ):
         """Update empty TestRun  # noqa: E501
 
-          Use case    User sets test run properties (listed in the request example)    User runs method execution    System updates test run    System returns returns no content response  # noqa: E501
+         Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

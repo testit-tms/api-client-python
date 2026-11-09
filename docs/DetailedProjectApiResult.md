@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **global_id** | **int** | Global ID of the project | 
 **type** | [**ProjectType**](ProjectType.md) |  | 
 **workflow_id** | **str** | ID of the workflow used in project | 
+**test_strategy** | [**TestStrategy**](TestStrategy.md) |  | 
+**test_case_coverage_mode** | [**TestCaseCoverageMode**](TestCaseCoverageMode.md) |  | 
 **attributes_scheme** | [**[CustomAttributeApiResult], none_type**](CustomAttributeApiResult.md) | Collection of the project attributes | [optional] 
 **test_plans_attributes_scheme** | [**[CustomAttributeApiResult], none_type**](CustomAttributeApiResult.md) | Collection of the project test plans attributes | [optional] 
 **description** | **str, none_type** | Description of the project | [optional] 

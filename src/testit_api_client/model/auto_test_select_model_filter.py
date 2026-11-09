@@ -34,10 +34,12 @@ def lazy_import():
     from testit_api_client.model.autotest_result_outcome import AutotestResultOutcome
     from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
     from testit_api_client.model.int64_range_selector_model import Int64RangeSelectorModel
+    from testit_api_client.model.layer_source import LayerSource
     globals()['AutoTestFilterModel'] = AutoTestFilterModel
     globals()['AutotestResultOutcome'] = AutotestResultOutcome
     globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
     globals()['Int64RangeSelectorModel'] = Int64RangeSelectorModel
+    globals()['LayerSource'] = LayerSource
 
 
 class AutoTestSelectModelFilter(ModelComposed):
@@ -115,6 +117,8 @@ class AutoTestSelectModelFilter(ModelComposed):
             'last_test_result_configuration_ids': ([str], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
             'exclude_tags': ([str], none_type,),  # noqa: E501
+            'layers': ([str], none_type,),  # noqa: E501
+            'layer_sources': ([LayerSource], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -145,6 +149,8 @@ class AutoTestSelectModelFilter(ModelComposed):
         'last_test_result_configuration_ids': 'lastTestResultConfigurationIds',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'exclude_tags': 'excludeTags',  # noqa: E501
+        'layers': 'layers',  # noqa: E501
+        'layer_sources': 'layerSources',  # noqa: E501
     }
 
     read_only_vars = {
@@ -208,6 +214,8 @@ class AutoTestSelectModelFilter(ModelComposed):
             last_test_result_configuration_ids ([str], none_type): [optional]  # noqa: E501
             tags ([str], none_type): [optional]  # noqa: E501
             exclude_tags ([str], none_type): [optional]  # noqa: E501
+            layers ([str], none_type): [optional]  # noqa: E501
+            layer_sources ([LayerSource], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -333,6 +341,8 @@ class AutoTestSelectModelFilter(ModelComposed):
             last_test_result_configuration_ids ([str], none_type): [optional]  # noqa: E501
             tags ([str], none_type): [optional]  # noqa: E501
             exclude_tags ([str], none_type): [optional]  # noqa: E501
+            layers ([str], none_type): [optional]  # noqa: E501
+            layer_sources ([LayerSource], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

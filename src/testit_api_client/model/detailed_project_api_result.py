@@ -32,8 +32,12 @@ from testit_api_client.exceptions import ApiAttributeError
 def lazy_import():
     from testit_api_client.model.custom_attribute_api_result import CustomAttributeApiResult
     from testit_api_client.model.project_type import ProjectType
+    from testit_api_client.model.test_case_coverage_mode import TestCaseCoverageMode
+    from testit_api_client.model.test_strategy import TestStrategy
     globals()['CustomAttributeApiResult'] = CustomAttributeApiResult
     globals()['ProjectType'] = ProjectType
+    globals()['TestCaseCoverageMode'] = TestCaseCoverageMode
+    globals()['TestStrategy'] = TestStrategy
 
 
 class DetailedProjectApiResult(ModelNormal):
@@ -92,6 +96,8 @@ class DetailedProjectApiResult(ModelNormal):
             'global_id': (int,),  # noqa: E501
             'type': (ProjectType,),  # noqa: E501
             'workflow_id': (str,),  # noqa: E501
+            'test_strategy': (TestStrategy,),  # noqa: E501
+            'test_case_coverage_mode': (TestCaseCoverageMode,),  # noqa: E501
             'attributes_scheme': ([CustomAttributeApiResult], none_type,),  # noqa: E501
             'test_plans_attributes_scheme': ([CustomAttributeApiResult], none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -119,6 +125,8 @@ class DetailedProjectApiResult(ModelNormal):
         'global_id': 'globalId',  # noqa: E501
         'type': 'type',  # noqa: E501
         'workflow_id': 'workflowId',  # noqa: E501
+        'test_strategy': 'testStrategy',  # noqa: E501
+        'test_case_coverage_mode': 'testCaseCoverageMode',  # noqa: E501
         'attributes_scheme': 'attributesScheme',  # noqa: E501
         'test_plans_attributes_scheme': 'testPlansAttributesScheme',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -137,7 +145,7 @@ class DetailedProjectApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, is_favorite, work_items_count, is_deleted, created_date, created_by_id, global_id, type, workflow_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, is_favorite, work_items_count, is_deleted, created_date, created_by_id, global_id, type, workflow_id, test_strategy, test_case_coverage_mode, *args, **kwargs):  # noqa: E501
         """DetailedProjectApiResult - a model defined in OpenAPI
 
         Args:
@@ -151,6 +159,8 @@ class DetailedProjectApiResult(ModelNormal):
             global_id (int): Global ID of the project
             type (ProjectType):
             workflow_id (str): ID of the workflow used in project
+            test_strategy (TestStrategy):
+            test_case_coverage_mode (TestCaseCoverageMode):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,6 +243,8 @@ class DetailedProjectApiResult(ModelNormal):
         self.global_id = global_id
         self.type = type
         self.workflow_id = workflow_id
+        self.test_strategy = test_strategy
+        self.test_case_coverage_mode = test_case_coverage_mode
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -253,7 +265,7 @@ class DetailedProjectApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, is_favorite, work_items_count, is_deleted, created_date, created_by_id, global_id, type, workflow_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, is_favorite, work_items_count, is_deleted, created_date, created_by_id, global_id, type, workflow_id, test_strategy, test_case_coverage_mode, *args, **kwargs):  # noqa: E501
         """DetailedProjectApiResult - a model defined in OpenAPI
 
         Args:
@@ -267,6 +279,8 @@ class DetailedProjectApiResult(ModelNormal):
             global_id (int): Global ID of the project
             type (ProjectType):
             workflow_id (str): ID of the workflow used in project
+            test_strategy (TestStrategy):
+            test_case_coverage_mode (TestCaseCoverageMode):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -347,6 +361,8 @@ class DetailedProjectApiResult(ModelNormal):
         self.global_id = global_id
         self.type = type
         self.workflow_id = workflow_id
+        self.test_strategy = test_strategy
+        self.test_case_coverage_mode = test_case_coverage_mode
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

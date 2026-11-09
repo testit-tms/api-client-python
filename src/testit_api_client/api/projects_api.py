@@ -1527,7 +1527,7 @@ class ProjectsApi(object):
     ):
         """Add global attributes to project  # noqa: E501
 
-          Use case    User sets project internal or global identifier and attributes identifiers    System search project    System relates global attributes with project    System returns no content response  # noqa: E501
+         Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1858,7 +1858,7 @@ class ProjectsApi(object):
     ):
         """Get Project filters  # noqa: E501
 
-          Use case    User sets project internal or global identifier    User runs method execution    System returns project filters  # noqa: E501
+         Use case  User sets project internal or global identifier  User runs method execution  System returns project filters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2190,7 +2190,7 @@ class ProjectsApi(object):
     ):
         """Delete attribute from project's test plans  # noqa: E501
 
-          Use case    User sets project internal or global identifier and attribute identifier    User runs method execution    System updates project and delete attribute from project for test plans    System returns no content response  # noqa: E501
+         Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2276,7 +2276,7 @@ class ProjectsApi(object):
     ):
         """Update attribute of project's test plans  # noqa: E501
 
-          Use case    User sets project internal or global identifier and attribute model    User runs method execution    System updates project and project attribute for test plan    System returns no content response  # noqa: E501
+         Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2360,7 +2360,7 @@ class ProjectsApi(object):
     ):
         """Get Project TestRuns full models  # noqa: E501
 
-          Use case    User sets project internal or global identifier    User sets query params    User runs method execution    System returns project test runs full models  # noqa: E501
+         Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2777,7 +2777,7 @@ class ProjectsApi(object):
     ):
         """Get projects short models  # noqa: E501
 
-          Use case    User sets query params    User runs method execution    System return projects short models  # noqa: E501
+         Use case  User sets query params  User runs method execution  System return projects short models  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2856,7 +2856,7 @@ class ProjectsApi(object):
     ):
         """Create project  # noqa: E501
 
-          Use case    User sets project parameters (listed in request example) and runs method execution    System creates project    System returns project model (example listed in response parameters)  # noqa: E501
+         Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3017,7 +3017,7 @@ class ProjectsApi(object):
     ):
         """Get all projects  # noqa: E501
 
-          Use case    [Optional] User sets isDeleted field value    [Optional] If User sets isDeleted field value as true, System search all deleted projects    [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted    If User did not set isDeleted field value, System search all projects    System returns array of all found projects(listed in response model)  # noqa: E501
+         Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3103,7 +3103,7 @@ class ProjectsApi(object):
     ):
         """Get namespaces of autotests in project  # noqa: E501
 
-          Use case    User sets project internal or global identifier and runs method execution    System search project    System search all autotest related to the project    System returns array of autotest with namespaces and classnames (listed in response)  # noqa: E501
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3186,7 +3186,7 @@ class ProjectsApi(object):
     ):
         """Get project by ID  # noqa: E501
 
-          Use case    User sets project internal or global identifier and runs method execution    System search project    System returns project (example listed in response parameters)  # noqa: E501
+         Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3269,7 +3269,7 @@ class ProjectsApi(object):
     ):
         """Get project test plans  # noqa: E501
 
-          Use case    User sets project internal or global identifier    [Optional] User sets isDeleted field value    User runs method execution    System search project    [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                      project    [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                      are not deleted    [Optional] If User did not set isDeleted field value, System search all v related to project    System returns array of found test plans (listed in response model)  # noqa: E501
+         Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                     project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                     are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3357,7 +3357,7 @@ class ProjectsApi(object):
     ):
         """Get project test runs  # noqa: E501
 
-          Use case    User sets project internal or global identifier    User runs method execution    System search project    System search all test runs related to project    System returns array of found test runs (listed in response model)  # noqa: E501
+         Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3459,7 +3459,7 @@ class ProjectsApi(object):
     ):
         """Update project  # noqa: E501
 
-          Use case    User sets project parameters (listed in request example) and runs method execution    System updates project    System returns updated project model (example listed in response parameters)  # noqa: E501
+         Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

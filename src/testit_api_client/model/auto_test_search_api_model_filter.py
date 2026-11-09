@@ -35,11 +35,13 @@ def lazy_import():
     from testit_api_client.model.auto_test_filter_api_model_modified_date import AutoTestFilterApiModelModifiedDate
     from testit_api_client.model.auto_test_filter_api_model_stability_percentage import AutoTestFilterApiModelStabilityPercentage
     from testit_api_client.model.autotest_result_outcome import AutotestResultOutcome
+    from testit_api_client.model.layer_source import LayerSource
     globals()['AutoTestFilterApiModel'] = AutoTestFilterApiModel
     globals()['AutoTestFilterApiModelCreatedDate'] = AutoTestFilterApiModelCreatedDate
     globals()['AutoTestFilterApiModelModifiedDate'] = AutoTestFilterApiModelModifiedDate
     globals()['AutoTestFilterApiModelStabilityPercentage'] = AutoTestFilterApiModelStabilityPercentage
     globals()['AutotestResultOutcome'] = AutotestResultOutcome
+    globals()['LayerSource'] = LayerSource
 
 
 class AutoTestSearchApiModelFilter(ModelComposed):
@@ -92,6 +94,10 @@ class AutoTestSearchApiModelFilter(ModelComposed):
         },
         ('exclude_tags',): {
         },
+        ('layers',): {
+        },
+        ('layer_sources',): {
+        },
     }
 
     @cached_property
@@ -139,6 +145,8 @@ class AutoTestSearchApiModelFilter(ModelComposed):
             'last_test_result_configuration_ids': ([str], none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
             'exclude_tags': ([str], none_type,),  # noqa: E501
+            'layers': ([str], none_type,),  # noqa: E501
+            'layer_sources': ([LayerSource], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -169,6 +177,8 @@ class AutoTestSearchApiModelFilter(ModelComposed):
         'last_test_result_configuration_ids': 'lastTestResultConfigurationIds',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'exclude_tags': 'excludeTags',  # noqa: E501
+        'layers': 'layers',  # noqa: E501
+        'layer_sources': 'layerSources',  # noqa: E501
     }
 
     read_only_vars = {
@@ -232,6 +242,8 @@ class AutoTestSearchApiModelFilter(ModelComposed):
             last_test_result_configuration_ids ([str], none_type): Specifies an autotest configuration IDs of the last test result to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies an autotest tags to search for. [optional]  # noqa: E501
             exclude_tags ([str], none_type): Specifies an autotest tags to exclude. [optional]  # noqa: E501
+            layers ([str], none_type): Specifies auto test layers to search for. [optional]  # noqa: E501
+            layer_sources ([LayerSource], none_type): Specifies list of auto test layer sources to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -357,6 +369,8 @@ class AutoTestSearchApiModelFilter(ModelComposed):
             last_test_result_configuration_ids ([str], none_type): Specifies an autotest configuration IDs of the last test result to search for. [optional]  # noqa: E501
             tags ([str], none_type): Specifies an autotest tags to search for. [optional]  # noqa: E501
             exclude_tags ([str], none_type): Specifies an autotest tags to exclude. [optional]  # noqa: E501
+            layers ([str], none_type): Specifies auto test layers to search for. [optional]  # noqa: E501
+            layer_sources ([LayerSource], none_type): Specifies list of auto test layer sources to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

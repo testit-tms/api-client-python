@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **postcondition_steps** | [**[StepModel]**](StepModel.md) | Set of postcondition steps that are executed after completing the main steps | 
 **iterations** | [**[IterationModel]**](IterationModel.md) | Associated iterations linked to the work item | 
 **auto_tests** | [**[AutoTestModel]**](AutoTestModel.md) | Automated tests associated with the work item | 
+**auto_test_cases** | [**[AutoTestCaseApiModel]**](AutoTestCaseApiModel.md) | Set of automated test cases linked to the work item | 
 **attachments** | [**[AttachmentModel]**](AttachmentModel.md) | Files attached to the work item | 
 **links** | [**[LinkModel]**](LinkModel.md) | Set of links related to the work item | 
 **external_issues** | [**[ExternalIssueApiResult]**](ExternalIssueApiResult.md) | Set of external issues related to the work item | 
@@ -35,6 +36,9 @@ Name | Type | Description | Notes
 **created_by_id** | **str** | Unique identifier of the work item creator | 
 **is_deleted** | **bool** | Indicates whether the work item is marked as deleted | 
 **description** | **str, none_type** | Description of the work item | [optional] 
+**external_id** | **str, none_type** | External identifier of the work item from external systems | [optional] 
+**manual_test_id** | **str, none_type** | Identifier of the linked manual test | [optional] 
+**layer** | [**WorkItemApiResultLayer**](WorkItemApiResultLayer.md) |  | [optional] 
 **modified_date** | **datetime, none_type** | Modification date of the work item | [optional] 
 **modified_by_id** | **str, none_type** | Unique identifier of the work item modifier | [optional] 
 

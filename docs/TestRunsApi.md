@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**api_v2_test_runs_by_auto_test_cases_post**](TestRunsApi.md#api_v2_test_runs_by_auto_test_cases_post) | **POST** /api/v2/testRuns/byAutoTestCases | Create TestRun filled with autotests linked to work items of type \&quot;AutoTestCases\&quot; selected by the filter
 [**api_v2_test_runs_delete**](TestRunsApi.md#api_v2_test_runs_delete) | **DELETE** /api/v2/testRuns | Delete multiple test runs
 [**api_v2_test_runs_id_auto_tests_namespaces_get**](TestRunsApi.md#api_v2_test_runs_id_auto_tests_namespaces_get) | **GET** /api/v2/testRuns/{id}/autoTestsNamespaces | Get autotest classes and namespaces in test run
 [**api_v2_test_runs_id_delete**](TestRunsApi.md#api_v2_test_runs_id_delete) | **DELETE** /api/v2/testRuns/{id} | Delete test run
@@ -31,12 +32,105 @@ Method | HTTP request | Description
 [**update_empty**](TestRunsApi.md#update_empty) | **PUT** /api/v2/testRuns | Update empty TestRun
 
 
+# **api_v2_test_runs_by_auto_test_cases_post**
+> TestRunV2ApiResult api_v2_test_runs_by_auto_test_cases_post()
+
+Create TestRun filled with autotests linked to work items of type \"AutoTestCases\" selected by the filter
+
+### Example
+
+* Api Key Authentication (PrivateToken):
+* Api Key Authentication (Cookies):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.test_run_v2_api_result import TestRunV2ApiResult
+from testit_api_client.model.api_v2_test_runs_by_auto_test_cases_post_request import ApiV2TestRunsByAutoTestCasesPostRequest
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: PrivateToken
+configuration.api_key['PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['PrivateToken'] = 'Bearer'
+
+# Configure API key authorization: Cookies
+configuration.api_key['Cookies'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Cookies'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = test_runs_api.TestRunsApi(api_client)
+    api_v2_test_runs_by_auto_test_cases_post_request = ApiV2TestRunsByAutoTestCasesPostRequest(None) # ApiV2TestRunsByAutoTestCasesPostRequest | Test run model with a filter for work items of type \"AutoTestCases\" and configuration IDs (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create TestRun filled with autotests linked to work items of type \"AutoTestCases\" selected by the filter
+        api_response = api_instance.api_v2_test_runs_by_auto_test_cases_post(api_v2_test_runs_by_auto_test_cases_post_request=api_v2_test_runs_by_auto_test_cases_post_request)
+        pprint(api_response)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling TestRunsApi->api_v2_test_runs_by_auto_test_cases_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_v2_test_runs_by_auto_test_cases_post_request** | [**ApiV2TestRunsByAutoTestCasesPostRequest**](ApiV2TestRunsByAutoTestCasesPostRequest.md)| Test run model with a filter for work items of type \&quot;AutoTestCases\&quot; and configuration IDs | [optional]
+
+### Return type
+
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
+
+### Authorization
+
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **api_v2_test_runs_delete**
 > int api_v2_test_runs_delete()
 
 Delete multiple test runs
 
-  Use case    User sets selection parameters of test runs    System search and delete collection of test runs    System returns the number of deleted test runs
+ Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs
 
 ### Example
 
@@ -116,7 +210,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
-**400** |   - ID is not valid    - Project was archived and cannot be edited anymore |  -  |
+**400** |  - ID is not valid  - Project was archived and cannot be edited anymore |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
@@ -221,7 +315,7 @@ Name | Type | Description  | Notes
 
 Delete test run
 
-  Use case    User sets test run internal (guid format) identifier    System search and delete test run
+ Use case  User sets test run internal (guid format) identifier  System search and delete test run
 
 ### Example
 
@@ -298,7 +392,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |   - ID is not valid    - Project was archived and cannot be edited anymore |  -  |
+**400** |  - ID is not valid  - Project was archived and cannot be edited anymore |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Test run with provided ID cannot be found |  -  |
@@ -421,7 +515,7 @@ void (empty response body)
 
 Permanently delete test run from archive
 
-  Use case    User sets archived test run internal (guid format) identifier    System search and purge archived test run
+ Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run
 
 ### Example
 
@@ -498,7 +592,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |   - ID is not valid |  -  |
+**400** |  - ID is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Delete permission for archived test runs is required |  -  |
 **404** | Not Found |  -  |
@@ -615,7 +709,7 @@ Name | Type | Description  | Notes
 
 Restore test run from the archive
 
-  Use case    User sets archived test run internal (guid format) identifier    System search and restore test run
+ Use case  User sets archived test run internal (guid format) identifier  System search and restore test run
 
 ### Example
 
@@ -692,7 +786,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |   - ID is not valid    - Project was archived and cannot be edited anymore |  -  |
+**400** |  - ID is not valid  - Project was archived and cannot be edited anymore |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for archive is required |  -  |
 **404** | Not Found |  -  |
@@ -1090,7 +1184,7 @@ Name | Type | Description  | Notes
 
 Permanently delete multiple test runs from archive
 
-  Use case    User sets selection parameters of archived test runs    System search and delete collection of archived test runs    System returns the number of deleted archived test runs
+ Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs
 
 ### Example
 
@@ -1184,7 +1278,7 @@ Name | Type | Description  | Notes
 
 Restore multiple test runs from the archive
 
-  Use case    User sets selection parameters of archived test runs    System search and restore collection of archived test runs    System returns the number of restored test runs
+ Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs
 
 ### Example
 
@@ -1472,7 +1566,7 @@ void (empty response body)
 
 Complete TestRun
 
-  Use case    User sets test run identifier    User runs method execution    System completes test run    System returns no content response
+ Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response
 
 ### Example
 
@@ -1549,10 +1643,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |   Field is required    the StateName is already Stopped    the StateName is already Completed |  -  |
+**400** |  Field is required  the StateName is already Stopped  the StateName is already Completed |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
-**404** |   Can&#39;t find a TestRun with id! |  -  |
+**404** |  Can&#39;t find a TestRun with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -1563,7 +1657,7 @@ void (empty response body)
 
 Create test runs based on autotests and configurations
 
-This method creates a test run based on an autotest and a configuration.  The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
+This method creates a test run based on an autotest and a configuration. The difference between the `POST /api/v2/testRuns/byWorkItems` and `POST /api/v2/testRuns/byConfigurations` methods is that in this method there is no need to create a test plan and work items (test cases and checklists).
 
 ### Example
 
@@ -1644,7 +1738,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**400** |   - Field is required    - Configuration does not exist in the project    - Autotest does not exist in the project    - Test run must be automated    - Project ID is invalid    - Autotest external IDs are required    - Configuration IDs are required |  -  |
+**400** |  - Field is required  - Configuration does not exist in the project  - Autotest does not exist in the project  - Test run must be automated  - Project ID is invalid  - Autotest external IDs are required  - Configuration IDs are required |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test results is required |  -  |
 **404** | Some autotests do not exist |  -  |
@@ -1658,7 +1752,7 @@ Name | Type | Description  | Notes
 
 Create test runs picking the needed test points
 
-This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a  jagged array within the \"<b>testPointSelectors</b>\" parameter.
+This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the `POST /api/v2/testRuns/byWorkItems` method because of the ability to send a jagged array within the \"<b>testPointSelectors</b>\" parameter.
 
 ### Example
 
@@ -1739,7 +1833,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**400** |   - Field is required    - Test run cannot be created with deleted test points    - Test suites with IDs [ids] is archived    - Configurations with IDs [ids] is archived    - Test run cannot be created with non-automated test point    - Test run must be automated    - Some work items do not exist    - Project ID is invalid    - Test point selectors are required    - Some work item IDs are invalid    - Some configuration IDs are invalid |  -  |
+**400** |  - Field is required  - Test run cannot be created with deleted test points  - Test suites with IDs [ids] is archived  - Configurations with IDs [ids] is archived  - Test run cannot be created with non-automated test point  - Test run must be automated  - Some work items do not exist  - Project ID is invalid  - Test point selectors are required  - Some work item IDs are invalid  - Some configuration IDs are invalid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test results is required |  -  |
 **404** | Some test points do not exists |  -  |
@@ -1753,7 +1847,7 @@ Name | Type | Description  | Notes
 
 Create test run based on configurations and work items
 
-This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
+This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.
 
 ### Example
 
@@ -1834,7 +1928,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
-**400** |   - Field is required    - Test run cannot be created with deleted test points    - Test suites with IDs [ids] is archived    - Configurations with IDs [ids] is archived    - Test run cannot be created with non-automated test point    - Some work items do not exist    - Project ID is invalid |  -  |
+**400** |  - Field is required  - Test run cannot be created with deleted test points  - Test suites with IDs [ids] is archived  - Configurations with IDs [ids] is archived  - Test run cannot be created with non-automated test point  - Some work items do not exist  - Project ID is invalid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test results is required |  -  |
 **404** | Some test points, work items or configurations do not exist |  -  |
@@ -1848,7 +1942,7 @@ Name | Type | Description  | Notes
 
 Create empty TestRun
 
-  Use case    User sets test run model (listed in the request example)    User runs method execution    System creates test run    System returns test run model
+ Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model
 
 ### Example
 
@@ -1929,7 +2023,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
-**400** |   Field is required    TestRun must be automated    ProjectId is not a valid! |  -  |
+**400** |  Field is required  TestRun must be automated  ProjectId is not a valid! |  -  |
 **401** | TestRunTesterRequirement permission required |  -  |
 **403** | Update permission for test result required |  -  |
 **404** | Can&#39;t find a TestRun with id &#x3D; testRunId |  -  |
@@ -1943,7 +2037,7 @@ Name | Type | Description  | Notes
 
 Get TestRun by Id
 
-  Use case    User sets test run identifier    User runs method execution    System finds test run    System returns test run
+ Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run
 
 ### Example
 
@@ -2025,7 +2119,7 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test result required |  -  |
-**404** |   TestRun with ID &#39;{id}&#39; does not exist. |  -  |
+**404** |  TestRun with ID &#39;{id}&#39; does not exist. |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -2228,12 +2322,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
-**400** |   - Field is required    - Body is invalid    - Test points are required    - Duration must be a positive number    - Outcome is not defined    - Test run is stopped |  -  |
+**400** |  - Field is required  - Body is invalid  - Test points are required  - Duration must be a positive number  - Outcome is not defined  - Test run is stopped |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test results is required |  -  |
-**404** |   - Test run with provided ID was not found    - Test point was not found    - Autotest with provided external ID was not found |  -  |
+**404** |  - Test run with provided ID was not found  - Test point was not found  - Autotest with provided external ID was not found |  -  |
 **409** | Conflict |  -  |
-**422** |   - Configuration with provided ID was not found    - Test points relevant to provided filters were not found |  -  |
+**422** |  - Configuration with provided ID was not found  - Test points relevant to provided filters were not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2242,7 +2336,7 @@ Name | Type | Description  | Notes
 
 Start TestRun
 
-  Use case    User sets test run identifier    User runs method execution    System starts test run    System returns no content response
+ Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response
 
 ### Example
 
@@ -2319,10 +2413,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |   Field is required    the StateName is already InProgress    the StateName is already Stopped    the StateName is already Completed |  -  |
+**400** |  Field is required  the StateName is already InProgress  the StateName is already Stopped  the StateName is already Completed |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
-**404** |   Can&#39;t find a TestRun with id! |  -  |
+**404** |  Can&#39;t find a TestRun with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -2333,7 +2427,7 @@ void (empty response body)
 
 Stop TestRun
 
-  Use case    User sets test run identifier    User runs method execution    System stops test run    System returns no content response
+ Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response
 
 ### Example
 
@@ -2410,10 +2504,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |   Field is required    the StateName is already Stopped    the StateName is already Completed |  -  |
+**400** |  Field is required  the StateName is already Stopped  the StateName is already Completed |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
-**404** |   Can&#39;t find a TestRun with id! |  -  |
+**404** |  Can&#39;t find a TestRun with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 
@@ -2424,7 +2518,7 @@ void (empty response body)
 
 Update empty TestRun
 
-  Use case    User sets test run properties (listed in the request example)    User runs method execution    System updates test run    System returns returns no content response
+ Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response
 
 ### Example
 
@@ -2503,10 +2597,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |   Field is required    Name is not valid |  -  |
+**400** |  Field is required  Name is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test result required |  -  |
-**404** |   Can&#39;t find a TestRun with id! |  -  |
+**404** |  Can&#39;t find a TestRun with id! |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 

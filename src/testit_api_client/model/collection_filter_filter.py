@@ -31,8 +31,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.collection_operator import CollectionOperator
+    from testit_api_client.model.filter_value import FilterValue
     from testit_api_client.model.i_filter import IFilter
     globals()['CollectionOperator'] = CollectionOperator
+    globals()['FilterValue'] = FilterValue
     globals()['IFilter'] = IFilter
 
 
@@ -91,9 +93,9 @@ class CollectionFilterFilter(ModelComposed):
         return {
             'filters': ([IFilter],),  # noqa: E501
             'operator': (CollectionOperator,),  # noqa: E501
+            'value': (FilterValue,),  # noqa: E501
             'field': (str,),  # noqa: E501
             'filter': (CollectionFilterFilter,),  # noqa: E501
-            'value': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -104,9 +106,9 @@ class CollectionFilterFilter(ModelComposed):
     attribute_map = {
         'filters': 'filters',  # noqa: E501
         'operator': 'operator',  # noqa: E501
+        'value': 'value',  # noqa: E501
         'field': 'field',  # noqa: E501
         'filter': 'filter',  # noqa: E501
-        'value': 'value',  # noqa: E501
     }
 
     read_only_vars = {
@@ -121,6 +123,7 @@ class CollectionFilterFilter(ModelComposed):
         Keyword Args:
             filters ([IFilter]):
             operator (CollectionOperator):
+            value (FilterValue):
             field (str):
             filter (CollectionFilterFilter):
             _check_type (bool): if True, values for parameters in openapi_types
@@ -153,7 +156,6 @@ class CollectionFilterFilter(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,6 +231,7 @@ class CollectionFilterFilter(ModelComposed):
         Keyword Args:
             filters ([IFilter]):
             operator (CollectionOperator):
+            value (FilterValue):
             filter (CollectionFilterFilter):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -260,7 +263,6 @@ class CollectionFilterFilter(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

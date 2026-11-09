@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **last_test_result_outcome** | **str, none_type** | Outcome of the autotest last test result | [optional] 
 **last_test_result_status** | [**AutoTestModelLastTestResultStatus**](AutoTestModelLastTestResultStatus.md) |  | [optional] 
 **stability_percentage** | **int, none_type** | Stability percentage of the autotest | [optional] 
+**auto_test_case** | [**AutoTestModelAutoTestCase**](AutoTestModelAutoTestCase.md) |  | [optional] 
 **links** | [**[LinkPutModel], none_type**](LinkPutModel.md) | Collection of the autotest links | [optional] 
 **namespace** | **str, none_type** | Name of the autotest namespace | [optional] 
 **classname** | **str, none_type** | Name of the autotest class | [optional] 

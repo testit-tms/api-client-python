@@ -84,6 +84,7 @@ class TestStatusShortApiResult(ModelNormal):
             'code': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'type': (TestStatusApiType,),  # noqa: E501
+            'is_system': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +97,7 @@ class TestStatusShortApiResult(ModelNormal):
         'code': 'code',  # noqa: E501
         'name': 'name',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'is_system': 'isSystem',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,7 +107,7 @@ class TestStatusShortApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, code, name, type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, code, name, type, is_system, *args, **kwargs):  # noqa: E501
         """TestStatusShortApiResult - a model defined in OpenAPI
 
         Args:
@@ -113,6 +115,7 @@ class TestStatusShortApiResult(ModelNormal):
             code (str): Code representing the test status.
             name (str): Name of the test status.
             type (TestStatusApiType):
+            is_system (bool): Identifies test status as system.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -180,6 +183,7 @@ class TestStatusShortApiResult(ModelNormal):
         self.code = code
         self.name = name
         self.type = type
+        self.is_system = is_system
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -200,7 +204,7 @@ class TestStatusShortApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, code, name, type, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, code, name, type, is_system, *args, **kwargs):  # noqa: E501
         """TestStatusShortApiResult - a model defined in OpenAPI
 
         Args:
@@ -208,6 +212,7 @@ class TestStatusShortApiResult(ModelNormal):
             code (str): Code representing the test status.
             name (str): Name of the test status.
             type (TestStatusApiType):
+            is_system (bool): Identifies test status as system.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -273,6 +278,7 @@ class TestStatusShortApiResult(ModelNormal):
         self.code = code
         self.name = name
         self.type = type
+        self.is_system = is_system
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

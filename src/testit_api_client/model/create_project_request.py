@@ -31,7 +31,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.create_project_api_model import CreateProjectApiModel
+    from testit_api_client.model.test_case_coverage_mode import TestCaseCoverageMode
+    from testit_api_client.model.test_strategy import TestStrategy
     globals()['CreateProjectApiModel'] = CreateProjectApiModel
+    globals()['TestCaseCoverageMode'] = TestCaseCoverageMode
+    globals()['TestStrategy'] = TestStrategy
 
 
 class CreateProjectRequest(ModelComposed):
@@ -91,6 +95,8 @@ class CreateProjectRequest(ModelComposed):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
+            'test_strategy': (TestStrategy,),  # noqa: E501
+            'test_case_coverage_mode': (TestCaseCoverageMode,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'is_favorite': (bool, none_type,),  # noqa: E501
             'workflow_id': (str, none_type,),  # noqa: E501
@@ -103,6 +109,8 @@ class CreateProjectRequest(ModelComposed):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'test_strategy': 'testStrategy',  # noqa: E501
+        'test_case_coverage_mode': 'testCaseCoverageMode',  # noqa: E501
         'description': 'description',  # noqa: E501
         'is_favorite': 'isFavorite',  # noqa: E501
         'workflow_id': 'workflowId',  # noqa: E501
@@ -118,6 +126,8 @@ class CreateProjectRequest(ModelComposed):
 
         Keyword Args:
             name (str): Name of the project
+            test_strategy (TestStrategy):
+            test_case_coverage_mode (TestCaseCoverageMode):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -225,6 +235,8 @@ class CreateProjectRequest(ModelComposed):
 
         Keyword Args:
             name (str): Name of the project
+            test_strategy (TestStrategy):
+            test_case_coverage_mode (TestCaseCoverageMode):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

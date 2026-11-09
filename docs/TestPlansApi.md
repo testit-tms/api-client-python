@@ -82,7 +82,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     api_v2_projects_project_id_work_items_search_id_post_request = ApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest(None) # ApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest | Filter object to retrieve work items for test-suite's project (optional)
 
     # example passing only required values which don't have defaults set
@@ -106,7 +106,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **api_v2_projects_project_id_work_items_search_id_post_request** | [**ApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional]
 
 ### Return type
@@ -142,7 +142,7 @@ void (empty response body)
 
 Add WorkItems to TestPlan with Sections as TestSuites
 
-  Use case    User sets TestPlan identifier    User sets WorkItem identifiers (listed in request example)    User runs method execution    System added WorkItems and Sections to TestPlan    System returns no content response
+ Use case  User sets TestPlan identifier  User sets WorkItem identifiers (listed in request example)  User runs method execution  System added WorkItems and Sections to TestPlan  System returns no content response
 
 ### Example
 
@@ -183,7 +183,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     request_body = [
         "request_body_example",
     ] # [str] |  (optional)
@@ -209,7 +209,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **request_body** | **[str]**|  | [optional]
 
 ### Return type
@@ -231,10 +231,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |   TestPlan is locked    Some of configurations do not exist in the project, or they are not active |  -  |
+**400** |  TestPlan is locked  Some of configurations do not exist in the project, or they are not active |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for TestPlan required |  -  |
-**404** |   Can&#39;t find a TestPlan with id    Some of workItems do not exist |  -  |
+**404** |  Can&#39;t find a TestPlan with id  Some of workItems do not exist |  -  |
 **409** | Conflict |  -  |
 **422** | Can&#39;t put a SharedSteps in the TestSuite |  -  |
 
@@ -245,7 +245,7 @@ void (empty response body)
 
 Get analytics by TestPlan
 
-  Use case    User sets test plan identifier    User runs method execution    System returns analytics by test plan
+ Use case  User sets test plan identifier  User runs method execution  System returns analytics by test plan
 
 ### Example
 
@@ -287,7 +287,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -303,7 +303,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 Get TestPlan configurations
 
-  Use case    User sets test plan identifier    User runs method execution    System return test plan configurations
+ Use case  User sets test plan identifier  User runs method execution  System return test plan configurations
 
 ### Example
 
@@ -484,7 +484,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -500,7 +500,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 Export TestPoints from TestPlan in xls format
 
-  Use case    User sets test plan identifier    User sets filter model (listed in request example)    User runs method execution    System return export xlsx file
+ Use case  User sets test plan identifier  User sets filter model (listed in request example)  User runs method execution  System return export xlsx file
 
 ### Example
 
@@ -577,7 +577,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     time_zone_offset_in_minutes = 1 # int |  (optional)
     api_v2_test_plans_id_export_test_points_xlsx_post_request = ApiV2TestPlansIdExportTestPointsXlsxPostRequest(None) # ApiV2TestPlansIdExportTestPointsXlsxPostRequest |  (optional)
 
@@ -602,7 +602,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **time_zone_offset_in_minutes** | **int**|  | [optional]
  **api_v2_test_plans_id_export_test_points_xlsx_post_request** | [**ApiV2TestPlansIdExportTestPointsXlsxPostRequest**](ApiV2TestPlansIdExportTestPointsXlsxPostRequest.md)|  | [optional]
 
@@ -639,7 +639,7 @@ void (empty response body)
 
 Export TestResults history from TestPlan in xls format
 
-  Use case    User sets test plan identifier    User sets filter model (listed in request example)    User runs method execution    System return export xlsx file
+ Use case  User sets test plan identifier  User sets filter model (listed in request example)  User runs method execution  System return export xlsx file
 
 ### Example
 
@@ -680,7 +680,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     must_return_only_last_test_result = True # bool |  (optional)
     include_steps = True # bool |  (optional)
     include_deleted_test_suites = True # bool |  (optional)
@@ -707,7 +707,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **must_return_only_last_test_result** | **bool**|  | [optional]
  **include_steps** | **bool**|  | [optional]
  **include_deleted_test_suites** | **bool**|  | [optional]
@@ -746,7 +746,7 @@ void (empty response body)
 
 Get TestPlan history
 
-  Use case    User sets test plan identifier    User runs method execution    System return test plan history
+ Use case  User sets test plan identifier  User runs method execution  System return test plan history
 
 ### Example
 
@@ -788,7 +788,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
     take = 1 # int | Amount of items to be taken (limit) (optional)
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -818,7 +818,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **skip** | **int**| Amount of items to be skipped (offset) | [optional]
  **take** | **int**| Amount of items to be taken (limit) | [optional]
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
@@ -858,7 +858,7 @@ Name | Type | Description  | Notes
 
 Get Links of TestPlan
 
-  Use case    User sets test plan identifier    User sets pagination filter (listed in request example)    User runs method execution    System returns links of TestPlan
+ Use case  User sets test plan identifier  User sets pagination filter (listed in request example)  User runs method execution  System returns links of TestPlan
 
 ### Example
 
@@ -900,7 +900,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     skip = 1 # int |  (optional)
     take = 1 # int |  (optional)
     order_by = "orderBy_example" # str |  (optional)
@@ -928,7 +928,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **skip** | **int**|  | [optional]
  **take** | **int**|  | [optional]
  **order_by** | **str**|  | [optional]
@@ -1075,7 +1075,7 @@ void (empty response body)
 
 Get summary by TestPlan
 
-  Use case    User sets test plan identifier    User runs method execution    System returns summary by test plan
+ Use case  User sets test plan identifier  User runs method execution  System returns summary by test plan
 
 ### Example
 
@@ -1117,7 +1117,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -1133,7 +1133,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -1168,7 +1168,7 @@ Name | Type | Description  | Notes
 
 Get TestPoints with last result from TestPlan
 
-  Use case    User sets test plan identifier    User sets filter (listed in request example)    User runs method execution    System return test points with last result from test plan
+ Use case  User sets test plan identifier  User sets filter (listed in request example)  User runs method execution  System return test points with last result from test plan
 
 ### Example
 
@@ -1210,7 +1210,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     tester_id = "testerId_example" # str |  (optional)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
     take = 1 # int | Amount of items to be taken (limit) (optional)
@@ -1241,7 +1241,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **tester_id** | **str**|  | [optional]
  **skip** | **int**| Amount of items to be skipped (offset) | [optional]
  **take** | **int**| Amount of items to be taken (limit) | [optional]
@@ -1282,7 +1282,7 @@ Name | Type | Description  | Notes
 
 Reset TestPoints status of TestPlan
 
-  Use case    User sets test plan identifier    User sets test points identifiers    User runs method execution    System reset test points statuses of test plan
+ Use case  User sets test plan identifier  User sets test points identifiers  User runs method execution  System reset test points statuses of test plan
 
 ### Example
 
@@ -1323,7 +1323,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     request_body = [
         "request_body_example",
     ] # [str] |  (optional)
@@ -1349,7 +1349,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **request_body** | **[str]**|  | [optional]
 
 ### Return type
@@ -1591,7 +1591,7 @@ Name | Type | Description  | Notes
 
 Get TestRuns of TestPlan
 
-  Use case    User sets test plan identifier    User sets TestRun status filter (listed in request example)    User runs method execution    System returns TestRuns for TestPlan
+ Use case  User sets test plan identifier  User sets TestRun status filter (listed in request example)  User runs method execution  System returns TestRuns for TestPlan
 
 ### Example
 
@@ -1633,7 +1633,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     not_started = True # bool |  (optional)
     in_progress = True # bool |  (optional)
     stopped = True # bool |  (optional)
@@ -1667,7 +1667,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **not_started** | **bool**|  | [optional]
  **in_progress** | **bool**|  | [optional]
  **stopped** | **bool**|  | [optional]
@@ -1711,7 +1711,7 @@ Name | Type | Description  | Notes
 
 Search TestRuns of TestPlan
 
-  Use case    User sets test plan identifier    User sets TestRuns filter (listed in request example)    User runs method execution    System returns TestRuns for TestPlan
+ Use case  User sets test plan identifier  User sets TestRuns filter (listed in request example)  User runs method execution  System returns TestRuns for TestPlan
 
 ### Example
 
@@ -1754,7 +1754,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
     take = 1 # int | Amount of items to be taken (limit) (optional)
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -1785,7 +1785,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
  **skip** | **int**| Amount of items to be skipped (offset) | [optional]
  **take** | **int**| Amount of items to be taken (limit) | [optional]
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
@@ -1915,7 +1915,7 @@ void (empty response body)
 
 Send unlock TestPlan notification
 
-  Use case    User sets test plan identifier    User runs method execution    System send unlock test plan notification
+ Use case  User sets test plan identifier  User runs method execution  System send unlock test plan notification
 
 ### Example
 
@@ -1956,7 +1956,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -1971,7 +1971,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -2006,7 +2006,7 @@ void (empty response body)
 
 Get TestPlans short models by Project identifiers
 
-  Use case    User sets projects identifiers    User runs method execution    System return test plans short models (listed in response example)
+ Use case  User sets projects identifiers  User runs method execution  System return test plans short models (listed in response example)
 
 ### Example
 
@@ -2104,7 +2104,7 @@ Name | Type | Description  | Notes
 
 Clone TestPlan
 
-  Use case    User sets test plan identifier    User runs method execution    System clones test plan    System returns test plan (listed in response example)
+ Use case  User sets test plan identifier  User runs method execution  System clones test plan  System returns test plan (listed in response example)
 
 ### Example
 
@@ -2146,7 +2146,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -2162,7 +2162,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -2197,7 +2197,7 @@ Name | Type | Description  | Notes
 
 Complete TestPlan
 
-  Use case    User sets test plan identifier    User runs method execution    System completes the test plan and updates test plan status    System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System completes the test plan and updates test plan status  System returns no content response
 
 ### Example
 
@@ -2238,7 +2238,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -2253,7 +2253,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -2274,7 +2274,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |   Execute status from New to Completed forbidden    Execute status from Completed to Completed forbidden |  -  |
+**400** |  Execute status from New to Completed forbidden  Execute status from Completed to Completed forbidden |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
@@ -2288,7 +2288,7 @@ void (empty response body)
 
 Create TestPlan
 
-  Use case    User sets test plan properties (listed in request example)    User runs method execution    System creates test plan    System returns test plan (listed in response example)
+ Use case  User sets test plan properties (listed in request example)  User runs method execution  System creates test plan  System returns test plan (listed in response example)
 
 ### Example
 
@@ -2369,7 +2369,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
-**400** |   Field is required    Tags must be no more than 10! |  -  |
+**400** |  Field is required  Tags must be no more than 10! |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Not Found |  -  |
@@ -2383,7 +2383,7 @@ Name | Type | Description  | Notes
 
 Delete TestPlan
 
-  Use case    User sets test plan identifier    User runs method execution    System delete test plan    System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System delete test plan  System returns no content response
 
 ### Example
 
@@ -2424,7 +2424,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -2439,7 +2439,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -2474,7 +2474,7 @@ void (empty response body)
 
 Get TestPlan by Id
 
-  Use case    User sets test plan identifier    User runs method execution    System search  test plan by the identifier    System returns test plan
+ Use case  User sets test plan identifier  User runs method execution  System search  test plan by the identifier  System returns test plan
 
 ### Example
 
@@ -2516,7 +2516,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -2532,7 +2532,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -2567,7 +2567,7 @@ Name | Type | Description  | Notes
 
 Get TestSuites Tree By Id
 
-  Use case    User sets test plan identifier    User runs method execution    System finds test suites related to the test plan    System returns test suites as a tree model (listed in response example)
+ Use case  User sets test plan identifier  User runs method execution  System finds test suites related to the test plan  System returns test suites as a tree model (listed in response example)
 
 ### Example
 
@@ -2609,7 +2609,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -2625,7 +2625,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -2660,7 +2660,7 @@ Name | Type | Description  | Notes
 
 Pause TestPlan
 
-  Use case    User sets test plan identifier    User runs method execution    System pauses the test plan and updates test plan status    System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System pauses the test plan and updates test plan status  System returns no content response
 
 ### Example
 
@@ -2701,7 +2701,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -2716,7 +2716,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -2737,7 +2737,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |   Execute status from New to Paused forbidden    Execute status from Paused to Paused forbidden    Execute status from Completed to Paused forbidden |  -  |
+**400** |  Execute status from New to Paused forbidden  Execute status from Paused to Paused forbidden  Execute status from Completed to Paused forbidden |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
@@ -2840,7 +2840,7 @@ void (empty response body)
 
 Restore TestPlan
 
-  Use case    User sets test plan identifier    User runs method execution    System restores test plan    System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System restores test plan  System returns no content response
 
 ### Example
 
@@ -2881,7 +2881,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -2896,7 +2896,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -2931,7 +2931,7 @@ void (empty response body)
 
 Start TestPlan
 
-  Use case    User sets test plan identifier    User runs method execution    System starts the test plan and updates test plan status    System returns no content response
+ Use case  User sets test plan identifier  User runs method execution  System starts the test plan and updates test plan status  System returns no content response
 
 ### Example
 
@@ -2972,7 +2972,7 @@ configuration.api_key['Cookies'] = 'YOUR_API_KEY'
 with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
-    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int  format) identifier
+    id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test plan internal (guid format) or global (int format) identifier
 
     # example passing only required values which don't have defaults set
     try:
@@ -2987,7 +2987,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Test plan internal (guid format) or global (int  format) identifier |
+ **id** | **str**| Test plan internal (guid format) or global (int format) identifier |
 
 ### Return type
 
@@ -3022,7 +3022,7 @@ void (empty response body)
 
 Update TestPlan
 
-  Use case    User sets test plan properties(listed in request example)    User runs method execution    System updates test plan    System returns no content response
+ Use case  User sets test plan properties(listed in request example)  User runs method execution  System updates test plan  System returns no content response
 
 ### Example
 
@@ -3101,7 +3101,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
-**400** |   Field is required    Tags must be no more than 10!    StartDate can&#39;t be more than EndDate! |  -  |
+**400** |  Field is required  Tags must be no more than 10!  StartDate can&#39;t be more than EndDate! |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |

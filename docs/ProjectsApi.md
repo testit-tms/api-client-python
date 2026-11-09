@@ -35,7 +35,7 @@ Method | HTTP request | Description
 
 Add global attributes to project
 
-  Use case    User sets project internal or global identifier and attributes identifiers    System search project    System relates global attributes with project    System returns no content response
+ Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response
 
 ### Example
 
@@ -124,7 +124,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** |   Attributes must be global |  -  |
+**400** |  Attributes must be global |  -  |
 **401** | Unauthorized |  -  |
 **403** | Project admin permission for project settings is required |  -  |
 **404** | Project with provided ID was not found |  -  |
@@ -418,7 +418,7 @@ void (empty response body)
 
 Get Project filters
 
-  Use case    User sets project internal or global identifier    User runs method execution    System returns project filters
+ Use case  User sets project internal or global identifier  User runs method execution  System returns project filters
 
 ### Example
 
@@ -798,7 +798,7 @@ void (empty response body)
 
 Delete attribute from project's test plans
 
-  Use case    User sets project internal or global identifier and attribute identifier    User runs method execution    System updates project and delete attribute from project for test plans    System returns no content response
+ Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
 
 ### Example
 
@@ -891,7 +891,7 @@ void (empty response body)
 
 Update attribute of project's test plans
 
-  Use case    User sets project internal or global identifier and attribute model    User runs method execution    System updates project and project attribute for test plan    System returns no content response
+ Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
 
 ### Example
 
@@ -993,7 +993,7 @@ void (empty response body)
 
 Get Project TestRuns full models
 
-  Use case    User sets project internal or global identifier    User sets query params    User runs method execution    System returns project test runs full models
+ Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models
 
 ### Example
 
@@ -1499,7 +1499,7 @@ Name | Type | Description  | Notes
 
 Get projects short models
 
-  Use case    User sets query params    User runs method execution    System return projects short models
+ Use case  User sets query params  User runs method execution  System return projects short models
 
 ### Example
 
@@ -1594,7 +1594,7 @@ Name | Type | Description  | Notes
 
 Create project
 
-  Use case    User sets project parameters (listed in request example) and runs method execution    System creates project    System returns project model (example listed in response parameters)
+ Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
 
 ### Example
 
@@ -1778,7 +1778,7 @@ void (empty response body)
 
 Get all projects
 
-  Use case    [Optional] User sets isDeleted field value    [Optional] If User sets isDeleted field value as true, System search all deleted projects    [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted    If User did not set isDeleted field value, System search all projects    System returns array of all found projects(listed in response model)
+ Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)
 
 ### Example
 
@@ -1884,7 +1884,7 @@ Name | Type | Description  | Notes
 
 Get namespaces of autotests in project
 
-  Use case    User sets project internal or global identifier and runs method execution    System search project    System search all autotest related to the project    System returns array of autotest with namespaces and classnames (listed in response)
+ Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)
 
 ### Example
 
@@ -1977,7 +1977,7 @@ Name | Type | Description  | Notes
 
 Get project by ID
 
-  Use case    User sets project internal or global identifier and runs method execution    System search project    System returns project (example listed in response parameters)
+ Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
 
 ### Example
 
@@ -2070,7 +2070,7 @@ Name | Type | Description  | Notes
 
 Get project test plans
 
-  Use case    User sets project internal or global identifier    [Optional] User sets isDeleted field value    User runs method execution    System search project    [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                      project    [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                      are not deleted    [Optional] If User did not set isDeleted field value, System search all v related to project    System returns array of found test plans (listed in response model)
+ Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                     project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                     are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
 
 ### Example
 
@@ -2174,7 +2174,7 @@ Name | Type | Description  | Notes
 
 Get project test runs
 
-  Use case    User sets project internal or global identifier    User runs method execution    System search project    System search all test runs related to project    System returns array of found test runs (listed in response model)
+ Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)
 
 ### Example
 
@@ -2300,7 +2300,7 @@ Name | Type | Description  | Notes
 
 Update project
 
-  Use case    User sets project parameters (listed in request example) and runs method execution    System updates project    System returns updated project model (example listed in response parameters)
+ Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)
 
 ### Example
 
@@ -2379,7 +2379,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |   - ID is invalid    - Field is required |  -  |
+**400** |  - ID is invalid  - Field is required |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for projects is required |  -  |
 **404** | Project with provided ID was not found |  -  |

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Delete tags
 
-  Use case    User sets collection of tags internal (guid format) identifiers    System searches and deletes a collection of tags
+ Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags
 
 ### Example
 
@@ -96,7 +96,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |   - ID is not valid |  -  |
+**400** |  - ID is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | System administrator role is required |  -  |
 **404** | No tags with provided IDs were found |  -  |
@@ -110,7 +110,7 @@ void (empty response body)
 
 Delete tag
 
-  Use case    User sets tag internal (guid format) identifier    System search and delete tag
+ Use case  User sets tag internal (guid format) identifier  System search and delete tag
 
 ### Example
 
@@ -187,7 +187,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** |   - ID is not valid |  -  |
+**400** |  - ID is not valid |  -  |
 **401** | Unauthorized |  -  |
 **403** | System administrator role is required |  -  |
 **404** | Tag with provided ID cannot be found |  -  |
@@ -201,7 +201,7 @@ void (empty response body)
 
 Create tag
 
-  Use case    User sets tag model (listed in the request example)    User runs method execution    System creates tag    System returns tag model (listed in the response example)
+ Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)
 
 ### Example
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful operation |  -  |
-**400** |   - Name cannot be empty or contain only white space characters    - Name already in use    - Name must be no more than 30 characters long |  -  |
+**400** |  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 Update tag
 
-  Use case    User sets tag ID and model (listed in the request example)    User runs method execution    System updates tag    System returns tag model (listed in the response example)
+ Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)
 
 ### Example
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
-**400** |   - ID is not valid    - Name cannot be empty or contain only white space characters    - Name already in use    - Name must be no more than 30 characters long |  -  |
+**400** |  - ID is not valid  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long |  -  |
 **401** | Unauthorized |  -  |
 **403** | Project creator role is required |  -  |
 **404** | Tag with provided ID cannot be found |  -  |
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 
 Search tags
 
-  Use case    User runs method execution    System returns collection of tags (listed in the response example)
+ Use case  User runs method execution  System returns collection of tags (listed in the response example)
 
 ### Example
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** |   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found |  -  |
+**400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 Get all Tags that are used in TestPlans
 
-  Use case    User runs method execution    System returns tags (listed in the response example)
+ Use case  User runs method execution  System returns tags (listed in the response example)
 
 ### Example
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** |   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found |  -  |
+**400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |

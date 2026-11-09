@@ -30,7 +30,11 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.test_case_coverage_mode import TestCaseCoverageMode
+    from testit_api_client.model.test_strategy import TestStrategy
     from testit_api_client.model.update_project_api_model import UpdateProjectApiModel
+    globals()['TestCaseCoverageMode'] = TestCaseCoverageMode
+    globals()['TestStrategy'] = TestStrategy
     globals()['UpdateProjectApiModel'] = UpdateProjectApiModel
 
 
@@ -92,6 +96,8 @@ class UpdateProjectRequest(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'test_strategy': (TestStrategy,),  # noqa: E501
+            'test_case_coverage_mode': (TestCaseCoverageMode,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'is_favorite': (bool, none_type,),  # noqa: E501
             'workflow_id': (str, none_type,),  # noqa: E501
@@ -105,6 +111,8 @@ class UpdateProjectRequest(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'test_strategy': 'testStrategy',  # noqa: E501
+        'test_case_coverage_mode': 'testCaseCoverageMode',  # noqa: E501
         'description': 'description',  # noqa: E501
         'is_favorite': 'isFavorite',  # noqa: E501
         'workflow_id': 'workflowId',  # noqa: E501
@@ -121,6 +129,8 @@ class UpdateProjectRequest(ModelComposed):
         Keyword Args:
             id (str): Unique ID of the project
             name (str): Name of the project
+            test_strategy (TestStrategy):
+            test_case_coverage_mode (TestCaseCoverageMode):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -229,6 +239,8 @@ class UpdateProjectRequest(ModelComposed):
         Keyword Args:
             id (str): Unique ID of the project
             name (str): Name of the project
+            test_strategy (TestStrategy):
+            test_case_coverage_mode (TestCaseCoverageMode):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

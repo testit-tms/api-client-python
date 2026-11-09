@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the project | 
+**test_strategy** | [**TestStrategy**](TestStrategy.md) |  | 
+**test_case_coverage_mode** | [**TestCaseCoverageMode**](TestCaseCoverageMode.md) |  | 
 **description** | **str, none_type** | Description of the project | [optional] 
 **is_favorite** | **bool, none_type** | Indicates if the project is marked as favorite | [optional] 
 **workflow_id** | **str, none_type** | Identifier of the workflow project should use | [optional] 

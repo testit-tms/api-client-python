@@ -31,8 +31,10 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.assign_attachment_api_model import AssignAttachmentApiModel
+    from testit_api_client.model.assign_auto_test_case_id_api_model import AssignAutoTestCaseIdApiModel
     from testit_api_client.model.assign_iteration_api_model import AssignIterationApiModel
     from testit_api_client.model.auto_test_id_model import AutoTestIdModel
+    from testit_api_client.model.layer_source import LayerSource
     from testit_api_client.model.tag_model import TagModel
     from testit_api_client.model.update_link_api_model import UpdateLinkApiModel
     from testit_api_client.model.update_step_api_model import UpdateStepApiModel
@@ -41,8 +43,10 @@ def lazy_import():
     from testit_api_client.model.work_item_priority_api_model import WorkItemPriorityApiModel
     from testit_api_client.model.work_item_state_api_model import WorkItemStateApiModel
     globals()['AssignAttachmentApiModel'] = AssignAttachmentApiModel
+    globals()['AssignAutoTestCaseIdApiModel'] = AssignAutoTestCaseIdApiModel
     globals()['AssignIterationApiModel'] = AssignIterationApiModel
     globals()['AutoTestIdModel'] = AutoTestIdModel
+    globals()['LayerSource'] = LayerSource
     globals()['TagModel'] = TagModel
     globals()['UpdateLinkApiModel'] = UpdateLinkApiModel
     globals()['UpdateStepApiModel'] = UpdateStepApiModel
@@ -127,9 +131,14 @@ class ApiV2WorkItemsPutRequest(ModelComposed):
             'postcondition_steps': ([UpdateStepApiModel], none_type,),  # noqa: E501
             'iterations': ([AssignIterationApiModel], none_type,),  # noqa: E501
             'auto_tests': ([AutoTestIdModel], none_type,),  # noqa: E501
+            'manual_test_id': (str, none_type,),  # noqa: E501
+            'auto_test_cases': ([AssignAutoTestCaseIdApiModel], none_type,),  # noqa: E501
             'attachments': ([AssignAttachmentApiModel], none_type,),  # noqa: E501
             'links': ([UpdateLinkApiModel], none_type,),  # noqa: E501
             'parameters': ([WorkItemParameterKeyApiModel], none_type,),  # noqa: E501
+            'layer_name': (str, none_type,),  # noqa: E501
+            'layer_source': (LayerSource,),  # noqa: E501
+            'reset_layer': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -152,9 +161,14 @@ class ApiV2WorkItemsPutRequest(ModelComposed):
         'postcondition_steps': 'postconditionSteps',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
+        'manual_test_id': 'manualTestId',  # noqa: E501
+        'auto_test_cases': 'autoTestCases',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'links': 'links',  # noqa: E501
         'parameters': 'parameters',  # noqa: E501
+        'layer_name': 'layerName',  # noqa: E501
+        'layer_source': 'layerSource',  # noqa: E501
+        'reset_layer': 'resetLayer',  # noqa: E501
     }
 
     read_only_vars = {
@@ -210,9 +224,14 @@ class ApiV2WorkItemsPutRequest(ModelComposed):
             postcondition_steps ([UpdateStepApiModel], none_type): Set of postcondition steps that are executed after completing the main steps. [optional]  # noqa: E501
             iterations ([AssignIterationApiModel], none_type): Set of iterations associated with the work item. [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): Set of automated tests linked to the work item. [optional]  # noqa: E501
+            manual_test_id (str, none_type): Identifier of the linked manual test. [optional]  # noqa: E501
+            auto_test_cases ([AssignAutoTestCaseIdApiModel], none_type): Set of automated test cases linked to the work item. [optional]  # noqa: E501
             attachments ([AssignAttachmentApiModel], none_type): Set of files attached to the work item. [optional]  # noqa: E501
             links ([UpdateLinkApiModel], none_type): Set of links related to the work item. [optional]  # noqa: E501
             parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys associated with the work item. [optional]  # noqa: E501
+            layer_name (str, none_type): Name of test pyramid layer associated with the work item. [optional]  # noqa: E501
+            layer_source (LayerSource): [optional]  # noqa: E501
+            reset_layer (bool, none_type): Reset current test pyramid layer associated with the work item and re-evaluates it. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -330,9 +349,14 @@ class ApiV2WorkItemsPutRequest(ModelComposed):
             postcondition_steps ([UpdateStepApiModel], none_type): Set of postcondition steps that are executed after completing the main steps. [optional]  # noqa: E501
             iterations ([AssignIterationApiModel], none_type): Set of iterations associated with the work item. [optional]  # noqa: E501
             auto_tests ([AutoTestIdModel], none_type): Set of automated tests linked to the work item. [optional]  # noqa: E501
+            manual_test_id (str, none_type): Identifier of the linked manual test. [optional]  # noqa: E501
+            auto_test_cases ([AssignAutoTestCaseIdApiModel], none_type): Set of automated test cases linked to the work item. [optional]  # noqa: E501
             attachments ([AssignAttachmentApiModel], none_type): Set of files attached to the work item. [optional]  # noqa: E501
             links ([UpdateLinkApiModel], none_type): Set of links related to the work item. [optional]  # noqa: E501
             parameters ([WorkItemParameterKeyApiModel], none_type): Set of parameter keys associated with the work item. [optional]  # noqa: E501
+            layer_name (str, none_type): Name of test pyramid layer associated with the work item. [optional]  # noqa: E501
+            layer_source (LayerSource): [optional]  # noqa: E501
+            reset_layer (bool, none_type): Reset current test pyramid layer associated with the work item and re-evaluates it. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

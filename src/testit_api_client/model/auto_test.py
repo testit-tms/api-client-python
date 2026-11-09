@@ -30,10 +30,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from testit_api_client.model.auto_test_auto_test_case import AutoTestAutoTestCase
     from testit_api_client.model.auto_test_last_test_result_configuration import AutoTestLastTestResultConfiguration
     from testit_api_client.model.auto_test_step import AutoTestStep
     from testit_api_client.model.label import Label
     from testit_api_client.model.link_api_result import LinkApiResult
+    globals()['AutoTestAutoTestCase'] = AutoTestAutoTestCase
     globals()['AutoTestLastTestResultConfiguration'] = AutoTestLastTestResultConfiguration
     globals()['AutoTestStep'] = AutoTestStep
     globals()['Label'] = Label
@@ -120,6 +122,7 @@ class AutoTest(ModelNormal):
             'last_test_result_configuration': (AutoTestLastTestResultConfiguration,),  # noqa: E501
             'last_test_result_outcome': (str, none_type,),  # noqa: E501
             'stability_percentage': (int, none_type,),  # noqa: E501
+            'auto_test_case': (AutoTestAutoTestCase,),  # noqa: E501
         }
 
     @cached_property
@@ -156,6 +159,7 @@ class AutoTest(ModelNormal):
         'last_test_result_configuration': 'lastTestResultConfiguration',  # noqa: E501
         'last_test_result_outcome': 'lastTestResultOutcome',  # noqa: E501
         'stability_percentage': 'stabilityPercentage',  # noqa: E501
+        'auto_test_case': 'autoTestCase',  # noqa: E501
     }
 
     read_only_vars = {
@@ -229,6 +233,7 @@ class AutoTest(ModelNormal):
             last_test_result_configuration (AutoTestLastTestResultConfiguration): [optional]  # noqa: E501
             last_test_result_outcome (str, none_type): Outcome of the autotest last test result. [optional]  # noqa: E501
             stability_percentage (int, none_type): Stability percentage of the autotest. [optional]  # noqa: E501
+            auto_test_case (AutoTestAutoTestCase): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -353,6 +358,7 @@ class AutoTest(ModelNormal):
             last_test_result_configuration (AutoTestLastTestResultConfiguration): [optional]  # noqa: E501
             last_test_result_outcome (str, none_type): Outcome of the autotest last test result. [optional]  # noqa: E501
             stability_percentage (int, none_type): Stability percentage of the autotest. [optional]  # noqa: E501
+            auto_test_case (AutoTestAutoTestCase): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -52,16 +52,18 @@ class FilterOperator(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            '&#x3D;': "=",
-            '!&#x3D;': "!=",
-            '~': "~",
-            '!~': "!~",
-            '&lt;': "<",
-            '&lt;&#x3D;': "<=",
-            '&gt;': ">",
-            '&gt;&#x3D;': ">=",
-            '*': "*",
-            '!*': "!*",
+            'EQUALTO': "EqualTo",
+            'NOTEQUALTO': "NotEqualTo",
+            'CONTAINS': "Contains",
+            'NOTCONTAINS': "NotContains",
+            'LESSTHAN': "LessThan",
+            'LESSTHANOREQUALTO': "LessThanOrEqualTo",
+            'GREATERTHAN': "GreaterThan",
+            'GREATERTHANOREQUALTO': "GreaterThanOrEqualTo",
+            'EMPTY': "Empty",
+            'NOTEMPTY': "NotEmpty",
+            'IN': "In",
+            'NOTIN': "NotIn",
         },
     }
 
@@ -113,10 +115,10 @@ class FilterOperator(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["=", "!=", "~", "!~", "<", "<=", ">", ">=", "*", "!*", ]  # noqa: E501
+            args[0] (str):, must be one of ["EqualTo", "NotEqualTo", "Contains", "NotContains", "LessThan", "LessThanOrEqualTo", "GreaterThan", "GreaterThanOrEqualTo", "Empty", "NotEmpty", "In", "NotIn", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["=", "!=", "~", "!~", "<", "<=", ">", ">=", "*", "!*", ]  # noqa: E501
+            value (str):, must be one of ["EqualTo", "NotEqualTo", "Contains", "NotContains", "LessThan", "LessThanOrEqualTo", "GreaterThan", "GreaterThanOrEqualTo", "Empty", "NotEmpty", "In", "NotIn", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -207,10 +209,10 @@ class FilterOperator(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["=", "!=", "~", "!~", "<", "<=", ">", ">=", "*", "!*", ]  # noqa: E501
+            args[0] (str):, must be one of ["EqualTo", "NotEqualTo", "Contains", "NotContains", "LessThan", "LessThanOrEqualTo", "GreaterThan", "GreaterThanOrEqualTo", "Empty", "NotEmpty", "In", "NotIn", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["=", "!=", "~", "!~", "<", "<=", ">", ">=", "*", "!*", ]  # noqa: E501
+            value (str):, must be one of ["EqualTo", "NotEqualTo", "Contains", "NotContains", "LessThan", "LessThanOrEqualTo", "GreaterThan", "GreaterThanOrEqualTo", "Empty", "NotEmpty", "In", "NotIn", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

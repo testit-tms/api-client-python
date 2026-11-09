@@ -31,9 +31,11 @@ Name | Type | Description | Notes
 **last_test_result_outcome** | **str, none_type** |  | [optional] 
 **last_test_result_status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **stability_percentage** | **int, none_type** |  | [optional] 
+**layer** | [**AutoTestApiResultLayer**](AutoTestApiResultLayer.md) |  | [optional] 
 **links** | [**[LinkApiResult], none_type**](LinkApiResult.md) |  | [optional] 
 **labels** | [**[LabelApiResult], none_type**](LabelApiResult.md) |  | [optional] 
 **tags** | **[str], none_type** |  | [optional] 
+**manual_test_id** | **str, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

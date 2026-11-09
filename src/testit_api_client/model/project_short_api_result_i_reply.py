@@ -31,10 +31,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.project_short_api_result import ProjectShortApiResult
+    from testit_api_client.model.project_short_api_result_count_reply import ProjectShortApiResultCountReply
     from testit_api_client.model.project_short_api_result_group import ProjectShortApiResultGroup
     from testit_api_client.model.project_short_api_result_grouped_reply import ProjectShortApiResultGroupedReply
     from testit_api_client.model.project_short_api_result_reply import ProjectShortApiResultReply
     globals()['ProjectShortApiResult'] = ProjectShortApiResult
+    globals()['ProjectShortApiResultCountReply'] = ProjectShortApiResultCountReply
     globals()['ProjectShortApiResultGroup'] = ProjectShortApiResultGroup
     globals()['ProjectShortApiResultGroupedReply'] = ProjectShortApiResultGroupedReply
     globals()['ProjectShortApiResultReply'] = ProjectShortApiResultReply
@@ -321,6 +323,7 @@ class ProjectShortApiResultIReply(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
+              ProjectShortApiResultCountReply,
               ProjectShortApiResultGroupedReply,
               ProjectShortApiResultReply,
           ],

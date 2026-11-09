@@ -31,10 +31,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.external_issue_api_field_suggestion import ExternalIssueApiFieldSuggestion
+    from testit_api_client.model.external_issue_api_field_suggestion_count_reply import ExternalIssueApiFieldSuggestionCountReply
     from testit_api_client.model.external_issue_api_field_suggestion_group import ExternalIssueApiFieldSuggestionGroup
     from testit_api_client.model.external_issue_api_field_suggestion_grouped_reply import ExternalIssueApiFieldSuggestionGroupedReply
     from testit_api_client.model.external_issue_api_field_suggestion_reply import ExternalIssueApiFieldSuggestionReply
     globals()['ExternalIssueApiFieldSuggestion'] = ExternalIssueApiFieldSuggestion
+    globals()['ExternalIssueApiFieldSuggestionCountReply'] = ExternalIssueApiFieldSuggestionCountReply
     globals()['ExternalIssueApiFieldSuggestionGroup'] = ExternalIssueApiFieldSuggestionGroup
     globals()['ExternalIssueApiFieldSuggestionGroupedReply'] = ExternalIssueApiFieldSuggestionGroupedReply
     globals()['ExternalIssueApiFieldSuggestionReply'] = ExternalIssueApiFieldSuggestionReply
@@ -321,6 +323,7 @@ class ExternalIssueApiFieldSuggestionIReply(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
+              ExternalIssueApiFieldSuggestionCountReply,
               ExternalIssueApiFieldSuggestionGroupedReply,
               ExternalIssueApiFieldSuggestionReply,
           ],

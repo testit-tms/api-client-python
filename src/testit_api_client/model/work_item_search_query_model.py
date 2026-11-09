@@ -92,6 +92,8 @@ class WorkItemSearchQueryModel(ModelNormal):
         },
         ('section_ids',): {
         },
+        ('namespace_ids',): {
+        },
         ('created_by_ids',): {
         },
         ('modified_by_ids',): {
@@ -135,6 +137,7 @@ class WorkItemSearchQueryModel(ModelNormal):
             'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
             'section_ids': ([str], none_type,),  # noqa: E501
+            'namespace_ids': ([str], none_type,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'states': ([WorkItemStates], none_type,),  # noqa: E501
@@ -152,6 +155,7 @@ class WorkItemSearchQueryModel(ModelNormal):
             'work_item_version_ids': ([str], none_type,),  # noqa: E501
             'links': (TestSuiteWorkItemsSearchModelLinks,),  # noqa: E501
             'external_metadata': (TestSuiteWorkItemsSearchModelExternalMetadata,),  # noqa: E501
+            'external_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -167,6 +171,7 @@ class WorkItemSearchQueryModel(ModelNormal):
         'attributes': 'attributes',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
         'section_ids': 'sectionIds',  # noqa: E501
+        'namespace_ids': 'namespaceIds',  # noqa: E501
         'created_by_ids': 'createdByIds',  # noqa: E501
         'modified_by_ids': 'modifiedByIds',  # noqa: E501
         'states': 'states',  # noqa: E501
@@ -184,6 +189,7 @@ class WorkItemSearchQueryModel(ModelNormal):
         'work_item_version_ids': 'workItemVersionIds',  # noqa: E501
         'links': 'links',  # noqa: E501
         'external_metadata': 'externalMetadata',  # noqa: E501
+        'external_id': 'externalId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -234,6 +240,7 @@ class WorkItemSearchQueryModel(ModelNormal):
             attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
             section_ids ([str], none_type): Collection of section identifiers. [optional]  # noqa: E501
+            namespace_ids ([str], none_type): Collection of namespace identifiers. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
@@ -251,6 +258,7 @@ class WorkItemSearchQueryModel(ModelNormal):
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
             links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
             external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
+            external_id (str, none_type): External identifier of the work item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -343,6 +351,7 @@ class WorkItemSearchQueryModel(ModelNormal):
             attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
             section_ids ([str], none_type): Collection of section identifiers. [optional]  # noqa: E501
+            namespace_ids ([str], none_type): Collection of namespace identifiers. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
@@ -360,6 +369,7 @@ class WorkItemSearchQueryModel(ModelNormal):
             work_item_version_ids ([str], none_type): Collection of identifiers work items versions.. [optional]  # noqa: E501
             links (TestSuiteWorkItemsSearchModelLinks): [optional]  # noqa: E501
             external_metadata (TestSuiteWorkItemsSearchModelExternalMetadata): [optional]  # noqa: E501
+            external_id (str, none_type): External identifier of the work item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

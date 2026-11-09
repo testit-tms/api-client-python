@@ -30,12 +30,15 @@ Name | Type | Description | Notes
 **links** | [**[LinkModel]**](LinkModel.md) |  | 
 **name** | **str** |  | 
 **auto_tests** | [**[AutoTestModel], none_type**](AutoTestModel.md) |  | [optional] 
+**manual_test_id** | **str, none_type** |  | [optional] 
+**auto_test_cases** | [**[AutoTestCaseResult], none_type**](AutoTestCaseResult.md) |  | [optional] 
 **attachments** | [**[AttachmentModel], none_type**](AttachmentModel.md) |  | [optional] 
 **section_precondition_steps** | [**[StepModel], none_type**](StepModel.md) |  | [optional] 
 **section_postcondition_steps** | [**[StepModel], none_type**](StepModel.md) |  | [optional] 
 **iterations** | [**[IterationModel], none_type**](IterationModel.md) |  | [optional] 
 **modified_date** | **datetime, none_type** |  | [optional] 
 **modified_by_id** | **str, none_type** |  | [optional] 
+**external_id** | **str, none_type** |  | [optional] 
 **description** | **str, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

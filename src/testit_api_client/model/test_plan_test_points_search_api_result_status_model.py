@@ -93,6 +93,7 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
             'code': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'type': (TestStatusApiType,),  # noqa: E501
+            'is_system': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -105,6 +106,7 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
         'code': 'code',  # noqa: E501
         'name': 'name',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'is_system': 'isSystem',  # noqa: E501
     }
 
     read_only_vars = {
@@ -120,6 +122,7 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
             code (str): Code representing the test status.
             name (str): Name of the test status.
             type (TestStatusApiType):
+            is_system (bool): Identifies test status as system.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -227,6 +230,7 @@ class TestPlanTestPointsSearchApiResultStatusModel(ModelComposed):
             code (str): Code representing the test status.
             name (str): Name of the test status.
             type (TestStatusApiType):
+            is_system (bool): Identifies test status as system.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

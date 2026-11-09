@@ -75,11 +75,12 @@ class AutoTestShortApiResult(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'global_id': (int,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'external_id': (str,),  # noqa: E501
-            'global_id': (int,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'auto_test_case_global_id': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -88,11 +89,12 @@ class AutoTestShortApiResult(ModelNormal):
 
 
     attribute_map = {
+        'global_id': 'globalId',  # noqa: E501
         'id': 'id',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'external_id': 'externalId',  # noqa: E501
-        'global_id': 'globalId',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'auto_test_case_global_id': 'autoTestCaseGlobalId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -102,15 +104,15 @@ class AutoTestShortApiResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, project_id, name, external_id, global_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, global_id, id, project_id, external_id, name, *args, **kwargs):  # noqa: E501
         """AutoTestShortApiResult - a model defined in OpenAPI
 
         Args:
+            global_id (int):
             id (str):
             project_id (str):
-            name (str):
             external_id (str):
-            global_id (int):
+            name (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,6 +145,7 @@ class AutoTestShortApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            auto_test_case_global_id (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -174,11 +177,11 @@ class AutoTestShortApiResult(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.global_id = global_id
         self.id = id
         self.project_id = project_id
-        self.name = name
         self.external_id = external_id
-        self.global_id = global_id
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -199,15 +202,15 @@ class AutoTestShortApiResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, project_id, name, external_id, global_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, global_id, id, project_id, external_id, name, *args, **kwargs):  # noqa: E501
         """AutoTestShortApiResult - a model defined in OpenAPI
 
         Args:
+            global_id (int):
             id (str):
             project_id (str):
-            name (str):
             external_id (str):
-            global_id (int):
+            name (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -240,6 +243,7 @@ class AutoTestShortApiResult(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            auto_test_case_global_id (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -269,11 +273,11 @@ class AutoTestShortApiResult(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.global_id = global_id
         self.id = id
         self.project_id = project_id
-        self.name = name
         self.external_id = external_id
-        self.global_id = global_id
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

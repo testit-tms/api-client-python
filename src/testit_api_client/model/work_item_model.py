@@ -31,6 +31,7 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.attachment_model import AttachmentModel
+    from testit_api_client.model.auto_test_case_result import AutoTestCaseResult
     from testit_api_client.model.auto_test_model import AutoTestModel
     from testit_api_client.model.external_issue_model import ExternalIssueModel
     from testit_api_client.model.iteration_model import IterationModel
@@ -43,6 +44,7 @@ def lazy_import():
     from testit_api_client.model.work_item_states import WorkItemStates
     from testit_api_client.model.work_item_type_model import WorkItemTypeModel
     globals()['AttachmentModel'] = AttachmentModel
+    globals()['AutoTestCaseResult'] = AutoTestCaseResult
     globals()['AutoTestModel'] = AutoTestModel
     globals()['ExternalIssueModel'] = ExternalIssueModel
     globals()['IterationModel'] = IterationModel
@@ -135,12 +137,15 @@ class WorkItemModel(ModelNormal):
             'links': ([LinkModel],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'auto_tests': ([AutoTestModel], none_type,),  # noqa: E501
+            'manual_test_id': (str, none_type,),  # noqa: E501
+            'auto_test_cases': ([AutoTestCaseResult], none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
             'section_precondition_steps': ([StepModel], none_type,),  # noqa: E501
             'section_postcondition_steps': ([StepModel], none_type,),  # noqa: E501
             'iterations': ([IterationModel], none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
+            'external_id': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
         }
 
@@ -176,12 +181,15 @@ class WorkItemModel(ModelNormal):
         'links': 'links',  # noqa: E501
         'name': 'name',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
+        'manual_test_id': 'manualTestId',  # noqa: E501
+        'auto_test_cases': 'autoTestCases',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'section_precondition_steps': 'sectionPreconditionSteps',  # noqa: E501
         'section_postcondition_steps': 'sectionPostconditionSteps',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
+        'external_id': 'externalId',  # noqa: E501
         'description': 'description',  # noqa: E501
     }
 
@@ -254,12 +262,15 @@ class WorkItemModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             auto_tests ([AutoTestModel], none_type): [optional]  # noqa: E501
+            manual_test_id (str, none_type): [optional]  # noqa: E501
+            auto_test_cases ([AutoTestCaseResult], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
             section_precondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             section_postcondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             iterations ([IterationModel], none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
+            external_id (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
         """
 
@@ -399,12 +410,15 @@ class WorkItemModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             auto_tests ([AutoTestModel], none_type): [optional]  # noqa: E501
+            manual_test_id (str, none_type): [optional]  # noqa: E501
+            auto_test_cases ([AutoTestCaseResult], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
             section_precondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             section_postcondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             iterations ([IterationModel], none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
+            external_id (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
         """
 

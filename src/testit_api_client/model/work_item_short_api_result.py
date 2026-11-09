@@ -33,11 +33,13 @@ def lazy_import():
     from testit_api_client.model.iteration_api_result import IterationApiResult
     from testit_api_client.model.link_short_api_result import LinkShortApiResult
     from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testit_api_client.model.work_item_short_api_result_layer import WorkItemShortApiResultLayer
     from testit_api_client.model.work_item_source_type_model import WorkItemSourceTypeModel
     from testit_api_client.model.work_item_states import WorkItemStates
     globals()['IterationApiResult'] = IterationApiResult
     globals()['LinkShortApiResult'] = LinkShortApiResult
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
+    globals()['WorkItemShortApiResultLayer'] = WorkItemShortApiResultLayer
     globals()['WorkItemSourceTypeModel'] = WorkItemSourceTypeModel
     globals()['WorkItemStates'] = WorkItemStates
 
@@ -112,6 +114,7 @@ class WorkItemShortApiResult(ModelNormal):
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'tag_names': ([str], none_type,),  # noqa: E501
+            'layer': (WorkItemShortApiResultLayer,),  # noqa: E501
         }
 
     @cached_property
@@ -144,6 +147,7 @@ class WorkItemShortApiResult(ModelNormal):
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'tag_names': 'tagNames',  # noqa: E501
+        'layer': 'layer',  # noqa: E501
     }
 
     read_only_vars = {
@@ -213,6 +217,7 @@ class WorkItemShortApiResult(ModelNormal):
             created_date (datetime, none_type): Date and time of Work Item creation. [optional]  # noqa: E501
             modified_date (datetime, none_type): Date and time of the latest modification of Work Item. [optional]  # noqa: E501
             tag_names ([str], none_type): Array of tag names of Work Item. [optional]  # noqa: E501
+            layer (WorkItemShortApiResultLayer): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -342,6 +347,7 @@ class WorkItemShortApiResult(ModelNormal):
             created_date (datetime, none_type): Date and time of Work Item creation. [optional]  # noqa: E501
             modified_date (datetime, none_type): Date and time of the latest modification of Work Item. [optional]  # noqa: E501
             tag_names ([str], none_type): Array of tag names of Work Item. [optional]  # noqa: E501
+            layer (WorkItemShortApiResultLayer): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

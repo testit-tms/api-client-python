@@ -31,10 +31,12 @@ from testit_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testit_api_client.model.workflow_project_api_result import WorkflowProjectApiResult
+    from testit_api_client.model.workflow_project_api_result_count_reply import WorkflowProjectApiResultCountReply
     from testit_api_client.model.workflow_project_api_result_group import WorkflowProjectApiResultGroup
     from testit_api_client.model.workflow_project_api_result_grouped_reply import WorkflowProjectApiResultGroupedReply
     from testit_api_client.model.workflow_project_api_result_reply import WorkflowProjectApiResultReply
     globals()['WorkflowProjectApiResult'] = WorkflowProjectApiResult
+    globals()['WorkflowProjectApiResultCountReply'] = WorkflowProjectApiResultCountReply
     globals()['WorkflowProjectApiResultGroup'] = WorkflowProjectApiResultGroup
     globals()['WorkflowProjectApiResultGroupedReply'] = WorkflowProjectApiResultGroupedReply
     globals()['WorkflowProjectApiResultReply'] = WorkflowProjectApiResultReply
@@ -321,6 +323,7 @@ class WorkflowProjectApiResultIReply(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
+              WorkflowProjectApiResultCountReply,
               WorkflowProjectApiResultGroupedReply,
               WorkflowProjectApiResultReply,
           ],
