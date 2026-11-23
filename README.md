@@ -29,6 +29,7 @@
 | 5.6.0   | 7.4.0.post560 |
 | 5.7.0   | 7.5.5.post570 |
 | 5.8.0   | 7.6.0.post580 |
+| 6.0.0   | 7.6.2.post600 |
 | Cloud   | 7.7.0 +       |
 
 1. For current versions, see the releases tab. 
